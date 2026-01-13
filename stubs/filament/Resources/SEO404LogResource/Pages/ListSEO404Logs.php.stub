@@ -1,0 +1,18 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{namespace}}\Resources\SEO404LogResource\Pages;
+
+use {{namespace}}\Resources\SEO404LogResource;
+use Filament\Resources\Pages\ListRecords;
+
+class ListSEO404Logs extends ListRecords
+{
+    protected static string $resource = SEO404LogResource::class;
+
+    protected function getHeaderActions(): array
+    {
+        return [];
+    }
+}

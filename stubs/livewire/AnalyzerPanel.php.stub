@@ -1,0 +1,288 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{namespace}}\Livewire;
+
+use Illuminate\Contracts\View\View;
+use Illuminate\Support\Collection;
+use Livewire\Attributes\Computed;
+use Livewire\Component;
+use Fibonoir\LaravelSEO\Contracts\HasSEO;
+use Fibonoir\LaravelSEO\Data\RuleResult;
+use Fibonoir\LaravelSEO\Facades\SEO;
+use Fibonoir\LaravelSEO\Jobs\AnalyzeModelJob;
+
+/**
+ * SEO Analyzer Panel Component
+ *
+ * Displays SEO analysis results with score gauge and categorized rule results.
+ * Supports async analysis via jobs with polling for updates.
+ *
+ * @example
+ * ```blade
+ * <livewire:analyzer-panel :model-id="$post->id" :model-class="App\Models\Post::class" />
+ * ```
+ */
+class AnalyzerPanel extends Component
+{
+    /**
+     * The model ID being analyzed.
+     */
+    public int|string $modelId;
+
+    /**
+     * The model class name.
+     */
+    public string $modelClass;
+
+    /**
+     * Current SEO score.
+     */
+    public int $score = 0;
+
+    /**
+     * Analysis results.
+     *
+     * @var array<int, array{rule: string, name: string, status: string, message: string, category: string, score: int, maxScore: int}>
+     */
+    public array $results = [];
+
+    /**
+     * Whether analysis is in progress.
+     */
+    public bool $isAnalyzing = false;
+
+    /**
+     * Timestamp of last analysis.
+     */
+    public ?string $analyzedAt = null;
+
+    /**
+     * Polling interval in milliseconds.
+     */
+    public int $pollingInterval = 2000;
+
+    /**
+     * Mount the component.
+     */
+    public function mount(int|string $modelId, string $modelClass): void
+    {
+        $this->modelId = $modelId;
+        $this->modelClass = $modelClass;
+
+        $this->loadAnalysis();
+    }
+
+    /**
+     * Load existing analysis from the model.
+     */
+    public function loadAnalysis(): void
+    {
+        $model = $this->getModel();
+
+        if (! $model || ! $model instanceof HasSEO) {
+            return;
+        }
+
+        $seo = $model->seo;
+
+        if (! $seo) {
+            return;
+        }
+
+        $this->score = $seo->seo_score ?? 0;
+        $this->results = $seo->analysis_report['results'] ?? [];
+        $this->analyzedAt = $seo->analyzed_at?->toIso8601String();
+    }
+
+    /**
+     * Get the model instance.
+     */
+    protected function getModel(): ?object
+    {
+        if (! class_exists($this->modelClass)) {
+            return null;
+        }
+
+        return $this->modelClass::find($this->modelId);
+    }
+
+    /**
+     * Start an analysis job.
+     */
+    public function analyze(): void
+    {
+        $model = $this->getModel();
+
+        if (! $model || ! $model instanceof HasSEO) {
+            $this->dispatch('seo-error', message: 'Model not found or does not support SEO.');
+
+            return;
+        }
+
+        $this->isAnalyzing = true;
+
+        // Dispatch job for async processing
+        AnalyzeModelJob::dispatch($model);
+
+        $this->dispatch('seo-analysis-started', message: 'Analysis started...');
+    }
+
+    /**
+     * Poll for analysis updates (called via wire:poll).
+     */
+    public function pollForUpdates(): void
+    {
+        if (! $this->isAnalyzing) {
+            return;
+        }
+
+        $model = $this->getModel();
+
+        if (! $model || ! $model instanceof HasSEO) {
+            return;
+        }
+
+        $seo = $model->fresh()->seo;
+
+        if (! $seo) {
+            return;
+        }
+
+        // Check if analysis completed (analyzed_at changed)
+        $newAnalyzedAt = $seo->analyzed_at?->toIso8601String();
+
+        if ($newAnalyzedAt && $newAnalyzedAt !== $this->analyzedAt) {
+            $this->score = $seo->seo_score ?? 0;
+            $this->results = $seo->analysis_report['results'] ?? [];
+            $this->analyzedAt = $newAnalyzedAt;
+            $this->isAnalyzing = false;
+
+            $this->dispatch('seo-analysis-complete', message: 'Analysis complete.');
+        }
+    }
+
+    /**
+     * Get results filtered by status.
+     *
+     * @return Collection<int, array{rule: string, name: string, status: string, message: string, category: string, score: int, maxScore: int}>
+     */
+    protected function getResultsByStatus(string $status): Collection
+    {
+        return collect($this->results)->filter(fn ($result) => $result['status'] === $status);
+    }
+
+    /**
+     * Get passed rule results.
+     */
+    #[Computed]
+    public function passedResults(): Collection
+    {
+        return $this->getResultsByStatus('pass');
+    }
+
+    /**
+     * Get warning rule results.
+     */
+    #[Computed]
+    public function warningResults(): Collection
+    {
+        return $this->getResultsByStatus('warning');
+    }
+
+    /**
+     * Get failed rule results.
+     */
+    #[Computed]
+    public function failedResults(): Collection
+    {
+        return $this->getResultsByStatus('fail');
+    }
+
+    /**
+     * Get skipped rule results.
+     */
+    #[Computed]
+    public function skippedResults(): Collection
+    {
+        return $this->getResultsByStatus('skip');
+    }
+
+    /**
+     * Get count of passed rules.
+     */
+    #[Computed]
+    public function passedCount(): int
+    {
+        return $this->passedResults->count();
+    }
+
+    /**
+     * Get count of warning rules.
+     */
+    #[Computed]
+    public function warningCount(): int
+    {
+        return $this->warningResults->count();
+    }
+
+    /**
+     * Get count of failed rules.
+     */
+    #[Computed]
+    public function failedCount(): int
+    {
+        return $this->failedResults->count();
+    }
+
+    /**
+     * Get score color class.
+     */
+    #[Computed]
+    public function scoreColorClass(): string
+    {
+        if ($this->score >= 80) {
+            return 'text-green-600';
+        }
+
+        if ($this->score >= 50) {
+            return 'text-yellow-600';
+        }
+
+        return 'text-red-600';
+    }
+
+    /**
+     * Get score verdict message.
+     */
+    #[Computed]
+    public function scoreVerdict(): string
+    {
+        if ($this->score >= 90) {
+            return 'Excellent! Your SEO is well optimized.';
+        }
+
+        if ($this->score >= 80) {
+            return 'Good! A few minor improvements could help.';
+        }
+
+        if ($this->score >= 60) {
+            return 'Fair. There are opportunities to improve.';
+        }
+
+        if ($this->score >= 40) {
+            return 'Needs Work. Several issues should be addressed.';
+        }
+
+        return 'Poor. Major SEO improvements are needed.';
+    }
+
+    /**
+     * Render the component.
+     */
+    public function render(): View
+    {
+        return view('seo::livewire.analyzer-panel');
+    }
+}

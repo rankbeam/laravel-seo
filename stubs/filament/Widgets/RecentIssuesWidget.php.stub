@@ -1,0 +1,92 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{namespace}}\Widgets;
+
+use Filament\Tables;
+use Filament\Tables\Table;
+use Filament\Widgets\TableWidget as BaseWidget;
+use Illuminate\Database\Eloquent\Builder;
+use Fibonoir\LaravelSEO\Models\SEOScanIssue;
+
+/**
+ * Recent SEO Issues Widget.
+ *
+ * Displays the most recent open SEO issues in a table format
+ * for quick review and action.
+ */
+class RecentIssuesWidget extends BaseWidget
+{
+    protected static ?int $sort = 2;
+
+    protected int | string | array $columnSpan = 'full';
+
+    public function getTableHeading(): string
+    {
+        return __('seo::widgets.recent_issues.heading');
+    }
+
+    public function table(Table $table): Table
+    {
+        return $table
+            ->query(
+                SEOScanIssue::query()
+                    ->where('status', 'open')
+                    ->orderByRaw("CASE severity WHEN 'critical' THEN 1 WHEN 'warning' THEN 2 ELSE 3 END")
+                    ->orderBy('detected_at', 'desc')
+                    ->limit(10)
+            )
+            ->columns([
+                Tables\Columns\BadgeColumn::make('severity')
+                    ->label(__('seo::widgets.recent_issues.columns.severity'))
+                    ->colors([
+                        'danger' => 'critical',
+                        'warning' => 'warning',
+                        'info' => 'notice',
+                    ])
+                    ->icons([
+                        'heroicon-o-exclamation-triangle' => 'critical',
+                        'heroicon-o-exclamation-circle' => 'warning',
+                        'heroicon-o-information-circle' => 'notice',
+                    ]),
+
+                Tables\Columns\TextColumn::make('issue_type')
+                    ->label(__('seo::widgets.recent_issues.columns.type'))
+                    ->formatStateUsing(fn (string $state): string => str_replace('_', ' ', ucwords($state, '_')))
+                    ->wrap(),
+
+                Tables\Columns\TextColumn::make('url')
+                    ->label(__('seo::widgets.recent_issues.columns.url'))
+                    ->limit(40)
+                    ->tooltip(fn (SEOScanIssue $record): ?string => $record->url)
+                    ->url(fn (SEOScanIssue $record): ?string => $record->url, shouldOpenInNewTab: true),
+
+                Tables\Columns\TextColumn::make('message')
+                    ->label(__('seo::widgets.recent_issues.columns.message'))
+                    ->limit(50)
+                    ->wrap()
+                    ->tooltip(fn (SEOScanIssue $record): string => $record->message),
+
+                Tables\Columns\TextColumn::make('detected_at')
+                    ->label(__('seo::widgets.recent_issues.columns.detected'))
+                    ->since(),
+            ])
+            ->actions([
+                Tables\Actions\Action::make('view')
+                    ->icon('heroicon-o-eye')
+                    ->url(fn (SEOScanIssue $record): string => $record->url ?? '#')
+                    ->openUrlInNewTab(),
+
+                Tables\Actions\Action::make('ignore')
+                    ->icon('heroicon-o-minus-circle')
+                    ->color('gray')
+                    ->requiresConfirmation()
+                    ->action(fn (SEOScanIssue $record) => $record->markIgnored()),
+            ])
+            ->emptyStateHeading(__('seo::widgets.recent_issues.empty.heading'))
+            ->emptyStateDescription(__('seo::widgets.recent_issues.empty.description'))
+            ->emptyStateIcon('heroicon-o-check-circle')
+            ->paginated(false);
+    }
+}

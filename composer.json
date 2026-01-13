@@ -1,0 +1,79 @@
+{
+    "name": "fibonoir/laravel-seo",
+    "description": "Rank Math Pro-style SEO suite for Laravel - Complete SEO management with content analysis, 32 SEO checks, sitemap generation, redirects, 404 monitoring, schema markup, and analytics integration.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "seo",
+        "meta-tags",
+        "sitemap",
+        "schema",
+        "structured-data",
+        "open-graph",
+        "twitter-cards",
+        "redirects",
+        "analytics",
+        "content-analysis"
+    ],
+    "authors": [
+        {
+            "name": "Valentin Goxhaj",
+            "email": "valentinogoxhaj@gmail.com"
+        }
+    ],
+    "homepage": "https://github.com/fibonoir/laravel-seo",
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^11.0|^12.0",
+        "illuminate/database": "^11.0|^12.0",
+        "illuminate/console": "^11.0|^12.0",
+        "illuminate/http": "^11.0|^12.0",
+        "illuminate/routing": "^11.0|^12.0",
+        "illuminate/cache": "^11.0|^12.0",
+        "wamania/php-stemmer": "^3.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.0|^10.0",
+        "pestphp/pest": "^2.0|^3.0",
+        "laravel/pint": "^1.0"
+    },
+    "suggest": {
+        "spatie/laravel-sitemap": "Generate XML sitemaps for your models (^7.0)",
+        "spatie/browsershot": "Render JavaScript pages for scanning SPAs (^4.0)",
+        "google/apiclient": "Integrate Google Analytics 4 data (^2.15)"
+    },
+    "autoload": {
+        "psr-4": {
+            "Fibonoir\\LaravelSEO\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Fibonoir\\LaravelSEO\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Fibonoir\\LaravelSEO\\SEOServiceProvider"
+            ],
+            "aliases": {
+                "SEO": "Fibonoir\\LaravelSEO\\Facades\\SEO"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    }
+}

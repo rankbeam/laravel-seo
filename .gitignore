@@ -1,0 +1,42 @@
+# Dependencies
+/vendor/
+composer.lock
+
+# IDE & Editor
+/.idea/
+/.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Testing
+.phpunit.result.cache
+.phpunit.cache/
+coverage/
+.php-cs-fixer.cache
+
+# Environment
+.env
+.env.testing
+
+# Build artifacts
+/build/
+/dist/
+
+# Logs
+*.log
+storage/logs/*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup

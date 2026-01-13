@@ -1,0 +1,450 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{namespace}}\Resources;
+
+use {{namespace}}\Resources\SEORedirectResource\Pages;
+use {{namespace}}\Resources\SEORedirectResource\RelationManagers;
+use Filament\Forms;
+use Filament\Forms\Form;
+use Filament\Notifications\Notification;
+use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Http;
+use Fibonoir\LaravelSEO\Models\SEORedirect;
+
+/**
+ * Filament resource for managing SEO redirects.
+ *
+ * Features:
+ * - CRUD operations for URL redirects (301, 302, 307, 308)
+ * - Support for regex patterns in source paths
+ * - Hit tracking and analytics
+ * - Bulk actions (activate, deactivate, delete)
+ * - CSV import functionality
+ * - Test redirect functionality
+ */
+class SEORedirectResource extends Resource
+{
+    protected static ?string $model = SEORedirect::class;
+
+    protected static ?string $navigationIcon = 'heroicon-o-arrow-uturn-right';
+
+    protected static ?string $navigationGroup = 'SEO';
+
+    protected static ?int $navigationSort = 20;
+
+    protected static ?string $recordTitleAttribute = 'source_path';
+
+    public static function getNavigationLabel(): string
+    {
+        return __('seo::resources.redirects.navigation_label');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('seo::resources.redirects.model_label');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('seo::resources.redirects.plural_label');
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return (string) static::getModel()::where('is_active', true)->count();
+    }
+
+    public static function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                Forms\Components\Section::make(__('seo::resources.redirects.sections.redirect_settings'))
+                    ->description(__('seo::resources.redirects.sections.redirect_settings_description'))
+                    ->schema([
+                        Forms\Components\Grid::make(2)->schema([
+                            Forms\Components\TextInput::make('source_path')
+                                ->label(__('seo::resources.redirects.fields.source_path'))
+                                ->helperText(__('seo::resources.redirects.fields.source_path_helper'))
+                                ->placeholder('/old-page')
+                                ->required()
+                                ->maxLength(2048)
+                                ->unique(ignoreRecord: true)
+                                ->prefixIcon('heroicon-o-link')
+                                ->columnSpan(1),
+
+                            Forms\Components\TextInput::make('target_url')
+                                ->label(__('seo::resources.redirects.fields.target_url'))
+                                ->helperText(__('seo::resources.redirects.fields.target_url_helper'))
+                                ->placeholder('https://example.com/new-page')
+                                ->required()
+                                ->maxLength(2048)
+                                ->url()
+                                ->prefixIcon('heroicon-o-arrow-top-right-on-square')
+                                ->columnSpan(1),
+                        ]),
+
+                        Forms\Components\Grid::make(3)->schema([
+                            Forms\Components\Select::make('status_code')
+                                ->label(__('seo::resources.redirects.fields.status_code'))
+                                ->helperText(__('seo::resources.redirects.fields.status_code_helper'))
+                                ->options([
+                                    301 => '301 - Permanent Redirect',
+                                    302 => '302 - Temporary Redirect',
+                                    307 => '307 - Temporary (Preserve Method)',
+                                    308 => '308 - Permanent (Preserve Method)',
+                                ])
+                                ->default(301)
+                                ->required(),
+
+                            Forms\Components\Toggle::make('is_regex')
+                                ->label(__('seo::resources.redirects.fields.is_regex'))
+                                ->helperText(__('seo::resources.redirects.fields.is_regex_helper'))
+                                ->default(false)
+                                ->inline(false),
+
+                            Forms\Components\Toggle::make('preserve_query')
+                                ->label(__('seo::resources.redirects.fields.preserve_query'))
+                                ->helperText(__('seo::resources.redirects.fields.preserve_query_helper'))
+                                ->default(true)
+                                ->inline(false),
+                        ]),
+
+                        Forms\Components\Toggle::make('is_active')
+                            ->label(__('seo::resources.redirects.fields.is_active'))
+                            ->helperText(__('seo::resources.redirects.fields.is_active_helper'))
+                            ->default(true)
+                            ->inline(false),
+
+                        Forms\Components\Textarea::make('note')
+                            ->label(__('seo::resources.redirects.fields.note'))
+                            ->helperText(__('seo::resources.redirects.fields.note_helper'))
+                            ->placeholder(__('seo::resources.redirects.fields.note_placeholder'))
+                            ->rows(2)
+                            ->maxLength(500)
+                            ->columnSpanFull(),
+                    ]),
+
+                Forms\Components\Section::make(__('seo::resources.redirects.sections.statistics'))
+                    ->description(__('seo::resources.redirects.sections.statistics_description'))
+                    ->schema([
+                        Forms\Components\Grid::make(2)->schema([
+                            Forms\Components\Placeholder::make('hit_count_display')
+                                ->label(__('seo::resources.redirects.fields.hit_count'))
+                                ->content(fn (?SEORedirect $record): string => $record ? number_format($record->hit_count) : '0'),
+
+                            Forms\Components\Placeholder::make('last_hit_at_display')
+                                ->label(__('seo::resources.redirects.fields.last_hit_at'))
+                                ->content(fn (?SEORedirect $record): string => $record?->last_hit_at?->diffForHumans() ?? __('seo::resources.redirects.never')),
+                        ]),
+                    ])
+                    ->hidden(fn (?SEORedirect $record): bool => $record === null)
+                    ->collapsed(),
+            ]);
+    }
+
+    public static function table(Table $table): Table
+    {
+        return $table
+            ->columns([
+                Tables\Columns\TextColumn::make('source_path')
+                    ->label(__('seo::resources.redirects.columns.source_path'))
+                    ->searchable()
+                    ->sortable()
+                    ->limit(40)
+                    ->tooltip(fn (SEORedirect $record): string => $record->source_path)
+                    ->copyable()
+                    ->copyMessage(__('seo::resources.redirects.copied'))
+                    ->icon(fn (SEORedirect $record): string => $record->is_regex ? 'heroicon-o-code-bracket' : 'heroicon-o-link'),
+
+                Tables\Columns\TextColumn::make('target_url')
+                    ->label(__('seo::resources.redirects.columns.target_url'))
+                    ->searchable()
+                    ->sortable()
+                    ->limit(40)
+                    ->tooltip(fn (SEORedirect $record): string => $record->target_url)
+                    ->url(fn (SEORedirect $record): string => $record->target_url, shouldOpenInNewTab: true),
+
+                Tables\Columns\BadgeColumn::make('status_code')
+                    ->label(__('seo::resources.redirects.columns.status_code'))
+                    ->sortable()
+                    ->colors([
+                        'success' => 301,
+                        'warning' => 302,
+                        'info' => fn ($state): bool => in_array($state, [307, 308]),
+                    ])
+                    ->formatStateUsing(fn (int $state): string => match ($state) {
+                        301 => '301 Permanent',
+                        302 => '302 Temporary',
+                        307 => '307 Temporary',
+                        308 => '308 Permanent',
+                        default => (string) $state,
+                    }),
+
+                Tables\Columns\TextColumn::make('hit_count')
+                    ->label(__('seo::resources.redirects.columns.hit_count'))
+                    ->sortable()
+                    ->numeric()
+                    ->alignEnd()
+                    ->color(fn (int $state): string => $state > 100 ? 'success' : 'gray'),
+
+                Tables\Columns\TextColumn::make('last_hit_at')
+                    ->label(__('seo::resources.redirects.columns.last_hit_at'))
+                    ->sortable()
+                    ->since()
+                    ->placeholder(__('seo::resources.redirects.never')),
+
+                Tables\Columns\IconColumn::make('is_active')
+                    ->label(__('seo::resources.redirects.columns.is_active'))
+                    ->boolean()
+                    ->trueIcon('heroicon-o-check-circle')
+                    ->falseIcon('heroicon-o-x-circle')
+                    ->trueColor('success')
+                    ->falseColor('danger')
+                    ->sortable(),
+            ])
+            ->defaultSort('created_at', 'desc')
+            ->filters([
+                Tables\Filters\SelectFilter::make('status_code')
+                    ->label(__('seo::resources.redirects.filters.status_code'))
+                    ->options([
+                        301 => '301 - Permanent',
+                        302 => '302 - Temporary',
+                        307 => '307 - Temporary (Preserve)',
+                        308 => '308 - Permanent (Preserve)',
+                    ]),
+
+                Tables\Filters\TernaryFilter::make('is_active')
+                    ->label(__('seo::resources.redirects.filters.is_active'))
+                    ->placeholder(__('seo::resources.redirects.filters.all'))
+                    ->trueLabel(__('seo::resources.redirects.filters.active_only'))
+                    ->falseLabel(__('seo::resources.redirects.filters.inactive_only')),
+
+                Tables\Filters\TernaryFilter::make('is_regex')
+                    ->label(__('seo::resources.redirects.filters.is_regex'))
+                    ->placeholder(__('seo::resources.redirects.filters.all'))
+                    ->trueLabel(__('seo::resources.redirects.filters.regex_only'))
+                    ->falseLabel(__('seo::resources.redirects.filters.exact_only')),
+
+                Tables\Filters\Filter::make('has_hits')
+                    ->label(__('seo::resources.redirects.filters.has_hits'))
+                    ->query(fn (Builder $query): Builder => $query->where('hit_count', '>', 0)),
+            ])
+            ->actions([
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\Action::make('test')
+                        ->label(__('seo::resources.redirects.actions.test'))
+                        ->icon('heroicon-o-play')
+                        ->color('info')
+                        ->action(function (SEORedirect $record): void {
+                            $url = url($record->source_path);
+                            
+                            try {
+                                $response = Http::withOptions([
+                                    'allow_redirects' => false,
+                                    'timeout' => 5,
+                                ])->get($url);
+
+                                if ($response->status() === $record->status_code) {
+                                    Notification::make()
+                                        ->title(__('seo::resources.redirects.notifications.test_success'))
+                                        ->body(__('seo::resources.redirects.notifications.test_success_body', [
+                                            'code' => $response->status(),
+                                            'location' => $response->header('Location'),
+                                        ]))
+                                        ->success()
+                                        ->send();
+                                } else {
+                                    Notification::make()
+                                        ->title(__('seo::resources.redirects.notifications.test_mismatch'))
+                                        ->body(__('seo::resources.redirects.notifications.test_mismatch_body', [
+                                            'expected' => $record->status_code,
+                                            'actual' => $response->status(),
+                                        ]))
+                                        ->warning()
+                                        ->send();
+                                }
+                            } catch (\Exception $e) {
+                                Notification::make()
+                                    ->title(__('seo::resources.redirects.notifications.test_error'))
+                                    ->body($e->getMessage())
+                                    ->danger()
+                                    ->send();
+                            }
+                        }),
+
+                    Tables\Actions\Action::make('toggle_active')
+                        ->label(fn (SEORedirect $record): string => $record->is_active 
+                            ? __('seo::resources.redirects.actions.deactivate')
+                            : __('seo::resources.redirects.actions.activate'))
+                        ->icon(fn (SEORedirect $record): string => $record->is_active 
+                            ? 'heroicon-o-pause' 
+                            : 'heroicon-o-play')
+                        ->color(fn (SEORedirect $record): string => $record->is_active ? 'warning' : 'success')
+                        ->action(function (SEORedirect $record): void {
+                            $record->update(['is_active' => !$record->is_active]);
+                            
+                            Notification::make()
+                                ->title($record->is_active 
+                                    ? __('seo::resources.redirects.notifications.activated')
+                                    : __('seo::resources.redirects.notifications.deactivated'))
+                                ->success()
+                                ->send();
+                        }),
+
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                ]),
+            ])
+            ->bulkActions([
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\BulkAction::make('activate')
+                        ->label(__('seo::resources.redirects.bulk_actions.activate'))
+                        ->icon('heroicon-o-check')
+                        ->color('success')
+                        ->action(fn (Collection $records) => $records->each->update(['is_active' => true]))
+                        ->deselectRecordsAfterCompletion()
+                        ->requiresConfirmation(),
+
+                    Tables\Actions\BulkAction::make('deactivate')
+                        ->label(__('seo::resources.redirects.bulk_actions.deactivate'))
+                        ->icon('heroicon-o-pause')
+                        ->color('warning')
+                        ->action(fn (Collection $records) => $records->each->update(['is_active' => false]))
+                        ->deselectRecordsAfterCompletion()
+                        ->requiresConfirmation(),
+
+                    Tables\Actions\DeleteBulkAction::make(),
+                ]),
+            ])
+            ->headerActions([
+                Tables\Actions\Action::make('import')
+                    ->label(__('seo::resources.redirects.actions.import_csv'))
+                    ->icon('heroicon-o-arrow-up-tray')
+                    ->color('gray')
+                    ->form([
+                        Forms\Components\FileUpload::make('csv_file')
+                            ->label(__('seo::resources.redirects.import.file_label'))
+                            ->helperText(__('seo::resources.redirects.import.file_helper'))
+                            ->acceptedFileTypes(['text/csv', 'text/plain', 'application/csv'])
+                            ->required()
+                            ->disk('local')
+                            ->directory('imports'),
+
+                        Forms\Components\Toggle::make('has_header')
+                            ->label(__('seo::resources.redirects.import.has_header'))
+                            ->default(true),
+
+                        Forms\Components\Select::make('default_status_code')
+                            ->label(__('seo::resources.redirects.import.default_status_code'))
+                            ->options([
+                                301 => '301 - Permanent',
+                                302 => '302 - Temporary',
+                            ])
+                            ->default(301),
+                    ])
+                    ->action(function (array $data): void {
+                        $path = storage_path('app/' . $data['csv_file']);
+                        
+                        if (!file_exists($path)) {
+                            Notification::make()
+                                ->title(__('seo::resources.redirects.notifications.import_error'))
+                                ->body(__('seo::resources.redirects.notifications.file_not_found'))
+                                ->danger()
+                                ->send();
+                            return;
+                        }
+
+                        $handle = fopen($path, 'r');
+                        $imported = 0;
+                        $skipped = 0;
+                        $lineNumber = 0;
+
+                        while (($row = fgetcsv($handle)) !== false) {
+                            $lineNumber++;
+
+                            // Skip header row
+                            if ($data['has_header'] && $lineNumber === 1) {
+                                continue;
+                            }
+
+                            // Validate row has at least 2 columns
+                            if (count($row) < 2) {
+                                $skipped++;
+                                continue;
+                            }
+
+                            $sourcePath = trim($row[0]);
+                            $targetUrl = trim($row[1]);
+                            $statusCode = isset($row[2]) ? (int) $row[2] : $data['default_status_code'];
+
+                            // Skip empty rows
+                            if (empty($sourcePath) || empty($targetUrl)) {
+                                $skipped++;
+                                continue;
+                            }
+
+                            // Skip if source path already exists
+                            if (SEORedirect::where('source_path', $sourcePath)->exists()) {
+                                $skipped++;
+                                continue;
+                            }
+
+                            SEORedirect::create([
+                                'source_path' => $sourcePath,
+                                'target_url' => $targetUrl,
+                                'status_code' => in_array($statusCode, [301, 302, 307, 308]) ? $statusCode : $data['default_status_code'],
+                                'is_active' => true,
+                            ]);
+
+                            $imported++;
+                        }
+
+                        fclose($handle);
+                        @unlink($path);
+
+                        Notification::make()
+                            ->title(__('seo::resources.redirects.notifications.import_complete'))
+                            ->body(__('seo::resources.redirects.notifications.import_complete_body', [
+                                'imported' => $imported,
+                                'skipped' => $skipped,
+                            ]))
+                            ->success()
+                            ->send();
+                    }),
+            ])
+            ->emptyStateHeading(__('seo::resources.redirects.empty.heading'))
+            ->emptyStateDescription(__('seo::resources.redirects.empty.description'))
+            ->emptyStateIcon('heroicon-o-arrow-uturn-right')
+            ->emptyStateActions([
+                Tables\Actions\CreateAction::make()
+                    ->label(__('seo::resources.redirects.empty.action')),
+            ]);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            RelationManagers\Logs404RelationManager::class,
+        ];
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => Pages\ListSEORedirects::route('/'),
+            'create' => Pages\CreateSEORedirect::route('/create'),
+            'edit' => Pages\EditSEORedirect::route('/{record}/edit'),
+        ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->withoutGlobalScopes();
+    }
+}

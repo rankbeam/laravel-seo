@@ -1,0 +1,294 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{namespace}}\Livewire;
+
+use Illuminate\Contracts\View\View;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
+use Livewire\Attributes\Computed;
+use Livewire\Attributes\Url;
+use Livewire\Component;
+use Livewire\WithPagination;
+use Fibonoir\LaravelSEO\Models\SEO404Log;
+use Fibonoir\LaravelSEO\Models\SEORedirect;
+
+/**
+ * 404 Not Found Logs Table Component
+ *
+ * Displays 404 error logs with options to create redirects or ignore entries.
+ *
+ * @example
+ * ```blade
+ * <livewire:not-found-logs-table />
+ * ```
+ */
+class NotFoundLogsTable extends Component
+{
+    use WithPagination;
+
+    /**
+     * Search query.
+     */
+    #[Url(as: 'q')]
+    public string $search = '';
+
+    /**
+     * Filter by ignored status.
+     */
+    #[Url]
+    public string $ignoredFilter = '';
+
+    /**
+     * Sort field.
+     */
+    #[Url]
+    public string $sortField = 'last_hit_at';
+
+    /**
+     * Sort direction.
+     */
+    #[Url]
+    public string $sortDirection = 'desc';
+
+    /**
+     * Items per page.
+     */
+    public int $perPage = 25;
+
+    /**
+     * Selected log IDs for bulk actions.
+     *
+     * @var array<int>
+     */
+    public array $selected = [];
+
+    /**
+     * Select all checkbox state.
+     */
+    public bool $selectAll = false;
+
+    /**
+     * Modal state for create redirect.
+     */
+    public bool $showRedirectModal = false;
+
+    /**
+     * Log ID for creating redirect.
+     */
+    public ?int $redirectLogId = null;
+
+    /**
+     * Form fields for redirect creation.
+     */
+    public string $formTargetUrl = '';
+
+    public int $formStatusCode = 301;
+
+    /**
+     * Get 404 logs with filters and sorting.
+     */
+    #[Computed]
+    public function logs(): LengthAwarePaginator
+    {
+        return SEO404Log::query()
+            ->when($this->search, function ($query) {
+                $query->where('url', 'like', "%{$this->search}%")
+                    ->orWhere('referrer', 'like', "%{$this->search}%");
+            })
+            ->when($this->ignoredFilter !== '', function ($query) {
+                $query->where('is_ignored', $this->ignoredFilter === 'ignored');
+            })
+            ->orderBy($this->sortField, $this->sortDirection)
+            ->paginate($this->perPage);
+    }
+
+    /**
+     * Sort by a field.
+     */
+    public function sortBy(string $field): void
+    {
+        if ($this->sortField === $field) {
+            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+        } else {
+            $this->sortField = $field;
+            $this->sortDirection = 'asc';
+        }
+    }
+
+    /**
+     * Reset filters.
+     */
+    public function resetFilters(): void
+    {
+        $this->reset(['search', 'ignoredFilter']);
+        $this->resetPage();
+    }
+
+    /**
+     * Toggle select all.
+     */
+    public function updatedSelectAll(bool $value): void
+    {
+        if ($value) {
+            $this->selected = $this->logs->pluck('id')->toArray();
+        } else {
+            $this->selected = [];
+        }
+    }
+
+    /**
+     * Open modal to create redirect from a 404 log.
+     */
+    public function createRedirect(int $id): void
+    {
+        $log = SEO404Log::findOrFail($id);
+
+        $this->redirectLogId = $id;
+        $this->formTargetUrl = '';
+        $this->formStatusCode = 301;
+        $this->showRedirectModal = true;
+    }
+
+    /**
+     * Save the redirect and mark log as handled.
+     */
+    public function saveRedirect(): void
+    {
+        $this->validate([
+            'formTargetUrl' => 'required|url|max:2048',
+            'formStatusCode' => 'required|integer|in:301,302,307,308',
+        ]);
+
+        $log = SEO404Log::findOrFail($this->redirectLogId);
+
+        // Create the redirect
+        SEORedirect::create([
+            'source_url' => $log->url,
+            'target_url' => $this->formTargetUrl,
+            'status_code' => $this->formStatusCode,
+            'is_active' => true,
+            'notes' => "Created from 404 log (hit count: {$log->hit_count})",
+        ]);
+
+        // Mark the log as ignored (handled)
+        $log->update(['is_ignored' => true]);
+
+        $this->closeModal();
+        $this->dispatch('notify', message: 'Redirect created successfully.', type: 'success');
+    }
+
+    /**
+     * Mark selected logs as ignored.
+     */
+    public function bulkIgnore(): void
+    {
+        if (empty($this->selected)) {
+            return;
+        }
+
+        SEO404Log::whereIn('id', $this->selected)->update(['is_ignored' => true]);
+
+        $count = count($this->selected);
+        $this->selected = [];
+        $this->selectAll = false;
+
+        $this->dispatch('notify', message: "{$count} log(s) marked as ignored.", type: 'success');
+    }
+
+    /**
+     * Mark selected logs as not ignored.
+     */
+    public function bulkUnignore(): void
+    {
+        if (empty($this->selected)) {
+            return;
+        }
+
+        SEO404Log::whereIn('id', $this->selected)->update(['is_ignored' => false]);
+
+        $count = count($this->selected);
+        $this->selected = [];
+        $this->selectAll = false;
+
+        $this->dispatch('notify', message: "{$count} log(s) restored.", type: 'success');
+    }
+
+    /**
+     * Delete selected logs.
+     */
+    public function bulkDelete(): void
+    {
+        if (empty($this->selected)) {
+            return;
+        }
+
+        SEO404Log::whereIn('id', $this->selected)->delete();
+
+        $count = count($this->selected);
+        $this->selected = [];
+        $this->selectAll = false;
+
+        $this->dispatch('notify', message: "{$count} log(s) deleted.", type: 'success');
+    }
+
+    /**
+     * Toggle ignored status for a single log.
+     */
+    public function toggleIgnored(int $id): void
+    {
+        $log = SEO404Log::findOrFail($id);
+        $log->update(['is_ignored' => ! $log->is_ignored]);
+
+        $status = $log->is_ignored ? 'ignored' : 'restored';
+        $this->dispatch('notify', message: "Log {$status}.", type: 'success');
+    }
+
+    /**
+     * Delete a single log.
+     */
+    public function delete(int $id): void
+    {
+        SEO404Log::where('id', $id)->delete();
+        $this->dispatch('notify', message: 'Log deleted.', type: 'success');
+    }
+
+    /**
+     * Close modal and reset form.
+     */
+    public function closeModal(): void
+    {
+        $this->showRedirectModal = false;
+        $this->redirectLogId = null;
+        $this->formTargetUrl = '';
+        $this->formStatusCode = 301;
+        $this->resetValidation();
+    }
+
+    /**
+     * Check if any items are selected.
+     */
+    #[Computed]
+    public function hasSelection(): bool
+    {
+        return count($this->selected) > 0;
+    }
+
+    /**
+     * Get selection count.
+     */
+    #[Computed]
+    public function selectionCount(): int
+    {
+        return count($this->selected);
+    }
+
+    /**
+     * Render the component.
+     */
+    public function render(): View
+    {
+        return view('seo::livewire.not-found-logs-table');
+    }
+}

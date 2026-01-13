@@ -1,0 +1,383 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{namespace}}\Resources;
+
+use {{namespace}}\Resources\SEO404LogResource\Pages;
+use Filament\Forms;
+use Filament\Forms\Form;
+use Filament\Infolists;
+use Filament\Infolists\Infolist;
+use Filament\Notifications\Notification;
+use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+use Fibonoir\LaravelSEO\Models\SEO404Log;
+use Fibonoir\LaravelSEO\Models\SEORedirect;
+
+/**
+ * Filament resource for viewing 404 error logs.
+ *
+ * This is a list-only resource (no create/edit) for managing 404 errors.
+ * Features:
+ * - View all 404 errors with hit counts and timestamps
+ * - Create redirects directly from 404 entries
+ * - Mark entries as ignored
+ * - Bulk actions for efficient management
+ * - Filter by status and date range
+ */
+class SEO404LogResource extends Resource
+{
+    protected static ?string $model = SEO404Log::class;
+
+    protected static ?string $navigationIcon = 'heroicon-o-exclamation-triangle';
+
+    protected static ?string $navigationGroup = 'SEO';
+
+    protected static ?int $navigationSort = 30;
+
+    protected static ?string $recordTitleAttribute = 'path';
+
+    public static function getNavigationLabel(): string
+    {
+        return __('seo::resources.404_logs.navigation_label');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('seo::resources.404_logs.model_label');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('seo::resources.404_logs.plural_label');
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        $count = static::getModel()::where('status', 'new')->count();
+        
+        return $count > 0 ? (string) $count : null;
+    }
+
+    public static function getNavigationBadgeColor(): ?string
+    {
+        $count = static::getModel()::where('status', 'new')->count();
+        
+        return $count > 10 ? 'danger' : ($count > 0 ? 'warning' : 'success');
+    }
+
+    public static function canCreate(): bool
+    {
+        return false;
+    }
+
+    public static function canEdit($record): bool
+    {
+        return false;
+    }
+
+    public static function form(Form $form): Form
+    {
+        // This resource is read-only, but we still define a form for the view action
+        return $form->schema([]);
+    }
+
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                Infolists\Components\Section::make(__('seo::resources.404_logs.sections.details'))
+                    ->schema([
+                        Infolists\Components\Grid::make(2)->schema([
+                            Infolists\Components\TextEntry::make('path')
+                                ->label(__('seo::resources.404_logs.fields.path'))
+                                ->icon('heroicon-o-link')
+                                ->copyable(),
+
+                            Infolists\Components\TextEntry::make('hit_count')
+                                ->label(__('seo::resources.404_logs.fields.hit_count'))
+                                ->icon('heroicon-o-cursor-arrow-rays')
+                                ->badge()
+                                ->color(fn (int $state): string => match (true) {
+                                    $state > 100 => 'danger',
+                                    $state > 50 => 'warning',
+                                    default => 'gray',
+                                }),
+
+                            Infolists\Components\TextEntry::make('first_seen_at')
+                                ->label(__('seo::resources.404_logs.fields.first_seen_at'))
+                                ->icon('heroicon-o-clock')
+                                ->dateTime(),
+
+                            Infolists\Components\TextEntry::make('last_seen_at')
+                                ->label(__('seo::resources.404_logs.fields.last_seen_at'))
+                                ->icon('heroicon-o-clock')
+                                ->since(),
+
+                            Infolists\Components\TextEntry::make('status')
+                                ->label(__('seo::resources.404_logs.fields.status'))
+                                ->badge()
+                                ->color(fn (string $state): string => match ($state) {
+                                    'new' => 'warning',
+                                    'redirected' => 'success',
+                                    'ignored' => 'gray',
+                                    default => 'gray',
+                                }),
+
+                            Infolists\Components\TextEntry::make('redirect.target_url')
+                                ->label(__('seo::resources.404_logs.fields.redirect_target'))
+                                ->icon('heroicon-o-arrow-uturn-right')
+                                ->url(fn (?string $state): ?string => $state)
+                                ->openUrlInNewTab()
+                                ->visible(fn (SEO404Log $record): bool => $record->redirect_id !== null),
+                        ]),
+                    ]),
+
+                Infolists\Components\Section::make(__('seo::resources.404_logs.sections.request_info'))
+                    ->schema([
+                        Infolists\Components\Grid::make(1)->schema([
+                            Infolists\Components\TextEntry::make('referrer')
+                                ->label(__('seo::resources.404_logs.fields.referrer'))
+                                ->icon('heroicon-o-arrow-left')
+                                ->url(fn (?string $state): ?string => $state)
+                                ->openUrlInNewTab()
+                                ->placeholder(__('seo::resources.404_logs.no_referrer')),
+
+                            Infolists\Components\TextEntry::make('user_agent')
+                                ->label(__('seo::resources.404_logs.fields.user_agent'))
+                                ->icon('heroicon-o-device-phone-mobile')
+                                ->placeholder(__('seo::resources.404_logs.no_user_agent'))
+                                ->limit(80),
+
+                            Infolists\Components\TextEntry::make('ip')
+                                ->label(__('seo::resources.404_logs.fields.ip'))
+                                ->icon('heroicon-o-globe-alt')
+                                ->placeholder(__('seo::resources.404_logs.no_ip')),
+                        ]),
+                    ])
+                    ->collapsed(),
+            ]);
+    }
+
+    public static function table(Table $table): Table
+    {
+        return $table
+            ->columns([
+                Tables\Columns\TextColumn::make('path')
+                    ->label(__('seo::resources.404_logs.columns.path'))
+                    ->searchable()
+                    ->sortable()
+                    ->limit(50)
+                    ->tooltip(fn (SEO404Log $record): string => $record->path)
+                    ->copyable()
+                    ->copyMessage(__('seo::resources.404_logs.copied'))
+                    ->icon('heroicon-o-link'),
+
+                Tables\Columns\TextColumn::make('hit_count')
+                    ->label(__('seo::resources.404_logs.columns.hit_count'))
+                    ->sortable()
+                    ->numeric()
+                    ->alignEnd()
+                    ->badge()
+                    ->color(fn (int $state): string => match (true) {
+                        $state > 100 => 'danger',
+                        $state > 50 => 'warning',
+                        $state > 10 => 'info',
+                        default => 'gray',
+                    }),
+
+                Tables\Columns\TextColumn::make('first_seen_at')
+                    ->label(__('seo::resources.404_logs.columns.first_seen_at'))
+                    ->sortable()
+                    ->dateTime('M j, Y')
+                    ->toggleable(isToggledHiddenByDefault: true),
+
+                Tables\Columns\TextColumn::make('last_seen_at')
+                    ->label(__('seo::resources.404_logs.columns.last_seen_at'))
+                    ->sortable()
+                    ->since(),
+
+                Tables\Columns\BadgeColumn::make('status')
+                    ->label(__('seo::resources.404_logs.columns.status'))
+                    ->sortable()
+                    ->colors([
+                        'warning' => 'new',
+                        'success' => 'redirected',
+                        'gray' => 'ignored',
+                    ])
+                    ->icons([
+                        'heroicon-o-exclamation-circle' => 'new',
+                        'heroicon-o-check-circle' => 'redirected',
+                        'heroicon-o-minus-circle' => 'ignored',
+                    ]),
+
+                Tables\Columns\TextColumn::make('referrer')
+                    ->label(__('seo::resources.404_logs.columns.referrer'))
+                    ->searchable()
+                    ->limit(30)
+                    ->tooltip(fn (SEO404Log $record): ?string => $record->referrer)
+                    ->placeholder(__('seo::resources.404_logs.direct'))
+                    ->toggleable(isToggledHiddenByDefault: true),
+            ])
+            ->defaultSort('hit_count', 'desc')
+            ->filters([
+                Tables\Filters\SelectFilter::make('status')
+                    ->label(__('seo::resources.404_logs.filters.status'))
+                    ->options([
+                        'new' => __('seo::resources.404_logs.status.new'),
+                        'redirected' => __('seo::resources.404_logs.status.redirected'),
+                        'ignored' => __('seo::resources.404_logs.status.ignored'),
+                    ])
+                    ->default('new'),
+
+                Tables\Filters\Filter::make('date_range')
+                    ->form([
+                        Forms\Components\DatePicker::make('from')
+                            ->label(__('seo::resources.404_logs.filters.from')),
+                        Forms\Components\DatePicker::make('until')
+                            ->label(__('seo::resources.404_logs.filters.until')),
+                    ])
+                    ->query(function (Builder $query, array $data): Builder {
+                        return $query
+                            ->when(
+                                $data['from'],
+                                fn (Builder $query, $date): Builder => $query->whereDate('last_seen_at', '>=', $date),
+                            )
+                            ->when(
+                                $data['until'],
+                                fn (Builder $query, $date): Builder => $query->whereDate('last_seen_at', '<=', $date),
+                            );
+                    })
+                    ->indicateUsing(function (array $data): array {
+                        $indicators = [];
+
+                        if ($data['from'] ?? null) {
+                            $indicators['from'] = __('seo::resources.404_logs.filters.from') . ': ' . $data['from'];
+                        }
+
+                        if ($data['until'] ?? null) {
+                            $indicators['until'] = __('seo::resources.404_logs.filters.until') . ': ' . $data['until'];
+                        }
+
+                        return $indicators;
+                    }),
+
+                Tables\Filters\Filter::make('high_impact')
+                    ->label(__('seo::resources.404_logs.filters.high_impact'))
+                    ->query(fn (Builder $query): Builder => $query->where('hit_count', '>=', 10)),
+
+                Tables\Filters\TernaryFilter::make('has_referrer')
+                    ->label(__('seo::resources.404_logs.filters.has_referrer'))
+                    ->queries(
+                        true: fn (Builder $query) => $query->whereNotNull('referrer'),
+                        false: fn (Builder $query) => $query->whereNull('referrer'),
+                    ),
+            ])
+            ->actions([
+                Tables\Actions\ViewAction::make()
+                    ->label(__('seo::resources.404_logs.actions.view'))
+                    ->icon('heroicon-o-eye'),
+
+                Tables\Actions\Action::make('create_redirect')
+                    ->label(__('seo::resources.404_logs.actions.create_redirect'))
+                    ->icon('heroicon-o-arrow-uturn-right')
+                    ->color('success')
+                    ->visible(fn (SEO404Log $record): bool => $record->status === 'new')
+                    ->form([
+                        Forms\Components\TextInput::make('source_path')
+                            ->label(__('seo::resources.redirects.fields.source_path'))
+                            ->default(fn (SEO404Log $record): string => $record->path)
+                            ->required()
+                            ->disabled(),
+
+                        Forms\Components\TextInput::make('target_url')
+                            ->label(__('seo::resources.redirects.fields.target_url'))
+                            ->placeholder('https://example.com/correct-page')
+                            ->required()
+                            ->url()
+                            ->maxLength(2048),
+
+                        Forms\Components\Select::make('status_code')
+                            ->label(__('seo::resources.redirects.fields.status_code'))
+                            ->options([
+                                301 => '301 - Permanent Redirect',
+                                302 => '302 - Temporary Redirect',
+                            ])
+                            ->default(301)
+                            ->required(),
+                    ])
+                    ->action(function (SEO404Log $record, array $data): void {
+                        $redirect = SEORedirect::create([
+                            'source_path' => $record->path,
+                            'target_url' => $data['target_url'],
+                            'status_code' => $data['status_code'],
+                            'is_active' => true,
+                        ]);
+
+                        $record->markRedirected($redirect);
+
+                        Notification::make()
+                            ->title(__('seo::resources.404_logs.notifications.redirect_created'))
+                            ->body(__('seo::resources.404_logs.notifications.redirect_created_body', [
+                                'path' => $record->path,
+                                'target' => $data['target_url'],
+                            ]))
+                            ->success()
+                            ->send();
+                    }),
+
+                Tables\Actions\Action::make('mark_ignored')
+                    ->label(__('seo::resources.404_logs.actions.mark_ignored'))
+                    ->icon('heroicon-o-minus-circle')
+                    ->color('gray')
+                    ->visible(fn (SEO404Log $record): bool => $record->status === 'new')
+                    ->requiresConfirmation()
+                    ->modalHeading(__('seo::resources.404_logs.modals.ignore_heading'))
+                    ->modalDescription(__('seo::resources.404_logs.modals.ignore_description'))
+                    ->action(function (SEO404Log $record): void {
+                        $record->markIgnored();
+
+                        Notification::make()
+                            ->title(__('seo::resources.404_logs.notifications.marked_ignored'))
+                            ->success()
+                            ->send();
+                    }),
+
+                Tables\Actions\DeleteAction::make(),
+            ])
+            ->bulkActions([
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\BulkAction::make('mark_ignored')
+                        ->label(__('seo::resources.404_logs.bulk_actions.mark_ignored'))
+                        ->icon('heroicon-o-minus-circle')
+                        ->color('gray')
+                        ->action(fn (Collection $records) => $records->each->markIgnored())
+                        ->deselectRecordsAfterCompletion()
+                        ->requiresConfirmation(),
+
+                    Tables\Actions\DeleteBulkAction::make(),
+                ]),
+            ])
+            ->emptyStateHeading(__('seo::resources.404_logs.empty.heading'))
+            ->emptyStateDescription(__('seo::resources.404_logs.empty.description'))
+            ->emptyStateIcon('heroicon-o-check-circle')
+            ->poll('30s');
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => Pages\ListSEO404Logs::route('/'),
+            'view' => Pages\ViewSEO404Log::route('/{record}'),
+        ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->withoutGlobalScopes();
+    }
+}

@@ -1,0 +1,113 @@
+<div class="keyword-input">
+    {{-- Keywords List --}}
+    <div class="space-y-3">
+        @foreach($keywords as $index => $keyword)
+            <div class="p-4 rounded-lg border transition-colors
+                {{ $keyword['is_primary'] ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20' : 'border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800' }}">
+                <div class="flex items-center gap-3">
+                    {{-- Primary Toggle --}}
+                    <button type="button"
+                            wire:click="setPrimary({{ $index }})"
+                            title="{{ $keyword['is_primary'] ? 'Primary keyword' : 'Set as primary' }}"
+                            class="flex-shrink-0 p-1 rounded transition-colors
+                                {{ $keyword['is_primary'] ? 'text-yellow-500' : 'text-gray-300 dark:text-gray-600 hover:text-yellow-500' }}">
+                        <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/>
+                        </svg>
+                    </button>
+
+                    {{-- Keyword Input --}}
+                    <input type="text"
+                           wire:model.live="keywords.{{ $index }}.keyword"
+                           placeholder="Enter keyword..."
+                           class="flex-1 px-3 py-2 text-sm rounded-md border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-indigo-500 focus:border-indigo-500">
+
+                    {{-- Remove Button --}}
+                    <button type="button"
+                            wire:click="removeKeyword({{ $index }})"
+                            title="Remove keyword"
+                            class="flex-shrink-0 p-1 rounded text-gray-400 hover:text-red-500 transition-colors">
+                        <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.519.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z" clip-rule="evenodd"/>
+                        </svg>
+                    </button>
+                </div>
+
+                {{-- Synonyms Section --}}
+                <div class="mt-3 pt-3 border-t border-gray-200 dark:border-gray-600">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                            Synonyms
+                        </span>
+                        <span class="text-xs text-gray-400 dark:text-gray-500">
+                            {{ count($keyword['synonyms']) }}/{{ $maxSynonyms }}
+                        </span>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2 items-center">
+                        {{-- Synonym Chips --}}
+                        @foreach($keyword['synonyms'] as $synIndex => $synonym)
+                            <span class="inline-flex items-center gap-1 px-2.5 py-1 text-sm bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-full text-gray-700 dark:text-gray-300">
+                                {{ $synonym }}
+                                <button type="button"
+                                        wire:click="removeSynonym({{ $index }}, {{ $synIndex }})"
+                                        class="p-0.5 rounded-full text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
+                                    <svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"/>
+                                    </svg>
+                                </button>
+                            </span>
+                        @endforeach
+
+                        {{-- Add Synonym Input --}}
+                        @if(count($keyword['synonyms']) < $maxSynonyms)
+                            <input type="text"
+                                   wire:model.defer="newSynonyms.{{ $index }}"
+                                   wire:keydown.enter="addSynonym({{ $index }})"
+                                   wire:keydown.comma.prevent="addSynonym({{ $index }})"
+                                   wire:blur="addSynonym({{ $index }})"
+                                   placeholder="Add synonym..."
+                                   class="flex-1 min-w-[100px] px-2.5 py-1 text-sm border border-dashed border-gray-300 dark:border-gray-600 rounded-full bg-transparent text-gray-700 dark:text-gray-300 placeholder-gray-400 dark:placeholder-gray-500 focus:border-indigo-500 focus:ring-0">
+                        @endif
+                    </div>
+                    @error("newSynonyms.{$index}") <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
+                </div>
+            </div>
+        @endforeach
+    </div>
+
+    {{-- Add Keyword Button --}}
+    @if($canAddKeyword)
+        <div class="mt-3">
+            <div class="flex items-center gap-2">
+                <input type="text"
+                       wire:model.defer="newKeyword"
+                       wire:keydown.enter="addKeyword"
+                       placeholder="Enter new keyword..."
+                       class="flex-1 px-3 py-2 text-sm rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:ring-indigo-500 focus:border-indigo-500">
+                <button type="button"
+                        wire:click="addKeyword"
+                        class="inline-flex items-center gap-1 px-4 py-2 text-sm font-medium text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800 rounded-md hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors">
+                    <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z"/>
+                    </svg>
+                    Add
+                </button>
+            </div>
+            @error('newKeyword') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
+            <p class="mt-1 text-xs text-gray-400 dark:text-gray-500">
+                {{ count($keywords) }}/{{ $maxKeywords }} keywords
+            </p>
+        </div>
+    @endif
+
+    {{-- Empty State --}}
+    @if(count($keywords) === 0)
+        <div class="mt-4 text-center py-6 text-sm text-gray-500 dark:text-gray-400">
+            <p>No focus keywords added yet.</p>
+            <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">
+                Focus keywords help analyze how well your content is optimized for specific terms.
+            </p>
+        </div>
+    @endif
+</div>

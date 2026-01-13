@@ -1,0 +1,218 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{namespace}}\Widgets;
+
+use Filament\Widgets\Widget;
+use Illuminate\Database\Eloquent\Model;
+use Fibonoir\LaravelSEO\Data\RuleResult;
+
+/**
+ * SEO Score Widget for embedding in resource edit pages.
+ *
+ * Features:
+ * - Circular gauge showing the SEO score
+ * - Color-coded visualization (green/yellow/red)
+ * - List of pass/warning/fail items from analysis
+ * - Real-time updates via Livewire
+ *
+ * Usage in a Resource:
+ *
+ * ```php
+ * use App\Filament\Widgets\SEOScoreWidget;
+ *
+ * public static function getWidgets(): array
+ * {
+ *     return [
+ *         SEOScoreWidget::class,
+ *     ];
+ * }
+ * ```
+ *
+ * Or embed directly in a form/page view.
+ */
+class SEOScoreWidget extends Widget
+{
+    protected static string $view = 'seo::filament.widgets.seo-score-widget';
+
+    protected int | string | array $columnSpan = 1;
+
+    public ?Model $record = null;
+
+    public int $score = 0;
+
+    public array $results = [];
+
+    public ?string $analyzedAt = null;
+
+    public function mount(?Model $record = null): void
+    {
+        $this->record = $record;
+        $this->loadSEOData();
+    }
+
+    protected function loadSEOData(): void
+    {
+        if (!$this->record) {
+            return;
+        }
+
+        // Check if model has SEO relationship
+        if (!method_exists($this->record, 'seo')) {
+            return;
+        }
+
+        $seo = $this->record->seo;
+
+        if (!$seo) {
+            return;
+        }
+
+        $this->score = $seo->seo_score ?? 0;
+        $this->analyzedAt = $seo->analyzed_at?->diffForHumans();
+
+        // Parse analysis report if available
+        if ($seo->analysis_report) {
+            $this->results = $this->parseAnalysisReport($seo->analysis_report);
+        }
+    }
+
+    protected function parseAnalysisReport(array $report): array
+    {
+        $results = [
+            'passed' => [],
+            'warnings' => [],
+            'failed' => [],
+        ];
+
+        foreach ($report['results'] ?? [] as $result) {
+            $status = $result['status'] ?? 'unknown';
+            $item = [
+                'rule_id' => $result['rule_id'] ?? '',
+                'message' => $result['message'] ?? '',
+                'category' => $result['category'] ?? 'general',
+                'weight' => $result['weight'] ?? 1,
+            ];
+
+            switch ($status) {
+                case 'pass':
+                    $results['passed'][] = $item;
+                    break;
+                case 'warning':
+                    $results['warnings'][] = $item;
+                    break;
+                case 'fail':
+                    $results['failed'][] = $item;
+                    break;
+            }
+        }
+
+        return $results;
+    }
+
+    /**
+     * Get the score color based on value.
+     */
+    public function getScoreColor(): string
+    {
+        return match (true) {
+            $this->score >= 80 => 'success',
+            $this->score >= 60 => 'info',
+            $this->score >= 40 => 'warning',
+            default => 'danger',
+        };
+    }
+
+    /**
+     * Get the score color as hex for the circular gauge.
+     */
+    public function getScoreHexColor(): string
+    {
+        return match (true) {
+            $this->score >= 80 => '#22c55e', // green-500
+            $this->score >= 60 => '#3b82f6', // blue-500
+            $this->score >= 40 => '#f59e0b', // amber-500
+            default => '#ef4444', // red-500
+        };
+    }
+
+    /**
+     * Get the score label based on value.
+     */
+    public function getScoreLabel(): string
+    {
+        return match (true) {
+            $this->score >= 80 => __('seo::widgets.score.label_excellent'),
+            $this->score >= 60 => __('seo::widgets.score.label_good'),
+            $this->score >= 40 => __('seo::widgets.score.label_needs_work'),
+            default => __('seo::widgets.score.label_poor'),
+        };
+    }
+
+    /**
+     * Get the stroke dash offset for the circular gauge.
+     * The circle has a circumference of ~314 (2 * pi * 50).
+     */
+    public function getStrokeDashOffset(): float
+    {
+        $circumference = 314;
+        return $circumference - ($circumference * $this->score / 100);
+    }
+
+    /**
+     * Get count of passed rules.
+     */
+    public function getPassedCount(): int
+    {
+        return count($this->results['passed'] ?? []);
+    }
+
+    /**
+     * Get count of warning rules.
+     */
+    public function getWarningCount(): int
+    {
+        return count($this->results['warnings'] ?? []);
+    }
+
+    /**
+     * Get count of failed rules.
+     */
+    public function getFailedCount(): int
+    {
+        return count($this->results['failed'] ?? []);
+    }
+
+    /**
+     * Get total rules checked.
+     */
+    public function getTotalRules(): int
+    {
+        return $this->getPassedCount() + $this->getWarningCount() + $this->getFailedCount();
+    }
+
+    /**
+     * Check if we have analysis data.
+     */
+    public function hasAnalysisData(): bool
+    {
+        return $this->score > 0 || !empty($this->results);
+    }
+
+    /**
+     * Refresh the SEO analysis.
+     */
+    public function refreshAnalysis(): void
+    {
+        if (!$this->record || !method_exists($this->record, 'analyzeSEO')) {
+            return;
+        }
+
+        $this->record->analyzeSEO();
+        $this->record->refresh();
+        $this->loadSEOData();
+
+        $this->dispatch('seo-analysis-refreshed');
+    }
+}

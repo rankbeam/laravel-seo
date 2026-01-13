@@ -1,0 +1,129 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{namespace}}\Widgets;
+
+use Filament\Widgets\StatsOverviewWidget as BaseWidget;
+use Filament\Widgets\StatsOverviewWidget\Stat;
+use Fibonoir\LaravelSEO\Models\SEO404Log;
+use Fibonoir\LaravelSEO\Models\SEOMeta;
+use Fibonoir\LaravelSEO\Models\SEOScanIssue;
+use Fibonoir\LaravelSEO\Models\SEOScanRun;
+
+/**
+ * SEO Statistics Overview Widget.
+ *
+ * Displays key SEO metrics in the dashboard:
+ * - Average SEO Score
+ * - Open Issues
+ * - 404s Today
+ * - Last Scan Time
+ */
+class SEOStatsOverview extends BaseWidget
+{
+    protected static ?int $sort = 1;
+
+    protected function getStats(): array
+    {
+        $averageScore = (int) (SEOMeta::whereNotNull('seo_score')->avg('seo_score') ?? 0);
+        $openIssues = SEOScanIssue::where('status', 'open')->count();
+        $criticalIssues = SEOScanIssue::where('status', 'open')->where('severity', 'critical')->count();
+        $today404s = SEO404Log::whereDate('last_seen_at', today())->count();
+        $new404s = SEO404Log::where('status', 'new')->count();
+        $lastScan = SEOScanRun::where('status', 'completed')->latest('completed_at')->first();
+
+        return [
+            Stat::make(__('seo::widgets.stats.average_score'), $averageScore . '%')
+                ->description($this->getScoreDescription($averageScore))
+                ->descriptionIcon($this->getScoreIcon($averageScore))
+                ->color($this->getScoreColor($averageScore))
+                ->chart($this->getScoreChart()),
+
+            Stat::make(__('seo::widgets.stats.open_issues'), $openIssues)
+                ->description(
+                    $criticalIssues > 0 
+                        ? __('seo::widgets.stats.critical_issues', ['count' => $criticalIssues])
+                        : __('seo::widgets.stats.no_critical_issues')
+                )
+                ->descriptionIcon($criticalIssues > 0 ? 'heroicon-o-exclamation-triangle' : 'heroicon-o-check')
+                ->color($criticalIssues > 0 ? 'danger' : ($openIssues > 0 ? 'warning' : 'success')),
+
+            Stat::make(__('seo::widgets.stats.404s_today'), $today404s)
+                ->description(__('seo::widgets.stats.total_unresolved', ['count' => $new404s]))
+                ->descriptionIcon($new404s > 10 ? 'heroicon-o-exclamation-circle' : 'heroicon-o-information-circle')
+                ->color($new404s > 10 ? 'warning' : 'gray'),
+
+            Stat::make(__('seo::widgets.stats.last_scan'), $this->formatLastScan($lastScan))
+                ->description($lastScan ? __('seo::widgets.stats.pages_scanned', ['count' => $lastScan->scanned_pages]) : __('seo::widgets.stats.no_scans'))
+                ->descriptionIcon($lastScan ? 'heroicon-o-check-circle' : 'heroicon-o-clock')
+                ->color($this->getLastScanColor($lastScan)),
+        ];
+    }
+
+    protected function getScoreDescription(int $score): string
+    {
+        return match (true) {
+            $score >= 80 => __('seo::widgets.stats.score_excellent'),
+            $score >= 60 => __('seo::widgets.stats.score_good'),
+            $score >= 40 => __('seo::widgets.stats.score_needs_work'),
+            default => __('seo::widgets.stats.score_poor'),
+        };
+    }
+
+    protected function getScoreIcon(int $score): string
+    {
+        return match (true) {
+            $score >= 80 => 'heroicon-o-trophy',
+            $score >= 60 => 'heroicon-o-hand-thumb-up',
+            $score >= 40 => 'heroicon-o-exclamation-circle',
+            default => 'heroicon-o-exclamation-triangle',
+        };
+    }
+
+    protected function getScoreColor(int $score): string
+    {
+        return match (true) {
+            $score >= 80 => 'success',
+            $score >= 60 => 'info',
+            $score >= 40 => 'warning',
+            default => 'danger',
+        };
+    }
+
+    protected function getScoreChart(): array
+    {
+        // Generate sparkline data from recent SEO scores
+        return SEOMeta::whereNotNull('seo_score')
+            ->orderBy('updated_at', 'desc')
+            ->limit(7)
+            ->pluck('seo_score')
+            ->reverse()
+            ->values()
+            ->toArray() ?: [0];
+    }
+
+    protected function formatLastScan(?SEOScanRun $scan): string
+    {
+        if (!$scan) {
+            return __('seo::widgets.stats.never');
+        }
+
+        return $scan->completed_at->diffForHumans();
+    }
+
+    protected function getLastScanColor(?SEOScanRun $scan): string
+    {
+        if (!$scan) {
+            return 'gray';
+        }
+
+        $hoursSinceLastScan = $scan->completed_at->diffInHours(now());
+
+        return match (true) {
+            $hoursSinceLastScan < 24 => 'success',
+            $hoursSinceLastScan < 168 => 'info', // 7 days
+            default => 'warning',
+        };
+    }
+}

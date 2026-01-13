@@ -1,0 +1,81 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{namespace}}\Resources\SEO404LogResource\Pages;
+
+use {{namespace}}\Resources\SEO404LogResource;
+use Filament\Actions;
+use Filament\Notifications\Notification;
+use Filament\Resources\Pages\ViewRecord;
+use Fibonoir\LaravelSEO\Models\SEO404Log;
+use Fibonoir\LaravelSEO\Models\SEORedirect;
+
+class ViewSEO404Log extends ViewRecord
+{
+    protected static string $resource = SEO404LogResource::class;
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Actions\Action::make('create_redirect')
+                ->label(__('seo::resources.404_logs.actions.create_redirect'))
+                ->icon('heroicon-o-arrow-uturn-right')
+                ->color('success')
+                ->visible(fn (): bool => $this->record->status === 'new')
+                ->form([
+                    \Filament\Forms\Components\TextInput::make('target_url')
+                        ->label(__('seo::resources.redirects.fields.target_url'))
+                        ->placeholder('https://example.com/correct-page')
+                        ->required()
+                        ->url()
+                        ->maxLength(2048),
+
+                    \Filament\Forms\Components\Select::make('status_code')
+                        ->label(__('seo::resources.redirects.fields.status_code'))
+                        ->options([
+                            301 => '301 - Permanent Redirect',
+                            302 => '302 - Temporary Redirect',
+                        ])
+                        ->default(301)
+                        ->required(),
+                ])
+                ->action(function (array $data): void {
+                    $redirect = SEORedirect::create([
+                        'source_path' => $this->record->path,
+                        'target_url' => $data['target_url'],
+                        'status_code' => $data['status_code'],
+                        'is_active' => true,
+                    ]);
+
+                    $this->record->markRedirected($redirect);
+
+                    Notification::make()
+                        ->title(__('seo::resources.404_logs.notifications.redirect_created'))
+                        ->success()
+                        ->send();
+
+                    $this->redirect(SEO404LogResource::getUrl('index'));
+                }),
+
+            Actions\Action::make('mark_ignored')
+                ->label(__('seo::resources.404_logs.actions.mark_ignored'))
+                ->icon('heroicon-o-minus-circle')
+                ->color('gray')
+                ->visible(fn (): bool => $this->record->status === 'new')
+                ->requiresConfirmation()
+                ->action(function (): void {
+                    $this->record->markIgnored();
+
+                    Notification::make()
+                        ->title(__('seo::resources.404_logs.notifications.marked_ignored'))
+                        ->success()
+                        ->send();
+
+                    $this->redirect(SEO404LogResource::getUrl('index'));
+                }),
+
+            Actions\DeleteAction::make(),
+        ];
+    }
+}

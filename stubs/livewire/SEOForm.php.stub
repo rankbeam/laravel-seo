@@ -1,0 +1,311 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{namespace}}\Livewire;
+
+use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Model;
+use Livewire\Attributes\Computed;
+use Livewire\Attributes\On;
+use Livewire\Attributes\Validate;
+use Livewire\Component;
+use Fibonoir\LaravelSEO\Contracts\HasSEO;
+use Fibonoir\LaravelSEO\Data\SEOData;
+use Fibonoir\LaravelSEO\Facades\SEO;
+
+/**
+ * SEO Form Component for Livewire
+ *
+ * A comprehensive SEO editor with tabs for basic SEO, social media,
+ * advanced settings, and analysis results.
+ *
+ * @example
+ * ```blade
+ * <livewire:seo-form :model="$post" />
+ * ```
+ */
+class SEOForm extends Component
+{
+    /**
+     * The model being edited.
+     */
+    public Model $model;
+
+    /**
+     * Current locale for multi-language support.
+     */
+    public string $locale = 'en';
+
+    /**
+     * Active tab identifier.
+     */
+    public string $activeTab = 'basic';
+
+    // Basic SEO Fields
+    #[Validate('nullable|string|max:70')]
+    public string $title = '';
+
+    #[Validate('nullable|string|max:200')]
+    public string $description = '';
+
+    /**
+     * Focus keywords array.
+     *
+     * @var array<int, array{keyword: string, is_primary: bool, synonyms: array<string>}>
+     */
+    public array $focusKeywords = [];
+
+    // Social Media Fields
+    #[Validate('nullable|string|max:70')]
+    public string $ogTitle = '';
+
+    #[Validate('nullable|string|max:200')]
+    public string $ogDescription = '';
+
+    #[Validate('nullable|url|max:2048')]
+    public string $ogImage = '';
+
+    #[Validate('nullable|string|in:website,article,product,profile,book')]
+    public string $ogType = 'website';
+
+    #[Validate('nullable|string|in:summary,summary_large_image,app,player')]
+    public string $twitterCard = 'summary_large_image';
+
+    #[Validate('nullable|string|max:70')]
+    public string $twitterTitle = '';
+
+    #[Validate('nullable|string|max:200')]
+    public string $twitterDescription = '';
+
+    #[Validate('nullable|url|max:2048')]
+    public string $twitterImage = '';
+
+    // Advanced Fields
+    #[Validate('nullable|url|max:2048')]
+    public string $canonical = '';
+
+    #[Validate('nullable|string')]
+    public string $robots = 'index, follow';
+
+    #[Validate('nullable|string')]
+    public string $schemaType = '';
+
+    #[Validate('nullable|json')]
+    public string $schemaJsonld = '';
+
+    /**
+     * Maximum character lengths for validation.
+     */
+    protected int $titleMaxLength = 60;
+
+    protected int $descriptionMaxLength = 160;
+
+    /**
+     * Mount the component with the model.
+     */
+    public function mount(Model $model, string $locale = 'en'): void
+    {
+        $this->model = $model;
+        $this->locale = $locale;
+
+        $this->loadSeoData();
+    }
+
+    /**
+     * Load SEO data from the model.
+     */
+    protected function loadSeoData(): void
+    {
+        if (! $this->model instanceof HasSEO) {
+            return;
+        }
+
+        $seo = $this->model->seo;
+
+        if (! $seo) {
+            return;
+        }
+
+        // Basic SEO
+        $this->title = $seo->title ?? '';
+        $this->description = $seo->description ?? '';
+        $this->focusKeywords = $seo->focus_keywords ?? [];
+
+        // Social Media
+        $this->ogTitle = $seo->og_title ?? '';
+        $this->ogDescription = $seo->og_description ?? '';
+        $this->ogImage = $seo->og_image ?? '';
+        $this->ogType = $seo->og_type ?? 'website';
+        $this->twitterCard = $seo->twitter_card ?? 'summary_large_image';
+        $this->twitterTitle = $seo->twitter_title ?? '';
+        $this->twitterDescription = $seo->twitter_description ?? '';
+        $this->twitterImage = $seo->twitter_image ?? '';
+
+        // Advanced
+        $this->canonical = $seo->canonical ?? '';
+        $this->robots = $seo->robots ?? 'index, follow';
+        $this->schemaType = $seo->schema_type ?? '';
+        $this->schemaJsonld = $seo->schema_jsonld ? json_encode($seo->schema_jsonld, JSON_PRETTY_PRINT) : '';
+    }
+
+    /**
+     * Save the SEO data.
+     */
+    public function save(): void
+    {
+        $this->validate();
+
+        if (! $this->model instanceof HasSEO) {
+            $this->dispatch('seo-error', message: 'Model does not implement HasSEO interface.');
+
+            return;
+        }
+
+        $data = [
+            'title' => $this->title ?: null,
+            'description' => $this->description ?: null,
+            'focus_keywords' => $this->focusKeywords,
+            'og_title' => $this->ogTitle ?: null,
+            'og_description' => $this->ogDescription ?: null,
+            'og_image' => $this->ogImage ?: null,
+            'og_type' => $this->ogType,
+            'twitter_card' => $this->twitterCard,
+            'twitter_title' => $this->twitterTitle ?: null,
+            'twitter_description' => $this->twitterDescription ?: null,
+            'twitter_image' => $this->twitterImage ?: null,
+            'canonical' => $this->canonical ?: null,
+            'robots' => $this->robots,
+            'schema_type' => $this->schemaType ?: null,
+            'schema_jsonld' => $this->schemaJsonld ? json_decode($this->schemaJsonld, true) : null,
+        ];
+
+        $this->model->seo()->updateOrCreate(
+            [
+                'model_type' => get_class($this->model),
+                'model_id' => $this->model->getKey(),
+            ],
+            $data
+        );
+
+        $this->dispatch('seo-saved', message: 'SEO settings saved successfully.');
+    }
+
+    /**
+     * Trigger SEO analysis.
+     */
+    public function analyze(): void
+    {
+        if (! $this->model instanceof HasSEO) {
+            return;
+        }
+
+        SEO::analyze($this->model);
+
+        $this->dispatch('seo-analyzed', message: 'Analysis complete.');
+    }
+
+    /**
+     * Set the active tab.
+     */
+    public function setTab(string $tab): void
+    {
+        $this->activeTab = $tab;
+    }
+
+    /**
+     * Handle keywords updated from child component.
+     *
+     * @param  array<int, array{keyword: string, is_primary: bool, synonyms: array<string>}>  $keywords
+     */
+    #[On('keywordsUpdated')]
+    public function handleKeywordsUpdated(array $keywords): void
+    {
+        $this->focusKeywords = $keywords;
+    }
+
+    /**
+     * Check if title length is within optimal range.
+     */
+    #[Computed]
+    public function titleStatus(): string
+    {
+        $length = strlen($this->title);
+
+        if ($length === 0) {
+            return 'empty';
+        }
+
+        if ($length > $this->titleMaxLength) {
+            return 'error';
+        }
+
+        if ($length > $this->titleMaxLength - 10) {
+            return 'warning';
+        }
+
+        return 'good';
+    }
+
+    /**
+     * Check if description length is within optimal range.
+     */
+    #[Computed]
+    public function descriptionStatus(): string
+    {
+        $length = strlen($this->description);
+
+        if ($length === 0) {
+            return 'empty';
+        }
+
+        if ($length > $this->descriptionMaxLength) {
+            return 'error';
+        }
+
+        if ($length > $this->descriptionMaxLength - 20) {
+            return 'warning';
+        }
+
+        return 'good';
+    }
+
+    /**
+     * Check if JSON-LD is valid.
+     */
+    #[Computed]
+    public function jsonLdValid(): bool
+    {
+        if (empty($this->schemaJsonld)) {
+            return true;
+        }
+
+        json_decode($this->schemaJsonld);
+
+        return json_last_error() === JSON_ERROR_NONE;
+    }
+
+    /**
+     * Get the SEO score from the model.
+     */
+    #[Computed]
+    public function seoScore(): int
+    {
+        if (! $this->model instanceof HasSEO) {
+            return 0;
+        }
+
+        return $this->model->seo?->seo_score ?? 0;
+    }
+
+    /**
+     * Render the component.
+     */
+    public function render(): View
+    {
+        return view('seo::livewire.seo-form', [
+            'titleMaxLength' => $this->titleMaxLength,
+            'descriptionMaxLength' => $this->descriptionMaxLength,
+        ]);
+    }
+}
