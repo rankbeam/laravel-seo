@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace Fibonoir\LaravelSEO\Tests;
 
+use Illuminate\Foundation\Application;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Fibonoir\LaravelSEO\SEOServiceProvider;
+use Fibonoir\LaravelSEO\Http\Middleware\Log404Middleware;
+use Fibonoir\LaravelSEO\Http\Middleware\RedirectMiddleware;
 
 abstract class TestCase extends Orchestra
 {
@@ -16,9 +19,16 @@ abstract class TestCase extends Orchestra
 
     protected function getPackageProviders($app): array
     {
-        return [
+        $providers = [
             SEOServiceProvider::class,
         ];
+        
+        // Add Spatie Sitemap provider if package is installed
+        if (class_exists(\Spatie\Sitemap\SitemapServiceProvider::class)) {
+            $providers[] = \Spatie\Sitemap\SitemapServiceProvider::class;
+        }
+        
+        return $providers;
     }
 
     protected function getEnvironmentSetUp($app): void
@@ -40,5 +50,19 @@ abstract class TestCase extends Orchestra
         $app['config']->set('seo.default_og_image', '/default-og.jpg');
         $app['config']->set('seo.cache.store', 'array');
         $app['config']->set('seo.cache.prefix', 'seo_test_');
+        
+        // Set a default app key for encryption
+        $app['config']->set('app.key', 'base64:' . base64_encode(str_repeat('a', 32)));
+    }
+
+    /**
+     * Define routes setup.
+     */
+    protected function defineRoutes($router): void
+    {
+        // Register fallback route for 404 testing
+        $router->fallback(function () {
+            abort(404);
+        })->middleware([RedirectMiddleware::class, Log404Middleware::class]);
     }
 }

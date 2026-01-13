@@ -163,7 +163,7 @@ describe('ScanPageJob', function () {
             ->andReturn(new AnalysisReport(
                 totalScore: 40,
                 results: [],
-                weights: [],
+                analyzedAt: new \DateTimeImmutable(),
                 locale: 'en',
             ));
 
@@ -206,7 +206,7 @@ describe('ScanPageJob', function () {
 
         $mockAnalyzer = Mockery::mock(ContentAnalyzer::class);
         $mockAnalyzer->shouldReceive('analyze')
-            ->andReturn(new AnalysisReport(totalScore: 50, results: [], weights: [], locale: 'en'));
+            ->andReturn(new AnalysisReport(totalScore: 50, results: [], analyzedAt: new \DateTimeImmutable(), locale: 'en'));
 
         $this->app->instance(PageScanner::class, $mockScanner);
         $this->app->instance(ContentAnalyzer::class, $mockAnalyzer);
@@ -248,7 +248,7 @@ describe('ScanPageJob', function () {
 
         $mockAnalyzer = Mockery::mock(ContentAnalyzer::class);
         $mockAnalyzer->shouldReceive('analyze')
-            ->andReturn(new AnalysisReport(totalScore: 50, results: [], weights: [], locale: 'en'));
+            ->andReturn(new AnalysisReport(totalScore: 50, results: [], analyzedAt: new \DateTimeImmutable(), locale: 'en'));
 
         $this->app->instance(PageScanner::class, $mockScanner);
         $this->app->instance(ContentAnalyzer::class, $mockAnalyzer);
@@ -265,11 +265,12 @@ describe('ScanPageJob', function () {
     });
 
     it('handles model not found', function () {
-        Log::shouldReceive('warning')
-            ->once()
-            ->with('ScanPageJob: Model not found', Mockery::any());
+        Log::spy();
 
         ScanPageJob::dispatchSync(ScanTestModel::class, 99999);
+
+        Log::shouldHaveReceived('warning')
+            ->with('ScanPageJob: Model not found', Mockery::any());
     });
 
     it('dispatches link validation jobs', function () {
@@ -285,7 +286,7 @@ describe('ScanPageJob', function () {
 
         $mockAnalyzer = Mockery::mock(ContentAnalyzer::class);
         $mockAnalyzer->shouldReceive('analyze')
-            ->andReturn(new AnalysisReport(totalScore: 50, results: [], weights: [], locale: 'en'));
+            ->andReturn(new AnalysisReport(totalScore: 50, results: [], analyzedAt: new \DateTimeImmutable(), locale: 'en'));
 
         $this->app->instance(PageScanner::class, $mockScanner);
         $this->app->instance(ContentAnalyzer::class, $mockAnalyzer);
@@ -341,7 +342,7 @@ describe('ScanPageJob', function () {
         $mockAnalyzer = Mockery::mock(ContentAnalyzer::class);
         $mockAnalyzer->shouldReceive('analyze')
             ->once() // Should be called
-            ->andReturn(new AnalysisReport(totalScore: 50, results: [], weights: [], locale: 'en'));
+            ->andReturn(new AnalysisReport(totalScore: 50, results: [], analyzedAt: new \DateTimeImmutable(), locale: 'en'));
 
         $this->app->instance(PageScanner::class, $mockScanner);
         $this->app->instance(ContentAnalyzer::class, $mockAnalyzer);

@@ -102,7 +102,28 @@ function createMockModel(array $attributes = [], ?array $seoMeta = null): \Illum
                 return;
             }
 
-            $this->seoMeta = (object) $meta;
+            // Ensure all expected SEO fields have defaults
+            $defaults = [
+                'title' => null,
+                'description' => null,
+                'canonical' => null,
+                'robots' => null,
+                'og_title' => null,
+                'og_description' => null,
+                'og_image' => null,
+                'og_type' => 'website',
+                'twitter_title' => null,
+                'twitter_description' => null,
+                'twitter_image' => null,
+                'twitter_card' => 'summary_large_image',
+                'focus_keywords' => null,
+                'schema_jsonld' => null,
+                'locale' => 'en',
+                'seo_score' => null,
+                'analysis_report' => null,
+            ];
+
+            $this->seoMeta = (object) array_merge($defaults, $meta);
         }
     };
 

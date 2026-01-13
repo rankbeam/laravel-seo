@@ -13,17 +13,21 @@ beforeEach(function () {
     // Clear any cached redirects
     Cache::flush();
 
-    // Register test routes with middleware
-    Route::middleware([RedirectMiddleware::class])->group(function () {
-        Route::get('/test-page', fn () => 'Test Page')->name('test.page');
-        Route::get('/new-page', fn () => 'New Page')->name('new.page');
-        Route::get('/blog/{slug}', fn ($slug) => "Blog: {$slug}")->name('blog.show');
-    });
+    // Register test routes 
+    Route::get('/test-page', fn () => 'Test Page')->name('test.page');
+    Route::get('/new-page', fn () => 'New Page')->name('new.page');
+    Route::get('/blog/{slug}', fn ($slug) => "Blog: {$slug}")->name('blog.show');
+    Route::get('/existing-page', fn () => 'Existing Page');
+    Route::get('/shop/{id}', fn ($id) => "Shop: {$id}");
+    Route::get('/exact-match', fn () => 'Exact Match');
 
     // Enable redirects feature
     config(['seo.features.redirects' => true]);
     config(['seo.redirects.cache_enabled' => false]); // Disable cache for tests
     config(['seo.redirects.log_hits' => true]);
+
+    // Push middleware globally for testing  
+    $this->app['router']->pushMiddlewareToGroup('web', RedirectMiddleware::class);
 });
 
 describe('RedirectMiddleware', function () {

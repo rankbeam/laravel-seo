@@ -7,10 +7,8 @@ use Fibonoir\LaravelSEO\Http\Middleware\Log404Middleware;
 use Fibonoir\LaravelSEO\Models\SEO404Log;
 
 beforeEach(function () {
-    // Register test routes without the non-existent pages
-    Route::middleware(['web', Log404Middleware::class])->group(function () {
-        Route::get('/existing-page', fn () => 'Existing Page');
-    });
+    // Register test routes 
+    Route::get('/existing-page', fn () => 'Existing Page');
 
     // Enable 404 monitoring
     config(['seo.features.404_monitor' => true]);
@@ -18,6 +16,9 @@ beforeEach(function () {
     config(['seo.404_monitor.hash_ip' => false]);
     config(['seo.404_monitor.exclude_paths' => ['/api/*', '/_debugbar/*']]);
     config(['seo.404_monitor.exclude_extensions' => ['js', 'css', 'jpg', 'png', 'gif', 'ico']]);
+
+    // Push middleware globally for testing
+    $this->app['router']->pushMiddlewareToGroup('web', Log404Middleware::class);
 });
 
 describe('Log404Middleware', function () {

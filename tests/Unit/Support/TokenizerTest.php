@@ -114,7 +114,9 @@ describe('Tokenizer', function () {
     });
 
     it('handles HTML entities', function () {
-        $text = 'Hello &amp; world &lt;test&gt;';
+        // Note: &lt;test&gt; becomes <test> after decoding, which is stripped as HTML
+        // Use entities that don't form HTML tags
+        $text = 'Hello &amp; world &quot;test&quot;';
 
         $tokens = $this->tokenizer->tokenize($text);
 
@@ -230,15 +232,15 @@ describe('Tokenizer', function () {
     it('allows setting minimum word length', function () {
         $text = 'I am a test of the tokenizer';
 
-        // Set min word length to 3
-        $this->tokenizer->setMinWordLength(3);
+        // Set min word length to 4 (filters 1-3 char words)
+        $this->tokenizer->setMinWordLength(4);
         $tokens = $this->tokenizer->tokenize($text);
 
-        expect($tokens)->not->toContain('am')
-            ->and($tokens)->not->toContain('of')
-            ->and($tokens)->not->toContain('the')
-            ->and($tokens)->toContain('test')
-            ->and($tokens)->toContain('tokenizer');
+        expect($tokens)->not->toContain('am')   // 2 chars
+            ->and($tokens)->not->toContain('of')  // 2 chars
+            ->and($tokens)->not->toContain('the') // 3 chars
+            ->and($tokens)->toContain('test')     // 4 chars
+            ->and($tokens)->toContain('tokenizer'); // 9 chars
     });
 
     it('gets current minimum word length', function () {

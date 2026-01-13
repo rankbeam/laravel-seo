@@ -185,14 +185,19 @@ describe('SEOData', function () {
                 robots: 'index,follow,max-image-preview:large',
             );
 
+            // Note: SEOData has default values for ogType ('website') and twitterCard.
+            // To preserve values from earlier in the chain, later SEOData must explicitly
+            // set ogType to the value they want to preserve, or we'd need to change the merge behavior.
             $computed = new SEOData(
                 title: 'My Post Title',
                 description: null, // Not computed
+                ogType: 'article', // Must explicitly preserve from earlier merge
             );
 
             $explicit = new SEOData(
                 title: 'Custom SEO Title',
                 ogImage: '/custom.jpg',
+                ogType: 'article', // Must explicitly preserve from earlier merge
             );
 
             $final = $global

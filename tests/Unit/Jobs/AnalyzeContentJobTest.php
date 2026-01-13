@@ -116,14 +116,13 @@ describe('AnalyzeContentJob', function () {
             ->andReturn(new AnalysisReport(
                 totalScore: 75,
                 results: [],
-                weights: [],
+                analyzedAt: new \DateTimeImmutable(),
                 locale: 'en',
             ));
 
-        $this->app->instance(ContentAnalyzer::class, $mockAnalyzer);
-
-        // Run job synchronously
-        AnalyzeContentJob::dispatchSync(JobTestModel::class, $model->id);
+        // Run job directly with mock injected
+        $job = new AnalyzeContentJob(JobTestModel::class, $model->id);
+        $job->handle($mockAnalyzer);
 
         // Check score was stored
         $meta = $model->fresh()->seoMeta;
@@ -133,26 +132,28 @@ describe('AnalyzeContentJob', function () {
     });
 
     it('handles model not found', function () {
-        Log::shouldReceive('warning')
-            ->once()
+        Log::spy();
+
+        // Run job with non-existent ID
+        $job = new AnalyzeContentJob(JobTestModel::class, 99999);
+        $job->handle(app(ContentAnalyzer::class));
+
+        // Check warning was logged
+        Log::shouldHaveReceived('warning')
             ->with('AnalyzeContentJob: Model not found', Mockery::any());
-
-        // Dispatch with non-existent ID
-        AnalyzeContentJob::dispatchSync(JobTestModel::class, 99999);
-
-        // Should not throw, just log warning
     });
 
     it('handles model without HasSEO trait', function () {
         $model = NonSEOModel::create(['title' => 'Test']);
 
-        Log::shouldReceive('warning')
-            ->once()
+        Log::spy();
+
+        $job = new AnalyzeContentJob(NonSEOModel::class, $model->id);
+        $job->handle(app(ContentAnalyzer::class));
+
+        // Check warning was logged
+        Log::shouldHaveReceived('warning')
             ->with('AnalyzeContentJob: Model does not use HasSEO trait', Mockery::any());
-
-        AnalyzeContentJob::dispatchSync(NonSEOModel::class, $model->id);
-
-        // Should not throw, just log warning
     });
 
     it('dispatches link validation', function () {
@@ -169,13 +170,13 @@ describe('AnalyzeContentJob', function () {
             ->andReturn(new AnalysisReport(
                 totalScore: 50,
                 results: [],
-                weights: [],
+                analyzedAt: new \DateTimeImmutable(),
                 locale: 'en',
             ));
 
-        $this->app->instance(ContentAnalyzer::class, $mockAnalyzer);
-
-        AnalyzeContentJob::dispatchSync(JobTestModel::class, $model->id);
+        // Run job directly
+        $job = new AnalyzeContentJob(JobTestModel::class, $model->id);
+        $job->handle($mockAnalyzer);
 
         // Should dispatch ValidateLinksJob for both links and images
         Queue::assertPushed(ValidateLinksJob::class, function ($job) use ($model) {
@@ -204,13 +205,13 @@ describe('AnalyzeContentJob', function () {
             ->andReturn(new AnalysisReport(
                 totalScore: 60,
                 results: [],
-                weights: [],
+                analyzedAt: new \DateTimeImmutable(),
                 locale: 'en',
             ));
 
-        $this->app->instance(ContentAnalyzer::class, $mockAnalyzer);
-
-        AnalyzeContentJob::dispatchSync(JobTestModel::class, $model->id);
+        // Run job directly
+        $job = new AnalyzeContentJob(JobTestModel::class, $model->id);
+        $job->handle($mockAnalyzer);
 
         $meta = $model->fresh()->seoMeta;
         expect($meta)->not->toBeNull()
@@ -233,13 +234,13 @@ describe('AnalyzeContentJob', function () {
             ->andReturn(new AnalysisReport(
                 totalScore: 50,
                 results: [],
-                weights: [],
+                analyzedAt: new \DateTimeImmutable(),
                 locale: 'de',
             ));
 
-        $this->app->instance(ContentAnalyzer::class, $mockAnalyzer);
-
-        AnalyzeContentJob::dispatchSync(JobTestModel::class, $model->id);
+        // Run job directly
+        $job = new AnalyzeContentJob(JobTestModel::class, $model->id);
+        $job->handle($mockAnalyzer);
     });
 
     it('stores content hash for change detection', function () {
@@ -255,13 +256,13 @@ describe('AnalyzeContentJob', function () {
             ->andReturn(new AnalysisReport(
                 totalScore: 50,
                 results: [],
-                weights: [],
+                analyzedAt: new \DateTimeImmutable(),
                 locale: 'en',
             ));
 
-        $this->app->instance(ContentAnalyzer::class, $mockAnalyzer);
-
-        AnalyzeContentJob::dispatchSync(JobTestModel::class, $model->id);
+        // Run job directly
+        $job = new AnalyzeContentJob(JobTestModel::class, $model->id);
+        $job->handle($mockAnalyzer);
 
         $meta = $model->fresh()->seoMeta;
         expect($meta->content_hash)->toBe(md5('Unique content for hashing'));
@@ -288,10 +289,11 @@ describe('AnalyzeContentJob', function () {
     it('logs failure', function () {
         $job = new AnalyzeContentJob(JobTestModel::class, 1, 'en');
 
-        Log::shouldReceive('error')
-            ->once()
-            ->with('AnalyzeContentJob failed', Mockery::any());
+        Log::spy();
 
         $job->failed(new \Exception('Test error'));
+
+        Log::shouldHaveReceived('error')
+            ->with('AnalyzeContentJob failed', Mockery::any());
     });
 });

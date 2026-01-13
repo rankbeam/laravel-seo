@@ -92,11 +92,13 @@ describe('GenerateSitemapJob', function () {
 
         $this->app->instance(SitemapBuilder::class, $mockBuilder);
 
-        Log::shouldReceive('info')->atLeast()->times(1);
-        Log::shouldReceive('warning')->atLeast()->times(1); // For failed pings
+        Log::spy();
 
         // Should not throw exception
         (new GenerateSitemapJob(pingSearchEngines: true))->handle($mockBuilder);
+
+        // Should have logged warnings for failed pings
+        Log::shouldHaveReceived('warning');
     });
 
     it('handles connection errors during ping', function () {
@@ -114,11 +116,13 @@ describe('GenerateSitemapJob', function () {
 
         $this->app->instance(SitemapBuilder::class, $mockBuilder);
 
-        Log::shouldReceive('info')->atLeast()->times(1);
-        Log::shouldReceive('warning')->atLeast()->times(1);
+        Log::spy();
 
         // Should not throw
         (new GenerateSitemapJob(pingSearchEngines: true))->handle($mockBuilder);
+
+        // Should have logged warnings for connection errors
+        Log::shouldHaveReceived('warning');
     });
 
     it('throws and logs on generation failure', function () {

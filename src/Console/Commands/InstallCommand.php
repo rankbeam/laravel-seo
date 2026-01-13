@@ -28,8 +28,7 @@ class InstallCommand extends Command
     protected $signature = 'seo:install
                             {--force : Overwrite existing files}
                             {--stack= : Skip detection and use this stack (filament|livewire|vue|react|api)}
-                            {--skip-migrations : Do not run migrations}
-                            {--no-interaction : Use defaults without prompting}';
+                            {--skip-migrations : Do not run migrations}';
 
     /**
      * The console command description.
