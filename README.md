@@ -1,52 +1,42 @@
-# Laravel SEO Suite
+# Laravel SEO (core)
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/fibonoir/laravel-seo.svg?style=flat-square)](https://packagist.org/packages/fibonoir/laravel-seo)
 [![Total Downloads](https://img.shields.io/packagist/dt/fibonoir/laravel-seo.svg?style=flat-square)](https://packagist.org/packages/fibonoir/laravel-seo)
 [![License](https://img.shields.io/packagist/l/fibonoir/laravel-seo.svg?style=flat-square)](https://packagist.org/packages/fibonoir/laravel-seo)
 
-A **Rank Math Pro-style SEO suite** for Laravel — complete with content analysis, 32 SEO checks, sitemap generation, redirect management, 404 monitoring, schema markup, and analytics integration.
+SEO core for Laravel: meta tag resolution with a layered precedence chain, Open Graph / Twitter Cards, JSON-LD schema markup with a linked `@id` graph, and XML sitemap generation.
 
-## ✨ Features
+> **Status note:** the published Packagist release (`v1.0.0`, 2026-01-13) is the old "full suite" version. `master` has since been carved down to the core described below; the analyzer, scanner, redirect manager, 404 monitor, analytics, and UI stubs were removed from the shipped surface (see [`pro-staging/`](pro-staging/README.md)) and will return as separate packages.
 
-| Feature | Description |
-|---------|-------------|
-| **Per-page SEO Editor** | Content editors can optimize each page without developer help |
-| **Real-time Content Analyzer** | 32 SEO checks with instant feedback (keyword density, readability, etc.) |
-| **Sitewide Scanner** | Find duplicate titles, missing meta, broken links across ALL pages |
-| **Redirect Manager** | Handle URL changes with 301/302/410 redirects, regex support |
-| **404 Monitor** | Track missing pages and create redirects with one click |
-| **Schema Markup Builder** | Article, FAQ, Breadcrumb, LocalBusiness, Product schemas |
-| **Sitemap Generation** | Automatic XML sitemaps with index support for large sites |
-| **Analytics Integration** | GA4 data right in your admin panel |
-| **Multi-keyword Support** | Primary + secondary keywords with synonyms |
-| **Multilingual Ready** | hreflang support for international sites |
+## What this package does
 
-## 📋 Requirements
+| Area | Details |
+|---|---|
+| **Meta resolution** | `SEOResolver` merges six layers — config → global DB defaults → model-type defaults → route defaults → computed model values → explicit `seo_meta` values. Null never overwrites a lower layer. |
+| **Computed fallbacks** | Title/description/image/robots derived from model attributes. Description candidates are configurable (`seo.computed.description_fields`), normalized (HTML stripped, entities decoded), and truncated at a word boundary (default 160 chars, no ellipsis). Robots can derive from an `is_indexable` attribute. |
+| **Rendering** | `TagRenderer` outputs HTML (`@seo` Blade directives), structured arrays (Vue/React), or Inertia Head format. JSON-LD is emitted with `JSON_HEX_*` escaping so `</script>` in content cannot break out of the script element. |
+| **Canonical policy** | Derived canonicals (model URL / current URL) get the query string stripped; explicitly set canonicals are preserved verbatim. |
+| **Schema (JSON-LD)** | Builders for Article, Breadcrumb, FAQ, LocalBusiness, Organization, Product; `SchemaGraph` for Organization/WebSite/WebPage nodes cross-linked via stable `@id`s; breadcrumbs from a page's ancestor chain with a loop guard. |
+| **Sitemaps** | `SitemapBuilder` (wraps spatie/laravel-sitemap) with config-driven model sources, programmatic named sources via `SEO::sitemaps()->register(...)`, sitemap index support, `seo:sitemap` command, and `/sitemap.xml` routes that can be disabled. |
+| **Warnings** | `SEOWarningEvaluator` for admin UIs: title > 60 / description > 160 warnings, manual-vs-fallback indicators, social-image dimension checks (min 200x200, ideal 1200x630, local files only). |
 
-- PHP 8.2 or higher
-- Laravel 11.0 or higher
+**Database tables:** `seo_meta` (per-model explicit values, morph + locale) and `seo_defaults` (global/model-type/route defaults). Nothing else.
 
-## 🚀 Installation
+## Requirements
+
+- PHP 8.2+
+- Laravel 11 or 12 (CI runs the full matrix; primary development is on 12)
+- `spatie/laravel-sitemap` ^7.0 (suggested, required for sitemap generation)
+
+## Installation
 
 ```bash
 composer require fibonoir/laravel-seo
+php artisan vendor:publish --tag=seo-config
+php artisan migrate
 ```
 
-Then run the interactive installer:
-
-```bash
-php artisan seo:install
-```
-
-The installer will:
-1. Detect your frontend stack (Filament, Livewire, Vue, or React)
-2. Publish appropriate configuration and components
-3. Run database migrations
-4. Set up initial defaults
-
-## 📖 Quick Start
-
-### 1. Add the HasSEO trait to your models
+## Quick start
 
 ```php
 use Fibonoir\LaravelSEO\Traits\HasSEO;
@@ -54,10 +44,13 @@ use Fibonoir\LaravelSEO\Traits\HasSEO;
 class Post extends Model
 {
     use HasSEO;
+
+    public function getUrlForSEO(): string
+    {
+        return route('posts.show', $this);
+    }
 }
 ```
-
-### 2. Render SEO tags in your Blade layout
 
 ```blade
 <head>
@@ -65,182 +58,57 @@ class Post extends Model
 </head>
 ```
 
-Or for routes without models:
+Explicit values from the admin side:
 
-```blade
-<head>
-    @seoForRoute('home')
-</head>
+```php
+$post->saveSEO([
+    'title' => 'Custom SEO Title',
+    'description' => 'Custom meta description',
+]);
 ```
 
-### 3. Use the Facade for more control
+Headless / Inertia:
 
 ```php
 use Fibonoir\LaravelSEO\Facades\SEO;
 
-// Get resolved SEO data
-$seoData = SEO::resolve($post);
-
-// Render as HTML
-$html = SEO::render($post);
-
-// Get as array for Vue/React
-$array = SEO::toArray($post);
+return Inertia::render('Post', [
+    'seo' => SEO::forInertia($post),
+]);
 ```
 
-## 🎨 Frontend Integration
-
-### Filament
-
-SEO fields are automatically available in your Filament resources:
+Sitemap sources:
 
 ```php
-use App\Filament\Forms\Components\SEOFields;
+// config/seo.php
+'sitemap' => ['models' => [Post::class => ['priority' => 0.8]]],
 
-public static function form(Form $form): Form
-{
-    return $form->schema([
-        // Your fields...
-        SEOFields::make(),
-    ]);
-}
+// or programmatically (e.g. in a service provider)
+SEO::sitemaps()->register('pages', fn () => ['/about', '/contact']);
 ```
 
-### Livewire
-
-Include the SEO form component in your views:
-
-```blade
-<livewire:seo.seo-form :model="$post" />
-```
-
-### Vue (with Inertia)
-
-```vue
-<script setup>
-import { useSEO } from '@/composables/useSEO'
-
-const props = defineProps({ seo: Object })
-useSEO(props.seo)
-</script>
-```
-
-### React (with Inertia)
-
-```tsx
-import { useSEO } from '@/hooks/useSEO'
-
-export default function Page({ seo }) {
-  useSEO(seo)
-  return <div>...</div>
-}
-```
-
-## 🔧 Configuration
-
-Publish the configuration file:
-
-```bash
-php artisan vendor:publish --tag=seo-config
-```
-
-Key configuration options in `config/seo.php`:
+Serving your own static `/sitemap.xml`? Disable the package routes:
 
 ```php
-return [
-    'site_name' => env('APP_NAME'),
-    'title_suffix' => ' | ' . env('APP_NAME'),
-    
-    'features' => [
-        'analytics' => false,
-        'sitemap' => true,
-        'schema' => true,
-        'redirects' => true,
-        '404_monitor' => true,
-    ],
-    
-    'analyzer' => [
-        'min_content_length' => 300,
-        'keyword_density_range' => [1.0, 2.5],
-    ],
-];
+// config/seo.php
+'routes' => ['enabled' => false],
 ```
 
-## 📊 SEO Analysis
+## Test status
 
-The package includes 32 SEO checks across 5 categories:
-
-| Category | Checks |
-|----------|--------|
-| **Focus Keyword** | Density, in title/URL/description/headings/first paragraph, distribution |
-| **Meta & Title** | Length checks, numbers, power words |
-| **Content Quality** | Length, readability, heading structure, transitions, paragraphs |
-| **Media & Links** | Alt tags, internal/external links, broken links/images |
-| **Technical SEO** | Head elements, canonical, noindex, lang, OG image, HTTPS |
-
-## 🗺️ Sitemap Generation
-
-Generate your sitemap:
+`vendor/bin/pest` on `master`: **178 passed (408 assertions), 0 failed** under PHP 8.4 / Laravel 12. This counts only the shipped core; the staged pro code under `pro-staging/` is excluded from autoload and the suite (its tests, including 21 historical failures in the scan/analyzer pipeline, move with it).
 
 ```bash
-php artisan seo:sitemap
+git clone https://github.com/Fibonoir/laravel-seo.git
+cd laravel-seo
+composer install
+vendor/bin/pest
 ```
 
-Configure models in `config/seo.php`:
+## What is *not* in this package
 
-```php
-'sitemap' => [
-    'models' => [
-        \App\Models\Post::class => [
-            'priority' => 0.8,
-            'changefreq' => 'weekly',
-        ],
-    ],
-],
-```
+Content analyzer (32 rules), sitewide scanner, redirect manager, 404 monitor, GA4 analytics, internal-link suggestions, and the Filament/Livewire/Vue/React UI — staged in [`pro-staging/`](pro-staging/README.md) for the upcoming `laravel-seo-pro` and `laravel-seo-filament` packages. The old `seo:install` stub-publishing flow is gone.
 
-## ↩️ Redirects & 404 Monitoring
+## License
 
-Apply the middleware globally or to specific routes:
-
-```php
-// In bootstrap/app.php for Laravel 11+
-->withMiddleware(function (Middleware $middleware) {
-    $middleware->prepend(\Fibonoir\LaravelSEO\Http\Middleware\RedirectMiddleware::class);
-    $middleware->append(\Fibonoir\LaravelSEO\Http\Middleware\Log404Middleware::class);
-})
-```
-
-## 🏥 Health Check
-
-Verify your installation:
-
-```bash
-php artisan seo:health
-```
-
-## 📚 Documentation
-
-For full documentation, visit [documentation link].
-
-## 🧪 Testing
-
-```bash
-composer test
-```
-
-## 📝 Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for recent changes.
-
-## 🤝 Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-## 🔒 Security
-
-If you discover any security-related issues, please email security@example.com instead of using the issue tracker.
-
-## 📄 License
-
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+MIT — see [LICENSE.md](LICENSE.md).
