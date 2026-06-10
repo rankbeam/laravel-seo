@@ -1,10 +1,11 @@
-<?php
+﻿<?php
 
 declare(strict_types=1);
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Queue;
 use Fibonoir\LaravelSEO\Data\SEOData;
+use Fibonoir\LaravelSEO\Jobs\AnalyzeContentJob;
 use Fibonoir\LaravelSEO\Models\SEOMeta;
 use Fibonoir\LaravelSEO\Traits\HasSEO;
 
@@ -116,6 +117,8 @@ beforeEach(function () {
     }
 
     config(['seo.features.auto_create_meta' => true]);
+    config(['seo.features.auto_analyze' => true]);
+    config(['seo.features.internal_links_index' => false]);
 });
 
 afterEach(function () {
@@ -134,6 +137,45 @@ describe('HasSEO Trait', function () {
 
         expect($post->seoMeta)->toBeInstanceOf(SEOMeta::class)
             ->and($post->seoMeta->locale)->toBe(app()->getLocale());
+    });
+
+    it('dispatches analysis job on content change', function () {
+        config(['seo.features.auto_analyze' => true]);
+
+        $post = TraitTestPost::create([
+            'title' => 'Original Title',
+            'slug' => 'original-post',
+            'content' => 'Original content',
+        ]);
+
+        Queue::assertPushed(AnalyzeContentJob::class); // From creation
+
+        // Clear queue
+        Queue::fake();
+
+        // Update content field
+        $post->update(['content' => 'Updated content that should trigger analysis']);
+
+        Queue::assertPushed(AnalyzeContentJob::class, function ($job) use ($post) {
+            return $job->modelClass === TraitTestPost::class
+                && $job->modelId === $post->id;
+        });
+    });
+
+    it('does not dispatch analysis job when non-content field changes', function () {
+        $post = TraitTestPost::create([
+            'title' => 'Test Post',
+            'slug' => 'test-post',
+            'content' => 'Test content',
+        ]);
+
+        Queue::fake();
+
+        // Update non-content field
+        $post->update(['featured_image' => '/images/new-image.jpg']);
+
+        // Should not dispatch since featured_image is not in content fields
+        Queue::assertNotPushed(AnalyzeContentJob::class);
     });
 
     it('returns resolved seo data', function () {
@@ -418,5 +460,21 @@ describe('HasSEO Trait', function () {
         expect(SEOMeta::where('seoable_type', TraitTestPost::class)
             ->where('seoable_id', $post->id)
             ->exists())->toBeFalse();
+    });
+
+    it('respects auto analyze feature toggle', function () {
+        config(['seo.features.auto_analyze' => false]);
+
+        Queue::fake();
+
+        $post = TraitTestPost::create([
+            'title' => 'No Auto Analyze',
+            'slug' => 'no-auto-analyze',
+            'content' => 'Test content',
+        ]);
+
+        $post->update(['content' => 'Updated content']);
+
+        Queue::assertNotPushed(AnalyzeContentJob::class);
     });
 });

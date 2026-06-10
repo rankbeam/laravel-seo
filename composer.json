@@ -1,6 +1,6 @@
 {
     "name": "fibonoir/laravel-seo",
-    "description": "Rank Math Pro-style SEO suite for Laravel - Complete SEO management with content analysis, 32 SEO checks, sitemap generation, redirects, 404 monitoring, schema markup, and analytics integration.",
+    "description": "SEO core for Laravel - meta tag resolution with precedence chain, Open Graph / Twitter Cards, JSON-LD schema markup, and XML sitemap generation.",
     "type": "library",
     "license": "MIT",
     "keywords": [
@@ -11,10 +11,7 @@
         "schema",
         "structured-data",
         "open-graph",
-        "twitter-cards",
-        "redirects",
-        "analytics",
-        "content-analysis"
+        "twitter-cards"
     ],
     "authors": [
         {
@@ -30,8 +27,7 @@
         "illuminate/console": "^11.0|^12.0",
         "illuminate/http": "^11.0|^12.0",
         "illuminate/routing": "^11.0|^12.0",
-        "illuminate/cache": "^11.0|^12.0",
-        "wamania/php-stemmer": "^3.0"
+        "illuminate/cache": "^11.0|^12.0"
     },
     "require-dev": {
         "orchestra/testbench": "^9.0|^10.0",
@@ -40,9 +36,7 @@
         "spatie/laravel-sitemap": "^7.0"
     },
     "suggest": {
-        "spatie/laravel-sitemap": "Generate XML sitemaps for your models (^7.0)",
-        "spatie/browsershot": "Render JavaScript pages for scanning SPAs (^4.0)",
-        "google/apiclient": "Integrate Google Analytics 4 data (^2.15)"
+        "spatie/laravel-sitemap": "Generate XML sitemaps for your models (^7.0)"
     },
     "autoload": {
         "psr-4": {

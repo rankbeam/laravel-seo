@@ -4,11 +4,8 @@ declare(strict_types=1);
 
 namespace Fibonoir\LaravelSEO\Tests;
 
-use Illuminate\Foundation\Application;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Fibonoir\LaravelSEO\SEOServiceProvider;
-use Fibonoir\LaravelSEO\Http\Middleware\Log404Middleware;
-use Fibonoir\LaravelSEO\Http\Middleware\RedirectMiddleware;
 
 abstract class TestCase extends Orchestra
 {
@@ -53,16 +50,5 @@ abstract class TestCase extends Orchestra
         
         // Set a default app key for encryption
         $app['config']->set('app.key', 'base64:' . base64_encode(str_repeat('a', 32)));
-    }
-
-    /**
-     * Define routes setup.
-     */
-    protected function defineRoutes($router): void
-    {
-        // Register fallback route for 404 testing
-        $router->fallback(function () {
-            abort(404);
-        })->middleware([RedirectMiddleware::class, Log404Middleware::class]);
     }
 }

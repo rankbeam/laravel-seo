@@ -7,25 +7,11 @@ namespace Fibonoir\LaravelSEO;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Fibonoir\LaravelSEO\Console\Commands\CacheCommand;
-use Fibonoir\LaravelSEO\Console\Commands\HealthCheckCommand;
-use Fibonoir\LaravelSEO\Console\Commands\InstallCommand;
-use Fibonoir\LaravelSEO\Console\Commands\ScanCommand;
 use Fibonoir\LaravelSEO\Console\Commands\SitemapCommand;
-use Fibonoir\LaravelSEO\Console\Commands\SyncAnalyticsCommand;
-use Fibonoir\LaravelSEO\Services\CacheManager;
-use Fibonoir\LaravelSEO\Http\Middleware\Log404Middleware;
-use Fibonoir\LaravelSEO\Http\Middleware\RedirectMiddleware;
-use Fibonoir\LaravelSEO\Services\Analyzer\ContentAnalyzer;
 use Fibonoir\LaravelSEO\Services\SEOComputedBuilder;
 use Fibonoir\LaravelSEO\Services\SEODefaultsRepository;
 use Fibonoir\LaravelSEO\Services\SEOResolver;
 use Fibonoir\LaravelSEO\Services\TagRenderer;
-use Fibonoir\LaravelSEO\Support\ReadabilityCalculator;
-use Fibonoir\LaravelSEO\Support\Stemmer;
-use Fibonoir\LaravelSEO\Support\StopWords;
-use Fibonoir\LaravelSEO\Support\Tokenizer;
-use Fibonoir\LaravelSEO\Support\TransitionWords;
 
 class SEOServiceProvider extends ServiceProvider
 {
@@ -35,15 +21,9 @@ class SEOServiceProvider extends ServiceProvider
      * @var array<string, string>
      */
     public array $singletons = [
-        Stemmer::class => Stemmer::class,
-        Tokenizer::class => Tokenizer::class,
-        StopWords::class => StopWords::class,
-        TransitionWords::class => TransitionWords::class,
-        ReadabilityCalculator::class => ReadabilityCalculator::class,
         SEODefaultsRepository::class => SEODefaultsRepository::class,
         SEOComputedBuilder::class => SEOComputedBuilder::class,
         TagRenderer::class => TagRenderer::class,
-        CacheManager::class => CacheManager::class,
     ];
 
     /**
@@ -65,15 +45,6 @@ class SEOServiceProvider extends ServiceProvider
             );
         });
 
-        // Register the Content Analyzer as a singleton
-        $this->app->singleton(ContentAnalyzer::class, function ($app) {
-            return new ContentAnalyzer(
-                $app->make(Stemmer::class),
-                $app->make(Tokenizer::class),
-                $app->make(StopWords::class)
-            );
-        });
-
         // Register the SEO facade accessor
         $this->app->alias(SEOResolver::class, 'seo');
     }
@@ -87,7 +58,6 @@ class SEOServiceProvider extends ServiceProvider
         $this->registerMigrations();
         $this->registerRoutes();
         $this->registerCommands();
-        $this->registerMiddleware();
         $this->registerBladeDirectives();
         $this->registerViews();
         $this->registerTranslations();
@@ -118,26 +88,6 @@ class SEOServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__ . '/../resources/lang' => $this->app->langPath('vendor/seo'),
             ], 'seo-lang');
-
-            // Filament-specific publishing
-            $this->publishes([
-                __DIR__ . '/../stubs/filament' => app_path('Filament'),
-            ], 'seo-filament');
-
-            // Livewire-specific publishing
-            $this->publishes([
-                __DIR__ . '/../stubs/livewire' => app_path('Livewire/Seo'),
-            ], 'seo-livewire');
-
-            // Vue-specific publishing
-            $this->publishes([
-                __DIR__ . '/../resources/js/vue' => resource_path('js/Components/SEO'),
-            ], 'seo-vue');
-
-            // React-specific publishing
-            $this->publishes([
-                __DIR__ . '/../resources/js/react' => resource_path('js/Components/SEO'),
-            ], 'seo-react');
         }
     }
 
@@ -196,26 +146,9 @@ class SEOServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                InstallCommand::class,
                 SitemapCommand::class,
-                ScanCommand::class,
-                HealthCheckCommand::class,
-                CacheCommand::class,
-                SyncAnalyticsCommand::class,
             ]);
         }
-    }
-
-    /**
-     * Register the package's middleware.
-     */
-    protected function registerMiddleware(): void
-    {
-        // Register middleware aliases that can be applied to routes
-        $router = $this->app['router'];
-
-        $router->aliasMiddleware('seo.redirect', RedirectMiddleware::class);
-        $router->aliasMiddleware('seo.404', Log404Middleware::class);
     }
 
     /**
@@ -448,16 +381,9 @@ class SEOServiceProvider extends ServiceProvider
     {
         return [
             SEOResolver::class,
-            ContentAnalyzer::class,
             TagRenderer::class,
-            Stemmer::class,
-            Tokenizer::class,
-            StopWords::class,
-            TransitionWords::class,
-            ReadabilityCalculator::class,
             SEODefaultsRepository::class,
             SEOComputedBuilder::class,
-            CacheManager::class,
             'seo',
         ];
     }

@@ -10,7 +10,12 @@ use Fibonoir\LaravelSEO\Services\Sitemap\SitemapBuilder;
 
 beforeEach(function () {
     Storage::fake('public');
-    Http::fake();
+
+    // Note: no catch-all Http::fake() here. Laravel resolves stubs
+    // first-match-wins in registration order, so a catch-all registered in
+    // beforeEach would shadow the per-test 500/error stubs below and the
+    // failure paths would never execute. Tests that make HTTP requests
+    // register their own stubs.
 
     config(['seo.sitemap.enabled' => true]);
     config(['seo.sitemap.disk' => 'public']);
@@ -60,6 +65,8 @@ describe('GenerateSitemapJob', function () {
     });
 
     it('does not ping when disabled', function () {
+        Http::fake();
+
         config(['seo.sitemap.ping_search_engines' => false]);
 
         $mockBuilder = Mockery::mock(SitemapBuilder::class);

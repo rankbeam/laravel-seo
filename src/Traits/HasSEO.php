@@ -7,9 +7,7 @@ namespace Fibonoir\LaravelSEO\Traits;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Support\Str;
 use Fibonoir\LaravelSEO\Data\SEOData;
-use Fibonoir\LaravelSEO\Jobs\AnalyzeContentJob;
 use Fibonoir\LaravelSEO\Models\SEOMeta;
-use Fibonoir\LaravelSEO\Services\InternalLinks\LinkIndexBuilder;
 use Fibonoir\LaravelSEO\Services\SEOResolver;
 
 /**
@@ -17,7 +15,6 @@ use Fibonoir\LaravelSEO\Services\SEOResolver;
  *
  * This trait provides automatic SEO metadata management, including:
  * - Automatic creation of SEO records when models are created
- * - Automatic re-analysis when content fields change
  * - Computed fallbacks for title, description, and image
  * - Integration with the SEOResolver precedence chain
  *
@@ -112,17 +109,12 @@ use Fibonoir\LaravelSEO\Services\SEOResolver;
  * **On Model Creation:**
  * - Automatically creates an SEOMeta record with the current locale
  *
- * **On Model Save (when content fields change):**
- * - Dispatches AnalyzeContentJob with a 5-second delay
- * - The delay prevents excessive analysis during bulk operations
- *
  * **On Model Deletion:**
  * - Automatically deletes the associated SEOMeta record
  *
  * @see \Fibonoir\LaravelSEO\Models\SEOMeta For the SEO metadata model
  * @see \Fibonoir\LaravelSEO\Services\SEOResolver For the precedence chain
  * @see \Fibonoir\LaravelSEO\Data\SEOData For the data structure
- * @see \Fibonoir\LaravelSEO\Jobs\AnalyzeContentJob For content analysis
  *
  * @method static static|\Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder whereSeoScore(int $score)
  *
@@ -135,7 +127,6 @@ trait HasSEO
      *
      * Registers model event listeners for automatic SEO management:
      * - created: Creates empty SEOMeta record
-     * - saved: Triggers re-analysis if content fields changed
      * - deleted: Cleans up SEOMeta record
      */
     public static function bootHasSEO(): void
@@ -160,67 +151,14 @@ trait HasSEO
 
         /*
         |------------------------------------------------------------------
-        | Re-Analyze When Content Changes
-        |------------------------------------------------------------------
-        |
-        | When content fields are modified, we dispatch an analysis job
-        | with a 5-second delay. The delay:
-        | - Prevents analysis during rapid successive saves
-        | - Allows time for related data to be saved (tags, categories)
-        | - Reduces server load during bulk imports
-        |
-        */
-        static::saved(function (self $model) {
-            $contentFields = $model->getSEOContentFields();
-            $contentChanged = $model->wasChanged($contentFields);
-
-            // Auto-analyze if enabled and content changed
-            if (config('seo.features.auto_analyze', true) && $contentChanged) {
-                AnalyzeContentJob::dispatch(get_class($model), $model->getKey())
-                    ->delay(now()->addSeconds(5));
-            }
-
-            // Update internal links index if enabled and content changed
-            if (config('seo.features.internal_links_index', true) && $contentChanged) {
-                try {
-                    app(LinkIndexBuilder::class)->updateIndex($model);
-                } catch (\Exception $e) {
-                    // Silently fail - index update is not critical
-                    \Illuminate\Support\Facades\Log::debug('Failed to update link index', [
-                        'model' => get_class($model),
-                        'id' => $model->getKey(),
-                        'error' => $e->getMessage(),
-                    ]);
-                }
-            }
-        });
-
-        /*
-        |------------------------------------------------------------------
         | Clean Up on Model Deletion
         |------------------------------------------------------------------
         |
-        | When the model is deleted, we also delete its SEO metadata
-        | and remove it from the internal links index.
+        | When the model is deleted, we also delete its SEO metadata.
         |
         */
         static::deleted(function (self $model) {
-            // Delete SEO meta
             $model->seoMeta()->delete();
-
-            // Remove from internal links index
-            if (config('seo.features.internal_links_index', true)) {
-                try {
-                    app(LinkIndexBuilder::class)->deleteFromIndex($model);
-                } catch (\Exception $e) {
-                    // Silently fail - cleanup is not critical
-                    \Illuminate\Support\Facades\Log::debug('Failed to remove from link index', [
-                        'model' => get_class($model),
-                        'id' => $model->getKey(),
-                        'error' => $e->getMessage(),
-                    ]);
-                }
-            }
         });
     }
 
@@ -646,55 +584,6 @@ trait HasSEO
         }
 
         return false;
-    }
-
-    /**
-     * Trigger SEO analysis manually.
-     *
-     * Runs the analysis synchronously (blocking).
-     * Use dispatchAnalysis() for async processing.
-     *
-     * @return void
-     *
-     * @example
-     * ```php
-     * // Analyze immediately (blocking)
-     * $post->analyzeForSEO();
-     *
-     * // Check the results
-     * $score = $post->fresh()->getSEOScore();
-     * ```
-     */
-    public function analyzeForSEO(): void
-    {
-        AnalyzeContentJob::dispatchSync(get_class($this), $this->getKey());
-
-        // Refresh the model to get updated SEO data
-        $this->unsetRelation('seoMeta');
-    }
-
-    /**
-     * Dispatch SEO analysis as a background job.
-     *
-     * @param int $delay Delay in seconds before running
-     * @return void
-     *
-     * @example
-     * ```php
-     * // Queue for background analysis
-     * $post->dispatchAnalysis();
-     *
-     * // With delay
-     * $post->dispatchAnalysis(30); // Analyze in 30 seconds
-     * ```
-     */
-    public function dispatchAnalysis(int $delay = 0): void
-    {
-        $job = AnalyzeContentJob::dispatch(get_class($this), $this->getKey());
-
-        if ($delay > 0) {
-            $job->delay(now()->addSeconds($delay));
-        }
     }
 
     /**
