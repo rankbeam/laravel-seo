@@ -6,7 +6,6 @@ namespace Fibonoir\LaravelSEO\Services;
 
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 use Fibonoir\LaravelSEO\Data\SEOData;
 
 /**
@@ -74,9 +73,22 @@ use Fibonoir\LaravelSEO\Data\SEOData;
 class SEOComputedBuilder
 {
     /**
-     * Maximum length for computed descriptions.
+     * Default maximum length for computed descriptions.
+     *
+     * Override via config('seo.computed.description_max_length').
      */
-    protected const MAX_DESCRIPTION_LENGTH = 155;
+    protected const MAX_DESCRIPTION_LENGTH = 160;
+
+    /**
+     * Minimum fraction of the max length a word boundary must reach for
+     * truncation to cut at the boundary instead of mid-word.
+     */
+    protected const WORD_BOUNDARY_MIN_RATIO = 0.6;
+
+    /**
+     * Characters trimmed from the end of a truncated description.
+     */
+    protected const TRUNCATION_TRIM_CHARS = " \t\n\r\0\x0B,.;:-";
 
     /**
      * Common title fields to check on models.
@@ -140,6 +152,7 @@ class SEOComputedBuilder
         return new SEOData(
             title: $this->computeTitle($model),
             description: $this->computeDescription($model),
+            robots: $this->computeRobots($model),
             ogImage: $this->computeImage($model),
             ogType: $this->computeOgType($model),
             publishedTime: $this->computePublishedTime($model),
@@ -181,6 +194,13 @@ class SEOComputedBuilder
     /**
      * Compute the description from model fields.
      *
+     * Candidate fields are checked in order and the first one yielding
+     * meaningful text (after stripping HTML and decoding entities) wins.
+     * The candidate list is configurable via
+     * config('seo.computed.description_fields') so applications can encode
+     * their own field priorities (e.g. subtitle, abstract, biography)
+     * without subclassing.
+     *
      * @param Model $model The Eloquent model
      * @return string|null Computed description or null
      */
@@ -194,23 +214,67 @@ class SEOComputedBuilder
             }
         }
 
-        // Priority 2: Short text fields (excerpt, summary, etc.)
-        foreach ($this->excerptFields as $field) {
+        // Priority 2: Configured or default candidate field list
+        foreach ($this->descriptionFields() as $field) {
             $value = $this->getModelAttribute($model, $field);
             if (! empty($value) && is_string($value)) {
-                return $this->truncateDescription($value);
-            }
-        }
+                $clean = $this->truncateDescription($value);
 
-        // Priority 3: Long content fields (truncated)
-        foreach ($this->contentFields as $field) {
-            $value = $this->getModelAttribute($model, $field);
-            if (! empty($value) && is_string($value)) {
-                return $this->truncateDescription($value);
+                // Fields holding only markup/whitespace are skipped so a
+                // later candidate can still provide the description.
+                if ($clean !== '') {
+                    return $clean;
+                }
             }
         }
 
         return null;
+    }
+
+    /**
+     * The ordered description candidate fields.
+     *
+     * @return array<int, string>
+     */
+    protected function descriptionFields(): array
+    {
+        $configured = config('seo.computed.description_fields', []);
+
+        if (! empty($configured)) {
+            return $configured;
+        }
+
+        return array_merge($this->excerptFields, $this->contentFields);
+    }
+
+    /**
+     * Compute the robots directive from the model's indexability.
+     *
+     * Models can expose either a getSEORobots() method or an
+     * `is_indexable` attribute. A non-indexable model computes
+     * 'noindex, nofollow'; an explicitly indexable one 'index, follow'.
+     * Explicit robots values stored in seo_meta still win (they are merged
+     * on top of computed values by the resolver).
+     *
+     * @param Model $model The Eloquent model
+     * @return string|null Robots directive or null when the model has no opinion
+     */
+    protected function computeRobots(Model $model): ?string
+    {
+        if (method_exists($model, 'getSEORobots')) {
+            $robots = $model->getSEORobots();
+            if (! empty($robots)) {
+                return $robots;
+            }
+        }
+
+        $indexable = $this->getModelAttribute($model, 'is_indexable');
+
+        if ($indexable === null) {
+            return null;
+        }
+
+        return $indexable ? 'index, follow' : 'noindex, nofollow';
     }
 
     /**
@@ -439,20 +503,39 @@ class SEOComputedBuilder
     /**
      * Truncate and clean text for use as a description.
      *
+     * Strips HTML, decodes entities, collapses whitespace, then truncates
+     * at a word boundary without adding an ellipsis. Search engines ignore
+     * trailing "..." and mid-word cuts read poorly in SERP snippets, so the
+     * cut lands on the last full word within the limit (as long as that
+     * word boundary is at least 60% into the limit; otherwise a hard cut
+     * is used). Trailing punctuation left by the cut is trimmed.
+     *
      * @param string $text The raw text
      * @return string Cleaned and truncated text
      */
     protected function truncateDescription(string $text): string
     {
-        // Strip HTML tags
-        $text = strip_tags($text);
+        // Strip HTML tags, then decode entities (&amp; → &, &agrave; → à)
+        $text = html_entity_decode(strip_tags($text), ENT_QUOTES | ENT_HTML5, 'UTF-8');
 
-        // Normalize whitespace
-        $text = preg_replace('/\s+/', ' ', $text);
+        // Normalize whitespace (including unicode spaces)
+        $text = preg_replace('/\s+/u', ' ', $text);
         $text = trim($text);
 
-        // Truncate to max length
-        return Str::limit($text, self::MAX_DESCRIPTION_LENGTH);
+        $maxLength = (int) config('seo.computed.description_max_length', self::MAX_DESCRIPTION_LENGTH);
+
+        if (mb_strlen($text) <= $maxLength) {
+            return $text;
+        }
+
+        $candidate = mb_substr($text, 0, $maxLength + 1);
+        $lastSpacePosition = mb_strrpos($candidate, ' ');
+
+        if ($lastSpacePosition !== false && $lastSpacePosition >= (int) floor($maxLength * self::WORD_BOUNDARY_MIN_RATIO)) {
+            return rtrim(mb_substr($candidate, 0, $lastSpacePosition), self::TRUNCATION_TRIM_CHARS);
+        }
+
+        return rtrim(mb_substr($text, 0, $maxLength), self::TRUNCATION_TRIM_CHARS);
     }
 
     /**

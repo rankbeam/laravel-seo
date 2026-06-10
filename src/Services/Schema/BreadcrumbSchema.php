@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Fibonoir\LaravelSEO\Services\Schema;
 
+use Closure;
+use Illuminate\Database\Eloquent\Model;
+
 /**
  * Builder for BreadcrumbList JSON-LD schema.
  *
@@ -92,6 +95,94 @@ class BreadcrumbSchema
         }
 
         return $schema;
+    }
+
+    /**
+     * Build a breadcrumb from a page-like model's ancestor chain.
+     *
+     * Walks the model's `parent` relation (via `parent_id`) up to the root,
+     * producing Home → ancestors → page. Returns null when no breadcrumb
+     * should be rendered: for the home page itself (slug '/') and for pages
+     * without ancestors.
+     *
+     * The walk is guarded against parent loops (a page whose ancestor chain
+     * cycles back, e.g. via bad CMS data): each parent_id is visited at most
+     * once, so a cycle terminates instead of recursing forever. Ancestors
+     * with slug '/' are skipped because Home is already prepended.
+     *
+     * @param Model $page The page model (expects parent_id / parent relation)
+     * @param Closure|null $name Resolves an item label (default: title ?? name)
+     * @param Closure|null $url Resolves an item URL (default: getUrlForSEO() ?? url attribute)
+     * @param string $homeLabel Label for the prepended home item
+     *
+     * @example
+     * ```php
+     * $schema = BreadcrumbSchema::fromModelAncestors($page)?->toArray();
+     * ```
+     */
+    public static function fromModelAncestors(
+        Model $page,
+        ?Closure $name = null,
+        ?Closure $url = null,
+        string $homeLabel = 'Home',
+    ): ?self {
+        $name ??= fn (Model $item): string => (string) ($item->title ?? $item->name ?? '');
+        $url ??= fn (Model $item): string => method_exists($item, 'getUrlForSEO')
+            ? (string) $item->getUrlForSEO()
+            : (string) ($item->url ?? '');
+
+        if (($page->slug ?? null) === '/') {
+            return null;
+        }
+
+        $ancestors = self::ancestorsOf($page);
+
+        if ($ancestors === []) {
+            return null;
+        }
+
+        $schema = new self();
+        $schema->addItem($homeLabel, url('/'));
+
+        foreach ($ancestors as $ancestor) {
+            if (($ancestor->slug ?? null) === '/') {
+                continue;
+            }
+
+            $schema->addItem($name($ancestor), $url($ancestor));
+        }
+
+        $schema->addItem($name($page), $url($page));
+
+        return $schema;
+    }
+
+    /**
+     * Collect the ancestor chain (root first), guarding against loops.
+     *
+     * @return array<int, Model>
+     */
+    protected static function ancestorsOf(Model $page): array
+    {
+        $ancestors = [];
+        $visited = [];
+
+        while ($page->parent_id !== null && ! in_array($page->parent_id, $visited, true)) {
+            $visited[] = $page->parent_id;
+
+            $parent = $page->relationLoaded('parent')
+                ? $page->getRelation('parent')
+                : $page->parent()->first();
+
+            if (! $parent instanceof Model) {
+                break;
+            }
+
+            array_unshift($ancestors, $parent);
+            $page = $parent;
+        }
+
+        return $ancestors;
     }
 
     /**

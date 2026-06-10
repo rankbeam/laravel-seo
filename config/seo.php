@@ -101,6 +101,39 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Computed Values
+    |--------------------------------------------------------------------------
+    |
+    | Settings for the SEOComputedBuilder, which derives fallback SEO values
+    | from model attributes when no explicit SEO data is set.
+    |
+    */
+
+    'computed' => [
+
+        /*
+         * Ordered list of model attributes checked when computing a meta
+         * description. The first attribute containing meaningful text (after
+         * stripping HTML and decoding entities) wins. Leave empty to use the
+         * built-in defaults (excerpt, summary, description, intro, lead,
+         * teaser, content, body, text, article).
+         *
+         * Example for a medical site:
+         * ['subtitle', 'pathology_description', 'description', 'abstract',
+         *  'content', 'biography', 'training']
+         */
+        'description_fields' => [],
+
+        /*
+         * Maximum length for computed descriptions. Text is truncated at a
+         * word boundary (no ellipsis) and trailing punctuation is trimmed.
+         */
+        'description_max_length' => 160,
+
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Sitemap Generation
     |--------------------------------------------------------------------------
     |

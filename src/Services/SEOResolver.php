@@ -326,6 +326,11 @@ class SEOResolver
      * 1. Model's getUrlForSEO() method (if available)
      * 2. Current request URL (fallback)
      *
+     * Derived canonicals always have their query string stripped: query
+     * parameters (tracking, pagination, filters) create duplicate-content
+     * canonical targets. An explicitly set canonical (admin-entered or from
+     * a higher layer) is preserved verbatim, query string included.
+     *
      * Also sets og:url if not already set.
      *
      * @param SEOData $seoData Current SEO data
@@ -350,7 +355,7 @@ class SEOResolver
             $canonical = $model->getUrlForSEO();
         }
 
-        // Fallback to current URL (strip query string for clean canonical)
+        // Fallback to current URL
         if (! $canonical && request()) {
             $canonical = url()->current();
         }
@@ -358,6 +363,9 @@ class SEOResolver
         if (! $canonical) {
             return $seoData;
         }
+
+        // Strip query string for a clean canonical
+        $canonical = strtok($canonical, '?') ?: $canonical;
 
         // Apply both canonical and og:url
         $result = $seoData->with('canonical', $canonical);
