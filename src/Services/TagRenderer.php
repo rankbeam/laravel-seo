@@ -52,6 +52,23 @@ use Fibonoir\LaravelSEO\Data\SEOData;
 class TagRenderer
 {
     /**
+     * json_encode flags for JSON-LD output.
+     *
+     * The JSON-LD payload is emitted inside a <script> element, where
+     * HTML entity escaping is not applied. JSON_HEX_TAG encodes `<` and
+     * `>` as unicode escape sequences, so a value containing `</script>`
+     * can never terminate the script element early (XSS). The other JSON_HEX_*
+     * flags harden the payload for any attribute/HTML context it may
+     * be echoed into by consumers of toArray().
+     */
+    protected const SCHEMA_JSON_FLAGS = JSON_UNESCAPED_SLASHES
+        | JSON_UNESCAPED_UNICODE
+        | JSON_HEX_TAG
+        | JSON_HEX_AMP
+        | JSON_HEX_APOS
+        | JSON_HEX_QUOT;
+
+    /**
      * Render SEO data as complete HTML meta tags.
      *
      * Returns a string containing all SEO-related HTML tags ready to be
@@ -243,7 +260,7 @@ class TagRenderer
         if ($seo->schemaJsonld) {
             $script[] = [
                 'type' => 'application/ld+json',
-                'innerHTML' => json_encode($seo->schemaJsonld, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
+                'innerHTML' => json_encode($seo->schemaJsonld, self::SCHEMA_JSON_FLAGS),
             ];
         }
 
@@ -314,7 +331,7 @@ class TagRenderer
 
         $json = json_encode(
             $seo->schemaJsonld,
-            JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
+            self::SCHEMA_JSON_FLAGS | JSON_PRETTY_PRINT
         );
 
         return '<script type="application/ld+json">' . $json . '</script>';
