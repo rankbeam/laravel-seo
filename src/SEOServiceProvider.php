@@ -11,6 +11,7 @@ use Fibonoir\LaravelSEO\Console\Commands\SitemapCommand;
 use Fibonoir\LaravelSEO\Services\SEOComputedBuilder;
 use Fibonoir\LaravelSEO\Services\SEODefaultsRepository;
 use Fibonoir\LaravelSEO\Services\SEOResolver;
+use Fibonoir\LaravelSEO\Services\Sitemap\SitemapRegistry;
 use Fibonoir\LaravelSEO\Services\TagRenderer;
 
 class SEOServiceProvider extends ServiceProvider
@@ -24,6 +25,7 @@ class SEOServiceProvider extends ServiceProvider
         SEODefaultsRepository::class => SEODefaultsRepository::class,
         SEOComputedBuilder::class => SEOComputedBuilder::class,
         TagRenderer::class => TagRenderer::class,
+        SitemapRegistry::class => SitemapRegistry::class,
     ];
 
     /**
@@ -106,6 +108,12 @@ class SEOServiceProvider extends ServiceProvider
      */
     protected function registerRoutes(): void
     {
+        // Allow applications to opt out of all package routes (e.g. when
+        // serving a statically generated /sitemap.xml themselves).
+        if (! config('seo.routes.enabled', true)) {
+            return;
+        }
+
         // Web routes (sitemap, etc.)
         if (file_exists(__DIR__ . '/../routes/web.php')) {
             Route::group($this->routeConfiguration(), function () {
@@ -384,6 +392,7 @@ class SEOServiceProvider extends ServiceProvider
             TagRenderer::class,
             SEODefaultsRepository::class,
             SEOComputedBuilder::class,
+            SitemapRegistry::class,
             'seo',
         ];
     }

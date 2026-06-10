@@ -61,6 +61,31 @@ class SitemapBuilder
     protected int $maxUrlsPerSitemap = 50000;
 
     /**
+     * Registry of programmatically registered sitemap sources.
+     */
+    protected SitemapRegistry $registry;
+
+    /**
+     * Create a new sitemap builder.
+     *
+     * The container injects the shared SitemapRegistry singleton, so
+     * sources registered via SEO::sitemaps()->register(...) are visible
+     * to every builder instance.
+     */
+    public function __construct(?SitemapRegistry $registry = null)
+    {
+        $this->registry = $registry ?? new SitemapRegistry();
+    }
+
+    /**
+     * Get the registry of named sitemap sources.
+     */
+    public function sitemaps(): SitemapRegistry
+    {
+        return $this->registry;
+    }
+
+    /**
      * Generate and write all sitemaps.
      */
     public function generate(): void
@@ -95,16 +120,18 @@ class SitemapBuilder
     public function build(): SitemapIndex|Sitemap
     {
         $modelsConfig = $this->getModelsConfig();
+        $registered = $this->registry->sources();
 
-        if (empty($modelsConfig)) {
+        if (empty($modelsConfig) && empty($registered)) {
             return Sitemap::create();
         }
 
         $totalUrls = $this->countTotalUrls($modelsConfig);
         $maxUrls = config('seo.sitemap.max_urls_per_sitemap', $this->maxUrlsPerSitemap);
 
-        // Use index if we have multiple models or too many URLs
-        if (count($modelsConfig) > 1 || $totalUrls > $maxUrls) {
+        // Use index if we have registered sources (each gets its own
+        // sitemap-{name}.xml), multiple models, or too many URLs.
+        if (! empty($registered) || count($modelsConfig) > 1 || $totalUrls > $maxUrls) {
             return $this->buildSitemapIndex($modelsConfig);
         }
 
@@ -224,7 +251,93 @@ class SitemapBuilder
             $index->add($url, $lastMod);
         }
 
+        // Registered named sources
+        foreach ($this->registry->names() as $name) {
+            $index->add(url("sitemap-{$name}.xml"));
+        }
+
         return $index;
+    }
+
+    /**
+     * Build a sitemap for a registered named source.
+     *
+     * @throws \InvalidArgumentException When the name is not registered
+     */
+    public function buildSourceSitemap(string $name): Sitemap
+    {
+        $source = $this->registry->get($name);
+
+        // Eloquent model class: reuse the model pipeline (publish checks,
+        // noindex exclusion, priority/changefreq, chunking).
+        if (is_string($source)) {
+            return $this->buildModelSitemap($source, []);
+        }
+
+        if ($source instanceof \Closure) {
+            $source = $source();
+        }
+
+        $sitemap = Sitemap::create();
+        $maxUrls = config('seo.sitemap.max_urls_per_sitemap', $this->maxUrlsPerSitemap);
+        $count = 0;
+
+        foreach ($source as $item) {
+            if ($count >= $maxUrls) {
+                break;
+            }
+
+            $url = $this->normalizeSourceItem($item);
+
+            if ($url) {
+                $sitemap->add($url);
+                $count++;
+            }
+        }
+
+        return $sitemap;
+    }
+
+    /**
+     * Normalize a single source item to a Url tag.
+     *
+     * Accepts Spatie Url tags, Eloquent models (run through the standard
+     * model URL pipeline), URL strings (relative paths are made absolute),
+     * and arrays with a 'url' key plus optional lastmod/priority/changefreq.
+     */
+    protected function normalizeSourceItem(mixed $item): ?Url
+    {
+        if ($item instanceof Url) {
+            return $item;
+        }
+
+        if ($item instanceof Model) {
+            return $this->shouldInclude($item) ? $this->buildUrl($item, []) : null;
+        }
+
+        if (is_string($item) && $item !== '') {
+            return Url::create($this->absoluteUrl($item));
+        }
+
+        if (is_array($item) && ! empty($item['url'])) {
+            $item['url'] = $this->absoluteUrl($item['url']);
+
+            return $this->createUrlFromArray($item, []);
+        }
+
+        return null;
+    }
+
+    /**
+     * Turn a relative path into an absolute URL; pass absolute URLs through.
+     */
+    protected function absoluteUrl(string $url): string
+    {
+        if (str_starts_with($url, 'http://') || str_starts_with($url, 'https://')) {
+            return $url;
+        }
+
+        return url($url);
     }
 
     /**
@@ -481,6 +594,14 @@ class SitemapBuilder
             $storage->put($filename, $sitemap->render());
         }
 
+        // Write registered named sources
+        foreach ($this->registry->names() as $name) {
+            $storage->put(
+                "sitemap-{$name}.xml",
+                $this->buildSourceSitemap($name)->render()
+            );
+        }
+
         // Write index
         $indexPath = $this->getSitemapPath('index');
         $storage->put($indexPath, $index->render());
@@ -564,6 +685,15 @@ class SitemapBuilder
         foreach (array_keys($modelsConfig) as $modelClass) {
             $slug = $this->getModelSlug($modelClass);
             $filename = "sitemap-{$slug}.xml";
+
+            if ($storage->exists($filename)) {
+                $storage->delete($filename);
+            }
+        }
+
+        // Delete registered source sitemaps
+        foreach ($this->registry->names() as $name) {
+            $filename = "sitemap-{$name}.xml";
 
             if ($storage->exists($filename)) {
                 $storage->delete($filename);

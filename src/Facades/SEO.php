@@ -19,6 +19,7 @@ use Fibonoir\LaravelSEO\Services\SEOResolver;
  * @method static SEOData resolveWithOverrides(SEOData $base, array $overrides)
  * @method static string render(?Model $model = null, ?string $route = null, ?string $locale = null)
  * @method static array toArray(?Model $model = null, ?string $route = null, ?string $locale = null)
+ * @method static \Fibonoir\LaravelSEO\Services\Sitemap\SitemapRegistry sitemaps()
  *
  * @see \Fibonoir\LaravelSEO\Services\SEOResolver
  */

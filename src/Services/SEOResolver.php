@@ -370,6 +370,22 @@ class SEOResolver
     }
 
     /**
+     * Get the registry of named sitemap sources.
+     *
+     * Exposed here so the SEO facade (whose root is this resolver) can
+     * offer `SEO::sitemaps()->register($name, $source)`.
+     *
+     * @example
+     * ```php
+     * SEO::sitemaps()->register('pages', fn () => ['/about', '/contact']);
+     * ```
+     */
+    public function sitemaps(): \Fibonoir\LaravelSEO\Services\Sitemap\SitemapRegistry
+    {
+        return app(\Fibonoir\LaravelSEO\Services\Sitemap\SitemapRegistry::class);
+    }
+
+    /**
      * Resolve SEO data for multiple models at once.
      *
      * Useful for sitemap generation or listing pages where you need

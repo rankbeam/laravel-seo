@@ -230,6 +230,13 @@ return [
     'routes' => [
 
         /*
+         * Master switch for all package routes (sitemap.xml, sitemap-{name}.xml,
+         * and any API endpoints). Disable when your application serves its own
+         * sitemap (e.g. a statically generated file) to avoid route collisions.
+         */
+        'enabled' => env('SEO_ROUTES_ENABLED', true),
+
+        /*
          * Prefix for web routes (sitemap, robots, etc.).
          * Leave empty for root-level routes.
          */

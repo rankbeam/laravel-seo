@@ -1,23 +1,17 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | SEO Package API Routes
 |--------------------------------------------------------------------------
 |
-| These routes are loaded by the SEOServiceProvider. They provide
-| API endpoints for the SEO suite, including content analysis
-| and management endpoints.
+| These routes are loaded by the SEOServiceProvider inside a route group
+| that already applies config('seo.routes.api_prefix') (default 'api/seo')
+| and config('seo.routes.api_middleware') — do NOT wrap routes here in
+| another prefix/middleware group, or the prefix is applied twice
+| (api/seo/api/seo/...).
+|
+| The core package currently registers no API routes; this file exists so
+| route registration stays uniform when endpoints are added.
 |
 */
-
-Route::prefix('api/seo')->middleware(['api'])->group(function () {
-    // Routes will be added in subsequent phases:
-    // - Content analysis endpoint (P.2)
-    // - Redirect management API (P.3)
-    // - 404 log management API (P.3)
-    // - Scanner status API (P.3)
-    // - Analytics data API (P.3)
-});
