@@ -155,6 +155,13 @@ class SitemapBuilder
             return $this->normalizeModelsConfig($configured);
         }
 
+        // Registering named sources is an explicit choice of sitemap
+        // contents — auto-discovery would duplicate those models under a
+        // second filename (sitemap-post.xml vs sitemap-posts.xml).
+        if (! empty($this->registry->sources())) {
+            return [];
+        }
+
         // Auto-discover models with HasSEO or Sitemapable
         return $this->discoverModels();
     }
