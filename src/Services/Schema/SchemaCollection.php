@@ -38,6 +38,22 @@ use Closure;
 class SchemaCollection
 {
     /**
+     * json_encode flags for JSON-LD output.
+     *
+     * Inside a <script> element no HTML entity escaping applies, so a value
+     * containing `</script>` could terminate the element early (XSS).
+     * JSON_HEX_TAG encodes `<` and `>` as unicode escapes to prevent that;
+     * the other JSON_HEX_* flags harden the payload for attribute contexts.
+     * Same flags as TagRenderer::SCHEMA_JSON_FLAGS.
+     */
+    protected const JSON_FLAGS = JSON_UNESCAPED_SLASHES
+        | JSON_UNESCAPED_UNICODE
+        | JSON_HEX_TAG
+        | JSON_HEX_AMP
+        | JSON_HEX_APOS
+        | JSON_HEX_QUOT;
+
+    /**
      * Collection of schemas.
      *
      * @var array<int, array<string, mixed>>
@@ -185,10 +201,10 @@ class SchemaCollection
         }
 
         if (count($this->schemas) === 1) {
-            return json_encode($this->schemas[0], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) ?: '{}';
+            return json_encode($this->schemas[0], self::JSON_FLAGS | JSON_PRETTY_PRINT) ?: '{}';
         }
 
-        return json_encode($this->schemas, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) ?: '[]';
+        return json_encode($this->schemas, self::JSON_FLAGS | JSON_PRETTY_PRINT) ?: '[]';
     }
 
     /**
