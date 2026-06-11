@@ -53,8 +53,8 @@ describe('SEOResolver', function () {
 
             $result = $this->resolver->resolve(null, null, 'en');
 
-            // Should have global default og image
-            expect($result->ogImage)->toBe('/global-default.jpg')
+            // Should have global default og image (absolutized post-resolution)
+            expect($result->ogImage)->toBe('http://localhost/global-default.jpg')
                 ->and($result->robots)->toBe('index,follow');
         });
 
@@ -97,7 +97,7 @@ describe('SEOResolver', function () {
             $result = $this->resolver->resolve($model, null, 'en');
 
             expect($result->ogType)->toBe('article')  // Model type default applied
-                ->and($result->ogImage)->toBe('/global.jpg');  // Global preserved
+                ->and($result->ogImage)->toBe('http://localhost/global.jpg');  // Global preserved (absolutized)
         });
 
         it('route defaults override model type', function () {
@@ -203,7 +203,7 @@ describe('SEOResolver', function () {
 
             expect($result->title)->toContain('Explicit SEO Title')   // Explicit wins
                 ->and($result->description)->toBe('Computed description')  // Computed preserved
-                ->and($result->ogImage)->toBe('/explicit.jpg');        // Explicit wins
+                ->and($result->ogImage)->toBe('http://localhost/explicit.jpg');        // Explicit wins (absolutized)
         });
 
         it('applies title suffix', function () {

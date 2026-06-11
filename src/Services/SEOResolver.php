@@ -125,9 +125,10 @@ class SEOResolver
             $result = $this->applyExplicitValues($result, $model);
         }
 
-        // Post-processing: Apply title suffix and ensure canonical
+        // Post-processing: Apply title suffix, ensure canonical, absolutize images
         $result = $this->applyTitleSuffix($result);
         $result = $this->ensureCanonical($result, $model);
+        $result = $this->ensureAbsoluteImages($result);
 
         return $result;
     }
@@ -375,6 +376,58 @@ class SEOResolver
         }
 
         return $result;
+    }
+
+    /**
+     * Ensure social-share image URLs are absolute.
+     *
+     * The OG spec requires og:image to be a full URL. Computed fallbacks are
+     * already absolutized by SEOComputedBuilder, but explicit values (admin
+     * panels store paths like `/images/share.jpg`) and database defaults
+     * arrive verbatim — normalize every winning value at the end of the
+     * chain so the rendered output is consistent regardless of which layer
+     * produced it.
+     *
+     * @param SEOData $seoData Current SEO data
+     * @return SEOData SEO data with absolute ogImage/twitterImage
+     */
+    protected function ensureAbsoluteImages(SEOData $seoData): SEOData
+    {
+        foreach (['ogImage', 'twitterImage'] as $field) {
+            $value = $seoData->{$field};
+
+            if ($value === null || $value === '') {
+                continue;
+            }
+
+            $absolute = $this->absolutizeUrl($value);
+
+            if ($absolute !== $value) {
+                $seoData = $seoData->with($field, $absolute);
+            }
+        }
+
+        return $seoData;
+    }
+
+    /**
+     * Make a possibly-relative URL absolute against the app URL.
+     *
+     * Mirrors SEOComputedBuilder::normalizeImageUrl() so explicit and
+     * computed values normalize identically.
+     */
+    protected function absolutizeUrl(string $url): string
+    {
+        if (str_starts_with($url, 'http://') || str_starts_with($url, 'https://')) {
+            return $url;
+        }
+
+        // Protocol-relative URL
+        if (str_starts_with($url, '//')) {
+            return 'https:' . $url;
+        }
+
+        return url($url);
     }
 
     /**
