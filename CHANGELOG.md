@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [2.0.0] - TBD
+## [2.0.0] - 2026-06-12
 
 First release under the `rankbeam` vendor. v2 is the focused "core": meta
 resolution, rendering, JSON-LD, and sitemaps. Everything else moved to
@@ -67,6 +67,10 @@ dedicated packages — see [UPGRADING.md](UPGRADING.md) for the full map.
 
 - Sitemap index no longer lists duplicate files when named sources cover a
   model that auto-discovery would also pick up.
+- The defaults repository no longer disables database defaults for the whole
+  PHP process if it ever ran before the `seo_defaults` table existed (the
+  table check latched `false` in a process-wide static — long-running
+  queue/Octane workers could permanently lose DB defaults).
 
 ### Security
 
