@@ -40,3 +40,6 @@ storage/logs/*.log
 *.temp
 *.bak
 *.backup
+node_modules/
+docs/.vitepress/dist/
+docs/.vitepress/cache/
