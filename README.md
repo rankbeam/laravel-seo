@@ -1,12 +1,12 @@
 # Laravel SEO (core)
 
+[![Tests](https://github.com/rankbeam/laravel-seo/actions/workflows/tests.yml/badge.svg)](https://github.com/rankbeam/laravel-seo/actions/workflows/tests.yml)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/rankbeam/laravel-seo.svg?style=flat-square)](https://packagist.org/packages/rankbeam/laravel-seo)
-[![Total Downloads](https://img.shields.io/packagist/dt/rankbeam/laravel-seo.svg?style=flat-square)](https://packagist.org/packages/rankbeam/laravel-seo)
-[![License](https://img.shields.io/packagist/l/rankbeam/laravel-seo.svg?style=flat-square)](https://packagist.org/packages/rankbeam/laravel-seo)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE.md)
 
 SEO core for Laravel: meta tag resolution with a layered precedence chain, Open Graph / Twitter Cards, JSON-LD schema markup with a linked `@id` graph, and XML sitemap generation.
 
-> **Status note:** the published Packagist release (`v1.0.0`, 2026-01-13) is the old "full suite" version. `master` has since been carved down to the core described below; the analyzer, scanner, redirect manager, 404 monitor, analytics, and UI stubs were removed from the shipped surface and live on as separate packages (`laravel-seo-filament`, free; `laravel-seo-pro`, commercial).
+> **Upgrading from `fibonoir/laravel-seo` v1?** See [UPGRADING.md](UPGRADING.md) — v2 renames the vendor and carves the old "full suite" down to this core; the analyzer, scanner, redirect manager, 404 monitor, and admin UI live on as separate packages ([`laravel-seo-filament`](https://github.com/rankbeam/laravel-seo-filament), free; `laravel-seo-pro`, commercial).
 
 ## What this package does
 
@@ -25,8 +25,8 @@ SEO core for Laravel: meta tag resolution with a layered precedence chain, Open 
 ## Requirements
 
 - PHP 8.2+
-- Laravel 11 or 12 (CI runs the full matrix; primary development is on 12)
-- `spatie/laravel-sitemap` ^7.0 (suggested, required for sitemap generation)
+- Laravel 11, 12, or 13 (CI runs the full matrix; Laravel 13 requires PHP 8.3+)
+- `spatie/laravel-sitemap` ^7.0 or ^8.0 (suggested, required for sitemap generation)
 
 ## Installation
 
@@ -87,6 +87,14 @@ Sitemap sources:
 SEO::sitemaps()->register('pages', fn () => ['/about', '/contact']);
 ```
 
+Then generate the files (requires `spatie/laravel-sitemap`) — the package's
+`/sitemap.xml` route serves what this command writes:
+
+```bash
+composer require spatie/laravel-sitemap
+php artisan seo:sitemap
+```
+
 Serving your own static `/sitemap.xml`? Disable the package routes:
 
 ```php
@@ -96,7 +104,7 @@ Serving your own static `/sitemap.xml`? Disable the package routes:
 
 ## Test status
 
-`vendor/bin/pest` on `master`: **185 passed (418 assertions), 0 failed** under PHP 8.4 / Laravel 12.
+`vendor/bin/pest` on `master`: **185 passed (418 assertions), 0 failed** under PHP 8.4 / Laravel 13 (CI matrix: PHP 8.2–8.4 × Laravel 11/12/13).
 
 ```bash
 git clone https://github.com/rankbeam/laravel-seo.git

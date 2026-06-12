@@ -1,0 +1,8 @@
+# Keep composer dists lean: exclude development-only files from archives.
+/.gitattributes export-ignore
+/.github export-ignore
+/.gitignore export-ignore
+/docs export-ignore
+/tests export-ignore
+
+* text=auto

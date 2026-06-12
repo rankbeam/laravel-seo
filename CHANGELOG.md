@@ -1,33 +1,84 @@
 # Changelog
 
-All notable changes to `laravel-seo` will be documented in this file.
+All notable changes to `rankbeam/laravel-seo` are documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.0.0] - TBD
+
+First release under the `rankbeam` vendor. v2 is the focused "core": meta
+resolution, rendering, JSON-LD, and sitemaps. Everything else moved to
+dedicated packages — see [UPGRADING.md](UPGRADING.md) for the full map.
+
+### Changed
+
+- **Breaking:** package renamed from `fibonoir/laravel-seo` to
+  `rankbeam/laravel-seo`; PHP namespace renamed from `Fibonoir\LaravelSEO`
+  to `Rankbeam\Seo`. No class names changed — update imports and re-publish
+  the config.
+- **Breaking:** derived canonicals (model URL / current URL) now strip the
+  query string; explicitly set canonicals are preserved verbatim.
+- **Breaking:** `og:image` and `twitter:image` are always emitted as absolute
+  URLs, regardless of which resolver layer produced the value (the OG spec
+  requires absolute URLs; v1 emitted manual values verbatim).
+- Description fallbacks are normalized (HTML stripped, entities decoded) and
+  truncated at a word boundary; candidate attributes are configurable via
+  `seo.computed.description_fields` and `seo.computed.description_max_length`.
+- Sitemap model auto-discovery is skipped for models already covered by a
+  named registered source, so registering `'posts'` no longer produces a
+  duplicate `sitemap-post.xml` alongside `sitemap-posts.xml`.
+
 ### Added
 
--   Initial package structure
--   SEOServiceProvider with full configuration
--   SEO Facade with resolve(), forRoute(), render(), toArray() methods
--   HasSEO trait for Eloquent models
--   SEOData value object with merge support
--   SEOResolver with 5-layer precedence chain
--   TagRenderer for HTML and array output
--   Content Analyzer foundation
--   Stemmer, Tokenizer, StopWords, TransitionWords support classes
--   ReadabilityCalculator (Flesch-Kincaid + Gulpease)
--   RedirectMiddleware for URL redirects
--   Log404Middleware for 404 monitoring
--   Interactive InstallCommand
--   Database migrations for 8 tables
--   Blade directives: @seo, @seoForRoute, @seoTitle, @seoMeta, @seoSchema
+- Laravel 13 support (`illuminate/* ^11.0|^12.0|^13.0`; Laravel 13 requires
+  PHP 8.3+).
+- `SEO::sitemaps()->register($name, $source)` — programmatic named sitemap
+  sources (model classes, closures, or URL arrays) rendered as
+  `sitemap-{name}.xml` plus a sitemap index.
+- `config('seo.routes.enabled')` — disable the package's `/sitemap.xml`
+  routes when serving your own.
+- `SEOWarningEvaluator` — title/description length warnings (60/160),
+  manual-vs-fallback indicators, and social-image dimension checks for
+  admin UIs.
+- `SchemaGraph` — Organization/WebSite/WebPage JSON-LD nodes cross-linked
+  via stable `@id`s.
+- `BreadcrumbSchema::fromModelAncestors()` with an ancestor-loop guard.
+- Robots meta can derive from an `is_indexable` model attribute.
 
-### Coming Soon
+### Removed
 
--   32 SEO analysis rules
--   Sitewide scanner
--   Sitemap generation (with spatie/laravel-sitemap)
--   Schema markup builders
--   GA4 analytics integration
--   Internal linking suggestions
--   Filament/Livewire/Vue/React frontend components
+- **Breaking:** content analyzer (32 rules), readability/stemmer/tokenizer
+  support classes, and the `wamania/php-stemmer` dependency.
+- **Breaking:** sitewide scanner, redirect manager, 404 monitor, GA4
+  analytics, and internal-link suggestions — these live in
+  `rankbeam/laravel-seo-pro` (commercial).
+- **Breaking:** the `seo:install` stub-publishing flow and all Filament 3 /
+  Livewire / Vue / React stubs — Filament admin fields live in
+  `rankbeam/laravel-seo-filament` (free).
+- **Breaking:** migrations for `seo_redirects`, `seo_404_logs`,
+  `seo_scan_runs`, `seo_scan_issues`, `seo_analytics_cache`, and
+  `seo_internal_links_index`. The core ships only `seo_meta` and
+  `seo_defaults`.
+
+### Fixed
+
+- Sitemap index no longer lists duplicate files when named sources cover a
+  model that auto-discovery would also pick up.
+
+### Security
+
+- JSON-LD output (`TagRenderer` and `SchemaCollection::toScript()/toJson()`)
+  is encoded with `JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP`,
+  so `</script>` in user content cannot break out of the script element.
+
+## [1.0.0] - 2026-01-13
+
+Initial release as `fibonoir/laravel-seo` (the old "full suite" package:
+core + analyzer + scanner + redirects + 404 monitor + analytics + UI stubs).
+
+[Unreleased]: https://github.com/rankbeam/laravel-seo/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/rankbeam/laravel-seo/releases/tag/v2.0.0
+[1.0.0]: https://github.com/Fibonoir/laravel-seo/releases/tag/v1.0.0
