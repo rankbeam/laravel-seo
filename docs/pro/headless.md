@@ -24,6 +24,13 @@ convenience; these commands are its headless counterpart.
 | `seo-pro:redirects-flush-hits` | Write cache-batched redirect hit counters to the database |
 | `seo-pro:404-prune` | Delete stale 404 entries and enforce the row cap |
 
+### AI assist (beta)
+
+| Command | What it does |
+|---|---|
+| `seo-pro:ai-suggest {model} {id}` | Title/description suggestions as JSON (`--field=title\|description\|all`) — see [AI assist](/pro/ai-assist) |
+| `seo-pro:ai-suggest --issue={id}` | Plain-language fix explanation for a scan issue, as JSON |
+
 ### Resolving a 404 in one step
 
 `--from-404={path}` is the headless version of the 404 monitor's one-click

@@ -53,6 +53,7 @@ export default defineConfig({
         items: [
           { text: 'Installing Pro', link: '/pro/installation' },
           { text: 'Headless usage', link: '/pro/headless' },
+          { text: 'AI assist (beta)', link: '/pro/ai-assist' },
         ],
       },
       {
