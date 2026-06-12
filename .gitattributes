@@ -4,6 +4,7 @@
 /.gitignore export-ignore
 /docs export-ignore
 /tests export-ignore
+/phpunit.xml export-ignore
 
 * text=auto
 /.node-version export-ignore

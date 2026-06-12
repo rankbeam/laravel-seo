@@ -54,6 +54,11 @@ class SEODefaultsRepository
     protected const CACHE_TTL = 3600;
 
     /**
+     * Whether the seo_defaults table is known to exist (per instance).
+     */
+    protected bool $tableExists = false;
+
+    /**
      * Get global defaults for a locale.
      *
      * Global defaults apply to all pages as a fallback.
@@ -321,17 +326,18 @@ class SEODefaultsRepository
      */
     protected function tableExists(): bool
     {
-        static $exists = null;
-
-        if ($exists === null) {
-            try {
-                $exists = Schema::hasTable('seo_defaults');
-            } catch (\Exception) {
-                $exists = false;
-            }
+        // Memoize per instance, and only the positive result: a process-wide
+        // static latching `false` would permanently disable DB defaults for
+        // long-running workers (queue/Octane) that booted before migrations.
+        if ($this->tableExists) {
+            return true;
         }
 
-        return $exists;
+        try {
+            return $this->tableExists = Schema::hasTable('seo_defaults');
+        } catch (\Exception) {
+            return false;
+        }
     }
 
     /**
