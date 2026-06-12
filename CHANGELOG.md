@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.1] - TBD
+
+### Fixed
+
+- SEO defaults are cached as plain arrays instead of objects.
+  Laravel 13 ships `cache.serializable_classes => false`, under which
+  cached objects come back as `__PHP_Incomplete_Class` — any app using
+  SEO defaults with a persistent cache store (database is the Laravel 13
+  default) got a 500 once a defaults row existed. Stale object-format
+  cache entries are detected and dropped automatically.
+
 ## [2.0.0] - 2026-06-12
 
 First release under the `rankbeam` vendor. v2 is the focused "core": meta
