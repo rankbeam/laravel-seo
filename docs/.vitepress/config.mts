@@ -13,6 +13,7 @@ export default defineConfig({
       { text: 'Guide', link: '/guide/installation' },
       { text: 'Concepts', link: '/concepts/resolver-precedence' },
       { text: 'Filament', link: '/guide/filament' },
+      { text: 'Pro', link: '/pro/installation' },
       { text: 'Blog', link: '/blog/canonical-urls-in-laravel' },
       {
         text: 'v2.0',
@@ -45,6 +46,13 @@ export default defineConfig({
           { text: 'Schema graph (JSON-LD)', link: '/guide/schema' },
           { text: 'Sitemap registry', link: '/guide/sitemaps' },
           { text: 'Filament admin fields', link: '/guide/filament' },
+        ],
+      },
+      {
+        text: 'Pro',
+        items: [
+          { text: 'Installing Pro', link: '/pro/installation' },
+          { text: 'Headless usage', link: '/pro/headless' },
         ],
       },
       {

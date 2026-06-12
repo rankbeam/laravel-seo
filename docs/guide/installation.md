@@ -45,4 +45,4 @@ fight the v2 config.
 | Package | What it adds | License |
 |---|---|---|
 | [`rankbeam/laravel-seo-filament`](https://github.com/rankbeam/laravel-seo-filament) | SEO section for Filament 4/5 resource forms | MIT |
-| `rankbeam/laravel-seo-pro` | Queued site scans, SEO dashboard, redirect manager, 404 monitor | Commercial |
+| [`rankbeam/laravel-seo-pro`](/pro/installation) | Queued site scans, redirect manager, 404 monitor — on any Laravel app, with an optional Filament dashboard | Commercial |
