@@ -43,8 +43,8 @@ use Rankbeam\Seo\Models\SEODefault;
  * All defaults are cached for performance. Cache is automatically
  * invalidated when SEODefault models are saved/deleted.
  *
- * @see \Rankbeam\Seo\Models\SEODefault For the Eloquent model
- * @see \Rankbeam\Seo\Services\SEOResolver For how defaults are used
+ * @see SEODefault For the Eloquent model
+ * @see SEOResolver For how defaults are used
  */
 class SEODefaultsRepository
 {
@@ -64,7 +64,7 @@ class SEODefaultsRepository
      * Global defaults apply to all pages as a fallback.
      * Typically set site-wide title template and default og:image.
      *
-     * @param string $locale The locale code (e.g., 'en', 'de')
+     * @param  string  $locale  The locale code (e.g., 'en', 'de')
      * @return SEOData|null Global defaults or null if not set
      *
      * @example
@@ -84,8 +84,8 @@ class SEODefaultsRepository
      * Model-type defaults apply to all instances of a model class.
      * For example, all Posts could have og:type='article' by default.
      *
-     * @param Model $model The Eloquent model instance
-     * @param string $locale The locale code
+     * @param  Model  $model  The Eloquent model instance
+     * @param  string  $locale  The locale code
      * @return SEOData|null Model-type defaults or null if not set
      *
      * @example
@@ -109,8 +109,8 @@ class SEODefaultsRepository
      * - Static pages with fixed SEO settings
      * - Category/tag pages with templates
      *
-     * @param string $route The Laravel route name (e.g., 'blog.index')
-     * @param string $locale The locale code
+     * @param  string  $route  The Laravel route name (e.g., 'blog.index')
+     * @param  string  $locale  The locale code
      * @return SEOData|null Route defaults or null if not set
      *
      * @example
@@ -128,8 +128,8 @@ class SEODefaultsRepository
     /**
      * Get defaults for any scope (generic method).
      *
-     * @param string $scope The scope identifier
-     * @param string $locale The locale code
+     * @param  string  $scope  The scope identifier
+     * @param  string  $locale  The locale code
      * @return SEOData|null Defaults for the scope or null
      */
     public function forScope(string $scope, string $locale): ?SEOData
@@ -143,28 +143,47 @@ class SEODefaultsRepository
      * Results are cached for performance. Cache is automatically
      * invalidated when SEODefault models are saved/deleted.
      *
-     * @param string $scope The scope identifier
-     * @param string $locale The locale code
+     * The cached payload is a plain array, never a SEOData object:
+     * Laravel 13 defaults cache.serializable_classes to false, so
+     * objects pulled from a persistent store come back as
+     * __PHP_Incomplete_Class.
+     *
+     * @param  string  $scope  The scope identifier
+     * @param  string  $locale  The locale code
      * @return SEOData|null Cached defaults or null
      */
     protected function getCached(string $scope, string $locale): ?SEOData
     {
         $cacheKey = $this->getCacheKey($scope, $locale);
 
-        return Cache::store($this->getCacheStore())
+        $data = Cache::store($this->getCacheStore())
             ->remember($cacheKey, self::CACHE_TTL, function () use ($scope, $locale) {
                 return $this->loadFromDatabase($scope, $locale);
             });
+
+        if ($data === null) {
+            return null;
+        }
+
+        // A stale pre-2.1 entry (or one degraded by the restriction
+        // described above) is not an array - drop it and reload.
+        if (! is_array($data)) {
+            Cache::store($this->getCacheStore())->forget($cacheKey);
+
+            $data = $this->loadFromDatabase($scope, $locale);
+        }
+
+        return $data === null ? null : SEOData::fromArray($data);
     }
 
     /**
      * Load SEO defaults from database.
      *
-     * @param string $scope The scope identifier
-     * @param string $locale The locale code
-     * @return SEOData|null Loaded defaults or null
+     * @param  string  $scope  The scope identifier
+     * @param  string  $locale  The locale code
+     * @return array|null Cacheable SEOData::fromArray() input or null
      */
-    protected function loadFromDatabase(string $scope, string $locale): ?SEOData
+    protected function loadFromDatabase(string $scope, string $locale): ?array
     {
         // Check if the table exists
         if (! $this->tableExists()) {
@@ -191,7 +210,7 @@ class SEODefaultsRepository
                 return null;
             }
 
-            return $this->transformToSEOData($default);
+            return $this->transformToDefaultsArray($default);
         } catch (\Exception $e) {
             // Log the error but don't throw - graceful degradation
             report($e);
@@ -201,20 +220,20 @@ class SEODefaultsRepository
     }
 
     /**
-     * Transform an SEODefault model to SEOData.
+     * Transform an SEODefault model to the cacheable defaults payload.
      *
-     * @param SEODefault $default The database model
-     * @return SEOData The SEO data object
+     * @param  SEODefault  $default  The database model
+     * @return array SEOData::fromArray() input
      */
-    protected function transformToSEOData(SEODefault $default): SEOData
+    protected function transformToDefaultsArray(SEODefault $default): array
     {
-        return SEOData::fromArray([
+        return [
             'title' => $this->processTemplate($default->title_template),
             'description' => $this->processTemplate($default->description_template),
             'og_image' => $default->og_image_default,
             'robots' => $default->robots_default,
             'schema_jsonld' => $default->schema_defaults,
-        ]);
+        ];
     }
 
     /**
@@ -227,7 +246,7 @@ class SEODefaultsRepository
      * Note: Model-specific placeholders like {title} are processed
      * later in the HasSEO trait after the model is available.
      *
-     * @param string|null $template The template string
+     * @param  string|null  $template  The template string
      * @return string|null Processed template or null
      */
     protected function processTemplate(?string $template): ?string
@@ -253,8 +272,8 @@ class SEODefaultsRepository
     /**
      * Clear cached defaults for a specific scope/locale.
      *
-     * @param string|null $scope The scope to clear (null = all)
-     * @param string|null $locale The locale to clear (null = all locales for scope)
+     * @param  string|null  $scope  The scope to clear (null = all)
+     * @param  string|null  $locale  The locale to clear (null = all locales for scope)
      */
     public function clearCache(?string $scope = null, ?string $locale = null): void
     {
@@ -285,7 +304,7 @@ class SEODefaultsRepository
      *
      * Call this after updating an SEODefault to ensure fresh data.
      *
-     * @param SEODefault $default The updated default
+     * @param  SEODefault  $default  The updated default
      */
     public function refreshCache(SEODefault $default): void
     {
@@ -298,8 +317,8 @@ class SEODefaultsRepository
     /**
      * Get the cache key for a scope/locale combination.
      *
-     * @param string $scope The scope identifier
-     * @param string $locale The locale code
+     * @param  string  $scope  The scope identifier
+     * @param  string  $locale  The locale code
      * @return string The cache key
      */
     protected function getCacheKey(string $scope, string $locale): string
