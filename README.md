@@ -6,7 +6,7 @@
 
 SEO core for Laravel: meta tag resolution with a layered precedence chain, Open Graph / Twitter Cards, JSON-LD schema markup with a linked `@id` graph, and XML sitemap generation.
 
-> **Status note:** the published Packagist release (`v1.0.0`, 2026-01-13) is the old "full suite" version. `master` has since been carved down to the core described below; the analyzer, scanner, redirect manager, 404 monitor, analytics, and UI stubs were removed from the shipped surface (see [`pro-staging/`](pro-staging/README.md)) and will return as separate packages.
+> **Status note:** the published Packagist release (`v1.0.0`, 2026-01-13) is the old "full suite" version. `master` has since been carved down to the core described below; the analyzer, scanner, redirect manager, 404 monitor, analytics, and UI stubs were removed from the shipped surface and live on as separate packages (`laravel-seo-filament`, free; `laravel-seo-pro`, commercial).
 
 ## What this package does
 
@@ -96,7 +96,7 @@ Serving your own static `/sitemap.xml`? Disable the package routes:
 
 ## Test status
 
-`vendor/bin/pest` on `master`: **178 passed (408 assertions), 0 failed** under PHP 8.4 / Laravel 12. This counts only the shipped core; the staged pro code under `pro-staging/` is excluded from autoload and the suite (its tests, including 21 historical failures in the scan/analyzer pipeline, move with it).
+`vendor/bin/pest` on `master`: **185 passed (418 assertions), 0 failed** under PHP 8.4 / Laravel 12.
 
 ```bash
 git clone https://github.com/Fibonoir/laravel-seo.git
@@ -107,7 +107,7 @@ vendor/bin/pest
 
 ## What is *not* in this package
 
-Content analyzer (32 rules), sitewide scanner, redirect manager, 404 monitor, GA4 analytics, internal-link suggestions, and the Filament/Livewire/Vue/React UI — staged in [`pro-staging/`](pro-staging/README.md) for the upcoming `laravel-seo-pro` and `laravel-seo-filament` packages. The old `seo:install` stub-publishing flow is gone.
+Queued site scans, content analysis, redirect manager, 404 monitor, and the SEO dashboard ship in `laravel-seo-pro` (commercial); the Filament admin form fields ship in `laravel-seo-filament` (free). The old `seo:install` stub-publishing flow is gone.
 
 ## License
 
