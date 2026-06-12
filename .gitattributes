@@ -8,3 +8,4 @@
 
 * text=auto
 /.node-version export-ignore
+/wrangler.jsonc export-ignore
