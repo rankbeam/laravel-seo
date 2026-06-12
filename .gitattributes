@@ -6,3 +6,4 @@
 /tests export-ignore
 
 * text=auto
+/.node-version export-ignore
