@@ -65,7 +65,7 @@ export default defineConfig({
 
     footer: {
       message: 'rankbeam/laravel-seo is released under the MIT License.',
-      copyright: 'Copyright © 2026 Valentin Goxhaj',
+      copyright: 'Copyright © 2026 Valentin Goxhaj — P.IVA 04936270612',
     },
   },
 })
