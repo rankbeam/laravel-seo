@@ -13,6 +13,7 @@ export default defineConfig({
       { text: 'Guide', link: '/guide/installation' },
       { text: 'Concepts', link: '/concepts/resolver-precedence' },
       { text: 'Filament', link: '/guide/filament' },
+      { text: 'Blog', link: '/blog/canonical-urls-in-laravel' },
       {
         text: 'v2.0',
         items: [
@@ -51,6 +52,13 @@ export default defineConfig({
         items: [
           { text: 'Configuration', link: '/reference/configuration' },
           { text: 'Upgrading from v1', link: '/guide/upgrade-from-v1' },
+        ],
+      },
+      {
+        text: 'Blog',
+        items: [
+          { text: 'Canonical URLs in Laravel', link: '/blog/canonical-urls-in-laravel' },
+          { text: 'JSON-LD schema graphs', link: '/blog/json-ld-schema-graphs-in-laravel' },
         ],
       },
     ],
