@@ -20,7 +20,7 @@ This document outlines the performance optimizations implemented in the Laravel 
 The `CacheManager` service provides centralized cache management with methods for warming, clearing, and monitoring caches.
 
 ```php
-use Fibonoir\LaravelSEO\Services\CacheManager;
+use Rankbeam\Seo\Services\CacheManager;
 
 $cache = app(CacheManager::class);
 
@@ -380,7 +380,7 @@ Schedule::command('seo:cache --warm')->dailyAt('03:00');
 Schedule::command('seo:sitemap')->dailyAt('04:00');
 
 // Sync analytics daily at 5 AM
-Schedule::job(new \Fibonoir\LaravelSEO\Jobs\SyncAnalyticsJob(days: 7))->dailyAt('05:00');
+Schedule::job(new \Rankbeam\Seo\Jobs\SyncAnalyticsJob(days: 7))->dailyAt('05:00');
 
 // Scan for SEO issues weekly
 Schedule::command('seo:scan --type=incremental')->weeklyOn(1, '06:00');

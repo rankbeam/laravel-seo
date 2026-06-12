@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fibonoir\LaravelSEO\Services\Sitemap;
+namespace Rankbeam\Seo\Services\Sitemap;
 
 use Closure;
 use Illuminate\Database\Eloquent\Model;
@@ -19,7 +19,7 @@ use InvalidArgumentException;
  * ## Usage
  *
  * ```php
- * use Fibonoir\LaravelSEO\Facades\SEO;
+ * use Rankbeam\Seo\Facades\SEO;
  *
  * // An Eloquent model class (same handling as seo.sitemap.models)
  * SEO::sitemaps()->register('posts', Post::class);
@@ -37,7 +37,7 @@ use InvalidArgumentException;
  *
  * Typically called from a service provider's boot() method.
  *
- * @see \Fibonoir\LaravelSEO\Services\Sitemap\SitemapBuilder Consumes the registry
+ * @see \Rankbeam\Seo\Services\Sitemap\SitemapBuilder Consumes the registry
  */
 class SitemapRegistry
 {

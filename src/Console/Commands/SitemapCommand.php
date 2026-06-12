@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Fibonoir\LaravelSEO\Console\Commands;
+namespace Rankbeam\Seo\Console\Commands;
 
 use Illuminate\Console\Command;
-use Fibonoir\LaravelSEO\Jobs\GenerateSitemapJob;
-use Fibonoir\LaravelSEO\Services\Sitemap\SitemapBuilder;
+use Rankbeam\Seo\Jobs\GenerateSitemapJob;
+use Rankbeam\Seo\Services\Sitemap\SitemapBuilder;
 
 /**
  * Artisan command to generate XML sitemaps.

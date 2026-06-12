@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fibonoir\LaravelSEO\Jobs;
+namespace Rankbeam\Seo\Jobs;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
@@ -12,7 +12,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
-use Fibonoir\LaravelSEO\Services\Sitemap\SitemapBuilder;
+use Rankbeam\Seo\Services\Sitemap\SitemapBuilder;
 
 /**
  * Job to generate XML sitemaps asynchronously.

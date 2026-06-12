@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fibonoir\LaravelSEO\Services\Schema;
+namespace Rankbeam\Seo\Services\Schema;
 
 /**
  * Builder for Product JSON-LD schema.

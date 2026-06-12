@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Fibonoir\LaravelSEO\Services;
+namespace Rankbeam\Seo\Services;
 
 use Illuminate\Support\Facades\Storage;
-use Fibonoir\LaravelSEO\Data\SEOData;
+use Rankbeam\Seo\Data\SEOData;
 
 /**
  * Evaluates editorial SEO warnings for resolved SEO data.

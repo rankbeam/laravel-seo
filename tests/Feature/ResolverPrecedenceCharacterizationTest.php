@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 use Illuminate\Database\Eloquent\Model;
-use Fibonoir\LaravelSEO\Models\SEODefault;
-use Fibonoir\LaravelSEO\Services\SEOResolver;
-use Fibonoir\LaravelSEO\Traits\HasSEO;
+use Rankbeam\Seo\Models\SEODefault;
+use Rankbeam\Seo\Services\SEOResolver;
+use Rankbeam\Seo\Traits\HasSEO;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,7 +68,7 @@ afterEach(function () {
     $this->app['db']->connection()->getSchemaBuilder()->dropIfExists('characterization_pages');
 });
 
-function resolveSeo(Model $model): \Fibonoir\LaravelSEO\Data\SEOData
+function resolveSeo(Model $model): \Rankbeam\Seo\Data\SEOData
 {
     return app(SEOResolver::class)->resolve($model);
 }

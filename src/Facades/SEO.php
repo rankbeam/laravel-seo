@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Fibonoir\LaravelSEO\Facades;
+namespace Rankbeam\Seo\Facades;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Facade;
-use Fibonoir\LaravelSEO\Data\SEOData;
-use Fibonoir\LaravelSEO\Services\SEOResolver;
+use Rankbeam\Seo\Data\SEOData;
+use Rankbeam\Seo\Services\SEOResolver;
 
 /**
  * SEO Facade
@@ -19,9 +19,9 @@ use Fibonoir\LaravelSEO\Services\SEOResolver;
  * @method static SEOData resolveWithOverrides(SEOData $base, array $overrides)
  * @method static string render(?Model $model = null, ?string $route = null, ?string $locale = null)
  * @method static array toArray(?Model $model = null, ?string $route = null, ?string $locale = null)
- * @method static \Fibonoir\LaravelSEO\Services\Sitemap\SitemapRegistry sitemaps()
+ * @method static \Rankbeam\Seo\Services\Sitemap\SitemapRegistry sitemaps()
  *
- * @see \Fibonoir\LaravelSEO\Services\SEOResolver
+ * @see \Rankbeam\Seo\Services\SEOResolver
  */
 class SEO extends Facade
 {
@@ -75,7 +75,7 @@ class SEO extends Facade
     public static function render(?Model $model = null, ?string $route = null, ?string $locale = null): string
     {
         $resolver = static::getFacadeRoot();
-        $renderer = app(\Fibonoir\LaravelSEO\Services\TagRenderer::class);
+        $renderer = app(\Rankbeam\Seo\Services\TagRenderer::class);
         $seoData = $resolver->resolve($model, $route, $locale);
 
         return $renderer->render($seoData);
@@ -96,7 +96,7 @@ class SEO extends Facade
     public static function toArray(?Model $model = null, ?string $route = null, ?string $locale = null): array
     {
         $resolver = static::getFacadeRoot();
-        $renderer = app(\Fibonoir\LaravelSEO\Services\TagRenderer::class);
+        $renderer = app(\Rankbeam\Seo\Services\TagRenderer::class);
         $seoData = $resolver->resolve($model, $route, $locale);
 
         return $renderer->toArray($seoData);
@@ -116,7 +116,7 @@ class SEO extends Facade
     public static function forInertia(?Model $model = null, ?string $route = null, ?string $locale = null): array
     {
         $resolver = static::getFacadeRoot();
-        $renderer = app(\Fibonoir\LaravelSEO\Services\TagRenderer::class);
+        $renderer = app(\Rankbeam\Seo\Services\TagRenderer::class);
         $seoData = $resolver->resolve($model, $route, $locale);
 
         return $renderer->toInertiaHead($seoData);

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Queue;
-use Fibonoir\LaravelSEO\Data\SEOData;
-use Fibonoir\LaravelSEO\Models\SEOMeta;
-use Fibonoir\LaravelSEO\Traits\HasSEO;
+use Rankbeam\Seo\Data\SEOData;
+use Rankbeam\Seo\Models\SEOMeta;
+use Rankbeam\Seo\Traits\HasSEO;
 
 // Create test model for trait testing
 class TraitTestPost extends Model

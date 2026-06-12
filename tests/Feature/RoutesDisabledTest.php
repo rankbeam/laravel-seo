@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Fibonoir\LaravelSEO\Tests\Feature;
+namespace Rankbeam\Seo\Tests\Feature;
 
 use Illuminate\Support\Facades\Route;
-use Fibonoir\LaravelSEO\Tests\TestCase;
+use Rankbeam\Seo\Tests\TestCase;
 
 /**
  * Verifies that config('seo.routes.enabled') actually gates route

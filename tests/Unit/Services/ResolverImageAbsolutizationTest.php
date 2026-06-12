@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\URL;
-use Fibonoir\LaravelSEO\Services\SEOResolver;
+use Rankbeam\Seo\Services\SEOResolver;
 
 /*
  * Regression tests for T3 friction item 2: manual seo_meta.og_image values

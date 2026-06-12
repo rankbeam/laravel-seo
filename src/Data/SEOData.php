@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fibonoir\LaravelSEO\Data;
+namespace Rankbeam\Seo\Data;
 
 use DateTimeInterface;
 use Illuminate\Contracts\Support\Arrayable;
@@ -65,10 +65,10 @@ use JsonSerializable;
  *
  * @implements Arrayable<string, mixed>
  *
- * @see \Fibonoir\LaravelSEO\Services\SEOManager For the precedence implementation
- * @see \Fibonoir\LaravelSEO\Traits\HasSEO For model integration
- * @see \Fibonoir\LaravelSEO\Models\SEOMeta For stored SEO data
- * @see \Fibonoir\LaravelSEO\Models\SEODefault For default templates
+ * @see \Rankbeam\Seo\Services\SEOManager For the precedence implementation
+ * @see \Rankbeam\Seo\Traits\HasSEO For model integration
+ * @see \Rankbeam\Seo\Models\SEOMeta For stored SEO data
+ * @see \Rankbeam\Seo\Models\SEODefault For default templates
  */
 final class SEOData implements Arrayable, JsonSerializable
 {

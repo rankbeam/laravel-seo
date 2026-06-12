@@ -1,5 +1,5 @@
 {
-    "name": "fibonoir/laravel-seo",
+    "name": "rankbeam/laravel-seo",
     "description": "SEO core for Laravel - meta tag resolution with precedence chain, Open Graph / Twitter Cards, JSON-LD schema markup, and XML sitemap generation.",
     "type": "library",
     "license": "MIT",
@@ -19,7 +19,7 @@
             "email": "valentinogoxhaj@gmail.com"
         }
     ],
-    "homepage": "https://github.com/fibonoir/laravel-seo",
+    "homepage": "https://github.com/rankbeam/laravel-seo",
     "require": {
         "php": "^8.2",
         "illuminate/support": "^11.0|^12.0",
@@ -40,21 +40,24 @@
     },
     "autoload": {
         "psr-4": {
-            "Fibonoir\\LaravelSEO\\": "src/"
+            "Rankbeam\\Seo\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Fibonoir\\LaravelSEO\\Tests\\": "tests/"
+            "Rankbeam\\Seo\\Tests\\": "tests/"
         }
     },
     "extra": {
+        "branch-alias": {
+            "dev-master": "2.x-dev"
+        },
         "laravel": {
             "providers": [
-                "Fibonoir\\LaravelSEO\\SEOServiceProvider"
+                "Rankbeam\\Seo\\SEOServiceProvider"
             ],
             "aliases": {
-                "SEO": "Fibonoir\\LaravelSEO\\Facades\\SEO"
+                "SEO": "Rankbeam\\Seo\\Facades\\SEO"
             }
         }
     },

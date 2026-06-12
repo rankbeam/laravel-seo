@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Fibonoir\LaravelSEO\Services;
+namespace Rankbeam\Seo\Services;
 
-use Fibonoir\LaravelSEO\Data\SEOData;
+use Rankbeam\Seo\Data\SEOData;
 
 /**
  * Converts SEOData into HTML meta tags or structured arrays.
@@ -46,8 +46,8 @@ use Fibonoir\LaravelSEO\Data\SEOData;
  * ]);
  * ```
  *
- * @see \Fibonoir\LaravelSEO\Data\SEOData For the input data structure
- * @see \Fibonoir\LaravelSEO\Services\SEOResolver For resolving SEO data
+ * @see \Rankbeam\Seo\Data\SEOData For the input data structure
+ * @see \Rankbeam\Seo\Services\SEOResolver For resolving SEO data
  */
 class TagRenderer
 {

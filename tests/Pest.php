@@ -14,11 +14,11 @@ declare(strict_types=1);
 */
 
 uses(
-    Fibonoir\LaravelSEO\Tests\TestCase::class,
+    Rankbeam\Seo\Tests\TestCase::class,
 )->in('Unit');
 
 uses(
-    Fibonoir\LaravelSEO\Tests\TestCase::class,
+    Rankbeam\Seo\Tests\TestCase::class,
     Illuminate\Foundation\Testing\RefreshDatabase::class,
 )->in('Feature');
 
@@ -34,7 +34,7 @@ uses(
 */
 
 expect()->extend('toBeValidSEOData', function () {
-    return $this->toBeInstanceOf(\Fibonoir\LaravelSEO\Data\SEOData::class);
+    return $this->toBeInstanceOf(\Rankbeam\Seo\Data\SEOData::class);
 });
 
 /*

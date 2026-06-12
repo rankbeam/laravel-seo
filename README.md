@@ -1,8 +1,8 @@
 # Laravel SEO (core)
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/fibonoir/laravel-seo.svg?style=flat-square)](https://packagist.org/packages/fibonoir/laravel-seo)
-[![Total Downloads](https://img.shields.io/packagist/dt/fibonoir/laravel-seo.svg?style=flat-square)](https://packagist.org/packages/fibonoir/laravel-seo)
-[![License](https://img.shields.io/packagist/l/fibonoir/laravel-seo.svg?style=flat-square)](https://packagist.org/packages/fibonoir/laravel-seo)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/rankbeam/laravel-seo.svg?style=flat-square)](https://packagist.org/packages/rankbeam/laravel-seo)
+[![Total Downloads](https://img.shields.io/packagist/dt/rankbeam/laravel-seo.svg?style=flat-square)](https://packagist.org/packages/rankbeam/laravel-seo)
+[![License](https://img.shields.io/packagist/l/rankbeam/laravel-seo.svg?style=flat-square)](https://packagist.org/packages/rankbeam/laravel-seo)
 
 SEO core for Laravel: meta tag resolution with a layered precedence chain, Open Graph / Twitter Cards, JSON-LD schema markup with a linked `@id` graph, and XML sitemap generation.
 
@@ -31,7 +31,7 @@ SEO core for Laravel: meta tag resolution with a layered precedence chain, Open 
 ## Installation
 
 ```bash
-composer require fibonoir/laravel-seo
+composer require rankbeam/laravel-seo
 php artisan vendor:publish --tag=seo-config
 php artisan migrate
 ```
@@ -39,7 +39,7 @@ php artisan migrate
 ## Quick start
 
 ```php
-use Fibonoir\LaravelSEO\Traits\HasSEO;
+use Rankbeam\Seo\Traits\HasSEO;
 
 class Post extends Model
 {
@@ -70,7 +70,7 @@ $post->saveSEO([
 Headless / Inertia:
 
 ```php
-use Fibonoir\LaravelSEO\Facades\SEO;
+use Rankbeam\Seo\Facades\SEO;
 
 return Inertia::render('Post', [
     'seo' => SEO::forInertia($post),
@@ -99,7 +99,7 @@ Serving your own static `/sitemap.xml`? Disable the package routes:
 `vendor/bin/pest` on `master`: **185 passed (418 assertions), 0 failed** under PHP 8.4 / Laravel 12.
 
 ```bash
-git clone https://github.com/Fibonoir/laravel-seo.git
+git clone https://github.com/rankbeam/laravel-seo.git
 cd laravel-seo
 composer install
 vendor/bin/pest

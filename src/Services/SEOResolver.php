@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Fibonoir\LaravelSEO\Services;
+namespace Rankbeam\Seo\Services;
 
 use Illuminate\Database\Eloquent\Model;
-use Fibonoir\LaravelSEO\Data\SEOData;
+use Rankbeam\Seo\Data\SEOData;
 
 /**
  * Core service for resolving SEO data with proper precedence chain.
@@ -54,9 +54,9 @@ use Fibonoir\LaravelSEO\Data\SEOData;
  * $seoData = $resolver->resolveWithOverrides($baseSeo, ['robots' => 'noindex']);
  * ```
  *
- * @see \Fibonoir\LaravelSEO\Data\SEOData For the data structure
- * @see \Fibonoir\LaravelSEO\Services\SEODefaultsRepository For defaults retrieval
- * @see \Fibonoir\LaravelSEO\Services\SEOComputedBuilder For computed value extraction
+ * @see \Rankbeam\Seo\Data\SEOData For the data structure
+ * @see \Rankbeam\Seo\Services\SEODefaultsRepository For defaults retrieval
+ * @see \Rankbeam\Seo\Services\SEOComputedBuilder For computed value extraction
  */
 class SEOResolver
 {
@@ -441,9 +441,9 @@ class SEOResolver
      * SEO::sitemaps()->register('pages', fn () => ['/about', '/contact']);
      * ```
      */
-    public function sitemaps(): \Fibonoir\LaravelSEO\Services\Sitemap\SitemapRegistry
+    public function sitemaps(): \Rankbeam\Seo\Services\Sitemap\SitemapRegistry
     {
-        return app(\Fibonoir\LaravelSEO\Services\Sitemap\SitemapRegistry::class);
+        return app(\Rankbeam\Seo\Services\Sitemap\SitemapRegistry::class);
     }
 
     /**

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Fibonoir\LaravelSEO\Http\Controllers\SitemapController;
+use Rankbeam\Seo\Http\Controllers\SitemapController;
 
 /*
 |--------------------------------------------------------------------------

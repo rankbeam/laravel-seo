@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fibonoir\LaravelSEO\Services\Sitemap;
+namespace Rankbeam\Seo\Services\Sitemap;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Filesystem\FilesystemAdapter;
@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\Storage;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\SitemapIndex;
 use Spatie\Sitemap\Tags\Url;
-use Fibonoir\LaravelSEO\Contracts\Sitemapable;
-use Fibonoir\LaravelSEO\Traits\HasSEO;
+use Rankbeam\Seo\Contracts\Sitemapable;
+use Rankbeam\Seo\Traits\HasSEO;
 
 /**
  * Service for generating XML sitemaps.

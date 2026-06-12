@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Fibonoir\LaravelSEO\Services\Schema;
+namespace Rankbeam\Seo\Services\Schema;
 
 use DateTimeInterface;
-use Fibonoir\LaravelSEO\Data\SEOData;
+use Rankbeam\Seo\Data\SEOData;
 
 /**
  * Site-wide JSON-LD graph nodes with stable @id cross-references.

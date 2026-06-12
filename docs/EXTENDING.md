@@ -27,9 +27,9 @@ The content analyzer uses a rule-based system. You can create custom rules to ch
 
 namespace App\SEO\Rules;
 
-use Fibonoir\LaravelSEO\Contracts\RuleInterface;
-use Fibonoir\LaravelSEO\Data\AnalysisContext;
-use Fibonoir\LaravelSEO\Data\RuleResult;
+use Rankbeam\Seo\Contracts\RuleInterface;
+use Rankbeam\Seo\Data\AnalysisContext;
+use Rankbeam\Seo\Data\RuleResult;
 
 class BrandMentionRule implements RuleInterface
 {
@@ -170,9 +170,9 @@ For convenience, extend `AbstractRule` which provides common functionality:
 
 namespace App\SEO\Rules;
 
-use Fibonoir\LaravelSEO\Rules\AbstractRule;
-use Fibonoir\LaravelSEO\Data\AnalysisContext;
-use Fibonoir\LaravelSEO\Data\RuleResult;
+use Rankbeam\Seo\Rules\AbstractRule;
+use Rankbeam\Seo\Data\AnalysisContext;
+use Rankbeam\Seo\Data\RuleResult;
 
 class CustomRule extends AbstractRule
 {
@@ -201,7 +201,7 @@ Add custom JSON-LD schema types for specialized content.
 
 namespace App\SEO\Schema;
 
-use Fibonoir\LaravelSEO\Services\Schema\SchemaCollection;
+use Rankbeam\Seo\Services\Schema\SchemaCollection;
 use Illuminate\Database\Eloquent\Model;
 
 class RecipeSchema
@@ -252,7 +252,7 @@ class RecipeSchema
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Fibonoir\LaravelSEO\Traits\HasSEO;
+use Rankbeam\Seo\Traits\HasSEO;
 use App\SEO\Schema\RecipeSchema;
 
 class Recipe extends Model
@@ -273,7 +273,7 @@ class Recipe extends Model
 
 ```php
 // In AppServiceProvider::boot()
-use Fibonoir\LaravelSEO\Services\Schema\SchemaCollection;
+use Rankbeam\Seo\Services\Schema\SchemaCollection;
 
 $this->app->extend(SchemaCollection::class, function ($collection) {
     $collection->registerType('Recipe', RecipeSchema::class);
@@ -309,10 +309,10 @@ The package dispatches events at key points for customization.
 // In EventServiceProvider
 
 protected $listen = [
-    \Fibonoir\LaravelSEO\Events\SEOAnalysisCompleted::class => [
+    \Rankbeam\Seo\Events\SEOAnalysisCompleted::class => [
         \App\Listeners\NotifyLowSEOScore::class,
     ],
-    \Fibonoir\LaravelSEO\Events\NotFoundLogged::class => [
+    \Rankbeam\Seo\Events\NotFoundLogged::class => [
         \App\Listeners\AlertOn404Spike::class,
     ],
 ];
@@ -325,7 +325,7 @@ protected $listen = [
 
 namespace App\Listeners;
 
-use Fibonoir\LaravelSEO\Events\SEOAnalysisCompleted;
+use Rankbeam\Seo\Events\SEOAnalysisCompleted;
 use App\Notifications\LowSEOScoreNotification;
 
 class NotifyLowSEOScore
@@ -393,11 +393,11 @@ Customize core services through the container.
 // In AppServiceProvider::register()
 
 $this->app->extend(
-    \Fibonoir\LaravelSEO\Services\SEOResolver::class,
+    \Rankbeam\Seo\Services\SEOResolver::class,
     function ($resolver, $app) {
         return new \App\Services\CustomSEOResolver(
-            $app->make(\Fibonoir\LaravelSEO\Services\SEODefaultsRepository::class),
-            $app->make(\Fibonoir\LaravelSEO\Services\SEOComputedBuilder::class)
+            $app->make(\Rankbeam\Seo\Services\SEODefaultsRepository::class),
+            $app->make(\Rankbeam\Seo\Services\SEOComputedBuilder::class)
         );
     }
 );
@@ -409,7 +409,7 @@ $this->app->extend(
 // In AppServiceProvider::register()
 
 $this->app->singleton(
-    \Fibonoir\LaravelSEO\Services\TagRenderer::class,
+    \Rankbeam\Seo\Services\TagRenderer::class,
     \App\Services\CustomTagRenderer::class
 );
 ```
@@ -421,8 +421,8 @@ $this->app->singleton(
 
 namespace App\Services;
 
-use Fibonoir\LaravelSEO\Services\SEOResolver;
-use Fibonoir\LaravelSEO\Data\SEOData;
+use Rankbeam\Seo\Services\SEOResolver;
+use Rankbeam\Seo\Data\SEOData;
 use Illuminate\Database\Eloquent\Model;
 
 class CustomSEOResolver extends SEOResolver
@@ -469,7 +469,7 @@ class CustomSEOResolver extends SEOResolver
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Fibonoir\LaravelSEO\Traits\HasSEO;
+use Rankbeam\Seo\Traits\HasSEO;
 
 class Post extends Model
 {
@@ -631,7 +631,7 @@ Register custom directives for specialized use cases.
 // In AppServiceProvider::boot()
 
 use Illuminate\Support\Facades\Blade;
-use Fibonoir\LaravelSEO\Services\SEOResolver;
+use Rankbeam\Seo\Services\SEOResolver;
 
 // Render hreflang tags for multi-language
 Blade::directive('seoHreflang', function ($expression) {
@@ -686,7 +686,7 @@ Create `resources/lang/vendor/seo/{locale}.json`:
 ```php
 // In AppServiceProvider::boot()
 
-use Fibonoir\LaravelSEO\Support\Stemmer;
+use Rankbeam\Seo\Support\Stemmer;
 
 $this->app->extend(Stemmer::class, function ($stemmer) {
     $stemmer->registerLanguage('tr', function ($word) {
@@ -703,7 +703,7 @@ $this->app->extend(Stemmer::class, function ($stemmer) {
 ```php
 // In AppServiceProvider::boot()
 
-use Fibonoir\LaravelSEO\Support\ReadabilityCalculator;
+use Rankbeam\Seo\Support\ReadabilityCalculator;
 
 $this->app->extend(ReadabilityCalculator::class, function ($calculator) {
     $calculator->registerFormula('tr', function ($text, $sentences, $words, $syllables) {
@@ -781,7 +781,7 @@ class ExternalLinkAttributesRule extends AbstractRule { ... }
 ```php
 use Tests\TestCase;
 use App\SEO\Rules\BrandMentionRule;
-use Fibonoir\LaravelSEO\Data\AnalysisContext;
+use Rankbeam\Seo\Data\AnalysisContext;
 
 class BrandMentionRuleTest extends TestCase
 {

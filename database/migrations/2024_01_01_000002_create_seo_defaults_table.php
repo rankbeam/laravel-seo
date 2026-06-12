@@ -29,8 +29,8 @@ use Illuminate\Support\Facades\Schema;
  * - {year} - Current year
  * - {date} - Formatted date
  *
- * @see \Fibonoir\LaravelSEO\Models\SEODefault
- * @see \Fibonoir\LaravelSEO\Services\SEODefaultsRepository
+ * @see \Rankbeam\Seo\Models\SEODefault
+ * @see \Rankbeam\Seo\Services\SEODefaultsRepository
  */
 return new class extends Migration
 {

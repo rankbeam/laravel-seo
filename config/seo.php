@@ -14,7 +14,7 @@ declare(strict_types=1);
  * sitemap generation. Analyzer, scanner, redirects, 404 monitoring, and
  * analytics live in the Pro package.
  *
- * @see https://github.com/fibonoir/laravel-seo
+ * @see https://github.com/rankbeam/laravel-seo
  */
 
 return [

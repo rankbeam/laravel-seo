@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Fibonoir\LaravelSEO\Contracts;
+namespace Rankbeam\Seo\Contracts;
 
-use Fibonoir\LaravelSEO\Data\SEOData;
+use Rankbeam\Seo\Data\SEOData;
 
 /**
  * Interface for models that support SEO features.

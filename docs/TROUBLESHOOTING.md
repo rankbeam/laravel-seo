@@ -31,13 +31,13 @@ php artisan tinker
 >>> Schema::hasTable('seo_meta')
 
 # If needed, rollback and re-run
-php artisan migrate:rollback --path=vendor/fibonoir/laravel-seo/database/migrations
+php artisan migrate:rollback --path=vendor/rankbeam/laravel-seo/database/migrations
 php artisan migrate
 ```
 
 ---
 
-**Error:** `Class 'Fibonoir\LaravelSEO\SEOServiceProvider' not found`
+**Error:** `Class 'Rankbeam\Seo\SEOServiceProvider' not found`
 
 **Solution:** Clear composer autoload cache.
 
@@ -56,11 +56,11 @@ php artisan package:discover
 
 ```bash
 # Verify installation
-composer show fibonoir/laravel-seo
+composer show rankbeam/laravel-seo
 
 # Re-install if needed
-composer remove fibonoir/laravel-seo
-composer require fibonoir/laravel-seo
+composer remove rankbeam/laravel-seo
+composer require rankbeam/laravel-seo
 ```
 
 ---
@@ -131,7 +131,7 @@ composer require fibonoir/laravel-seo
 
 1. **Model uses HasSEO trait:**
    ```php
-   use Fibonoir\LaravelSEO\Traits\HasSEO;
+   use Rankbeam\Seo\Traits\HasSEO;
 
    class Post extends Model
    {
@@ -264,7 +264,7 @@ dd([
 
 3. **Run synchronously to see errors:**
    ```php
-   use Fibonoir\LaravelSEO\Jobs\AnalyzeContentJob;
+   use Rankbeam\Seo\Jobs\AnalyzeContentJob;
 
    // Run directly instead of dispatch
    AnalyzeContentJob::dispatchSync(Post::class, $post->id);
@@ -279,8 +279,8 @@ dd([
 **Debug:**
 
 ```php
-use Fibonoir\LaravelSEO\Services\Analyzer\ContentAnalyzer;
-use Fibonoir\LaravelSEO\Data\AnalysisContext;
+use Rankbeam\Seo\Services\Analyzer\ContentAnalyzer;
+use Rankbeam\Seo\Data\AnalysisContext;
 
 $analyzer = app(ContentAnalyzer::class);
 
@@ -668,7 +668,7 @@ foreach ($checks as $name => $result) {
 ### Before Reporting Issues
 
 1. **Check this guide** for your specific issue
-2. **Update to latest version:** `composer update fibonoir/laravel-seo`
+2. **Update to latest version:** `composer update rankbeam/laravel-seo`
 3. **Clear all caches:** `php artisan cache:clear && php artisan config:clear`
 4. **Check Laravel logs:** `storage/logs/laravel.log`
 
@@ -680,7 +680,7 @@ When reporting issues, include:
 // Run this and include output
 echo "PHP: " . PHP_VERSION . "\n";
 echo "Laravel: " . app()->version() . "\n";
-echo "Package: " . composer_version('fibonoir/laravel-seo') . "\n";
+echo "Package: " . composer_version('rankbeam/laravel-seo') . "\n";
 echo "Stack: " . config('seo.stack') . "\n";
 echo "Cache: " . config('seo.cache.store') . "\n";
 echo "Database: " . DB::connection()->getDriverName() . "\n";

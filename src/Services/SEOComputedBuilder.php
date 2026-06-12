@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Fibonoir\LaravelSEO\Services;
+namespace Rankbeam\Seo\Services;
 
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;
-use Fibonoir\LaravelSEO\Data\SEOData;
+use Rankbeam\Seo\Data\SEOData;
 
 /**
  * Builds computed SEO data from model content.
@@ -67,8 +67,8 @@ use Fibonoir\LaravelSEO\Data\SEOData;
  * }
  * ```
  *
- * @see \Fibonoir\LaravelSEO\Services\SEOResolver For how computed values are used
- * @see \Fibonoir\LaravelSEO\Traits\HasSEO For the model trait
+ * @see \Rankbeam\Seo\Services\SEOResolver For how computed values are used
+ * @see \Rankbeam\Seo\Traits\HasSEO For the model trait
  */
 class SEOComputedBuilder
 {

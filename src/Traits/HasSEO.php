@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Fibonoir\LaravelSEO\Traits;
+namespace Rankbeam\Seo\Traits;
 
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Support\Str;
-use Fibonoir\LaravelSEO\Data\SEOData;
-use Fibonoir\LaravelSEO\Models\SEOMeta;
-use Fibonoir\LaravelSEO\Services\SEOResolver;
+use Rankbeam\Seo\Data\SEOData;
+use Rankbeam\Seo\Models\SEOMeta;
+use Rankbeam\Seo\Services\SEOResolver;
 
 /**
  * Add SEO capabilities to any Eloquent model.
@@ -21,7 +21,7 @@ use Fibonoir\LaravelSEO\Services\SEOResolver;
  * ## Basic Usage
  *
  * ```php
- * use Fibonoir\LaravelSEO\Traits\HasSEO;
+ * use Rankbeam\Seo\Traits\HasSEO;
  *
  * class Post extends Model
  * {
@@ -112,9 +112,9 @@ use Fibonoir\LaravelSEO\Services\SEOResolver;
  * **On Model Deletion:**
  * - Automatically deletes the associated SEOMeta record
  *
- * @see \Fibonoir\LaravelSEO\Models\SEOMeta For the SEO metadata model
- * @see \Fibonoir\LaravelSEO\Services\SEOResolver For the precedence chain
- * @see \Fibonoir\LaravelSEO\Data\SEOData For the data structure
+ * @see \Rankbeam\Seo\Models\SEOMeta For the SEO metadata model
+ * @see \Rankbeam\Seo\Services\SEOResolver For the precedence chain
+ * @see \Rankbeam\Seo\Data\SEOData For the data structure
  *
  * @method static static|\Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder whereSeoScore(int $score)
  *

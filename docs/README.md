@@ -52,7 +52,7 @@ A comprehensive SEO toolkit for Laravel applications with multi-stack support (F
 ### Step 1: Install via Composer
 
 ```bash
-composer require fibonoir/laravel-seo
+composer require rankbeam/laravel-seo
 ```
 
 ### Step 2: Run the Installer
@@ -71,7 +71,7 @@ The installer will:
 ### Step 3: Add the Trait to Your Models
 
 ```php
-use Fibonoir\LaravelSEO\Traits\HasSEO;
+use Rankbeam\Seo\Traits\HasSEO;
 
 class Post extends Model
 {
@@ -113,7 +113,7 @@ useSEO(post.seo);
 
 ```php
 use Illuminate\Database\Eloquent\Model;
-use Fibonoir\LaravelSEO\Traits\HasSEO;
+use Rankbeam\Seo\Traits\HasSEO;
 
 class Post extends Model
 {
@@ -374,7 +374,7 @@ public function index(Request $request)
 ### Creating Redirects
 
 ```php
-use Fibonoir\LaravelSEO\Services\RedirectManager;
+use Rankbeam\Seo\Services\RedirectManager;
 
 $manager = app(RedirectManager::class);
 
@@ -402,7 +402,7 @@ $manager->create([
 php artisan seo:sitemap
 
 # Via code
-use Fibonoir\LaravelSEO\Jobs\GenerateSitemapJob;
+use Rankbeam\Seo\Jobs\GenerateSitemapJob;
 GenerateSitemapJob::dispatch();
 ```
 
@@ -498,8 +498,8 @@ $model->getPrimaryKeyword();   // Get primary keyword
 
 ## Support
 
--   **Issues**: [GitHub Issues](https://github.com/fibonoir/laravel-seo/issues)
--   **Discussions**: [GitHub Discussions](https://github.com/fibonoir/laravel-seo/discussions)
+-   **Issues**: [GitHub Issues](https://github.com/rankbeam/laravel-seo/issues)
+-   **Discussions**: [GitHub Discussions](https://github.com/rankbeam/laravel-seo/discussions)
 -   **Security**: Please report security vulnerabilities to security@example.com
 
 ## License

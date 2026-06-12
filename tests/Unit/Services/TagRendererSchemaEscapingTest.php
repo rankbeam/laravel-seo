@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Fibonoir\LaravelSEO\Data\SEOData;
-use Fibonoir\LaravelSEO\Services\TagRenderer;
+use Rankbeam\Seo\Data\SEOData;
+use Rankbeam\Seo\Services\TagRenderer;
 
 /*
 |--------------------------------------------------------------------------

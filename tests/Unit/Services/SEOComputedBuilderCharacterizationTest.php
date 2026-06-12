@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Fibonoir\LaravelSEO\Services\SEOComputedBuilder;
+use Rankbeam\Seo\Services\SEOComputedBuilder;
 
 /*
 |--------------------------------------------------------------------------

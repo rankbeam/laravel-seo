@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fibonoir\LaravelSEO\Data;
+namespace Rankbeam\Seo\Data;
 
 /**
  * Result of schema validation.

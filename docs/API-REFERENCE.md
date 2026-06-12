@@ -22,7 +22,7 @@ Add SEO capabilities to any Eloquent model.
 ### Usage
 
 ```php
-use Fibonoir\LaravelSEO\Traits\HasSEO;
+use Rankbeam\Seo\Traits\HasSEO;
 
 class Post extends Model
 {
@@ -270,7 +270,7 @@ Resolves SEO data with proper precedence chain.
 ### Getting the Instance
 
 ```php
-use Fibonoir\LaravelSEO\Services\SEOResolver;
+use Rankbeam\Seo\Services\SEOResolver;
 
 $resolver = app(SEOResolver::class);
 ```
@@ -372,7 +372,7 @@ Manage URL redirects.
 ### Getting the Instance
 
 ```php
-use Fibonoir\LaravelSEO\Services\RedirectManager;
+use Rankbeam\Seo\Services\RedirectManager;
 
 $manager = app(RedirectManager::class);
 ```
@@ -542,7 +542,7 @@ Centralized cache management.
 ### Getting the Instance
 
 ```php
-use Fibonoir\LaravelSEO\Services\CacheManager;
+use Rankbeam\Seo\Services\CacheManager;
 
 $cache = app(CacheManager::class);
 ```
@@ -649,7 +649,7 @@ Analyze content for SEO.
 ### Getting the Instance
 
 ```php
-use Fibonoir\LaravelSEO\Services\Analyzer\ContentAnalyzer;
+use Rankbeam\Seo\Services\Analyzer\ContentAnalyzer;
 
 $analyzer = app(ContentAnalyzer::class);
 ```
@@ -661,7 +661,7 @@ $analyzer = app(ContentAnalyzer::class);
 Run full SEO analysis.
 
 ```php
-use Fibonoir\LaravelSEO\Data\AnalysisContext;
+use Rankbeam\Seo\Data\AnalysisContext;
 
 $context = new AnalysisContext(
     content: $htmlContent,
@@ -691,7 +691,7 @@ print_r($report->recommendations); // Top improvements
 Immutable data object for resolved SEO.
 
 ```php
-use Fibonoir\LaravelSEO\Data\SEOData;
+use Rankbeam\Seo\Data\SEOData;
 
 // Properties
 $seo->title;
@@ -725,7 +725,7 @@ $array = $seo->toArray();
 Context for content analysis.
 
 ```php
-use Fibonoir\LaravelSEO\Data\AnalysisContext;
+use Rankbeam\Seo\Data\AnalysisContext;
 
 $context = new AnalysisContext(
     content: '<html>...</html>',
@@ -751,7 +751,7 @@ $context = new AnalysisContext(
 Result from an analyzer rule.
 
 ```php
-use Fibonoir\LaravelSEO\Data\RuleResult;
+use Rankbeam\Seo\Data\RuleResult;
 
 // Properties
 $result->rule;           // RuleInterface
@@ -1005,7 +1005,7 @@ Get analytics for a path.
 ### Handling Exceptions
 
 ```php
-use Fibonoir\LaravelSEO\Services\RedirectManager;
+use Rankbeam\Seo\Services\RedirectManager;
 
 try {
     $redirect = $manager->create([

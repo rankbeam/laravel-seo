@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fibonoir\LaravelSEO\Http\Controllers;
+namespace Rankbeam\Seo\Http\Controllers;
 
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;

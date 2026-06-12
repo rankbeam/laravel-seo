@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fibonoir\LaravelSEO\Contracts;
+namespace Rankbeam\Seo\Contracts;
 
 use Spatie\Sitemap\Tags\Url;
 

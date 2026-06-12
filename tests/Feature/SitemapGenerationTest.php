@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
-use Fibonoir\LaravelSEO\Contracts\Sitemapable;
-use Fibonoir\LaravelSEO\Services\Sitemap\SitemapBuilder;
-use Fibonoir\LaravelSEO\Traits\HasSEO;
+use Rankbeam\Seo\Contracts\Sitemapable;
+use Rankbeam\Seo\Services\Sitemap\SitemapBuilder;
+use Rankbeam\Seo\Traits\HasSEO;
 
 // Create a test model for sitemap testing
 class SitemapTestPost extends Model
@@ -207,7 +207,7 @@ describe('SitemapGeneration', function () {
         if (! class_exists('SitemapTestPage')) {
             eval('
                 class SitemapTestPage extends \\Illuminate\\Database\\Eloquent\\Model {
-                    use \\Fibonoir\\LaravelSEO\\Traits\\HasSEO;
+                    use \\Rankbeam\\Seo\\Traits\\HasSEO;
                     protected $table = "sitemap_test_pages";
                     protected $fillable = ["title", "slug", "is_published"];
                     public $timestamps = true;

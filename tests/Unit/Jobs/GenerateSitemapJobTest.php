@@ -5,8 +5,8 @@ declare(strict_types=1);
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
-use Fibonoir\LaravelSEO\Jobs\GenerateSitemapJob;
-use Fibonoir\LaravelSEO\Services\Sitemap\SitemapBuilder;
+use Rankbeam\Seo\Jobs\GenerateSitemapJob;
+use Rankbeam\Seo\Services\Sitemap\SitemapBuilder;
 
 beforeEach(function () {
     Storage::fake('public');

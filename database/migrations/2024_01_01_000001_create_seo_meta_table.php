@@ -22,8 +22,8 @@ use Illuminate\Support\Facades\Schema;
  * - Content analysis scores and detailed reports
  * - Content snapshots for background analysis
  *
- * @see \Fibonoir\LaravelSEO\Models\SEOMeta
- * @see \Fibonoir\LaravelSEO\Traits\HasSEO
+ * @see \Rankbeam\Seo\Models\SEOMeta
+ * @see \Rankbeam\Seo\Traits\HasSEO
  */
 return new class extends Migration
 {

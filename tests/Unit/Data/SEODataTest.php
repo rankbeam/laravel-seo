@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Fibonoir\LaravelSEO\Data\SEOData;
+use Rankbeam\Seo\Data\SEOData;
 
 describe('SEOData', function () {
     describe('Creation', function () {

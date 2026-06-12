@@ -93,7 +93,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
    use OldVendor\SEO\Traits\HasSEO;
 
    // After
-   use Fibonoir\LaravelSEO\Traits\HasSEO;
+   use Rankbeam\Seo\Traits\HasSEO;
    ```
 
 2. **Configuration Key Renames**
@@ -118,7 +118,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 1. **Update composer.json:**
    ```bash
-   composer require fibonoir/laravel-seo:^1.0
+   composer require rankbeam/laravel-seo:^1.0
    ```
 
 2. **Re-publish config:**
@@ -134,7 +134,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 4. **Update imports in your code:**
    ```bash
    # Use your IDE's find/replace or:
-   grep -r "OldVendor\\SEO" app/ --include="*.php" -l | xargs sed -i 's/OldVendor\\SEO/Fibonoir\\LaravelSEO/g'
+   grep -r "OldVendor\\SEO" app/ --include="*.php" -l | xargs sed -i 's/OldVendor\\SEO/Rankbeam\\Seo/g'
    ```
 
 5. **Clear caches:**
@@ -193,9 +193,9 @@ Before each release:
 
 ## Links
 
-- [GitHub Releases](https://github.com/fibonoir/laravel-seo/releases)
+- [GitHub Releases](https://github.com/rankbeam/laravel-seo/releases)
 - [Documentation](./README.md)
 - [Upgrade Guide](./UPGRADE.md)
 
-[Unreleased]: https://github.com/fibonoir/laravel-seo/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/fibonoir/laravel-seo/releases/tag/v1.0.0
+[Unreleased]: https://github.com/rankbeam/laravel-seo/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/rankbeam/laravel-seo/releases/tag/v1.0.0

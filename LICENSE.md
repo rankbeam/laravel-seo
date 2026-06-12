@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) Valentin Goxhaj
+Copyright (c) 2026 Valentin Goxhaj
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

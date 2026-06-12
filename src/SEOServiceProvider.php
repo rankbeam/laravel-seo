@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Fibonoir\LaravelSEO;
+namespace Rankbeam\Seo;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Fibonoir\LaravelSEO\Console\Commands\SitemapCommand;
-use Fibonoir\LaravelSEO\Services\SEOComputedBuilder;
-use Fibonoir\LaravelSEO\Services\SEODefaultsRepository;
-use Fibonoir\LaravelSEO\Services\SEOResolver;
-use Fibonoir\LaravelSEO\Services\Sitemap\SitemapRegistry;
-use Fibonoir\LaravelSEO\Services\TagRenderer;
+use Rankbeam\Seo\Console\Commands\SitemapCommand;
+use Rankbeam\Seo\Services\SEOComputedBuilder;
+use Rankbeam\Seo\Services\SEODefaultsRepository;
+use Rankbeam\Seo\Services\SEOResolver;
+use Rankbeam\Seo\Services\Sitemap\SitemapRegistry;
+use Rankbeam\Seo\Services\TagRenderer;
 
 class SEOServiceProvider extends ServiceProvider
 {
@@ -207,8 +207,8 @@ class SEOServiceProvider extends ServiceProvider
         |
         */
         Blade::directive('seo', function ($expression) {
-            return "<?php echo app(\\Fibonoir\\LaravelSEO\\Services\\TagRenderer::class)->render(
-                app(\\Fibonoir\\LaravelSEO\\Services\\SEOResolver::class)->resolve({$expression})
+            return "<?php echo app(\\Rankbeam\\Seo\\Services\\TagRenderer::class)->render(
+                app(\\Rankbeam\\Seo\\Services\\SEOResolver::class)->resolve({$expression})
             ); ?>";
         });
 
@@ -227,8 +227,8 @@ class SEOServiceProvider extends ServiceProvider
         |
         */
         Blade::directive('seoForRoute', function ($expression) {
-            return "<?php echo app(\\Fibonoir\\LaravelSEO\\Services\\TagRenderer::class)->render(
-                app(\\Fibonoir\\LaravelSEO\\Services\\SEOResolver::class)->resolveForRoute({$expression})
+            return "<?php echo app(\\Rankbeam\\Seo\\Services\\TagRenderer::class)->render(
+                app(\\Rankbeam\\Seo\\Services\\SEOResolver::class)->resolveForRoute({$expression})
             ); ?>";
         });
 
@@ -248,13 +248,13 @@ class SEOServiceProvider extends ServiceProvider
         Blade::directive('seoTitle', function ($expression) {
             if (empty($expression)) {
                 return "<?php
-                    \$__seoTitle = app(\\Fibonoir\\LaravelSEO\\Services\\SEOResolver::class)->resolve()->title;
+                    \$__seoTitle = app(\\Rankbeam\\Seo\\Services\\SEOResolver::class)->resolve()->title;
                     if (\$__seoTitle) echo '<title>' . e(\$__seoTitle) . '</title>';
                 ?>";
             }
 
             return "<?php
-                \$__seoTitle = app(\\Fibonoir\\LaravelSEO\\Services\\SEOResolver::class)->resolve({$expression})->title;
+                \$__seoTitle = app(\\Rankbeam\\Seo\\Services\\SEOResolver::class)->resolve({$expression})->title;
                 if (\$__seoTitle) echo '<title>' . e(\$__seoTitle) . '</title>';
             ?>";
         });
@@ -274,13 +274,13 @@ class SEOServiceProvider extends ServiceProvider
         Blade::directive('seoMeta', function ($expression) {
             if (empty($expression)) {
                 return "<?php
-                    \$__seoDesc = app(\\Fibonoir\\LaravelSEO\\Services\\SEOResolver::class)->resolve()->description;
+                    \$__seoDesc = app(\\Rankbeam\\Seo\\Services\\SEOResolver::class)->resolve()->description;
                     if (\$__seoDesc) echo '<meta name=\"description\" content=\"' . e(\$__seoDesc) . '\">';
                 ?>";
             }
 
             return "<?php
-                \$__seoDesc = app(\\Fibonoir\\LaravelSEO\\Services\\SEOResolver::class)->resolve({$expression})->description;
+                \$__seoDesc = app(\\Rankbeam\\Seo\\Services\\SEOResolver::class)->resolve({$expression})->description;
                 if (\$__seoDesc) echo '<meta name=\"description\" content=\"' . e(\$__seoDesc) . '\">';
             ?>";
         });
@@ -300,13 +300,13 @@ class SEOServiceProvider extends ServiceProvider
         */
         Blade::directive('seoSchema', function ($expression) {
             if (empty($expression)) {
-                return "<?php echo app(\\Fibonoir\\LaravelSEO\\Services\\TagRenderer::class)->renderSchema(
-                    app(\\Fibonoir\\LaravelSEO\\Services\\SEOResolver::class)->resolve()
+                return "<?php echo app(\\Rankbeam\\Seo\\Services\\TagRenderer::class)->renderSchema(
+                    app(\\Rankbeam\\Seo\\Services\\SEOResolver::class)->resolve()
                 ) ?? ''; ?>";
             }
 
-            return "<?php echo app(\\Fibonoir\\LaravelSEO\\Services\\TagRenderer::class)->renderSchema(
-                app(\\Fibonoir\\LaravelSEO\\Services\\SEOResolver::class)->resolve({$expression})
+            return "<?php echo app(\\Rankbeam\\Seo\\Services\\TagRenderer::class)->renderSchema(
+                app(\\Rankbeam\\Seo\\Services\\SEOResolver::class)->resolve({$expression})
             ) ?? ''; ?>";
         });
 
@@ -325,13 +325,13 @@ class SEOServiceProvider extends ServiceProvider
         Blade::directive('seoCanonical', function ($expression) {
             if (empty($expression)) {
                 return "<?php
-                    \$__seoCanonical = app(\\Fibonoir\\LaravelSEO\\Services\\SEOResolver::class)->resolve()->canonical ?? url()->current();
+                    \$__seoCanonical = app(\\Rankbeam\\Seo\\Services\\SEOResolver::class)->resolve()->canonical ?? url()->current();
                     echo '<link rel=\"canonical\" href=\"' . e(\$__seoCanonical) . '\">';
                 ?>";
             }
 
             return "<?php
-                \$__seoCanonical = app(\\Fibonoir\\LaravelSEO\\Services\\SEOResolver::class)->resolve({$expression})->canonical ?? url()->current();
+                \$__seoCanonical = app(\\Rankbeam\\Seo\\Services\\SEOResolver::class)->resolve({$expression})->canonical ?? url()->current();
                 echo '<link rel=\"canonical\" href=\"' . e(\$__seoCanonical) . '\">';
             ?>";
         });
@@ -351,13 +351,13 @@ class SEOServiceProvider extends ServiceProvider
         Blade::directive('seoRobots', function ($expression) {
             if (empty($expression)) {
                 return "<?php
-                    \$__seoRobots = app(\\Fibonoir\\LaravelSEO\\Services\\SEOResolver::class)->resolve()->robots ?? 'index,follow';
+                    \$__seoRobots = app(\\Rankbeam\\Seo\\Services\\SEOResolver::class)->resolve()->robots ?? 'index,follow';
                     echo '<meta name=\"robots\" content=\"' . e(\$__seoRobots) . '\">';
                 ?>";
             }
 
             return "<?php
-                \$__seoRobots = app(\\Fibonoir\\LaravelSEO\\Services\\SEOResolver::class)->resolve({$expression})->robots ?? 'index,follow';
+                \$__seoRobots = app(\\Rankbeam\\Seo\\Services\\SEOResolver::class)->resolve({$expression})->robots ?? 'index,follow';
                 echo '<meta name=\"robots\" content=\"' . e(\$__seoRobots) . '\">';
             ?>";
         });

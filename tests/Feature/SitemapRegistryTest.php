@@ -5,10 +5,10 @@ declare(strict_types=1);
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
-use Fibonoir\LaravelSEO\Facades\SEO;
-use Fibonoir\LaravelSEO\Services\Sitemap\SitemapBuilder;
-use Fibonoir\LaravelSEO\Services\Sitemap\SitemapRegistry;
-use Fibonoir\LaravelSEO\Traits\HasSEO;
+use Rankbeam\Seo\Facades\SEO;
+use Rankbeam\Seo\Services\Sitemap\SitemapBuilder;
+use Rankbeam\Seo\Services\Sitemap\SitemapRegistry;
+use Rankbeam\Seo\Traits\HasSEO;
 
 class RegistryTestArticle extends Model
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Fibonoir\LaravelSEO\Tests;
+namespace Rankbeam\Seo\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
-use Fibonoir\LaravelSEO\SEOServiceProvider;
+use Rankbeam\Seo\SEOServiceProvider;
 
 abstract class TestCase extends Orchestra
 {

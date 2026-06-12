@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Fibonoir\LaravelSEO\Services;
+namespace Rankbeam\Seo\Services;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Schema;
-use Fibonoir\LaravelSEO\Data\SEOData;
-use Fibonoir\LaravelSEO\Models\SEODefault;
+use Rankbeam\Seo\Data\SEOData;
+use Rankbeam\Seo\Models\SEODefault;
 
 /**
  * Repository for retrieving SEO defaults from database and config.
@@ -43,8 +43,8 @@ use Fibonoir\LaravelSEO\Models\SEODefault;
  * All defaults are cached for performance. Cache is automatically
  * invalidated when SEODefault models are saved/deleted.
  *
- * @see \Fibonoir\LaravelSEO\Models\SEODefault For the Eloquent model
- * @see \Fibonoir\LaravelSEO\Services\SEOResolver For how defaults are used
+ * @see \Rankbeam\Seo\Models\SEODefault For the Eloquent model
+ * @see \Rankbeam\Seo\Services\SEOResolver For how defaults are used
  */
 class SEODefaultsRepository
 {

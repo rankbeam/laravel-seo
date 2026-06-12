@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Fibonoir\LaravelSEO\Services\Schema;
+namespace Rankbeam\Seo\Services\Schema;
 
-use Fibonoir\LaravelSEO\Data\SchemaValidationResult;
+use Rankbeam\Seo\Data\SchemaValidationResult;
 
 /**
  * Validates JSON-LD structured data schemas.

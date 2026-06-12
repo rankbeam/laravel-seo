@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use Illuminate\Support\Facades\Storage;
-use Fibonoir\LaravelSEO\Services\SEOWarningEvaluator;
+use Rankbeam\Seo\Services\SEOWarningEvaluator;
 
 /*
 |--------------------------------------------------------------------------
@@ -167,12 +167,12 @@ describe('image warnings', function () {
 
 describe('evaluate() on SEOData', function () {
     it('aggregates title, description, and image warnings', function () {
-        $resolved = new \Fibonoir\LaravelSEO\Data\SEOData(
+        $resolved = new \Rankbeam\Seo\Data\SEOData(
             title: str_repeat('t', 70),
             description: 'Short description.',
         );
 
-        $warnings = evaluator()->evaluate($resolved, manual: \Fibonoir\LaravelSEO\Data\SEOData::empty());
+        $warnings = evaluator()->evaluate($resolved, manual: \Rankbeam\Seo\Data\SEOData::empty());
 
         expect(warningKeys($warnings))->toContain('title_too_long')
             ->and(warningKeys($warnings))->toContain('title_is_fallback')

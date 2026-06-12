@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Fibonoir\LaravelSEO\Services\Schema\SchemaCollection;
+use Rankbeam\Seo\Services\Schema\SchemaCollection;
 
 it('does not allow </script> in schema values to break out of toScript()', function () {
     $script = SchemaCollection::make()
