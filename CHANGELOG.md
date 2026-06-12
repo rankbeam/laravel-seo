@@ -78,11 +78,11 @@ dedicated packages — see [UPGRADING.md](UPGRADING.md) for the full map.
   is encoded with `JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP`,
   so `</script>` in user content cannot break out of the script element.
 
-## [1.0.0] - 2026-01-13
+## 1.0.0 - 2026-01-13
 
 Initial release as `fibonoir/laravel-seo` (the old "full suite" package:
-core + analyzer + scanner + redirects + 404 monitor + analytics + UI stubs).
+core + analyzer + scanner + redirects + 404 monitor + analytics + UI stubs;
+since removed from distribution).
 
 [Unreleased]: https://github.com/rankbeam/laravel-seo/compare/v2.0.0...HEAD
 [2.0.0]: https://github.com/rankbeam/laravel-seo/releases/tag/v2.0.0
-[1.0.0]: https://github.com/Fibonoir/laravel-seo/releases/tag/v1.0.0
