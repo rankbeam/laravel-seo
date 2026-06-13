@@ -27,6 +27,7 @@ export default defineConfig({
       { text: 'Filament', link: '/guide/filament' },
       { text: 'Pro', link: '/pro/installation' },
       { text: 'Blog', link: '/blog/canonical-urls-in-laravel' },
+      { text: 'rankbeam.dev ↗', link: 'https://rankbeam.dev' },
       {
         text: 'v2.0',
         items: [

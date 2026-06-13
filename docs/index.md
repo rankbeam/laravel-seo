@@ -4,7 +4,10 @@ layout: home
 hero:
   name: Rankbeam
   text: SEO for Laravel that resolves itself
-  tagline: Layered meta resolution, Open Graph / Twitter Cards, a linked JSON-LD schema graph, and XML sitemaps — with sane fallbacks for every page you forgot about.
+  tagline: Layered meta resolution, Open Graph / Twitter Cards, a linked JSON-LD schema graph, and XML sitemaps — plus a headless operations engine for scans, redirects, and 404 recovery. Sane fallbacks for every page you forgot about.
+  image:
+    src: /logo.svg
+    alt: Rankbeam
   actions:
     - theme: brand
       text: Quickstart
@@ -13,8 +16,8 @@ hero:
       text: Installation
       link: /guide/installation
     - theme: alt
-      text: GitHub
-      link: https://github.com/rankbeam/laravel-seo
+      text: rankbeam.dev ↗
+      link: https://rankbeam.dev
 
 features:
   - title: Layered resolution
@@ -29,4 +32,8 @@ features:
     details: The same resolved data renders as HTML, structured arrays for Vue/React, or Inertia Head format — one source of truth for every stack.
   - title: Filament integration
     details: The free laravel-seo-filament package adds a complete SEO section to any resource form in two lines, with live counters and fallback indicators.
+  - title: SEO operations (Pro)
+    details: A queued scan pipeline with severity-ranked issues, a hardened redirect manager, and a no-IP 404 monitor with one-click recovery — all running headless on any Laravel app, with an optional Filament dashboard.
+  - title: AI assist (beta, Pro)
+    details: Bring-your-own-key title and meta-description suggestions plus plain-language scan-issue explanations. Your Anthropic or OpenAI account; nothing proxied, metered, or resold.
 ---
