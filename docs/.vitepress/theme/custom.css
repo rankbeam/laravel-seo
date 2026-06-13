@@ -43,4 +43,10 @@
     padding-left: 16px;
     padding-right: 16px;
   }
+
+  /* home hero logo: the default 320px block + 160px mark is too big on phones */
+  .VPHero .image { margin: 0 auto; }
+  .VPHero .image-container { width: 132px; height: 132px; padding: 0; transform: none; }
+  .VPHero .image-bg { width: 108px; height: 108px; }
+  .VPHero .image-src { width: 92px; height: auto; max-width: 92px; max-height: 92px; }
 }
