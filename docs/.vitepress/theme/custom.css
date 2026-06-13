@@ -1,0 +1,46 @@
+/* Rankbeam docs — brand overrides on top of the default VitePress theme.
+   Keeps the docs visually aligned with rankbeam.dev: Figtree type, the site's
+   blue accent, and the R-mark logo (set in config.mts). */
+
+:root {
+  /* Type — match the landing site (Figtree, loaded in config.mts head) */
+  --vp-font-family-base: "Figtree", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Accent — the site's blue (#0057ff) for links, active nav, buttons */
+  --vp-c-brand-1: #0a5cff;
+  --vp-c-brand-2: #0057ff;
+  --vp-c-brand-3: #0057ff;
+  --vp-c-brand-soft: rgba(0, 87, 255, 0.14);
+  --vp-c-brand-softer: rgba(0, 87, 255, 0.08);
+
+  /* Brand-coloured home hero accent (if a home page is ever added) */
+  --vp-home-hero-name-color: #0057ff;
+}
+
+.dark {
+  /* Slightly brighter blue for contrast on the dark theme */
+  --vp-c-brand-1: #5ea0ff;
+  --vp-c-brand-2: #3d8bff;
+  --vp-c-brand-3: #2a7cff;
+  --vp-c-brand-soft: rgba(60, 139, 255, 0.16);
+  --vp-c-brand-softer: rgba(60, 139, 255, 0.1);
+}
+
+/* ---- Mobile: keep code blocks inset (rounded card) instead of full-bleed ----
+   The default theme pulls code blocks edge-to-edge below 640px
+   (margin: 0 -24px; border-radius: 0), which reads as "no padding". Restore the
+   container inset + rounded corners so they look like the rest of the content. */
+@media (max-width: 639px) {
+  .vp-doc div[class*="language-"] {
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 8px;
+  }
+  /* code padding is 24px by default; trim it a touch so the inset block keeps
+     a comfortable line width on narrow screens */
+  .vp-doc [class*="language-"] > pre > code {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

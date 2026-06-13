@@ -8,7 +8,19 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
 
+  head: [
+    ['link', { rel: 'icon', href: '/logo.svg', type: 'image/svg+xml' }],
+    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+    ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
+    ['link', {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap',
+    }],
+  ],
+
   themeConfig: {
+    logo: '/logo.svg',
+
     nav: [
       { text: 'Guide', link: '/guide/installation' },
       { text: 'Concepts', link: '/concepts/resolver-precedence' },
