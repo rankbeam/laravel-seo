@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
 
 /**
@@ -155,4 +156,50 @@ it('is idempotent and safe on a partially-migrated schema', function () use ($de
     $runCleanup();
 
     expect(Schema::hasColumn('seo_meta', 'focus_keywords'))->toBeTrue();
+});
+
+it('warns (but does not abort) when a dropped column holds data', function () use ($buildV2Schema, $runCleanup) {
+    $buildV2Schema(['seo_score', 'analysis_report'], true);
+
+    DB::table('seo_meta')->insert([
+        'seoable_type' => 'App\\Models\\Post',
+        'seoable_id' => 1,
+        'locale' => 'en',
+        'title' => 'Has a legacy score',
+        'seo_score' => 88,
+        'created_at' => now(),
+        'updated_at' => now(),
+    ]);
+
+    Log::spy();
+
+    // Must still complete the drop (non-fatal) ...
+    $runCleanup();
+
+    expect(Schema::hasColumn('seo_meta', 'seo_score'))->toBeFalse();
+
+    // ... and must have surfaced the data loss with the column + count.
+    Log::shouldHaveReceived('warning')
+        ->withArgs(fn (string $message): bool => str_contains($message, 'seo_score (1 row(s))'))
+        ->once();
+});
+
+it('does not warn when the dead columns are all null', function () use ($buildV2Schema, $runCleanup) {
+    $buildV2Schema(['seo_score', 'analysis_report'], true);
+
+    DB::table('seo_meta')->insert([
+        'seoable_type' => 'App\\Models\\Post',
+        'seoable_id' => 1,
+        'locale' => 'en',
+        'title' => 'No legacy score',
+        'seo_score' => null,
+        'created_at' => now(),
+        'updated_at' => now(),
+    ]);
+
+    Log::spy();
+
+    $runCleanup();
+
+    Log::shouldNotHaveReceived('warning');
 });

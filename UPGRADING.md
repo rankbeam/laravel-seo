@@ -77,7 +77,37 @@ data survives the upgrade.
   out of the script element. If you post-process the raw script output,
   expect `<`-style escapes.
 
-## 6. Known gotchas
+## 6. Core 3 (v3): the dead analyzer columns are dropped
+
+Core 3 removes the never-shipped content-analyzer scaffolding. A new cleanup
+migration (`…_drop_dead_analyzer_columns_from_seo_meta`) drops six `seo_meta`
+columns and their two indexes:
+
+`seo_score`, `analysis_report`, `analyzed_at`, `content_snapshot`,
+`content_hash`, `snapshot_at` (indexes `seo_meta_score_index`,
+`seo_meta_analyzed_index`).
+
+- **`focus_keywords` is kept** — it is core-owned and read by the Pro scanner.
+- **The drop is irreversible** (`down()` is a no-op) and runs idempotently on
+  fresh installs, upgrades, and partially-migrated schemas.
+- **No shipped v2 code ever wrote these columns** (they were always `NULL`), so
+  for virtually every install this is a pure schema cleanup with nothing to
+  lose. If your *own* code called the removed public API (`HasSEO::updateScore`,
+  `$meta->seo_score`, …) and populated them, that data is **dropped, not
+  migrated** — the migration logs a warning with row counts when it finds any,
+  so check your logs after `php artisan migrate` if that applies to you.
+- **The numeric SEO score is now Pro-owned.** It lives on the Pro
+  `seo_scan_results` record with a versioned rubric — run the Pro scan to
+  (re)generate scores. The free core `seo:audit` reports pass/warn/fail with no
+  number. See the Pro docs at `/pro/scoring`.
+
+The removed public API (`HasSEO::getSEOScore`/`getSEOAnalysisReport`/
+`needsSEOAnalysis`/`scopeWithLowSEOScore`/`scopeNeedingSEOAnalysis`,
+`SEOMeta::updateScore`/`scopeLowScore`/`scopeNeedsAnalysis`,
+`SEOData::$seoScore`/`$analysisReport`) was always-null and is gone — remove any
+references.
+
+## 7. Known gotchas
 
 - Laravel's default `DatabaseSeeder` uses the `WithoutModelEvents` trait,
   which disables `HasSEO`'s auto-create hook — seeded models won't get a
