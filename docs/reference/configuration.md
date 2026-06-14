@@ -24,6 +24,24 @@ Everything below lives in `config/seo.php`. Values shown are the defaults.
 `title_suffix` is appended to resolved titles unless the title already ends
 with it.
 
+## Robots rendering policy
+
+```php
+'robots' => [
+    'emit_default' => env('SEO_EMIT_DEFAULT_ROBOTS', false),
+],
+```
+
+The rendered `<head>` omits the `<meta name="robots">` tag when the resolved
+directive equals `default_robots` (above) — a redundant `index,follow` is noise,
+and its absence is exactly what a crawler treats as index,follow. A directive
+that **deviates** (`noindex`, `nofollow`, `max-snippet:-1`, …) is always emitted,
+verbatim. Set `emit_default` to `true` to always render the tag (restores the
+pre-3.1 behaviour). The granular `@seoRobots` directive is unaffected — it is an
+explicit opt-in and always renders. See the
+[Rendering Contract](/contributing/rendering-contract) for the supported
+directive vocabulary and precedence.
+
 ## Feature toggles
 
 ```php

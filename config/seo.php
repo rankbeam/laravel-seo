@@ -55,6 +55,22 @@ return [
     'default_robots' => env('SEO_DEFAULT_ROBOTS', 'index,follow'),
 
     /*
+     * Robots rendering policy.
+     *
+     * By default the rendered <head> omits the robots meta tag when the
+     * resolved directive is the site default above — a redundant
+     * "index,follow" is noise, and its absence is exactly what a crawler
+     * treats as index,follow. A directive that DEVIATES from the default
+     * (noindex, nofollow, max-snippet:-1, …) is always emitted, verbatim.
+     *
+     * Set emit_default to true to always render the robots tag, even when
+     * it matches the default (restores pre-3.1 behavior).
+     */
+    'robots' => [
+        'emit_default' => env('SEO_EMIT_DEFAULT_ROBOTS', false),
+    ],
+
+    /*
      * Default Twitter card type (summary, summary_large_image, ...).
      */
     'default_twitter_card' => env('SEO_DEFAULT_TWITTER_CARD', 'summary_large_image'),

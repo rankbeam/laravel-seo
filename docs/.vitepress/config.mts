@@ -56,6 +56,7 @@ export default defineConfig({
         items: [
           { text: 'Blade', link: '/guide/blade' },
           { text: 'Inertia & JSON APIs', link: '/guide/inertia-json' },
+          { text: 'Livewire', link: '/guide/livewire' },
           { text: 'Schema graph (JSON-LD)', link: '/guide/schema' },
           { text: 'Sitemap registry', link: '/guide/sitemaps' },
           { text: 'Free SEO audit', link: '/guide/audit' },
@@ -84,6 +85,12 @@ export default defineConfig({
         items: [
           { text: 'Canonical URLs in Laravel', link: '/blog/canonical-urls-in-laravel' },
           { text: 'JSON-LD schema graphs', link: '/blog/json-ld-schema-graphs-in-laravel' },
+        ],
+      },
+      {
+        text: 'Contributing',
+        items: [
+          { text: 'Rendering contract', link: '/contributing/rendering-contract' },
         ],
       },
     ],

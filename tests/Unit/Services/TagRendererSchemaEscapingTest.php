@@ -42,12 +42,16 @@ it('does not allow </script> in schema values to break out of the JSON-LD script
 
     $html = $renderer->renderSchema($seo);
 
-    expect($html)->toStartWith('<script type="application/ld+json">');
+    expect($html)->toStartWith('<script ');
+    expect($html)->toContain('type="application/ld+json"');
+    expect($html)->toContain('data-seo-schema'); // tagged for Livewire cleanup
     expect($html)->toEndWith('</script>');
 
     // The JSON payload between the script tags must contain no raw angle
     // brackets at all, so no value can ever terminate the script element.
-    $json = substr($html, strlen('<script type="application/ld+json">'), -strlen('</script>'));
+    // (Attributes are htmlspecialchars-escaped, so the first '>' always
+    // closes the opening tag.)
+    $json = substr($html, strpos($html, '>') + 1, -strlen('</script>'));
 
     expect($json)->not->toContain('<');
     expect($json)->not->toContain('>');

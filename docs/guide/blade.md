@@ -15,7 +15,11 @@ One of them — `@seo` — is usually all you need.
 
 `@seo` resolves the model through the [precedence chain](/concepts/resolver-precedence)
 and renders the complete head block: `<title>`, meta description, canonical
-link, robots, Open Graph tags, Twitter Card tags, and attached JSON-LD.
+link, robots, Open Graph tags, Twitter Card tags, and attached JSON-LD. The
+robots tag is emitted **only when it deviates from the site default** — a
+redundant `index,follow` is omitted (its absence already means index,follow).
+Set `seo.robots.emit_default` to always render it. See the full
+[Rendering Contract](/contributing/rendering-contract).
 
 Signatures:
 
@@ -66,7 +70,7 @@ package's output):
 | `@seoTitle($post)` | `<title>` only |
 | `@seoMeta($post)` | meta description only |
 | `@seoCanonical($post)` | canonical link only (falls back to the current URL) |
-| `@seoRobots($post)` | robots meta only (falls back to `index,follow`) |
+| `@seoRobots($post)` | robots meta only — always rendered (this is an explicit opt-in, so it does **not** apply the deviate-from-default suppression that `@seo` does) |
 | `@seoSchema($post)` | the JSON-LD `<script>` only — valid in head or body |
 
 All of them accept the same `($model, $route, $locale)` expression as `@seo`,

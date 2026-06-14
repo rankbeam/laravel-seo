@@ -108,13 +108,18 @@ class TagRenderer
             $tags[] = $this->metaName('description', $seo->description);
         }
 
-        // Robots directive
-        $robots = $seo->robots ?? 'index,follow';
-        $tags[] = $this->metaName('robots', $robots);
+        // Robots directive — emitted only when it deviates from the site
+        // default (the contract forbids a redundant "index,follow").
+        $robots = $this->robotsContent($seo);
+        if ($robots !== null) {
+            $tags[] = $this->metaName('robots', $robots);
+        }
 
-        // Canonical URL
+        // Canonical URL — never emit an empty tag.
         $canonical = $seo->canonical ?? $this->getCurrentUrl();
-        $tags[] = '<link rel="canonical" href="' . $this->escape($canonical) . '">';
+        if ($canonical !== '') {
+            $tags[] = '<link rel="canonical" href="' . $this->escape($canonical) . '">';
+        }
 
         // Open Graph meta tags
         $tags = array_merge($tags, $this->renderOpenGraph($seo));
@@ -179,8 +184,11 @@ class TagRenderer
             $meta[] = ['name' => 'description', 'content' => $seo->description];
         }
 
-        // Robots
-        $meta[] = ['name' => 'robots', 'content' => $seo->robots ?? 'index,follow'];
+        // Robots — only when it deviates from the site default.
+        $robots = $this->robotsContent($seo);
+        if ($robots !== null) {
+            $meta[] = ['name' => 'robots', 'content' => $robots];
+        }
 
         // Open Graph
         $meta[] = ['property' => 'og:title', 'content' => $seo->ogTitle ?? $seo->title];
@@ -238,12 +246,15 @@ class TagRenderer
             $meta[] = ['name' => 'twitter:creator', 'content' => $seo->twitterCreator];
         }
 
-        // Filter out entries with null content
-        $meta = array_filter($meta, fn ($item) => $item['content'] !== null);
+        // Filter out entries with empty content — the contract forbids
+        // null/empty tags.
+        $meta = array_filter($meta, fn ($item) => $item['content'] !== null && $item['content'] !== '');
         $meta = array_values($meta);
 
-        // Canonical link
-        $link[] = ['rel' => 'canonical', 'href' => $canonical];
+        // Canonical link — never emit an empty tag.
+        if ($canonical !== '') {
+            $link[] = ['rel' => 'canonical', 'href' => $canonical];
+        }
 
         // Hreflang alternates
         if ($seo->alternates) {
@@ -277,10 +288,19 @@ class TagRenderer
      *
      * Returns an array optimized for Inertia.js's Head component.
      * Similar to toArray() but without the script section (handle
-     * JSON-LD separately in Inertia).
+     * JSON-LD separately in Inertia — see the Inertia guide) and with a
+     * stable `head-key` on every meta/link entry.
+     *
+     * Inertia dedupes head elements by their `head-key` attribute: a page
+     * `<Head>` tag with the same `head-key` as a layout tag *replaces* it
+     * instead of stacking a duplicate. Without it, page meta and layout meta
+     * both persist across client-side visits. The key is `name ?? property`
+     * for meta and `rel` for links; repeatable tags (e.g. `article:tag`,
+     * hreflang `alternate`) are disambiguated so each stays uniquely keyed.
+     * Bind it as `:head-key` (NOT Vue's `:key`, which is unrelated).
      *
      * @param SEOData $seo The resolved SEO data
-     * @return array{title: string|null, meta: array, link: array}
+     * @return array{title: string|null, meta: array<int, array<string, string>>, link: array<int, array<string, string>>}
      *
      * @example
      * ```php
@@ -292,8 +312,10 @@ class TagRenderer
      *
      * // In Vue component
      * <Head :title="seo.title">
-     *     <meta v-for="meta in seo.meta" :key="meta.name || meta.property"
-     *           :name="meta.name" :property="meta.property" :content="meta.content" />
+     *     <meta v-for="m in seo.meta" :key="m['head-key']" :head-key="m['head-key']"
+     *           :name="m.name" :property="m.property" :content="m.content" />
+     *     <link v-for="l in seo.link" :key="l['head-key']" :head-key="l['head-key']"
+     *           :rel="l.rel" :hreflang="l.hreflang" :href="l.href" />
      * </Head>
      * ```
      */
@@ -303,9 +325,51 @@ class TagRenderer
 
         return [
             'title' => $data['title'],
-            'meta' => $data['meta'],
-            'link' => $data['link'],
+            'meta' => $this->withHeadKeys(
+                $data['meta'],
+                static fn (array $m): string => $m['name'] ?? $m['property'] ?? 'meta',
+            ),
+            'link' => $this->withHeadKeys(
+                $data['link'],
+                static function (array $l): string {
+                    if (($l['rel'] ?? null) === 'alternate' && isset($l['hreflang'])) {
+                        return 'alternate:' . $l['hreflang'];
+                    }
+
+                    return $l['rel'] ?? 'link';
+                },
+            ),
         ];
+    }
+
+    /**
+     * Stamp a stable, unique `head-key` onto each tag in a list.
+     *
+     * The base key comes from $keyFor(); identical base keys (repeatable
+     * tags such as `article:tag`) are disambiguated with an incrementing
+     * suffix so every entry stays uniquely keyed for Inertia's head dedup.
+     *
+     * @param array<int, array<string, string>> $items
+     * @param callable(array<string, string>): string $keyFor
+     * @return array<int, array<string, string>>
+     */
+    protected function withHeadKeys(array $items, callable $keyFor): array
+    {
+        $seen = [];
+
+        foreach ($items as $i => $item) {
+            $base = $keyFor($item);
+
+            if (isset($seen[$base])) {
+                $seen[$base]++;
+                $items[$i]['head-key'] = $base . ':' . $seen[$base];
+            } else {
+                $seen[$base] = 0;
+                $items[$i]['head-key'] = $base;
+            }
+        }
+
+        return $items;
     }
 
     /**
@@ -334,7 +398,80 @@ class TagRenderer
             self::SCHEMA_JSON_FLAGS | JSON_PRETTY_PRINT
         );
 
-        return '<script type="application/ld+json">' . $json . '</script>';
+        // Tag the script so client-side navigation (Livewire wire:navigate)
+        // can find and remove stale schema. Livewire treats <script> as a
+        // non-removable asset, so without a marker + per-URL id the JSON-LD
+        // from every visited page accumulates in the head. See the Livewire
+        // guide for the livewire:navigated cleanup snippet.
+        $attributes = 'type="application/ld+json" data-seo-schema';
+
+        $url = $seo->canonical ?? $this->getCurrentUrl();
+        if ($url !== '') {
+            $attributes .= ' data-seo-url="' . $this->escape($url) . '"';
+        }
+
+        return '<script ' . $attributes . '>' . $json . '</script>';
+    }
+
+    /**
+     * Resolve the robots directive to emit, or null to suppress it.
+     *
+     * The contract forbids a redundant `index,follow`: the robots meta is
+     * emitted only when the resolved directive deviates from the site
+     * default (`seo.default_robots`). Comparison ignores formatting
+     * (whitespace around commas), but a deviating directive is emitted
+     * verbatim so an admin-entered `noindex, follow` renders exactly as
+     * typed. Set `seo.robots.emit_default = true` to always emit.
+     *
+     * Advanced directives (noindex, nofollow, noarchive, nosnippet,
+     * max-snippet, max-image-preview, max-video-preview, notranslate,
+     * unavailable_after) are supported as resolved string values; their
+     * precedence (global → route → model → explicit) is the resolver chain.
+     *
+     * @param SEOData $seo The resolved SEO data
+     * @return string|null The directive to emit, or null to suppress it
+     */
+    protected function robotsContent(SEOData $seo): ?string
+    {
+        $default = (string) config('seo.default_robots', 'index,follow');
+        $value = $seo->robots;
+
+        // No directive resolved at any layer ⇒ the page carries the site
+        // default, which we suppress unless explicitly asked to emit it.
+        if ($value === null || $value === '') {
+            $value = $default;
+        }
+
+        if ((bool) config('seo.robots.emit_default', false)) {
+            return $value;
+        }
+
+        if ($this->normalizeRobots($value) === $this->normalizeRobots($default)) {
+            return null;
+        }
+
+        return $value;
+    }
+
+    /**
+     * Normalize a robots directive for comparison only.
+     *
+     * Trims each comma-separated token and drops empties so semantically
+     * identical directives (`index, follow` vs `index,follow`) compare
+     * equal. Order and case are preserved — only the comparison is
+     * normalized; the emitted value is always the original verbatim string.
+     *
+     * @param string $robots The robots directive
+     * @return string Normalized form for equality comparison
+     */
+    protected function normalizeRobots(string $robots): string
+    {
+        $parts = array_filter(
+            array_map('trim', explode(',', $robots)),
+            static fn (string $p): bool => $p !== '',
+        );
+
+        return implode(',', $parts);
     }
 
     /**

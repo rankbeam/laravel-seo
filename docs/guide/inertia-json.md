@@ -1,12 +1,22 @@
 # Inertia & JSON APIs
 
 The same resolved `SEOData` that powers `@seo` renders to structured arrays —
-one source of truth whether the head is built by Blade, Vue, React, or a
-separate frontend consuming your API.
+one source of truth whether the head is built by Blade, Vue, React, Svelte, or
+a separate frontend consuming your API.
+
+::: warning Crawler-visible meta requires Inertia SSR or prerendering
+A default (no-SSR) Inertia app injects meta **client-side**. The initial HTML a
+crawler or social scraper fetches has *no* SEO meta until JavaScript runs. For
+the head to be in the raw HTTP response you must enable
+[Inertia SSR](https://inertiajs.com/server-side-rendering) (or prerender).
+JSON-LD in particular should be server-rendered. See
+[the Rendering Contract](/contributing/rendering-contract).
+:::
 
 ## Inertia
 
-`SEO::forInertia()` returns data shaped for Inertia's `<Head>` component:
+`SEO::forInertia()` returns data shaped for Inertia's `<Head>` component, with a
+stable **`head-key`** on every entry:
 
 ```php
 use Rankbeam\Seo\Facades\SEO;
@@ -23,18 +33,27 @@ The shape:
 {
     "title": "Custom SEO Title | My Site",
     "meta": [
-        { "name": "description", "content": "..." },
-        { "name": "robots", "content": "index,follow" },
-        { "property": "og:title", "content": "..." },
-        { "name": "twitter:card", "content": "summary_large_image" }
+        { "name": "description", "content": "...", "head-key": "description" },
+        { "property": "og:title", "content": "...", "head-key": "og:title" },
+        { "name": "twitter:card", "content": "summary_large_image", "head-key": "twitter:card" }
     ],
     "link": [
-        { "rel": "canonical", "href": "https://example.com/blog/post" }
+        { "rel": "canonical", "href": "https://example.com/blog/post", "head-key": "canonical" }
     ]
 }
 ```
 
-Rendering in Vue:
+::: tip Bind `:head-key`, not `:key`
+Inertia dedupes head elements by their **`head-key`** attribute: a page `<Head>`
+tag with the same `head-key` as a layout tag *replaces* it instead of stacking a
+duplicate. Vue's `:key` is the unrelated `v-for` reconciliation key — it does
+**nothing** for Inertia's head dedup. Without `:head-key`, page meta and layout
+meta both persist and you get duplicate/stale tags across client-side visits.
+The robots tag is omitted entirely when it matches the site default, so there is
+no redundant `index,follow` to dedupe.
+:::
+
+### Vue
 
 ```vue
 <script setup>
@@ -44,20 +63,114 @@ defineProps({ seo: Object })
 
 <template>
     <Head :title="seo.title">
-        <meta v-for="m in seo.meta" :key="m.name || m.property"
+        <meta v-for="m in seo.meta" :key="m['head-key']" :head-key="m['head-key']"
               :name="m.name" :property="m.property" :content="m.content" />
-        <link v-for="l in seo.link" :key="l.rel" :rel="l.rel" :href="l.href" />
+        <link v-for="l in seo.link" :key="l['head-key']" :head-key="l['head-key']"
+              :rel="l.rel" :hreflang="l.hreflang" :href="l.href" />
     </Head>
 </template>
 ```
 
-React works the same way with `<Head>` from `@inertiajs/react`.
+### React
 
-::: tip JSON-LD with Inertia
-`forInertia()` deliberately omits the `script` section — Inertia's `Head`
-component is not a good place for raw script tags. Render JSON-LD
-server-side in your root Blade template with `@seoSchema($post)`, or expose
-it via `SEO::toArray()` and inject it yourself.
+```jsx
+import { Head } from '@inertiajs/react'
+
+export default function Post({ seo }) {
+    return (
+        <Head title={seo.title}>
+            {seo.meta.map((m) => (
+                <meta key={m['head-key']} head-key={m['head-key']}
+                      name={m.name} property={m.property} content={m.content} />
+            ))}
+            {seo.link.map((l) => (
+                <link key={l['head-key']} head-key={l['head-key']}
+                      rel={l.rel} hrefLang={l.hreflang} href={l.href} />
+            ))}
+        </Head>
+    )
+}
+```
+
+### Svelte
+
+Inertia's Svelte adapter has **no `<Head>` component** — use Svelte's native
+`<svelte:head>`, fed by the same `forInertia()` array. (`<svelte:head>` does not
+have Inertia's `head-key` dedup, so keep your SEO tags in one place — the page
+component — rather than splitting them between a layout and the page.)
+
+```svelte
+<script>
+    export let seo
+</script>
+
+<svelte:head>
+    <title>{seo.title}</title>
+    {#each seo.meta as m (m['head-key'])}
+        {#if m.name}
+            <meta name={m.name} content={m.content} />
+        {:else}
+            <meta property={m.property} content={m.content} />
+        {/if}
+    {/each}
+    {#each seo.link as l (l['head-key'])}
+        <link rel={l.rel} hreflang={l.hreflang} href={l.href} />
+    {/each}
+</svelte:head>
+```
+
+## JSON-LD with Inertia
+
+`forInertia()` deliberately omits the `script` section — Inertia's `<Head>`
+manages `title`/`meta`/`link`, not raw script tags. Pass the JSON-LD through as
+its own page prop instead:
+
+```php
+return Inertia::render('Blog/Post', [
+    'seo'    => SEO::forInertia($post),
+    'schema' => SEO::toArray($post)['script'], // [{ type, innerHTML }]
+]);
+```
+
+Render it inside the page's `<Head>` with a dedicated `head-key`:
+
+```vue
+<script setup>
+import { Head } from '@inertiajs/vue3'
+defineProps({ seo: Object, schema: Array })
+</script>
+
+<template>
+    <Head :title="seo.title">
+        <!-- ...meta + link from above... -->
+        <component v-for="(s, i) in schema" :key="`ld-${i}`" :is="'script'"
+                   head-key="seo-jsonld" type="application/ld+json"
+                   v-html="s.innerHTML" />
+    </Head>
+</template>
+```
+
+The `innerHTML` is already `</script>`-safe (encoded with `JSON_HEX_TAG`), so a
+hostile value cannot break out of the script element.
+
+::: danger The old `@seoSchema($post)` in the root Blade does not work
+A previous version of these docs suggested calling `@seoSchema($post)` in the
+Inertia root template (`app.blade.php`). **That throws an undefined-variable
+error**: the Inertia root view never receives the page model — only the page
+component does. Use the prop recipe above. If you need the JSON-LD in the raw
+HTML for crawlers (recommended), enable Inertia SSR so the page `<Head>` is
+server-rendered, or share the resolved schema with the root view explicitly:
+
+```php
+// A middleware or controller, where you DO have the model:
+Inertia::share('schemaHtml', fn () => app(\Rankbeam\Seo\Services\TagRenderer::class)
+    ->renderSchema(SEO::resolve($post)));
+```
+```blade
+{{-- root app.blade.php --}}
+@inertiaHead
+{!! $page['props']['schemaHtml'] ?? '' !!}
+```
 :::
 
 ## Plain arrays / JSON APIs
@@ -68,14 +181,16 @@ it via `SEO::toArray()` and inject it yourself.
 $seo = SEO::toArray($post);
 // [
 //     'title'  => '...',
-//     'meta'   => [...],
+//     'meta'   => [...],                      // no head-key (decoupled clients dedupe their own way)
 //     'link'   => [['rel' => 'canonical', 'href' => '...']],
 //     'script' => [['type' => 'application/ld+json', 'innerHTML' => '{...}']],
 // ]
 ```
 
 This is the format to expose from an API endpoint when a fully decoupled
-frontend (Nuxt, Next, etc.) owns the document head.
+frontend (Nuxt, Next, etc.) owns the document head. The `head-key` hint is
+specific to Inertia's `<Head>`, so `toArray()` omits it — your client's own head
+manager (`@unhead`, `next/head`, …) handles dedup.
 
 ## Lower-level access
 
@@ -93,4 +208,5 @@ $data->ogImage;       // always an absolute URL
 
 `SEOData` is an immutable value object — see
 [resolver precedence](/concepts/resolver-precedence) for how each property
-gets its value.
+gets its value, and [the Rendering Contract](/contributing/rendering-contract)
+for the full checklist every stack's `<head>` must satisfy.

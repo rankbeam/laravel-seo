@@ -7,6 +7,46 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Rendering contract & framework correctness (action plan RT4)
+
+The single canonical [Rendering Contract](docs/contributing/rendering-contract.md)
+every front-end stack's `<head>` must satisfy, plus the renderer fixes and
+fast, framework-free unit tests that prove it.
+
+#### Changed
+
+- **Robots is now a configurable policy.** `@seo` / `SEO::render()` /
+  `SEO::toArray()` / `SEO::forInertia()` emit `<meta name="robots">` **only when
+  the resolved directive deviates from the site default** (`seo.default_robots`).
+  A redundant `index,follow` is no longer rendered — its absence already means
+  index,follow to a crawler. A deviating directive (`noindex`, `nofollow`,
+  `max-snippet:-1`, …) is emitted **verbatim**; the comparison is
+  whitespace-insensitive. This is a **rendered-output change** (minor): set the
+  new `seo.robots.emit_default = true` to restore the always-emit behaviour. The
+  granular `@seoRobots` directive is unaffected (explicit opt-in, always renders).
+- **JSON-LD `<script>` tags now carry `data-seo-schema` + `data-seo-url`** so
+  client-side navigation (Livewire `wire:navigate`) can find and remove stale
+  schema instead of accumulating it. See the new Livewire guide for the
+  `livewire:navigated` cleanup snippet.
+- `toArray()` / `render()` no longer emit empty/null tags (empty canonical,
+  empty-content meta).
+
+#### Added
+
+- **Stable Inertia `head-key`** on every `SEO::forInertia()` / `toInertiaHead()`
+  meta and link entry (`name ?? property`, repeatables disambiguated; canonical
+  and hreflang keyed). Bind it as `:head-key` so page meta dedupes/replaces
+  layout meta across client visits instead of stacking duplicates.
+- **`seo.robots.emit_default`** config flag (default `false`).
+- Framework guides: a new **Livewire** guide (`@seo` on initial render, the
+  `wire:navigate` caveat, the JSON-LD cleanup snippet), an Inertia **Svelte**
+  recipe (`<svelte:head>`), a **working JSON-LD-in-Inertia** recipe (replacing
+  the broken `@seoSchema($post)`-in-root-Blade doc), and an explicit
+  "crawler-visible meta requires Inertia SSR/prerendering" note.
+- Renderer-shape contract tests (`tests/Unit/Services/RenderingContractTest.php`)
+  proving title/meta-order/robots/dedup-head-keys/canonical≡og:url/script
+  presence-absence and cross-renderer semantic parity — fast, required CI.
+
 ### Free SEO audit & focus-keyword workflow (additive)
 
 The instant free-tier payoff (action plan RT2): a one-command "what's wrong
