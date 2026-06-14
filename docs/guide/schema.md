@@ -74,6 +74,11 @@ section:
 @seoSchema($post)
 ```
 
+Editors can populate `seo_meta.schema_jsonld` without code via the optional
+**Structured data** section in the [Filament fields](/guide/filament#structured-data-schema-org)
+package — an automatic breadcrumb toggle plus FAQ / Product blocks, validated
+through `SchemaValidator` before they save.
+
 ## Escaping
 
 All JSON-LD output — `SchemaCollection::toScript()`, `toJson()`, and the

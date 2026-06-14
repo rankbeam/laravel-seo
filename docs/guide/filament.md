@@ -73,6 +73,60 @@ The section binds to a `seo_meta` state group and saves through the core
 and the values immediately become layer 6 (explicit) in the
 [resolver](/concepts/resolver-precedence).
 
+## Structured data (schema.org)
+
+An optional **Structured data** section lets editors attach JSON-LD rich-result
+schema without touching code. Add it alongside the SEO section:
+
+```php
+public static function form(Schema $schema): Schema
+{
+    return $schema->components([
+        // ... your fields ...
+        static::seoSection(),
+        static::seoSchemaSection(),     // optional
+    ]);
+}
+```
+
+(or `SEOSchemaFields::make()` directly, without the trait).
+
+It writes into the core `seo_meta.schema_jsonld` column — the same value the
+[schema renderer](/guide/schema) emits — and is **pure UI binding**: every
+document is produced by a core schema builder and validated by the core
+`SchemaValidator` before it can be saved. It adds no schema logic of its own.
+
+The section offers:
+
+- **Automatic breadcrumb** — a single toggle, led with as the zero-config win.
+  Derives a `BreadcrumbList` from the record's parent chain via
+  `BreadcrumbSchema::fromModelAncestors()`. Nothing to fill in — it follows the
+  model's ancestors.
+- **Schema blocks** — a repeater. Each block is either an **FAQ** (question /
+  answer pairs → `FAQPage`) or a **Product** (name, description, image, brand,
+  SKU, price + currency, availability → `Product`), built by the core
+  `FAQSchema` / `ProductSchema` builders.
+
+### Validation
+
+A block that would build malformed JSON-LD is **rejected on save** with the core
+validator's message — e.g. an FAQ entry with no answer, or a Product with no
+image or offer (Google requires an offer for Product rich results). Blocks left
+empty are simply ignored.
+
+### What it stores
+
+`schema_jsonld` holds the built document(s): a single object when there is one,
+a JSON array when there are several (breadcrumb first, then your blocks). Both
+are valid JSON-LD and render unchanged through `@seo` / `renderSchema()`.
+
+### Schema it doesn't manage
+
+Schema you authored in code that this editor cannot represent — a hand-authored
+`@graph`, an exotic `@type`, or a Product carrying fields the form doesn't expose
+(reviews, ratings, GTIN/MPN) — is **preserved verbatim**. Opening and saving the
+form never clobbers it.
+
 ## Testing note (testbench only)
 
 If you boot Filament inside orchestra/testbench, register Filament's
