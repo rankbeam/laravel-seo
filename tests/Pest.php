@@ -83,8 +83,6 @@ function createMockModel(array $attributes = [], ?array $seoMeta = null): \Illum
                 'focus_keywords' => null,
                 'schema_jsonld' => null,
                 'locale' => 'en',
-                'seo_score' => null,
-                'analysis_report' => null,
             ];
 
             $this->seoMeta = (object) array_merge($defaults, $meta);

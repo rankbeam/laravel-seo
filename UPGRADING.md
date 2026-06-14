@@ -57,7 +57,7 @@ data survives the upgrade.
 | v1 feature | Where it lives now |
 |---|---|
 | Filament SEO form section | `rankbeam/laravel-seo-filament` (free, MIT) — `HasSEOFields` + `static::seoSection()` |
-| Content analyzer (32 rules) | `rankbeam/laravel-seo-pro` (commercial, in development) |
+| Content analyzer (32 rules) | Not carried forward — the keyword-density/power-word rules aren't on the roadmap. Technical-SEO issue detection lives in `rankbeam/laravel-seo-pro`'s site scanner; the numeric SEO score is a Pro feature (issue-derived). |
 | Sitewide scanner | `rankbeam/laravel-seo-pro` — queued scan pipeline + Filament dashboard |
 | Redirect manager | `rankbeam/laravel-seo-pro` — hardened (regex validation, open-redirect guards) |
 | 404 monitor | `rankbeam/laravel-seo-pro` — privacy-first (no IPs stored by default) |

@@ -530,8 +530,6 @@ function createConcreteModelWithSeoMeta(array $seoMeta, int $key, ?string $seoUr
         'focus_keywords' => null,
         'schema_jsonld' => null,
         'locale' => null,
-        'seo_score' => null,
-        'analysis_report' => null,
     ], $seoMeta);
 
     // Use a concrete class definition to avoid constructor issues

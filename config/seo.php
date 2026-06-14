@@ -11,8 +11,8 @@ declare(strict_types=1);
  *
  * The core package covers: meta tag resolution (SEOResolver precedence chain),
  * tag rendering (HTML / array / Inertia), JSON-LD schema markup, and XML
- * sitemap generation. Analyzer, scanner, redirects, 404 monitoring, and
- * analytics live in the Pro package.
+ * sitemap generation. The site scanner, redirects, and 404 monitoring live in
+ * the Pro package.
  *
  * @see https://github.com/rankbeam/laravel-seo
  */

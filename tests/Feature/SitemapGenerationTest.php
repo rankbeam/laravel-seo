@@ -57,12 +57,6 @@ beforeEach(function () {
             $table->json('focus_keywords')->nullable();
             $table->json('schema_jsonld')->nullable();
             $table->string('schema_type')->nullable();
-            $table->integer('seo_score')->nullable();
-            $table->json('analysis_report')->nullable();
-            $table->timestamp('analyzed_at')->nullable();
-            $table->text('content_snapshot')->nullable();
-            $table->string('content_hash')->nullable();
-            $table->timestamp('snapshot_at')->nullable();
             $table->timestamps();
             $table->unique(['seoable_type', 'seoable_id', 'locale']);
         });

@@ -233,7 +233,6 @@ describe('SEOData', function () {
                 section: 'Tech',
                 tags: ['tag1', 'tag2'],
                 locale: 'en',
-                seoScore: 85,
             );
 
             $override = new SEOData(title: 'New Title');
@@ -246,8 +245,7 @@ describe('SEOData', function () {
                 ->and($merged->ogTitle)->toBe('OG Title')
                 ->and($merged->twitterTitle)->toBe('TW Title')
                 ->and($merged->author)->toBe('John')
-                ->and($merged->tags)->toBe(['tag1', 'tag2'])
-                ->and($merged->seoScore)->toBe(85);
+                ->and($merged->tags)->toBe(['tag1', 'tag2']);
         });
     });
 
@@ -549,20 +547,5 @@ describe('SEOData', function () {
             expect($data->tags)->toBe(['tag1', 'tag2', 'tag3']);
         });
 
-        it('preserves analysis report', function () {
-            $report = [
-                'checks' => ['title' => 'pass', 'description' => 'fail'],
-                'suggestions' => ['Add more content'],
-            ];
-
-            $data = SEOData::fromArray([
-                'title' => 'Test',
-                'seo_score' => 75,
-                'analysis_report' => $report,
-            ]);
-
-            expect($data->seoScore)->toBe(75)
-                ->and($data->analysisReport)->toBe($report);
-        });
     });
 });

@@ -50,8 +50,6 @@ function makeImageModel(array $meta): ImageAbsolutizationModel
         'focus_keywords' => null,
         'schema_jsonld' => null,
         'locale' => 'en',
-        'seo_score' => null,
-        'analysis_report' => null,
     ], $meta);
 
     return $model;

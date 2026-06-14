@@ -25,7 +25,6 @@ use JsonSerializable;
  * **Keywords**: focusKeywords (array of keyword objects with synonyms)
  * **Schema**: schemaJsonld (JSON-LD structured data)
  * **Multilingual**: locale, alternates (hreflang links)
- * **Analysis**: seoScore, analysisReport
  *
  * ## Merge Precedence Logic
  *
@@ -115,11 +114,6 @@ final class SEOData implements Arrayable, JsonSerializable
         public readonly ?string $locale = null,
         /** @var array<int, array{hreflang: string, href: string}>|null */
         public readonly ?array $alternates = null,
-
-        // Analysis results
-        public readonly ?int $seoScore = null,
-        /** @var array<string, mixed>|null */
-        public readonly ?array $analysisReport = null,
     ) {}
 
     /**
@@ -168,8 +162,6 @@ final class SEOData implements Arrayable, JsonSerializable
             focusKeywords: $meta->focus_keywords,
             schemaJsonld: $meta->schema_jsonld,
             locale: $meta->locale,
-            seoScore: $meta->seo_score,
-            analysisReport: $meta->analysis_report,
         );
     }
 
@@ -232,8 +224,6 @@ final class SEOData implements Arrayable, JsonSerializable
             schemaJsonld: $data['schema_jsonld'] ?? $data['schemaJsonld'] ?? null,
             locale: $data['locale'] ?? null,
             alternates: $data['alternates'] ?? null,
-            seoScore: $data['seo_score'] ?? $data['seoScore'] ?? null,
-            analysisReport: $data['analysis_report'] ?? $data['analysisReport'] ?? null,
         );
     }
 
@@ -318,8 +308,6 @@ final class SEOData implements Arrayable, JsonSerializable
             schemaJsonld: $other->schemaJsonld ?? $this->schemaJsonld,
             locale: $other->locale ?? $this->locale,
             alternates: $other->alternates ?? $this->alternates,
-            seoScore: $other->seoScore ?? $this->seoScore,
-            analysisReport: $other->analysisReport ?? $this->analysisReport,
         );
     }
 
@@ -441,10 +429,6 @@ final class SEOData implements Arrayable, JsonSerializable
             'focus_keywords' => $this->focusKeywords,
             'schema' => $this->schemaJsonld,
             'alternates' => $this->alternates,
-            'analysis' => array_filter([
-                'score' => $this->seoScore,
-                'report' => $this->analysisReport,
-            ]),
         ], fn($v) => $v !== null && $v !== []);
     }
 
@@ -501,8 +485,6 @@ final class SEOData implements Arrayable, JsonSerializable
             'schema_jsonld' => $this->schemaJsonld,
             'locale' => $this->locale,
             'alternates' => $this->alternates,
-            'seo_score' => $this->seoScore,
-            'analysis_report' => $this->analysisReport,
         ];
     }
 

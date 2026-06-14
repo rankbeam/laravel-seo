@@ -7,6 +7,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### 3.0.0 (contract reset — unreleased)
+
+The open-core ownership reset (action plan RT0). Core keeps the metadata
+contract; the numerical SEO score becomes a Pro-owned scan-result field.
+
+#### Removed
+
+- **Breaking:** the dead content-analyzer columns on `seo_meta` —
+  `seo_score`, `analysis_report`, `analyzed_at`, `content_snapshot`,
+  `content_hash`, `snapshot_at` — and their `seo_meta_score_index` /
+  `seo_meta_analyzed_index` indexes. Nothing in the shipped core or Pro ever
+  wrote to them. Dropped by a new, idempotent, **irreversible** cleanup
+  migration that runs safely on fresh and upgraded (incl. partially-migrated)
+  schemas. **`focus_keywords` is kept.** The published `create_seo_meta_table`
+  migration is left immutable.
+- **Breaking:** the always-null score/analysis public API —
+  `HasSEO::getSEOScore()`, `getSEOAnalysisReport()`, `needsSEOAnalysis()`,
+  `scopeWithLowSEOScore()`, `scopeNeedingSEOAnalysis()`;
+  `SEOMeta::updateScore()`, `scopeLowScore()`, `scopeNeedsAnalysis()`; and the
+  `SEOData::$seoScore` / `$analysisReport` properties (with their
+  `fromModel`/`fromArray`/`merge`/`toArray`/`toFlatArray` plumbing). These
+  read columns that were always NULL.
+
+#### Notes
+
+- The numerical 0–100 score moves to Pro, persisted on a Pro scan-result
+  record with a stored `rubric_version` (implemented in a later thread) — it
+  will never live in `seo_meta`. See [UPGRADING.md](UPGRADING.md).
+
 ## [2.0.1] - 2026-06-13
 
 ### Fixed

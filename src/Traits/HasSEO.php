@@ -116,8 +116,6 @@ use Rankbeam\Seo\Services\SEOResolver;
  * @see \Rankbeam\Seo\Services\SEOResolver For the precedence chain
  * @see \Rankbeam\Seo\Data\SEOData For the data structure
  *
- * @method static static|\Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder whereSeoScore(int $score)
- *
  * @property-read SEOMeta|null $seoMeta
  */
 trait HasSEO
@@ -174,7 +172,6 @@ trait HasSEO
      * ```php
      * // Access SEO meta directly
      * $post->seoMeta->title;
-     * $post->seoMeta->seo_score;
      *
      * // Update via relationship
      * $post->seoMeta()->update(['title' => 'New Title']);
@@ -532,61 +529,6 @@ trait HasSEO
     }
 
     /**
-     * Get the SEO score for this model.
-     *
-     * @return int|null Score from 0-100, or null if not analyzed
-     */
-    public function getSEOScore(): ?int
-    {
-        return $this->seoMeta?->seo_score;
-    }
-
-    /**
-     * Get the SEO analysis report.
-     *
-     * @return array<string, mixed>|null The analysis report or null
-     */
-    public function getSEOAnalysisReport(): ?array
-    {
-        return $this->seoMeta?->analysis_report;
-    }
-
-    /**
-     * Check if the model needs SEO analysis.
-     *
-     * Returns true if:
-     * - Never analyzed
-     * - Analysis is older than 7 days
-     * - Content has changed since last analysis
-     *
-     * @return bool True if analysis is needed
-     */
-    public function needsSEOAnalysis(): bool
-    {
-        $meta = $this->seoMeta;
-
-        if (! $meta || ! $meta->analyzed_at) {
-            return true;
-        }
-
-        // Re-analyze if older than 7 days
-        if ($meta->analyzed_at->lt(now()->subDays(7))) {
-            return true;
-        }
-
-        // Re-analyze if content changed
-        if ($meta->content_hash) {
-            $currentHash = md5($this->getContentForSEO());
-
-            if ($currentHash !== $meta->content_hash) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
      * Check if SEO data has been explicitly set (not just computed).
      *
      * @return bool True if explicit SEO data exists
@@ -597,45 +539,5 @@ trait HasSEO
 
         return $meta
             && ($meta->title || $meta->description || $meta->focus_keywords);
-    }
-
-    /**
-     * Scope to query models with low SEO scores.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param int $threshold Score threshold (default 50)
-     * @return \Illuminate\Database\Eloquent\Builder
-     *
-     * @example
-     * ```php
-     * // Get posts with poor SEO
-     * $poorSEO = Post::withLowSEOScore(40)->get();
-     * ```
-     */
-    public function scopeWithLowSEOScore($query, int $threshold = 50)
-    {
-        return $query->whereHas('seoMeta', function ($q) use ($threshold) {
-            $q->where('seo_score', '<', $threshold);
-        });
-    }
-
-    /**
-     * Scope to query models needing SEO analysis.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @return \Illuminate\Database\Eloquent\Builder
-     *
-     * @example
-     * ```php
-     * // Get posts needing analysis
-     * $needsAnalysis = Post::needingSEOAnalysis()->get();
-     * ```
-     */
-    public function scopeNeedingSEOAnalysis($query)
-    {
-        return $query->whereDoesntHave('seoMeta', function ($q) {
-            $q->whereNotNull('analyzed_at')
-                ->where('analyzed_at', '>=', now()->subDays(7));
-        });
     }
 }

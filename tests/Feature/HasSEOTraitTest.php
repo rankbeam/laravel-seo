@@ -85,12 +85,6 @@ beforeEach(function () {
             $table->json('focus_keywords')->nullable();
             $table->json('schema_jsonld')->nullable();
             $table->string('schema_type')->nullable();
-            $table->integer('seo_score')->nullable();
-            $table->json('analysis_report')->nullable();
-            $table->timestamp('analyzed_at')->nullable();
-            $table->text('content_snapshot')->nullable();
-            $table->string('content_hash')->nullable();
-            $table->timestamp('snapshot_at')->nullable();
             $table->timestamps();
             $table->unique(['seoable_type', 'seoable_id', 'locale']);
         });
@@ -271,75 +265,6 @@ describe('HasSEO Trait', function () {
             ->and($primary['is_primary'])->toBeTrue();
     });
 
-    it('returns seo score', function () {
-        $post = TraitTestPost::create([
-            'title' => 'Score Test',
-            'slug' => 'score-test',
-            'content' => 'Test content',
-        ]);
-
-        $post->seoMeta()->update(['seo_score' => 85]);
-
-        expect($post->fresh()->getSEOScore())->toBe(85);
-    });
-
-    it('checks if model needs seo analysis', function () {
-        config(['seo.features.auto_create_meta' => true]);
-
-        $post = TraitTestPost::create([
-            'title' => 'Analysis Check',
-            'slug' => 'analysis-check',
-            'content' => 'Test content',
-        ]);
-
-        // Freshly created without analysis
-        expect($post->needsSEOAnalysis())->toBeTrue();
-
-        // After analysis
-        $post->seoMeta()->update([
-            'analyzed_at' => now(),
-            'content_hash' => md5($post->getContentForSEO()),
-        ]);
-
-        expect($post->fresh()->needsSEOAnalysis())->toBeFalse();
-    });
-
-    it('detects stale analysis', function () {
-        $post = TraitTestPost::create([
-            'title' => 'Stale Analysis',
-            'slug' => 'stale-analysis',
-            'content' => 'Test content',
-        ]);
-
-        // Old analysis (>7 days)
-        $post->seoMeta()->update([
-            'analyzed_at' => now()->subDays(10),
-        ]);
-
-        expect($post->fresh()->needsSEOAnalysis())->toBeTrue();
-    });
-
-    it('detects content change via hash', function () {
-        $post = TraitTestPost::create([
-            'title' => 'Hash Check',
-            'slug' => 'hash-check',
-            'content' => 'Original content',
-        ]);
-
-        $post->seoMeta()->update([
-            'analyzed_at' => now(),
-            'content_hash' => md5('Original content'),
-        ]);
-
-        expect($post->fresh()->needsSEOAnalysis())->toBeFalse();
-
-        // Change content
-        $post->update(['content' => 'Different content']);
-
-        // But don't update hash - should detect change
-        expect($post->fresh()->needsSEOAnalysis())->toBeTrue();
-    });
-
     it('checks for explicit seo data', function () {
         $post = TraitTestPost::create([
             'title' => 'Explicit Check',
@@ -354,39 +279,6 @@ describe('HasSEO Trait', function () {
         $post->seoMeta()->update(['title' => 'Explicit Title']);
 
         expect($post->fresh()->hasExplicitSEO())->toBeTrue();
-    });
-
-    it('scopes models with low seo score', function () {
-        TraitTestPost::create(['title' => 'Low Score', 'slug' => 'low-score', 'content' => ''])
-            ->seoMeta()->update(['seo_score' => 30]);
-
-        TraitTestPost::create(['title' => 'High Score', 'slug' => 'high-score', 'content' => ''])
-            ->seoMeta()->update(['seo_score' => 90]);
-
-        $lowScorePosts = TraitTestPost::withLowSEOScore(50)->get();
-
-        expect($lowScorePosts)->toHaveCount(1)
-            ->and($lowScorePosts->first()->slug)->toBe('low-score');
-    });
-
-    it('scopes models needing analysis', function () {
-        // Post with no analysis
-        TraitTestPost::create(['title' => 'No Analysis', 'slug' => 'no-analysis', 'content' => '']);
-
-        // Post with recent analysis
-        $analyzed = TraitTestPost::create(['title' => 'Analyzed', 'slug' => 'analyzed', 'content' => '']);
-        $analyzed->seoMeta()->update(['analyzed_at' => now()]);
-
-        // Post with old analysis
-        $old = TraitTestPost::create(['title' => 'Old Analysis', 'slug' => 'old-analysis', 'content' => '']);
-        $old->seoMeta()->update(['analyzed_at' => now()->subDays(10)]);
-
-        $needsAnalysis = TraitTestPost::needingSEOAnalysis()->get();
-
-        expect($needsAnalysis)->toHaveCount(2)
-            ->and($needsAnalysis->pluck('slug')->toArray())
-            ->toContain('no-analysis')
-            ->toContain('old-analysis');
     });
 
     it('deletes seo meta when model is deleted', function () {
