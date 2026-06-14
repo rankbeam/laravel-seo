@@ -1,9 +1,9 @@
 # AI assist (beta)
 
-Pro v1.2.0 adds optional, **bring-your-own-key** AI assistance:
-title and meta-description suggestions, and plain-language explanations
-of scan issues. It is **off by default** — with the flag off, no AI code
-path runs at all.
+Optional, **bring-your-own-key** AI assistance: title and meta-description
+suggestions, plain-language explanations of scan issues, a one-click
+**description rewrite**, and a **structured-data (schema.org) suggestion**.
+It is **off by default** — with the flag off, no AI code path runs at all.
 
 Three things define the design:
 
@@ -13,9 +13,10 @@ Three things define the design:
   Nothing is proxied, metered, or resold, and the package sends no
   telemetry anywhere.
 - **Suggestions, never silent changes.** The model proposes; you pick.
-  A picked suggestion only fills the form field — saving stays explicit,
-  and the regular validation (60/160 counters, evaluator warnings)
-  applies to it like any hand-typed value.
+  A picked suggestion or fix is only ever *applied by an explicit action*
+  — it fills a form field, or writes one reviewed value when you click
+  Apply — and the regular validation (60/160 counters, evaluator
+  warnings, the schema validator) applies to it like any hand-typed value.
 - **Always non-fatal.** A missing key, an invalid key, a rate limit, or
   a timeout produces an inline message. It can never block saving,
   rendering, or scanning.
@@ -125,6 +126,44 @@ With the optional Filament packages installed
   the field for review.
 - **Explain (AI)** on the dashboard issue table: a short plain-language
   explanation of the issue and the concrete fix.
+- **Rewrite description (AI)** on the dashboard issue table (next to
+  Explain): proposes one improved meta description, always within the
+  160-character limit. Review it in the modal; clicking **Apply rewrite**
+  writes it to the page's `seo_meta` record. Nothing is written until you
+  apply it.
+- **Suggest structured data (AI)** on the dashboard issue table: proposes
+  the best schema.org rich-result type (Product, Article, or Breadcrumb)
+  and shows the JSON-LD built for it. Clicking **Apply structured data**
+  adds it to the page's `seo_meta.schema_jsonld` — the same column the
+  optional [structured-data editor](../guide/filament#structured-data-schema-org)
+  manages, so it round-trips and stays editable there. An incomplete
+  suggestion (e.g. a Product with no price) is shown with the missing
+  fields and is **not** applied.
+
+These two are bounded fixes: see [Bounded fixes](#bounded-fixes-propose-never-auto-apply).
+
+## Bounded fixes (propose, never auto-apply)
+
+Two assist actions go one step beyond a suggestion — they produce a
+single, *constrained* value you can apply in one click. Both still
+**propose only**: nothing is persisted until you explicitly accept.
+
+- **Rewrite description** (`SeoSuggestionService::rewriteDescription($model, $issue?)`)
+  returns one meta description **always within the core
+  `DESCRIPTION_MAX_LENGTH` (160)**. If the model overshoots, the text is
+  trimmed deterministically at a sentence (then word) boundary, so an
+  accepted rewrite can never itself trip the `description_too_long`
+  warning. Passing the scan issue steers the rewrite (e.g. *too long* vs
+  *missing*).
+- **Suggest structured data** (`SeoSuggestionService::suggestSchemaType($model)`)
+  asks the model only for a **type recommendation and leaf field values** —
+  never raw JSON-LD. Deterministic code then assembles the document with
+  the core schema builders (`ProductSchema` / `ArticleSchema` /
+  `BreadcrumbSchema`) and validates it with the core `SchemaValidator`, so
+  a hallucinated `@type`, `@context`, or structure can never reach the
+  page. Structural facts that must be real — an Article's image / author /
+  dates, a Breadcrumb's ancestor chain — are read from the model, not from
+  the model's text output.
 
 ## Headless
 
@@ -139,11 +178,17 @@ php artisan seo-pro:ai-suggest "App\Models\Post" 42 --field=description
 
 # explain a scan issue (IDs from seo-pro:scan-status)
 php artisan seo-pro:ai-suggest --issue=17
+
+# suggest a schema.org type + built, validated JSON-LD for a model
+php artisan seo-pro:suggest-schema "App\Models\Post" 42
 ```
 
-Output includes the suggestions, the model used, and the token usage
+Output includes the suggestions (or the recommended type, the built
+JSON-LD, and whether it validates), the model used, and the token usage
 per request. The command exits non-zero on any failure, with the error
-in the JSON envelope.
+in the JSON envelope. Like every assist surface, `seo-pro:suggest-schema`
+is **propose-only** — it prints the document and writes nothing; piping it
+into `seo_meta.schema_jsonld` is your decision.
 
 ## How replies are handled
 
@@ -186,6 +231,11 @@ Exactly this, only to your configured provider, only on explicit action
   `max_input_chars` (default 6000 characters).
 - *Issue explanations*: the issue's type, severity, field, message, and
   target URL, plus the affected model's resolved title/description.
+- *Description rewrite*: the same minimal page context as a suggestion,
+  plus — when given — the scan issue's type and message.
+- *Structured-data suggestion*: the same minimal page context as a
+  suggestion. The model returns only a type and leaf field values; the
+  JSON-LD is assembled locally.
 
 Never: visitor data, IP addresses, request headers, credentials, or
 full HTML. The Pro repository's SECURITY.md carries the authoritative
