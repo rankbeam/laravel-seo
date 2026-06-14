@@ -44,7 +44,13 @@ SEO_PRO_AI_API_KEY=sk-...
 Any model your key can access works — set a smaller model to cut the
 cost per suggestion. The config file (`config/seo-pro.php`, `ai` block)
 exposes `timeout`, `max_input_chars` (caps what is sent),
-`max_output_tokens` (caps what is generated), and `suggestion_count`.
+`max_output_tokens` (the base cap on what is generated),
+`token_budgets` (per-task output caps for `suggestions` / `explanation`),
+`reasoning_models` + `reasoning_min_output_tokens` (raise the cap for
+thinking models — see below), and `suggestion_count`.
+
+No `temperature` is sent: current reasoning models (Claude, GPT-5.5)
+reject it, so there is intentionally no knob for it.
 
 ::: warning Key handling with a cached config
 The config stores only the **name** of the environment variable
@@ -84,6 +90,30 @@ php artisan seo-pro:ai-suggest --issue=17
 Output includes the suggestions, the model used, and the token usage
 per request. The command exits non-zero on any failure, with the error
 in the JSON envelope.
+
+## How replies are handled
+
+Every call returns one provider-neutral envelope, so the behaviour is the
+same across providers (and across the ones added later):
+
+- **Structured output where the provider supports it.** For OpenAI the
+  suggestion calls use native Structured Outputs, so the JSON is enforced
+  by the API rather than coaxed by the prompt. Prompt-only providers
+  (Anthropic) fall back to a tolerant parser. Either way you get a clean
+  list of suggestions or a clear failure — never a half-parsed reply.
+- **Truncation is an explicit, actionable error.** If a reply is cut off
+  at the output-token cap, you get a `truncated` error that says to raise
+  `seo-pro.ai.max_output_tokens` — not a silently shortened title. This is
+  most common with **reasoning / thinking models**, which spend hidden
+  tokens before producing any visible output; those models
+  (`reasoning_models` patterns) automatically get a higher floor
+  (`reasoning_min_output_tokens`, default 2000).
+- **Errors are typed and sanitized.** Each failure carries a stable code
+  (`unauthorized`, `rate_limited`, `timeout`, `bad_request`, `truncated`,
+  `content_filtered`, `provider_error`, …) and a `retryable` flag for the
+  transient ones (rate limit, timeout, provider 5xx). The message is a
+  short, sanitized string — the raw provider response body is never
+  surfaced or logged.
 
 ## What leaves your server
 
