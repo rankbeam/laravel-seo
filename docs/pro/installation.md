@@ -63,6 +63,62 @@ public function boot(): void
 }
 ```
 
+## Verify your install
+
+`seo:doctor` confirms the wiring in one shot — tables, app URL, scan
+targets, sitemap, queue, and AI assist — and prints the exact fix for any
+warning:
+
+```bash
+php artisan seo:doctor
+```
+
+```
+  Rankbeam SEO — health check
+
+  Application
+    ✓ app.url is https://shop.example.com
+  Database (core)
+    ✓ Core tables present (seo_meta, seo_defaults)
+  Database (Pro)
+    ✓ Pro tables present (redirects, 404 logs, scan runs/issues/results)
+  Scanning
+    ✓ Scan targets registered: posts, static
+  Queue
+    ! Queue connection is 'sync'
+      ↳ Scans run inline on the dispatching request/CLI. Use a real queue …
+
+  ! Healthy with warnings — 1 warning(s), 7 passed.
+```
+
+It makes no network calls and never prints secret values. It exits non-zero
+only on a critical failure (a missing required table), so it is safe in CI;
+add `--json` for monitoring. See [Headless usage](/pro/headless) for the full
+command reference.
+
+## Five-minute Pro tour
+
+With the baseline install done, here is the whole loop without a panel:
+
+```bash
+# 1. Confirm the wiring.
+php artisan seo:doctor
+
+# 2. Scan every registered target (inline; drop --sync to queue it).
+php artisan seo-pro:scan --sync
+
+# 3. Read the latest run: summary, average score, open issues by severity.
+php artisan seo-pro:scan-status
+
+# 4. Recover a dead URL the moment you see it in the 404 monitor.
+php artisan seo-pro:404-list
+php artisan seo-pro:redirect-create /old-pricing /pricing --from-404=/old-pricing
+```
+
+That is the complete operations loop — scan, triage, redirect — from the
+command line. The [Filament panel](#path-a-with-a-filament-panel) puts the
+same engine behind a dashboard if you want one.
+
 ## Path A — with a Filament panel
 
 Add the UI packages (Filament 4 and 5 are both supported), then register

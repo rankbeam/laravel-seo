@@ -43,6 +43,7 @@ export default defineConfig({
         items: [
           { text: 'Installation', link: '/guide/installation' },
           { text: 'Quickstart', link: '/guide/quickstart' },
+          { text: 'Run the demo', link: '/guide/demo' },
         ],
       },
       {

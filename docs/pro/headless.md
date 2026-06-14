@@ -1,10 +1,22 @@
 # Headless usage
 
-Every Pro feature that *does work* — scanning, redirecting, 404 logging —
-lives in the engine and runs without Filament. The panel UI is a management
-convenience; these commands are its headless counterpart.
+Every Pro feature — scanning, redirecting, 404 logging — runs headless: it
+lives in the engine and needs no Filament. The panel is only a management UI;
+these commands are its headless counterpart.
 
 ## Command reference
+
+### Health check
+
+| Command | What it does |
+|---|---|
+| `seo:doctor` | One-shot install health check — app URL, core + Pro tables, scan targets, sitemap, queue, and AI assist, each with the exact fix for any warning (`--json` for monitoring) |
+
+`seo:doctor` makes no network calls and never prints secret values (the AI
+check reports only whether the configured key variable is *set*). It exits
+non-zero only on a critical failure — a missing required table — so a
+localhost dev box with warnings still exits clean. Run it right after
+[install](/pro/installation) and in CI.
 
 ### Scanning
 
