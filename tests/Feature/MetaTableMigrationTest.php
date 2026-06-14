@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Schema;
  *   dead columns/indexes while `focus_keywords` + existing data survive;
  * - it is idempotent and safe on a partially-migrated schema.
  */
-
 $deadColumns = ['seo_score', 'analysis_report', 'analyzed_at', 'content_snapshot', 'content_hash', 'snapshot_at'];
 $deadIndexes = ['seo_meta_score_index', 'seo_meta_analyzed_index'];
 $keptColumns = ['title', 'description', 'canonical', 'robots', 'og_title', 'og_image', 'twitter_card', 'focus_keywords', 'schema_jsonld', 'schema_type', 'locale'];
@@ -23,6 +22,11 @@ $keptColumns = ['title', 'description', 'canonical', 'robots', 'og_title', 'og_i
 // require (not require_once) so the idempotency test can run up() twice.
 $runCleanup = function (): void {
     $migration = require __DIR__.'/../../database/migrations/2026_06_14_000001_drop_dead_analyzer_columns_from_seo_meta.php';
+    $migration->up();
+};
+
+$runNullableSocialCards = function (): void {
+    $migration = require __DIR__.'/../../database/migrations/2026_06_14_000002_make_seo_meta_og_type_nullable.php';
     $migration->up();
 };
 
@@ -202,4 +206,38 @@ it('does not warn when the dead columns are all null', function () use ($buildV2
     $runCleanup();
 
     Log::shouldNotHaveReceived('warning');
+});
+
+it('makes social card columns nullable without rewriting legacy values', function () use ($buildV2Schema, $runNullableSocialCards) {
+    $buildV2Schema([], false);
+
+    DB::table('seo_meta')->insert([
+        'seoable_type' => 'App\\Models\\Post',
+        'seoable_id' => 1,
+        'locale' => 'en',
+        'title' => 'Legacy row',
+        'created_at' => now(),
+        'updated_at' => now(),
+    ]);
+
+    $runNullableSocialCards();
+
+    DB::table('seo_meta')->insert([
+        'seoable_type' => 'App\\Models\\Post',
+        'seoable_id' => 2,
+        'locale' => 'en',
+        'title' => 'New row',
+        'og_type' => null,
+        'twitter_card' => null,
+        'created_at' => now(),
+        'updated_at' => now(),
+    ]);
+
+    $legacy = DB::table('seo_meta')->where('seoable_id', 1)->first();
+    $new = DB::table('seo_meta')->where('seoable_id', 2)->first();
+
+    expect($legacy->og_type)->toBe('website')
+        ->and($legacy->twitter_card)->toBe('summary_large_image')
+        ->and($new->og_type)->toBeNull()
+        ->and($new->twitter_card)->toBeNull();
 });

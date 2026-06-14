@@ -7,6 +7,7 @@ namespace Rankbeam\Seo\Services;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;
 use Rankbeam\Seo\Data\SEOData;
+use Rankbeam\Seo\Traits\HasSEO;
 
 /**
  * Builds computed SEO data from model content.
@@ -67,8 +68,8 @@ use Rankbeam\Seo\Data\SEOData;
  * }
  * ```
  *
- * @see \Rankbeam\Seo\Services\SEOResolver For how computed values are used
- * @see \Rankbeam\Seo\Traits\HasSEO For the model trait
+ * @see SEOResolver For how computed values are used
+ * @see HasSEO For the model trait
  */
 class SEOComputedBuilder
 {
@@ -134,8 +135,8 @@ class SEOComputedBuilder
      * and relationships. Returns an SEOData object with only the
      * values that could be computed (others remain null).
      *
-     * @param Model $model The Eloquent model to extract from
-     * @param string $locale The locale for multi-language support
+     * @param  Model  $model  The Eloquent model to extract from
+     * @param  string  $locale  The locale for multi-language support
      * @return SEOData Computed SEO data (may have many null values)
      *
      * @example
@@ -161,13 +162,14 @@ class SEOComputedBuilder
             section: $this->computeSection($model),
             tags: $this->computeTags($model),
             locale: $locale,
+            alternates: $this->computeAlternates($model),
         );
     }
 
     /**
      * Compute the title from model fields.
      *
-     * @param Model $model The Eloquent model
+     * @param  Model  $model  The Eloquent model
      * @return string|null Computed title or null
      */
     protected function computeTitle(Model $model): ?string
@@ -201,7 +203,7 @@ class SEOComputedBuilder
      * their own field priorities (e.g. subtitle, abstract, biography)
      * without subclassing.
      *
-     * @param Model $model The Eloquent model
+     * @param  Model  $model  The Eloquent model
      * @return string|null Computed description or null
      */
     protected function computeDescription(Model $model): ?string
@@ -256,7 +258,7 @@ class SEOComputedBuilder
      * Explicit robots values stored in seo_meta still win (they are merged
      * on top of computed values by the resolver).
      *
-     * @param Model $model The Eloquent model
+     * @param  Model  $model  The Eloquent model
      * @return string|null Robots directive or null when the model has no opinion
      */
     protected function computeRobots(Model $model): ?string
@@ -280,7 +282,7 @@ class SEOComputedBuilder
     /**
      * Compute the image from model fields.
      *
-     * @param Model $model The Eloquent model
+     * @param  Model  $model  The Eloquent model
      * @return string|null Computed image URL or null
      */
     protected function computeImage(Model $model): ?string
@@ -321,7 +323,7 @@ class SEOComputedBuilder
     /**
      * Compute the Open Graph type based on model class.
      *
-     * @param Model $model The Eloquent model
+     * @param  Model  $model  The Eloquent model
      * @return string The og:type value
      */
     protected function computeOgType(Model $model): string
@@ -351,7 +353,7 @@ class SEOComputedBuilder
     /**
      * Compute the published time.
      *
-     * @param Model $model The Eloquent model
+     * @param  Model  $model  The Eloquent model
      * @return DateTimeInterface|null The published date or null
      */
     protected function computePublishedTime(Model $model): ?DateTimeInterface
@@ -371,7 +373,7 @@ class SEOComputedBuilder
     /**
      * Compute the modified time.
      *
-     * @param Model $model The Eloquent model
+     * @param  Model  $model  The Eloquent model
      * @return DateTimeInterface|null The modified date or null
      */
     protected function computeModifiedTime(Model $model): ?DateTimeInterface
@@ -384,7 +386,7 @@ class SEOComputedBuilder
     /**
      * Compute the author name.
      *
-     * @param Model $model The Eloquent model
+     * @param  Model  $model  The Eloquent model
      * @return string|null The author name or null
      */
     protected function computeAuthor(Model $model): ?string
@@ -424,7 +426,7 @@ class SEOComputedBuilder
     /**
      * Compute the article section/category.
      *
-     * @param Model $model The Eloquent model
+     * @param  Model  $model  The Eloquent model
      * @return string|null The section name or null
      */
     protected function computeSection(Model $model): ?string
@@ -456,7 +458,7 @@ class SEOComputedBuilder
     /**
      * Compute article tags.
      *
-     * @param Model $model The Eloquent model
+     * @param  Model  $model  The Eloquent model
      * @return array<int, string>|null Array of tag names or null
      */
     protected function computeTags(Model $model): ?array
@@ -485,10 +487,29 @@ class SEOComputedBuilder
     }
 
     /**
+     * Compute hreflang alternates.
+     *
+     * @param  Model  $model  The Eloquent model
+     * @return array<int, array{hreflang: string, href: string}>|null
+     */
+    protected function computeAlternates(Model $model): ?array
+    {
+        if (method_exists($model, 'getSEOAlternates')) {
+            $alternates = $model->getSEOAlternates();
+
+            if (! empty($alternates)) {
+                return $alternates;
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Safely get a model attribute.
      *
-     * @param Model $model The Eloquent model
-     * @param string $field The field name
+     * @param  Model  $model  The Eloquent model
+     * @param  string  $field  The field name
      * @return mixed The attribute value or null
      */
     protected function getModelAttribute(Model $model, string $field): mixed
@@ -510,7 +531,7 @@ class SEOComputedBuilder
      * word boundary is at least 60% into the limit; otherwise a hard cut
      * is used). Trailing punctuation left by the cut is trimmed.
      *
-     * @param string $text The raw text
+     * @param  string  $text  The raw text
      * @return string Cleaned and truncated text
      */
     protected function truncateDescription(string $text): string
@@ -541,7 +562,7 @@ class SEOComputedBuilder
     /**
      * Extract the first image URL from HTML content.
      *
-     * @param string $html The HTML content
+     * @param  string  $html  The HTML content
      * @return string|null The image URL or null
      */
     protected function extractFirstImage(string $html): ?string
@@ -562,7 +583,7 @@ class SEOComputedBuilder
     /**
      * Normalize an image URL to be absolute.
      *
-     * @param string $url The image URL (may be relative)
+     * @param  string  $url  The image URL (may be relative)
      * @return string Absolute URL
      */
     protected function normalizeImageUrl(string $url): string
@@ -574,7 +595,7 @@ class SEOComputedBuilder
 
         // Protocol-relative
         if (str_starts_with($url, '//')) {
-            return 'https:' . $url;
+            return 'https:'.$url;
         }
 
         // Relative URL - make absolute

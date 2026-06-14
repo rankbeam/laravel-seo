@@ -40,6 +40,7 @@ use Rankbeam\Seo\Services\SEOResolver;
  * echo $seoData->description;
  *
  * // In Blade templates
+ *
  * @seo($post)
  * ```
  *
@@ -112,9 +113,9 @@ use Rankbeam\Seo\Services\SEOResolver;
  * **On Model Deletion:**
  * - Automatically deletes the associated SEOMeta record
  *
- * @see \Rankbeam\Seo\Models\SEOMeta For the SEO metadata model
- * @see \Rankbeam\Seo\Services\SEOResolver For the precedence chain
- * @see \Rankbeam\Seo\Data\SEOData For the data structure
+ * @see SEOMeta For the SEO metadata model
+ * @see SEOResolver For the precedence chain
+ * @see SEOData For the data structure
  *
  * @property-read SEOMeta|null $seoMeta
  */
@@ -182,8 +183,6 @@ trait HasSEO
         return $this->morphOne(SEOMeta::class, 'seoable')
             ->withDefault([
                 'locale' => app()->getLocale(),
-                'og_type' => 'website',
-                'twitter_card' => 'summary_large_image',
             ]);
     }
 
@@ -199,7 +198,7 @@ trait HasSEO
      * 4. Computed values (from this trait's getter methods)
      * 5. Explicit values (from SEOMeta record)
      *
-     * @param string|null $locale The locale to resolve for (uses app locale if null)
+     * @param  string|null  $locale  The locale to resolve for (uses app locale if null)
      * @return SEOData Fully resolved SEO data
      *
      * @example
@@ -228,8 +227,8 @@ trait HasSEO
      * Updates or creates an SEOMeta record with the provided data.
      * Supports all SEOMeta fields including focus keywords and schema.
      *
-     * @param array<string, mixed> $data SEO data to save
-     * @param string|null $locale The locale to save for (uses app locale if null)
+     * @param  array<string, mixed>  $data  SEO data to save
+     * @param  string|null  $locale  The locale to save for (uses app locale if null)
      *
      * @example
      * ```php
@@ -418,6 +417,18 @@ trait HasSEO
         }
 
         return config('seo.default_og_image');
+    }
+
+    /**
+     * Get the hreflang alternates for this model.
+     *
+     * Override this method to provide absolute URLs for localized variants.
+     *
+     * @return array<int, array{hreflang: string, href: string}>|null
+     */
+    public function getSEOAlternates(): ?array
+    {
+        return null;
     }
 
     /**

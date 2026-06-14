@@ -107,7 +107,27 @@ The removed public API (`HasSEO::getSEOScore`/`getSEOAnalysisReport`/
 `SEOData::$seoScore`/`$analysisReport`) was always-null and is gone — remove any
 references.
 
-## 7. Known gotchas
+## 7. Core 3: social-card defaults moved out of stored data
+
+Core 3 corrects resolver precedence for `og:type` and `twitter:card`.
+`SEOData::fromArray()` and `SEOData::fromModel()` no longer inject
+`website` / `summary_large_image` into otherwise partial data. This means a
+partial override such as `['robots' => 'noindex,follow']` no longer resets a
+computed `og:type=article`, and an unset stored value no longer clobbers model
+inference.
+
+- Rendered pages still default `og:type` to `website`; that fallback now lives
+  at render time. The resolver base configuration still supplies the default
+  Twitter Card.
+- Migration `2026_06_14_000002_make_seo_meta_og_type_nullable.php` makes
+  `seo_meta.og_type` and `seo_meta.twitter_card` nullable with no database
+  default. New rows leave them `NULL`; existing rows keep stored values such as
+  `website` and are not rewritten.
+- `$meta->og_type` and `$meta->twitter_card` must now be treated as `?string`.
+- Models using `HasSEO` may add `getSEOAlternates(): ?array` to provide
+  first-class hreflang entries to Blade, Inertia, and JSON rendering.
+
+## 8. Known gotchas
 
 - Laravel's default `DatabaseSeeder` uses the `WithoutModelEvents` trait,
   which disables `HasSEO`'s auto-create hook — seeded models won't get a

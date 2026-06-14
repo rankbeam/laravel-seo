@@ -76,6 +76,23 @@ package's output):
 All of them accept the same `($model, $route, $locale)` expression as `@seo`,
 or no argument for the current page.
 
+## Hreflang alternates
+
+Models using `HasSEO` can provide hreflang links directly through the resolver:
+
+```php
+public function getSEOAlternates(): ?array
+{
+    return [
+        ['hreflang' => 'en', 'href' => route('posts.show', ['locale' => 'en', 'post' => $this])],
+        ['hreflang' => 'it', 'href' => route('posts.show', ['locale' => 'it', 'post' => $this])],
+    ];
+}
+```
+
+Use absolute URLs. `@seo($post)` resolves these entries and renders each one as
+`<link rel="alternate" hreflang="..." href="...">`.
+
 ## Escaping and safety
 
 Text values are escaped with `e()`. JSON-LD is encoded with

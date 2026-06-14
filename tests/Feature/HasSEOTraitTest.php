@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Queue;
+use Illuminate\Support\Str;
 use Rankbeam\Seo\Data\SEOData;
 use Rankbeam\Seo\Models\SEOMeta;
+use Rankbeam\Seo\Services\SEOResolver;
+use Rankbeam\Seo\Services\TagRenderer;
 use Rankbeam\Seo\Traits\HasSEO;
 
 // Create test model for trait testing
@@ -31,12 +34,20 @@ class TraitTestPost extends Model
 
     public function getSEODescription(): ?string
     {
-        return $this->excerpt ?? \Illuminate\Support\Str::limit(strip_tags($this->content ?? ''), 155);
+        return $this->excerpt ?? Str::limit(strip_tags($this->content ?? ''), 155);
     }
 
     public function getSEOImage(): ?string
     {
         return $this->featured_image;
+    }
+
+    public function getSEOAlternates(): ?array
+    {
+        return [
+            ['hreflang' => 'en', 'href' => url("/en/posts/{$this->slug}")],
+            ['hreflang' => 'it', 'href' => url("/it/posts/{$this->slug}")],
+        ];
     }
 
     public function getUrlForSEO(): string
@@ -145,6 +156,49 @@ describe('HasSEO Trait', function () {
             ->and($seoData->title)->not->toBeNull();
     });
 
+    it('preserves computed article social cards through a partial override', function () {
+        $post = TraitTestPost::create([
+            'title' => 'Paginated Article',
+            'slug' => 'paginated-article',
+            'content' => 'Article content',
+        ]);
+
+        $resolved = $post->seoData();
+        $overridden = app(SEOResolver::class)->resolveWithOverrides($resolved, [
+            'robots' => 'noindex,follow',
+        ]);
+
+        expect($resolved->ogType)->toBe('article')
+            ->and($overridden->robots)->toBe('noindex,follow')
+            ->and($overridden->ogType)->toBe('article')
+            ->and($overridden->twitterCard)->toBe($resolved->twitterCard);
+    });
+
+    it('preserves computed article type when stored og_type is null', function () {
+        $post = TraitTestPost::create([
+            'title' => 'Article With Empty Meta',
+            'slug' => 'article-with-empty-meta',
+            'content' => 'Article content',
+        ]);
+
+        expect($post->seoMeta->og_type)->toBeNull()
+            ->and($post->seoData()->ogType)->toBe('article');
+    });
+
+    it('renders hreflang alternates returned by the model hook', function () {
+        $post = TraitTestPost::create([
+            'title' => 'Localized Post',
+            'slug' => 'localized-post',
+            'content' => 'Localized content',
+        ]);
+
+        $html = app(TagRenderer::class)->render($post->seoData());
+
+        expect($html)
+            ->toContain('<link rel="alternate" hreflang="en" href="http://localhost/en/posts/localized-post">')
+            ->toContain('<link rel="alternate" hreflang="it" href="http://localhost/it/posts/localized-post">');
+    });
+
     it('saves seo data via saveSEO method', function () {
         config(['seo.features.auto_create_meta' => false]); // Disable auto-create for this test
 
@@ -197,21 +251,21 @@ describe('HasSEO Trait', function () {
     });
 
     it('provides computed seo title from model', function () {
-        $post = new TraitTestPost();
+        $post = new TraitTestPost;
         $post->title = 'My Post Title';
 
         expect($post->getSEOTitle())->toBe('My Post Title');
     });
 
     it('provides computed seo description from excerpt', function () {
-        $post = new TraitTestPost();
+        $post = new TraitTestPost;
         $post->excerpt = 'This is the excerpt description';
 
         expect($post->getSEODescription())->toBe('This is the excerpt description');
     });
 
     it('falls back to content for description when no excerpt', function () {
-        $post = new TraitTestPost();
+        $post = new TraitTestPost;
         $post->content = 'This is the full content of the post that should be truncated for the description.';
 
         $description = $post->getSEODescription();
@@ -220,7 +274,7 @@ describe('HasSEO Trait', function () {
     });
 
     it('provides computed seo image', function () {
-        $post = new TraitTestPost();
+        $post = new TraitTestPost;
         $post->featured_image = '/images/featured.jpg';
 
         expect($post->getSEOImage())->toBe('/images/featured.jpg');

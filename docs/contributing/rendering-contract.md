@@ -67,6 +67,8 @@ pins.
 
 ### hreflang & locale
 
+- Hreflang has a first-class resolver path through a model's
+  `getSEOAlternates()` hook.
 - hreflang alternates, when present: **absolute, normalized, unique by lang**,
   reciprocal where the data is complete. `x-default` only when configured.
 - `og:locale:alternate` mirrors **only** locales that have a real social

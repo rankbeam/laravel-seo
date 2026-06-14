@@ -51,21 +51,39 @@ stale ones:
 ```blade
 <script>
     document.addEventListener('livewire:navigated', () => {
-        const scripts = document.querySelectorAll('script[data-seo-schema]')
-        if (scripts.length < 2) return
+        // The page we are now on. data-seo-url is the canonical (query-stripped),
+        // so compare on the query-stripped location.
+        const here = window.location.href.split('#')[0].split('?')[0]
 
-        // Livewire appends the freshest page's schema last; its URL identifies
-        // the current page. Remove every schema script from other pages.
-        const current = scripts[scripts.length - 1].getAttribute('data-seo-url')
-        scripts.forEach((el) => {
-            if (el.getAttribute('data-seo-url') !== current) el.remove()
-        })
+        // Keep only the LAST schema for this page; remove every other-URL
+        // (stale) script AND same-URL duplicates Livewire re-adds when a page is
+        // revisited — including clearing a lone stale script when this page has
+        // none. Iterate from the end so the freshest copy is the one kept.
+        const scripts = [...document.querySelectorAll('script[data-seo-schema]')]
+        let kept = false
+        for (let i = scripts.length - 1; i >= 0; i--) {
+            const url = (scripts[i].getAttribute('data-seo-url') || '').split('?')[0]
+            if (url === here && !kept) { kept = true; continue }
+            scripts[i].remove()
+        }
     })
 </script>
 ```
 
 This relies only on the `data-seo-schema` marker and per-URL id the renderer
 already emits — no per-page wiring.
+
+::: warning Compare against the current URL, not the last-appended script
+An earlier version of this snippet bailed out when fewer than two schema scripts
+were present and treated the *last-appended* script as the current page. That
+leaves a stale schema in the head when you navigate from a page **with** JSON-LD
+to one **without** any (only the old script is present, so the early-return
+keeps it), and it cannot remove a **same-URL duplicate** Livewire re-adds when a
+page is revisited. Comparing each `data-seo-url` against `window.location` and
+keeping only the **last** match removes stale schema *and* duplicates in every
+case — this is what the `rankbeam-examples` Livewire app and its browser test
+verify.
+:::
 
 ::: tip Singleton meta on SPA navigation
 Livewire's head-merge keeps singleton `<meta>`/`<link>` tags from going stale

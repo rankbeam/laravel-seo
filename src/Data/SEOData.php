@@ -8,6 +8,10 @@ use DateTimeInterface;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\Model;
 use JsonSerializable;
+use Rankbeam\Seo\Models\SEODefault;
+use Rankbeam\Seo\Models\SEOMeta;
+use Rankbeam\Seo\Services\SEOManager;
+use Rankbeam\Seo\Traits\HasSEO;
 
 /**
  * Immutable value object representing SEO data.
@@ -64,10 +68,10 @@ use JsonSerializable;
  *
  * @implements Arrayable<string, mixed>
  *
- * @see \Rankbeam\Seo\Services\SEOManager For the precedence implementation
- * @see \Rankbeam\Seo\Traits\HasSEO For model integration
- * @see \Rankbeam\Seo\Models\SEOMeta For stored SEO data
- * @see \Rankbeam\Seo\Models\SEODefault For default templates
+ * @see SEOManager For the precedence implementation
+ * @see HasSEO For model integration
+ * @see SEOMeta For stored SEO data
+ * @see SEODefault For default templates
  */
 final class SEOData implements Arrayable, JsonSerializable
 {
@@ -127,7 +131,7 @@ final class SEOData implements Arrayable, JsonSerializable
      * trait's getSEOData() method which includes both computed
      * and explicit data merged together.
      *
-     * @param Model $model Any Eloquent model with HasSEO trait
+     * @param  Model  $model  Any Eloquent model with HasSEO trait
      * @return self SEOData populated from SEOMeta or empty
      *
      * @example
@@ -154,11 +158,11 @@ final class SEOData implements Arrayable, JsonSerializable
             ogTitle: $meta->og_title,
             ogDescription: $meta->og_description,
             ogImage: $meta->og_image,
-            ogType: $meta->og_type ?? 'website',
+            ogType: $meta->og_type,
             twitterTitle: $meta->twitter_title,
             twitterDescription: $meta->twitter_description,
             twitterImage: $meta->twitter_image,
-            twitterCard: $meta->twitter_card ?? 'summary_large_image',
+            twitterCard: $meta->twitter_card,
             focusKeywords: $meta->focus_keywords,
             schemaJsonld: $meta->schema_jsonld,
             locale: $meta->locale,
@@ -175,7 +179,7 @@ final class SEOData implements Arrayable, JsonSerializable
      * DateTime fields (published_time, modified_time) are automatically
      * parsed into DateTimeImmutable objects.
      *
-     * @param array<string, mixed> $data Input data array
+     * @param  array<string, mixed>  $data  Input data array
      * @return self SEOData populated from array values
      *
      * @example
@@ -206,13 +210,13 @@ final class SEOData implements Arrayable, JsonSerializable
             ogTitle: $data['og_title'] ?? $data['ogTitle'] ?? null,
             ogDescription: $data['og_description'] ?? $data['ogDescription'] ?? null,
             ogImage: $data['og_image'] ?? $data['ogImage'] ?? null,
-            ogType: $data['og_type'] ?? $data['ogType'] ?? 'website',
+            ogType: $data['og_type'] ?? $data['ogType'] ?? null,
             ogSiteName: $data['og_site_name'] ?? $data['ogSiteName'] ?? null,
             ogUrl: $data['og_url'] ?? $data['ogUrl'] ?? null,
             twitterTitle: $data['twitter_title'] ?? $data['twitterTitle'] ?? null,
             twitterDescription: $data['twitter_description'] ?? $data['twitterDescription'] ?? null,
             twitterImage: $data['twitter_image'] ?? $data['twitterImage'] ?? null,
-            twitterCard: $data['twitter_card'] ?? $data['twitterCard'] ?? 'summary_large_image',
+            twitterCard: $data['twitter_card'] ?? $data['twitterCard'] ?? null,
             twitterSite: $data['twitter_site'] ?? $data['twitterSite'] ?? null,
             twitterCreator: $data['twitter_creator'] ?? $data['twitterCreator'] ?? null,
             publishedTime: isset($data['published_time']) ? new \DateTimeImmutable($data['published_time']) : null,
@@ -258,7 +262,7 @@ final class SEOData implements Arrayable, JsonSerializable
      * This allows higher-priority sources to selectively override only
      * the fields they care about, without wiping out lower-priority values.
      *
-     * @param self $other The SEOData to merge into this one (higher priority)
+     * @param  self  $other  The SEOData to merge into this one (higher priority)
      * @return self A new SEOData instance with merged values
      *
      * @example
@@ -429,7 +433,7 @@ final class SEOData implements Arrayable, JsonSerializable
             'focus_keywords' => $this->focusKeywords,
             'schema' => $this->schemaJsonld,
             'alternates' => $this->alternates,
-        ], fn($v) => $v !== null && $v !== []);
+        ], fn ($v) => $v !== null && $v !== []);
     }
 
     /**
@@ -514,8 +518,8 @@ final class SEOData implements Arrayable, JsonSerializable
      * Since SEOData is immutable, this returns a new instance
      * with the specified field updated.
      *
-     * @param string $field The field name (camelCase)
-     * @param mixed $value The new value
+     * @param  string  $field  The field name (camelCase)
+     * @param  mixed  $value  The new value
      * @return self New SEOData instance with updated field
      *
      * @example

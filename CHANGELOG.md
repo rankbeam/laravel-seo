@@ -84,6 +84,23 @@ with my SEO right now" audit and the focus-keyword workflow gate.
 The open-core ownership reset (action plan RT0). Core keeps the metadata
 contract; the numerical SEO score becomes a Pro-owned scan-result field.
 
+#### Fixed
+
+- Partial resolver overrides no longer reset a computed `og:type=article` to
+  `website` or replace an existing `twitter:card`. Stored metadata with no
+  explicit social-card values now preserves computed model inference.
+
+#### Added
+
+- `HasSEO::getSEOAlternates(): ?array`, a first-class hreflang resolver hook
+  consumed by Blade, Inertia, and JSON rendering.
+
+#### Changed
+
+- `seo_meta.og_type` and `seo_meta.twitter_card` are nullable with no database
+  defaults. The renderer still defaults an unset `og:type` to `website`, and
+  the resolver base configuration still supplies the default Twitter Card.
+
 #### Removed
 
 - **Breaking:** the dead content-analyzer columns on `seo_meta` —

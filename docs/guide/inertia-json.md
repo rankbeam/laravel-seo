@@ -43,6 +43,25 @@ The shape:
 }
 ```
 
+### Hreflang alternates
+
+Define `getSEOAlternates(): ?array` on a model using `HasSEO` to feed
+hreflang links into `SEO::resolve($post)` and `SEO::forInertia($post)`
+automatically:
+
+```php
+public function getSEOAlternates(): ?array
+{
+    return [
+        ['hreflang' => 'en', 'href' => route('posts.show', ['locale' => 'en', 'post' => $this])],
+        ['hreflang' => 'it', 'href' => route('posts.show', ['locale' => 'it', 'post' => $this])],
+    ];
+}
+```
+
+Return absolute URLs. Inertia receives them in `link` with stable head keys
+such as `alternate:en` and `alternate:it`.
+
 ::: tip Bind `:head-key`, not `:key`
 Inertia dedupes head elements by their **`head-key`** attribute: a page `<Head>`
 tag with the same `head-key` as a layout tag *replaces* it instead of stacking a
@@ -132,46 +151,68 @@ return Inertia::render('Blog/Post', [
 ]);
 ```
 
-Render it inside the page's `<Head>` with a dedicated `head-key`:
+Do **not** render this prop through Inertia `<Head>`, React
+`dangerouslySetInnerHTML`, or Svelte `{@html}`. Those head-manager paths can
+produce an empty script and can break the SSR render. Instead, render the prop
+from Inertia's `$page` array in the root view, immediately after
+`@inertiaHead`.
 
-```vue
-<script setup>
-import { Head } from '@inertiajs/vue3'
-defineProps({ seo: Object, schema: Array })
-</script>
-
-<template>
-    <Head :title="seo.title">
-        <!-- ...meta + link from above... -->
-        <component v-for="(s, i) in schema" :key="`ld-${i}`" :is="'script'"
-                   head-key="seo-jsonld" type="application/ld+json"
-                   v-html="s.innerHTML" />
-    </Head>
-</template>
-```
-
-The `innerHTML` is already `</script>`-safe (encoded with `JSON_HEX_TAG`), so a
-hostile value cannot break out of the script element.
-
-::: danger The old `@seoSchema($post)` in the root Blade does not work
-A previous version of these docs suggested calling `@seoSchema($post)` in the
-Inertia root template (`app.blade.php`). **That throws an undefined-variable
-error**: the Inertia root view never receives the page model — only the page
-component does. Use the prop recipe above. If you need the JSON-LD in the raw
-HTML for crawlers (recommended), enable Inertia SSR so the page `<Head>` is
-server-rendered, or share the resolved schema with the root view explicitly:
-
-```php
-// A middleware or controller, where you DO have the model:
-Inertia::share('schemaHtml', fn () => app(\Rankbeam\Seo\Services\TagRenderer::class)
-    ->renderSchema(SEO::resolve($post)));
-```
 ```blade
 {{-- root app.blade.php --}}
 @inertiaHead
-{!! $page['props']['schemaHtml'] ?? '' !!}
+
+@php
+    $schema = $page['props']['schema'] ?? [];
+    $schemaUrl = collect($page['props']['seo']['link'] ?? [])
+        ->firstWhere('rel', 'canonical')['href'] ?? ($page['url'] ?? '');
+@endphp
+
+@foreach ($schema as $entry)
+    <script type="application/ld+json"
+            data-seo-schema
+            data-seo-url="{{ $schemaUrl }}">{!! $entry['innerHTML'] !!}</script>
+@endforeach
 ```
-:::
+
+The root view receives the shared page props even though it does not receive
+the original model. This keeps JSON-LD in the raw SSR response. `innerHTML` is
+already `</script>`-safe (encoded with `JSON_HEX_TAG`), so print it raw rather
+than encoding it a second time.
+
+The root view only runs on the initial document request. Replace the marked
+scripts after every client-side Inertia navigation:
+
+```js
+import { createInertiaApp, router } from '@inertiajs/vue3'
+
+function updateSchema(page) {
+    document.querySelectorAll('head script[data-seo-schema]')
+        .forEach((script) => script.remove())
+
+    const canonical = page.props.seo?.link
+        ?.find((link) => link.rel === 'canonical')?.href ?? page.url
+
+    for (const entry of page.props.schema ?? []) {
+        const script = document.createElement('script')
+        script.type = 'application/ld+json'
+        script.dataset.seoSchema = ''
+        script.dataset.seoUrl = canonical
+        script.textContent = entry.innerHTML
+        document.head.appendChild(script)
+    }
+}
+
+router.on('navigate', ({ detail }) => updateSchema(detail.page))
+
+createInertiaApp({
+    // ...
+})
+```
+
+For React or Svelte, use the same updater and import `router` from
+`@inertiajs/react` or `@inertiajs/svelte`. Keep title, meta, and link rendering
+in the framework head component as shown above; only JSON-LD uses this root-view
+and navigation lifecycle.
 
 ## Plain arrays / JSON APIs
 

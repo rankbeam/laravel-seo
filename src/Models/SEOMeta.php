@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rankbeam\Seo\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
@@ -21,16 +22,16 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * @property string|null $og_title
  * @property string|null $og_description
  * @property string|null $og_image
- * @property string $og_type
+ * @property string|null $og_type
  * @property string|null $twitter_title
  * @property string|null $twitter_description
  * @property string|null $twitter_image
- * @property string $twitter_card
+ * @property string|null $twitter_card
  * @property array|null $focus_keywords
  * @property array|null $schema_jsonld
  * @property string|null $schema_type
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
  */
 class SEOMeta extends Model
 {
@@ -64,8 +65,6 @@ class SEOMeta extends Model
 
     protected $attributes = [
         'locale' => 'en',
-        'og_type' => 'website',
-        'twitter_card' => 'summary_large_image',
     ];
 
     /**
