@@ -8,7 +8,13 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Rankbeam\Seo\Console\Commands\AuditCommand;
+use Rankbeam\Seo\Console\Commands\ImportFromCommand;
 use Rankbeam\Seo\Console\Commands\SitemapCommand;
+use Rankbeam\Seo\Importing\ImporterRegistry;
+use Rankbeam\Seo\Importing\RalphJSmitImporter;
+use Rankbeam\Seo\Importing\WordPress\RankMathImporter;
+use Rankbeam\Seo\Importing\WordPress\WordPressCsvImporter;
+use Rankbeam\Seo\Importing\WordPress\YoastImporter;
 use Rankbeam\Seo\Services\SEOComputedBuilder;
 use Rankbeam\Seo\Services\SEODefaultsRepository;
 use Rankbeam\Seo\Services\SEOResolver;
@@ -36,7 +42,7 @@ class SEOServiceProvider extends ServiceProvider
     {
         // Merge package config with application config
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/seo.php',
+            __DIR__.'/../config/seo.php',
             'seo'
         );
 
@@ -50,6 +56,18 @@ class SEOServiceProvider extends ServiceProvider
 
         // Register the SEO facade accessor
         $this->app->alias(SEOResolver::class, 'seo');
+
+        // Register the importer registry and the built-in importers. New
+        // sources (e.g. the WordPress importer) register a key here.
+        $this->app->singleton(ImporterRegistry::class, function ($app) {
+            $registry = new ImporterRegistry($app);
+            $registry->register('ralphjsmit', RalphJSmitImporter::class);
+            $registry->register('wordpress-csv', WordPressCsvImporter::class);
+            $registry->register('yoast', YoastImporter::class);
+            $registry->register('rank-math', RankMathImporter::class);
+
+            return $registry;
+        });
     }
 
     /**
@@ -74,22 +92,22 @@ class SEOServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             // Publish config
             $this->publishes([
-                __DIR__ . '/../config/seo.php' => config_path('seo.php'),
+                __DIR__.'/../config/seo.php' => config_path('seo.php'),
             ], 'seo-config');
 
             // Publish migrations
             $this->publishes([
-                __DIR__ . '/../database/migrations' => database_path('migrations'),
+                __DIR__.'/../database/migrations' => database_path('migrations'),
             ], 'seo-migrations');
 
             // Publish views
             $this->publishes([
-                __DIR__ . '/../resources/views' => resource_path('views/vendor/seo'),
+                __DIR__.'/../resources/views' => resource_path('views/vendor/seo'),
             ], 'seo-views');
 
             // Publish translations
             $this->publishes([
-                __DIR__ . '/../resources/lang' => $this->app->langPath('vendor/seo'),
+                __DIR__.'/../resources/lang' => $this->app->langPath('vendor/seo'),
             ], 'seo-lang');
         }
     }
@@ -100,7 +118,7 @@ class SEOServiceProvider extends ServiceProvider
     protected function registerMigrations(): void
     {
         if ($this->app->runningInConsole()) {
-            $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+            $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         }
     }
 
@@ -116,20 +134,20 @@ class SEOServiceProvider extends ServiceProvider
         }
 
         // Web routes (sitemap, etc.)
-        if (file_exists(__DIR__ . '/../routes/web.php')) {
+        if (file_exists(__DIR__.'/../routes/web.php')) {
             Route::group($this->routeConfiguration(), function () {
-                $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+                $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
             });
         }
 
         // API routes
-        if (file_exists(__DIR__ . '/../routes/api.php')) {
+        if (file_exists(__DIR__.'/../routes/api.php')) {
             Route::group([
                 'prefix' => config('seo.routes.api_prefix', 'api/seo'),
                 'middleware' => config('seo.routes.api_middleware', ['api']),
                 'as' => 'seo.api.',
             ], function () {
-                $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
+                $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
             });
         }
     }
@@ -157,6 +175,7 @@ class SEOServiceProvider extends ServiceProvider
             $this->commands([
                 SitemapCommand::class,
                 AuditCommand::class,
+                ImportFromCommand::class,
             ]);
         }
     }
@@ -370,7 +389,7 @@ class SEOServiceProvider extends ServiceProvider
      */
     protected function registerViews(): void
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'seo');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'seo');
     }
 
     /**
@@ -378,8 +397,8 @@ class SEOServiceProvider extends ServiceProvider
      */
     protected function registerTranslations(): void
     {
-        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'seo');
-        $this->loadJsonTranslationsFrom(__DIR__ . '/../resources/lang');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'seo');
+        $this->loadJsonTranslationsFrom(__DIR__.'/../resources/lang');
     }
 
     /**
@@ -395,6 +414,7 @@ class SEOServiceProvider extends ServiceProvider
             SEODefaultsRepository::class,
             SEOComputedBuilder::class,
             SitemapRegistry::class,
+            ImporterRegistry::class,
             'seo',
         ];
     }

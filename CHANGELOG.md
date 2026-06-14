@@ -7,6 +7,64 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Importer from competing Laravel SEO packages (action plan RT12)
+
+A migration path off other Laravel SEO packages, so switching to Rankbeam is a
+day's work, not a rewrite.
+
+#### Added
+
+- **`seo:import-from` command** with a pluggable importer registry
+  (`Rankbeam\Seo\Importing\ImporterRegistry` + `Contracts\Importer`). New
+  sources register a key without touching the command.
+- **`ralphjsmit` importer** — reads `ralphjsmit/laravel-seo`'s `seo` morph
+  table into `seo_meta`. Idempotent (re-run updates the same row, never
+  duplicates), `--dry-run` (report-only), `--model=` scoping, `--locale=`,
+  `--table=` / `--connection=` for renamed/legacy sources, `--limit=`, and
+  `--json`. Each row is **re-resolved to its live model** so the `seoable`
+  relation is correct under the app's current morph map; deleted models are
+  skipped, never written as orphans.
+- Fields are mapped **explicitly** (`title`, `description`,
+  `canonical_url`→`canonical`, `robots`, `image`→`og_image`), with over-length
+  values trimmed-and-reported and the unsupported `author` column counted
+  rather than copied (Core 3 has no author column). The importer only ever
+  fills empty fields — it never overwrites existing `seo_meta` values.
+- New guide: [Migrating from other packages](docs/guide/migrate-from-other-packages.md)
+  mapping `ralphjsmit`, `artesaos/seotools`, and the Spatie builders onto
+  `HasSEO` + `saveSEO()`.
+
+### WordPress importer — Yoast / Rank Math (action plan RT13)
+
+A migration path for content sites leaving WordPress, reusing the RT12 importer
+scaffolding (no command change — new sources just register keys).
+
+#### Added
+
+- **`wordpress-csv` importer** — reads a `url,title,description,canonical,robots,focus_keyword`
+  CSV export into `seo_meta`. Columns in any order; unrecognised columns and
+  malformed rows (missing `url`, wrong column count) are reported and skipped.
+- **`yoast` and `rank-math` importers** — read the live WordPress database
+  (`{prefix}posts` + `{prefix}postmeta`) behind `--connection=`, mapping each
+  plugin's keys **explicitly** to `seo_meta` (title, description, canonical,
+  robots, focus keyword, **and** the OpenGraph/Twitter overrides). Keys with no
+  Core 3 home (image IDs, scores, primary-category) are reported as *unmapped*,
+  never invented.
+- **Model matching.** A WordPress row's slug (URL last segment / `post_name`) is
+  matched to a content model via `--model=` on its route key or `--match-by=`.
+  Rows matching nothing are reported as **url-only** (honest about what attached
+  to a model vs. didn't). New options: `--file=`, `--match-by=`, `--post-type=*`,
+  `--redirects-csv=`, `--site-url=`.
+- **Template tokens resolved.** Yoast (`%%title%%`) and Rank Math (`%title%`)
+  title/description tokens are resolved where derivable (`title`, `sitename`
+  from `wp_options`, `sep`) and stripped otherwise — a stored value is never a
+  raw token string. Resolution is flagged in the report.
+- **Redirects via CSV, not the Pro table.** `--redirects-csv=` emits a
+  `source_path,target_url,status_code,note` CSV for import into Rankbeam Pro
+  (core never writes the Pro `seo_redirects` table). Sources: a CSV row whose
+  `canonical` points to a different path; and Rank Math's redirections table
+  (active, exact-match rules only — non-exact rules reported).
+- New guide: [Migrating from WordPress](docs/guide/migrate-from-wordpress.md).
+
 ### Rendering contract & framework correctness (action plan RT4)
 
 The single canonical [Rendering Contract](docs/contributing/rendering-contract.md)

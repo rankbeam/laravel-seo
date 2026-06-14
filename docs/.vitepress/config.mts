@@ -61,6 +61,8 @@ export default defineConfig({
           { text: 'Schema graph (JSON-LD)', link: '/guide/schema' },
           { text: 'Sitemap registry', link: '/guide/sitemaps' },
           { text: 'Free SEO audit', link: '/guide/audit' },
+          { text: 'Migrating from WordPress', link: '/guide/migrate-from-wordpress' },
+          { text: 'Migrating from other packages', link: '/guide/migrate-from-other-packages' },
           { text: 'Filament admin fields', link: '/guide/filament' },
         ],
       },
