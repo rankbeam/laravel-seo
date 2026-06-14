@@ -86,9 +86,10 @@ contract (a test asserts every registry code is either scored or listed here):
 | `blocked_url` | **Absence of evidence.** The SsrfGuard refused the fetch, so the page was never checked — not a defect of the page. |
 | `canonical_target_blocked` | **Absence of evidence.** The canonical target could not be verified — not a defect of the page. |
 
-Keyword density, power words, and the rest of the on-page checklist never enter
-the score at all — they are advisory checks (a separate, never-gameable
-pass/warn/fail list), not registry codes.
+Keyword density, power words, and the rest of the
+[on-page checklist](/pro/on-page-checklist) never enter the score at all — they
+are advisory checks (a separate, never-gameable pass/warn/fail list), not
+registry codes.
 
 ## Versioning — historical scores never silently change
 

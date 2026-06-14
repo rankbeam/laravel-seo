@@ -70,6 +70,7 @@ export default defineConfig({
           { text: 'Headless usage', link: '/pro/headless' },
           { text: 'Scan issues', link: '/pro/scan-issues' },
           { text: 'SEO score', link: '/pro/scoring' },
+          { text: 'On-page checklist', link: '/pro/on-page-checklist' },
           { text: 'AI assist (beta)', link: '/pro/ai-assist' },
         ],
       },

@@ -24,6 +24,16 @@ convenience; these commands are its headless counterpart.
 | `seo-pro:redirects-flush-hits` | Write cache-batched redirect hit counters to the database |
 | `seo-pro:404-prune` | Delete stale 404 entries and enforce the row cap |
 
+### On-page checklist
+
+| Command | What it does |
+|---|---|
+| `seo-pro:checklist {model} {id}` | Keyword-aware pass/warn/fail checklist for one model (`--json`, `--strict`, `--locale=`) — see [On-page checklist](/pro/on-page-checklist) |
+
+The same checklist is available as `SeoPro::checklistFor($model)`. It is the
+editorial loop (keyword placement, length, images, internal links), **not** the
+[SEO score](/pro/scoring).
+
 ### AI assist (beta)
 
 | Command | What it does |
