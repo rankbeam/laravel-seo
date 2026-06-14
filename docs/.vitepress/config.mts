@@ -68,6 +68,7 @@ export default defineConfig({
           { text: 'Installing Pro', link: '/pro/installation' },
           { text: 'Headless usage', link: '/pro/headless' },
           { text: 'Scan issues', link: '/pro/scan-issues' },
+          { text: 'SEO score', link: '/pro/scoring' },
           { text: 'AI assist (beta)', link: '/pro/ai-assist' },
         ],
       },

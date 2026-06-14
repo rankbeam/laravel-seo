@@ -54,7 +54,7 @@ so on every run. It does **not** run:
 - **Live-canonical network checks** — `canonical_target_broken` / `_redirect` /
   `_noindex`. These need an outbound (guarded) fetch.
 - **The numerical 0–100 score.** The score is a Pro feature, persisted on the
-  scan-result record with a versioned rubric.
+  scan-result record with a versioned rubric — see [SEO score](/pro/scoring).
 
 Those ship in the **Pro scan** — see the full [issue registry](/pro/scan-issues).
 

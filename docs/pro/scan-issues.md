@@ -6,7 +6,7 @@ invent a code inline — they build each issue through `IssueRegistry::make()`,
 which stamps the severity and field from the registry and **rejects any code
 that isn't defined**. That makes the catalogue below a contract you can build
 on: dashboards, exports, the free [`seo:audit`](/guide/audit) command, and the
-Pro score all read these codes rather than parsing messages.
+[Pro score](/pro/scoring) all read these codes rather than parsing messages.
 
 Each code carries:
 
@@ -113,6 +113,15 @@ is skipped — the page itself was just fetched.
 Every network path here reuses the shared `SsrfGuard`; see
 [SECURITY.md](https://github.com/rankbeam/laravel-seo-pro/blob/master/SECURITY.md)
 for the threat model and the residual TOCTOU note.
+
+## How codes feed the score
+
+The [Pro SEO score](/pro/scoring) is `100 −` a fixed penalty per scored issue,
+weighted by the severities above. Most codes count; a few are deliberately
+excluded — `missing_focus_keyword` (advisory), `noindex_page` and `multiple_h1`
+(informational), and `blocked_url` / `canonical_target_blocked` ("we couldn't
+check" ≠ a defect). The [scoring page](/pro/scoring) has the full allowlist and
+the penalty for every code.
 
 ## Configuration
 
