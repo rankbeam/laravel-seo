@@ -58,6 +58,7 @@ export default defineConfig({
           { text: 'Inertia & JSON APIs', link: '/guide/inertia-json' },
           { text: 'Schema graph (JSON-LD)', link: '/guide/schema' },
           { text: 'Sitemap registry', link: '/guide/sitemaps' },
+          { text: 'Free SEO audit', link: '/guide/audit' },
           { text: 'Filament admin fields', link: '/guide/filament' },
         ],
       },

@@ -38,6 +38,12 @@ That renders a collapsible "SEO" section with:
 - **Title & description** with live character counters — the 60/160
   thresholds come from the core `SEOWarningEvaluator`, so the admin UI and
   the audit layer can never disagree.
+- **Focus keywords** — a tags input. You type plain keywords; they persist in
+  the core's structured `[{keyword, is_primary}]` shape (the first is primary),
+  so `getPrimaryKeyword()` and `SEOData` read them unchanged. Enable
+  `seo.keywords.enabled` to have the [`seo:audit`](/guide/audit) command and the
+  Pro scan flag pages that still lack a keyword (off by default — one gate, see
+  [Configuration](/reference/configuration#focus-keywords)).
 - **Canonical URL** (empty = automatic, query string stripped).
 - **Robots** select (empty = site default).
 - **Social sharing image** upload (og:image / twitter:image), stored on
@@ -54,8 +60,8 @@ That renders a collapsible "SEO" section with:
 static::seoSection(['title', 'description'])
 ```
 
-Accepts any subset of `title`, `description`, `canonical`, `robots`,
-`og_image`.
+Accepts any subset of `title`, `description`, `focus_keywords`, `canonical`,
+`robots`, `og_image`.
 
 Without the trait, `SEOFields::make(?array $only)` returns the same section
 directly.

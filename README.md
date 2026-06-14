@@ -19,6 +19,7 @@ SEO core for Laravel: meta tag resolution with a layered precedence chain, Open 
 | **Schema (JSON-LD)** | Builders for Article, Breadcrumb, FAQ, LocalBusiness, Organization, Product; `SchemaGraph` for Organization/WebSite/WebPage nodes cross-linked via stable `@id`s; breadcrumbs from a page's ancestor chain with a loop guard. |
 | **Sitemaps** | `SitemapBuilder` (wraps spatie/laravel-sitemap) with config-driven model sources, programmatic named sources via `SEO::sitemaps()->register(...)`, sitemap index support, `seo:sitemap` command, and `/sitemap.xml` routes that can be disabled. |
 | **Warnings** | `SEOWarningEvaluator` for admin UIs: title > 60 / description > 160 warnings, manual-vs-fallback indicators, social-image dimension checks (min 200x200, ideal 1200x630, local files only). |
+| **Free audit** | `seo:audit` — an in-process "what's wrong with my SEO right now" command (no queue, license, or network). Runs the metadata-class checks (missing / over- / under-length title & description, OG image, robots conflicts, canonical format/cross-domain/shared/insecure, focus keyword) and prints a per-page pass/warn/fail table with an explicit capability matrix. `--strict` for CI, `--json` for tooling. No numerical score (that's Pro). |
 
 **Database tables:** `seo_meta` (per-model explicit values, morph + locale) and `seo_defaults` (global/model-type/route defaults). Nothing else.
 
@@ -101,6 +102,21 @@ Serving your own static `/sitemap.xml`? Disable the package routes:
 // config/seo.php
 'routes' => ['enabled' => false],
 ```
+
+### Audit your SEO
+
+```bash
+# Audit the models under seo.audit.models / seo.sitemap.models
+php artisan seo:audit
+
+# Or target specific models, CI-fail on any issue, or emit JSON
+php artisan seo:audit --model="App\Models\Post" --strict
+php artisan seo:audit --json
+```
+
+A free, in-process pass/warn/fail report over the metadata-class checks. The
+rendered-HTML and live-canonical checks, and the numerical score, are part of
+the Pro scan — the command prints that boundary every run.
 
 ## Test status
 

@@ -5,8 +5,8 @@ single registry, `Rankbeam\Seo\Pro\Scanning\IssueRegistry`. The scanners never
 invent a code inline — they build each issue through `IssueRegistry::make()`,
 which stamps the severity and field from the registry and **rejects any code
 that isn't defined**. That makes the catalogue below a contract you can build
-on: dashboards, exports, the free [`seo:audit`](#execution-classes) surface,
-and the Pro score all read these codes rather than parsing messages.
+on: dashboards, exports, the free [`seo:audit`](/guide/audit) command, and the
+Pro score all read these codes rather than parsing messages.
 
 Each code carries:
 
@@ -24,7 +24,7 @@ A check falls into exactly one of three classes, by what it needs to run:
 
 | Class | Needs | Who can run it |
 |---|---|---|
-| **metadata** | the model + the core resolver — no page fetch | the model scan (`PageScanner`); a future free in-process audit |
+| **metadata** | the model + the core resolver — no page fetch | the model scan (`PageScanner`); the free [`seo:audit`](/guide/audit) command |
 | **rendered** | the page's served HTML (in-process kernel request, or an external fetch) | the URL scan (`UrlScanner`) |
 | **network** | an **outbound** fetch to validate a _separate_ target (a canonical pointing elsewhere) | the URL scan, **always through the `SsrfGuard`** |
 
@@ -66,6 +66,14 @@ so a scan never contradicts the editor's character counters; the lower bounds
 `IssueRegistry::TITLE_MIN_LENGTH` / `DESCRIPTION_MIN_LENGTH`. Length is measured
 against the **resolved** title/description — the value that actually renders,
 including any fallback and title suffix.
+
+::: tip `missing_focus_keyword` is gated
+The focus-keyword notice only fires when the **core** focus-keyword workflow is
+enabled (`seo.keywords.enabled`, default `false`). While off, the scan does not
+flag a page for having no focus keyword. The free [`seo:audit`](/guide/audit)
+command and the Filament editor read the **same** core flag, so the scan, the
+audit, and the editor nag always agree — there is only ever one gate.
+:::
 
 ## Rendered codes
 

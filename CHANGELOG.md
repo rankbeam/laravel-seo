@@ -7,6 +7,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Free SEO audit & focus-keyword workflow (additive)
+
+The instant free-tier payoff (action plan RT2): a one-command "what's wrong
+with my SEO right now" audit and the focus-keyword workflow gate.
+
+#### Added
+
+- **`php artisan seo:audit`** — a free, in-process SEO audit. It runs only the
+  **metadata-class** checks (resolvable from the model + the resolver, with no
+  page fetch, no queue, and no license): missing / over- / under-length title &
+  description, missing OG image, robots conflicts, canonical format /
+  cross-domain / shared / insecure, and the optional missing-focus-keyword
+  notice. It prints a per-page **pass / warn / fail** table, a summary, and an
+  explicit **capability matrix** every run (so its coverage is never mistaken
+  for the Pro scan), and it never produces a numerical score. Options:
+  `--model` (repeatable), `--locale`, `--limit`, `--issues-only`, `--strict`
+  (non-zero exit when any issue is found, for CI), `--json`. Models default to
+  `seo.audit.models`, falling back to `seo.sitemap.models`.
+  See [the audit guide](docs/guide/audit.md).
+- **`Rankbeam\Seo\Auditing\MetadataAuditor`** + `MetadataIssues` (a tiny
+  core-side mirror of the Pro registry's metadata codes) + `AuditIssue`. The
+  code strings and severities are kept identical to the Pro
+  `Rankbeam\Seo\Pro\Scanning\IssueRegistry`, so the free audit, the Pro scan,
+  the Filament editor, and exports all agree on what each code means — without
+  the free core depending on Pro.
+- **`seo.keywords.enabled`** config flag (default `false`) — the focus-keyword
+  workflow gate. While off, a page with no focus keyword is **not** flagged.
+  Turn it on once you adopt focus keywords and the `missing_focus_keyword`
+  notice fires in the free audit, the Pro scan, and the Pro editor — all three
+  read this same core flag, so they always agree.
+- **`seo.audit.models`** config — the models `seo:audit` audits by default.
+
 ### 3.0.0 (contract reset — unreleased)
 
 The open-core ownership reset (action plan RT0). Core keeps the metadata

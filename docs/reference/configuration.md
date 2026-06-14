@@ -38,6 +38,36 @@ with it.
 `auto_create_meta` creates an empty `seo_meta` row when a `HasSEO` model is
 created (note: seeders using `WithoutModelEvents` bypass this).
 
+## Focus keywords
+
+```php
+'keywords' => [
+    'enabled' => env('SEO_KEYWORDS_ENABLED', false),
+],
+```
+
+The focus-keyword **workflow gate**. While `false` (the default), a page that
+has no focus keyword is not flagged anywhere — neither [`seo:audit`](/guide/audit)
+nor the Pro scan complains, so an app that never adopts focus keywords is never
+nagged about a feature it doesn't use. Turn it on once you start setting focus
+keywords (e.g. with the [Filament focus-keyword field](/guide/filament)) and the
+free audit, the Pro scan, and the Pro editor all begin reporting a
+`missing_focus_keyword` notice on pages that still lack one — they read this
+same flag, so they always agree.
+
+## Free audit (`seo:audit`)
+
+```php
+'audit' => [
+    // \App\Models\Post::class, \App\Models\Page::class
+    'models' => [],
+],
+```
+
+The models the free [`seo:audit`](/guide/audit) command audits when no `--model`
+option is passed. Each must use the `HasSEO` trait. When empty, the command
+falls back to the models registered under `sitemap.models`.
+
 ## Computed fallbacks (layer 5)
 
 ```php

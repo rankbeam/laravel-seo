@@ -101,6 +101,53 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Focus Keywords
+    |--------------------------------------------------------------------------
+    |
+    | The focus-keyword workflow gate. Set a page's focus keywords in the
+    | Filament SEO section (or via $model->saveSEO(['focus_keywords' => ...])).
+    |
+    | While this is false (the default), a page that has no focus keyword is
+    | NOT flagged: `seo:audit` and the Pro scan both stay quiet about it, so an
+    | app that never adopts focus keywords is never nagged about a feature it
+    | doesn't use. Turn it on once you start setting focus keywords and the
+    | free audit, the Pro scan, and the Pro editor all begin reporting a
+    | `missing_focus_keyword` notice on pages that still lack one — they read
+    | this same flag, so they always agree.
+    |
+    */
+
+    'keywords' => [
+        'enabled' => env('SEO_KEYWORDS_ENABLED', false),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Free Audit (seo:audit)
+    |--------------------------------------------------------------------------
+    |
+    | The free, in-process `php artisan seo:audit` command runs the
+    | metadata-class checks (resolvable from the model + resolver, no fetch)
+    | and prints a per-page pass / warn / fail table. It needs no queue, no
+    | license, and no network. The rendered-HTML and live-canonical checks, and
+    | the numerical 0-100 score, are part of the Pro scan.
+    |
+    | Models to audit when no --model option is passed. Each must use the
+    | HasSEO trait. When this is empty the command falls back to the models
+    | registered under `sitemap.models` below.
+    |
+    | Format:
+    | \App\Models\Post::class,
+    | \App\Models\Page::class,
+    |
+    */
+
+    'audit' => [
+        'models' => [],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Computed Values
     |--------------------------------------------------------------------------
     |

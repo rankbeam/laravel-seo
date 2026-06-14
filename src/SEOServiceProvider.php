@@ -7,6 +7,7 @@ namespace Rankbeam\Seo;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Rankbeam\Seo\Console\Commands\AuditCommand;
 use Rankbeam\Seo\Console\Commands\SitemapCommand;
 use Rankbeam\Seo\Services\SEOComputedBuilder;
 use Rankbeam\Seo\Services\SEODefaultsRepository;
@@ -155,6 +156,7 @@ class SEOServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 SitemapCommand::class,
+                AuditCommand::class,
             ]);
         }
     }
