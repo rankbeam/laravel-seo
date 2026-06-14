@@ -158,7 +158,14 @@ page (its canonical names its own URL) declares itself the indexable version,
 so `noindex` contradicts it. A page with a *cross-domain* canonical is
 deliberately delegating indexation elsewhere — not a contradiction, so it does
 not fire. The emitted issue carries `context.shipping_signal` (e.g.
-`self_canonical`).
+`self_canonical`), plus the `canonical` and `page_url` it compared.
+
+Both scanners apply this: the model scan (`PageScanner`) compares the stored
+canonical to the model's URL, and the rendered URL scan (`UrlScanner`) escalates
+a self-canonical `noindex` page from the informational `noindex_page` to the
+scored `noindex_warning`. That symmetry is why `noindex_page` itself is excluded
+from the score — the contradiction is always caught by `noindex_warning`, on
+either scan path.
 
 ## Configuration
 

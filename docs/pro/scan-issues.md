@@ -54,7 +54,7 @@ scan, measuring the served `<head>` — same codes, same meaning.)
 | `description_too_short` | notice | description | `length`, `min` | Resolved description under the 70-char floor. |
 | `robots_conflict_indexing` | critical | robots | `robots` | Robots directive has both `index` and `noindex`. |
 | `robots_conflict_following` | warning | robots | `robots` | Robots directive has both `follow` and `nofollow`. |
-| `noindex_warning` | warning | robots | `robots` | A self-canonical (apparently important) page is `noindex`. |
+| `noindex_warning` | warning | robots | `robots`, `canonical`, `page_url`, `shipping_signal` | A self-canonical (apparently important) page is `noindex`. Emitted on both model and rendered URL scans. |
 | `invalid_canonical` | critical | canonical | `canonical` | Canonical value is not a valid URL. |
 | `cross_domain_canonical` | warning | canonical | `canonical`, `page_url` | Canonical points to a different host than the page. |
 | `shared_canonical` | notice | canonical | `canonical` | Several pages declare the same canonical. |
@@ -86,7 +86,7 @@ guarded fetch.
 | `http_error` | critical | page | `status` | URL responded with a 4xx/5xx status. |
 | `empty_response` | critical | page | — | URL returned an empty body. |
 | `missing_canonical` | notice | canonical | — | No `<link rel="canonical">` in the rendered head. |
-| `noindex_page` | notice | robots | `robots` | Rendered page is `noindex`. |
+| `noindex_page` | notice | robots | `robots` | Rendered page is `noindex` (informational). A `noindex` page that is also **self-canonical** is escalated to the scored `noindex_warning` instead. |
 | `missing_h1` | notice | page | — | No `<h1>` heading. |
 | `multiple_h1` | notice | page | `count` | More than one `<h1>` (informational). |
 | `missing_image_alt` | warning | page | `count`, `total`, `sample` | Content images missing an `alt` attribute (an explicit `alt=""` is treated as decorative, not flagged). |
