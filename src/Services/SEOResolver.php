@@ -122,7 +122,7 @@ class SEOResolver
 
         // Layer 5: Explicit SEO data saved on the model
         if ($model) {
-            $result = $this->applyExplicitValues($result, $model);
+            $result = $this->applyExplicitValues($result, $model, $locale);
         }
 
         // Post-processing: Apply title suffix, ensure canonical, absolutize images
@@ -284,14 +284,14 @@ class SEOResolver
      * @param Model $model The Eloquent model
      * @return SEOData SEO data with explicit values applied
      */
-    protected function applyExplicitValues(SEOData $result, Model $model): SEOData
+    protected function applyExplicitValues(SEOData $result, Model $model, string $locale): SEOData
     {
         // Check if model uses HasSEO trait
         if (! method_exists($model, 'seoMeta')) {
             return $result;
         }
 
-        $explicit = SEOData::fromModel($model);
+        $explicit = SEOData::fromModel($model, $locale);
 
         return $result->merge($explicit);
     }

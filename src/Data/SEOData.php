@@ -141,10 +141,13 @@ final class SEOData implements Arrayable, JsonSerializable
      * echo $seoData->title; // Returns explicit title from seo_meta table
      * ```
      */
-    public static function fromModel(Model $model): self
+    public static function fromModel(Model $model, ?string $locale = null): self
     {
-        // Access the seoMeta relationship (defined in HasSEO trait)
-        $meta = $model->seoMeta ?? null;
+        $locale ??= app()->getLocale();
+
+        $meta = method_exists($model, 'seoMetaForLocale')
+            ? $model->seoMetaForLocale($locale)->first()
+            : ($model->seoMeta ?? null);
 
         if (! $meta) {
             return new self;

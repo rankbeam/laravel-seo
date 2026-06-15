@@ -250,6 +250,31 @@ describe('HasSEO Trait', function () {
             ->and($frMeta->title)->toBe('Titre Français');
     });
 
+    it('resolves and saves seo meta without crossing locale rows', function () {
+        config([
+            'seo.features.auto_create_meta' => false,
+            'seo.title_suffix' => null,
+        ]);
+
+        $post = TraitTestPost::create([
+            'title' => 'Locale Scoped',
+            'slug' => 'locale-scoped',
+            'content' => 'Test content',
+        ]);
+
+        $post->saveSEO(['title' => 'English Title', 'description' => 'English description'], 'en');
+        $post->saveSEO(['title' => 'Titre Français', 'description' => 'Description française'], 'fr');
+
+        expect($post->seoData('en')->title)->toBe('English Title')
+            ->and($post->seoData('fr')->title)->toBe('Titre Français')
+            ->and($post->seoData('fr')->description)->toBe('Description française');
+
+        $post->saveSEO(['description' => 'Updated English description'], 'en');
+
+        expect($post->seoData('en')->description)->toBe('Updated English description')
+            ->and($post->seoData('fr')->description)->toBe('Description française');
+    });
+
     it('provides computed seo title from model', function () {
         $post = new TraitTestPost;
         $post->title = 'My Post Title';

@@ -187,6 +187,22 @@ trait HasSEO
     }
 
     /**
+     * Get the SEO metadata relationship scoped to one locale.
+     *
+     * @return MorphOne<SEOMeta>
+     */
+    public function seoMetaForLocale(?string $locale = null): MorphOne
+    {
+        $locale ??= app()->getLocale();
+
+        return $this->morphOne(SEOMeta::class, 'seoable')
+            ->where('locale', $locale)
+            ->withDefault([
+                'locale' => $locale,
+            ]);
+    }
+
+    /**
      * Get fully resolved SEO data with the complete precedence chain.
      *
      * This method returns SEOData that has been processed through
