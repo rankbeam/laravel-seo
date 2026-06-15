@@ -7,6 +7,7 @@ namespace Rankbeam\Seo\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
+use Rankbeam\Seo\Services\SEODefaultsRepository;
 
 /**
  * Default SEO settings by scope (global, model-type, route).
@@ -92,18 +93,39 @@ class SEODefault extends Model
     }
 
     /**
-     * Clear cache when saving.
+     * Invalidate both default caches when a row is saved or deleted.
      */
     protected static function booted(): void
     {
-        static::saved(function (self $model) {
-            $cacheKey = config('seo.cache.prefix', 'seo_')."default:{$model->scope}:{$model->locale}";
-            Cache::store(config('seo.cache.store'))->forget($cacheKey);
-        });
+        static::saved(fn (self $model) => static::forgetCaches($model));
+        static::deleted(fn (self $model) => static::forgetCaches($model));
+    }
 
-        static::deleted(function (self $model) {
-            $cacheKey = config('seo.cache.prefix', 'seo_')."default:{$model->scope}:{$model->locale}";
-            Cache::store(config('seo.cache.store'))->forget($cacheKey);
-        });
+    /**
+     * Forget every cache entry that depends on this default.
+     *
+     * Two layers hold this data: the model-attribute cache written by
+     * getForScope() (key `default:…`) and the resolved-defaults cache written
+     * by SEODefaultsRepository (key `defaults:…`). Both must be cleared, or an
+     * edit keeps serving stale defaults until the 1-hour TTL expires.
+     */
+    protected static function forgetCaches(self $model): void
+    {
+        Cache::store(config('seo.cache.store'))->forget(
+            config('seo.cache.prefix', 'seo_')."default:{$model->scope}:{$model->locale}"
+        );
+
+        $repository = app(SEODefaultsRepository::class);
+
+        // The repository falls back to the 'en' row for a missing locale and
+        // caches that result under the *requested* locale's key, so editing the
+        // 'en' row can leave other locales stale - clear the whole scope for it.
+        if ($model->locale === 'en') {
+            $repository->clearCache($model->scope);
+
+            return;
+        }
+
+        $repository->clearCache($model->scope, $model->locale);
     }
 }
