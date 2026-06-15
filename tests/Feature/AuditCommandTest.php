@@ -282,6 +282,30 @@ it('reads models from the seo.audit.models config', function () {
     expect($output)->toContain('missing_title');
 });
 
+it('reads models from a numeric (list) seo.audit.models config', function () {
+    // The documented [Post::class, Page::class] list form: array_keys() would
+    // hand integer positions to the strict string audit param and crash.
+    config(['seo.audit.models' => [AuditPage::class]]);
+    makeAuditPage('bare', null, []);
+
+    [$exit, $output] = runAudit();
+
+    expect($exit)->toBe(0)
+        ->and($output)->toContain('missing_title')
+        ->and($output)->not->toContain('class not found');
+});
+
+it('reads models from a numeric seo.sitemap.models config when audit is empty', function () {
+    config(['seo.audit.models' => []]);
+    config(['seo.sitemap.models' => [AuditPage::class]]);
+    makeAuditPage('bare', null, []);
+
+    [$exit, $output] = runAudit();
+
+    expect($exit)->toBe(0)
+        ->and($output)->toContain('missing_title');
+});
+
 it('skips a configured class that does not use HasSEO', function () {
     [, $output] = runAudit(['--model' => [PlainAuditModel::class]]);
 

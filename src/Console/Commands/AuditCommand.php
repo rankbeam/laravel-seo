@@ -131,13 +131,43 @@ class AuditCommand extends Command
             return array_values(array_unique($models));
         }
 
-        $configured = array_keys((array) config('seo.audit.models', []));
+        $configured = $this->modelClassesFromConfig((array) config('seo.audit.models', []));
 
         if ($configured !== []) {
             return $configured;
         }
 
-        return array_keys((array) config('seo.sitemap.models', []));
+        return $this->modelClassesFromConfig((array) config('seo.sitemap.models', []));
+    }
+
+    /**
+     * Extract the model FQCNs from a models config that may be written in
+     * either supported shape — a list (`[Post::class, Page::class]`) or the
+     * associative per-model form (`[Post::class => ['priority' => 0.8]]`).
+     *
+     * A plain `array_keys()` returns integer positions (0, 1, …) for the list
+     * shape, which would then be passed to the strict `string` audit param and
+     * crash. Normalising here mirrors SitemapBuilder::normalizeModelsConfig so
+     * the documented numeric format works.
+     *
+     * @param  array<int|string, mixed>  $models
+     * @return array<int, string>
+     */
+    protected function modelClassesFromConfig(array $models): array
+    {
+        $classes = [];
+
+        foreach ($models as $key => $value) {
+            // List entry: the class is the value. Associative entry: the class
+            // is the key and the value is its per-model config.
+            $class = is_int($key) ? $value : $key;
+
+            if (is_string($class) && $class !== '') {
+                $classes[] = $class;
+            }
+        }
+
+        return array_values(array_unique($classes));
     }
 
     /**
