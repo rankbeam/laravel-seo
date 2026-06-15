@@ -70,6 +70,7 @@ export default defineConfig({
         text: 'Pro',
         items: [
           { text: 'Installing Pro', link: '/pro/installation' },
+          { text: 'Production setup', link: '/pro/production' },
           { text: 'Headless usage', link: '/pro/headless' },
           { text: 'Scan issues', link: '/pro/scan-issues' },
           { text: 'SEO score', link: '/pro/scoring' },

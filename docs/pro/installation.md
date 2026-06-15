@@ -33,7 +33,20 @@ For CI or non-interactive environments, store the credentials up front:
 composer config http-basic.laravel-seo-pro.composer.sh you@example.com YOUR-LICENSE-KEY
 ```
 
-Then publish the config and migrations and migrate:
+Then run the installer:
+
+```bash
+php artisan seo-pro:install
+```
+
+`seo-pro:install` publishes `config/seo-pro.php` and the Pro migrations and runs
+`migrate` — then prints the next steps. Pro migrations are **publish-only** (the
+package never auto-loads them, so a future re-publish or upgrade can't create a
+duplicate migration history); the installer is the step that turns a bare
+`composer require` into a working schema. It is idempotent — re-run it any time.
+Useful flags: `--force` overwrites already-published files, `--no-migrate`
+publishes without migrating (run `php artisan migrate` yourself). The equivalent
+manual steps are:
 
 ```bash
 php artisan vendor:publish --tag=seo-pro-config
@@ -46,6 +59,9 @@ logging) register themselves globally — a redirect rule you create is live
 immediately, and 404s start being logged without any further wiring. Both
 auto-registrations can be turned off in `config/seo-pro.php` if you want to
 place the middleware yourself.
+
+For running Pro at scale — dedicated queues, the scheduler, recovery, retention,
+and telemetry — see the [Production setup](/pro/production) guide.
 
 ## Register scan targets
 
@@ -65,9 +81,10 @@ public function boot(): void
 
 ## Verify your install
 
-`seo:doctor` confirms the wiring in one shot — tables, app URL, scan
-targets, sitemap, queue, and AI assist — and prints the exact fix for any
-warning:
+`seo:doctor` confirms the wiring in one shot — tables, app URL, scan targets,
+sitemap, per-workload queues, the optional features, and operational health
+(leftover state from a previous SEO stack, runs abandoned by a dead worker) — and
+prints the exact fix for any warning:
 
 ```bash
 php artisan seo:doctor
@@ -87,14 +104,24 @@ php artisan seo:doctor
   Queue
     ! Queue connection is 'sync'
       ↳ Scans run inline on the dispatching request/CLI. Use a real queue …
+    ✓ Scan queue: default (seo-pro.scan.queue unset)
+  Broken links
+    ✓ Broken-link crawler is off (optional)
+  AI assist
+    ✓ AI assist is off (optional)
+  Search Console
+    ✓ Search Console is off (optional)
 
-  ! Healthy with warnings — 1 warning(s), 7 passed.
+  ! Healthy with warnings — 1 warning(s), 8 passed.
 ```
 
-It makes no network calls and never prints secret values. It exits non-zero
-only on a critical failure (a missing required table), so it is safe in CI;
-add `--json` for monitoring. See [Headless usage](/pro/headless) for the full
-command reference.
+It makes no network calls and never prints secret values. It validates
+configuration and recent run history — it cannot prove an external cron or worker
+is actually running. It exits non-zero only on a critical failure (a missing
+required table), so it is safe in CI; add `--json` for monitoring (each check
+carries a stable `id` to key on). See [Headless usage](/pro/headless) for the full
+command reference and the [Production setup](/pro/production) guide for queues and
+scheduling.
 
 ## Five-minute Pro tour
 
