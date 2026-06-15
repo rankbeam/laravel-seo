@@ -49,6 +49,45 @@ packages (`rankbeam/laravel-seo-filament`, `rankbeam/laravel-seo-pro`) that want
 to pass a hand-built `SEOData` through the facade/`@seo` should require the core
 version that ships this change once it is released.
 
+### Blank explicit-value policy (improvement plan T2)
+
+A persisted blank (`''` / `'   '`) value in a `seo_meta` string column is an
+*explicit* value, so the resolver's "last non-null wins" merge lets it override
+every lower layer — silently blanking a tag or suppressing the computed
+fallback / configured default. This adds an opt-in policy to let those blanks
+fall through instead, plus an audit code so the condition is visible even before
+you opt in.
+
+#### Added
+
+- **`seo.resolver.blank_is_unset`** (`SEO_BLANK_IS_UNSET`, default `false`) —
+  when enabled, the resolver normalizes blank/whitespace **string** fields on
+  the stored (explicit) layer to `null` during explicit-value extraction, so
+  they fall through to the computed value / default. Only string fields are
+  affected: arrays (`tags`, `focus_keywords`, `alternates`), the JSON-LD schema,
+  and the literal string `"0"` are never touched. Persistence-layer only — it is
+  applied to the freshly-extracted stored `SEOData`, never to the general DTO or
+  a higher layer's intentional value. Clearing a field to `null` (e.g. from
+  Filament) keeps falling through exactly as before, with the flag on or off.
+- **`seo:audit` issue code `blank_explicit_override`** (warning) — the free
+  audit reports when a stored `seo_meta` string is blank and would override the
+  computed/default value, naming the blank columns. It is surfaced only while
+  `blank_is_unset` is **off** (once on, the blanks already fall through), so the
+  otherwise-silent condition is observable before you opt in. This is a
+  **core-only** code — it is intentionally NOT part of the Pro-mirror
+  `MetadataIssues::metadataCodes()` list shared with the Pro scan registry.
+
+#### Behaviour
+
+- With the flag **off** (the default) behaviour is **byte-identical** to today:
+  blank explicit strings still override lower layers.
+- The default **flips to `true` in the next major (Core 4)**; the
+  `SEO_BLANK_IS_UNSET` env var is the escape hatch in either direction. See
+  [UPGRADING.md](UPGRADING.md) (“Planned for Core 4”).
+
+This is an **opt-in additive minor**; no public API was added that the sibling
+packages need to call, so no minimum-core-version bump is required for them.
+
 ## [3.0.0]
 
 The third major. The headline breaking changes are the **contract reset**

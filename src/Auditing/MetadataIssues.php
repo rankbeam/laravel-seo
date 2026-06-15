@@ -68,7 +68,46 @@ final class MetadataIssues
     }
 
     /**
-     * The stable list of metadata codes the free audit can emit.
+     * Core-only audit codes that are NOT part of the Pro EXEC_METADATA mirror.
+     *
+     * These surface conditions the free audit can observe from the model plus
+     * the resolver configuration that the Pro scan does not enumerate as a scan
+     * code. They are deliberately kept OUT of {@see metadataCodes()} (the list
+     * pinned identical to the Pro registry), but {@see make()} can still build
+     * them and {@see has()} recognises them.
+     *
+     * - `blank_explicit_override`: a persisted blank/whitespace `seo_meta`
+     *   string silently overrides the computed/default value while
+     *   `seo.resolver.blank_is_unset` is off (see
+     *   {@see \Rankbeam\Seo\Services\SEOResolver}). It is not tied to a single
+     *   field — the blanked columns are listed in the issue context — so its
+     *   field is null.
+     *
+     * @return array<string, array{severity: string, field: string|null}>
+     */
+    public static function coreDefinitions(): array
+    {
+        return [
+            'blank_explicit_override' => ['severity' => AuditIssue::SEVERITY_WARNING, 'field' => null],
+        ];
+    }
+
+    /**
+     * The full catalogue {@see make()} can build from: the Pro-mirror metadata
+     * rows plus the core-only codes. {@see metadataCodes()} intentionally
+     * returns ONLY the mirror, so the shared-with-Pro contract is unaffected.
+     *
+     * @return array<string, array{severity: string, field: string|null}>
+     */
+    public static function catalogue(): array
+    {
+        return self::definitions() + self::coreDefinitions();
+    }
+
+    /**
+     * The stable list of metadata codes the free audit shares with the Pro
+     * registry. Core-only codes ({@see coreDefinitions()}) are excluded so this
+     * list stays identical to the Pro EXEC_METADATA rows.
      *
      * @return array<int, string>
      */
@@ -79,7 +118,7 @@ final class MetadataIssues
 
     public static function has(string $code): bool
     {
-        return isset(self::definitions()[$code]);
+        return isset(self::catalogue()[$code]);
     }
 
     /**
@@ -91,7 +130,7 @@ final class MetadataIssues
      */
     public static function make(string $code, string $message, array $context = []): AuditIssue
     {
-        $definition = self::definitions()[$code] ?? null;
+        $definition = self::catalogue()[$code] ?? null;
 
         if ($definition === null) {
             throw new InvalidArgumentException("Unknown SEO audit issue code [{$code}]. Add it to ".self::class.'.');

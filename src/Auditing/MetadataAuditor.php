@@ -65,7 +65,80 @@ class MetadataAuditor
             $issues[] = $issue;
         }
 
+        if ($issue = $this->checkBlankExplicitOverride($model)) {
+            $issues[] = $issue;
+        }
+
         return array_merge($issues, $this->checkCanonicalConsistency($model));
+    }
+
+    /**
+     * The stored seo_meta string content columns whose blank/whitespace value
+     * would silently override a lower layer. This is the resolver's
+     * blank_is_unset field set limited to the columns actually persisted on
+     * seo_meta and rendered as content; `locale` and `schema_type` are
+     * identity / UI columns, not rendered SEO content, so they are excluded.
+     *
+     * @var array<int, string>
+     */
+    protected const BLANK_OVERRIDE_COLUMNS = [
+        'title', 'description', 'canonical', 'robots',
+        'og_title', 'og_description', 'og_image', 'og_type',
+        'twitter_title', 'twitter_description', 'twitter_image', 'twitter_card',
+    ];
+
+    /**
+     * Surface a persisted blank/whitespace SEO string that silently overrides
+     * the computed/default value.
+     *
+     * The resolver merges with "last non-null wins", so a stored '' / '   ' in
+     * a seo_meta string column is an explicit value that beats every lower
+     * layer — blanking a tag (or suppressing a computed fallback) with no
+     * warning. The `seo.resolver.blank_is_unset` policy fixes this by dropping
+     * such blanks to null before the merge; while that flag is OFF (the default
+     * in 3.x) this check makes the otherwise-silent condition observable. With
+     * the flag ON the blanks already fall through, so there is nothing to
+     * report.
+     *
+     * Only stored string content columns are considered: arrays
+     * (focus_keywords, schema_jsonld), the literal "0" (a real value), and
+     * absent (null) columns are never flagged.
+     */
+    public function checkBlankExplicitOverride(Model $model): ?AuditIssue
+    {
+        if (config('seo.resolver.blank_is_unset', false)) {
+            return null;
+        }
+
+        $seoMeta = $model->seoMeta;
+
+        if (! $seoMeta) {
+            return null;
+        }
+
+        $blankFields = [];
+
+        foreach (self::BLANK_OVERRIDE_COLUMNS as $column) {
+            $value = $seoMeta->{$column};
+
+            // Only a non-null string that is empty after trimming: "0" trims to
+            // "0" (a real value, kept), null is absent (correct fall-through,
+            // not an override), and arrays never satisfy is_string().
+            if (is_string($value) && trim($value) === '') {
+                $blankFields[] = $column;
+            }
+        }
+
+        if ($blankFields === []) {
+            return null;
+        }
+
+        return MetadataIssues::make(
+            'blank_explicit_override',
+            count($blankFields).' stored SEO field(s) are blank and override the computed/default value '
+                .'(set seo.resolver.blank_is_unset, or clear them to null): '.implode(', ', $blankFields).'.',
+            ['fields' => $blankFields],
+        );
     }
 
     /**

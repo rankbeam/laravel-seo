@@ -157,6 +157,39 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Resolver
+    |--------------------------------------------------------------------------
+    |
+    | Fine-grained control over how the SEOResolver merges the precedence chain.
+    |
+    | blank_is_unset
+    | --------------
+    | A persisted blank string ('' or whitespace-only) in a `seo_meta` field is
+    | an *explicit* value and, because the resolver merges with "last non-null
+    | wins", it OVERRIDES every lower layer — silently suppressing the computed
+    | fallback or the configured default. A page whose title was cleared to ''
+    | then renders with no title at all, even though the model could compute one.
+    |
+    | With this flag ON, the resolver normalizes blank/whitespace STRING fields
+    | on the stored (explicit) layer to null before merging, so they fall
+    | through to the computed value / default instead of blanking the page.
+    | Only string fields are affected: arrays (tags, focus_keywords, alternates),
+    | the JSON-LD schema, and the literal string "0" are never touched.
+    |
+    | Default is false, so the published v3 behaviour is byte-identical: blanks
+    | still override. The condition is observable regardless of this flag via the
+    | `seo:audit` `blank_explicit_override` notice. The DEFAULT FLIPS TO TRUE in
+    | Core 4 — see UPGRADING.md. Set SEO_BLANK_IS_UNSET to opt in (or, in Core 4,
+    | out) ahead of the flip.
+    |
+    */
+
+    'resolver' => [
+        'blank_is_unset' => env('SEO_BLANK_IS_UNSET', false),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Free Audit (seo:audit)
     |--------------------------------------------------------------------------
     |

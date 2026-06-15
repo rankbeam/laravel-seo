@@ -221,3 +221,32 @@ change when off):
 
 If you previously hand-added these keys to work around the old shallow merge,
 leave them — your values win.
+
+## 12. Planned for Core 4 (behavior changes)
+
+These are **not** active yet — they are documented now so the change is never a
+surprise. Each ships behind a flag you can flip ahead of time.
+
+### `seo.resolver.blank_is_unset` default flips to `true`
+
+A persisted blank (`''` / whitespace-only) value in a `seo_meta` string column
+is an *explicit* value, and the resolver merges with "last non-null wins" — so a
+blank silently **overrides** the computed fallback / configured default, blanking
+the tag. A title cleared to `''` renders with no title even though the model
+could compute one.
+
+- **Core 3.x (now):** the fix is opt-in. `seo.resolver.blank_is_unset` defaults
+  to `false`, so behaviour is byte-identical to before — blanks still override.
+  Set `SEO_BLANK_IS_UNSET=true` to opt in early: blank string fields on the
+  stored layer are normalized to `null` and fall through to the computed/default
+  value. Only string fields are affected — arrays (`tags`, `focus_keywords`,
+  `alternates`), the JSON-LD schema, and the literal `"0"` are never touched, and
+  clearing a field to `null` already falls through regardless of the flag.
+- **Core 4 (planned):** the default flips to `true`. If you *rely* on blank
+  explicit strings overriding lower layers, set `SEO_BLANK_IS_UNSET=false`
+  explicitly before upgrading to keep the old behaviour.
+
+To find affected pages today, run `php artisan seo:audit` — it reports a
+`blank_explicit_override` warning (naming the blank columns) on any page whose
+stored SEO strings are blank, so you can clear them to `null` or opt in with
+confidence before the flip.

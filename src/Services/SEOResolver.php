@@ -437,7 +437,50 @@ class SEOResolver
 
         $explicit = SEOData::fromModel($model, $locale);
 
+        // Blank explicit-value policy: a persisted '' / '   ' is an explicit
+        // value and would override (via "last non-null wins") the computed
+        // fallback / configured default, blanking the page. When opted in, drop
+        // blank string fields so they fall through. Persistence-layer only — it
+        // is applied to the freshly-extracted stored SEOData, never to the
+        // general DTO or to a higher layer's intentional value.
+        if (config('seo.resolver.blank_is_unset', false)) {
+            $explicit = $this->unsetBlankStrings($explicit);
+        }
+
         return $result->merge($explicit);
+    }
+
+    /**
+     * Normalize blank/whitespace string fields on a stored SEOData to null.
+     *
+     * Implements the `seo.resolver.blank_is_unset` policy. Only the STRING
+     * fields are considered — arrays (tags, focus_keywords, alternates), the
+     * JSON-LD schema, and DateTime fields are left untouched, and the literal
+     * string "0" is preserved (it is `empty()` in PHP but a meaningful value).
+     * A field is unset only when it is a string that is empty after trimming.
+     *
+     * @param SEOData $explicit The stored/explicit SEO data extracted from seo_meta
+     * @return SEOData The same data with blank string fields normalized to null
+     */
+    protected function unsetBlankStrings(SEOData $explicit): SEOData
+    {
+        $stringFields = [
+            'title', 'description', 'canonical', 'robots',
+            'ogTitle', 'ogDescription', 'ogImage', 'ogType', 'ogSiteName', 'ogUrl',
+            'twitterTitle', 'twitterDescription', 'twitterImage', 'twitterCard',
+            'twitterSite', 'twitterCreator',
+            'author', 'section', 'locale',
+        ];
+
+        foreach ($stringFields as $field) {
+            $value = $explicit->{$field};
+
+            if (is_string($value) && trim($value) === '') {
+                $explicit = $explicit->with($field, null);
+            }
+        }
+
+        return $explicit;
     }
 
     /**

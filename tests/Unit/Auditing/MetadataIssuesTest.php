@@ -31,6 +31,23 @@ it('pins the metadata code contract shared with the Pro registry', function () {
     ]);
 });
 
+it('keeps core-only codes out of the Pro-mirror list but buildable via make()', function () {
+    // blank_explicit_override is a CORE-only resolver-policy code (T2). It must
+    // NOT appear in metadataCodes() (which stays identical to the Pro registry),
+    // but the catalogue still recognises and can build it.
+    expect(MetadataIssues::metadataCodes())->not->toContain('blank_explicit_override')
+        ->and(array_keys(MetadataIssues::coreDefinitions()))->toBe(['blank_explicit_override'])
+        ->and(MetadataIssues::has('blank_explicit_override'))->toBeTrue();
+
+    $issue = MetadataIssues::make('blank_explicit_override', 'Blank fields override.', ['fields' => ['title']]);
+
+    expect($issue)->toBeInstanceOf(AuditIssue::class)
+        ->and($issue->code)->toBe('blank_explicit_override')
+        ->and($issue->severity)->toBe(AuditIssue::SEVERITY_WARNING)
+        ->and($issue->field)->toBeNull()
+        ->and($issue->context)->toBe(['fields' => ['title']]);
+});
+
 it('gives every code a valid severity and field', function () {
     $severities = [
         AuditIssue::SEVERITY_CRITICAL,
