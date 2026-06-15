@@ -158,6 +158,150 @@ class SEOResolver
     }
 
     /**
+     * Resolve any render-surface input to a render-ready SEOData.
+     *
+     * Accepts the three shapes the facade and the @seo directive support:
+     *
+     * - **Model|null** — runs the full precedence chain via resolve().
+     * - **SEOData** — a hand-built DTO (model-less pages: listings, search,
+     *   controller-composed). The DTO is treated as explicit intent: the DB
+     *   precedence chain is NOT merged in. Only the render-time gaps are
+     *   filled (see prepare()).
+     *
+     * This is the single entry point behind SEO::render()/toArray()/
+     * forInertia() so model and SEOData paths produce an equivalent tag set
+     * for equivalent data.
+     *
+     * @param Model|SEOData|null $source The model, hand-built SEOData, or null
+     * @param string|null $route Optional route name (Model/null path only)
+     * @param string|null $locale Optional locale (Model/null path only)
+     * @return SEOData Render-ready SEO data
+     */
+    public function resolveSource(
+        Model|SEOData|null $source = null,
+        ?string $route = null,
+        ?string $locale = null,
+    ): SEOData {
+        if ($source instanceof SEOData) {
+            return $this->prepare($source);
+        }
+
+        return $this->resolve($source, $route, $locale);
+    }
+
+    /**
+     * Prepare a hand-built SEOData for rendering.
+     *
+     * INTERNAL: not part of the public API. Its per-field transforms are an
+     * implementation detail of the render surface, not a compatibility
+     * contract — do not call it directly or depend on its exact output.
+     *
+     * A supplied SEOData is explicit intent, so every value the caller set is
+     * PRESERVED; only ABSENT (null) fields are filled, mirroring what the
+     * resolver chain produces for a model:
+     *
+     * - canonical / og:url derived from the current URL when null
+     *   (via ensureCanonical with no model);
+     * - title_suffix applied only when the title lacks it, honoring the
+     *   brand-aware seo.title_suffix_skip_when_contains skip list;
+     * - relative og:image / twitter:image absolutized via the configured URL
+     *   generator (url(), NOT secure_url() — forcing HTTPS breaks non-HTTPS
+     *   dev);
+     * - og:site_name filled from config when absent;
+     * - locale filled from the current app locale when absent (so og:locale
+     *   renders).
+     *
+     * The DB precedence chain (global / model-type / route / seo_meta
+     * defaults) is deliberately NOT merged — a hand-built SEOData is the
+     * caller's explicit statement of intent.
+     *
+     * TagRenderer is never modified by this step; preparation happens before
+     * it, so direct TagRenderer::render($data) callers are unaffected.
+     *
+     * @param SEOData $seoData The hand-built SEO data
+     * @return SEOData Render-ready SEO data with absent fields filled
+     */
+    protected function prepare(SEOData $seoData): SEOData
+    {
+        // Site-level identity that the base-config layer supplies for the
+        // model path — fill only when the caller left it absent.
+        if ($seoData->ogSiteName === null) {
+            $siteName = config('seo.site_name', config('app.name'));
+            if ($siteName !== null && $siteName !== '') {
+                $seoData = $seoData->with('ogSiteName', $siteName);
+            }
+        }
+
+        if ($seoData->locale === null) {
+            $seoData = $seoData->with('locale', app()->getLocale());
+        }
+
+        // The same render-time post-processing the model path runs, reused
+        // verbatim so both paths normalize identically.
+        $seoData = $this->applyTitleSuffix($seoData);
+        $seoData = $this->ensureCanonical($seoData, null);
+        $seoData = $this->ensureAbsoluteImages($seoData);
+
+        return $seoData;
+    }
+
+    /**
+     * Render SEO tags as HTML for a model, a hand-built SEOData, or null.
+     *
+     * @param Model|SEOData|null $source The model, hand-built SEOData, or null
+     * @param string|null $route Optional route name (Model/null path only)
+     * @param string|null $locale Optional locale (Model/null path only)
+     * @return string HTML string with all meta tags
+     */
+    public function render(
+        Model|SEOData|null $source = null,
+        ?string $route = null,
+        ?string $locale = null,
+    ): string {
+        return $this->renderer()->render($this->resolveSource($source, $route, $locale));
+    }
+
+    /**
+     * Get SEO data as a structured array (Vue/React/API).
+     *
+     * @param Model|SEOData|null $source The model, hand-built SEOData, or null
+     * @param string|null $route Optional route name (Model/null path only)
+     * @param string|null $locale Optional locale (Model/null path only)
+     * @return array<string, mixed>
+     */
+    public function toArray(
+        Model|SEOData|null $source = null,
+        ?string $route = null,
+        ?string $locale = null,
+    ): array {
+        return $this->renderer()->toArray($this->resolveSource($source, $route, $locale));
+    }
+
+    /**
+     * Get SEO data formatted for Inertia's Head component.
+     *
+     * @param Model|SEOData|null $source The model, hand-built SEOData, or null
+     * @param string|null $route Optional route name (Model/null path only)
+     * @param string|null $locale Optional locale (Model/null path only)
+     * @return array<string, mixed>
+     */
+    public function forInertia(
+        Model|SEOData|null $source = null,
+        ?string $route = null,
+        ?string $locale = null,
+    ): array {
+        return $this->renderer()->toInertiaHead($this->resolveSource($source, $route, $locale));
+    }
+
+    /**
+     * Resolve the shared TagRenderer instance.
+     */
+    protected function renderer(): TagRenderer
+    {
+        return app(TagRenderer::class);
+    }
+
+    /**
      * Resolve with explicit overrides applied on top.
      *
      * Useful for programmatic SEO modifications, like setting noindex
@@ -300,7 +444,10 @@ class SEOResolver
      * Apply title suffix from config.
      *
      * Appends the configured suffix (e.g., " | Site Name") to the title
-     * if it's not already present.
+     * if it's not already present. A brand-aware skip list
+     * (seo.title_suffix_skip_when_contains) suppresses the suffix when the
+     * title already mentions the brand as a whole word, avoiding a
+     * redundant double-brand title.
      *
      * @param SEOData $seoData Current SEO data
      * @return SEOData SEO data with title suffix applied
@@ -317,7 +464,41 @@ class SEOResolver
             return $seoData;
         }
 
+        if ($this->titleContainsBrandToken($seoData->title)) {
+            return $seoData;
+        }
+
         return $seoData->with('title', $seoData->title . $suffix);
+    }
+
+    /**
+     * Determine whether the title already mentions a configured brand token.
+     *
+     * Tokens from seo.title_suffix_skip_when_contains are matched
+     * case-insensitively on a word boundary, so a title that already carries
+     * the brand keeps a single brand mention instead of gaining the suffix.
+     *
+     * @param string $title The resolved title
+     * @return bool True when a skip token is present as a whole word
+     */
+    protected function titleContainsBrandToken(string $title): bool
+    {
+        /** @var array<int, string> $tokens */
+        $tokens = (array) config('seo.title_suffix_skip_when_contains', []);
+
+        foreach ($tokens as $token) {
+            $token = is_string($token) ? trim($token) : '';
+
+            if ($token === '') {
+                continue;
+            }
+
+            if (preg_match('/\b' . preg_quote($token, '/') . '\b/iu', $title) === 1) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**

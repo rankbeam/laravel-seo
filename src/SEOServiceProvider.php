@@ -227,15 +227,19 @@ class SEOServiceProvider extends ServiceProvider
         |
         | Usage:
         |   @seo($post)                    // With model
+        |   @seo($seoData)                 // With a hand-built SEOData
         |   @seo($post, 'blog.show')       // With model and route
         |   @seo($post, null, 'en')        // With model and locale
         |   @seo(null)                     // Current page without model
         |
+        | Accepts a Model, a hand-built SEOData (model-less pages), or null.
+        | The render() path prepares a supplied SEOData (fills absent fields,
+        | absolutizes images, applies the title suffix) before the verbatim
+        | TagRenderer; the route/locale arguments apply to the Model/null path.
+        |
         */
         Blade::directive('seo', function ($expression) {
-            return "<?php echo app(\\Rankbeam\\Seo\\Services\\TagRenderer::class)->render(
-                app(\\Rankbeam\\Seo\\Services\\SEOResolver::class)->resolve({$expression})
-            ); ?>";
+            return "<?php echo app(\\Rankbeam\\Seo\\Services\\SEOResolver::class)->render({$expression}); ?>";
         });
 
         /*

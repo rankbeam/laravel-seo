@@ -17,8 +17,10 @@ use Rankbeam\Seo\Services\SEOResolver;
  * @method static SEOData resolve(?Model $model = null, ?string $route = null, ?string $locale = null)
  * @method static SEOData resolveForRoute(string $routeName, ?string $locale = null)
  * @method static SEOData resolveWithOverrides(SEOData $base, array $overrides)
- * @method static string render(?Model $model = null, ?string $route = null, ?string $locale = null)
- * @method static array toArray(?Model $model = null, ?string $route = null, ?string $locale = null)
+ * @method static SEOData resolveSource(Model|SEOData|null $source = null, ?string $route = null, ?string $locale = null)
+ * @method static string render(Model|SEOData|null $source = null, ?string $route = null, ?string $locale = null)
+ * @method static array toArray(Model|SEOData|null $source = null, ?string $route = null, ?string $locale = null)
+ * @method static array forInertia(Model|SEOData|null $source = null, ?string $route = null, ?string $locale = null)
  * @method static \Rankbeam\Seo\Services\Sitemap\SitemapRegistry sitemaps()
  *
  * @see \Rankbeam\Seo\Services\SEOResolver
@@ -68,17 +70,18 @@ class SEO extends Facade
      * Returns a complete HTML string containing all SEO meta tags,
      * ready to be inserted in the <head> section.
      *
-     * @param  Model|null  $model  The model to render SEO tags for
-     * @param  string|null  $route  Optional route name
-     * @param  string|null  $locale  Optional locale
+     * Accepts a Model (runs the full precedence chain), a hand-built
+     * SEOData (model-less pages — listings, search, controller-composed;
+     * absent fields are filled but the DB precedence chain is not merged),
+     * or null (the current page).
+     *
+     * @param  Model|SEOData|null  $source  The model, hand-built SEOData, or null
+     * @param  string|null  $route  Optional route name (Model/null path only)
+     * @param  string|null  $locale  Optional locale (Model/null path only)
      */
-    public static function render(?Model $model = null, ?string $route = null, ?string $locale = null): string
+    public static function render(Model|SEOData|null $source = null, ?string $route = null, ?string $locale = null): string
     {
-        $resolver = static::getFacadeRoot();
-        $renderer = app(\Rankbeam\Seo\Services\TagRenderer::class);
-        $seoData = $resolver->resolve($model, $route, $locale);
-
-        return $renderer->render($seoData);
+        return static::getFacadeRoot()->render($source, $route, $locale);
     }
 
     /**
@@ -88,18 +91,14 @@ class SEO extends Facade
      * Returns a structured array compatible with Inertia's Head component
      * or react-helmet-async.
      *
-     * @param  Model|null  $model  The model to get SEO data for
-     * @param  string|null  $route  Optional route name
-     * @param  string|null  $locale  Optional locale
+     * @param  Model|SEOData|null  $source  The model, hand-built SEOData, or null
+     * @param  string|null  $route  Optional route name (Model/null path only)
+     * @param  string|null  $locale  Optional locale (Model/null path only)
      * @return array<string, mixed>
      */
-    public static function toArray(?Model $model = null, ?string $route = null, ?string $locale = null): array
+    public static function toArray(Model|SEOData|null $source = null, ?string $route = null, ?string $locale = null): array
     {
-        $resolver = static::getFacadeRoot();
-        $renderer = app(\Rankbeam\Seo\Services\TagRenderer::class);
-        $seoData = $resolver->resolve($model, $route, $locale);
-
-        return $renderer->toArray($seoData);
+        return static::getFacadeRoot()->toArray($source, $route, $locale);
     }
 
     /**
@@ -108,17 +107,13 @@ class SEO extends Facade
      * Returns data in the exact format expected by Inertia.js
      * for server-side rendering of meta tags.
      *
-     * @param  Model|null  $model  The model to get SEO data for
-     * @param  string|null  $route  Optional route name
-     * @param  string|null  $locale  Optional locale
+     * @param  Model|SEOData|null  $source  The model, hand-built SEOData, or null
+     * @param  string|null  $route  Optional route name (Model/null path only)
+     * @param  string|null  $locale  Optional locale (Model/null path only)
      * @return array<string, mixed>
      */
-    public static function forInertia(?Model $model = null, ?string $route = null, ?string $locale = null): array
+    public static function forInertia(Model|SEOData|null $source = null, ?string $route = null, ?string $locale = null): array
     {
-        $resolver = static::getFacadeRoot();
-        $renderer = app(\Rankbeam\Seo\Services\TagRenderer::class);
-        $seoData = $resolver->resolve($model, $route, $locale);
-
-        return $renderer->toInertiaHead($seoData);
+        return static::getFacadeRoot()->forInertia($source, $route, $locale);
     }
 }

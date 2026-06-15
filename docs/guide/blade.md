@@ -25,10 +25,15 @@ Signatures:
 
 ```blade
 @seo($post)                  {{-- model page --}}
+@seo($seoData)               {{-- a hand-built SEOData (model-less page) --}}
 @seo($post, 'blog.show')     {{-- model + route defaults --}}
 @seo($post, null, 'fr')      {{-- model + locale --}}
 @seo(null)                   {{-- current page, no model --}}
 ```
+
+`@seo` accepts a `Model`, a hand-built `SEOData`, or `null`. The route/locale
+arguments apply only to the `Model`/`null` path — a hand-built `SEOData` carries
+its own values.
 
 ## Route pages (no model)
 
@@ -40,6 +45,54 @@ For static pages, archives, and other route-backed pages:
 ```
 
 Route values come from `seo_defaults` rows scoped to the route name.
+
+## Model-less pages: hand-built `SEOData`
+
+Listings, search results, and anything composed in a controller often have no
+single backing model. Build a `SEOData` and pass it straight to `@seo` (or the
+`SEO` facade) — no need to reach for `app(TagRenderer::class)->render(...)`:
+
+```php
+use Rankbeam\Seo\Data\SEOData;
+
+return view('search.results', [
+    'seo' => new SEOData(
+        title: "Results for \"{$query}\"",
+        description: "Browse {$count} matches for {$query}.",
+        ogImage: '/images/search-share.jpg',   // relative is fine — see below
+    ),
+]);
+```
+
+```blade
+<head>
+    @seo($seo)
+</head>
+```
+
+A hand-built `SEOData` is treated as **explicit intent**. Every value you set is
+preserved; only the render-time gaps are filled for you:
+
+- `canonical` / `og:url` are derived from the current URL when absent (an
+  explicit `canonical` is kept verbatim, query string included);
+- the `title_suffix` is appended only when the title lacks it (and is skipped
+  entirely when the title already carries a brand token — see
+  [`title_suffix_skip_when_contains`](/reference/configuration));
+- relative `og:image` / `twitter:image` paths are absolutized with `url()`
+  (which honors your current scheme — it does **not** force HTTPS);
+- `og:site_name` and `locale` are filled from config / the app locale.
+
+The database precedence chain (global / model-type / route / `seo_meta`
+defaults) is **not** merged into a hand-built `SEOData` — what you pass is what
+renders, plus the gaps above.
+
+The same value works through the facade:
+
+```php
+SEO::render($seoData);     // HTML string
+SEO::toArray($seoData);    // Vue/React structure
+SEO::forInertia($seoData); // Inertia Head structure
+```
 
 ## A layout pattern that scales
 

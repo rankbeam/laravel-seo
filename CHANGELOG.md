@@ -7,7 +7,47 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-Nothing yet.
+### Render surface accepts `Model | SEOData | null` (improvement plan T1)
+
+Model-less pages (listings, search, controller-composed views) can now render
+through the facade and the `@seo` directive with a hand-built `SEOData` instead
+of reaching for `app(TagRenderer::class)->render($seoData)` by hand — the #1
+integration papercut.
+
+#### Added
+
+- **`SEO::render()`, `SEO::toArray()`, `SEO::forInertia()` accept
+  `Model|SEOData|null`.** A `Model` (or `null`) runs the full precedence chain as
+  before; a hand-built `SEOData` is rendered directly. `SEO::forInertia()` is also
+  now a first-class facade method (previously available on the resolver root but
+  undeclared on the facade).
+- **`@seo($seoData)`** — the Blade directive accepts a `SEOData` as well as a
+  `Model`/`null`. `@seo($model)` and `@seo($seoData)` produce an equivalent tag
+  set for equivalent data.
+- **`seo.title_suffix_skip_when_contains`** (default `[]`) — a brand-aware skip
+  list. When the resolved title already contains one of these tokens as a whole
+  word (case-insensitive), the `title_suffix` is not appended, avoiding a
+  redundant double-brand title. Applies to both the model and `SEOData` paths.
+
+#### Behaviour
+
+- A supplied `SEOData` is treated as **explicit intent**: every value you set is
+  preserved, and only **absent** fields are filled before rendering —
+  `canonical`/`og:url` derived from the current URL, the `title_suffix` applied
+  when missing (honoring the new skip list), relative `og:image`/`twitter:image`
+  absolutized via `url()` (not `secure_url()`, which would force HTTPS and break
+  non-HTTPS/dev), and `og:site_name`/`locale` filled from config/app. The DB
+  precedence chain (global/model-type/route/`seo_meta` defaults) is **not** merged
+  into a hand-built `SEOData`.
+- **`TagRenderer` is unchanged.** Preparation of a `SEOData` happens before the
+  renderer, never inside it, so direct `TagRenderer::render($data)` callers are
+  unaffected.
+
+This is an **additive minor** (the new config key defaults to current behavior).
+The facade/directive now accept `SEOData` as **new public API** — sibling
+packages (`rankbeam/laravel-seo-filament`, `rankbeam/laravel-seo-pro`) that want
+to pass a hand-built `SEOData` through the facade/`@seo` should require the core
+version that ships this change once it is released.
 
 ## [3.0.0]
 

@@ -43,6 +43,24 @@ return [
     'title_suffix' => ' | ' . env('APP_NAME', 'My Site'),
 
     /*
+     * Brand-aware suffix suppression.
+     *
+     * The title suffix (above) is normally appended to every title that
+     * does not already end with it. But a title that already carries the
+     * brand — "Acme · About Us" when the suffix is " | Acme" — would gain a
+     * second, redundant brand mention. List tokens here (typically your
+     * brand name) and the suffix is skipped whenever the resolved title
+     * already contains one of them as a whole word (case-insensitive,
+     * word-boundary aware, so "Acmestic" does NOT match "Acme").
+     *
+     * Default [] preserves the historical behavior (suffix always applied
+     * unless the title already ends with the exact suffix string).
+     *
+     * @var array<int, string>
+     */
+    'title_suffix_skip_when_contains' => [],
+
+    /*
      * Default Open Graph image used when no specific image is set.
      * Should be at least 1200x630px for optimal display on social platforms.
      * Path is relative to your public directory or an absolute URL.

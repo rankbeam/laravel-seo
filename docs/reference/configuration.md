@@ -11,18 +11,25 @@ Everything below lives in `config/seo.php`. Values shown are the defaults.
 ## Site-wide defaults (layer 1)
 
 ```php
-'site_name'            => env('APP_NAME', 'My Site'),
-'title_suffix'         => ' | ' . env('APP_NAME', 'My Site'),
-'default_og_image'     => env('SEO_DEFAULT_OG_IMAGE', '/images/og-default.jpg'),
-'default_robots'       => env('SEO_DEFAULT_ROBOTS', 'index,follow'),
-'default_twitter_card' => env('SEO_DEFAULT_TWITTER_CARD', 'summary_large_image'),
-'twitter_site'         => env('SEO_TWITTER_SITE'),     // @username, without @
-'twitter_creator'      => env('SEO_TWITTER_CREATOR'),
-'favicon'              => '/favicon.ico',
+'site_name'                       => env('APP_NAME', 'My Site'),
+'title_suffix'                    => ' | ' . env('APP_NAME', 'My Site'),
+'title_suffix_skip_when_contains' => [],   // brand tokens, e.g. ['Acme']
+'default_og_image'                => env('SEO_DEFAULT_OG_IMAGE', '/images/og-default.jpg'),
+'default_robots'                  => env('SEO_DEFAULT_ROBOTS', 'index,follow'),
+'default_twitter_card'            => env('SEO_DEFAULT_TWITTER_CARD', 'summary_large_image'),
+'twitter_site'                    => env('SEO_TWITTER_SITE'),     // @username, without @
+'twitter_creator'                 => env('SEO_TWITTER_CREATOR'),
+'favicon'                         => '/favicon.ico',
 ```
 
 `title_suffix` is appended to resolved titles unless the title already ends
 with it.
+
+`title_suffix_skip_when_contains` is a brand-aware suppression list. When the
+resolved title already contains one of these tokens **as a whole word**
+(case-insensitive, word-boundary aware — so `Acmestic` does not match `Acme`),
+the suffix is skipped to avoid a redundant double-brand title. The default `[]`
+preserves the historical behavior.
 
 ## Robots rendering policy
 
