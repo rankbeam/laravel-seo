@@ -59,6 +59,24 @@ class SEODefaultsRepository
     protected bool $tableExists = false;
 
     /**
+     * Per-request memo of resolved defaults, keyed by "scope:locale".
+     *
+     * Records BOTH hits and null misses so a missing default resolves to a
+     * single DB round-trip per scope/locale per request. Laravel's
+     * Cache::remember() never caches a null payload (a null get() reads as a
+     * miss), so without this layer every seoData() resolution re-queries the
+     * common no-rows install. The repository is a singleton, so this array
+     * persists for the life of the request/process; clearCache() resets it so
+     * admin updates take effect.
+     *
+     * Uses array_key_exists() (not isset()) on lookup so a memoized null is
+     * distinguished from "not yet resolved".
+     *
+     * @var array<string, SEOData|null>
+     */
+    protected array $memo = [];
+
+    /**
      * Get global defaults for a locale.
      *
      * Global defaults apply to all pages as a fallback.
@@ -154,6 +172,16 @@ class SEODefaultsRepository
      */
     protected function getCached(string $scope, string $locale): ?SEOData
     {
+        $memoKey = "{$scope}:{$locale}";
+
+        // Short-circuit on the per-request memo, which records null misses too
+        // (array_key_exists, not isset). On the common no-rows install this is
+        // what keeps repeated seoData() resolutions from re-querying the cache
+        // store / DB for a default that is always null.
+        if (array_key_exists($memoKey, $this->memo)) {
+            return $this->memo[$memoKey];
+        }
+
         $cacheKey = $this->getCacheKey($scope, $locale);
 
         $data = Cache::store($this->getCacheStore())
@@ -162,7 +190,7 @@ class SEODefaultsRepository
             });
 
         if ($data === null) {
-            return null;
+            return $this->memo[$memoKey] = null;
         }
 
         // A stale pre-2.1 entry (or one degraded by the restriction
@@ -173,7 +201,7 @@ class SEODefaultsRepository
             $data = $this->loadFromDatabase($scope, $locale);
         }
 
-        return $data === null ? null : SEOData::fromArray($data);
+        return $this->memo[$memoKey] = ($data === null ? null : SEOData::fromArray($data));
     }
 
     /**
@@ -282,6 +310,7 @@ class SEODefaultsRepository
         if ($scope && $locale) {
             // Clear specific scope/locale
             $store->forget($this->getCacheKey($scope, $locale));
+            unset($this->memo["{$scope}:{$locale}"]);
 
             return;
         }
@@ -292,11 +321,20 @@ class SEODefaultsRepository
                 $store->forget($this->getCacheKey($scope, $loc));
             }
 
+            // The memo may hold locales outside the list above, so drop every
+            // entry for this scope rather than the fixed set.
+            foreach (array_keys($this->memo) as $memoKey) {
+                if (str_starts_with($memoKey, "{$scope}:")) {
+                    unset($this->memo[$memoKey]);
+                }
+            }
+
             return;
         }
 
         // For full cache clear, use cache tags if available
         // Otherwise, the cache will naturally expire
+        $this->memo = [];
     }
 
     /**
