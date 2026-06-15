@@ -184,6 +184,73 @@ it('updates the empty seo_meta row that HasSEO auto-created, never duplicating i
         ->and($output)->toContain('1 updated');
 });
 
+it('never overwrites a hand-edited non-empty seo_meta field by default (fill-empty-only)', function () {
+    config(['seo.features.auto_create_meta' => false]);
+
+    $post = ImportPost::create(['title' => 'Hand Edited', 'slug' => 'hand-edited']);
+
+    // The operator already wrote a deliberate title in Rankbeam, but left the
+    // description empty.
+    $post->saveSEO([
+        'title' => 'A Carefully Hand-Written Rankbeam Title',
+    ]);
+
+    // The legacy package has values for BOTH the title and the description.
+    seedRalphRow(ImportPost::class, $post->id, [
+        'title' => 'The Old Package Title',
+        'description' => 'A description carried over from the old package.',
+    ]);
+
+    [, $output] = runImport(['source' => 'ralphjsmit']);
+
+    $meta = metaFor($post);
+
+    expect($meta->title)->toBe('A Carefully Hand-Written Rankbeam Title') // untouched
+        ->and($meta->description)->toBe('A description carried over from the old package.') // filled
+        ->and($output)->toContain('1 updated');
+});
+
+it('replaces existing values when --overwrite is passed', function () {
+    config(['seo.features.auto_create_meta' => false]);
+
+    $post = ImportPost::create(['title' => 'Overwrite Me', 'slug' => 'overwrite-me']);
+
+    $post->saveSEO(['title' => 'Original Rankbeam Title']);
+
+    seedRalphRow(ImportPost::class, $post->id, [
+        'title' => 'The Imported Title Wins',
+    ]);
+
+    [, $output] = runImport(['source' => 'ralphjsmit', '--overwrite' => true]);
+
+    expect(metaFor($post)->title)->toBe('The Imported Title Wins')
+        ->and($output)->toContain('1 updated');
+});
+
+it('reports unchanged when every imported field is already filled and not overwriting', function () {
+    config(['seo.features.auto_create_meta' => false]);
+
+    $post = ImportPost::create(['title' => 'Filled', 'slug' => 'filled']);
+
+    $post->saveSEO([
+        'title' => 'Already Set Title',
+        'description' => 'Already set description that is long enough to be meaningful.',
+    ]);
+
+    // The source only carries fields the target already has.
+    seedRalphRow(ImportPost::class, $post->id, [
+        'title' => 'Source Title',
+        'description' => 'Source description.',
+    ]);
+
+    [, $output] = runImport(['source' => 'ralphjsmit']);
+
+    expect(metaFor($post)->title)->toBe('Already Set Title')      // untouched
+        ->and(metaFor($post)->description)->toBe('Already set description that is long enough to be meaningful.')
+        ->and($output)->toContain('1 unchanged')
+        ->and($output)->toContain('0 updated');
+});
+
 it('is idempotent — a second run is a no-op with no duplicate rows', function () {
     config(['seo.features.auto_create_meta' => false]);
 

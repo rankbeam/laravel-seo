@@ -135,11 +135,16 @@ abstract class AbstractImporter implements Importer
      * Write the mapped attributes onto the model's `seo_meta` row for $locale,
      * idempotently and honouring dry-run, recording the outcome.
      *
-     * Status is computed by comparing the mapped attributes against the stored
-     * record, so a re-run over unchanged data reports "unchanged" and performs
-     * no write. The write itself goes through HasSEO::saveSEO() when available
-     * (so the seoable relation matches exactly what core writes natively),
-     * falling back to a direct upsert keyed on the model's own morph
+     * Fill-empty-only by default: any imported attribute whose target column
+     * already holds a non-empty value is dropped, so an import never clobbers
+     * hand-edited Rankbeam metadata (the documented contract). Pass
+     * ImportOptions::$overwrite to replace existing values instead.
+     *
+     * Status is computed by comparing the (post-filter) attributes against the
+     * stored record, so a re-run over unchanged data reports "unchanged" and
+     * performs no write. The write itself goes through HasSEO::saveSEO() when
+     * available (so the seoable relation matches exactly what core writes
+     * natively), falling back to a direct upsert keyed on the model's own morph
      * class/key for models that do not (yet) carry the trait.
      *
      * @param  array<string, mixed>  $attributes  Only fields that have data.
@@ -155,9 +160,15 @@ abstract class AbstractImporter implements Importer
             ->where('locale', $locale)
             ->first();
 
+        // Fill-empty-only: keep only attributes whose target column is empty,
+        // unless the operator explicitly opted into overwriting.
+        if (! $options->overwrite) {
+            $attributes = $this->fillableOnly($existing, $attributes);
+        }
+
         $status = $this->statusFor($existing, $attributes);
 
-        if (! $options->dryRun && $status !== 'unchanged') {
+        if (! $options->dryRun && $status !== 'unchanged' && $attributes !== []) {
             if (method_exists($model, 'saveSEO')) {
                 $model->saveSEO($attributes, $locale);
             } else {
@@ -173,6 +184,40 @@ abstract class AbstractImporter implements Importer
         }
 
         $result->recordStatus($status);
+    }
+
+    /**
+     * Drop imported attributes that would overwrite a non-empty existing value,
+     * so the import only ever fills empty (null / empty-string) target columns.
+     *
+     * A brand-new record (no $existing, or the empty seo_meta row HasSEO
+     * auto-creates) has every column empty, so every imported attribute is
+     * kept. An attribute the operator hand-edited is left untouched.
+     *
+     * @param  array<string, mixed>  $attributes
+     * @return array<string, mixed>
+     */
+    protected function fillableOnly(?SEOMeta $existing, array $attributes): array
+    {
+        if ($existing === null) {
+            return $attributes;
+        }
+
+        $fillable = [];
+
+        foreach ($attributes as $key => $value) {
+            $current = $existing->getAttribute($key);
+
+            // Treat null and empty string as "empty"; arrays/scalars with any
+            // content are considered filled and are not overwritten.
+            $isEmpty = $current === null || $current === '' || $current === [];
+
+            if ($isEmpty) {
+                $fillable[$key] = $value;
+            }
+        }
+
+        return $fillable;
     }
 
     /**

@@ -38,8 +38,9 @@ use Rankbeam\Seo\Importing\ImportResult;
  * ```
  *
  * The import is idempotent — re-running updates the same rows and never creates
- * duplicates — and only ever fills empty fields, so it is safe to run more than
- * once.
+ * duplicates — and only ever fills EMPTY fields, so it is safe to run more than
+ * once and can never clobber hand-edited Rankbeam metadata. Pass --overwrite to
+ * replace existing non-empty values with the imported ones instead.
  */
 class ImportFromCommand extends Command
 {
@@ -60,6 +61,7 @@ class ImportFromCommand extends Command
                             {--post-type=* : Restrict the WordPress DB readers to these post types (repeatable; default: post + page)}
                             {--redirects-csv= : Emit redirect candidates to this CSV path for import into Rankbeam Pro}
                             {--site-url= : The old WordPress site URL, used to derive paths from absolute URLs}
+                            {--overwrite : Replace existing non-empty seo_meta values (default: only fill empty fields)}
                             {--dry-run : Report what would be imported without writing anything}
                             {--force : Skip the confirmation prompt}
                             {--json : Output the report as JSON instead of a table}';
@@ -95,6 +97,7 @@ class ImportFromCommand extends Command
             connection: $this->option('connection') ?: null,
             limit: max(0, (int) $this->option('limit')),
             extra: $this->extraOptions(),
+            overwrite: (bool) $this->option('overwrite'),
         );
 
         $reason = null;

@@ -13,8 +13,9 @@ There are two paths, both driven by the same `seo:import-from` command:
 | [**Database**](#2-database-import-yoast-rank-math) `yoast` / `rank-math` | the live WordPress database | full fidelity, incl. OpenGraph/Twitter overrides and Rank Math redirects |
 
 Both are **idempotent** (re-running updates the same rows, never duplicates),
-support **`--dry-run`**, and only ever *fill* empty fields — they never clear
-SEO data you've already set in Rankbeam.
+support **`--dry-run`**, and by default only ever *fill* empty fields — they
+never overwrite SEO data you've already set in Rankbeam. Pass **`--overwrite`**
+to replace existing values with the imported ones instead.
 
 ## How WordPress rows become `seo_meta` rows
 

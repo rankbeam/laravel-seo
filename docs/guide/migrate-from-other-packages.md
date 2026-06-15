@@ -70,12 +70,14 @@ Eloquent model, and writes the data into `seo_meta`.
 | `--table=legacy_seo` | Read a renamed source table. |
 | `--connection=legacy` | Read the source table from another database connection. |
 | `--limit=100` | Import at most N rows (handy for a staged migration). |
+| `--overwrite` | Replace existing non-empty values (default: only fill empty fields). |
 | `--json` | Machine-readable report. |
 | `--force` | Skip the confirmation prompt (for scripts/CI). |
 
 It is **idempotent**: re-running updates the same rows and never creates
-duplicates, and it only ever *fills* empty fields — it will not overwrite SEO
-data you've already set in Rankbeam.
+duplicates, and by default it only ever *fills* empty fields — it will not
+overwrite SEO data you've already set in Rankbeam. Pass `--overwrite` if you
+want the imported values to replace your existing ones instead.
 
 ### 3. Swap the trait on your models
 

@@ -25,6 +25,9 @@ final class ImportOptions
      *                                       `post_type`, `redirects_csv`, `site_url`). The shared
      *                                       DTO stays source-agnostic; each importer reads what it
      *                                       needs and ignores the rest.
+     * @param  bool  $overwrite  Replace existing non-empty seo_meta values with the imported ones.
+     *                           Off by default, so an import only ever FILLS empty fields and can
+     *                           never clobber hand-edited Rankbeam metadata.
      */
     public function __construct(
         public readonly bool $dryRun = false,
@@ -34,6 +37,7 @@ final class ImportOptions
         public readonly ?string $connection = null,
         public readonly int $limit = 0,
         public readonly array $extra = [],
+        public readonly bool $overwrite = false,
     ) {}
 
     /**
