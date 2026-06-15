@@ -74,6 +74,7 @@ export default defineConfig({
           { text: 'Scan issues', link: '/pro/scan-issues' },
           { text: 'SEO score', link: '/pro/scoring' },
           { text: 'On-page checklist', link: '/pro/on-page-checklist' },
+          { text: 'Search Console', link: '/pro/search-console' },
           { text: 'AI assist (beta)', link: '/pro/ai-assist' },
         ],
       },

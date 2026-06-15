@@ -46,6 +46,17 @@ The same checklist is available as `SeoPro::checklistFor($model)`. It is the
 editorial loop (keyword placement, length, images, internal links), **not** the
 [SEO score](/pro/scoring).
 
+### Search Console (read-only)
+
+| Command | What it does |
+|---|---|
+| `seo-pro:search-console` | Pages with open issues **and** search traffic, worst opportunity first (`--view=attention`, the default) |
+| `seo-pro:search-console --view=pages` | Top pages by impressions/clicks/CTR/position |
+| `seo-pro:search-console --view=queries` | Top queries (`--days=`, `--limit=`, `--json`) |
+
+The same metrics are available as `SeoPro::searchConsole()` — see
+[Search Console](/pro/search-console). Off by default; strictly read-only.
+
 ### AI assist (beta)
 
 | Command | What it does |
