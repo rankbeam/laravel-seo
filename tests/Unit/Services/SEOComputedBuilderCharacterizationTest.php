@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Rankbeam\Seo\Services\SEOComputedBuilder;
+use Rankbeam\Seo\Services\TagRenderer;
 
 /*
 |--------------------------------------------------------------------------
@@ -152,6 +153,48 @@ describe('description word-boundary truncation', function () {
         $seo = builder()->fromModel(createMockModel(['description' => $text]), 'en');
 
         expect(mb_strlen($seo->description))->toBeLessThanOrEqual(80);
+    });
+});
+
+describe('image extracted from content HTML', function () {
+    it('matches src as an attribute and decodes HTML5 entities', function () {
+        $model = createMockModel([
+            'content' => '<IMG data-src="/lazy.jpg" SRC = \'/actual.jpg?a=1&AMP;b=2&#38;c=3\'>',
+        ]);
+
+        $seo = builder()->fromModel($model, 'en');
+
+        expect($seo->ogImage)->toBe(url('/actual.jpg?a=1&b=2&c=3'));
+    });
+
+    it('decodes entities in a content <img> src so the URL is not double-encoded', function () {
+        // No image fields present, so the builder falls back to the first
+        // <img> in the content. An entity-encoded query string ("&amp;") in
+        // the markup must decode to a single ampersand — mirroring the decode
+        // in truncateDescription() — otherwise the render path escapes it
+        // again and the live URL becomes "...&amp;amp;..." (wrong resource).
+        $model = createMockModel([
+            'content' => '<p>Intro <img src="https://cdn.example.com/img?a=1&amp;b=2" alt="x"> rest</p>',
+        ]);
+
+        $seo = builder()->fromModel($model, 'en');
+
+        expect($seo->ogImage)->toBe('https://cdn.example.com/img?a=1&b=2');
+    });
+
+    it('renders the content-derived og:image escaped exactly once', function () {
+        // End-to-end: the decoded single-ampersand URL is escaped a single
+        // time on render — a single "&amp;", never the double-encoded
+        // "&amp;amp;" that the raw "&amp;" attribute value would have produced.
+        $model = createMockModel([
+            'content' => '<img src="https://cdn.example.com/img?a=1&amp;b=2">',
+        ]);
+
+        $seo = builder()->fromModel($model, 'en');
+        $html = (new TagRenderer())->render($seo);
+
+        expect($html)->toContain('<meta property="og:image" content="https://cdn.example.com/img?a=1&amp;b=2">')
+            ->and($html)->not->toContain('&amp;amp;');
     });
 });
 

@@ -562,19 +562,25 @@ class SEOComputedBuilder
     /**
      * Extract the first image URL from HTML content.
      *
+     * The matched attribute value is HTML-entity decoded (e.g. a query string
+     * written as "a=1&amp;b=2" in the markup becomes "a=1&b=2") so the URL
+     * points at the real resource. The render path escapes it again exactly
+     * once; returning the raw "&amp;" here would double-encode to "&amp;amp;".
+     * Mirrors the decoding done in truncateDescription().
+     *
      * @param  string  $html  The HTML content
      * @return string|null The image URL or null
      */
     protected function extractFirstImage(string $html): ?string
     {
         // Try src attribute first
-        if (preg_match('/<img[^>]+src=["\']([^"\']+)["\']/', $html, $matches)) {
-            return $matches[1];
+        if (preg_match('/<img\b[^>]*\s+src\s*=\s*(["\'])(.+?)\1/i', $html, $matches)) {
+            return html_entity_decode($matches[2], ENT_QUOTES | ENT_HTML5, 'UTF-8');
         }
 
         // Try data-src for lazy-loaded images
-        if (preg_match('/<img[^>]+data-src=["\']([^"\']+)["\']/', $html, $matches)) {
-            return $matches[1];
+        if (preg_match('/<img\b[^>]*\s+data-src\s*=\s*(["\'])(.+?)\1/i', $html, $matches)) {
+            return html_entity_decode($matches[2], ENT_QUOTES | ENT_HTML5, 'UTF-8');
         }
 
         return null;
