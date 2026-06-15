@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+Nothing yet.
+
+## [3.0.0]
+
+The third major. The headline breaking changes are the **contract reset**
+(dead score/analyzer API removed — see below) and two output-shape changes that
+are breaking for programmatic consumers:
+
+- **`SEO::toArray()` / `SEO::forInertia()` shape change.** The rendered output
+  no longer includes a redundant `robots` entry (when the resolved directive
+  equals `seo.default_robots`), an empty `canonical`, or empty/null meta
+  entries. Any consumer that read `toArray()` and relied on those keys/elements
+  always being present must guard for their absence. The new
+  `seo.robots.emit_default = true` flag restores the always-emit robots
+  behaviour. See [UPGRADING.md](UPGRADING.md).
+- The `seo:import-from` importer now **only fills empty fields by default** (it
+  never overwrites hand-edited `seo_meta`); pass `--overwrite` to replace
+  existing values. See [UPGRADING.md](UPGRADING.md).
+
 ### Sitemap image & hreflang extensions (action plan RT15)
 
 Optional, first-class image and hreflang entries in the generated sitemap,
@@ -31,14 +50,22 @@ derived from the data the package already resolves for each record.
 #### Notes
 
 - Both flags are **off by default** and change no existing output when off.
-- `config/seo.php` is merged shallowly: apps that published the config before
-  this release must add the two `sitemap` keys manually (the env vars alone
-  won't switch them on).
+- The package config is now **deep-merged** under the published `config/seo.php`
+  (see below), so apps that published the config before this release receive
+  these `sitemap` keys (and any future nested defaults) automatically — the env
+  vars `SEO_SITEMAP_IMAGES` / `SEO_SITEMAP_ALTERNATES` work without re-publishing.
 - Enabling an extension resolves each record's full `seoData()` once per URL —
   built for the scheduled `seo:sitemap` command; benchmark on very large sites.
 
 #### Fixed
 
+- **Published config is now deep-merged.** `SEOServiceProvider` replaced
+  Laravel's shallow `mergeConfigFrom()` with a recursive merge that fills
+  package defaults UNDER the published `config/seo.php` at every depth. A config
+  published before a release that adds nested keys (e.g. `sitemap.images`,
+  `sitemap.alternates`, `robots.emit_default`) now receives those defaults — and
+  their env vars take effect — without re-publishing. Every value the app set
+  (including falsey leaves and replaced lists) is preserved.
 - **Defaults resolution no longer re-queries on every call.**
   `SEODefaultsRepository` now memoizes resolved defaults — **including null
   misses** — for the request, keyed by scope/locale. Laravel's
@@ -187,10 +214,10 @@ with my SEO right now" audit and the focus-keyword workflow gate.
   read this same core flag, so they always agree.
 - **`seo.audit.models`** config — the models `seo:audit` audits by default.
 
-### 3.0.0 (contract reset — unreleased)
+### Contract reset (action plan RT0)
 
-The open-core ownership reset (action plan RT0). Core keeps the metadata
-contract; the numerical SEO score becomes a Pro-owned scan-result field.
+The open-core ownership reset. Core keeps the metadata contract; the numerical
+SEO score becomes a Pro-owned scan-result field.
 
 #### Fixed
 
@@ -321,5 +348,7 @@ Initial release as `fibonoir/laravel-seo` (the old "full suite" package:
 core + analyzer + scanner + redirects + 404 monitor + analytics + UI stubs;
 since removed from distribution).
 
-[Unreleased]: https://github.com/rankbeam/laravel-seo/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/rankbeam/laravel-seo/compare/v3.0.0...HEAD
+[3.0.0]: https://github.com/rankbeam/laravel-seo/compare/v2.0.1...v3.0.0
+[2.0.1]: https://github.com/rankbeam/laravel-seo/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/rankbeam/laravel-seo/releases/tag/v2.0.0

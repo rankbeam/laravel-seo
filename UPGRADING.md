@@ -1,8 +1,30 @@
-# Upgrading from fibonoir/laravel-seo v1
+# Upgrading `rankbeam/laravel-seo`
+
+This guide covers the `fibonoir/laravel-seo` v1 → v2 rename/carve-down
+(sections 1–5) and the v2 → **v3 (Core 3)** breaking changes (sections 6
+onward). See [CHANGELOG.md](CHANGELOG.md) for full per-release detail.
 
 v2.0.0 renames the package to `rankbeam/laravel-seo` and carves it down to a
 focused core: meta resolution, rendering, JSON-LD, and sitemaps. The analyzer,
 scanner, redirects, 404 monitor, and admin UI moved to separate packages.
+
+## 0. Release order (Core 3 + Pro 2 + Filament)
+
+The three packages share one dependency bridge. If you also run
+`rankbeam/laravel-seo-pro` and/or `rankbeam/laravel-seo-filament`, upgrade /
+publish in this order so a registry user is never left with an unsatisfiable
+middle:
+
+1. **`rankbeam/laravel-seo-filament`** — already requires core `^2.0 || ^3.0`
+   (publish *before* Core 3 so stable users can resolve the supported
+   combination).
+2. **`rankbeam/laravel-seo` 3.0** (this package).
+3. **`rankbeam/laravel-seo-pro` 2.0** — requires core `^2.0 || ^3.0`; see the
+   Pro `UPGRADING.md` for its own breaking changes (the `robots_conflict`
+   issue-code split + data migration).
+
+Nothing pins an *exact* `^3.0`, so Core 2 installs keep working with the widened
+Filament and Pro 2 — the bridge has no broken middle.
 
 ## 1. Swap the package
 
@@ -136,3 +158,66 @@ inference.
 - If a route-default title template already contains your brand, end the
   template with the configured `title_suffix` — the resolver then skips
   appending it again, avoiding "Brand — X | Brand".
+
+## 9. Core 3 (breaking): `SEO::toArray()` / `forInertia()` output shape
+
+The rendered output (HTML, array, and Inertia head) no longer includes:
+
+- a **`robots`** entry when the resolved directive equals `seo.default_robots`
+  (a redundant `index,follow` is omitted — its absence already means
+  index,follow to a crawler);
+- an **empty `canonical`**;
+- **empty / null meta entries** (empty-content meta tags).
+
+A directive that *deviates* from the default (`noindex`, `nofollow`,
+`max-snippet:-1`, …) is still emitted, verbatim. The granular `@seoRobots`
+directive is unaffected (it always renders).
+
+This is **breaking for programmatic consumers**: if you read `SEO::toArray()` /
+`SEO::forInertia()` and relied on those keys/elements always being present
+(an API payload, a custom renderer, an Inertia head builder), guard for their
+absence. To restore the always-emit robots behaviour:
+
+```php
+// config/seo.php
+'robots' => [
+    'emit_default' => env('SEO_EMIT_DEFAULT_ROBOTS', true),
+],
+```
+
+## 10. Core 3 (behaviour): importer fills empty fields only
+
+`php artisan seo:import-from` now **only fills empty `seo_meta` fields by
+default** — an import never overwrites a value you hand-edited. This is the
+documented contract; it is called out here because earlier docs were ambiguous
+about it.
+
+- Default: an imported attribute whose target column already holds a non-empty
+  value is skipped; only empty (`null` / `''`) columns are filled.
+- Pass `--overwrite` to replace existing non-empty values with the imported
+  ones.
+
+```bash
+php artisan seo:import-from ralphjsmit              # fill-empty-only (safe)
+php artisan seo:import-from ralphjsmit --overwrite  # replace existing values
+```
+
+## 11. Core 3 (no action required): config is deep-merged
+
+`SEOServiceProvider` now deep-merges the package defaults *under* your published
+`config/seo.php` (replacing Laravel's shallow `mergeConfigFrom`). New nested
+keys a release adds now reach your resolved config and their env vars take
+effect **without re-publishing**; every value you set is preserved (including
+falsey leaves and replaced lists).
+
+New nested `sitemap` keys you now get for free (both off by default, no output
+change when off):
+
+```php
+// config/seo.php → 'sitemap' => [ ... ]
+'images'     => env('SEO_SITEMAP_IMAGES', false),     // image-sitemap entries
+'alternates' => env('SEO_SITEMAP_ALTERNATES', false), // hreflang xhtml:link entries
+```
+
+If you previously hand-added these keys to work around the old shallow merge,
+leave them — your values win.
