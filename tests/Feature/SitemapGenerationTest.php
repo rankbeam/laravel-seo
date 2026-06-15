@@ -405,6 +405,73 @@ describe('SitemapGeneration', function () {
             ->and(array_unique($allUrls))->toHaveCount(5); // each exactly once
     });
 
+    it('shards by immutable keyset so concurrent row churn never duplicates or drops a URL', function () {
+        // Finding F6: sharding must be snapshot-stable. Offset pagination over a
+        // mutable ordering can shift rows between the count query and each shard
+        // query when rows are inserted/deleted concurrently. Keyset boundaries
+        // over the immutable primary key cannot.
+        config(['seo.sitemap.max_urls_per_sitemap' => 2]);
+
+        // Seed rows with id gaps (simulating prior deletions) and an IDENTICAL
+        // updated_at on every row — the old "ORDER BY updated_at DESC, id" had a
+        // non-total tiebreak the database could reorder, so an offset window
+        // could shift. Keyset over the primary key alone is total and stable.
+        $stamp = now()->subDay();
+
+        for ($i = 1; $i <= 7; $i++) {
+            $post = SitemapTestPost::create([
+                'title' => "Post {$i}",
+                'slug' => "churn-{$i}",
+                'is_published' => true,
+            ]);
+
+            // Force a shared updated_at and leave gaps by deleting evens.
+            $post->forceFill(['updated_at' => $stamp])->saveQuietly();
+        }
+
+        // Delete a couple of rows AFTER seeding to leave non-contiguous keys,
+        // the exact shape that breaks naive OFFSET pagination.
+        SitemapTestPost::whereIn('slug', ['churn-2', 'churn-5'])->delete();
+
+        $remaining = SitemapTestPost::query()->pluck('slug')->all();
+
+        $builder = app(SitemapBuilder::class);
+        $sitemap = $builder->build();
+
+        expect($sitemap)->toBeInstanceOf(Spatie\Sitemap\SitemapIndex::class);
+
+        $builder->generate();
+
+        // Collect the part filenames the index actually references.
+        $indexXml = loadSitemapXml(Storage::disk('public')->get('sitemap.xml'));
+        $partFiles = array_map(
+            fn ($loc) => basename((string) $loc),
+            $indexXml->xpath('//s:sitemap/s:loc')
+        );
+
+        // No shard may exceed the cap, and every remaining URL appears exactly
+        // once across all shards — no duplicate, no drop, no count mismatch.
+        $allUrls = [];
+
+        foreach ($partFiles as $file) {
+            Storage::disk('public')->assertExists($file);
+            $partXml = loadSitemapXml(Storage::disk('public')->get($file));
+            $locs = array_map(fn ($l) => (string) $l, $partXml->xpath('//s:url/s:loc'));
+
+            expect(count($locs))->toBeLessThanOrEqual(2); // never over the cap
+
+            $allUrls = array_merge($allUrls, $locs);
+        }
+
+        $expected = array_map(fn ($slug) => url("/posts/{$slug}"), $remaining);
+
+        sort($allUrls);
+        sort($expected);
+
+        expect($allUrls)->toEqual($expected)
+            ->and(array_unique($allUrls))->toHaveCount(count($expected));
+    });
+
     it('does not number the file for a model that fits in one sitemap', function () {
         // A single model under the cap keeps the historical un-numbered name.
         config(['seo.sitemap.max_urls_per_sitemap' => 50000]);

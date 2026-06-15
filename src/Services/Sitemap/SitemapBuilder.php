@@ -364,18 +364,57 @@ class SitemapBuilder
      * How many sitemap files a model needs given its includable URL count and
      * the configured per-file URL cap.
      *
-     * Uses the same query shape as buildModelSitemap() (the sitemapable scope)
-     * so the count matches what is actually emitted. It deliberately counts
-     * rows, not post-shouldInclude() URLs: an exact post-filter count would
-     * require materialising every model, so we may over-allocate the last part
-     * (which can render empty). An empty trailing part is still valid XML and
-     * is preferable to truncating URLs.
+     * Derived from the same keyset boundary walk the shards are built from
+     * (sitemapPartBoundaries()), so the part count, the index entries, and the
+     * written files can never disagree — even if rows are inserted/deleted
+     * concurrently — because every one of them reads the snapshot of primary
+     * keys captured by that single ordered walk.
      *
      * @param class-string $modelClass
      */
     protected function countSitemapParts(string $modelClass): int
     {
+        return count($this->sitemapPartBoundaries($modelClass));
+    }
+
+    /**
+     * Capture an immutable keyset boundary for each shard of a model.
+     *
+     * Walks the model's primary keys in ascending order (with the sitemapable
+     * scope applied, matching the build queries) and chunks them into windows
+     * of at most max_urls_per_sitemap keys. Each window is returned as
+     * ['first' => firstKey, 'last' => lastKey] — the inclusive primary-key
+     * range buildModelSitemapPart() then re-queries.
+     *
+     * Why keyset instead of OFFSET/LIMIT (finding F6): the part count and each
+     * shard were previously SEPARATE queries over a mutable ordering, so a
+     * concurrent insert/delete/updated_at change between them could shift rows
+     * across page boundaries → a row in two parts, in none, or an
+     * index/file-count mismatch. Pinning each shard to an immutable
+     * primary-key range removes that race: a row's key never changes, so it
+     * always falls in exactly the one window that contains it. Rows inserted
+     * after the walk simply fall outside the last captured boundary (excluded
+     * from this run, never duplicated); rows deleted within a window just make
+     * that part emit fewer URLs (never a gap that drops another row). Keyset
+     * is also far cheaper than large OFFSETs.
+     *
+     * Boundaries count keys, not post-shouldInclude() URLs (an exact
+     * post-filter count would require materialising every model), so a window
+     * may emit fewer URLs than its width — or, for a trailing window, be
+     * empty. An empty part is valid XML and never drops a URL. A model with no
+     * rows still yields a single empty window so it keeps its historical
+     * single, un-numbered file.
+     *
+     * @param class-string $modelClass
+     * @return array<int, array{first: mixed, last: mixed}>
+     */
+    protected function sitemapPartBoundaries(string $modelClass): array
+    {
         $maxUrls = $this->maxUrlsPerSitemap();
+
+        $instance = new $modelClass();
+        $keyName = $instance->getKeyName();
+        $qualifiedKey = $instance->getQualifiedKeyName();
 
         $query = $modelClass::query();
 
@@ -383,13 +422,43 @@ class SitemapBuilder
             $query->sitemapable();
         }
 
-        $total = $query->count();
+        // Stream only the primary keys, ascending, in one ordered pass. Each
+        // window's first/last key becomes the immutable shard boundary.
+        $boundaries = [];
+        $first = null;
+        $last = null;
+        $count = 0;
 
-        if ($total <= $maxUrls) {
-            return 1;
+        foreach ($query->orderBy($qualifiedKey)->cursor() as $model) {
+            $key = $model->getAttribute($keyName);
+
+            if ($count === 0) {
+                $first = $key;
+            }
+
+            $last = $key;
+            $count++;
+
+            if ($count >= $maxUrls) {
+                $boundaries[] = ['first' => $first, 'last' => $last];
+                $first = null;
+                $last = null;
+                $count = 0;
+            }
         }
 
-        return (int) ceil($total / $maxUrls);
+        // Flush a partial final window.
+        if ($count > 0) {
+            $boundaries[] = ['first' => $first, 'last' => $last];
+        }
+
+        // An empty model still produces one (empty) part so its filename and
+        // index entry stay the historical single, un-numbered file.
+        if ($boundaries === []) {
+            $boundaries[] = ['first' => null, 'last' => null];
+        }
+
+        return $boundaries;
     }
 
     /**
@@ -499,12 +568,16 @@ class SitemapBuilder
     /**
      * Build one numbered shard of a model's sitemap.
      *
-     * Part N (1-based) covers the window of source rows
-     * [(N-1) * maxUrls, N * maxUrls). Rows are ordered deterministically so the
-     * windows are stable across the count, the index, and the write — otherwise
-     * a row could land in two parts or none. shouldInclude() still filters
-     * within the window, so a part may emit fewer URLs than the window width
-     * (or, for the last part, be empty); that is valid and never drops a URL.
+     * Part N (1-based) covers the immutable primary-key window captured by
+     * sitemapPartBoundaries() — [first, last] inclusive — rather than an
+     * OFFSET/LIMIT slice of a mutable ordering (finding F6). Because the
+     * boundary is a key range and keys never change, a row always belongs to
+     * exactly the one part that contains its key: concurrent inserts/deletes
+     * between the boundary walk and this query can neither duplicate nor drop
+     * a URL across shards. shouldInclude() still filters within the window, so
+     * a part may emit fewer URLs than the window width (or, for an empty model
+     * or a fully-deleted window, be empty); that is valid and never drops a
+     * URL.
      *
      * @param class-string $modelClass
      * @param array<string, mixed> $config
@@ -512,31 +585,34 @@ class SitemapBuilder
     protected function buildModelSitemapPart(string $modelClass, array $config, int $part): Sitemap
     {
         $sitemap = Sitemap::create();
-        $maxUrls = $this->maxUrlsPerSitemap();
 
-        $offset = ($part - 1) * $maxUrls;
+        $boundaries = $this->sitemapPartBoundaries($modelClass);
+        $boundary = $boundaries[$part - 1] ?? null;
 
-        // Query the model
+        // No such part, or the model is empty (a single null-bounded window):
+        // an empty, well-formed sitemap.
+        if ($boundary === null || $boundary['first'] === null) {
+            return $sitemap;
+        }
+
+        $instance = new $modelClass();
+        $qualifiedKey = $instance->getQualifiedKeyName();
+
         $query = $modelClass::query();
 
-        // Apply scope if model has one
+        // Apply scope if model has one — same shape as the boundary walk.
         if (method_exists($modelClass, 'scopeSitemapable')) {
             $query->sitemapable();
         }
 
-        // Order deterministically so each part covers a stable row window. A
-        // primary-key tiebreaker keeps the order total even when many rows
-        // share an updated_at.
-        if (in_array('updated_at', (new $modelClass())->getFillable()) || (new $modelClass())->timestamps) {
-            $query->orderBy('updated_at', 'desc');
-        }
+        // Re-query exactly the captured key range, ascending by primary key so
+        // the window is stable and deterministic. whereBetween is an INCLUSIVE
+        // [first, last] range over the immutable primary key. cursor() streams
+        // the rows lazily without buffering.
+        $query->whereBetween($qualifiedKey, [$boundary['first'], $boundary['last']])
+            ->orderBy($qualifiedKey);
 
-        $query->orderBy((new $modelClass())->getQualifiedKeyName());
-
-        // cursor() streams rows lazily while honouring the window's offset/limit
-        // (Eloquent's chunk()/lazy() rewrite offset/limit via forPage and would
-        // ignore our window — cursor() runs the query verbatim, unbuffered).
-        foreach ($query->offset($offset)->limit($maxUrls)->cursor() as $model) {
+        foreach ($query->cursor() as $model) {
             if (! $this->shouldInclude($model)) {
                 continue;
             }
