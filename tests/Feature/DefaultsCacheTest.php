@@ -112,6 +112,25 @@ it('invalidates the in-memory memo on clearCache', function () {
     expect($queries)->toBe(2);
 });
 
+it('does not serve stale memoized defaults after another worker clears cache', function () {
+    $default = SEODefault::create([
+        'scope' => 'global',
+        'locale' => 'en',
+        'title_template' => 'Original title',
+    ]);
+    $repository = app(SEODefaultsRepository::class);
+
+    expect($repository->global('en')?->title)->toBe('Original title');
+
+    $default->newQuery()
+        ->whereKey($default->getKey())
+        ->update(['title_template' => 'Updated elsewhere']);
+
+    (new SEODefaultsRepository)->clearCache('global', 'en');
+
+    expect($repository->global('en')?->title)->toBe('Updated elsewhere');
+});
+
 it('does not let a memoized null miss hide a freshly created default', function () {
     $repository = app(SEODefaultsRepository::class);
 
@@ -210,6 +229,25 @@ it('invalidates locale fallback caches when the English default changes', functi
     $default->save();
 
     expect($repository->forScope('global', 'de')?->title)->toBe('Updated title');
+});
+
+it('invalidates English fallback caches for arbitrary locales', function () {
+    $default = SEODefault::create([
+        'scope' => 'global',
+        'locale' => 'en',
+        'title_template' => 'Original title',
+    ]);
+    $repository = app(SEODefaultsRepository::class);
+
+    expect($repository->forScope('global', 'it')?->title)->toBe('Original title');
+
+    $default->newQuery()
+        ->whereKey($default->getKey())
+        ->update(['title_template' => 'Updated title']);
+
+    $repository->clearCache('global', 'en');
+
+    expect($repository->forScope('global', 'it')?->title)->toBe('Updated title');
 });
 
 it('forgets the persistent resolved-defaults cache entry on save', function () {

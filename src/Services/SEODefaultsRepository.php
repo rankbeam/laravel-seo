@@ -77,6 +77,11 @@ class SEODefaultsRepository
     protected array $memo = [];
 
     /**
+     * Shared version observed by this instance's memo.
+     */
+    protected ?string $memoVersion = null;
+
+    /**
      * Get global defaults for a locale.
      *
      * Global defaults apply to all pages as a fallback.
@@ -172,6 +177,8 @@ class SEODefaultsRepository
      */
     protected function getCached(string $scope, string $locale): ?SEOData
     {
+        $this->syncMemoVersion();
+
         $memoKey = "{$scope}:{$locale}";
 
         // Short-circuit on the per-request memo, which records null misses too
@@ -231,6 +238,10 @@ class SEODefaultsRepository
                         ->where('scope', $scope)
                         ->where('locale', 'en')
                         ->first();
+
+                    if ($default) {
+                        $this->rememberFallbackLocale($scope, $locale);
+                    }
                 }
             }
 
@@ -312,6 +323,12 @@ class SEODefaultsRepository
             $store->forget($this->getCacheKey($scope, $locale));
             unset($this->memo["{$scope}:{$locale}"]);
 
+            if ($locale === 'en') {
+                $this->clearFallbackCacheKeys($scope);
+            }
+
+            $this->bumpMemoVersion();
+
             return;
         }
 
@@ -321,6 +338,8 @@ class SEODefaultsRepository
                 $store->forget($this->getCacheKey($scope, $loc));
             }
 
+            $this->clearFallbackCacheKeys($scope);
+
             // The memo may hold locales outside the list above, so drop every
             // entry for this scope rather than the fixed set.
             foreach (array_keys($this->memo) as $memoKey) {
@@ -329,12 +348,92 @@ class SEODefaultsRepository
                 }
             }
 
+            $this->bumpMemoVersion();
+
             return;
         }
 
         // For full cache clear, use cache tags if available
         // Otherwise, the cache will naturally expire
         $this->memo = [];
+        $this->bumpMemoVersion();
+    }
+
+    public function flushMemo(): void
+    {
+        $this->memo = [];
+        $this->memoVersion = $this->currentMemoVersion();
+    }
+
+    protected function syncMemoVersion(): void
+    {
+        $version = $this->currentMemoVersion();
+
+        if ($this->memoVersion === $version) {
+            return;
+        }
+
+        $this->memo = [];
+        $this->memoVersion = $version;
+    }
+
+    protected function currentMemoVersion(): string
+    {
+        return (string) (Cache::store($this->getCacheStore())->get($this->memoVersionKey()) ?? '0');
+    }
+
+    protected function bumpMemoVersion(): void
+    {
+        $version = microtime(true).':'.random_int(1, PHP_INT_MAX);
+
+        Cache::store($this->getCacheStore())->put($this->memoVersionKey(), $version, self::CACHE_TTL);
+
+        $this->memo = [];
+        $this->memoVersion = $version;
+    }
+
+    protected function memoVersionKey(): string
+    {
+        return config('seo.cache.prefix', 'seo_').'defaults:memo_version';
+    }
+
+    protected function rememberFallbackLocale(string $scope, string $locale): void
+    {
+        if ($locale === 'en') {
+            return;
+        }
+
+        $store = Cache::store($this->getCacheStore());
+        $key = $this->fallbackLocalesKey($scope);
+        $locales = $store->get($key, []);
+        $locales = is_array($locales) ? $locales : [];
+
+        if (! in_array($locale, $locales, true)) {
+            $locales[] = $locale;
+            $store->put($key, array_values($locales), self::CACHE_TTL);
+        }
+    }
+
+    protected function clearFallbackCacheKeys(string $scope): void
+    {
+        $store = Cache::store($this->getCacheStore());
+        $key = $this->fallbackLocalesKey($scope);
+        $locales = $store->get($key, []);
+        $locales = is_array($locales) ? $locales : [];
+
+        foreach ($locales as $locale) {
+            if (is_string($locale) && $locale !== '') {
+                $store->forget($this->getCacheKey($scope, $locale));
+                unset($this->memo["{$scope}:{$locale}"]);
+            }
+        }
+
+        $store->forget($key);
+    }
+
+    protected function fallbackLocalesKey(string $scope): string
+    {
+        return config('seo.cache.prefix', 'seo_').'defaults:fallback_locales:'.$scope;
     }
 
     /**
