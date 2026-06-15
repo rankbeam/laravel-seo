@@ -152,6 +152,105 @@ describe('SitemapBuilder with registered sources', function () {
             ->and($articles)->not->toContain('/articles/draft');
     });
 
+    it('shards a registered model source over the cap into numbered parts with no URL dropped', function () {
+        // Finding F1: a registered model-class source over max_urls_per_sitemap
+        // must be sharded into numbered sitemap-{name}-N.xml parts — exactly
+        // like a configured model — not truncated to a single part-1 file.
+        config(['seo.sitemap.max_urls_per_sitemap' => 2]);
+
+        for ($i = 1; $i <= 5; $i++) {
+            RegistryTestArticle::create([
+                'title' => "Article {$i}",
+                'slug' => "article-{$i}",
+                'is_published' => true,
+            ]);
+        }
+
+        SEO::sitemaps()->register('articles', RegistryTestArticle::class);
+
+        $builder = app(SitemapBuilder::class);
+        $builder->generate();
+
+        // The index lists exactly the three numbered parts for the source.
+        $index = Storage::disk('public')->get('sitemap.xml');
+
+        expect($index)->toContain('<sitemapindex')
+            ->and($index)->toContain('sitemap-articles-1.xml')
+            ->and($index)->toContain('sitemap-articles-2.xml')
+            ->and($index)->toContain('sitemap-articles-3.xml')
+            ->and($index)->not->toContain('sitemap-articles.xml'); // un-numbered name is not used when sharded
+
+        // Every source URL appears exactly once across the parts; none dropped.
+        $allUrls = [];
+
+        foreach ([1, 2, 3] as $part) {
+            $file = "sitemap-articles-{$part}.xml";
+            Storage::disk('public')->assertExists($file);
+
+            preg_match_all('#<loc>(.*?)</loc>#', Storage::disk('public')->get($file), $m);
+            $allUrls = array_merge($allUrls, $m[1]);
+        }
+
+        $expected = array_map(fn ($i) => url("/articles/article-{$i}"), range(1, 5));
+
+        sort($allUrls);
+        sort($expected);
+
+        expect($allUrls)->toHaveCount(5)
+            ->and($allUrls)->toEqual($expected)
+            ->and(array_unique($allUrls))->toHaveCount(5); // each exactly once
+    });
+
+    it('deletes every numbered shard of a registered model source', function () {
+        // delete() must clean every part it wrote, not just the un-numbered name.
+        config(['seo.sitemap.max_urls_per_sitemap' => 2]);
+
+        for ($i = 1; $i <= 5; $i++) {
+            RegistryTestArticle::create([
+                'title' => "Article {$i}",
+                'slug' => "article-{$i}",
+                'is_published' => true,
+            ]);
+        }
+
+        SEO::sitemaps()->register('articles', RegistryTestArticle::class);
+
+        $builder = app(SitemapBuilder::class);
+        $builder->generate();
+
+        foreach ([1, 2, 3] as $part) {
+            Storage::disk('public')->assertExists("sitemap-articles-{$part}.xml");
+        }
+
+        $builder->delete();
+
+        foreach ([1, 2, 3] as $part) {
+            Storage::disk('public')->assertMissing("sitemap-articles-{$part}.xml");
+        }
+
+        Storage::disk('public')->assertMissing('sitemap.xml');
+    });
+
+    it('logs how many URLs a closure source dropped when it exceeds the cap', function () {
+        // A registered closure/iterable source keeps the single-pass cap, but
+        // the omission must never be silent (finding F1).
+        config(['seo.sitemap.max_urls_per_sitemap' => 2]);
+
+        Illuminate\Support\Facades\Log::spy();
+
+        SEO::sitemaps()->register('pages', fn () => ['/a', '/b', '/c', '/d']);
+
+        $sitemap = app(SitemapBuilder::class)->buildSourceSitemap('pages');
+
+        // Only the first two fit the file.
+        expect(substr_count($sitemap->render(), '<loc>'))->toBe(2);
+
+        Illuminate\Support\Facades\Log::shouldHaveReceived('warning')
+            ->once()
+            ->withArgs(fn ($message) => str_contains($message, 'dropped 2 URL(s)')
+                && str_contains($message, '[pages]'));
+    });
+
     it('combines config models and registered sources in one index', function () {
         config(['seo.sitemap.models' => [
             RegistryTestArticle::class => ['priority' => 0.8],

@@ -7,6 +7,7 @@ namespace Rankbeam\Seo\Services\Sitemap;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\SitemapIndex;
@@ -302,7 +303,9 @@ class SitemapBuilder
      * Each model is sharded into as many numbered parts as it needs so no
      * file exceeds max_urls_per_sitemap, and every part is listed in the
      * index. The filenames here MUST match the ones writeSitemapIndex()
-     * actually writes — both derive them from sitemapPartFilenames().
+     * actually writes — both derive them from sitemapPartFilenames() (for
+     * configured models) and registeredSourceFilenames() (for registered
+     * sources, whose model-class sources are sharded the same way).
      *
      * @param array<class-string, array<string, mixed>> $modelsConfig
      */
@@ -318,9 +321,13 @@ class SitemapBuilder
             }
         }
 
-        // Registered named sources
+        // Registered named sources. A model-class source is sharded into the
+        // same numbered parts as a configured model so it can never truncate
+        // after the first file; closure/iterable sources stay a single file.
         foreach ($this->registry->names() as $name) {
-            $index->add(url("sitemap-{$name}.xml"));
+            foreach ($this->registeredSourceFilenames($name) as $filename) {
+                $index->add(url($filename));
+            }
         }
 
         // Static URLs (config-driven, not backed by a model)
@@ -332,6 +339,40 @@ class SitemapBuilder
     }
 
     /**
+     * The ordered list of filenames a registered named source will produce.
+     *
+     * A model-class source shares the configured-model sharding: a single
+     * sitemap-{name}.xml when it fits the cap, or numbered
+     * sitemap-{name}-1.xml … parts when it does not. Closure/iterable sources
+     * always produce a single sitemap-{name}.xml (their cap is enforced in a
+     * single pass by buildSourceSitemap()).
+     *
+     * @return array<int, string>
+     */
+    protected function registeredSourceFilenames(string $name): array
+    {
+        $source = $this->registry->get($name);
+
+        if ($this->isModelClassSource($source)) {
+            /** @var class-string $source */
+            return $this->sitemapPartFilenames($source, $name);
+        }
+
+        return ["sitemap-{$name}.xml"];
+    }
+
+    /**
+     * Whether a registered source is an Eloquent model class (vs a closure or
+     * a plain iterable of URL items).
+     */
+    protected function isModelClassSource(mixed $source): bool
+    {
+        return is_string($source)
+            && class_exists($source)
+            && is_subclass_of($source, Model::class);
+    }
+
+    /**
      * The ordered list of sitemap part filenames a model will produce.
      *
      * A model with up to max_urls_per_sitemap URLs writes a single
@@ -339,12 +380,17 @@ class SitemapBuilder
      * small sites are unchanged). A model with more URLs is split into
      * sitemap-{slug}-1.xml, sitemap-{slug}-2.xml, … numbered parts.
      *
+     * The slug defaults to the model class basename (configured models) but a
+     * registered model-class source passes its registered name instead so its
+     * parts are sitemap-{name}-N.xml — keeping the historical filename for the
+     * single-file case while still sharding overflow.
+     *
      * @param class-string $modelClass
      * @return array<int, string>
      */
-    protected function sitemapPartFilenames(string $modelClass): array
+    protected function sitemapPartFilenames(string $modelClass, ?string $slug = null): array
     {
-        $slug = $this->getModelSlug($modelClass);
+        $slug ??= $this->getModelSlug($modelClass);
         $parts = max(1, $this->countSitemapParts($modelClass));
 
         if ($parts === 1) {
@@ -472,16 +518,26 @@ class SitemapBuilder
     /**
      * Build a sitemap for a registered named source.
      *
+     * A model-class source is sharded exactly like a configured model
+     * (finding F1): $part selects which numbered window to build, so a source
+     * over the cap is written across sitemap-{name}-1.xml, …-2.xml, … rather
+     * than truncating after the first file. Closure/iterable sources are a
+     * single pass capped at max_urls_per_sitemap — but if a source exceeds the
+     * cap, the dropped count is logged so the omission is never silent.
+     *
+     * @param int $part 1-based shard index, used only for model-class sources.
+     *
      * @throws \InvalidArgumentException When the name is not registered
      */
-    public function buildSourceSitemap(string $name): Sitemap
+    public function buildSourceSitemap(string $name, int $part = 1): Sitemap
     {
         $source = $this->registry->get($name);
 
-        // Eloquent model class: reuse the model pipeline (publish checks,
-        // noindex exclusion, priority/changefreq, chunking).
-        if (is_string($source)) {
-            return $this->buildModelSitemap($source, []);
+        // Eloquent model class: reuse the sharded model pipeline (publish
+        // checks, noindex exclusion, priority/changefreq, numbered parts) so a
+        // large registered source is never truncated after part 1.
+        if ($this->isModelClassSource($source)) {
+            return $this->buildModelSitemapPart($source, [], $part);
         }
 
         if ($source instanceof \Closure) {
@@ -489,20 +545,35 @@ class SitemapBuilder
         }
 
         $sitemap = Sitemap::create();
-        $maxUrls = config('seo.sitemap.max_urls_per_sitemap', $this->maxUrlsPerSitemap);
+        $maxUrls = $this->maxUrlsPerSitemap();
         $count = 0;
+        $dropped = 0;
 
         foreach ($source as $item) {
-            if ($count >= $maxUrls) {
-                break;
-            }
-
             $url = $this->normalizeSourceItem($item);
 
-            if ($url) {
-                $sitemap->add($url);
-                $count++;
+            if (! $url) {
+                continue;
             }
+
+            // Past the cap: keep counting so the log reports the true number of
+            // URLs a single closure/iterable file could not hold.
+            if ($count >= $maxUrls) {
+                $dropped++;
+
+                continue;
+            }
+
+            $sitemap->add($url);
+            $count++;
+        }
+
+        if ($dropped > 0) {
+            Log::warning(
+                "Sitemap source [{$name}] exceeded max_urls_per_sitemap ({$maxUrls}); "
+                . "dropped {$dropped} URL(s). Register it as an Eloquent model class to shard "
+                . 'across numbered files, or split it into smaller named sources.'
+            );
         }
 
         return $sitemap;
@@ -926,12 +997,22 @@ class SitemapBuilder
             }
         }
 
-        // Write registered named sources
+        // Write registered named sources. A model-class source is sharded into
+        // the same numbered part filenames the index references
+        // (registeredSourceFilenames()), so a large registered source can never
+        // truncate after the first file. Closure/iterable sources are a single
+        // file.
         foreach ($this->registry->names() as $name) {
-            $storage->put(
-                "sitemap-{$name}.xml",
-                $this->buildSourceSitemap($name)->render()
-            );
+            $part = 0;
+
+            foreach ($this->registeredSourceFilenames($name) as $filename) {
+                $part++;
+
+                $storage->put(
+                    $filename,
+                    $this->buildSourceSitemap($name, $part)->render()
+                );
+            }
         }
 
         // Write static URLs as their own file when configured
@@ -1029,12 +1110,13 @@ class SitemapBuilder
             }
         }
 
-        // Delete registered source sitemaps
+        // Delete registered source sitemaps, including every numbered shard a
+        // model-class source produces (registeredSourceFilenames()).
         foreach ($this->registry->names() as $name) {
-            $filename = "sitemap-{$name}.xml";
-
-            if ($storage->exists($filename)) {
-                $storage->delete($filename);
+            foreach ($this->registeredSourceFilenames($name) as $filename) {
+                if ($storage->exists($filename)) {
+                    $storage->delete($filename);
+                }
             }
         }
 
