@@ -40,8 +40,13 @@ class SEOServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        // Merge package config with application config
-        $this->mergeConfigFrom(
+        // Deep-merge package config UNDER the application config so a client
+        // who published config/seo.php still receives newly-added nested
+        // defaults (e.g. sitemap.images / sitemap.alternates, robots.emit_default)
+        // without their env vars silently no-op'ing. Laravel's shallow
+        // mergeConfigFrom() only fills top-level keys, so a published `sitemap`
+        // array masked the new sitemap leaves. See mergeConfigRecursivelyFrom().
+        $this->mergeConfigRecursivelyFrom(
             __DIR__.'/../config/seo.php',
             'seo'
         );
@@ -399,6 +404,79 @@ class SEOServiceProvider extends ServiceProvider
     {
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'seo');
         $this->loadJsonTranslationsFrom(__DIR__.'/../resources/lang');
+    }
+
+    /**
+     * Deep-merge a package config file under the application's config.
+     *
+     * Laravel's built-in mergeConfigFrom() merges only the top level: once an
+     * app publishes config/seo.php, its `sitemap` array (or any other nested
+     * array) wholesale-masks the package defaults, so a leaf the package adds
+     * in a later release (and the env var that drives it) never reaches the
+     * resolved config. This recurses: package defaults fill any key the
+     * published config is missing at every depth, while every value the app
+     * DID set — including falsey leaves — is preserved.
+     */
+    protected function mergeConfigRecursivelyFrom(string $path, string $key): void
+    {
+        if ($this->app->configurationIsCached()) {
+            return;
+        }
+
+        $config = $this->app->make('config');
+
+        $config->set(
+            $key,
+            $this->mergeConfigArrays(require $path, $config->get($key, []))
+        );
+    }
+
+    /**
+     * Recursively merge package defaults UNDER existing values. The existing
+     * (app/published) value wins at every leaf; package defaults only fill
+     * keys the app omitted. Two associative arrays are merged key-by-key;
+     * anything else (a scalar, or a list the app set) is kept verbatim from
+     * the app, so a user who emptied or replaced a list is never re-seeded.
+     *
+     * @param  array<mixed>  $defaults
+     * @param  array<mixed>  $existing
+     * @return array<mixed>
+     */
+    protected function mergeConfigArrays(array $defaults, array $existing): array
+    {
+        $merged = $existing;
+
+        foreach ($defaults as $key => $value) {
+            if (is_int($key)) {
+                // List entries: never duplicate or re-seed; the app's list wins.
+                continue;
+            }
+
+            if (! array_key_exists($key, $existing)) {
+                $merged[$key] = $value;
+
+                continue;
+            }
+
+            if (is_array($value) && is_array($existing[$key]) && $this->isAssoc($value) && $this->isAssoc($existing[$key])) {
+                $merged[$key] = $this->mergeConfigArrays($value, $existing[$key]);
+            }
+            // Otherwise the existing leaf (scalar, null, or a list) is kept.
+        }
+
+        return $merged;
+    }
+
+    /**
+     * An array is "associative" for merge purposes unless it is a clean,
+     * zero-indexed list. Empty arrays are treated as associative so an empty
+     * published `[]` still receives nested package defaults.
+     *
+     * @param  array<mixed>  $array
+     */
+    protected function isAssoc(array $array): bool
+    {
+        return $array === [] || array_keys($array) !== range(0, count($array) - 1);
     }
 
     /**
