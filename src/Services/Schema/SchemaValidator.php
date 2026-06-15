@@ -218,7 +218,9 @@ class SchemaValidator
                     'field' => "mainEntity[{$index}].acceptedAnswer",
                     'message' => 'Question must have an acceptedAnswer',
                 ];
-            } elseif (empty($question['acceptedAnswer']['text'] ?? null)) {
+            } elseif (! is_array($question['acceptedAnswer']) || empty($question['acceptedAnswer']['text'] ?? null)) {
+                // A non-array acceptedAnswer (a bare string) has no text key and
+                // would throw on string-offset access — treat it as missing text.
                 $errors[] = [
                     'field' => "mainEntity[{$index}].acceptedAnswer.text",
                     'message' => 'Answer must have text content',
@@ -274,6 +276,16 @@ class SchemaValidator
         // Validate each item
         $positions = [];
         foreach ($schema['itemListElement'] as $index => $item) {
+            // A non-array entry (scalar / null) cannot be a ListItem and would
+            // throw on string-offset access below — report and skip it.
+            if (! is_array($item)) {
+                $errors[] = [
+                    'field' => "itemListElement[{$index}]",
+                    'message' => 'Each item must be a ListItem object',
+                ];
+                continue;
+            }
+
             if (($item['@type'] ?? '') !== 'ListItem') {
                 $errors[] = [
                     'field' => "itemListElement[{$index}].@type",
@@ -421,6 +433,14 @@ class SchemaValidator
                 'field' => 'offers',
                 'message' => 'Product must have offers with price information',
             ];
+        } elseif (! is_array($schema['offers'])) {
+            // A malformed scalar offers (e.g. a bare price string) cannot carry
+            // the required keys — report it as invalid rather than indexing a
+            // non-array.
+            $errors[] = [
+                'field' => 'offers',
+                'message' => 'offers must be an Offer object with price information',
+            ];
         } else {
             $offers = $schema['offers'];
             if (! isset($offers['price'])) {
@@ -519,9 +539,13 @@ class SchemaValidator
             ];
         }
 
-        // Validate sameAs URLs
+        // Validate sameAs URLs. sameAs may arrive as a scalar (a single URL
+        // string) or a malformed non-iterable; normalise to a list so foreach
+        // never throws a TypeError on a non-array.
         if (isset($schema['sameAs'])) {
-            foreach ($schema['sameAs'] as $index => $url) {
+            $sameAs = is_array($schema['sameAs']) ? $schema['sameAs'] : [$schema['sameAs']];
+
+            foreach ($sameAs as $index => $url) {
                 if (! $this->validateUrl($url)) {
                     $errors[] = [
                         'field' => "sameAs[{$index}]",
@@ -581,9 +605,17 @@ class SchemaValidator
 
     /**
      * Validate URL format.
+     *
+     * Accepts mixed: schema arrays come from user input (and from
+     * SEOData::fromArray, which does not validate shapes), so a non-string
+     * value here must report invalid rather than throw a TypeError.
      */
-    protected function validateUrl(string $url): bool
+    protected function validateUrl(mixed $url): bool
     {
+        if (! is_string($url)) {
+            return false;
+        }
+
         return (bool) filter_var($url, FILTER_VALIDATE_URL);
     }
 

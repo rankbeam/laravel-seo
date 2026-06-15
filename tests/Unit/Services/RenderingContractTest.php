@@ -280,6 +280,37 @@ describe('hreflang alternates', function () {
         expect($alternates->pluck('hreflang')->duplicates())->toBeEmpty();
         $alternates->each(fn ($a) => expect($a['href'])->toStartWith('https://'));
     });
+
+    it('skips malformed alternate entries instead of throwing in toArray() and render()', function () {
+        // SEOData::fromArray accepts an unvalidated alternates list; a non-array
+        // entry or a missing hreflang/href must never throw a TypeError on
+        // string-offset access (mirrors the sitemap builder's guard).
+        $seo = new SEOData(
+            title: 'T',
+            alternates: [
+                ['hreflang' => 'en', 'href' => 'https://acme.test/en'], // valid
+                ['hreflang' => 'fr'],                                   // missing href
+                ['href' => 'https://acme.test/de'],                     // missing hreflang
+                ['hreflang' => '', 'href' => ''],                       // empty strings
+                ['hreflang' => 'es', 'href' => 123],                    // non-string href
+                'not-an-array',                                         // scalar entry
+            ],
+        );
+
+        // toArray(): only the single well-formed alternate survives.
+        $alternates = collect(renderer()->toArray($seo)['link'])->where('rel', 'alternate');
+
+        expect($alternates)->toHaveCount(1)
+            ->and($alternates->first()['hreflang'])->toBe('en')
+            ->and($alternates->first()['href'])->toBe('https://acme.test/en');
+
+        // render() (the HTML path) tolerates the same input and emits one link.
+        $html = renderer()->render($seo);
+
+        expect(substr_count($html, 'rel="alternate"'))->toBe(1)
+            ->and($html)->toContain('hreflang="en"')
+            ->and($html)->toContain('href="https://acme.test/en"');
+    });
 });
 
 describe('json-ld', function () {

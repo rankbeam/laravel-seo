@@ -256,15 +256,15 @@ class TagRenderer
             $link[] = ['rel' => 'canonical', 'href' => $canonical];
         }
 
-        // Hreflang alternates
-        if ($seo->alternates) {
-            foreach ($seo->alternates as $alternate) {
-                $link[] = [
-                    'rel' => 'alternate',
-                    'hreflang' => $alternate['hreflang'],
-                    'href' => $alternate['href'],
-                ];
-            }
+        // Hreflang alternates — skip malformed entries (SEOData::fromArray
+        // accepts unvalidated alternates, so a non-array entry or a missing
+        // hreflang/href must never throw here).
+        foreach ($this->normalizeAlternates($seo->alternates) as $alternate) {
+            $link[] = [
+                'rel' => 'alternate',
+                'hreflang' => $alternate['hreflang'],
+                'href' => $alternate['href'],
+            ];
         }
 
         // JSON-LD Schema
@@ -565,19 +565,51 @@ class TagRenderer
      */
     protected function renderAlternates(SEOData $seo): array
     {
-        if (! $seo->alternates || empty($seo->alternates)) {
-            return [];
-        }
-
         $tags = [];
 
-        foreach ($seo->alternates as $alternate) {
+        foreach ($this->normalizeAlternates($seo->alternates) as $alternate) {
             $hreflang = $this->escape($alternate['hreflang']);
             $href = $this->escape($alternate['href']);
             $tags[] = '<link rel="alternate" hreflang="' . $hreflang . '" href="' . $href . '">';
         }
 
         return $tags;
+    }
+
+    /**
+     * Normalize the hreflang alternates list, dropping any malformed entry.
+     *
+     * SEOData::fromArray() accepts an arbitrary alternates value, so the
+     * renderers must tolerate a non-array list, non-array entries, and entries
+     * missing a string hreflang/href instead of throwing a TypeError on
+     * string-offset access. Mirrors the normalize-and-skip guard the sitemap
+     * builder applies to the same data.
+     *
+     * @param  mixed  $alternates
+     * @return array<int, array{hreflang: string, href: string}>
+     */
+    protected function normalizeAlternates(mixed $alternates): array
+    {
+        if (! is_array($alternates) || $alternates === []) {
+            return [];
+        }
+
+        $valid = [];
+
+        foreach ($alternates as $alternate) {
+            if (! is_array($alternate)) {
+                continue;
+            }
+
+            $hreflang = $alternate['hreflang'] ?? null;
+            $href = $alternate['href'] ?? null;
+
+            if (is_string($hreflang) && $hreflang !== '' && is_string($href) && $href !== '') {
+                $valid[] = ['hreflang' => $hreflang, 'href' => $href];
+            }
+        }
+
+        return $valid;
     }
 
     /**
