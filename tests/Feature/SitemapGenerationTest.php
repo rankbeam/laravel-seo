@@ -275,6 +275,40 @@ describe('SitemapGeneration', function () {
             ->and($content)->toContain('/posts/normal-post');
     });
 
+    it('excludes pages whose RESOLVED robots is noindex (from config defaults, no stored meta)', function () {
+        // No stored seo_meta.robots — the noindex comes purely from the global
+        // default_robots, which only the resolved seoData()->robots reflects.
+        config(['seo.default_robots' => 'noindex,follow']);
+
+        SitemapTestPost::create([
+            'title' => 'Globally Noindexed',
+            'slug' => 'globally-noindexed',
+            'is_published' => true,
+        ]);
+
+        $builder = app(SitemapBuilder::class);
+        $builder->generate();
+
+        $content = Storage::disk('public')->get('sitemap.xml');
+
+        expect($content)->not->toContain('/posts/globally-noindexed');
+    });
+
+    it('includes pages when resolved robots is indexable', function () {
+        config(['seo.default_robots' => 'index,follow']);
+
+        SitemapTestPost::create([
+            'title' => 'Indexable',
+            'slug' => 'indexable-post',
+            'is_published' => true,
+        ]);
+
+        $builder = app(SitemapBuilder::class);
+        $builder->generate();
+
+        expect(Storage::disk('public')->get('sitemap.xml'))->toContain('/posts/indexable-post');
+    });
+
     it('excludes unpublished pages', function () {
         SitemapTestPost::create([
             'title' => 'Published Post',
@@ -320,6 +354,85 @@ describe('SitemapGeneration', function () {
         // Single model with limited URLs returns Sitemap or SitemapIndex depending on implementation
 
         expect($sitemap instanceof Spatie\Sitemap\Sitemap || $sitemap instanceof Spatie\Sitemap\SitemapIndex)->toBeTrue();
+    });
+
+    it('shards a large model into numbered parts and indexes every part with no URL dropped', function () {
+        // 5 records, 2 per file → ceil(5/2) = 3 parts, all 5 URLs present once.
+        config(['seo.sitemap.max_urls_per_sitemap' => 2]);
+
+        for ($i = 1; $i <= 5; $i++) {
+            SitemapTestPost::create([
+                'title' => "Post {$i}",
+                'slug' => "post-{$i}",
+                'is_published' => true,
+            ]);
+        }
+
+        $builder = app(SitemapBuilder::class);
+        $sitemap = $builder->build();
+
+        // Overflow → index, not a single truncated sitemap.
+        expect($sitemap)->toBeInstanceOf(Spatie\Sitemap\SitemapIndex::class);
+
+        $builder->generate();
+
+        // The index lists exactly the three numbered parts.
+        $indexXml = loadSitemapXml(Storage::disk('public')->get('sitemap.xml'));
+        $locs = array_map(fn ($n) => (string) $n, $indexXml->xpath('//s:sitemap/s:loc'));
+
+        expect($locs)->toHaveCount(3)
+            ->and($locs)->toContain(url('sitemap-sitemap-test-post-1.xml'))
+            ->and($locs)->toContain(url('sitemap-sitemap-test-post-2.xml'))
+            ->and($locs)->toContain(url('sitemap-sitemap-test-post-3.xml'));
+
+        // Every source URL appears exactly once across the parts; none dropped.
+        $allUrls = [];
+        foreach ([1, 2, 3] as $part) {
+            Storage::disk('public')->assertExists("sitemap-sitemap-test-post-{$part}.xml");
+            $partXml = loadSitemapXml(Storage::disk('public')->get("sitemap-sitemap-test-post-{$part}.xml"));
+            foreach ($partXml->xpath('//s:url/s:loc') as $loc) {
+                $allUrls[] = (string) $loc;
+            }
+        }
+
+        $expected = array_map(fn ($i) => url("/posts/post-{$i}"), range(1, 5));
+
+        sort($allUrls);
+        sort($expected);
+
+        expect($allUrls)->toHaveCount(5)
+            ->and($allUrls)->toEqual($expected)
+            ->and(array_unique($allUrls))->toHaveCount(5); // each exactly once
+    });
+
+    it('does not number the file for a model that fits in one sitemap', function () {
+        // A single model under the cap keeps the historical un-numbered name.
+        config(['seo.sitemap.max_urls_per_sitemap' => 50000]);
+        config(['seo.sitemap.models' => [
+            SitemapTestPost::class => [],
+            'SecondSitemapModel' => [],
+        ]]);
+
+        if (! class_exists('SecondSitemapModel')) {
+            eval('
+                class SecondSitemapModel extends \\Illuminate\\Database\\Eloquent\\Model {
+                    use \\Rankbeam\\Seo\\Traits\\HasSEO;
+                    protected $table = "sitemap_test_posts";
+                    protected $fillable = ["title", "slug", "is_published"];
+                    public $timestamps = true;
+                    public function getUrlForSEO(): string { return url("/posts/{$this->slug}"); }
+                }
+            ');
+        }
+
+        SitemapTestPost::create(['title' => 'One', 'slug' => 'only-one', 'is_published' => true]);
+
+        $builder = app(SitemapBuilder::class);
+        $builder->generate();
+
+        // Forced to index by the two models; the small model keeps its plain name.
+        Storage::disk('public')->assertExists('sitemap-sitemap-test-post.xml');
+        Storage::disk('public')->assertMissing('sitemap-sitemap-test-post-1.xml');
     });
 
     it('includes all configured models', function () {
@@ -422,6 +535,59 @@ describe('SitemapGeneration', function () {
         $sitemap = $builder->build();
 
         expect($sitemap)->toBeInstanceOf(Spatie\Sitemap\Sitemap::class);
+    });
+
+    it('emits configured static_urls in a single sitemap when no models are set', function () {
+        config(['seo.sitemap.models' => []]);
+        config(['seo.sitemap.static_urls' => [
+            ['url' => '/', 'priority' => 1.0, 'changefreq' => 'daily'],
+            ['url' => '/about', 'priority' => 0.8, 'changefreq' => 'monthly'],
+            '/contact', // bare string form
+        ]]);
+
+        $builder = app(SitemapBuilder::class);
+
+        // No models + only static URLs → a single Sitemap, not an index.
+        expect($builder->build())->toBeInstanceOf(Spatie\Sitemap\Sitemap::class);
+
+        $builder->generate();
+
+        $content = Storage::disk('public')->get('sitemap.xml');
+        loadSitemapXml($content); // well-formed
+
+        expect($content)->toContain(url('/'))
+            ->and($content)->toContain(url('/about'))
+            ->and($content)->toContain(url('/contact'))
+            ->and($content)->toContain('<priority>1.0</priority>');
+    });
+
+    it('writes static_urls to sitemap-static.xml and indexes it alongside models', function () {
+        config(['seo.sitemap.static_urls' => [
+            ['url' => '/landing', 'priority' => 0.9],
+        ]]);
+
+        SitemapTestPost::create(['title' => 'P', 'slug' => 'model-post', 'is_published' => true]);
+
+        $builder = app(SitemapBuilder::class);
+
+        // Static URLs force the index path even with a single model.
+        expect($builder->build())->toBeInstanceOf(Spatie\Sitemap\SitemapIndex::class);
+
+        $builder->generate();
+
+        $indexXml = loadSitemapXml(Storage::disk('public')->get('sitemap.xml'));
+        $locs = array_map(fn ($n) => (string) $n, $indexXml->xpath('//s:sitemap/s:loc'));
+
+        expect($locs)->toContain(url('sitemap-static.xml'));
+
+        Storage::disk('public')->assertExists('sitemap-static.xml');
+        $staticXml = loadSitemapXml(Storage::disk('public')->get('sitemap-static.xml'));
+
+        expect((string) $staticXml->xpath('//s:url/s:loc')[0])->toBe(url('/landing'));
+
+        // delete() removes the static file too.
+        $builder->delete();
+        Storage::disk('public')->assertMissing('sitemap-static.xml');
     });
 
     it('checks if sitemap exists', function () {

@@ -54,7 +54,7 @@ class SitemapCommand extends Command
      */
     public function handle(SitemapBuilder $builder): int
     {
-        if (! config('seo.sitemap.enabled', true)) {
+        if (! $this->sitemapEnabled()) {
             $this->error('Sitemap generation is disabled in configuration.');
 
             return self::FAILURE;
@@ -67,6 +67,26 @@ class SitemapCommand extends Command
         }
 
         return $this->handleSync($builder, $shouldPing);
+    }
+
+    /**
+     * Whether sitemap generation is enabled.
+     *
+     * The canonical key is `seo.features.sitemap` (wired to SEO_SITEMAP_ENABLED
+     * in the published config). An explicit `seo.sitemap.enabled` is still
+     * honoured for back-compat — if a host set it, it wins; otherwise we fall
+     * back to the feature flag so SEO_SITEMAP_ENABLED=false actually disables
+     * the command instead of no-opping against a key the config never defined.
+     */
+    protected function sitemapEnabled(): bool
+    {
+        $explicit = config('seo.sitemap.enabled');
+
+        if ($explicit !== null) {
+            return (bool) $explicit;
+        }
+
+        return (bool) config('seo.features.sitemap', true);
     }
 
     /**

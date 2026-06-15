@@ -6,7 +6,6 @@ namespace Rankbeam\Seo\Services\Sitemap;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Filesystem\FilesystemAdapter;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Sitemap\Sitemap;
@@ -125,17 +124,25 @@ class SitemapBuilder
     {
         $modelsConfig = $this->getModelsConfig();
         $registered = $this->registry->sources();
+        $staticUrls = $this->staticUrls();
 
-        if (empty($modelsConfig) && empty($registered)) {
+        if (empty($modelsConfig) && empty($registered) && $staticUrls === []) {
             return Sitemap::create();
         }
 
+        // Only static URLs (no models, no registered sources): emit them in a
+        // single sitemap rather than spinning up a one-entry index.
+        if (empty($modelsConfig) && empty($registered)) {
+            return $this->buildStaticSitemap($staticUrls);
+        }
+
         $totalUrls = $this->countTotalUrls($modelsConfig);
-        $maxUrls = config('seo.sitemap.max_urls_per_sitemap', $this->maxUrlsPerSitemap);
+        $maxUrls = $this->maxUrlsPerSitemap();
 
         // Use index if we have registered sources (each gets its own
-        // sitemap-{name}.xml), multiple models, or too many URLs.
-        if (! empty($registered) || count($modelsConfig) > 1 || $totalUrls > $maxUrls) {
+        // sitemap-{name}.xml), static URLs (sitemap-static.xml), multiple
+        // models, or too many URLs.
+        if (! empty($registered) || $staticUrls !== [] || count($modelsConfig) > 1 || $totalUrls > $maxUrls) {
             return $this->buildSitemapIndex($modelsConfig);
         }
 
@@ -144,6 +151,53 @@ class SitemapBuilder
         $config = $modelsConfig[$modelClass];
 
         return $this->buildModelSitemap($modelClass, $config);
+    }
+
+    /**
+     * The configured static URLs, normalized to Spatie Url tags.
+     *
+     * Each entry is the array shape documented under seo.sitemap.static_urls
+     * (['url' => '/about', 'priority' => 0.8, 'changefreq' => 'monthly']) or a
+     * bare path/URL string. Relative paths are made absolute; malformed entries
+     * are skipped so one bad row never breaks generation.
+     *
+     * @return array<int, Url>
+     */
+    protected function staticUrls(): array
+    {
+        $configured = config('seo.sitemap.static_urls', []);
+
+        if (! is_array($configured) || $configured === []) {
+            return [];
+        }
+
+        $urls = [];
+
+        foreach ($configured as $entry) {
+            $url = $this->normalizeSourceItem($entry);
+
+            if ($url) {
+                $urls[] = $url;
+            }
+        }
+
+        return $urls;
+    }
+
+    /**
+     * Build a sitemap from the configured static URLs.
+     *
+     * @param array<int, Url> $staticUrls
+     */
+    protected function buildStaticSitemap(array $staticUrls): Sitemap
+    {
+        $sitemap = Sitemap::create();
+
+        foreach ($staticUrls as $url) {
+            $sitemap->add($url);
+        }
+
+        return $sitemap;
     }
 
     /**
@@ -245,6 +299,11 @@ class SitemapBuilder
     /**
      * Build sitemap index with individual model sitemaps.
      *
+     * Each model is sharded into as many numbered parts as it needs so no
+     * file exceeds max_urls_per_sitemap, and every part is listed in the
+     * index. The filenames here MUST match the ones writeSitemapIndex()
+     * actually writes — both derive them from sitemapPartFilenames().
+     *
      * @param array<class-string, array<string, mixed>> $modelsConfig
      */
     protected function buildSitemapIndex(array $modelsConfig): SitemapIndex
@@ -252,14 +311,11 @@ class SitemapBuilder
         $index = SitemapIndex::create();
 
         foreach ($modelsConfig as $modelClass => $config) {
-            $slug = $this->getModelSlug($modelClass);
-            $filename = "sitemap-{$slug}.xml";
-            $url = url($filename);
-
-            // Get last modified from model
             $lastMod = $this->getLastModifiedForModel($modelClass);
 
-            $index->add($url, $lastMod);
+            foreach ($this->sitemapPartFilenames($modelClass) as $filename) {
+                $index->add(url($filename), $lastMod);
+            }
         }
 
         // Registered named sources
@@ -267,7 +323,81 @@ class SitemapBuilder
             $index->add(url("sitemap-{$name}.xml"));
         }
 
+        // Static URLs (config-driven, not backed by a model)
+        if ($this->staticUrls() !== []) {
+            $index->add(url('sitemap-static.xml'));
+        }
+
         return $index;
+    }
+
+    /**
+     * The ordered list of sitemap part filenames a model will produce.
+     *
+     * A model with up to max_urls_per_sitemap URLs writes a single
+     * sitemap-{slug}.xml (the historical, un-numbered filename — kept so
+     * small sites are unchanged). A model with more URLs is split into
+     * sitemap-{slug}-1.xml, sitemap-{slug}-2.xml, … numbered parts.
+     *
+     * @param class-string $modelClass
+     * @return array<int, string>
+     */
+    protected function sitemapPartFilenames(string $modelClass): array
+    {
+        $slug = $this->getModelSlug($modelClass);
+        $parts = max(1, $this->countSitemapParts($modelClass));
+
+        if ($parts === 1) {
+            return ["sitemap-{$slug}.xml"];
+        }
+
+        $filenames = [];
+
+        for ($i = 1; $i <= $parts; $i++) {
+            $filenames[] = "sitemap-{$slug}-{$i}.xml";
+        }
+
+        return $filenames;
+    }
+
+    /**
+     * How many sitemap files a model needs given its includable URL count and
+     * the configured per-file URL cap.
+     *
+     * Uses the same query shape as buildModelSitemap() (the sitemapable scope)
+     * so the count matches what is actually emitted. It deliberately counts
+     * rows, not post-shouldInclude() URLs: an exact post-filter count would
+     * require materialising every model, so we may over-allocate the last part
+     * (which can render empty). An empty trailing part is still valid XML and
+     * is preferable to truncating URLs.
+     *
+     * @param class-string $modelClass
+     */
+    protected function countSitemapParts(string $modelClass): int
+    {
+        $maxUrls = $this->maxUrlsPerSitemap();
+
+        $query = $modelClass::query();
+
+        if (method_exists($modelClass, 'scopeSitemapable')) {
+            $query->sitemapable();
+        }
+
+        $total = $query->count();
+
+        if ($total <= $maxUrls) {
+            return 1;
+        }
+
+        return (int) ceil($total / $maxUrls);
+    }
+
+    /**
+     * The configured per-file URL cap (Google's hard limit is 50,000).
+     */
+    protected function maxUrlsPerSitemap(): int
+    {
+        return max(1, (int) config('seo.sitemap.max_urls_per_sitemap', $this->maxUrlsPerSitemap));
     }
 
     /**
@@ -352,15 +482,39 @@ class SitemapBuilder
     }
 
     /**
-     * Build sitemap for a single model type.
+     * Build the first (or only) sitemap for a single model type.
+     *
+     * Kept as the historical single-file entry point — it builds part 1, which
+     * for any model with <= max_urls_per_sitemap URLs is the whole sitemap. For
+     * larger models, callers iterate every part via buildModelSitemapPart().
      *
      * @param class-string $modelClass
      * @param array<string, mixed> $config
      */
     protected function buildModelSitemap(string $modelClass, array $config): Sitemap
     {
+        return $this->buildModelSitemapPart($modelClass, $config, 1);
+    }
+
+    /**
+     * Build one numbered shard of a model's sitemap.
+     *
+     * Part N (1-based) covers the window of source rows
+     * [(N-1) * maxUrls, N * maxUrls). Rows are ordered deterministically so the
+     * windows are stable across the count, the index, and the write — otherwise
+     * a row could land in two parts or none. shouldInclude() still filters
+     * within the window, so a part may emit fewer URLs than the window width
+     * (or, for the last part, be empty); that is valid and never drops a URL.
+     *
+     * @param class-string $modelClass
+     * @param array<string, mixed> $config
+     */
+    protected function buildModelSitemapPart(string $modelClass, array $config, int $part): Sitemap
+    {
         $sitemap = Sitemap::create();
-        $maxUrls = config('seo.sitemap.max_urls_per_sitemap', $this->maxUrlsPerSitemap);
+        $maxUrls = $this->maxUrlsPerSitemap();
+
+        $offset = ($part - 1) * $maxUrls;
 
         // Query the model
         $query = $modelClass::query();
@@ -370,33 +524,29 @@ class SitemapBuilder
             $query->sitemapable();
         }
 
-        // Order by updated_at for consistent output
+        // Order deterministically so each part covers a stable row window. A
+        // primary-key tiebreaker keeps the order total even when many rows
+        // share an updated_at.
         if (in_array('updated_at', (new $modelClass())->getFillable()) || (new $modelClass())->timestamps) {
             $query->orderBy('updated_at', 'desc');
         }
 
-        $count = 0;
+        $query->orderBy((new $modelClass())->getQualifiedKeyName());
 
-        $query->chunk(500, function (Collection $models) use ($sitemap, $config, &$count, $maxUrls) {
-            foreach ($models as $model) {
-                if ($count >= $maxUrls) {
-                    return false; // Stop chunking
-                }
-
-                if (! $this->shouldInclude($model)) {
-                    continue;
-                }
-
-                $url = $this->buildUrl($model, $config);
-
-                if ($url) {
-                    $sitemap->add($url);
-                    $count++;
-                }
+        // cursor() streams rows lazily while honouring the window's offset/limit
+        // (Eloquent's chunk()/lazy() rewrite offset/limit via forPage and would
+        // ignore our window — cursor() runs the query verbatim, unbuffered).
+        foreach ($query->offset($offset)->limit($maxUrls)->cursor() as $model) {
+            if (! $this->shouldInclude($model)) {
+                continue;
             }
 
-            return true;
-        });
+            $url = $this->buildUrl($model, $config);
+
+            if ($url) {
+                $sitemap->add($url);
+            }
+        }
 
         return $sitemap;
     }
@@ -420,8 +570,25 @@ class SitemapBuilder
             }
         }
 
-        // Check for noindex in SEO meta
-        if (method_exists($model, 'seoMeta')) {
+        // Check for noindex in the RESOLVED robots directive — so a noindex
+        // coming from global / model-type / route / computed defaults (not just
+        // a stored seo_meta.robots) excludes the URL, matching the documented
+        // "resolved robots control inclusion" contract.
+        if (method_exists($model, 'seoData')) {
+            try {
+                if (str_contains(strtolower($model->seoData()->robots ?? ''), 'noindex')) {
+                    return false;
+                }
+            } catch (\Throwable) {
+                // Resolving touches user getters + the DB; if one record blows
+                // up, fall through to the stored-meta check below rather than
+                // aborting the whole sitemap.
+            }
+        }
+
+        // Fallback for models without resolved SEO data (no HasSEO trait):
+        // honour an explicit noindex on the stored seo_meta row.
+        if (! method_exists($model, 'seoData') && method_exists($model, 'seoMeta')) {
             $seoMeta = $model->seoMeta;
             if ($seoMeta && str_contains(strtolower($seoMeta->robots ?? ''), 'noindex')) {
                 return false;
@@ -668,15 +835,19 @@ class SitemapBuilder
     {
         $storage = $this->getStorage();
 
-        // Write individual model sitemaps
+        // Write individual model sitemaps, sharding large models into the same
+        // numbered part filenames the index references (sitemapPartFilenames()).
         $modelsConfig = $this->getModelsConfig();
 
         foreach ($modelsConfig as $modelClass => $config) {
-            $sitemap = $this->buildModelSitemap($modelClass, $config);
-            $slug = $this->getModelSlug($modelClass);
-            $filename = "sitemap-{$slug}.xml";
+            $part = 0;
 
-            $storage->put($filename, $sitemap->render());
+            foreach ($this->sitemapPartFilenames($modelClass) as $filename) {
+                $part++;
+                $sitemap = $this->buildModelSitemapPart($modelClass, $config, $part);
+
+                $storage->put($filename, $sitemap->render());
+            }
         }
 
         // Write registered named sources
@@ -685,6 +856,13 @@ class SitemapBuilder
                 "sitemap-{$name}.xml",
                 $this->buildSourceSitemap($name)->render()
             );
+        }
+
+        // Write static URLs as their own file when configured
+        $staticUrls = $this->staticUrls();
+
+        if ($staticUrls !== []) {
+            $storage->put('sitemap-static.xml', $this->buildStaticSitemap($staticUrls)->render());
         }
 
         // Write index
@@ -764,15 +942,14 @@ class SitemapBuilder
             $storage->delete($mainPath);
         }
 
-        // Delete model sitemaps
+        // Delete model sitemaps, including every numbered shard.
         $modelsConfig = $this->getModelsConfig();
 
         foreach (array_keys($modelsConfig) as $modelClass) {
-            $slug = $this->getModelSlug($modelClass);
-            $filename = "sitemap-{$slug}.xml";
-
-            if ($storage->exists($filename)) {
-                $storage->delete($filename);
+            foreach ($this->sitemapPartFilenames($modelClass) as $filename) {
+                if ($storage->exists($filename)) {
+                    $storage->delete($filename);
+                }
             }
         }
 
@@ -783,6 +960,11 @@ class SitemapBuilder
             if ($storage->exists($filename)) {
                 $storage->delete($filename);
             }
+        }
+
+        // Delete the static-URL sitemap
+        if ($storage->exists('sitemap-static.xml')) {
+            $storage->delete('sitemap-static.xml');
         }
     }
 }
