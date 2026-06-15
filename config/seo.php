@@ -259,6 +259,22 @@ return [
         'static_urls' => [],
 
         /*
+         * Add the resolved og/content image as an <image:image> entry for
+         * each model URL (Google image-sitemap extension). The image is the
+         * same value rendered as og:image — which may be the site-wide
+         * default_og_image when a model has none of its own. Opt-in: it adds
+         * a resolver call per record and changes the sitemap output shape.
+         */
+        'images' => env('SEO_SITEMAP_IMAGES', false),
+
+        /*
+         * Add hreflang <xhtml:link rel="alternate"> entries for each model
+         * URL, derived from the model's getSEOAlternates() links. Opt-in for
+         * the same reasons as 'images' above.
+         */
+        'alternates' => env('SEO_SITEMAP_ALTERNATES', false),
+
+        /*
          * Whether to ping search engines (Google, Bing) after generation.
          * Only enable in production environments.
          */

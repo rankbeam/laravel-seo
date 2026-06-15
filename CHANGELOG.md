@@ -7,6 +7,56 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Sitemap image & hreflang extensions (action plan RT15)
+
+Optional, first-class image and hreflang entries in the generated sitemap,
+derived from the data the package already resolves for each record.
+
+#### Added
+
+- **`seo.sitemap.images`** (env `SEO_SITEMAP_IMAGES`, default `false`) — adds a
+  Google image-sitemap `<image:image><image:loc>` entry to each `HasSEO` model
+  URL, built from the model's resolved og/content image (the same value
+  rendered as `og:image`). When a record has no image of its own this resolves
+  to the site-wide `default_og_image`.
+- **`seo.sitemap.alternates`** (env `SEO_SITEMAP_ALTERNATES`, default `false`) —
+  adds `<xhtml:link rel="alternate" hreflang="…">` entries to each `HasSEO`
+  model URL from the model's `getSEOAlternates()`. Malformed entries (missing or
+  non-string `hreflang`/`href`) are skipped.
+- Both extensions degrade gracefully: a hand-built `Spatie\Sitemap\Tags\Url`
+  (from `Sitemapable::toSitemapTag()` or a registered source) is passed through
+  **verbatim** and never enriched, and a resolver error for one record leaves
+  that URL without extensions instead of failing the whole sitemap.
+
+#### Notes
+
+- Both flags are **off by default** and change no existing output when off.
+- `config/seo.php` is merged shallowly: apps that published the config before
+  this release must add the two `sitemap` keys manually (the env vars alone
+  won't switch them on).
+- Enabling an extension resolves each record's full `seoData()` once per URL —
+  built for the scheduled `seo:sitemap` command; benchmark on very large sites.
+
+#### Fixed
+
+- **Defaults resolution no longer re-queries on every call.**
+  `SEODefaultsRepository` now memoizes resolved defaults — **including null
+  misses** — for the request, keyed by scope/locale. Laravel's
+  `Cache::remember()` treats a cached `null` as a miss and re-runs the loader,
+  so on the common install with no `seo_defaults` rows every `seoData()`
+  resolution was issuing repeated DB/cache lookups that always returned null.
+  This is an app-wide per-page cost, amplified by the sitemap extensions above
+  (one `seoData()` per record — ~100k redundant lookups on a 50k-URL sitemap).
+  `clearCache()`/`refreshCache()` reset the memo so admin updates still take
+  effect. The positive-only `tableExists()` memo is unchanged.
+- **Editing or deleting an `SEODefault` now invalidates the resolved-defaults
+  cache.** The model's save/delete hook previously only forgot the
+  `getForScope()` model cache (`default:…`), leaving the repository's separate
+  resolved cache (`defaults:…`, 1-hour TTL) stale — so an admin edit could take
+  up to an hour to appear. The hook now also calls
+  `SEODefaultsRepository::clearCache()`; saving or deleting the `en` row clears
+  the **whole scope**, since other locales cache the `en` row as their fallback.
+
 ### Importer from competing Laravel SEO packages (action plan RT12)
 
 A migration path off other Laravel SEO packages, so switching to Rankbeam is a

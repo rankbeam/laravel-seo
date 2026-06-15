@@ -50,6 +50,10 @@ use Rankbeam\Seo\Traits\HasSEO;
  *         App\Models\Page::class,
  *     ],
  *     'max_urls_per_sitemap' => 50000,
+ *
+ *     // Optional extensions (off by default), for HasSEO models:
+ *     'images' => true,      // <image:image> from the resolved og/content image
+ *     'alternates' => true,  // <xhtml:link rel="alternate"> from getSEOAlternates()
  * ]
  * ```
  */
@@ -446,6 +450,9 @@ class SitemapBuilder
             $tag = $model->toSitemapTag();
 
             if ($tag instanceof Url) {
+                // The model hand-built its own Url tag (the manual Spatie
+                // escape hatch — see docs/guide/sitemaps.md). Respect it
+                // verbatim, including any images/alternates/videos it set.
                 return $tag;
             }
 
@@ -453,7 +460,11 @@ class SitemapBuilder
                 $tag = ['url' => $tag];
             }
 
-            return $this->createUrlFromArray($tag, $config);
+            $url = $this->createUrlFromArray($tag, $config);
+
+            $this->applySeoExtensions($url, $model);
+
+            return $url;
         }
 
         // Build from model properties
@@ -481,7 +492,74 @@ class SitemapBuilder
             $url->setChangeFrequency($config['changefreq']);
         }
 
+        $this->applySeoExtensions($url, $model);
+
         return $url;
+    }
+
+    /**
+     * Add optional image and hreflang-alternate entries to a model's URL tag.
+     *
+     * Both extensions are opt-in (seo.sitemap.images / seo.sitemap.alternates,
+     * both off by default) and only apply to models exposing fully resolved
+     * SEO data (the HasSEO trait's seoData()):
+     *
+     * - Images add an <image:image><image:loc> entry derived from the resolved
+     *   og/content image — the same value rendered as og:image, so the sitemap
+     *   never disagrees with the page meta. This can be the site-wide
+     *   default_og_image when a model has no image of its own.
+     * - Alternates add <xhtml:link rel="alternate" hreflang="..."> entries from
+     *   the model's getSEOAlternates() hreflang links.
+     *
+     * Models that hand-build their own Url tag opt out entirely; this only
+     * enriches tags the builder itself constructs, and never clobbers entries
+     * already present on the tag.
+     */
+    protected function applySeoExtensions(Url $url, Model $model): void
+    {
+        $wantImages = (bool) config('seo.sitemap.images', false);
+        $wantAlternates = (bool) config('seo.sitemap.alternates', false);
+
+        if (! $wantImages && ! $wantAlternates) {
+            return;
+        }
+
+        // Resolved SEO data is only available on HasSEO models.
+        if (! method_exists($model, 'seoData')) {
+            return;
+        }
+
+        // Resolving SEO data runs the full precedence chain, which touches
+        // user-defined getters (getSEOImage/getSEOAlternates) and the database.
+        // One bad record must never abort generation of the whole sitemap, so
+        // degrade to the plain URL on any failure (the same graceful-degradation
+        // stance the resolver itself takes).
+        try {
+            $seo = $model->seoData();
+
+            if ($wantImages && ! empty($seo->ogImage) && empty($url->images)) {
+                $url->addImage($seo->ogImage);
+            }
+
+            if ($wantAlternates && ! empty($seo->alternates) && empty($url->alternates)) {
+                foreach ($seo->alternates as $alternate) {
+                    // Tolerate a malformed alternates shape (a non-array entry
+                    // would throw on string-offset access below).
+                    if (! is_array($alternate)) {
+                        continue;
+                    }
+
+                    $hreflang = $alternate['hreflang'] ?? null;
+                    $href = $alternate['href'] ?? null;
+
+                    if (is_string($hreflang) && $hreflang !== '' && is_string($href) && $href !== '') {
+                        $url->addAlternate($href, $hreflang);
+                    }
+                }
+            }
+        } catch (\Throwable) {
+            // Leave the URL without extensions rather than failing the sitemap.
+        }
     }
 
     /**
