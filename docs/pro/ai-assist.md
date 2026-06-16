@@ -104,8 +104,8 @@ For **Ollama** specifically, you can add `['think' => false]` to
 suggestion calls and cut latency.
 :::
 
-No `temperature` is sent: current reasoning models (Claude, GPT-5.5)
-reject it, so there is intentionally no knob for it.
+No `temperature` is sent: some reasoning models reject it, so there is
+intentionally no knob for it.
 
 ::: warning Key handling with a cached config
 The config stores only the **name** of the environment variable

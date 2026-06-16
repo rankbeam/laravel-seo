@@ -39,7 +39,7 @@ class SchemaGraph
     /**
      * Start a fluent graph composition for a model or hand-built SEOData.
      *
-     * The composition entry point (idi-it hand-rolled a `SitewideSchema` for
+     * The composition entry point (some apps hand-roll a sitewide schema for
      * exactly this): chain {@see SchemaGraphBuilder::organization()},
      * `website()`, `webPage()`, and `breadcrumbFromAncestors()`, then
      * `toArray()`, to assemble the @id-linked graph from these primitives.

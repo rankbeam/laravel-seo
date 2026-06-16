@@ -11,8 +11,9 @@ use Rankbeam\Seo\Importing\Contracts\Importer;
  * Maps CLI source keys (e.g. "ralphjsmit") to {@see Importer} implementations.
  *
  * Importers are registered by class and resolved from the container on demand,
- * so they can depend on services. RT13 adds the WordPress importer with one
- * extra {@see self::register()} call in the service provider — no command edit.
+ * so they can depend on services. A new source (e.g. the WordPress importer)
+ * adds one extra {@see self::register()} call in the service provider — no
+ * command edit.
  */
 class ImporterRegistry
 {

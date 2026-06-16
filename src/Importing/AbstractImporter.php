@@ -14,8 +14,8 @@ use Throwable;
  * Shared machinery for importers: morph-type resolution, column-length
  * trimming, and the idempotent, dry-run-aware write into `seo_meta`.
  *
- * These helpers are deliberately source-agnostic so the RT13 importer can
- * reuse them.
+ * These helpers are deliberately source-agnostic so the WordPress importer
+ * can reuse them.
  */
 abstract class AbstractImporter implements Importer
 {

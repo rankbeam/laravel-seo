@@ -14,7 +14,7 @@ use Rankbeam\Seo\Importing\ImportResult;
  *
  * Implementations are resolved by their {@see self::key()} via the
  * {@see ImporterRegistry} and driven by the
- * `seo:import-from` command. New sources (e.g. the RT13 WordPress importer)
+ * `seo:import-from` command. New sources (e.g. the WordPress importer)
  * implement this contract and register a key.
  */
 interface Importer
