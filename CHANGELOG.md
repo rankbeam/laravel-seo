@@ -5,7 +5,26 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [3.1.1] - 2026-06-16
+
+### Changed
+
+- **Migration docs.** Documented that an explicit canonical is imported
+  verbatim (the WordPress importer never rewrites the host), that custom
+  WordPress post types must be named with `--post-type=`, and the MySQL 8
+  `sql_mode` gotcha when reading SEO data from a restored dump.
+
+### Fixed
+
+- Patched the `esbuild` advisory (GHSA-gv7w-rqvm-qjhr) in the documentation
+  toolchain. Dev-only — `esbuild` is not part of the distributed package.
+
+### Removed
+
+- Internal working documents that were never meant to be part of the package
+  no longer appear in the distributed archive.
+
+## [3.1.0] - 2026-06-16
 
 ### Resolver result cache for hot frontends
 
