@@ -49,6 +49,18 @@ php artisan seo:import-from yoast --model="App\Models\Post" --post-type=post
 php artisan seo:import-from yoast --model="App\Models\Page" --post-type=page
 ```
 
+::: warning Custom post types are not scanned by default
+The database readers walk only the **`post`** and **`page`** post types. Sites
+built on custom post types (a theme's `product`, `event`, `pathology`, …) must
+name each one explicitly — repeat `--post-type=`:
+
+```bash
+php artisan seo:import-from rank-math \
+  --connection=wordpress --model="App\Models\Pathology" \
+  --post-type=pathology --post-type=clinic
+```
+:::
+
 ---
 
 ## 1. CSV import
@@ -131,6 +143,24 @@ The reader walks `{prefix}posts` (published posts/pages) and pulls each post's
 plugin metadata from `{prefix}postmeta`, matching each post's `post_name` slug
 to your model.
 
+::: tip Non-default table prefix
+Managed WordPress hosts often use a randomised prefix (e.g. `wppg_`, not `wp_`).
+Check the `CREATE TABLE` names in your dump and pass the real prefix —
+`--table=wppg_` — so the reader finds `{prefix}posts` and `{prefix}postmeta`.
+:::
+
+::: tip Reading from a restored dump on MySQL 8
+If you've loaded a WordPress dump into MySQL 8+ to read it locally, relax the
+strict SQL mode before sourcing the `.sql` — WordPress's `'0000-00-00'` datetime
+defaults are rejected by MySQL 8's default `STRICT`/`NO_ZERO_DATE` modes, so the
+dump import itself fails (`Invalid default value for 'post_date'`) before the
+SEO import ever runs:
+
+```sql
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+```
+:::
+
 ### Field mapping
 
 Both importers map fields **explicitly** — a key with no Core 3 column is
@@ -162,6 +192,19 @@ Yoast's separate `noindex` / `nofollow` / advanced (`noarchive`, `nosnippet`,
 `rank_math_seo_score`), primary-category choices, and Rank Math's rich-snippet
 schema markers — the [schema graph](/guide/schema) is a richer, typed
 replacement for those.
+
+::: warning Canonicals are imported verbatim
+An explicit canonical (`rank_math_canonical_url` / `_yoast_wpseo_canonical`) is
+copied **exactly as stored**. If a page pinned its canonical to an absolute URL
+on the *old* domain — common on managed/staging hosts, e.g.
+`https://oldsite-staging.example.com/page/` — it imports still pointing there;
+the importer never rewrites the host. `--site-url` derives request *paths* from
+absolute URLs for [redirect candidates](#redirects) and CSV row matching, but it
+does **not** rewrite stored canonical values. After a cross-domain move, review
+imported canonicals and update the host — or clear them to fall back to the
+resolver's self-canonical. (Most pages have no explicit canonical and are
+unaffected; Yoast and Rank Math auto-canonicalise at render time.)
+:::
 
 ### Template tokens
 
