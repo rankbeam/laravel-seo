@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Resolver result cache for hot frontends (improvement plan T12)
+### Resolver result cache for hot frontends
 
 An opt-in cache for the resolver's output. The `SEOResolver` runs the full
 precedence chain on every frontend render; on a high-traffic site (the reference
@@ -71,7 +71,7 @@ This is an **additive, opt-in minor** (no UPGRADING). The new `SEOMeta`/`HasSEO`
 model-event listeners are inert while `seo.cache.resolver.enabled` is `false`
 (the default), so no behaviour changes for existing apps.
 
-### Schema composition: @id-linked graph + getSEOSchema() hook (improvement plan T11)
+### Schema composition: @id-linked graph + getSEOSchema() hook
 
 A composition layer on top of the existing `SchemaGraph` and loop-guarded
 `BreadcrumbSchema::fromModelAncestors()` primitives, so an app can assemble a
@@ -111,7 +111,7 @@ render no schema, exactly as before.
   so a `getSEOSchema()` that composes `webPage()` (which re-resolves the model's
   `seoData()`) terminates instead of recursing.
 
-### Optional dimension-aware social-image selection (improvement plan T10)
+### Optional dimension-aware social-image selection
 
 An opt-in computed-image strategy that picks the social / Open Graph image
 whose pixel dimensions sit closest to the ideal, instead of just the first
@@ -150,7 +150,7 @@ match. Additive — the default behaviour is byte-identical to before.
   constants (200×200 minimum, 1200×630 ideal), keeping audit, preview, and
   selection in agreement.
 
-### WordPress / legacy migration hardening + import verification report (improvement plan T9)
+### WordPress / legacy migration hardening + import verification report
 
 Hardening for the WordPress / legacy migration path, plus an import
 **verification report** so an operator can confirm exactly what an import did
@@ -183,7 +183,7 @@ before decommissioning the old stack. Additive — no command option changes.
   `seo:audit --strict` → explicit verification before removing the legacy
   package/table.
 
-### Documented robots / `is_indexable` support (improvement plan T3)
+### Documented robots / `is_indexable` support
 
 Documentation and tests only — **no behaviour or API change.** Per-model robots
 control already shipped (`SEOComputedBuilder::computeRobots()` honours a model's
@@ -207,7 +207,7 @@ missing.
   resolve → render path — and that an indexable model emits no tag (its
   `index, follow` equals the site default).
 
-### Render surface accepts `Model | SEOData | null` (improvement plan T1)
+### Render surface accepts `Model | SEOData | null`
 
 Model-less pages (listings, search, controller-composed views) can now render
 through the facade and the `@seo` directive with a hand-built `SEOData` instead
@@ -249,7 +249,7 @@ packages (`rankbeam/laravel-seo-filament`, `rankbeam/laravel-seo-pro`) that want
 to pass a hand-built `SEOData` through the facade/`@seo` should require the core
 version that ships this change once it is released.
 
-### Blank explicit-value policy (improvement plan T2)
+### Blank explicit-value policy
 
 A persisted blank (`''` / `'   '`) value in a `seo_meta` string column is an
 *explicit* value, so the resolver's "last non-null wins" merge lets it override
@@ -305,7 +305,7 @@ are breaking for programmatic consumers:
   never overwrites hand-edited `seo_meta`); pass `--overwrite` to replace
   existing values. See [UPGRADING.md](UPGRADING.md).
 
-### Sitemap image & hreflang extensions (action plan RT15)
+### Sitemap image & hreflang extensions
 
 Optional, first-class image and hreflang entries in the generated sitemap,
 derived from the data the package already resolves for each record.
@@ -363,7 +363,7 @@ derived from the data the package already resolves for each record.
   `SEODefaultsRepository::clearCache()`; saving or deleting the `en` row clears
   the **whole scope**, since other locales cache the `en` row as their fallback.
 
-### Importer from competing Laravel SEO packages (action plan RT12)
+### Importer from competing Laravel SEO packages
 
 A migration path off other Laravel SEO packages, so switching to Rankbeam is a
 day's work, not a rewrite.
@@ -389,9 +389,9 @@ day's work, not a rewrite.
   mapping `ralphjsmit`, `artesaos/seotools`, and the Spatie builders onto
   `HasSEO` + `saveSEO()`.
 
-### WordPress importer — Yoast / Rank Math (action plan RT13)
+### WordPress importer — Yoast / Rank Math
 
-A migration path for content sites leaving WordPress, reusing the RT12 importer
+A migration path for content sites leaving WordPress, reusing the same Laravel-package importer
 scaffolding (no command change — new sources just register keys).
 
 #### Added
@@ -421,7 +421,7 @@ scaffolding (no command change — new sources just register keys).
   (active, exact-match rules only — non-exact rules reported).
 - New guide: [Migrating from WordPress](docs/guide/migrate-from-wordpress.md).
 
-### Rendering contract & framework correctness (action plan RT4)
+### Rendering contract & framework correctness
 
 The single canonical [Rendering Contract](docs/contributing/rendering-contract.md)
 every front-end stack's `<head>` must satisfy, plus the renderer fixes and
@@ -463,7 +463,7 @@ fast, framework-free unit tests that prove it.
 
 ### Free SEO audit & focus-keyword workflow (additive)
 
-The instant free-tier payoff (action plan RT2): a one-command "what's wrong
+The instant free-tier payoff: a one-command "what's wrong
 with my SEO right now" audit and the focus-keyword workflow gate.
 
 #### Added
@@ -493,7 +493,7 @@ with my SEO right now" audit and the focus-keyword workflow gate.
   read this same core flag, so they always agree.
 - **`seo.audit.models`** config — the models `seo:audit` audits by default.
 
-### Contract reset (action plan RT0)
+### Contract reset
 
 The open-core ownership reset. Core keeps the metadata contract; the numerical
 SEO score becomes a Pro-owned scan-result field.

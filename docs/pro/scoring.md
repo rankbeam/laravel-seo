@@ -30,8 +30,8 @@ The score is computed from a **published, versioned rubric** —
 | `notice` | **−5** | A nice-to-have. |
 
 Each code's severity is read straight from the [issue registry](/pro/scan-issues)
-(the single source of truth) — the rubric never re-derives it. RT1 made
-severity 1:1 per code precisely so the score stays deterministic.
+(the single source of truth) — the rubric never re-derives it. Severity is
+1:1 per code precisely so the score stays deterministic.
 
 ### What the score counts
 

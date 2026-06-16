@@ -19,7 +19,7 @@ only *how the resolved data reaches the DOM, survives client navigation, and
 stays crawler-visible* varies per stack, and that is exactly what this contract
 pins.
 
-> This spec was hardened by an independent design review (Codex, 2026-06-14).
+> This spec was hardened by an independent design review.
 > Re-review only if it changes materially.
 
 ---
@@ -167,7 +167,7 @@ unrelated `v-for` reconciliation key and does nothing for Inertia's head dedup).
 ## 7. Conformance status
 
 What proves each clause today. **Unit** = `RenderingContractTest` (core, every
-push). **Browser/SSR** = `rankbeam-examples` (RT5, scheduled matrix). **App** =
+push). **Browser/SSR** = `rankbeam-examples` (scheduled matrix). **App** =
 the host application owns it. **Planned** = in the contract as the target, but
 the data is not yet modelled by `SEOData`, so the renderer emits the safe
 subset.
@@ -193,13 +193,13 @@ subset.
 | Multiple scripts OR `@graph`; stable `@id` where entities link | **Unit** (merchant graph) + Browser |
 | Absolute URLs; no empty/null tags | **Unit** + Browser |
 | `canonical` ≡ `og:url` (hard failure on disagreement) | **Unit** + Browser |
-| Consistent canonical normalization; self-referencing; noindex isolation | Browser (RT5) |
+| Consistent canonical normalization; self-referencing; noindex isolation | Browser |
 | Per-sink escaping; decoded semantic parity | **Unit** |
 | Cross-renderer semantic parity (`render()` ≡ `toArray()` ≡ `toInertiaHead()`) | **Unit** |
 | Inertia `head-key` stable + repeatables disambiguated | **Unit** + Browser |
-| Client-nav: one singleton, none stale, JSON-LD doesn't accumulate, teardown | Browser (RT5) — renderer ships the `data-seo-schema` hooks the cleanup needs |
-| Zero hydration warnings; pre/post-hydration parity | Browser (RT5) |
-| SSR emits full contract in raw HTML; CSR-only documented as non-compliant | Browser (RT5) + docs |
+| Client-nav: one singleton, none stale, JSON-LD doesn't accumulate, teardown | Browser — renderer ships the `data-seo-schema` hooks the cleanup needs |
+| Zero hydration warnings; pre/post-hydration parity | Browser |
+| SSR emits full contract in raw HTML; CSR-only documented as non-compliant | Browser + docs |
 
 **Planned clauses** are deliberate, documented gaps — the contract is the
 durable target and these are additive, backward-compatible extensions for a
