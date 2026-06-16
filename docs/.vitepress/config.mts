@@ -30,7 +30,7 @@ export default defineConfig({
       { text: 'Blog', link: '/blog/canonical-urls-in-laravel' },
       { text: 'rankbeam.dev ↗', link: 'https://rankbeam.dev' },
       {
-        text: 'v2.0',
+        text: 'v3.0',
         items: [
           { text: 'Changelog', link: 'https://github.com/rankbeam/laravel-seo/blob/master/CHANGELOG.md' },
           { text: 'Upgrading from v1', link: '/guide/upgrade-from-v1' },
