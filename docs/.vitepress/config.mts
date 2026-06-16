@@ -22,6 +22,7 @@ export default defineConfig({
     logo: '/logo.svg',
 
     nav: [
+      { text: 'Why Rankbeam', link: '/guide/why-rankbeam' },
       { text: 'Guide', link: '/guide/installation' },
       { text: 'Concepts', link: '/concepts/resolver-precedence' },
       { text: 'Filament', link: '/guide/filament' },
@@ -41,6 +42,7 @@ export default defineConfig({
       {
         text: 'Getting started',
         items: [
+          { text: 'Why Rankbeam', link: '/guide/why-rankbeam' },
           { text: 'Installation', link: '/guide/installation' },
           { text: 'Quickstart', link: '/guide/quickstart' },
           { text: 'Run the demo', link: '/guide/demo' },
