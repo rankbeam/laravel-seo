@@ -10,7 +10,7 @@ use Rankbeam\Seo\Services\SEOWarningEvaluator;
 | Characterization: editorial SEO warnings
 |--------------------------------------------------------------------------
 |
-| Ported from idi-it's SeoWarningEvaluator:
+| Ported from production SeoWarningEvaluator behavior:
 | - title > 60 chars → warning; no manual title → info (fallback indicator)
 | - description > 160 chars → warning; no manual description → info
 | - no social image → danger; fallback image → info

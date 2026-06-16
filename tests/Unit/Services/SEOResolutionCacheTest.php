@@ -8,7 +8,7 @@ use Rankbeam\Seo\Tests\Fixtures\NonTaggableArrayStore;
 
 /*
 |--------------------------------------------------------------------------
-| SEOResolutionCache — unit (T12)
+| SEOResolutionCache — unit
 |--------------------------------------------------------------------------
 |
 | The resolver result cache in isolation: the enabled() gate, lossless

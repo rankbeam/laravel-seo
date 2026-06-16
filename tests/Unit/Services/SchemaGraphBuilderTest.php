@@ -8,7 +8,7 @@ use Rankbeam\Seo\Services\Schema\SchemaGraphBuilder;
 
 /*
 |--------------------------------------------------------------------------
-| SchemaGraph::for() — fluent @id-linked graph composition (T11)
+| SchemaGraph::for() — fluent @id-linked graph composition
 |--------------------------------------------------------------------------
 |
 | The composition layer on TOP of the existing SchemaGraph / BreadcrumbSchema

@@ -11,7 +11,7 @@ use Rankbeam\Seo\Services\Schema\BreadcrumbSchema;
 | Characterization: breadcrumb from page ancestors, with loop guard
 |--------------------------------------------------------------------------
 |
-| Ported from idi-it's SitewideSchema::breadcrumbForPage/pageAncestors:
+| Ported from production SitewideSchema::breadcrumbForPage/pageAncestors:
 | - the home page itself gets no breadcrumb
 | - pages without ancestors get no breadcrumb
 | - chain renders Home → ancestors → page with 1-based positions

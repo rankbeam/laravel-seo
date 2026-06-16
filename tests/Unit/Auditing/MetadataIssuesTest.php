@@ -32,7 +32,7 @@ it('pins the metadata code contract shared with the Pro registry', function () {
 });
 
 it('keeps core-only codes out of the Pro-mirror list but buildable via make()', function () {
-    // blank_explicit_override is a CORE-only resolver-policy code (T2). It must
+    // blank_explicit_override is a CORE-only resolver-policy code. It must
     // NOT appear in metadataCodes() (which stays identical to the Pro registry),
     // but the catalogue still recognises and can build it.
     expect(MetadataIssues::metadataCodes())->not->toContain('blank_explicit_override')

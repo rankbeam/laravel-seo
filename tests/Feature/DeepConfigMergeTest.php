@@ -44,7 +44,7 @@ class DeepConfigMergeTest extends TestCase
 
     public function test_new_nested_sitemap_defaults_reach_a_stale_published_config(): void
     {
-        // A config published before the RT15 sitemap image/hreflang release:
+        // A config published before the sitemap image/hreflang release:
         // it has a `sitemap` array, but none of the new leaves.
         $merged = $this->mergeAgainstPublished([
             'site_name' => 'Client Site',

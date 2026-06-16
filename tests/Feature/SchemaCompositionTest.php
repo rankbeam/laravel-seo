@@ -11,7 +11,7 @@ use Rankbeam\Seo\Traits\HasSEO;
 
 /*
 |--------------------------------------------------------------------------
-| Schema composition + resolver precedence (improvement plan T11)
+| Schema composition + resolver precedence
 |--------------------------------------------------------------------------
 |
 | - A model with no stored schema exposes a cross-linked WebPage +

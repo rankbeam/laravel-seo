@@ -11,7 +11,7 @@ use Rankbeam\Seo\Traits\HasSEO;
 
 /*
 |--------------------------------------------------------------------------
-| T2 — blank explicit-value policy (seo.resolver.blank_is_unset)
+| Blank explicit-value policy (seo.resolver.blank_is_unset)
 |--------------------------------------------------------------------------
 |
 | A persisted '' / '   ' in a seo_meta string column is an EXPLICIT value, so

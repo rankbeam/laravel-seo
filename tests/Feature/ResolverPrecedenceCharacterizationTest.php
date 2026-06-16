@@ -13,7 +13,7 @@ use Rankbeam\Seo\Traits\HasSEO;
 | Characterization: resolver precedence, canonical strip, robots policy
 |--------------------------------------------------------------------------
 |
-| Ported from idi-it's DynamicSeoDataResolver against the package precedence
+| Ported from production DynamicSeoDataResolver behavior against the package precedence
 | chain (config → global default → model-type default → route default →
 | computed → explicit):
 |

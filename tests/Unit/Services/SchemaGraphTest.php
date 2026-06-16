@@ -10,7 +10,7 @@ use Rankbeam\Seo\Services\Schema\SchemaGraph;
 | Characterization: JSON-LD @id graph conventions
 |--------------------------------------------------------------------------
 |
-| Ported from idi-it's SitewideSchema:
+| Ported from production SitewideSchema behavior:
 | - Organization @id = {site_url}#organization
 | - WebSite @id = {site_url}#website, publisher links to the Organization
 | - WebPage @id = {canonical}#webpage, isPartOf links to the WebSite,

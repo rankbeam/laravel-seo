@@ -10,7 +10,7 @@ use Rankbeam\Seo\Services\TagRenderer;
 | Characterization: computed description + robots policies
 |--------------------------------------------------------------------------
 |
-| Ported from the idi-it production resolver (DynamicSeoDataResolver):
+| Ported from production resolver behavior (DynamicSeoDataResolver):
 | - description candidate-field list (configurable order, first meaningful
 |   text wins, markup-only fields skipped)
 | - HTML strip + entity decode + whitespace squish normalization

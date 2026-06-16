@@ -11,7 +11,7 @@ use Rankbeam\Seo\Traits\HasSEO;
 
 /*
 |--------------------------------------------------------------------------
-| Resolver result cache — benchmark (T12)
+| Resolver result cache — benchmark
 |--------------------------------------------------------------------------
 |
 | Shows the win at the per-request level the reference app sees ~20k×/day:
@@ -97,7 +97,7 @@ it('serves warm cache hits with zero database queries', function () {
     DB::disableQueryLog();
 
     fwrite(STDOUT, sprintf(
-        "\n[T12 benchmark] %d resolves — uncached: %d queries / %.2f ms · cached: %d queries / %.2f ms\n",
+        "\n[resolver cache benchmark] %d resolves — uncached: %d queries / %.2f ms · cached: %d queries / %.2f ms\n",
         $iterations,
         $uncachedQueries,
         $uncachedMs,

@@ -11,7 +11,7 @@ use Rankbeam\Seo\Services\TagRenderer;
 
 /*
 |--------------------------------------------------------------------------
-| T1 — render surface accepts Model | SEOData | null
+| Render surface accepts Model | SEOData | null
 |--------------------------------------------------------------------------
 |
 | The facade (SEO::render/toArray/forInertia) and the @seo directive now
@@ -118,7 +118,7 @@ it('renders the same core tag set for a SEOData as for an equivalent model', fun
     // The shared, data-derived tags are identical. Site-level config defaults
     // (default_og_image / twitter_site) are part of the model's base-config
     // layer and are intentionally NOT injected into an explicit hand-built
-    // SEOData — that A/B difference is T1's documented contract, not a bug.
+    // SEOData — that A/B difference is the documented contract, not a bug.
     foreach ([
         '<title>My Page | Test Site</title>',
         'content="Shared description"',

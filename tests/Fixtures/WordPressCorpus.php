@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Schema;
 
 /**
  * A deterministic, fully anonymized WordPress corpus generator, modelled on the
- * shape of a real ~900-page Yoast / Rank Math migration (the idi swap) but with
+ * shape of a real ~900-page Yoast / Rank Math migration but with
  * no real content — names are public-domain figures, URLs are `acme.test`, and
  * every value is synthesised from the row index.
  *

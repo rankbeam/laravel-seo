@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\URL;
 use Rankbeam\Seo\Services\SEOResolver;
 
 /*
- * Regression tests for T3 friction item 2: manual seo_meta.og_image values
+ * Regression tests for manual seo_meta.og_image values that previously
  * rendered relative (`/images/x.jpg`) while computed image fallbacks were
  * absolutized. The OG spec requires absolute URLs, so the resolver now
  * normalizes every winning image value at the end of the chain.

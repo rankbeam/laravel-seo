@@ -13,7 +13,7 @@ use Rankbeam\Seo\Traits\HasSEO;
 
 /**
  * End-to-end proof against an anonymized ~900-page WordPress corpus (the shape
- * of the real idi migration), exercising the Yoast and Rank Math importers at
+ * of a real migration), exercising the Yoast and Rank Math importers at
  * scale: the verification report is asserted against the fixture's ground-truth
  * manifest, the import is idempotent, dry-runs are inert, and authors (which
  * have no Core 3 column) are surfaced verbatim rather than lost.

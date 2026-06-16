@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Rankbeam\Seo\Importing\ImportResult;
 
 /**
- * Unit coverage for the verification-report accounting added in T9: the
+ * Unit coverage for the verification-report accounting: the
  * first-class url-only counter, distinct unmapped-value capture (author), and
  * the assembled {@see ImportResult::verification()} structure.
  */

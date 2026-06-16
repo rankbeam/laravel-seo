@@ -10,7 +10,7 @@ use Rankbeam\Seo\Services\TagRenderer;
 
 /*
 |--------------------------------------------------------------------------
-| Optional dimension-aware social-image selection (improvement plan T10)
+| Optional dimension-aware social-image selection
 |--------------------------------------------------------------------------
 |
 | The default 'first' strategy is unchanged: getSEOImage() (then fields,

@@ -12,7 +12,7 @@ use Rankbeam\Seo\Services\TagRenderer;
 |
 | These tests pin the output shape of TagRenderer against the Rendering
 | Contract Spec (docs/contributing/rendering-contract.md). They are the
-| fast, framework-free leg that runs on every push; RT5's reference apps
+| fast, framework-free leg that runs on every push; the reference apps
 | verify the same contract in a real browser/SSR.
 |
 | The assertions cover: exactly-one-title, the robots emit-only-when-

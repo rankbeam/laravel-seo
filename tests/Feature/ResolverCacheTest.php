@@ -15,7 +15,7 @@ use Rankbeam\Seo\Traits\HasSEO;
 
 /*
 |--------------------------------------------------------------------------
-| Resolver result cache — integration (T12)
+| Resolver result cache — integration
 |--------------------------------------------------------------------------
 |
 | Proves the opt-in resolver result cache (seo.cache.resolver.enabled):
