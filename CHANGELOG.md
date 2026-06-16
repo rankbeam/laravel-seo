@@ -7,6 +7,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### WordPress / legacy migration hardening + import verification report (improvement plan T9)
+
+Hardening for the WordPress / legacy migration path, plus an import
+**verification report** so an operator can confirm exactly what an import did
+before decommissioning the old stack. Additive — no command option changes.
+
+#### Added
+
+- **Import verification report.** `seo:import-from` now prints — and exposes in
+  `--json` under a `verification` key — a matched / url-only / truncated /
+  unmapped breakdown. Rows that matched no model are counted as **url-only** as a
+  first-class number, and unmapped fields with no Core 3 home now capture their
+  distinct **values** (`unmapped_values`) — above all every `author` name. Author
+  has no column (it is a `getSEOAuthor()` concern), so the report lets you re-home
+  it deliberately instead of losing it silently.
+- Anonymized ~900-page WordPress corpus fixtures (Yoast + Rank Math + a CSV
+  excerpt) and expanded token / malformed-data / morph-map / locale / idempotency
+  tests across all three WordPress importers.
+
+#### Notes
+
+- The redirect candidates the WordPress importers emit use a stable, versioned
+  shape — **redirect CSV format v1** (`source_path,target_url,status_code,note`) —
+  consumed by Pro's `seo-pro:redirects-import`. The format version is recorded
+  here so the open-core contract is traceable.
+
+#### Documentation
+
+- New [WordPress migration runbook](docs/guide/wordpress-migration-runbook.md):
+  the ordered, low-risk cutover procedure — coexist → import → verify with
+  `seo:audit --strict` → explicit verification before removing the legacy
+  package/table.
+
 ### Render surface accepts `Model | SEOData | null` (improvement plan T1)
 
 Model-less pages (listings, search, controller-composed views) can now render

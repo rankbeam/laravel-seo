@@ -5,6 +5,13 @@ team hand-wrote in Yoast or Rank Math — titles, descriptions, canonicals,
 robots directives, focus keywords, social overrides — across to your Laravel
 models, so you don't lose years of optimisation in the switch.
 
+::: tip Doing a real cutover?
+This page is the *reference* for the importer (field mapping, tokens, source
+keys). For the step-by-step, low-risk **procedure** — coexist, import, verify,
+then decommission — follow the
+[WordPress migration runbook](/guide/wordpress-migration-runbook).
+:::
+
 There are two paths, both driven by the same `seo:import-from` command:
 
 | Path | Source | Best for |
@@ -200,32 +207,45 @@ Where redirect candidates come from:
 - **Yoast (free)** has no redirect table — only Yoast Premium does, and its
   schema isn't part of the free package. Use the CSV path for Yoast redirects.
 
-The candidates are **advisory** — review the CSV, then import it into Pro.
+The candidates are **advisory** — review the CSV, then import it into Pro with
+[`seo-pro:redirects-import`](/guide/wordpress-migration-runbook#step-3-import-the-redirects-into-pro),
+which validates every row (rejecting loops, unsafe targets, and duplicates). The
+CSV shape is a stable contract — **redirect CSV format v1**:
+`source_path,target_url,status_code,note`.
 
 ---
 
 ## What the report tells you
 
 A non-`--json` run prints an outcome table (created / updated / unchanged /
-skipped / scanned) plus review sections:
+skipped / scanned), a **Verification report**, and review sections:
 
+- **Verification report** — the at-a-glance split you sign off on:
+  **matched** (rows attached to a model), **url-only** (matched no model), and
+  the truncated / unmapped tallies.
 - **Truncated** — values shortened to fit a `seo_meta` column.
-- **Not imported** — source keys that held data but have no Core 3 home.
+- **Not imported** — source keys that held data but have no Core 3 home,
+  **including every distinct `author` value** (author is not a stored column —
+  it is a [`getSEOAuthor()`](/concepts/resolver-precedence) concern — so the
+  report lists what to re-home rather than letting it silently vanish).
 - **Redirect candidates** — how many were written, and to which file.
 - **Skipped rows by reason** — url-only rows, posts with no SEO meta, non-exact
   redirect rules.
 - **Warnings** — e.g. that template tokens were resolved.
 
-Add `--json` for a machine-readable version of all of the above.
+Add `--json` for a machine-readable version of all of the above (the
+`verification` block carries the matched/url-only counts and every author value).
 
 ### Verify
 
 ```bash
-php artisan seo:audit   # confirm the imported metadata looks right
+php artisan seo:audit --model="App\Models\Post" --strict   # CI/cutover gate
 ```
 
-See [Free SEO audit](/guide/audit). Once you're satisfied, decommission
-WordPress.
+`--strict` exits non-zero if any page has an issue. See
+[Free SEO audit](/guide/audit). For the full, ordered cutover procedure —
+coexist → import → verify → decommission — follow the
+[WordPress migration runbook](/guide/wordpress-migration-runbook).
 
 ---
 

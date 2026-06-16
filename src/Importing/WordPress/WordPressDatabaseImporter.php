@@ -38,6 +38,15 @@ abstract class WordPressDatabaseImporter extends WordPressImporter
     protected const DEFAULT_POST_TYPES = ['post', 'page'];
 
     /**
+     * Lazily-built `wp_users.ID => display_name` map, used to resolve the post
+     * author into a readable value for the verification report. Null until the
+     * first author lookup; an empty array once loaded (or when no users table).
+     *
+     * @var array<string, string>|null
+     */
+    protected ?array $authorNameCache = null;
+
+    /**
      * The `wp_postmeta.meta_key` prefix this plugin uses (e.g. `_yoast_wpseo_`).
      */
     abstract protected function metaKeyPrefix(): string;
@@ -170,10 +179,19 @@ abstract class WordPressDatabaseImporter extends WordPressImporter
                 return;
             }
 
+            // The post author has no Core 3 column (it is a getSEOAuthor()
+            // concern), so surface every distinct value rather than lose it —
+            // for matched and URL-only pages alike.
+            $author = $this->authorFor($post, $options);
+
+            if ($author !== null) {
+                $result->unmapped('author', $author);
+            }
+
             $model = $this->matchModel($modelClass, $matchBy, $slug);
 
             if ($model === null) {
-                $result->skip($slug, $modelClass, $this->urlOnlyReason($modelClass, $slug));
+                $result->urlOnly($slug, $modelClass, $this->urlOnlyReason($modelClass, $slug));
 
                 return;
             }
@@ -331,6 +349,58 @@ abstract class WordPressDatabaseImporter extends WordPressImporter
         } catch (Throwable) {
             return null;
         }
+    }
+
+    /**
+     * Resolve a post's author to a readable value for the verification report,
+     * or null when the post has no author. Display names come from the
+     * `{prefix}users` table when readable; otherwise the numeric WordPress user
+     * id is surfaced as `user #N` so the author is never silently dropped.
+     */
+    protected function authorFor(object $post, ImportOptions $options): ?string
+    {
+        $rawId = $post->post_author ?? null;
+
+        if ($rawId === null || $rawId === '' || (string) $rawId === '0') {
+            return null;
+        }
+
+        $id = (string) $rawId;
+
+        return $this->authorNames($options)[$id] ?? ('user #'.$id);
+    }
+
+    /**
+     * The `{prefix}users` display-name map, loaded once per run. Best-effort:
+     * a missing or unreadable users table just leaves authors as numeric ids.
+     *
+     * @return array<string, string>
+     */
+    protected function authorNames(ImportOptions $options): array
+    {
+        if ($this->authorNameCache !== null) {
+            return $this->authorNameCache;
+        }
+
+        $this->authorNameCache = [];
+
+        try {
+            $rows = DB::connection($options->connection)
+                ->table($this->prefix($options).'users')
+                ->get(['ID', 'display_name']);
+
+            foreach ($rows as $row) {
+                $name = $this->clean($row->display_name ?? null);
+
+                if ($name !== null) {
+                    $this->authorNameCache[(string) $row->ID] = $name;
+                }
+            }
+        } catch (Throwable) {
+            // No users table / not readable — authors surface as numeric ids.
+        }
+
+        return $this->authorNameCache;
     }
 
     protected function prefix(ImportOptions $options): string

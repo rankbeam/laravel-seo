@@ -191,9 +191,12 @@ class RalphJSmitImporter extends AbstractImporter
             'og_image' => $this->clean($row['image'] ?? null),
         ], static fn ($value) => $value !== null);
 
-        // author has no home in the Core 3 schema — report, never copy.
-        if ($this->clean($row['author'] ?? null) !== null) {
-            $result->unmapped('author');
+        // author has no home in the Core 3 schema — report the value (so the
+        // operator can re-home it via getSEOAuthor()), never copy it.
+        $author = $this->clean($row['author'] ?? null);
+
+        if ($author !== null) {
+            $result->unmapped('author', $author);
         }
 
         return $attributes;

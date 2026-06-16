@@ -181,6 +181,7 @@ class ImportFromCommand extends Command
             $result->skippedCount(),
         ));
 
+        $this->renderVerification($result);
         $this->renderTruncations($result);
         $this->renderUnmapped($result);
         $this->renderRedirects($result);
@@ -191,6 +192,37 @@ class ImportFromCommand extends Command
             $this->newLine();
             $this->line('<options=bold>Dry run — nothing was written.</> Re-run without <comment>--dry-run</comment> to apply.');
         }
+    }
+
+    /**
+     * The verification report — the at-a-glance breakdown an operator confirms
+     * BEFORE removing the legacy package/table: how many source rows attached to
+     * a model, how many were URL-only, and the truncated / unmapped tallies.
+     * The full per-field detail (incl. every captured author value) follows in
+     * the sections below and in `--json`.
+     */
+    protected function renderVerification(ImportResult $result): void
+    {
+        $v = $result->verification();
+        $otherSkipped = max(0, $v['skipped'] - $v['url_only']);
+
+        $this->newLine();
+        $this->line('<options=bold>Verification report</>');
+        $this->line(sprintf(
+            '  <fg=green>%d matched</> (%d created, %d updated, %d unchanged), '
+            .'<fg=yellow>%d url-only</>, <fg=yellow>%d other skipped</>.',
+            $v['matched'],
+            $v['created'],
+            $v['updated'],
+            $v['unchanged'],
+            $v['url_only'],
+            $otherSkipped,
+        ));
+        $this->line(sprintf(
+            '  <fg=yellow>%d field(s) truncated</> to fit, <fg=yellow>%d field(s) not imported</> (no Core 3 column).',
+            count($v['truncated']),
+            count($v['unmapped']),
+        ));
     }
 
     protected function renderTruncations(ImportResult $result): void
@@ -217,7 +249,17 @@ class ImportFromCommand extends Command
         $this->line('<fg=yellow>Not imported — no column in the Core 3 schema</>:');
 
         foreach ($result->unmapped as $field => $count) {
-            $this->line("  • {$field}: {$count} row(s) had a value");
+            $line = "  • {$field}: {$count} row(s) had a value";
+
+            // Curated fields (above all `author`) carry their distinct values so
+            // the operator can re-home them rather than discover the loss later.
+            $values = $result->unmappedValues[$field] ?? [];
+
+            if ($values !== []) {
+                $line .= ' — '.implode(', ', $values);
+            }
+
+            $this->line($line);
         }
     }
 

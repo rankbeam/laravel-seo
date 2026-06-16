@@ -15,6 +15,13 @@ namespace Rankbeam\Seo\Importing;
  */
 final class ImportResult
 {
+    /**
+     * The most distinct values we keep per unmapped field (e.g. author names).
+     * Authors are low-cardinality, so this comfortably holds "every" value for a
+     * real migration while bounding memory against a pathological source.
+     */
+    public const MAX_UNMAPPED_VALUES = 500;
+
     /** Total source rows examined (after any model-scope filter). */
     public int $scanned = 0;
 
@@ -26,6 +33,14 @@ final class ImportResult
 
     /** Rows whose mapped values already matched the stored record (true no-ops). */
     public int $unchanged = 0;
+
+    /**
+     * Rows skipped specifically because the source row described a URL/page that
+     * matched no Eloquent model (or no `--model` was given), so it could not
+     * become a polymorphic `seo_meta` row. A first-class count in the
+     * verification report — these are the rows a migration most needs to eyeball.
+     */
+    public int $urlOnly = 0;
 
     /**
      * Rows that were skipped, each with a stable reason key.
@@ -55,6 +70,17 @@ final class ImportResult
      * @var array<string, int>
      */
     public array $unmapped = [];
+
+    /**
+     * The distinct *values* dropped for unmapped fields the operator needs to
+     * see verbatim — above all `author`, which has no Core 3 column but must
+     * never silently vanish in a migration (the operator re-homes it via a
+     * `getSEOAuthor()` hook). Counts live in {@see self::$unmapped}; only
+     * curated, low-cardinality, actionable fields capture their values here.
+     *
+     * @var array<string, array<int, string>>
+     */
+    public array $unmappedValues = [];
 
     /**
      * Number of redirect candidates emitted to the redirects CSV (the
@@ -96,6 +122,17 @@ final class ImportResult
         $this->skipped[] = ['key' => $key, 'type' => $type, 'reason' => $reason];
     }
 
+    /**
+     * Record a row that could not attach to a model (no match / no `--model`).
+     * It is both counted as URL-only for the verification report and recorded
+     * as a skip so it still appears under skips-by-reason.
+     */
+    public function urlOnly(int|string|null $key, ?string $type, string $reason): void
+    {
+        $this->urlOnly++;
+        $this->skip($key, $type, $reason);
+    }
+
     public function warn(string $message): void
     {
         if (! in_array($message, $this->warnings, true)) {
@@ -108,9 +145,34 @@ final class ImportResult
         $this->truncations[$field] = ($this->truncations[$field] ?? 0) + 1;
     }
 
-    public function unmapped(string $field): void
+    /**
+     * Record that a source field held data with no Core 3 home. Always counts
+     * the occurrence; when $value is given (e.g. an author name), the distinct
+     * value is also retained — bounded by {@see self::MAX_UNMAPPED_VALUES} —
+     * so the verification report can list exactly what was dropped.
+     */
+    public function unmapped(string $field, ?string $value = null): void
     {
         $this->unmapped[$field] = ($this->unmapped[$field] ?? 0) + 1;
+
+        if ($value === null) {
+            return;
+        }
+
+        $value = trim($value);
+
+        if ($value === '') {
+            return;
+        }
+
+        $existing = $this->unmappedValues[$field] ?? [];
+
+        if (in_array($value, $existing, true) || count($existing) >= self::MAX_UNMAPPED_VALUES) {
+            return;
+        }
+
+        $existing[] = $value;
+        $this->unmappedValues[$field] = $existing;
     }
 
     /**
@@ -127,6 +189,45 @@ final class ImportResult
     public function writes(): int
     {
         return $this->created + $this->updated;
+    }
+
+    /**
+     * Rows that attached to a model — created, updated, or already current.
+     * The complement of url-only/skipped, for the verification report.
+     */
+    public function matched(): int
+    {
+        return $this->created + $this->updated + $this->unchanged;
+    }
+
+    /**
+     * The verification report: a single, self-describing structure an operator
+     * can read (or archive via `--json`) to confirm exactly what the import did
+     * BEFORE removing the legacy package/table — how many rows attached to a
+     * model, how many were URL-only, what was truncated to fit, and what was
+     * dropped for lack of a Core 3 column (with every distinct author value).
+     *
+     * @return array{
+     *     matched: int, created: int, updated: int, unchanged: int,
+     *     url_only: int, skipped: int,
+     *     truncated: array<string, int>,
+     *     unmapped: array<string, int>,
+     *     unmapped_values: array<string, array<int, string>>,
+     * }
+     */
+    public function verification(): array
+    {
+        return [
+            'matched' => $this->matched(),
+            'created' => $this->created,
+            'updated' => $this->updated,
+            'unchanged' => $this->unchanged,
+            'url_only' => $this->urlOnly,
+            'skipped' => $this->skippedCount(),
+            'truncated' => $this->truncations,
+            'unmapped' => $this->unmapped,
+            'unmapped_values' => $this->unmappedValues,
+        ];
     }
 
     public function skippedCount(): int
@@ -167,8 +268,10 @@ final class ImportResult
                 'skipped' => $this->skippedCount(),
                 'writes' => $this->writes(),
             ],
+            'verification' => $this->verification(),
             'truncations' => $this->truncations,
             'unmapped' => $this->unmapped,
+            'unmapped_values' => $this->unmappedValues,
             'redirects' => [
                 'emitted' => $this->redirects,
                 'file' => $this->redirectsFile,

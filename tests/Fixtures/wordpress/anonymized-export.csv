@@ -1,0 +1,13 @@
+url,title,description,canonical,robots,focus_keyword
+https://acme.test/post-0001,"Welcome to Acme","Our flagship guide to everything Acme.",https://acme.test/post-0001,"index, follow","acme guide"
+https://acme.test/post-0002,"Pricing 2024","How Acme pricing works, plan by plan.",https://acme.test/pricing,"index, follow","acme pricing"
+https://acme.test/post-0003,"Everything You Ever Wanted To Know About Acme Widgets And Never Thought To Ask","The complete widget reference.",https://acme.test/post-0003,,"acme widgets"
+https://acme.test/post-0004,"Sobre nosotros","Información en español sobre Acme — ñ, á, é, 日本語.",https://acme.test/post-0004,,"sobre acme"
+https://acme.test/post-0005,"Tag Roundup","The best of the Acme blog this quarter.",https://acme.test/post-0005,,"acme, roundup, best of"
+https://acme.test/post-0006,"Legacy Landing Page",,,,
+https://acme.test/old-promo,"Expired Promo","This promo has ended.",https://acme.test/promo,"noindex, nofollow",
+,"Row With No URL","A malformed export line with no url to match.",,,
+https://acme.test/post-0008,"Extra Columns Row","A malformed line with one column too many.",https://acme.test/post-0008,,"acme",surplus-value
+
+https://acme.test/post-0009,"Contact Acme","Reach the Acme support and sales teams.",https://acme.test/post-0009,,"contact acme"
+https://acme.test/post-0010,"Status Page","Current Acme system status.",https://acme.test/status,,"acme status"

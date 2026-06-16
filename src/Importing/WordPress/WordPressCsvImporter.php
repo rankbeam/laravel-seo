@@ -179,7 +179,7 @@ class WordPressCsvImporter extends WordPressImporter
         }
 
         if ($model === null) {
-            $result->skip($url, $modelClass, $this->urlOnlyReason($modelClass, $slug));
+            $result->urlOnly($url, $modelClass, $this->urlOnlyReason($modelClass, $slug));
 
             return;
         }
