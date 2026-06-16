@@ -7,6 +7,149 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Resolver result cache for hot frontends (improvement plan T12)
+
+An opt-in cache for the resolver's output. The `SEOResolver` runs the full
+precedence chain on every frontend render; on a high-traffic site (the reference
+app does ~20k req/day) that is several DB reads per page. Enable this and a
+model's fully-resolved SEO is cached, so a **cache hit skips the precedence chain
+entirely** — in the package benchmark, a warm hit issues **zero** database
+queries where each uncached resolve re-reads the model's `seo_meta`. Additive and
+**off by default**; correctness with caching on is identical to off.
+
+#### Added
+
+- **`seo.cache.resolver.enabled`** (`SEO_RESOLVER_CACHE`, default `false`) and
+  **`seo.cache.resolver.ttl`** (`SEO_RESOLVER_CACHE_TTL`, default `3600`) — the
+  resolver result cache, using the existing `seo.cache.store`.
+- **`Rankbeam\Seo\Services\SEOResolutionCache`** — caches a resolved model's SEO
+  as a plain array (rehydrated with `SEOData::fromArray()`, **never an object** —
+  Laravel 13 ships `cache.serializable_classes = false`, so a cached object
+  returns as a `__PHP_Incomplete_Class`; this is the same reason
+  `SEODefaultsRepository` caches arrays). Entries are keyed by
+  `(model class, id, locale, route, request URL)`. On a **taggable** store
+  (`redis`, `memcached`, `array`) a model's entries clear via cache **tags**; on
+  a **non-taggable** store (`file`, `database`) it falls back to a per-model
+  **version stamp** — both clear one model without key-scanning.
+
+#### Invalidation (new — none existed before)
+
+The cache busts automatically, so a hit never serves stale data:
+
+- **New `SEOMeta` `saved`/`deleted` model-event listener** (on the `SEOMeta`
+  model) — busts the owning model's entries whenever its `seo_meta` row changes,
+  via any path (`saveSEO()`, Filament, a direct `SEOMeta` write); a morph alias
+  is normalized back to the FQCN the resolver keys by. Inert when caching is off.
+- **New `HasSEO` `saved` listener** — busts a model's entries when one of its
+  `getSEOContentFields()` columns changes (those feed the *computed* layer). The
+  default field list now covers every built-in computed fallback field: title /
+  heading fields, description/content fields, and the common social-image fields
+  (`featured_image`, `thumbnail`, `cover_image`, `og_image`, `photo`, `banner`,
+  `hero_image`, etc.). The `deleted` hook also busts. Inert when caching is off.
+- **`SEODefault` save/delete** now also flushes the whole resolution cache (a
+  default can feed any model's resolution).
+
+#### Notes
+
+- Only **model-backed** resolves are cached: a hand-built `SEOData` rendered
+  through `SEO::render()`/`@seo()` and a model-less `@seoForRoute()` still resolve
+  live (they have no stable model identity to key/invalidate by).
+- The published `SEOData::toArray()` is a *nested, lossy* render shape and is
+  **not** the inverse of `fromArray()`; the cache serializes via the flat
+  `toFlatArray()` (with the two DateTime fields stored as ISO-8601 so
+  published/modified times round-trip to the second across timezones).
+- The cached `article:modified_time` reflects the last **content-field** change
+  (or the TTL): a bare `touch()` that moves only `updated_at` without changing a
+  `getSEOContentFields()` column does not force a re-resolve. Widen
+  `getSEOContentFields()` if you need it busted eagerly.
+- Internally, `SEOResolver::resolve()` is split into a cache wrapper over a
+  `buildResolved()` body and uses a re-entrancy depth guard so the schema layer's
+  nested `webPage()` resolve neither reads nor writes the cache. With caching off,
+  behaviour is byte-identical to before.
+
+This is an **additive, opt-in minor** (no UPGRADING). The new `SEOMeta`/`HasSEO`
+model-event listeners are inert while `seo.cache.resolver.enabled` is `false`
+(the default), so no behaviour changes for existing apps.
+
+### Schema composition: @id-linked graph + getSEOSchema() hook (improvement plan T11)
+
+A composition layer on top of the existing `SchemaGraph` and loop-guarded
+`BreadcrumbSchema::fromModelAncestors()` primitives, so an app can assemble a
+cross-linked Organization / WebSite / WebPage + breadcrumb graph without
+hand-rolling a sitewide-schema class. Additive — models that do not opt in
+render no schema, exactly as before.
+
+#### Added
+
+- **`SchemaGraph::for($model)` fluent builder** (`Rankbeam\Seo\Services\Schema\SchemaGraphBuilder`)
+  — chain `->organization()->website()->webPage()->breadcrumbFromAncestors()`
+  then `->toArray()` to compose the @id-linked graph. It only glues the existing
+  primitives together: it adds no schema logic and introduces no parallel
+  breadcrumb API. `webPage()` resolves the subject's `SEOData` (or takes one
+  explicitly); `breadcrumbFromAncestors()` delegates to the existing
+  loop-guarded `BreadcrumbSchema::fromModelAncestors()`; `add()` accepts any
+  pre-built node. The nodes carry deterministic, stable @ids
+  (`{site_url}#organization`, `{site_url}#website`, `{canonical}#webpage`).
+- **`getSEOSchema(): array` model hook** (on the `HasSEO` trait) — return one or
+  more schema.org nodes. The default is an empty list. Compose the return value
+  with `SchemaGraph::for($this)`.
+- **`seo.schema.type_map` config mapping** — an optional `model class => builder`
+  fallback used only when a model has no stored schema and does not override
+  `getSEOSchema()`. The builder is an invokable class-string (resolved through
+  the container; the config:cache-safe canonical form), a Closure, or any
+  callable, invoked with the model. An exact class match wins; otherwise the
+  first mapped class the model is an instance of (so a base mapping covers
+  subclasses).
+
+#### Precedence (explicit over computed)
+
+- An **explicit stored `seo_meta.schema_jsonld`** (or a schema supplied by a
+  default layer) is **authoritative**: it is emitted as-is and the hook /
+  type-map is **not** invoked for that model — no silent merge. The hook and
+  type-map produce the graph only when no schema is otherwise present. The
+  computed-schema step runs as a final resolver layer and is re-entrancy-guarded
+  so a `getSEOSchema()` that composes `webPage()` (which re-resolves the model's
+  `seoData()`) terminates instead of recursing.
+
+### Optional dimension-aware social-image selection (improvement plan T10)
+
+An opt-in computed-image strategy that picks the social / Open Graph image
+whose pixel dimensions sit closest to the ideal, instead of just the first
+match. Additive — the default behaviour is byte-identical to before.
+
+#### Added
+
+- **`getSEOImages(): iterable` model hook** (on the `HasSEO` trait) — return an
+  ordered list of `Rankbeam\Seo\Data\SEOImageCandidate` objects (or plain URL
+  strings, treated as priority 0) to expose multiple social-image candidates.
+  The default is an empty list, so models that do not override it are
+  unaffected.
+- **`SEOImageCandidate` value object** — `SEOImageCandidate::make($url)->priority(100)`;
+  immutable, carries a URL and a relative priority that breaks ties.
+- **`seo.computed.image_selection` config block** — `strategy` (`first` default,
+  or `best`), `minimum_width` / `minimum_height` (200×200), `ideal_width` /
+  `ideal_height` (1200×630). Under the `best` strategy the builder scores every
+  candidate (`getSEOImage()` first — it stays the highest-priority candidate —
+  then the `getSEOImages()` hook, then common fields, content, and the
+  configured default) by closeness to the ideal and **skips any below the
+  minimum**. The default `first` strategy is unchanged: the highest-priority
+  non-empty source wins and no image is opened or measured.
+- New `Rankbeam\Seo\Services\LocalImageInspector`, extracted from
+  `SEOWarningEvaluator`, is now the single source of truth for measuring a
+  local image's dimensions — so the editorial preview's "too small" and the
+  selector's "skip undersized" can never diverge.
+
+#### Notes
+
+- **Local images only.** Core never fetches a remote image (SSRF / latency /
+  cache); a remote URL is never measured and can only act as a fallback. Remote
+  dimension checks remain the Filament preview's client-side job. When no local
+  candidate clears the minimum, selection falls back to first-match, so `best`
+  never returns less than `first` would.
+- The `best`-strategy default thresholds track `SEOWarningEvaluator`'s
+  constants (200×200 minimum, 1200×630 ideal), keeping audit, preview, and
+  selection in agreement.
+
 ### WordPress / legacy migration hardening + import verification report (improvement plan T9)
 
 Hardening for the WordPress / legacy migration path, plus an import
@@ -39,6 +182,30 @@ before decommissioning the old stack. Additive — no command option changes.
   the ordered, low-risk cutover procedure — coexist → import → verify with
   `seo:audit --strict` → explicit verification before removing the legacy
   package/table.
+
+### Documented robots / `is_indexable` support (improvement plan T3)
+
+Documentation and tests only — **no behaviour or API change.** Per-model robots
+control already shipped (`SEOComputedBuilder::computeRobots()` honours a model's
+`getSEORobots()` hook and derives `noindex, nofollow` from a falsy `is_indexable`
+attribute), but the `HasSEO` trait doesn't declare the hook, so it read as
+missing.
+
+#### Documentation
+
+- The `HasSEO` trait docblock, the [resolver-precedence](docs/concepts/resolver-precedence.md)
+  guide, and the README now document the `getSEORobots()` hook, the
+  `is_indexable` derivation, and how the resolved directive flows through the
+  robots emit policy (a directive equal to `seo.default_robots` is suppressed; a
+  deviating one is emitted verbatim).
+
+#### Tests
+
+- Added end-to-end characterization tests proving a model with
+  `is_indexable=false`, an explicit `seo_meta.robots`, or a `getSEORobots()` hook
+  renders the expected `<meta name="robots">` tag through the full
+  resolve → render path — and that an indexable model emits no tag (its
+  `index, follow` equals the site default).
 
 ### Render surface accepts `Model | SEOData | null` (improvement plan T1)
 

@@ -72,6 +72,17 @@ class SEOResolver
     ) {}
 
     /**
+     * Re-entrancy depth of resolve().
+     *
+     * Only a top-level resolve (depth 0) consults the result cache. The schema
+     * layer's getSEOSchema() can call back into resolve() (to build a webPage()
+     * node from the model's seoData()); that nested resolve must NOT read or
+     * write the cache — its result deliberately omits the schema, and it shares
+     * the outer call's cache key.
+     */
+    protected static int $depth = 0;
+
+    /**
      * Resolve SEO data with proper precedence.
      *
      * This is the main entry point for getting fully-resolved SEO data.
@@ -101,6 +112,67 @@ class SEOResolver
     ): SEOData {
         $locale ??= app()->getLocale();
 
+        $cache = $this->resolutionCache();
+
+        // The resolver result cache (opt-in, seo.cache.resolver.enabled) short-
+        // circuits the whole precedence chain on a hit. Only model-backed,
+        // top-level resolves are cached: a model has a stable (class, id)
+        // identity to key and invalidate by, and self::$depth === 0 excludes the
+        // nested resolve() the schema layer performs for a webPage() node (its
+        // result lacks the schema by design — never cache that under the same
+        // key). When the feature is off, $useCache is false and resolve()
+        // behaves byte-identically to an uncached package.
+        $useCache = $cache->enabled()
+            && self::$depth === 0
+            && $model !== null
+            && $model->getKey() !== null;
+
+        $effectiveRoute = $route;
+        $url = null;
+
+        if ($useCache) {
+            // Mirror applyRouteDefaults()'s route derivation and capture the
+            // canonical-determining request URL, so the key reflects exactly the
+            // inputs the chain consumes.
+            $effectiveRoute = $route ?? request()?->route()?->getName();
+            $url = $this->currentRequestUrl();
+
+            $cached = $cache->get($model::class, $model->getKey(), $locale, $effectiveRoute, $url);
+
+            if ($cached !== null) {
+                return $cached;
+            }
+        }
+
+        self::$depth++;
+
+        try {
+            $result = $this->buildResolved($model, $route, $locale);
+        } finally {
+            self::$depth--;
+        }
+
+        if ($useCache) {
+            $cache->put($model::class, $model->getKey(), $locale, $effectiveRoute, $url, $result);
+        }
+
+        return $result;
+    }
+
+    /**
+     * Run the full precedence chain for a model/route/locale.
+     *
+     * This is the uncached body of {@see resolve()}: it always recomputes from
+     * config, database defaults, computed model values, and explicit seo_meta.
+     * resolve() wraps it with the optional result cache.
+     *
+     * @param  Model|null  $model  The Eloquent model to resolve for
+     * @param  string|null  $route  The route name (auto-detected from the request if null)
+     * @param  string  $locale  The locale to resolve for
+     * @return SEOData Fully resolved SEO data
+     */
+    protected function buildResolved(?Model $model, ?string $route, string $locale): SEOData
+    {
         // Layer 0: Base configuration from config/seo.php
         $result = $this->buildBaseConfig($locale);
 
@@ -129,6 +201,13 @@ class SEOResolver
         $result = $this->applyTitleSuffix($result);
         $result = $this->ensureCanonical($result, $model);
         $result = $this->ensureAbsoluteImages($result);
+
+        // Layer 6: Computed JSON-LD schema graph — only as a fallback when no
+        // explicit schema (stored seo_meta.schema_jsonld or a default layer)
+        // already set one.
+        if ($model) {
+            $result = $this->applyModelSchema($result, $model);
+        }
 
         return $result;
     }
@@ -299,6 +378,41 @@ class SEOResolver
     protected function renderer(): TagRenderer
     {
         return app(TagRenderer::class);
+    }
+
+    /**
+     * Resolve the shared resolution-cache instance.
+     *
+     * Looked up lazily (like the TagRenderer) so the constructor signature is
+     * unchanged for anyone building SEOResolver directly.
+     */
+    protected function resolutionCache(): SEOResolutionCache
+    {
+        return app(SEOResolutionCache::class);
+    }
+
+    /**
+     * The canonical-determining URL of the current request, or null in a
+     * request-less context (console, sitemap generation, queue worker).
+     *
+     * url()->current() carries the scheme, host, and path (never the query
+     * string), which is exactly what ensureCanonical()'s fallback feeds into the
+     * canonical / og:url — so including it in the cache key keeps a cached
+     * resolution correct for a model whose canonical derives from the request
+     * URL, while two requests to the same path (differing only by query string)
+     * still share one entry.
+     */
+    protected function currentRequestUrl(): ?string
+    {
+        if (! request()) {
+            return null;
+        }
+
+        try {
+            return url()->current();
+        } catch (\Throwable) {
+            return null;
+        }
     }
 
     /**
@@ -481,6 +595,161 @@ class SEOResolver
         }
 
         return $explicit;
+    }
+
+    /**
+     * Re-entrancy guard for the computed-schema layer.
+     *
+     * Keyed by model+locale. A model's getSEOSchema() typically builds a
+     * WebPage node from SchemaGraph::for($this)->webPage(), which resolves the
+     * model's seoData() again — re-entering this resolver. The guard makes that
+     * nested resolve skip the schema layer (the WebPage node never needs the
+     * schema), so composition terminates instead of recursing forever.
+     *
+     * @var array<string, bool>
+     */
+    protected static array $resolvingSchema = [];
+
+    /**
+     * Apply the computed JSON-LD schema graph as a fallback.
+     *
+     * Mirrors the explicit-over-computed precedence used everywhere else: an
+     * explicit schema (a stored seo_meta.schema_jsonld, already merged in by
+     * applyExplicitValues, or one supplied by a default layer) is
+     * AUTHORITATIVE — it is emitted as-is and the hook / type-map is NOT
+     * invoked. Only when no schema is present does the model's
+     * getSEOSchema() hook (or the seo.schema.type_map config mapping) produce
+     * the graph.
+     *
+     * @param SEOData $result The resolved SEO data so far
+     * @param Model $model The Eloquent model
+     * @return SEOData SEO data with a computed schema graph filled in, or unchanged
+     */
+    protected function applyModelSchema(SEOData $result, Model $model): SEOData
+    {
+        // Explicit schema is authoritative — never override it, never call the
+        // hook for this model.
+        if ($result->schemaJsonld !== null && $result->schemaJsonld !== []) {
+            return $result;
+        }
+
+        $key = $model::class . ':' . ($model->getKey() ?? spl_object_id($model));
+
+        // Re-entrant (the hook resolved seoData() again) — break the cycle.
+        if (isset(self::$resolvingSchema[$key])) {
+            return $result;
+        }
+
+        self::$resolvingSchema[$key] = true;
+
+        try {
+            $schema = $this->computeModelSchema($model);
+        } finally {
+            unset(self::$resolvingSchema[$key]);
+        }
+
+        if ($schema === null || $schema === []) {
+            return $result;
+        }
+
+        return $result->with('schemaJsonld', $schema);
+    }
+
+    /**
+     * Produce the computed schema graph for a model, hook first.
+     *
+     * Precedence: the per-model getSEOSchema() hook (most specific) wins when
+     * it returns a non-empty graph; otherwise the seo.schema.type_map config
+     * mapping (model class → builder) is consulted. Returns null when neither
+     * yields anything.
+     *
+     * @param Model $model The Eloquent model
+     * @return array<int|string, mixed>|null One or more schema.org nodes, or null
+     */
+    protected function computeModelSchema(Model $model): ?array
+    {
+        if (method_exists($model, 'getSEOSchema')) {
+            $nodes = $model->getSEOSchema();
+
+            if (is_array($nodes) && $nodes !== []) {
+                return $nodes;
+            }
+        }
+
+        return $this->schemaFromTypeMap($model);
+    }
+
+    /**
+     * Resolve a schema graph from the seo.schema.type_map config mapping.
+     *
+     * The map keys are model class names; an exact match wins, otherwise the
+     * first mapped class the model is an instance of (so a base-class mapping
+     * covers subclasses). The value is a builder — a Closure, an invokable
+     * class-string (resolved through the container), an invokable object, or
+     * any callable — invoked with the model and expected to return nodes.
+     *
+     * @param Model $model The Eloquent model
+     * @return array<int|string, mixed>|null
+     */
+    protected function schemaFromTypeMap(Model $model): ?array
+    {
+        /** @var array<class-string, mixed> $map */
+        $map = (array) config('seo.schema.type_map', []);
+
+        if ($map === []) {
+            return null;
+        }
+
+        $builder = $map[$model::class] ?? null;
+
+        if ($builder === null) {
+            foreach ($map as $class => $candidate) {
+                if (is_string($class) && $model instanceof $class) {
+                    $builder = $candidate;
+                    break;
+                }
+            }
+        }
+
+        if ($builder === null) {
+            return null;
+        }
+
+        $nodes = $this->callSchemaBuilder($builder, $model);
+
+        return is_array($nodes) && $nodes !== [] ? $nodes : null;
+    }
+
+    /**
+     * Invoke a type-map builder for a model.
+     *
+     * A class-string is resolved through the container first (so the builder
+     * can have its own dependencies), then invoked. The canonical config form
+     * is an invokable class (`__invoke(Model $model): array`), which survives
+     * config:cache — a Closure does not and is supported only for runtime use.
+     *
+     * @param mixed $builder The configured builder
+     * @param Model $model The Eloquent model
+     */
+    protected function callSchemaBuilder(mixed $builder, Model $model): mixed
+    {
+        if ($builder instanceof \Closure) {
+            return $builder($model);
+        }
+
+        if (is_string($builder) && class_exists($builder)) {
+            $builder = app($builder);
+        }
+
+        if (is_object($builder) && is_callable($builder)) {
+            return $builder($model);
+        }
+
+        if (is_callable($builder)) {
+            return $builder($model);
+        }
+
+        return null;
     }
 
     /**

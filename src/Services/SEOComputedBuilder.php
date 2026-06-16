@@ -7,6 +7,7 @@ namespace Rankbeam\Seo\Services;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;
 use Rankbeam\Seo\Data\SEOData;
+use Rankbeam\Seo\Data\SEOImageCandidate;
 use Rankbeam\Seo\Traits\HasSEO;
 
 /**
@@ -90,6 +91,21 @@ class SEOComputedBuilder
      * Characters trimmed from the end of a truncated description.
      */
     protected const TRUNCATION_TRIM_CHARS = " \t\n\r\0\x0B,.;:-";
+
+    /**
+     * Default image-selection thresholds for the dimension-aware "best"
+     * strategy. These track {@see SEOWarningEvaluator}'s constants so the
+     * editorial preview and the computed selection agree on what counts as
+     * too-small (minimum) and ideal. They are only fallbacks: each is
+     * overridable under config('seo.computed.image_selection.*').
+     */
+    protected const DEFAULT_MIN_IMAGE_WIDTH = SEOWarningEvaluator::MIN_SOCIAL_IMAGE_WIDTH;
+
+    protected const DEFAULT_MIN_IMAGE_HEIGHT = SEOWarningEvaluator::MIN_SOCIAL_IMAGE_HEIGHT;
+
+    protected const DEFAULT_IDEAL_IMAGE_WIDTH = SEOWarningEvaluator::IDEAL_SOCIAL_IMAGE_WIDTH;
+
+    protected const DEFAULT_IDEAL_IMAGE_HEIGHT = SEOWarningEvaluator::IDEAL_SOCIAL_IMAGE_HEIGHT;
 
     /**
      * Common title fields to check on models.
@@ -282,10 +298,41 @@ class SEOComputedBuilder
     /**
      * Compute the image from model fields.
      *
+     * The strategy is config-driven (`seo.computed.image_selection.strategy`):
+     *
+     * - `first` (default) — first-match: the highest-priority non-empty source
+     *   wins, exactly as it always has. No image is opened or measured.
+     * - `best` — opt-in, dimension-aware: every candidate (getSEOImage() first,
+     *   then the ordered getSEOImages() hook, then common fields / content /
+     *   default) is scored by how close its LOCAL pixel dimensions are to the
+     *   configured ideal (1200×630), skipping any below the minimum (200×200).
+     *   Remote images are never fetched, so they can only act as a fallback.
+     *   When no local candidate qualifies, this falls back to first-match.
+     *
      * @param  Model  $model  The Eloquent model
      * @return string|null Computed image URL or null
      */
     protected function computeImage(Model $model): ?string
+    {
+        $strategy = config('seo.computed.image_selection.strategy', 'first');
+
+        if ($strategy === 'best') {
+            $best = $this->selectBestSizedImage($model);
+            if ($best !== null) {
+                return $best;
+            }
+        }
+
+        return $this->firstComputedImage($model);
+    }
+
+    /**
+     * First-match image selection — the historical, always-on behavior.
+     *
+     * @param  Model  $model  The Eloquent model
+     * @return string|null Computed image URL or null
+     */
+    protected function firstComputedImage(Model $model): ?string
     {
         // Priority 1: Custom method
         if (method_exists($model, 'getSEOImage')) {
@@ -318,6 +365,188 @@ class SEOComputedBuilder
         $default = config('seo.default_og_image');
 
         return $default ? $this->normalizeImageUrl($default) : null;
+    }
+
+    /**
+     * Pick the candidate whose LOCAL dimensions are closest to the configured
+     * ideal, skipping any below the configured minimum.
+     *
+     * Candidates are gathered in priority order (getSEOImage() highest, then
+     * the getSEOImages() hook, then common fields, content, and the configured
+     * default) and de-duplicated by absolute URL. Only candidates that resolve
+     * to a readable local image file are measured — a remote URL is never
+     * fetched. Closeness is squared Euclidean distance in (width, height)
+     * space; ties break toward the higher-priority, then earlier, candidate.
+     *
+     * @param  Model  $model  The Eloquent model
+     * @return string|null The best-sized candidate's absolute URL, or null when
+     *                      no local candidate clears the minimum
+     */
+    protected function selectBestSizedImage(Model $model): ?string
+    {
+        $selection = (array) config('seo.computed.image_selection', []);
+        $minWidth = (int) ($selection['minimum_width'] ?? self::DEFAULT_MIN_IMAGE_WIDTH);
+        $minHeight = (int) ($selection['minimum_height'] ?? self::DEFAULT_MIN_IMAGE_HEIGHT);
+        $idealWidth = (int) ($selection['ideal_width'] ?? self::DEFAULT_IDEAL_IMAGE_WIDTH);
+        $idealHeight = (int) ($selection['ideal_height'] ?? self::DEFAULT_IDEAL_IMAGE_HEIGHT);
+
+        $inspector = new LocalImageInspector();
+        $best = null;
+
+        foreach ($this->imageCandidates($model) as $index => $candidate) {
+            $size = $inspector->dimensions($candidate['raw']);
+            if ($size === null) {
+                // Remote or unreadable — Core never fetches it.
+                continue;
+            }
+
+            $width = $size['width'];
+            $height = $size['height'];
+            if ($width < $minWidth || $height < $minHeight) {
+                continue; // Undersized for a social card — skip it.
+            }
+
+            $score = [
+                'distance' => (($width - $idealWidth) ** 2) + (($height - $idealHeight) ** 2),
+                'priority' => $candidate['priority'],
+                'index' => $index,
+                'url' => $candidate['normalized'],
+            ];
+
+            if ($best === null || $this->imageScoreBeats($score, $best)) {
+                $best = $score;
+            }
+        }
+
+        return $best['url'] ?? null;
+    }
+
+    /**
+     * Whether image score $a should be preferred over the current best $b:
+     * closer to the ideal first, then higher priority, then earlier in order.
+     *
+     * @param  array{distance: int, priority: int, index: int, url: string}  $a
+     * @param  array{distance: int, priority: int, index: int, url: string}  $b
+     */
+    protected function imageScoreBeats(array $a, array $b): bool
+    {
+        if ($a['distance'] !== $b['distance']) {
+            return $a['distance'] < $b['distance'];
+        }
+
+        if ($a['priority'] !== $b['priority']) {
+            return $a['priority'] > $b['priority'];
+        }
+
+        return $a['index'] < $b['index'];
+    }
+
+    /**
+     * Gather the ordered, de-duplicated image candidates for a model.
+     *
+     * getSEOImage() is the highest-priority candidate (preserving its place at
+     * the top of the chain); the getSEOImages() hook supplies the explicit
+     * ordered list; common image fields, the first content image, and the
+     * configured default fill in below. Duplicate URLs collapse to their
+     * highest-priority (first-seen) occurrence.
+     *
+     * @param  Model  $model  The Eloquent model
+     * @return array<int, array{raw: string, normalized: string, priority: int}>
+     */
+    protected function imageCandidates(Model $model): array
+    {
+        $raw = [];
+
+        // 1. getSEOImage() — highest priority, mirrors first-match precedence.
+        if (method_exists($model, 'getSEOImage')) {
+            $image = $model->getSEOImage();
+            if (! empty($image) && is_string($image)) {
+                $raw[] = ['url' => $image, 'priority' => PHP_INT_MAX];
+            }
+        }
+
+        // 2. getSEOImages() — the explicit ordered candidate list.
+        if (method_exists($model, 'getSEOImages')) {
+            foreach ($model->getSEOImages() as $candidate) {
+                $normalized = $this->normalizeImageCandidate($candidate);
+                if ($normalized !== null) {
+                    $raw[] = $normalized;
+                }
+            }
+        }
+
+        // 3. Common image fields — below any curated candidate.
+        $fieldPriority = -1;
+        foreach ($this->imageFields as $field) {
+            $value = $this->getModelAttribute($model, $field);
+            if (! empty($value) && is_string($value)) {
+                $raw[] = ['url' => $value, 'priority' => $fieldPriority--];
+            }
+        }
+
+        // 4. First image extracted from content.
+        foreach ($this->contentFields as $field) {
+            $content = $this->getModelAttribute($model, $field);
+            if (! empty($content) && is_string($content)) {
+                $image = $this->extractFirstImage($content);
+                if ($image) {
+                    $raw[] = ['url' => $image, 'priority' => PHP_INT_MIN + 1];
+                    break;
+                }
+            }
+        }
+
+        // 5. Configured default — lowest priority.
+        $default = config('seo.default_og_image');
+        if (! empty($default) && is_string($default)) {
+            $raw[] = ['url' => $default, 'priority' => PHP_INT_MIN];
+        }
+
+        // Normalize to absolute URLs and de-duplicate, keeping the first
+        // (highest-priority) occurrence of each.
+        $seen = [];
+        $candidates = [];
+        foreach ($raw as $entry) {
+            $normalized = $this->normalizeImageUrl($entry['url']);
+            if (isset($seen[$normalized])) {
+                continue;
+            }
+            $seen[$normalized] = true;
+            $candidates[] = [
+                'raw' => $entry['url'],
+                'normalized' => $normalized,
+                'priority' => $entry['priority'],
+            ];
+        }
+
+        return $candidates;
+    }
+
+    /**
+     * Normalize a getSEOImages() entry to an internal candidate array.
+     *
+     * Accepts an {@see SEOImageCandidate} or a plain URL string (priority 0).
+     * Anything else, or an empty URL, is dropped.
+     *
+     * @return array{url: string, priority: int}|null
+     */
+    protected function normalizeImageCandidate(mixed $candidate): ?array
+    {
+        if ($candidate instanceof SEOImageCandidate) {
+            $url = $candidate->url;
+            $priority = $candidate->priority;
+        } elseif (is_string($candidate)) {
+            $url = $candidate;
+            $priority = 0;
+        } else {
+            return null;
+        }
+
+        if (trim($url) === '') {
+            return null;
+        }
+
+        return ['url' => $url, 'priority' => $priority];
     }
 
     /**

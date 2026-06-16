@@ -54,7 +54,7 @@ dedicated worker for its queue. See [Production setup](/pro/production) for tuni
 |---|---|
 | `seo-pro:redirect-create {source} {target}` | Create a redirect rule (`--code=301`, `--regex`, `--no-preserve-query`, `--note=`) |
 | `seo-pro:404-list` | Logged 404s, most-hit first (`--status=new\|ignored\|redirected\|all`, `--limit=20`) |
-| `seo-pro:redirects-flush-hits` | Write cache-batched redirect hit counters to the database |
+| `seo-pro:redirects-flush-hits` | Write cache-batched redirect hit counters to the database when `redirects.hits.flush_immediately=false` |
 | `seo-pro:404-prune` | Delete stale 404 entries and enforce the row cap |
 
 ### On-page checklist
@@ -112,8 +112,7 @@ refused before anything is written.
 ```php
 use Illuminate\Support\Facades\Schedule;
 
-// Redirect hit counters are batched through the cache; flush them
-// to the database regularly.
+// Only needed when seo-pro.redirects.hits.flush_immediately=false.
 Schedule::command('seo-pro:redirects-flush-hits')->everyFiveMinutes();
 
 // Keep the 404 log within retention and the row cap.

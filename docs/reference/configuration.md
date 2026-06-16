@@ -104,7 +104,41 @@ falls back to the models registered under `sitemap.models`.
 
     // Truncation length — word boundary, no ellipsis.
     'description_max_length' => 160,
+
+    // Social / Open Graph image selection.
+    'image_selection' => [
+        // 'first' (default) — first non-empty source wins, nothing measured.
+        // 'best' — score local candidates by closeness to the ideal below,
+        //          skipping any under the minimum.
+        'strategy' => env('SEO_IMAGE_SELECTION', 'first'),
+        'minimum_width' => 200,
+        'minimum_height' => 200,
+        'ideal_width' => 1200,
+        'ideal_height' => 630,
+    ],
 ],
+```
+
+Under the opt-in `best` strategy, the builder scores an ordered candidate list —
+`getSEOImage()` first (it stays the highest-priority candidate), then the model's
+`getSEOImages()` hook, then the common image fields, the first content image, and
+the configured default — by how close each image's pixel dimensions are to the
+ideal, and **skips any below the minimum**. Only **local** images are measured (a
+relative path under `public/`, the public disk, or an absolute URL on your own
+host); a remote URL is never fetched and only acts as a fallback. When no local
+candidate clears the minimum, selection falls back to first-match, so `best`
+never returns less than `first` would. Expose candidates from your model:
+
+```php
+use Rankbeam\Seo\Data\SEOImageCandidate;
+
+public function getSEOImages(): iterable
+{
+    return [
+        SEOImageCandidate::make($this->hero_url)->priority(100),
+        SEOImageCandidate::make($this->thumbnail_url)->priority(10),
+    ];
+}
 ```
 
 ## Sitemaps
@@ -171,5 +205,63 @@ Set `enabled => false` when your app serves its own static `/sitemap.xml`.
 'cache' => [
     'prefix' => 'seo_',
     'store'  => env('SEO_CACHE_STORE'),   // null = app default
+
+    // Resolver result cache — the scale lever for hot frontends. OFF by default.
+    'resolver' => [
+        'enabled' => env('SEO_RESOLVER_CACHE', false),
+        'ttl'     => env('SEO_RESOLVER_CACHE_TTL', 3600),
+    ],
 ],
 ```
+
+### Resolver result cache
+
+The `SEOResolver` runs the full precedence chain — config → global / model-type /
+route defaults → computed model values → explicit `seo_meta` → title suffix /
+canonical / schema — on **every** frontend render. On a high-traffic site (the
+reference app does ~20k req/day) that is several DB reads per page.
+
+Enable `cache.resolver.enabled` and a model's fully-resolved SEO is cached and a
+cache **hit skips the precedence chain entirely** — in the package benchmark a
+warm hit issues **zero** database queries where each uncached resolve re-reads
+the model's `seo_meta`. The cached payload is a plain array, rehydrated with
+`SEOData::fromArray()` (never an object — Laravel 13 ships
+`cache.serializable_classes = false`, so a cached object returns as a
+`__PHP_Incomplete_Class`).
+
+It uses the `store` configured above, so point it at a **shared, persistent
+cache** (`redis` / `memcached`) in production — the cache and its invalidation
+must be visible to every web/queue worker. Leave it off until you have one.
+
+**Invalidation is automatic and correct** — caching ON resolves identically to
+OFF. Entries are keyed by `(model class, id, locale, route, request URL)` and
+cleared when:
+
+- the page's `seo_meta` row is **saved or deleted** (any path: `saveSEO()`,
+  Filament, a direct `SEOMeta` write);
+- a **content field** on the model changes — the columns from
+  `getSEOContentFields()` (the default includes every built-in computed
+  fallback field: title/headline fields, excerpt/summary/content/body/text/
+  article fields, and common image fields such as `featured_image`,
+  `thumbnail`, `cover_image`, `og_image`, `photo`, `banner`, and `hero_image`;
+  override it if your model computes SEO from additional columns);
+- **any `seo_defaults` row** changes (a default can feed any model, so this
+  flushes the whole resolution cache).
+
+On a **taggable** store (`redis`, `memcached`, `array`) a model's entries clear
+via cache **tags**; on a **non-taggable** store (`file`, `database`) the package
+falls back to a per-model **version stamp**. Both work without key-scanning.
+
+::: tip
+Only model-backed resolves are cached. `SEO::render()`/`@seo()` for a hand-built
+`SEOData` and `@seoForRoute()` for a model-less route still resolve live.
+:::
+
+::: warning
+The cache reflects the model's `updated_at`/computed `modified_time` as of the
+last **content-field** change (or until the TTL expires). A bare `touch()` that
+moves only `updated_at` without changing a `getSEOContentFields()` column does
+not force a re-resolve — `article:modified_time` may lag by up to the TTL. Add
+any app-specific computed column to `getSEOContentFields()` if you need it
+busted eagerly.
+:::

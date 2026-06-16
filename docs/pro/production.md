@@ -1,7 +1,7 @@
 # Production setup
 
-Pro's day-to-day work — site scans, the broken-link crawler, redirect-hit
-flushing, 404 pruning — runs on Laravel's queue and scheduler. This is the one
+Pro's day-to-day work — site scans, the broken-link crawler, optional
+redirect-hit flushing, 404 pruning — runs on Laravel's queue and scheduler. This is the one
 authoritative guide to running it at scale: dedicated queues, a scheduler, retry
 and recovery policy, retention, and the telemetry to watch it all. It is the
 topology behind a ~20k-visits/day, ~900-page production install, written to be
@@ -134,7 +134,7 @@ Schedule::command('seo-pro:scan-recover')->hourly();
 Schedule::command('seo-pro:scan-prune')->daily();
 
 // --- Redirects & 404s ---------------------------------------------------
-// Redirect hit counters are batched through the cache — flush them regularly.
+// Only needed when seo-pro.redirects.hits.flush_immediately=false.
 Schedule::command('seo-pro:redirects-flush-hits')->everyFiveMinutes();
 // Keep the 404 log within its retention window and row cap.
 Schedule::command('seo-pro:404-prune')->daily();
@@ -153,7 +153,7 @@ Recommended cadence at a glance:
 | `seo-pro:scan` | weekly (daily if content moves fast) | Re-audit every target |
 | `seo-pro:scan-recover` | hourly | Reclaim runs lost to a dead worker |
 | `seo-pro:scan-prune` | daily | Apply the scan-run retention window |
-| `seo-pro:redirects-flush-hits` | every 5 min | Drain cache-batched hit counters to the DB |
+| `seo-pro:redirects-flush-hits` | every 5 min, only when `redirects.hits.flush_immediately=false` | Drain cache-batched hit counters to the DB |
 | `seo-pro:404-prune` | daily | Trim the 404 log to retention + row cap |
 | `seo-pro:broken-links-scan` | weekly | Re-crawl for broken links (confirmation is cross-scan) |
 | `seo-pro:broken-links-recover` | hourly | Reclaim crawls lost to a dead worker |
@@ -186,6 +186,9 @@ conservative and finite — a misconfiguration can never hammer a site. Tune the
 | `batch.hard_time_budget_seconds` | `180` | After this, the job starts **no new fetch** and re-dispatches a continuation |
 | `batch.dispatch_delay_seconds` | `1` | Delay between continuation jobs |
 | `http.timeout` / `http.connect_timeout` | `10` / `5` | Per-request bounds |
+| `http.max_response_bytes` | inherits `seo-pro.http.max_response_bytes` | Streamed cap for page and target-check response bodies |
+| `seed.max_response_bytes` | inherits the crawler/shared HTTP cap | Raw sitemap XML / `.gz` bytes fetched during seeding |
+| `seed.max_inflated_bytes` | inherits the seed/crawler/shared cap | Decompressed bytes accepted from a `.gz` sitemap |
 | `http.per_host_delay_ms` | `0` | Politeness delay between checks (raise for `internal_and_external`) |
 
 Keep `batch.hard_time_budget_seconds` comfortably under the crawl worker's

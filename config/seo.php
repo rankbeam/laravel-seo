@@ -244,6 +244,51 @@ return [
          */
         'description_max_length' => 160,
 
+        /*
+         * Social / Open Graph image selection.
+         *
+         * strategy
+         * --------
+         * 'first' (default) — first-match: the highest-priority non-empty
+         *   source wins (getSEOImage(), then common fields, content, default).
+         *   No image file is opened or measured. This is the historical
+         *   behavior and is byte-identical to previous versions.
+         *
+         * 'best' — opt-in, dimension-aware. Every candidate (getSEOImage()
+         *   first, then the model's getSEOImages() ordered hook, then common
+         *   fields / content / the default below) is scored by how close its
+         *   pixel dimensions are to the ideal, and any candidate smaller than
+         *   the minimum is skipped. getSEOImage() stays the highest-priority
+         *   candidate and wins ties.
+         *
+         *   Core measures LOCAL images only — a relative path under public/,
+         *   the public disk, or an absolute URL on your own host. A remote
+         *   image is never fetched (SSRF / latency / cache); it cannot be
+         *   scored or skipped for size and only acts as a fallback. Remote
+         *   dimension checks are the Filament preview's client-side job. When
+         *   no local candidate clears the minimum, selection falls back to
+         *   first-match, so 'best' never returns less than 'first' would.
+         *
+         * Expose the ordered candidate list from your model:
+         *
+         *   use Rankbeam\Seo\Data\SEOImageCandidate;
+         *
+         *   public function getSEOImages(): iterable
+         *   {
+         *       return [
+         *           SEOImageCandidate::make($this->hero_url)->priority(100),
+         *           SEOImageCandidate::make($this->thumbnail_url)->priority(10),
+         *       ];
+         *   }
+         */
+        'image_selection' => [
+            'strategy' => env('SEO_IMAGE_SELECTION', 'first'),
+            'minimum_width' => 200,
+            'minimum_height' => 200,
+            'ideal_width' => 1200,
+            'ideal_height' => 630,
+        ],
+
     ],
 
     /*
@@ -378,6 +423,30 @@ return [
             // 'potentialAction' => [], // SearchAction for sitelinks search box
         ],
 
+        /*
+         * Optional per-model-type schema builders (model class => builder).
+         *
+         * A fallback used ONLY when a model has no explicit stored
+         * seo_meta.schema_jsonld and does not override getSEOSchema(): the
+         * resolver invokes the mapped builder with the model and emits the
+         * nodes it returns. An explicit stored schema always wins.
+         *
+         * The canonical builder is an invokable class — App\Seo\PostSchema with
+         * `public function __invoke(\Illuminate\Database\Eloquent\Model $model): array`
+         * returning one or more schema.org nodes (compose them with
+         * Rankbeam\Seo\Services\Schema\SchemaGraph::for($model)). A class-string
+         * survives config:cache; a Closure does not, so use one only for
+         * runtime configuration.
+         *
+         * Example:
+         *   'type_map' => [
+         *       App\Models\Post::class => App\Seo\PostSchema::class,
+         *   ],
+         */
+        'type_map' => [
+            //
+        ],
+
     ],
 
     /*
@@ -446,6 +515,36 @@ return [
          * Recommended: 'redis' or 'memcached' for production.
          */
         'store' => env('SEO_CACHE_STORE'),
+
+        /*
+         * Resolver result cache — the scale lever for hot frontends.
+         *
+         * The SEOResolver runs the full precedence chain (config → global /
+         * model-type / route defaults → computed model values → explicit
+         * seo_meta → title suffix / canonical / schema) on every frontend
+         * render. On a high-traffic site (the reference app does ~20k req/day)
+         * that is several DB reads per page. Enable this and a model's resolved
+         * SEO is cached as a plain array (rehydrated with SEOData::fromArray(),
+         * never as an object — Laravel 13 ships cache.serializable_classes =
+         * false, so a cached object returns as __PHP_Incomplete_Class) and a
+         * cache hit skips the precedence chain entirely.
+         *
+         * Entries are keyed by (model class, id, locale, route, request URL)
+         * and invalidated automatically when the page's seo_meta row is
+         * saved/deleted, when a content field (see getSEOContentFields()) on the
+         * model changes, or when any seo_defaults row changes. Correctness with
+         * caching ON is identical to OFF.
+         *
+         * On a taggable store (redis, memcached, array) a model's entries clear
+         * via cache tags; on a non-taggable store (file, database) the package
+         * falls back to a per-model version stamp — both work, no key-scanning.
+         * It uses the `store` configured above. OFF by default: turn it on once
+         * you have a shared, persistent cache (redis/memcached) in production.
+         */
+        'resolver' => [
+            'enabled' => env('SEO_RESOLVER_CACHE', false),
+            'ttl' => env('SEO_RESOLVER_CACHE_TTL', 3600),
+        ],
 
     ],
 

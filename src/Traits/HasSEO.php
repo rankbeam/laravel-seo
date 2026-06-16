@@ -7,7 +7,9 @@ namespace Rankbeam\Seo\Traits;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Support\Str;
 use Rankbeam\Seo\Data\SEOData;
+use Rankbeam\Seo\Data\SEOImageCandidate;
 use Rankbeam\Seo\Models\SEOMeta;
+use Rankbeam\Seo\Services\SEOResolutionCache;
 use Rankbeam\Seo\Services\SEOResolver;
 
 /**
@@ -91,6 +93,12 @@ use Rankbeam\Seo\Services\SEOResolver;
  *             ?: config('seo.default_og_image');
  *     }
  *
+ *     // Custom robots directive (see "Controlling robots / indexability")
+ *     public function getSEORobots(): ?string
+ *     {
+ *         return $this->is_published ? null : 'noindex, nofollow';
+ *     }
+ *
  *     // Custom content fields that trigger re-analysis
  *     public function getSEOContentFields(): array
  *     {
@@ -103,6 +111,39 @@ use Rankbeam\Seo\Services\SEOResolver;
  *         return route('blog.post', ['slug' => $this->slug]);
  *     }
  * }
+ * ```
+ *
+ * ## Controlling robots / indexability
+ *
+ * Per-model `noindex` is built in — there is nothing extra to install. The
+ * resolver derives the robots directive (precedence high → low):
+ *
+ * 1. **Explicit `seo_meta.robots`** — `saveSEO(['robots' => 'noindex,follow'])`
+ *    always wins.
+ * 2. **A `getSEORobots(): ?string` method** on the model — return a directive
+ *    (e.g. `'noindex, nofollow'`) or `null` to fall through. This hook is
+ *    optional: add it only when you want one, the resolver detects it.
+ * 3. **An `is_indexable` attribute** — a column or accessor. A falsy value
+ *    derives `'noindex, nofollow'`; a truthy value derives `'index, follow'`.
+ *
+ * The rendered `<meta name="robots">` tag is **emitted only when the resolved
+ * directive deviates from `seo.default_robots`** (default `index,follow`); a
+ * page that is simply indexable emits no tag, which crawlers treat as
+ * index,follow. A deviating directive (`noindex`, `max-snippet:-1`, …) is
+ * emitted verbatim. Set `seo.robots.emit_default = true` to always render it.
+ *
+ * ```php
+ * // Option A — let the resolver derive it from a flag:
+ * Schema::table('pages', fn ($t) => $t->boolean('is_indexable')->default(true));
+ *
+ * // Option B — compute it from your own state:
+ * public function getSEORobots(): ?string
+ * {
+ *     return $this->status === 'draft' ? 'noindex, nofollow' : null;
+ * }
+ *
+ * // Option C — set it explicitly per page:
+ * $page->saveSEO(['robots' => 'noindex, follow']);
  * ```
  *
  * ## Automatic Behaviors
@@ -126,7 +167,8 @@ trait HasSEO
      *
      * Registers model event listeners for automatic SEO management:
      * - created: Creates empty SEOMeta record
-     * - deleted: Cleans up SEOMeta record
+     * - saved:   Busts the resolver result cache when a content field changes
+     * - deleted: Cleans up SEOMeta record (and busts the cache)
      */
     public static function bootHasSEO(): void
     {
@@ -150,14 +192,45 @@ trait HasSEO
 
         /*
         |------------------------------------------------------------------
+        | Bust the Resolver Cache on a Content-Field Change
+        |------------------------------------------------------------------
+        |
+        | The resolver result cache (seo.cache.resolver.enabled) caches a
+        | model's fully-resolved SEO, including values COMPUTED from its
+        | content (title, excerpt, image, ...). When one of those content
+        | fields changes, the cached resolution is stale, so clear this
+        | model's entries. getSEOContentFields() is the model's declared set
+        | (override it to widen). Inert when caching is off (the default).
+        |
+        */
+        static::saved(function (self $model) {
+            if (! config('seo.cache.resolver.enabled', false) || $model->getKey() === null) {
+                return;
+            }
+
+            $fields = $model->getSEOContentFields();
+
+            if ($fields !== [] && $model->wasChanged($fields)) {
+                app(SEOResolutionCache::class)->forgetModel(static::class, $model->getKey());
+            }
+        });
+
+        /*
+        |------------------------------------------------------------------
         | Clean Up on Model Deletion
         |------------------------------------------------------------------
         |
-        | When the model is deleted, we also delete its SEO metadata.
+        | When the model is deleted, we also delete its SEO metadata and bust
+        | any cached resolution for it (deleting the seo_meta row already
+        | busts via SEOMeta's own hook, but a model with no row would not).
         |
         */
         static::deleted(function (self $model) {
             $model->seoMeta()->delete();
+
+            if (config('seo.cache.resolver.enabled', false) && $model->getKey() !== null) {
+                app(SEOResolutionCache::class)->forgetModel(static::class, $model->getKey());
+            }
         });
     }
 
@@ -308,7 +381,30 @@ trait HasSEO
      */
     public function getSEOContentFields(): array
     {
-        return ['title', 'content', 'body', 'excerpt', 'description', 'name'];
+        return [
+            'title',
+            'name',
+            'heading',
+            'headline',
+            'excerpt',
+            'summary',
+            'description',
+            'intro',
+            'lead',
+            'teaser',
+            'content',
+            'body',
+            'text',
+            'article',
+            'featured_image',
+            'image',
+            'thumbnail',
+            'cover_image',
+            'og_image',
+            'photo',
+            'banner',
+            'hero_image',
+        ];
     }
 
     /**
@@ -436,6 +532,45 @@ trait HasSEO
     }
 
     /**
+     * Get the ordered social-image candidates for this model.
+     *
+     * Optional companion to {@see getSEOImage()}. When the computed-image
+     * strategy is `best` (config `seo.computed.image_selection.strategy`), the
+     * builder scores these candidates by how close their LOCAL pixel
+     * dimensions are to the configured ideal (default 1200×630) and skips any
+     * below the configured minimum (default 200×200). `getSEOImage()` remains
+     * the highest-priority candidate; entries returned here fill out the
+     * ordered list below it.
+     *
+     * Return {@see SEOImageCandidate} objects (or plain URL strings, which are
+     * treated as priority 0). Core measures **local images only** — a remote
+     * URL is never fetched (that is the Filament preview's client-side job), so
+     * it cannot be scored or skipped for size and only acts as a fallback.
+     *
+     * The default is an empty list: models that do not override this are
+     * unaffected, and the default `first` strategy keeps returning
+     * `getSEOImage()` unchanged.
+     *
+     * @return iterable<int, SEOImageCandidate|string>
+     *
+     * @example
+     * ```php
+     * public function getSEOImages(): iterable
+     * {
+     *     return [
+     *         SEOImageCandidate::make($this->hero_url)->priority(100),
+     *         SEOImageCandidate::make($this->social_card_url)->priority(50),
+     *         $this->thumbnail_url, // a plain string is priority 0
+     *     ];
+     * }
+     * ```
+     */
+    public function getSEOImages(): iterable
+    {
+        return [];
+    }
+
+    /**
      * Get the hreflang alternates for this model.
      *
      * Override this method to provide absolute URLs for localized variants.
@@ -445,6 +580,46 @@ trait HasSEO
     public function getSEOAlternates(): ?array
     {
         return null;
+    }
+
+    /**
+     * Get the computed JSON-LD schema graph for this model.
+     *
+     * The composition hook for structured data. Return one or more schema.org
+     * nodes (a flat list of associative arrays). It is invoked ONLY as a
+     * fallback: an explicit stored `seo_meta.schema_jsonld` is authoritative —
+     * when present it is emitted as-is and this hook is NOT called (no silent
+     * merge). When absent, the resolver calls this hook (or the
+     * `seo.schema.type_map` config mapping) to produce the graph.
+     *
+     * The default is an empty list, so models that do not override it render no
+     * schema — behaviour is unchanged for them.
+     *
+     * Build the graph from the existing primitives via
+     * {@see \Rankbeam\Seo\Services\Schema\SchemaGraph::for()} instead of
+     * hand-rolling node arrays:
+     *
+     * ```php
+     * use Rankbeam\Seo\Services\Schema\SchemaGraph;
+     *
+     * public function getSEOSchema(): array
+     * {
+     *     return SchemaGraph::for($this)
+     *         ->organization()
+     *         ->website()
+     *         ->webPage()
+     *         ->breadcrumbFromAncestors()
+     *         ->toArray();
+     * }
+     * ```
+     *
+     * @return array<int|string, mixed> One or more schema.org nodes
+     *
+     * @see \Rankbeam\Seo\Services\Schema\SchemaGraph::for() For composition
+     */
+    public function getSEOSchema(): array
+    {
+        return [];
     }
 
     /**

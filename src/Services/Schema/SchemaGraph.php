@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rankbeam\Seo\Services\Schema;
 
 use DateTimeInterface;
+use Illuminate\Database\Eloquent\Model;
 use Rankbeam\Seo\Data\SEOData;
 
 /**
@@ -35,6 +36,30 @@ use Rankbeam\Seo\Data\SEOData;
  */
 class SchemaGraph
 {
+    /**
+     * Start a fluent graph composition for a model or hand-built SEOData.
+     *
+     * The composition entry point (idi-it hand-rolled a `SitewideSchema` for
+     * exactly this): chain {@see SchemaGraphBuilder::organization()},
+     * `website()`, `webPage()`, and `breadcrumbFromAncestors()`, then
+     * `toArray()`, to assemble the @id-linked graph from these primitives.
+     *
+     * ```php
+     * SchemaGraph::for($page)
+     *     ->organization()
+     *     ->website()
+     *     ->webPage()
+     *     ->breadcrumbFromAncestors()
+     *     ->toArray();
+     * ```
+     *
+     * @param Model|SEOData|null $subject The page model, hand-built SEOData, or null
+     */
+    public static function for(Model|SEOData|null $subject = null): SchemaGraphBuilder
+    {
+        return new SchemaGraphBuilder($subject, new self());
+    }
+
     /**
      * The stable @id for the Organization node.
      */

@@ -17,6 +17,7 @@ use Rankbeam\Seo\Importing\WordPress\WordPressCsvImporter;
 use Rankbeam\Seo\Importing\WordPress\YoastImporter;
 use Rankbeam\Seo\Services\SEOComputedBuilder;
 use Rankbeam\Seo\Services\SEODefaultsRepository;
+use Rankbeam\Seo\Services\SEOResolutionCache;
 use Rankbeam\Seo\Services\SEOResolver;
 use Rankbeam\Seo\Services\Sitemap\SitemapRegistry;
 use Rankbeam\Seo\Services\TagRenderer;
@@ -33,6 +34,7 @@ class SEOServiceProvider extends ServiceProvider
         SEOComputedBuilder::class => SEOComputedBuilder::class,
         TagRenderer::class => TagRenderer::class,
         SitemapRegistry::class => SitemapRegistry::class,
+        SEOResolutionCache::class => SEOResolutionCache::class,
     ];
 
     /**
@@ -239,7 +241,7 @@ class SEOServiceProvider extends ServiceProvider
         |
         */
         Blade::directive('seo', function ($expression) {
-            return "<?php echo app(\\Rankbeam\\Seo\\Services\\SEOResolver::class)->render({$expression}); ?>";
+            return "<?php echo \\Rankbeam\\Seo\\Facades\\SEO::render({$expression}); ?>";
         });
 
         /*
@@ -496,6 +498,7 @@ class SEOServiceProvider extends ServiceProvider
             SEODefaultsRepository::class,
             SEOComputedBuilder::class,
             SitemapRegistry::class,
+            SEOResolutionCache::class,
             ImporterRegistry::class,
             'seo',
         ];

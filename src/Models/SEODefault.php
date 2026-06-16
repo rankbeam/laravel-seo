@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
 use Rankbeam\Seo\Services\SEODefaultsRepository;
+use Rankbeam\Seo\Services\SEOResolutionCache;
 
 /**
  * Default SEO settings by scope (global, model-type, route).
@@ -114,6 +115,15 @@ class SEODefault extends Model
         Cache::store(config('seo.cache.store'))->forget(
             config('seo.cache.prefix', 'seo_')."default:{$model->scope}:{$model->locale}"
         );
+
+        // A default (global / model-type / route) can feed into any model's
+        // resolution, so a change to one flushes the whole resolver result
+        // cache. Inert when that cache is off (the default).
+        $resolutionCache = app(SEOResolutionCache::class);
+
+        if ($resolutionCache->enabled()) {
+            $resolutionCache->flush();
+        }
 
         $repository = app(SEODefaultsRepository::class);
 

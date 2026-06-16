@@ -39,9 +39,55 @@ When no explicit value exists, the resolver derives one from the model:
   `article`) that contains meaningful text. HTML is stripped, entities are
   decoded, and the text is truncated at a word boundary
   (`seo.computed.description_max_length`, default 160 — no ellipsis).
-- **Robots** — derives `noindex,nofollow` from a falsy `is_indexable`
-  attribute when the model has one.
+- **Robots** — from a model's `getSEORobots()` hook or an `is_indexable`
+  attribute (see [Controlling robots and indexability](#controlling-robots-and-indexability)).
 - **URL-derived values** — canonical and `og:url` from `getUrlForSEO()`.
+
+## Controlling robots and indexability
+
+Per-model `noindex` is built in — no extra package or column ceremony. The
+`HasSEO` trait doesn't *declare* a robots method (it's optional), so it's easy
+to miss, but the resolver already honours three sources, highest priority first:
+
+| Priority | Source | Example |
+|---|---|---|
+| 1 | **Explicit `seo_meta.robots`** | `$page->saveSEO(['robots' => 'noindex,follow'])` |
+| 2 | **A `getSEORobots(): ?string` hook** on the model | return `'noindex, nofollow'`, or `null` to fall through |
+| 3 | **An `is_indexable` attribute** (column or accessor) | falsy ⇒ `noindex, nofollow`; truthy ⇒ `index, follow` |
+
+```php
+class Page extends Model
+{
+    use HasSEO;
+
+    // Option A: let the resolver derive robots from a boolean flag.
+    //   Schema::table('pages', fn ($t) => $t->boolean('is_indexable')->default(true));
+
+    // Option B: compute it from your own state.
+    public function getSEORobots(): ?string
+    {
+        return $this->status === 'draft' ? 'noindex, nofollow' : null;
+    }
+}
+
+// Option C: set it explicitly per page (wins over A and B).
+$page->saveSEO(['robots' => 'noindex, follow']);
+```
+
+### What actually renders
+
+The resolved directive is filtered by the **emit policy** before it reaches the
+`<head>`: the `<meta name="robots">` tag is emitted **only when the directive
+deviates from `default_robots`** (default `index,follow`). So:
+
+- an **indexable** page (resolves to `index, follow`) emits **no robots tag** —
+  its absence is exactly what a crawler reads as index,follow;
+- a **non-indexable** page emits `<meta name="robots" content="noindex, nofollow">`;
+- any deviating directive (`noindex`, `max-snippet:-1`, `unavailable_after`, …)
+  is emitted **verbatim**, preserving the spacing you typed.
+
+Set `seo.robots.emit_default = true` to always render the tag. Full details in
+the [robots rendering policy](/reference/configuration#robots-rendering-policy).
 
 ## Policies applied after resolution
 

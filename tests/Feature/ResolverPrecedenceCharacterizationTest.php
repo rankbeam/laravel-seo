@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Illuminate\Database\Eloquent\Model;
 use Rankbeam\Seo\Models\SEODefault;
 use Rankbeam\Seo\Services\SEOResolver;
+use Rankbeam\Seo\Services\TagRenderer;
 use Rankbeam\Seo\Traits\HasSEO;
 
 /*
@@ -49,6 +50,17 @@ class CharacterizationPage extends Model
     }
 }
 
+class RobotsHookPage extends CharacterizationPage
+{
+    // The optional getSEORobots() hook takes priority over the is_indexable
+    // attribute in SEOComputedBuilder::computeRobots(). An advanced directive
+    // returned here must survive verbatim all the way to the rendered tag.
+    public function getSEORobots(): ?string
+    {
+        return 'noindex, nofollow, noarchive';
+    }
+}
+
 beforeEach(function () {
     $this->app['db']->connection()->getSchemaBuilder()->create('characterization_pages', function ($table) {
         $table->id();
@@ -71,6 +83,11 @@ afterEach(function () {
 function resolveSeo(Model $model): \Rankbeam\Seo\Data\SEOData
 {
     return app(SEOResolver::class)->resolve($model);
+}
+
+function renderResolvedSeo(Model $model): string
+{
+    return app(TagRenderer::class)->render(resolveSeo($model));
 }
 
 describe('precedence: manual > computed > defaults > config', function () {
@@ -182,5 +199,56 @@ describe('robots from indexability', function () {
         $page = CharacterizationPage::create(['title' => 'T']);
 
         expect(resolveSeo($page)->robots)->toBe('index,follow');
+    });
+});
+
+describe('robots: resolved value rendered through the emit policy', function () {
+    // Ties computeRobots() to TagRenderer::robotsContent(): the model-derived
+    // robots value must survive the full resolve → render path AND respect the
+    // emit policy (the tag is suppressed when it equals seo.default_robots,
+    // emitted verbatim when it deviates). seo.default_robots is "index,follow"
+    // in the test environment.
+
+    it('renders noindex, nofollow for a non-indexable model (deviates from the default)', function () {
+        $page = CharacterizationPage::create(['title' => 'T', 'is_indexable' => false]);
+
+        expect(renderResolvedSeo($page))
+            ->toContain('<meta name="robots" content="noindex, nofollow">');
+    });
+
+    it('emits no robots tag for an indexable model (index, follow equals the default)', function () {
+        // is_indexable=true resolves to "index, follow", which normalizes to
+        // the site default "index,follow" → the policy suppresses the tag. The
+        // page is indexable precisely BY the absence of a directive, which is
+        // what a crawler treats as index,follow.
+        $page = CharacterizationPage::create(['title' => 'T', 'is_indexable' => true]);
+
+        expect(renderResolvedSeo($page))->not->toContain('name="robots"');
+    });
+
+    it('renders an explicit seo_meta robots value verbatim, even over an indexable flag', function () {
+        $page = CharacterizationPage::create(['title' => 'T', 'is_indexable' => true]);
+        $page->saveSEO(['robots' => 'noindex, follow']);
+
+        expect(renderResolvedSeo($page->fresh()))
+            ->toContain('<meta name="robots" content="noindex, follow">');
+    });
+
+    it('renders a getSEORobots() advanced directive verbatim', function () {
+        $page = RobotsHookPage::create(['title' => 'T']);
+
+        expect(renderResolvedSeo($page))
+            ->toContain('<meta name="robots" content="noindex, nofollow, noarchive">');
+    });
+
+    it('still emits a deviating directive when the site default itself is noindex', function () {
+        // Honours a non-default site policy: an indexable model now DEVIATES
+        // from a noindex site default, so its index, follow must be emitted.
+        config(['seo.default_robots' => 'noindex,nofollow']);
+
+        $page = CharacterizationPage::create(['title' => 'T', 'is_indexable' => true]);
+
+        expect(renderResolvedSeo($page))
+            ->toContain('<meta name="robots" content="index, follow">');
     });
 });
