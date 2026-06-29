@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Rankbeam\Seo\Http\Controllers\LlmsTxtController;
+use Rankbeam\Seo\Http\Controllers\RobotsTxtController;
 use Rankbeam\Seo\Http\Controllers\SitemapController;
 
 /*
@@ -33,4 +34,13 @@ Route::get('sitemap-{name}.xml', [SitemapController::class, 'show'])
 if (config('seo.llms_txt.route', true)) {
     Route::get('llms.txt', [LlmsTxtController::class, 'index'])
         ->name('llms-txt.index');
+}
+
+// robots.txt — a managed robots.txt with AI-crawler directives, served the same
+// way as the sitemap. OFF by default (seo.ai_crawlers.route): most apps ship a
+// static public/robots.txt that the web server serves before Laravel routing
+// runs. Enable it to have the package serve robots.txt dynamically instead.
+if (config('seo.ai_crawlers.route', false)) {
+    Route::get('robots.txt', [RobotsTxtController::class, 'index'])
+        ->name('robots-txt.index');
 }

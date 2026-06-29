@@ -959,6 +959,42 @@ class SEOResolver
     }
 
     /**
+     * Get the AI-crawler catalog + policy registry.
+     *
+     * Exposed here so the SEO facade can offer `SEO::aiCrawlers()` — the curated
+     * catalog of known AI bots and the resolved allow/disallow policy that the
+     * robots.txt builder renders.
+     *
+     * @example
+     * ```php
+     * SEO::aiCrawlers()->all();                  // the catalog
+     * SEO::aiCrawlers()->actionFor('gptbot');    // 'allow' | 'disallow'
+     * ```
+     */
+    public function aiCrawlers(): \Rankbeam\Seo\AiCrawlers\AiCrawlerRegistry
+    {
+        return app(\Rankbeam\Seo\AiCrawlers\AiCrawlerRegistry::class);
+    }
+
+    /**
+     * Get the robots.txt builder.
+     *
+     * Exposed here so the SEO facade can offer `SEO::robotsTxt()->build()` /
+     * `->generate()` / `->aiDirectives()`. The builder renders the AI-crawler
+     * policy from {@see aiCrawlers()} as robots.txt directives.
+     *
+     * @example
+     * ```php
+     * echo SEO::robotsTxt()->aiDirectives();   // paste-able AI block
+     * SEO::robotsTxt()->generate();            // write public/robots.txt
+     * ```
+     */
+    public function robotsTxt(): \Rankbeam\Seo\Services\RobotsTxt\RobotsTxtBuilder
+    {
+        return app(\Rankbeam\Seo\Services\RobotsTxt\RobotsTxtBuilder::class);
+    }
+
+    /**
      * Resolve SEO data for multiple models at once.
      *
      * Useful for sitemap generation or listing pages where you need

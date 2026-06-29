@@ -5,6 +5,29 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.3.0] - 2026-06-30
+
+### Added
+
+- **AI crawler control (robots.txt / ai.txt)** — a managed `robots.txt` for the
+  AI era. Ships a doc-verified catalog of the major AI crawlers (OpenAI's GPTBot
+  / OAI-SearchBot / ChatGPT-User, Anthropic's ClaudeBot / Claude-SearchBot /
+  Claude-User, Google-Extended, PerplexityBot, Applebot-Extended, CCBot, Meta,
+  Amazon, ByteDance and more), each tagged by purpose — `ai_search`,
+  `ai_assistant`, or `ai_training`. A configurable policy renders robots.txt
+  directives that **allow the bots that cite you and gate the ones that train on
+  you** by default. Includes: the `AiCrawlerRegistry` (catalog + policy +
+  `match()` for identifying a request user-agent), a `RobotsTxtBuilder` reachable
+  via `SEO::robotsTxt()` (`build()`, `aiDirectives()` for a paste-able block,
+  `generate()`, and an `ai.txt` variant), a `SEO::aiCrawlers()` accessor, the
+  `seo:robots-txt` command (`--print`, `--output`, `--ai-txt`), a config-gated
+  dynamic `/robots.txt` route (**off by default** so it never shadows a static
+  `public/robots.txt`), and a `seo.ai_crawlers` config block. Bots that are
+  documented not to honour robots.txt (e.g. `ChatGPT-User`, `Perplexity-User`,
+  `Bytespider`) are marked **advisory** in the output rather than implying a
+  block that won't hold. No new dependencies. Full reference: docs
+  `/guide/ai-crawlers`.
+
 ## [3.2.0] - 2026-06-29
 
 ### Added

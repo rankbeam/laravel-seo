@@ -7,15 +7,18 @@ namespace Rankbeam\Seo;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Rankbeam\Seo\AiCrawlers\AiCrawlerRegistry;
 use Rankbeam\Seo\Console\Commands\AuditCommand;
 use Rankbeam\Seo\Console\Commands\ImportFromCommand;
 use Rankbeam\Seo\Console\Commands\LlmsTxtCommand;
+use Rankbeam\Seo\Console\Commands\RobotsTxtCommand;
 use Rankbeam\Seo\Console\Commands\SitemapCommand;
 use Rankbeam\Seo\Importing\ImporterRegistry;
 use Rankbeam\Seo\Importing\RalphJSmitImporter;
 use Rankbeam\Seo\Importing\WordPress\RankMathImporter;
 use Rankbeam\Seo\Importing\WordPress\WordPressCsvImporter;
 use Rankbeam\Seo\Importing\WordPress\YoastImporter;
+use Rankbeam\Seo\Services\RobotsTxt\RobotsTxtBuilder;
 use Rankbeam\Seo\Services\SEOComputedBuilder;
 use Rankbeam\Seo\Services\SEODefaultsRepository;
 use Rankbeam\Seo\Services\SEOResolutionCache;
@@ -36,6 +39,8 @@ class SEOServiceProvider extends ServiceProvider
         TagRenderer::class => TagRenderer::class,
         SitemapRegistry::class => SitemapRegistry::class,
         SEOResolutionCache::class => SEOResolutionCache::class,
+        AiCrawlerRegistry::class => AiCrawlerRegistry::class,
+        RobotsTxtBuilder::class => RobotsTxtBuilder::class,
     ];
 
     /**
@@ -183,6 +188,7 @@ class SEOServiceProvider extends ServiceProvider
             $this->commands([
                 SitemapCommand::class,
                 LlmsTxtCommand::class,
+                RobotsTxtCommand::class,
                 AuditCommand::class,
                 ImportFromCommand::class,
             ]);
@@ -501,6 +507,8 @@ class SEOServiceProvider extends ServiceProvider
             SEOComputedBuilder::class,
             SitemapRegistry::class,
             SEOResolutionCache::class,
+            AiCrawlerRegistry::class,
+            RobotsTxtBuilder::class,
             ImporterRegistry::class,
             'seo',
         ];
