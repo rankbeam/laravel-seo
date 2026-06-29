@@ -454,6 +454,96 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | AI Crawler Control (robots.txt / ai.txt)
+    |--------------------------------------------------------------------------
+    |
+    | A managed robots.txt for the AI era. robots.txt is the file the major AI
+    | crawlers actually honour — OpenAI's GPTBot / OAI-SearchBot, Anthropic's
+    | ClaudeBot, PerplexityBot and Google-Extended all document it as the
+    | control surface. The default policy "allows the bots that cite you and
+    | gates the ones that train on you": AI-search + AI-assistant crawlers are
+    | allowed (they drive the AI referral channel), AI-training crawlers are
+    | disallowed.
+    |
+    | Generate: php artisan seo:robots-txt
+    | Paste-only: SEO::robotsTxt()->aiDirectives()
+    |
+    */
+
+    'ai_crawlers' => [
+
+        /*
+         * Master switch. When false the seo:robots-txt command refuses to run.
+         */
+        'enabled' => env('SEO_AI_CRAWLERS_ENABLED', true),
+
+        /*
+         * Serve /robots.txt via the package route. OFF by default: most apps
+         * ship a static public/robots.txt that the web server serves before
+         * Laravel routing runs. Enable to serve robots.txt dynamically from the
+         * configured policy. (Also subject to the master `routes.enabled` below.)
+         */
+        'route' => env('SEO_AI_CRAWLERS_ROUTE', false),
+
+        /*
+         * Filesystem disk + filename the command writes to. Defaults to the
+         * sitemap disk so the public artifacts land together.
+         */
+        'disk' => env('SEO_AI_CRAWLERS_DISK', env('SEO_SITEMAP_DISK', 'public')),
+        'path' => 'robots.txt',
+        'ai_txt_path' => 'ai.txt',
+
+        /*
+         * Default policy per crawler purpose. Each catalogued bot is tagged as
+         * one of: 'ai_training' (collects data to train models), 'ai_search'
+         * (indexes content to cite it in AI answers), or 'ai_assistant'
+         * (fetches a page in real time on a user's behalf). Map each to 'allow'
+         * or 'disallow'.
+         */
+        'policy' => [
+            'ai_training' => 'disallow',
+            'ai_search' => 'allow',
+            'ai_assistant' => 'allow',
+        ],
+
+        /*
+         * Per-bot overrides keyed by catalog id (overrides the purpose policy).
+         * e.g. ['gptbot' => 'allow', 'perplexitybot' => 'disallow']
+         * See \Rankbeam\Seo\AiCrawlers\AiCrawlerRegistry for the catalog ids.
+         */
+        'overrides' => [],
+
+        /*
+         * Which bots get an explicit directive: 'blocked' (only disallowed bots
+         * — a lean file that gates the trainers) or 'all' (every known bot gets
+         * an explicit allow/disallow line — fully auditable).
+         */
+        'list' => 'blocked',
+
+        /*
+         * The general `User-agent: *` section. true emits a permissive default;
+         * a string is prepended verbatim (your own general rules); false omits
+         * it. Keep a value when serving robots.txt dynamically so the file is a
+         * complete, valid robots.txt.
+         */
+        'general' => true,
+
+        /*
+         * Append a `Sitemap:` line. Leave sitemap_url null to derive it from the
+         * package sitemap route; set it to point elsewhere.
+         */
+        'include_sitemap' => true,
+        'sitemap_url' => env('SEO_AI_CRAWLERS_SITEMAP_URL'),
+
+        /*
+         * Append a comment pointing AI crawlers at the llms.txt content index.
+         */
+        'include_llms_txt' => true,
+
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Schema Markup (JSON-LD)
     |--------------------------------------------------------------------------
     |

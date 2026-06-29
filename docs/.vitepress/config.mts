@@ -62,6 +62,7 @@ export default defineConfig({
           { text: 'Livewire', link: '/guide/livewire' },
           { text: 'Schema graph (JSON-LD)', link: '/guide/schema' },
           { text: 'Sitemap registry', link: '/guide/sitemaps' },
+          { text: 'AI crawler control', link: '/guide/ai-crawlers' },
           { text: 'Free SEO audit', link: '/guide/audit' },
           { text: 'Migrating from WordPress', link: '/guide/migrate-from-wordpress' },
           { text: 'WordPress migration runbook', link: '/guide/wordpress-migration-runbook' },

@@ -19,6 +19,7 @@ SEO core for Laravel: meta tag resolution with a layered precedence chain, Open 
 | **Schema (JSON-LD)** | Builders for Article, Breadcrumb, FAQ, LocalBusiness, Organization, Product; `SchemaGraph` for Organization/WebSite/WebPage nodes cross-linked via stable `@id`s; breadcrumbs from a page's ancestor chain with a loop guard. |
 | **Sitemaps** | `SitemapBuilder` (wraps spatie/laravel-sitemap) with config-driven model sources, programmatic named sources via `SEO::sitemaps()->register(...)`, sitemap index support, `seo:sitemap` command, and `/sitemap.xml` routes that can be disabled. |
 | **llms.txt** | `seo:llms-txt` writes a markdown [`llms.txt`](https://llmstxt.org) index for AI crawlers (GPTBot / ClaudeBot / PerplexityBot / Google-Extended) from the **same sources as the sitemap** (the registry + `seo.sitemap.models`), so the two never disagree. Served at `/llms.txt`, gated by config. |
+| **AI crawler control** | `seo:robots-txt` renders a managed `robots.txt` (and `ai.txt`) from a doc-verified catalog of AI crawlers tagged by purpose — **allow the bots that cite you (`ai_search`/`ai_assistant`), gate the ones that train on you (`ai_training`)** by default. `SEO::robotsTxt()->aiDirectives()` for a paste-able block; `SEO::aiCrawlers()` for the catalog + policy. Bots that ignore robots.txt are flagged advisory. |
 | **Warnings** | `SEOWarningEvaluator` for admin UIs: title > 60 / description > 160 warnings, manual-vs-fallback indicators, social-image dimension checks (min 200x200, ideal 1200x630, local files only). |
 | **Free audit** | `seo:audit` — an in-process "what's wrong with my SEO right now" command (no queue, license, or network). Runs the metadata-class checks (missing / over- / under-length title & description, OG image, robots conflicts, canonical format/cross-domain/shared/insecure, focus keyword) and prints a per-page pass/warn/fail table with an explicit capability matrix. `--strict` for CI, `--json` for tooling. No numerical score (that's Pro). |
 | **Migration importer** | `seo:import-from ralphjsmit` — bulk-import SEO data from a competing Laravel package's storage into `seo_meta`. Idempotent, `--dry-run`, `--model=` scoping, explicit field mapping, morph rows re-resolved to the live model. See [Migrating from other packages](docs/guide/migrate-from-other-packages.md). |
@@ -138,9 +139,26 @@ never disagree. It is served at `/llms.txt` (disable that route via
 Schedule::command('seo:llms-txt')->daily();
 ```
 
+### AI crawler control (robots.txt / ai.txt)
+
+```bash
+php artisan seo:robots-txt          # writes public/robots.txt
+php artisan seo:robots-txt --print  # print to stdout (dry run)
+php artisan seo:robots-txt --ai-txt # also write public/ai.txt
+```
+
+A managed `robots.txt` for the AI era, rendered from a doc-verified catalog of
+AI crawlers tagged by purpose. The default policy **allows the bots that cite you
+(`ai_search` / `ai_assistant`) and disallows the ones that train on your content
+(`ai_training`)**; override per purpose or per bot in `seo.ai_crawlers`. Grab
+just the managed block for an existing file with `SEO::robotsTxt()->aiDirectives()`,
+or serve `/robots.txt` dynamically (off by default — it won't shadow a static
+file). Bots documented not to honour robots.txt are flagged advisory. See
+[AI crawler control](docs/guide/ai-crawlers.md).
+
 ## Test status
 
-`vendor/bin/pest` on `master`: **469 passed (1364 assertions), 0 failed** under PHP 8.4 / Laravel 13 (CI matrix: PHP 8.2–8.4 × Laravel 11/12/13).
+`vendor/bin/pest` on `master`: **501 passed (1535 assertions), 0 failed** under PHP 8.4 / Laravel 13 (CI matrix: PHP 8.2–8.4 × Laravel 11/12/13).
 
 ```bash
 git clone https://github.com/rankbeam/laravel-seo.git
