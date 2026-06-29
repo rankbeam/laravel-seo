@@ -3,7 +3,7 @@
 The on-page checklist is the live editorial loop a RankMath or Yoast user
 expects: pick a focus keyword, and get a traffic-light list of "is this page
 optimised for it?" checks — keyword in the title, URL, opening paragraph and
-meta description, plus length, images, and internal links.
+meta description, plus length, images, internal links, and **readability**.
 
 It runs **in-request** (no queue, no network) from the model, the
 [resolver](/concepts/resolver-precedence), and the page's own copy, and it is
@@ -13,8 +13,8 @@ deliberately **not a number**.
 The checklist is **pass / warn / fail only** and is completely separate from
 the [Pro SEO score](/pro/scoring). It shares no codes with the score's rubric
 and can never move it — by design, so the editorial hints stay honest and the
-one headline number stays gameable-proof. Keyword density in particular is
-**advisory** (see below).
+one headline number stays gameable-proof. Keyword density and readability in
+particular are **advisory** (see below).
 :::
 
 ## What it checks
@@ -29,6 +29,7 @@ one headline number stays gameable-proof. Keyword density in particular is
 | `title_length` | meta | Title is within the same 30–60 window as the editor and the scan. |
 | `description_length` | meta | Description is within the same 70–160 window. |
 | `content_length` | content | Enough body copy (config-driven word-count bands). |
+| `readability` | content | **Advisory.** How easy the body copy is to read — Flesch-Kincaid (English) / Gulpease (Italian). |
 | `has_image` | media | The content includes at least one image. |
 | `internal_links` | links | The content links to related internal pages. |
 
@@ -51,6 +52,28 @@ years, and over-optimisation is what gets penalised, not a number. So the
 density check is marked **advisory**: it is shown for awareness, it never
 fails, and it **never drives the overall page status**. Treat it as "does this
 read naturally?", not a target to hit.
+
+### Readability is advisory
+
+The checklist also scores how easy the body copy is to read — **Flesch-Kincaid**
+for English, **Gulpease** for Italian (routed by the analysis locale) — and
+surfaces it as pass / warn / fail with the score and concrete suggestions
+("shorten your sentences", "use simpler words"). It is computed in-package with
+**no extra dependency**.
+
+Like keyword density, readability is **advisory by default**: it informs the
+writer but does **not** gate the overall page status — the same separation Yoast
+draws between its Readability and SEO analyses. It **skips** below a minimum word
+count (thin pages are the `content_length` check's job, not readability's). Flip
+it to authoritative if you want a hard-to-read page to fail:
+
+```php
+// config/seo-pro.php → 'checklist'
+'readability' => [
+    'min_words' => 50,     // below this → skipped (too little copy to judge)
+    'advisory'  => true,   // false → a 'difficult' page fails the checklist
+],
+```
 
 ## Reading the checklist
 
@@ -102,6 +125,11 @@ extension hook the AI suggestions use, so headless installs are untouched.
 
     'internal_links' => [
         'min' => 2,                // internal links needed to pass
+    ],
+
+    'readability' => [
+        'min_words' => 50,         // below this → skipped
+        'advisory' => true,        // false → a hard-to-read page fails the checklist
     ],
 
     // The check registry. Each entry implements
