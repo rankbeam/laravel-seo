@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Rankbeam\Seo\Http\Controllers\LlmsTxtController;
 use Rankbeam\Seo\Http\Controllers\SitemapController;
 
 /*
@@ -25,3 +26,11 @@ Route::get('sitemap.xml', [SitemapController::class, 'index'])
 Route::get('sitemap-{name}.xml', [SitemapController::class, 'show'])
     ->where('name', '[a-z0-9\-]+')
     ->name('sitemap.show');
+
+// llms.txt — the AEO/GEO index served the same way as the sitemap. Opt out per
+// route via seo.llms_txt.route (the whole group is still gated by
+// seo.routes.enabled above) when serving a statically generated /llms.txt.
+if (config('seo.llms_txt.route', true)) {
+    Route::get('llms.txt', [LlmsTxtController::class, 'index'])
+        ->name('llms-txt.index');
+}

@@ -940,6 +940,25 @@ class SEOResolver
     }
 
     /**
+     * Get the llms.txt builder.
+     *
+     * Exposed here so the SEO facade (whose root is this resolver) can offer
+     * `SEO::llmsTxt()->build()` / `->generate()`. The builder reuses the shared
+     * sitemap source registry, so the same `SEO::sitemaps()->register(...)`
+     * sources feed both artifacts.
+     *
+     * @example
+     * ```php
+     * $markdown = SEO::llmsTxt()->build();
+     * SEO::llmsTxt()->generate();
+     * ```
+     */
+    public function llmsTxt(): \Rankbeam\Seo\Services\LlmsTxt\LlmsTxtBuilder
+    {
+        return app(\Rankbeam\Seo\Services\LlmsTxt\LlmsTxtBuilder::class);
+    }
+
+    /**
      * Resolve SEO data for multiple models at once.
      *
      * Useful for sitemap generation or listing pages where you need

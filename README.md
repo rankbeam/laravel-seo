@@ -18,6 +18,7 @@ SEO core for Laravel: meta tag resolution with a layered precedence chain, Open 
 | **Canonical policy** | Derived canonicals (model URL / current URL) get the query string stripped; explicitly set canonicals are preserved verbatim. |
 | **Schema (JSON-LD)** | Builders for Article, Breadcrumb, FAQ, LocalBusiness, Organization, Product; `SchemaGraph` for Organization/WebSite/WebPage nodes cross-linked via stable `@id`s; breadcrumbs from a page's ancestor chain with a loop guard. |
 | **Sitemaps** | `SitemapBuilder` (wraps spatie/laravel-sitemap) with config-driven model sources, programmatic named sources via `SEO::sitemaps()->register(...)`, sitemap index support, `seo:sitemap` command, and `/sitemap.xml` routes that can be disabled. |
+| **llms.txt** | `seo:llms-txt` writes a markdown [`llms.txt`](https://llmstxt.org) index for AI crawlers (GPTBot / ClaudeBot / PerplexityBot / Google-Extended) from the **same sources as the sitemap** (the registry + `seo.sitemap.models`), so the two never disagree. Served at `/llms.txt`, gated by config. |
 | **Warnings** | `SEOWarningEvaluator` for admin UIs: title > 60 / description > 160 warnings, manual-vs-fallback indicators, social-image dimension checks (min 200x200, ideal 1200x630, local files only). |
 | **Free audit** | `seo:audit` — an in-process "what's wrong with my SEO right now" command (no queue, license, or network). Runs the metadata-class checks (missing / over- / under-length title & description, OG image, robots conflicts, canonical format/cross-domain/shared/insecure, focus keyword) and prints a per-page pass/warn/fail table with an explicit capability matrix. `--strict` for CI, `--json` for tooling. No numerical score (that's Pro). |
 | **Migration importer** | `seo:import-from ralphjsmit` — bulk-import SEO data from a competing Laravel package's storage into `seo_meta`. Idempotent, `--dry-run`, `--model=` scoping, explicit field mapping, morph rows re-resolved to the live model. See [Migrating from other packages](docs/guide/migrate-from-other-packages.md). |
@@ -120,9 +121,26 @@ A free, in-process pass/warn/fail report over the metadata-class checks. The
 rendered-HTML and live-canonical checks, and the numerical score, are part of
 the Pro scan — the command prints that boundary every run.
 
+### Generate llms.txt
+
+```bash
+php artisan seo:llms-txt            # writes public/llms.txt
+php artisan seo:llms-txt --print    # print to stdout (dry run)
+```
+
+A markdown index of your site for AI crawlers ([llms.txt](https://llmstxt.org)),
+built from the **same sources as your sitemap** — registered sources plus
+`seo.sitemap.models`, with the same noindex/unpublished exclusions — so the two
+never disagree. It is served at `/llms.txt` (disable that route via
+`seo.llms_txt.route`), and you can schedule it alongside the sitemap:
+
+```php
+Schedule::command('seo:llms-txt')->daily();
+```
+
 ## Test status
 
-`vendor/bin/pest` on `master`: **185 passed (418 assertions), 0 failed** under PHP 8.4 / Laravel 13 (CI matrix: PHP 8.2–8.4 × Laravel 11/12/13).
+`vendor/bin/pest` on `master`: **469 passed (1364 assertions), 0 failed** under PHP 8.4 / Laravel 13 (CI matrix: PHP 8.2–8.4 × Laravel 11/12/13).
 
 ```bash
 git clone https://github.com/rankbeam/laravel-seo.git

@@ -22,6 +22,7 @@ use Rankbeam\Seo\Services\SEOResolver;
  * @method static array toArray(Model|SEOData|null $source = null, ?string $route = null, ?string $locale = null)
  * @method static array forInertia(Model|SEOData|null $source = null, ?string $route = null, ?string $locale = null)
  * @method static \Rankbeam\Seo\Services\Sitemap\SitemapRegistry sitemaps()
+ * @method static \Rankbeam\Seo\Services\LlmsTxt\LlmsTxtBuilder llmsTxt()
  *
  * @see \Rankbeam\Seo\Services\SEOResolver
  */
