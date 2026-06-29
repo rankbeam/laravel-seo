@@ -59,6 +59,10 @@ scan, measuring the served `<head>` — same codes, same meaning.)
 | `cross_domain_canonical` | warning | canonical | `canonical`, `page_url` | Canonical points to a different host than the page. |
 | `shared_canonical` | notice | canonical | `canonical` | Several pages declare the same canonical. |
 | `insecure_canonical` | warning | canonical | `canonical` | `http://` canonical on an `https` site (mixed content). |
+| `hreflang_invalid_code` | warning | alternates | `invalid_codes` | An hreflang alternate uses a value that is not `x-default` nor a valid BCP-47 language code. |
+| `hreflang_missing_self_reference` | warning | alternates | `locale`, `page_url` | Alternates are declared but none references the page's own locale (a self-referencing hreflang). |
+| `hreflang_duplicate_code` | warning | alternates | `duplicate_codes` | The same hreflang code maps to more than one URL (an ambiguous cluster). |
+| `hreflang_missing_x_default` | notice | alternates | `languages` | A multi-language hreflang cluster has no `x-default` fallback. |
 
 The length thresholds reuse the core `SEOWarningEvaluator` constants (60/160),
 so a scan never contradicts the editor's character counters; the lower bounds
@@ -66,6 +70,12 @@ so a scan never contradicts the editor's character counters; the lower bounds
 `IssueRegistry::TITLE_MIN_LENGTH` / `DESCRIPTION_MIN_LENGTH`. Length is measured
 against the **resolved** title/description — the value that actually renders,
 including any fallback and title suffix.
+
+The `hreflang_*` codes validate a page's declared hreflang alternates (read from
+the resolver's `alternates`): invalid/duplicate codes, a missing self-reference,
+and a missing `x-default` on a multi-language cluster. They run only when the
+page declares alternates. Cross-page **reciprocity** ("return tags") is not yet
+validated.
 
 ::: tip `missing_focus_keyword` is gated
 The focus-keyword notice only fires when the **core** focus-keyword workflow is
@@ -119,9 +129,10 @@ for the threat model and the residual TOCTOU note.
 The [Pro SEO score](/pro/scoring) is `100 −` a fixed penalty per scored issue,
 weighted by the severities above. Most codes count; a few are deliberately
 excluded — `missing_focus_keyword` (advisory), `noindex_page` and `multiple_h1`
-(informational), and `blocked_url` / `canonical_target_blocked` ("we couldn't
-check" ≠ a defect). The [scoring page](/pro/scoring) has the full allowlist and
-the penalty for every code.
+(informational), `blocked_url` / `canonical_target_blocked` ("we couldn't
+check" ≠ a defect), and the `hreflang_*` codes (held out of the score for now).
+The [scoring page](/pro/scoring) has the full allowlist and the penalty for
+every code.
 
 ## Configuration
 
