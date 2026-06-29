@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Rankbeam\Seo\Console\Commands\AuditCommand;
 use Rankbeam\Seo\Console\Commands\ImportFromCommand;
+use Rankbeam\Seo\Console\Commands\LlmsTxtCommand;
 use Rankbeam\Seo\Console\Commands\SitemapCommand;
 use Rankbeam\Seo\Importing\ImporterRegistry;
 use Rankbeam\Seo\Importing\RalphJSmitImporter;
@@ -181,6 +182,7 @@ class SEOServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 SitemapCommand::class,
+                LlmsTxtCommand::class,
                 AuditCommand::class,
                 ImportFromCommand::class,
             ]);

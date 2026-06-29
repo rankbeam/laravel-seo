@@ -380,6 +380,80 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | llms.txt Generation
+    |--------------------------------------------------------------------------
+    |
+    | llms.txt (https://llmstxt.org) is the AEO/GEO counterpart to the XML
+    | sitemap: a markdown index of your site's key content that AI crawlers
+    | (GPTBot, ClaudeBot, PerplexityBot, Google-Extended) read to understand
+    | your site. It REUSES the sitemap's content sources — the models under
+    | `sitemap.models` and the named sources registered via
+    | `SEO::sitemaps()->register(...)` — so the two artifacts never disagree.
+    |
+    | Generate: php artisan seo:llms-txt
+    | Access at: https://yoursite.com/llms.txt
+    |
+    */
+
+    'llms_txt' => [
+
+        /*
+         * Master switch for llms.txt generation. When false the seo:llms-txt
+         * command refuses to run.
+         */
+        'enabled' => env('SEO_LLMS_TXT_ENABLED', true),
+
+        /*
+         * Serve /llms.txt via the package route. The route is also subject to
+         * the master `routes.enabled` switch below; disable just this one when
+         * you serve a statically generated /llms.txt yourself.
+         */
+        'route' => env('SEO_LLMS_TXT_ROUTE', true),
+
+        /*
+         * Filesystem disk the file is written to. Defaults to the sitemap disk
+         * so both public artifacts land in the same place.
+         */
+        'disk' => env('SEO_LLMS_TXT_DISK', env('SEO_SITEMAP_DISK', 'public')),
+
+        /*
+         * Filename for the file (relative to the disk root).
+         */
+        'path' => 'llms.txt',
+
+        /*
+         * The H1 site title at the top of the file. Falls back to seo.site_name
+         * (then app.name) when left null.
+         */
+        'title' => env('SEO_LLMS_TXT_TITLE'),
+
+        /*
+         * Optional one-line summary rendered as a `> blockquote` under the H1.
+         * Leave null to omit it.
+         */
+        'description' => env('SEO_LLMS_TXT_DESCRIPTION'),
+
+        /*
+         * Whitelist of REGISTERED sitemap source names to include as sections.
+         * Empty array (the default) includes every registered source. Configured
+         * `sitemap.models` are always included regardless of this list.
+         *
+         * Format:
+         * ['posts', 'pages']
+         */
+        'sources' => [],
+
+        /*
+         * Maximum number of bullets emitted per section, bounding the file for
+         * very large sources (llms.txt is an orientation index, not a full
+         * sitemap).
+         */
+        'max_entries_per_section' => 100,
+
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Schema Markup (JSON-LD)
     |--------------------------------------------------------------------------
     |
