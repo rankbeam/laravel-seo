@@ -79,6 +79,7 @@ export default defineConfig({
           { text: 'SEO score', link: '/pro/scoring' },
           { text: 'On-page checklist', link: '/pro/on-page-checklist' },
           { text: 'Search Console', link: '/pro/search-console' },
+          { text: 'IndexNow', link: '/pro/indexnow' },
           { text: 'AI assist (beta)', link: '/pro/ai-assist' },
         ],
       },
