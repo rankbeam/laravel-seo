@@ -5,6 +5,25 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.2.0] - 2026-06-29
+
+### Added
+
+- **llms.txt generator** — the AEO/GEO counterpart to the XML sitemap: a
+  markdown index of the site's key content for AI crawlers (GPTBot, ClaudeBot,
+  PerplexityBot, Google-Extended), built from the **same sources as the
+  sitemap** (the shared `SitemapRegistry` named sources + `seo.sitemap.models`)
+  with the same noindex/unpublished exclusions, so the two artifacts never
+  disagree about what's on the site. Ships `LlmsTxtBuilder`, the `seo:llms-txt`
+  command (`--print`, `--output=`), a config-gated `/llms.txt` route, a
+  `SEO::llmsTxt()` facade accessor, and a `seo.llms_txt` config block. No new
+  dependencies.
+
+### Documentation
+
+- Documented the Pro on-page checklist's new **readability check**
+  (Flesch-Kincaid / Gulpease) in `docs/pro/on-page-checklist.md`.
+
 ## [3.1.1] - 2026-06-16
 
 ### Changed
