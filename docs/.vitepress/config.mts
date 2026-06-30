@@ -81,6 +81,7 @@ export default defineConfig({
           { text: 'On-page checklist', link: '/pro/on-page-checklist' },
           { text: 'Search Console', link: '/pro/search-console' },
           { text: 'IndexNow', link: '/pro/indexnow' },
+          { text: 'AI-bot monitor', link: '/pro/ai-bot-monitor' },
           { text: 'AI assist (beta)', link: '/pro/ai-assist' },
         ],
       },
