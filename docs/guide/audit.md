@@ -37,12 +37,20 @@ alone, with no page fetch:
 | Duplicate title / description across the site | `duplicate_title`, `duplicate_description` |
 | Robots conflicts & suspicious noindex | `robots_conflict_indexing`, `robots_conflict_following`, `noindex_warning` |
 | Canonical format / cross-domain / shared / insecure | `invalid_canonical`, `cross_domain_canonical`, `shared_canonical`, `insecure_canonical` |
+| Answer-readiness (AEO) — article structured data | `aeo_missing_author`, `aeo_article_missing_date` |
 | Focus keyword set (opt-in) | `missing_focus_keyword` |
 
 These are the **same issue codes** the Pro scan emits, so a finding means the
 same thing here as it does there. Length reuses the editor's 60/160 thresholds
 (measured against the **resolved** value, suffix included), so the audit never
 contradicts the character counters in the [Filament editor](/guide/filament).
+
+The **answer-readiness (AEO)** checks fire only when a page declares
+article-type JSON-LD (`Article`, `BlogPosting`, `NewsArticle`, …) that is
+missing a signal AI answer engines rely on — an `author` entity for attribution
+and E-E-A-T, or a `datePublished` / `dateModified` for recency. A page without
+an article is never flagged, so the audit stays quiet where AEO doesn't apply.
+They are advisory (notice-level) and held out of the Pro 0–100 score.
 
 ## What it does *not* check — the capability boundary
 

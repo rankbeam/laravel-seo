@@ -28,6 +28,8 @@ it('pins the metadata code contract shared with the Pro registry', function () {
         'cross_domain_canonical',
         'shared_canonical',
         'insecure_canonical',
+        'aeo_missing_author',
+        'aeo_article_missing_date',
     ]);
 });
 

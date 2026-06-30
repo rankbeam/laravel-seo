@@ -5,6 +5,21 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.4.0] - 2026-06-30
+
+### Added
+
+- **Answer-readiness (AEO) checks in the free `seo:audit`** — the first
+  AI-answer-engine optimisation signals, surfaced free. Two metadata-class
+  checks read the page's resolved JSON-LD graph and fire only when it declares
+  article-type structured data (`Article`, `BlogPosting`, `NewsArticle`, …) that
+  is missing a signal AI answer engines use: `aeo_missing_author` (no author
+  entity for attribution / E-E-A-T) and `aeo_article_missing_date` (no
+  `datePublished` / `dateModified` for recency). A page without an article is
+  never flagged, so the audit stays quiet where AEO doesn't apply. Both are
+  advisory (notice-level) and mirror the Pro scan's new `aeo_*` codes; they are
+  held out of the Pro 0–100 score. No new dependencies. Docs: `/guide/audit`.
+
 ## [3.3.0] - 2026-06-30
 
 ### Added
