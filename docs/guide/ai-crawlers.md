@@ -7,7 +7,8 @@ disallow policy — so you can **let the bots that cite you in, and gate the one
 that train on your content.**
 
 This is a free, core feature. The Pro package adds the other half —
-observability: an AI-bot hit log showing which AI crawlers actually visited.
+[observability: an AI-bot hit log](/pro/ai-bot-monitor) showing which AI crawlers
+actually visited.
 
 ## The default policy
 
@@ -91,7 +92,8 @@ to honour it, but a few user-triggered agents (`ChatGPT-User`, `Perplexity-User`
 and some training crawlers (`Bytespider`) are **not** — Rankbeam marks those
 lines `advisory` rather than implying a block that won't hold. To actually stop a
 non-compliant bot you need server- or edge-level blocking (firewall, WAF,
-Cloudflare bot rules); the Pro AI-bot hit log tells you which ones to worry about.
+Cloudflare bot rules); the [Pro AI-bot hit log](/pro/ai-bot-monitor) tells you
+which ones to worry about.
 
 ## Configuration
 
