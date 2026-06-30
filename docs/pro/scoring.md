@@ -85,6 +85,8 @@ contract (a test asserts every registry code is either scored or listed here):
 | `multiple_h1` | **Informational.** Google tolerates multiple H1s — no multi-H1 penalty. |
 | `blocked_url` | **Absence of evidence.** The SsrfGuard refused the fetch, so the page was never checked — not a defect of the page. |
 | `canonical_target_blocked` | **Absence of evidence.** The canonical target could not be verified — not a defect of the page. |
+| `hreflang_invalid_code`, `hreflang_missing_self_reference`, `hreflang_duplicate_code`, `hreflang_missing_x_default` | **Advisory (for now).** The hreflang validator surfaces in the scan + free audit but does not yet move the score — adding it would require a `VERSION` bump. |
+| `aeo_missing_author`, `aeo_article_missing_date` | **Advisory.** Answer-readiness (AEO) signals — they flag an article missing an author entity or a publish date in the scan + free audit, but do not move the score (would require a `VERSION` bump). |
 
 Keyword density, power words, and the rest of the
 [on-page checklist](/pro/on-page-checklist) never enter the score at all — they
