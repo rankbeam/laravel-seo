@@ -190,6 +190,45 @@ in the JSON envelope. Like every assist surface, `seo-pro:suggest-schema`
 is **propose-only** — it prints the document and writes nothing; piping it
 into `seo_meta.schema_jsonld` is your decision.
 
+## Bulk-fill missing metadata
+
+Everything above is propose-only. The one batch surface that **writes** is
+`seo-pro:ai-fill` (and `SeoPro::aiFill()`): the "fill everything" pass for a
+whole model collection.
+
+```bash
+# preview what would be written (no changes saved)
+php artisan seo-pro:ai-fill "App\Models\Post" --dry-run
+
+# fill missing descriptions across all configured models
+php artisan seo-pro:ai-fill --field=description
+
+# all configured (seo.audit.models / seo.sitemap.models) models, all fields
+php artisan seo-pro:ai-fill --force
+```
+
+It iterates the records, finds the ones whose **title or description is missing**
+— no explicit value *and* no computed fallback, the **same definition the
+[audit](/guide/audit) uses** — generates one with the suggester, and saves it.
+
+It is deliberately conservative:
+
+- **Only gaps are filled.** A record that already has (or can derive) the field
+  is skipped; an existing value is **never overwritten**.
+- **`--dry-run`** generates and prints the values without saving, so you can
+  review the spend and the output first.
+- **It writes**, so in production it asks for confirmation unless you pass
+  `--force`. `--field` (title | description | all) and `--limit` scope the run.
+- Each filled field is one suggester call billed to your key, and it runs only
+  when AI assist is enabled.
+
+```php
+use Rankbeam\Seo\Pro\Facades\SeoPro;
+
+$summary = SeoPro::aiFill()->fill([\App\Models\Post::class], 'all', limit: 50, apply: true);
+// ['processed' => 120, 'filled' => 18, 'skipped' => 102, 'failed' => 0, 'records' => [...]]
+```
+
 ## How replies are handled
 
 Every call returns one provider-neutral envelope, so the behaviour is the
