@@ -20,6 +20,7 @@ SEO core for Laravel: meta tag resolution with a layered precedence chain, Open 
 | **Sitemaps** | `SitemapBuilder` (wraps spatie/laravel-sitemap) with config-driven model sources, programmatic named sources via `SEO::sitemaps()->register(...)`, sitemap index support, `seo:sitemap` command, and `/sitemap.xml` routes that can be disabled. |
 | **llms.txt** | `seo:llms-txt` writes a markdown [`llms.txt`](https://llmstxt.org) index for AI crawlers (GPTBot / ClaudeBot / PerplexityBot / Google-Extended) from the **same sources as the sitemap** (the registry + `seo.sitemap.models`), so the two never disagree. Served at `/llms.txt`, gated by config. |
 | **AI crawler control** | `seo:robots-txt` renders a managed `robots.txt` (and `ai.txt`) from a doc-verified catalog of AI crawlers tagged by purpose — **allow the bots that cite you (`ai_search`/`ai_assistant`), gate the ones that train on you (`ai_training`)** by default. `SEO::robotsTxt()->aiDirectives()` for a paste-able block; `SEO::aiCrawlers()` for the catalog + policy. Bots that ignore robots.txt are flagged advisory. |
+| **Markdown for bots** | Content negotiation that serves clean **markdown** to AI crawlers instead of HTML — on `Accept: text/markdown`, `?format=md`, or (opt-in) a known AI crawler — from a model's `toSeoMarkdown()`, a `SEO::markdown()->register()` source, or a built title+description+content fallback. Off by default; never touches a normal visitor's response. |
 | **Warnings** | `SEOWarningEvaluator` for admin UIs: title > 60 / description > 160 warnings, manual-vs-fallback indicators, social-image dimension checks (min 200x200, ideal 1200x630, local files only). |
 | **Free audit** | `seo:audit` — an in-process "what's wrong with my SEO right now" command (no queue, license, or network). Runs the metadata-class checks (missing / over- / under-length title & description, OG image, robots conflicts, canonical format/cross-domain/shared/insecure, focus keyword) and prints a per-page pass/warn/fail table with an explicit capability matrix. `--strict` for CI, `--json` for tooling. No numerical score (that's Pro). |
 | **Migration importer** | `seo:import-from ralphjsmit` — bulk-import SEO data from a competing Laravel package's storage into `seo_meta`. Idempotent, `--dry-run`, `--model=` scoping, explicit field mapping, morph rows re-resolved to the live model. See [Migrating from other packages](docs/guide/migrate-from-other-packages.md). |
@@ -158,7 +159,7 @@ file). Bots documented not to honour robots.txt are flagged advisory. See
 
 ## Test status
 
-`vendor/bin/pest` on `master`: **507 passed (1549 assertions), 0 failed** under PHP 8.4 / Laravel 13 (CI matrix: PHP 8.2–8.4 × Laravel 11/12/13).
+`vendor/bin/pest` on `master`: **515 passed (1576 assertions), 0 failed** under PHP 8.4 / Laravel 13 (CI matrix: PHP 8.2–8.4 × Laravel 11/12/13).
 
 ```bash
 git clone https://github.com/rankbeam/laravel-seo.git

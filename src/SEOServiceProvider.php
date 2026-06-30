@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rankbeam\Seo;
 
+use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -13,11 +14,13 @@ use Rankbeam\Seo\Console\Commands\ImportFromCommand;
 use Rankbeam\Seo\Console\Commands\LlmsTxtCommand;
 use Rankbeam\Seo\Console\Commands\RobotsTxtCommand;
 use Rankbeam\Seo\Console\Commands\SitemapCommand;
+use Rankbeam\Seo\Http\Middleware\ServeMarkdownToBots;
 use Rankbeam\Seo\Importing\ImporterRegistry;
 use Rankbeam\Seo\Importing\RalphJSmitImporter;
 use Rankbeam\Seo\Importing\WordPress\RankMathImporter;
 use Rankbeam\Seo\Importing\WordPress\WordPressCsvImporter;
 use Rankbeam\Seo\Importing\WordPress\YoastImporter;
+use Rankbeam\Seo\Services\Markdown\MarkdownRegistry;
 use Rankbeam\Seo\Services\RobotsTxt\RobotsTxtBuilder;
 use Rankbeam\Seo\Services\SEOComputedBuilder;
 use Rankbeam\Seo\Services\SEODefaultsRepository;
@@ -41,6 +44,7 @@ class SEOServiceProvider extends ServiceProvider
         SEOResolutionCache::class => SEOResolutionCache::class,
         AiCrawlerRegistry::class => AiCrawlerRegistry::class,
         RobotsTxtBuilder::class => RobotsTxtBuilder::class,
+        MarkdownRegistry::class => MarkdownRegistry::class,
     ];
 
     /**
@@ -91,6 +95,7 @@ class SEOServiceProvider extends ServiceProvider
         $this->registerPublishing();
         $this->registerMigrations();
         $this->registerRoutes();
+        $this->registerMiddleware();
         $this->registerCommands();
         $this->registerBladeDirectives();
         $this->registerViews();
@@ -177,6 +182,28 @@ class SEOServiceProvider extends ServiceProvider
             'middleware' => config('seo.routes.middleware', ['web']),
             'as' => 'seo.',
         ];
+    }
+
+    /**
+     * Register the markdown-for-bots content-negotiation middleware globally.
+     *
+     * Gated on seo.markdown_for_bots.enabled (off by default), so by default the
+     * package adds no middleware at all. When on, the middleware still passes
+     * every response through untouched unless the request asks for markdown AND
+     * a source resolves for the route — see {@see ServeMarkdownToBots}.
+     */
+    protected function registerMiddleware(): void
+    {
+        if (! config('seo.markdown_for_bots.enabled', false)
+            || ! config('seo.markdown_for_bots.auto_register_middleware', true)) {
+            return;
+        }
+
+        $kernel = $this->app->make(Kernel::class);
+
+        if (method_exists($kernel, 'pushMiddleware')) {
+            $kernel->pushMiddleware(ServeMarkdownToBots::class);
+        }
     }
 
     /**
@@ -509,6 +536,7 @@ class SEOServiceProvider extends ServiceProvider
             SEOResolutionCache::class,
             AiCrawlerRegistry::class,
             RobotsTxtBuilder::class,
+            MarkdownRegistry::class,
             ImporterRegistry::class,
             'seo',
         ];

@@ -995,6 +995,23 @@ class SEOResolver
     }
 
     /**
+     * Get the markdown-for-bots source registry.
+     *
+     * Exposed here so the SEO facade can offer `SEO::markdown()->register(...)` —
+     * register a markdown source for a named route so the content-negotiation
+     * middleware can serve clean markdown to AI crawlers.
+     *
+     * @example
+     * ```php
+     * SEO::markdown()->register('posts.show', fn ($request) => $request->route('post')->body_md);
+     * ```
+     */
+    public function markdown(): \Rankbeam\Seo\Services\Markdown\MarkdownRegistry
+    {
+        return app(\Rankbeam\Seo\Services\Markdown\MarkdownRegistry::class);
+    }
+
+    /**
      * Resolve SEO data for multiple models at once.
      *
      * Useful for sitemap generation or listing pages where you need
