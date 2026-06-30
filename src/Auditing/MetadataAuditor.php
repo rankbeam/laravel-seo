@@ -69,7 +69,128 @@ class MetadataAuditor
             $issues[] = $issue;
         }
 
-        return array_merge($issues, $this->checkCanonicalConsistency($model));
+        $issues = array_merge($issues, $this->checkCanonicalConsistency($model));
+
+        return array_merge($issues, $this->checkAnswerReadiness($model, $locale));
+    }
+
+    /**
+     * Schema.org @types treated as "article" content for answer-readiness.
+     *
+     * @var array<int, string>
+     */
+    protected const AEO_ARTICLE_TYPES = [
+        'article', 'blogposting', 'newsarticle', 'techarticle',
+        'scholarlyarticle', 'report', 'liveblogposting',
+    ];
+
+    /**
+     * Answer-readiness (AEO) checks: is the page's article content extractable
+     * and attributable by AI answer engines?
+     *
+     * Both checks read the RESOLVED JSON-LD graph (the same one the page
+     * renders), so they run in the free audit with no fetch. They fire ONLY
+     * when the page declares article-type structured data and that node is
+     * missing a signal — never a blanket "you have no schema" nag — so a page
+     * without an article is never flagged. Advisory: notice-level, and held out
+     * of the Pro 0-100 score.
+     *
+     * @return array<int, AuditIssue>
+     */
+    public function checkAnswerReadiness(Model $model, ?string $locale = null): array
+    {
+        try {
+            $resolved = SEO::resolve($model, null, $locale);
+        } catch (Throwable) {
+            return [];
+        }
+
+        $articles = $this->articleSchemaNodes($resolved->schemaJsonld);
+
+        if ($articles === []) {
+            return [];
+        }
+
+        $missingAuthor = false;
+        $missingDate = false;
+
+        foreach ($articles as $node) {
+            if (empty($node['author'])) {
+                $missingAuthor = true;
+            }
+
+            if (empty($node['datePublished']) && empty($node['dateModified'])) {
+                $missingDate = true;
+            }
+        }
+
+        $issues = [];
+
+        if ($missingAuthor) {
+            $issues[] = MetadataIssues::make(
+                'aeo_missing_author',
+                'An article on this page has no author in its structured data; AI answer engines use the author for attribution and E-E-A-T.',
+            );
+        }
+
+        if ($missingDate) {
+            $issues[] = MetadataIssues::make(
+                'aeo_article_missing_date',
+                'An article on this page has no publish date in its structured data; AI answer engines use it to judge recency.',
+            );
+        }
+
+        return $issues;
+    }
+
+    /**
+     * The article-type nodes in a resolved JSON-LD value, handling the single-
+     * node, list, and @graph shapes.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    protected function articleSchemaNodes(mixed $schema): array
+    {
+        if (! is_array($schema) || $schema === []) {
+            return [];
+        }
+
+        if (isset($schema['@graph']) && is_array($schema['@graph'])) {
+            $nodes = $schema['@graph'];
+        } elseif (isset($schema['@type']) || isset($schema['@context'])) {
+            $nodes = [$schema];
+        } else {
+            $nodes = $schema;
+        }
+
+        $articles = [];
+
+        foreach ($nodes as $node) {
+            if (is_array($node) && $this->isArticleNode($node)) {
+                $articles[] = $node;
+            }
+        }
+
+        return $articles;
+    }
+
+    /**
+     * Whether a JSON-LD node's @type is one of the article types.
+     *
+     * @param  array<string, mixed>  $node
+     */
+    protected function isArticleNode(array $node): bool
+    {
+        $types = $node['@type'] ?? null;
+        $types = is_array($types) ? $types : [$types];
+
+        foreach ($types as $type) {
+            if (is_string($type) && in_array(strtolower($type), self::AEO_ARTICLE_TYPES, true)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**

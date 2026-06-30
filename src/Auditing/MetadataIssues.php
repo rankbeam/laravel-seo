@@ -64,6 +64,12 @@ final class MetadataIssues
             'cross_domain_canonical' => ['severity' => $w, 'field' => 'canonical'],
             'shared_canonical' => ['severity' => $n, 'field' => 'canonical'],
             'insecure_canonical' => ['severity' => $w, 'field' => 'canonical'],
+
+            // ── Answer-readiness (AEO) — article structured-data signals AI
+            //    answer engines use for attribution and recency. Advisory:
+            //    notice-level, and held OUT of the Pro 0-100 score.
+            'aeo_missing_author' => ['severity' => $n, 'field' => 'schema'],
+            'aeo_article_missing_date' => ['severity' => $n, 'field' => 'schema'],
         ];
     }
 
