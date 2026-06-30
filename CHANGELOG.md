@@ -5,6 +5,24 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.5.0] - 2026-06-30
+
+### Added
+
+- **Markdown for bots (content negotiation)** — serve a clean markdown
+  representation of a page to AI crawlers instead of HTML. A content-negotiation
+  middleware swaps in markdown ONLY when the request asks for it (an explicit
+  `Accept: text/markdown`, a `?format=md` query, or — opt-in — a known AI crawler
+  by user-agent, reusing the v3.3.0 `AiCrawlerRegistry`) **and** a markdown
+  source resolves for the route; otherwise the normal HTML response passes
+  through untouched, and only successful HTML responses are ever replaced
+  (never JSON, redirects, or downloads). Sources, in order: a route registered
+  via `SEO::markdown()->register()`, a model's own `toSeoMarkdown()`
+  (`ProvidesSeoMarkdown`), or a built title + description + `getContentForSEO()`
+  fallback. **Off by default** (`seo.markdown_for_bots.enabled`) — the
+  middleware isn't even registered until you opt in, so there's zero footprint.
+  No new dependencies. Full reference: docs `/guide/markdown-for-bots`.
+
 ## [3.4.0] - 2026-06-30
 
 ### Added

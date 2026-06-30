@@ -544,6 +544,44 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Markdown for bots (content negotiation)
+    |--------------------------------------------------------------------------
+    |
+    | Serve a clean markdown representation of a page to AI crawlers instead of
+    | HTML, via content negotiation. OFF by default; when on, the middleware
+    | swaps in markdown ONLY when the request asks for it (an explicit
+    | `Accept: text/markdown`, `?format=md`, or — opt-in — a known AI crawler)
+    | AND a markdown source resolves for the route. Sources: a model's
+    | `toSeoMarkdown()` method, a route registered via `SEO::markdown()->register()`,
+    | or the built title + description + `getContentForSEO()` fallback.
+    |
+    */
+
+    'markdown_for_bots' => [
+
+        // Master switch. When false the middleware is never registered (no
+        // footprint at all).
+        'enabled' => env('SEO_MARKDOWN_FOR_BOTS', false),
+
+        // Auto-register the content-negotiation middleware globally.
+        'auto_register_middleware' => true,
+
+        // Also serve markdown to known AI crawlers detected by user-agent (via
+        // the AI-crawler catalog), not only on an explicit Accept/?format ask.
+        'serve_to_known_bots' => false,
+
+        // The query trigger: ?format=md.
+        'query_param' => 'format',
+        'query_value' => 'md',
+
+        // Build a basic markdown document (title + description + getContentForSEO())
+        // when a model has no toSeoMarkdown() of its own. The content is served
+        // verbatim — implement toSeoMarkdown() if your content is HTML.
+        'build_from_content' => true,
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Schema Markup (JSON-LD)
     |--------------------------------------------------------------------------
     |

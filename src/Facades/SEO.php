@@ -25,6 +25,7 @@ use Rankbeam\Seo\Services\SEOResolver;
  * @method static \Rankbeam\Seo\Services\LlmsTxt\LlmsTxtBuilder llmsTxt()
  * @method static \Rankbeam\Seo\AiCrawlers\AiCrawlerRegistry aiCrawlers()
  * @method static \Rankbeam\Seo\Services\RobotsTxt\RobotsTxtBuilder robotsTxt()
+ * @method static \Rankbeam\Seo\Services\Markdown\MarkdownRegistry markdown()
  *
  * @see \Rankbeam\Seo\Services\SEOResolver
  */
