@@ -63,6 +63,8 @@ scan, measuring the served `<head>` — same codes, same meaning.)
 | `hreflang_missing_self_reference` | warning | alternates | `locale`, `page_url` | Alternates are declared but none references the page's own locale (a self-referencing hreflang). |
 | `hreflang_duplicate_code` | warning | alternates | `duplicate_codes` | The same hreflang code maps to more than one URL (an ambiguous cluster). |
 | `hreflang_missing_x_default` | notice | alternates | `languages` | A multi-language hreflang cluster has no `x-default` fallback. |
+| `aeo_missing_author` | notice | schema | — | An article in the page's structured data has no author entity (no attribution for AI answer engines). |
+| `aeo_article_missing_date` | notice | schema | — | An article in the page's structured data has no published/modified date (a recency signal for AI answer engines). |
 
 The length thresholds reuse the core `SEOWarningEvaluator` constants (60/160),
 so a scan never contradicts the editor's character counters; the lower bounds
@@ -76,6 +78,15 @@ the resolver's `alternates`): invalid/duplicate codes, a missing self-reference,
 and a missing `x-default` on a multi-language cluster. They run only when the
 page declares alternates. Cross-page **reciprocity** ("return tags") is not yet
 validated.
+
+The `aeo_*` codes are **answer-readiness (AEO)** signals — is the page's article
+content extractable and attributable by AI answer engines? They read the
+resolved JSON-LD graph and fire **only** when it declares article-type
+structured data (`Article`, `BlogPosting`, `NewsArticle`, …) missing an `author`
+entity (attribution / E-E-A-T) or a `datePublished` / `dateModified` (recency).
+A page without an article is never flagged. They are gated by
+`seo-pro.scan.checks.aeo` (on by default) and mirror the free
+[`seo:audit`](/guide/audit).
 
 ::: tip `missing_focus_keyword` is gated
 The focus-keyword notice only fires when the **core** focus-keyword workflow is
@@ -130,7 +141,8 @@ The [Pro SEO score](/pro/scoring) is `100 −` a fixed penalty per scored issue,
 weighted by the severities above. Most codes count; a few are deliberately
 excluded — `missing_focus_keyword` (advisory), `noindex_page` and `multiple_h1`
 (informational), `blocked_url` / `canonical_target_blocked` ("we couldn't
-check" ≠ a defect), and the `hreflang_*` codes (held out of the score for now).
+check" ≠ a defect), and the `hreflang_*` and `aeo_*` codes (advisory signals
+held out of the score for now).
 The [scoring page](/pro/scoring) has the full allowlist and the penalty for
 every code.
 
