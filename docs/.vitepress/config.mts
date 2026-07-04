@@ -80,6 +80,7 @@ export default defineConfig({
           { text: 'Scan issues', link: '/pro/scan-issues' },
           { text: 'SEO score', link: '/pro/scoring' },
           { text: 'On-page checklist', link: '/pro/on-page-checklist' },
+          { text: 'Broken-link crawler', link: '/pro/broken-links' },
           { text: 'Search Console', link: '/pro/search-console' },
           { text: 'IndexNow', link: '/pro/indexnow' },
           { text: 'AI-bot monitor', link: '/pro/ai-bot-monitor' },
