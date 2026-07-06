@@ -34,7 +34,7 @@ features:
     details: The free laravel-seo-filament package adds a complete SEO section to any resource form in two lines, with live counters and fallback indicators.
   - title: Technical-SEO audit (Pro)
     details: A queued scan pipeline with severity-ranked issues and a transparent 0–100 score, a hardened redirect manager, and a no-IP 404 monitor with one-click recovery — all running headless on any Laravel app, with an optional Filament dashboard.
-  - title: AI assist (beta, Pro)
+  - title: AI assist (Pro)
     details: Bring-your-own-key title and meta-description suggestions plus plain-language scan-issue explanations. Your Anthropic or OpenAI account; nothing proxied, metered, or resold.
 ---
 

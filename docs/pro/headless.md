@@ -78,7 +78,7 @@ editorial loop (keyword placement, length, images, internal links), **not** the
 The same metrics are available as `SeoPro::searchConsole()` — see
 [Search Console](/pro/search-console). Off by default; strictly read-only.
 
-### AI assist (beta)
+### AI assist
 
 | Command | What it does |
 |---|---|
