@@ -36,6 +36,13 @@ class ExplainPage extends Model
     }
 }
 
+class ExplainArticle extends ExplainPage
+{
+    // Basename contains "article" → SEOComputedBuilder::computeOgType() infers
+    // og_type='article'. Shares the explain_pages table.
+    protected $table = 'explain_pages';
+}
+
 beforeEach(function () {
     $this->app['db']->connection()->getSchemaBuilder()->create('explain_pages', function ($table) {
         $table->id();
@@ -96,12 +103,27 @@ it('attributes the base config layer for a field only config sets', function () 
     // og_site_name / twitter_site have null constructor defaults and are set
     // only by the base config layer, so attribution is unambiguous. (og_type /
     // twitter_card carry non-null SEOData constructor defaults that ride along
-    // on every `new SEOData()` layer, so they attribute to the highest such
-    // layer — faithful to the merge, but not a clean "config only" probe.)
+    // on every `new SEOData()` layer EXCEPT the meta-less explicit layer — which
+    // suppresses them — so they attribute to the highest layer that carries a
+    // default, here computed; faithful to the merge, but not a clean "config
+    // only" probe.)
     expect($fields['og_site_name']['winner']['layer'])->toBe('config')
         ->and($fields['og_site_name']['winner']['value'])->toBe('Test Site')
         ->and($fields['twitter_site']['winner']['layer'])->toBe('config')
         ->and($fields['twitter_site']['winner']['value'])->toBe('@testsite');
+});
+
+it('attributes og_type to the computed layer for a meta-less article-like model', function () {
+    // Regression: with no stored seo_meta row the explicit layer contributes
+    // nothing for og_type, so the computed 'article' is the winner — not
+    // shadowed to 'website' by a bare explicit-layer constructor default.
+    $article = ExplainArticle::create(['title' => 'My Article']);
+
+    $ogType = explainPage($article)['fields']['og_type'];
+
+    expect($ogType['winner']['layer'])->toBe('computed')
+        ->and($ogType['winner']['value'])->toBe('article')
+        ->and($ogType['final'])->toBe('article');
 });
 
 it('attributes a global SEODefault layer when the model offers nothing', function () {

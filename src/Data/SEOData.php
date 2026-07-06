@@ -124,7 +124,12 @@ final class SEOData implements Arrayable, JsonSerializable
      * Create from a model that uses the HasSEO trait.
      *
      * Extracts SEO data from the model's related SEOMeta record.
-     * If no SEOMeta exists, returns an empty SEOData instance.
+     * If no SEOMeta exists, returns an all-null SEOData — its non-null
+     * ogType/twitterCard constructor defaults suppressed — so that when the
+     * resolver merges it as the highest (explicit) layer it contributes
+     * nothing and cannot clobber a lower layer's value (see the no-meta branch
+     * below). This differs from {@see empty()}, which keeps those defaults for
+     * use as a merge-chain BASE.
      *
      * Note: This only reads the stored/explicit SEO values.
      * For computed values (from model attributes), use the HasSEO
@@ -150,7 +155,14 @@ final class SEOData implements Arrayable, JsonSerializable
             : ($model->seoMeta ?? null);
 
         if (! $meta) {
-            return new self;
+            // A meta-less model has NO explicit SEO to contribute. Return an
+            // all-null DTO — explicitly nulling SEOData's non-null
+            // ogType='website'/twitterCard='summary_large_image' constructor
+            // defaults — so merging this as the resolver's highest (explicit)
+            // layer is a no-op that leaves a lower layer's value intact (e.g. a
+            // computed og_type='article' for an article-like model is not
+            // overwritten with 'website').
+            return new self(ogType: null, twitterCard: null);
         }
 
         return new self(
