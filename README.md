@@ -162,7 +162,7 @@ file). Bots documented not to honour robots.txt are flagged advisory. See
 
 ## Test status
 
-`vendor/bin/pest` on `master`: **550 passed (1634 assertions), 0 failed** (plus 3 Chrome-dependent OG-image smoke tests skipped by default) under PHP 8.4 / Laravel 13 (CI matrix: PHP 8.2–8.4 × Laravel 11/12/13).
+`vendor/bin/pest` on `master`: **595 passed (1741 assertions), 0 failed** (plus 3 Chrome-dependent OG-image smoke tests skipped by default) under PHP 8.4 / Laravel 13 (CI matrix: PHP 8.2–8.4 × Laravel 11/12/13).
 
 ```bash
 git clone https://github.com/rankbeam/laravel-seo.git
