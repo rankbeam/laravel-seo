@@ -223,11 +223,47 @@ It is deliberately conservative:
 - Each filled field is one suggester call billed to your key, and it runs only
   when AI assist is enabled.
 
+### At scale: pacing, a cost estimate, and crash-resume
+
+Filling hundreds or thousands of models is a long, **paid** operation, so the
+command is built to be safe to run against a large collection:
+
+- **Paced calls.** `seo-pro.ai.fill.throttle_ms` (default `200`) inserts a delay
+  between provider calls so a big run doesn't burst into the provider's rate
+  limit — the driver's own [429 retry/backoff](#how-replies-are-handled) is the
+  net; this is the throttle that keeps you from needing it. Set it to `0` for a
+  local or free provider that wants maximum speed, or raise it on a low tier.
+- **A cost estimate you confirm first.** A run that will touch at least
+  `seo-pro.ai.fill.confirm_over` records (default `100`) prints an estimate and
+  asks before making a single call:
+
+  ```text
+  About to fill ~890 missing fields via anthropic (claude-opus-4-8) across 948 records.
+  Estimated ~667,500 tokens ≈ $18.02 (rough, ±50%).
+  Continue? (yes/no) [no]
+  ```
+
+  The dollar figure comes from the `seo-pro.ai.pricing` table (USD per 1M
+  tokens, matched to the configured model). It is deliberately honest to about
+  **±50%** — real input size and output length vary — and the defaults are
+  approximate: **override the pricing entries with your provider's current
+  prices** for an accurate number. A model with no pricing entry (e.g. a local
+  model) shows the token estimate with no invented dollar figure. `--force`
+  skips the prompt for automation; a dry run confirms too, because it makes the
+  same paid calls.
+- **Resumable — an interrupted run never re-pays.** Progress is checkpointed to
+  storage after **every** record, so if the run is killed (a worker timeout, a
+  deploy, Ctrl-C) the next run of the same command **resumes**: records already
+  filled are skipped, not billed again. A transient failure (rate limit,
+  timeout) leaves its record un-checkpointed so the resume retries exactly it.
+  A clean, complete run clears its checkpoint; pass `--fresh` to ignore a prior
+  run's checkpoint and start over.
+
 ```php
 use Rankbeam\Seo\Pro\Facades\SeoPro;
 
 $summary = SeoPro::aiFill()->fill([\App\Models\Post::class], 'all', limit: 50, apply: true);
-// ['processed' => 120, 'filled' => 18, 'skipped' => 102, 'failed' => 0, 'errors' => [], 'records' => [...]]
+// ['processed' => 120, 'filled' => 18, 'skipped' => 102, 'failed' => 0, 'resumed' => 0, 'errors' => [], 'records' => [...]]
 // On a provider failure, 'errors' maps each distinct error code to its human
 // message (e.g. 'unauthorized' => 'Anthropic: authentication failed…'), and the
 // seo-pro:ai-fill command prints those reasons — so a run never fails silently.
