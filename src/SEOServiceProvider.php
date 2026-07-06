@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Rankbeam\Seo\AiCrawlers\AiCrawlerRegistry;
 use Rankbeam\Seo\Console\Commands\AuditCommand;
+use Rankbeam\Seo\Console\Commands\ExplainCommand;
 use Rankbeam\Seo\Console\Commands\ImportFromCommand;
 use Rankbeam\Seo\Console\Commands\LlmsTxtCommand;
 use Rankbeam\Seo\Console\Commands\OgImagesCommand;
@@ -224,6 +225,7 @@ class SEOServiceProvider extends ServiceProvider
                 LlmsTxtCommand::class,
                 RobotsTxtCommand::class,
                 AuditCommand::class,
+                ExplainCommand::class,
                 ImportFromCommand::class,
                 OgImagesCommand::class,
             ]);

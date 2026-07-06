@@ -5,6 +5,12 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.8.0] - 2026-07-06
+
+### Added
+
+- **`seo:explain` — the resolver precedence trace.** `php artisan seo:explain {model} {id?} {--route=} {--locale=} {--json}` shows, for every field, the **winning layer and value**, each **losing layer's value** (overridden by "last non-null wins"), and any **post-processing** that changed the final value (title suffix, canonical query-strip, og:url derivation, image absolutization, the indexing guard forcing `noindex`). It also prints the **site-level resolution ledger** — site name, default locale, and canonical host — naming which source set each (env / config / programmatic / request), the class of bug canonical-host resolution is notorious for. Human output à la `route:list`, plus `--json`. Implemented as a read-only `SEOResolver::layerContributions()` hook + a `ResolutionExplainer`: attribution reuses the resolver's own layer sources and the final values come from the real `resolve()`, so the explanation can never drift from what renders — and the resolve hot path is untouched. Docs [/guide/explain](https://rankbeam.dev/guide/explain).
+
 ## [3.7.0] - 2026-07-06
 
 ### Added

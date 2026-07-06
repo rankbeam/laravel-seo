@@ -1105,6 +1105,73 @@ class SEOResolver
     }
 
     /**
+     * The ordered precedence layers, keyed, with the RAW SEOData each one
+     * contributes — the read-only hook behind `seo:explain`.
+     *
+     * This reuses the resolver's own layer sources (buildBaseConfig, the
+     * SEODefaultsRepository, the SEOComputedBuilder, and the explicit seo_meta
+     * extraction with the same blank_is_unset normalization applyExplicitValues
+     * uses), collected in the SAME order buildResolved() merges them — WITHOUT
+     * running the merge. It deliberately does not touch resolve()/buildResolved(),
+     * so the render hot path is unaffected; an explainer merges these for
+     * attribution while the real resolve() remains the source of truth for the
+     * final, post-processed values.
+     *
+     * Layer keys (lowest → highest precedence): config, global, model-type,
+     * route, computed, explicit. A layer that does not apply (no model, no
+     * route) is null.
+     *
+     * @param  Model|null  $model  The Eloquent model, or null for a route-only page
+     * @param  string|null  $route  The route name (auto-detected from the request if null, like applyRouteDefaults)
+     * @param  string|null  $locale  The locale (app locale if null)
+     * @return array<string, SEOData|null> Ordered layer key => contribution
+     */
+    public function layerContributions(?Model $model = null, ?string $route = null, ?string $locale = null): array
+    {
+        $locale ??= app()->getLocale();
+        // Mirror applyRouteDefaults()'s route derivation so the route layer here
+        // matches the one the resolver actually applies.
+        $route ??= request()?->route()?->getName();
+
+        return [
+            'config' => $this->buildBaseConfig($locale),
+            'global' => $this->defaults->global($locale),
+            'model-type' => $model ? $this->defaults->forModelType($model, $locale) : null,
+            'route' => $route ? $this->defaults->forRoute($route, $locale) : null,
+            'computed' => $model ? $this->computed->fromModel($model, $locale) : null,
+            'explicit' => $model ? $this->explicitContribution($model, $locale) : null,
+        ];
+    }
+
+    /**
+     * The explicit (seo_meta) layer's contribution, mirroring
+     * applyExplicitValues(): the stored SEOData with the same blank_is_unset
+     * normalization, or null when the model carries no seoMeta relation.
+     */
+    protected function explicitContribution(Model $model, string $locale): ?SEOData
+    {
+        if (! method_exists($model, 'seoMeta')) {
+            return null;
+        }
+
+        // Faithful to applyExplicitValues(): the SAME SEOData::fromModel() +
+        // blank_is_unset the resolver merges — including the bare `new self`
+        // fromModel() returns for a model with no stored seo_meta row. That
+        // empty DTO carries SEOData's non-null og_type/twitter_card constructor
+        // defaults, and the real resolve() DOES merge them, so the trace must
+        // too — otherwise the attributed winner could disagree with the final
+        // rendered value (the "cannot drift from what renders" guarantee). The
+        // human/JSON formatter surfaces that faithfully.
+        $explicit = SEOData::fromModel($model, $locale);
+
+        if (config('seo.resolver.blank_is_unset', false)) {
+            $explicit = $this->unsetBlankStrings($explicit);
+        }
+
+        return $explicit;
+    }
+
+    /**
      * Resolve SEO data for multiple models at once.
      *
      * Useful for sitemap generation or listing pages where you need

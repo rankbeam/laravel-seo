@@ -67,6 +67,7 @@ export default defineConfig({
           { text: 'Markdown for bots', link: '/guide/markdown-for-bots' },
           { text: 'Generated OG images', link: '/guide/og-image' },
           { text: 'Free SEO audit', link: '/guide/audit' },
+          { text: 'Explain resolution', link: '/guide/explain' },
           { text: 'Migrating from WordPress', link: '/guide/migrate-from-wordpress' },
           { text: 'WordPress migration runbook', link: '/guide/wordpress-migration-runbook' },
           { text: 'Migrating from other packages', link: '/guide/migrate-from-other-packages' },
