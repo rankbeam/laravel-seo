@@ -150,3 +150,15 @@ The Pro scan reads the **same** flag, so the audit, the scan, and the Pro
 editor nag always agree. Set a page's keywords with the
 [Filament focus-keyword field](/guide/filament) or
 `$model->saveSEO(['focus_keywords' => [['keyword' => 'laravel seo', 'is_primary' => true]]])`.
+
+## When a value isn't what you expect: `seo:explain`
+
+`seo:audit` tells you *what's wrong*; [`seo:explain`](/guide/explain) tells you
+*why a field resolved the way it did* — which layer (config / default / computed
+/ explicit) set each value, what it overrode, and what post-processing (title
+suffix, canonical strip, indexing guard) changed afterwards. Reach for it when an
+audit finding or a rendered tag is surprising:
+
+```bash
+php artisan seo:explain "App\Models\Post" 42
+```
