@@ -64,6 +64,7 @@ export default defineConfig({
           { text: 'Sitemap registry', link: '/guide/sitemaps' },
           { text: 'AI crawler control', link: '/guide/ai-crawlers' },
           { text: 'Markdown for bots', link: '/guide/markdown-for-bots' },
+          { text: 'Generated OG images', link: '/guide/og-image' },
           { text: 'Free SEO audit', link: '/guide/audit' },
           { text: 'Migrating from WordPress', link: '/guide/migrate-from-wordpress' },
           { text: 'WordPress migration runbook', link: '/guide/wordpress-migration-runbook' },

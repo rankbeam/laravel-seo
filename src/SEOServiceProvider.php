@@ -12,6 +12,7 @@ use Rankbeam\Seo\AiCrawlers\AiCrawlerRegistry;
 use Rankbeam\Seo\Console\Commands\AuditCommand;
 use Rankbeam\Seo\Console\Commands\ImportFromCommand;
 use Rankbeam\Seo\Console\Commands\LlmsTxtCommand;
+use Rankbeam\Seo\Console\Commands\OgImagesCommand;
 use Rankbeam\Seo\Console\Commands\RobotsTxtCommand;
 use Rankbeam\Seo\Console\Commands\SitemapCommand;
 use Rankbeam\Seo\Http\Middleware\ServeMarkdownToBots;
@@ -21,6 +22,8 @@ use Rankbeam\Seo\Importing\WordPress\RankMathImporter;
 use Rankbeam\Seo\Importing\WordPress\WordPressCsvImporter;
 use Rankbeam\Seo\Importing\WordPress\YoastImporter;
 use Rankbeam\Seo\Services\Markdown\MarkdownRegistry;
+use Rankbeam\Seo\Services\OgImage\OgImageGenerator;
+use Rankbeam\Seo\Services\OgImage\OgImageManager;
 use Rankbeam\Seo\Services\RobotsTxt\RobotsTxtBuilder;
 use Rankbeam\Seo\Services\SEOComputedBuilder;
 use Rankbeam\Seo\Services\SEODefaultsRepository;
@@ -45,6 +48,8 @@ class SEOServiceProvider extends ServiceProvider
         AiCrawlerRegistry::class => AiCrawlerRegistry::class,
         RobotsTxtBuilder::class => RobotsTxtBuilder::class,
         MarkdownRegistry::class => MarkdownRegistry::class,
+        OgImageManager::class => OgImageManager::class,
+        OgImageGenerator::class => OgImageGenerator::class,
     ];
 
     /**
@@ -218,6 +223,7 @@ class SEOServiceProvider extends ServiceProvider
                 RobotsTxtCommand::class,
                 AuditCommand::class,
                 ImportFromCommand::class,
+                OgImagesCommand::class,
             ]);
         }
     }
@@ -537,6 +543,8 @@ class SEOServiceProvider extends ServiceProvider
             AiCrawlerRegistry::class,
             RobotsTxtBuilder::class,
             MarkdownRegistry::class,
+            OgImageManager::class,
+            OgImageGenerator::class,
             ImporterRegistry::class,
             'seo',
         ];

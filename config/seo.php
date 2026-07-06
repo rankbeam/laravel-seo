@@ -68,6 +68,70 @@ return [
     'default_og_image' => env('SEO_DEFAULT_OG_IMAGE', '/images/og-default.jpg'),
 
     /*
+    |--------------------------------------------------------------------------
+    | Generated OG Images
+    |--------------------------------------------------------------------------
+    |
+    | Automatically generate 1200x630 Open Graph / Twitter-card images for
+    | pages that have no explicit og:image. A Blade template is rendered to a
+    | real headless browser (spatie/browsershot) — so multi-line wrapping,
+    | non-Latin scripts (CJK) and accents come out correct — then stored as a
+    | PNG keyed by a hash of its content. The resolver points og:image at the
+    | stored file ONLY once it exists, so a page never links a missing image.
+    |
+    | OFF by default: it needs the optional spatie/browsershot package (which
+    | drives Chrome). When disabled, default_og_image above is used unchanged
+    | and the package stays zero-dependency.
+    |
+    */
+    'og_image' => [
+
+        // Master switch. Requires spatie/browsershot + a reachable
+        // Chrome/Chromium. Leave false to keep the package zero-dependency.
+        'enabled' => env('SEO_OG_IMAGE_ENABLED', false),
+
+        // Renderer driver. 'browsershot' = real headless Chrome (correct text
+        // layout + automatic font fallback). Register your own with
+        // OgImageManager::extend().
+        'driver' => env('SEO_OG_IMAGE_DRIVER', 'browsershot'),
+
+        // The Blade view rendered as the image. Ships with 'seo::og.default'.
+        'template' => env('SEO_OG_IMAGE_TEMPLATE', 'seo::og.default'),
+
+        // Output dimensions. 1200x630 is the social-card standard.
+        'width' => 1200,
+        'height' => 630,
+
+        // Filesystem disk + path prefix the PNGs are written to. The disk must
+        // be publicly served — its url() becomes the og:image value.
+        'disk' => env('SEO_OG_IMAGE_DISK', 'public'),
+        'path' => env('SEO_OG_IMAGE_PATH', 'og-images'),
+
+        // Models the seo:og-images command pre-generates cards for. Empty
+        // falls back to the sitemap's models (seo.sitemap.models). Same shape:
+        // a list [Post::class] or a map [Post::class => ['...' => '...']].
+        'models' => [],
+
+        // Bump to invalidate every generated image after changing a template or
+        // brand colors. The installed package version is folded into the key
+        // too, so a package upgrade busts the cache automatically.
+        'cache_version' => env('SEO_OG_IMAGE_CACHE_VERSION', 1),
+
+        // Brand gradient (diagonal) for the bundled default template.
+        'gradient_from' => env('SEO_OG_IMAGE_GRADIENT_FROM', '#1e2a5a'),
+        'gradient_to' => env('SEO_OG_IMAGE_GRADIENT_TO', '#3D5AFE'),
+
+        // Browsershot binary paths. Leave null to use its defaults (node/npx on
+        // PATH, puppeteer's bundled Chromium). Set explicitly in production.
+        'chrome_path' => env('SEO_OG_IMAGE_CHROME_PATH'),
+        'node_binary' => env('SEO_OG_IMAGE_NODE_BINARY'),
+        'npm_module_path' => env('SEO_OG_IMAGE_NODE_MODULES'),
+
+        // Hard timeout (seconds) for a single render.
+        'timeout' => env('SEO_OG_IMAGE_TIMEOUT', 60),
+    ],
+
+    /*
      * Default robots directive applied when nothing more specific is set.
      */
     'default_robots' => env('SEO_DEFAULT_ROBOTS', 'index,follow'),
