@@ -8,6 +8,7 @@ use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Model;
 use Rankbeam\Seo\Auditing\AuditIssue;
 use Rankbeam\Seo\Auditing\MetadataAuditor;
+use Rankbeam\Seo\Services\IndexingGuard;
 use Rankbeam\Seo\Traits\HasSEO;
 use Throwable;
 
@@ -67,8 +68,16 @@ class AuditCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle(MetadataAuditor $auditor): int
+    public function handle(MetadataAuditor $auditor, IndexingGuard $guard): int
     {
+        // Surface the non-production indexing guard before anything else: while
+        // it is active, every page resolves to noindex regardless of its stored
+        // metadata, so the per-page findings below must be read in that light.
+        // In --json mode the same state is carried in the payload instead.
+        if ($guard->active() && ! $this->option('json')) {
+            $this->renderIndexingGuardWarning($guard);
+        }
+
         $classes = $this->resolveModelClasses();
 
         if ($classes === []) {
@@ -99,7 +108,7 @@ class AuditCommand extends Command
 
         if ($this->option('json')) {
             $this->line((string) json_encode(
-                $this->jsonPayload($report, $skipped),
+                $this->jsonPayload($report, $skipped, $guard),
                 JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE,
             ));
 
@@ -391,6 +400,25 @@ class AuditCommand extends Command
     }
 
     /**
+     * A prominent banner shown while the non-production indexing guard is
+     * active, so the "every page is noindex" state is never a surprise.
+     */
+    protected function renderIndexingGuardWarning(IndexingGuard $guard): void
+    {
+        $environment = $guard->currentEnvironment();
+        $allowed = implode(', ', $guard->allowedEnvironments());
+        $allowed = $allowed !== '' ? $allowed : '(none)';
+
+        $this->newLine();
+        $this->line('<bg=red;fg=white;options=bold> INDEXING GUARD ACTIVE </>');
+        $this->line("  Environment <options=bold>\"{$environment}\"</> is not in <comment>seo.indexing_guard.allowed_environments</comment> ({$allowed}).");
+        $this->line('  Every page resolves to <options=bold>'.IndexingGuard::DIRECTIVE.'</> and a managed robots.txt would');
+        $this->line('  disallow all crawlers. This is expected off production — deploy to an allowed');
+        $this->line('  environment to index, or disable with <comment>SEO_INDEXING_GUARD=false</comment>.');
+        $this->newLine();
+    }
+
+    /**
      * The capability matrix — printed every run so the free audit's coverage
      * is never mistaken for the full Pro scan.
      */
@@ -430,12 +458,18 @@ class AuditCommand extends Command
      * @param  array<int, array{0: string, 1: string}>  $skipped
      * @return array<string, mixed>
      */
-    protected function jsonPayload(array $report, array $skipped): array
+    protected function jsonPayload(array $report, array $skipped, IndexingGuard $guard): array
     {
         $counts = $this->statusCounts($report);
         $severities = $this->severityCounts($report);
 
         return [
+            'indexing_guard' => [
+                'active' => $guard->active(),
+                'environment' => $guard->currentEnvironment(),
+                'allowed_environments' => $guard->allowedEnvironments(),
+                'directive' => IndexingGuard::DIRECTIVE,
+            ],
             'pages' => array_map(static fn (array $r): array => [
                 'model' => $r['model'],
                 'key' => $r['key'],

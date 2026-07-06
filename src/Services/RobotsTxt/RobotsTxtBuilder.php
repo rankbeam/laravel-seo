@@ -8,6 +8,7 @@ use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\Facades\Storage;
 use Rankbeam\Seo\AiCrawlers\AiCrawler;
 use Rankbeam\Seo\AiCrawlers\AiCrawlerRegistry;
+use Rankbeam\Seo\Services\IndexingGuard;
 
 /**
  * Service for generating a managed robots.txt (and ai.txt) with AI-crawler
@@ -48,9 +49,16 @@ class RobotsTxtBuilder
      */
     protected AiCrawlerRegistry $registry;
 
-    public function __construct(?AiCrawlerRegistry $registry = null)
+    /**
+     * The non-production indexing guard. When active, the whole file collapses
+     * to a disallow-all so a leaked non-production site is not crawled.
+     */
+    protected IndexingGuard $guard;
+
+    public function __construct(?AiCrawlerRegistry $registry = null, ?IndexingGuard $guard = null)
     {
         $this->registry = $registry ?? new AiCrawlerRegistry();
+        $this->guard = $guard ?? new IndexingGuard();
     }
 
     /**
@@ -82,6 +90,14 @@ class RobotsTxtBuilder
      */
     public function build(): string
     {
+        // Non-production safety net: when the indexing guard is active, the AI
+        // -crawler policy is irrelevant — the whole site must stay uncrawled, so
+        // the file collapses to a disallow-all. This is the same signal that
+        // forces noindex on every rendered page.
+        if ($this->guard->active()) {
+            return $this->disallowAllDocument('robots.txt');
+        }
+
         $blocks = [];
 
         $blocks[] = "# robots.txt — managed by Rankbeam (AI crawler directives)";
@@ -116,6 +132,10 @@ class RobotsTxtBuilder
      */
     public function buildAiTxt(): string
     {
+        if ($this->guard->active()) {
+            return $this->disallowAllDocument('ai.txt');
+        }
+
         $blocks = [];
 
         $blocks[] = "# ai.txt — managed by Rankbeam\n"
@@ -135,6 +155,34 @@ class RobotsTxtBuilder
         }
 
         return implode("\n\n", $blocks) . "\n";
+    }
+
+    /**
+     * The disallow-all document emitted while the indexing guard is active.
+     *
+     * A leaked non-production environment must stay entirely out of search
+     * results, so the file is the unambiguous robots.txt idiom for "block
+     * everything" — `User-agent: *` / `Disallow: /` — with a header explaining
+     * why. The AI-crawler policy, Sitemap line, and llms.txt pointer are all
+     * deliberately omitted: advertising a sitemap on a site you are blocking
+     * would contradict the intent.
+     *
+     * @param string $artifact 'robots.txt' or 'ai.txt', for the header line
+     */
+    protected function disallowAllDocument(string $artifact): string
+    {
+        $environment = $this->guard->currentEnvironment();
+
+        return implode("\n", [
+            "# {$artifact} — managed by Rankbeam",
+            "# Indexing guard ACTIVE: this app is running in the \"{$environment}\" environment,",
+            '# which is not in seo.indexing_guard.allowed_environments. Every crawler is',
+            '# disallowed so this non-production site stays out of search results.',
+            '# https://rankbeam.dev/guide/indexing-guard',
+            '',
+            'User-agent: *',
+            'Disallow: /',
+        ]) . "\n";
     }
 
     /**

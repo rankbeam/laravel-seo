@@ -6,6 +6,7 @@ namespace Rankbeam\Seo\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
+use Rankbeam\Seo\Services\IndexingGuard;
 use Rankbeam\Seo\Services\RobotsTxt\RobotsTxtBuilder;
 
 /**
@@ -56,9 +57,14 @@ class RobotsTxtCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle(RobotsTxtBuilder $builder): int
+    public function handle(RobotsTxtBuilder $builder, IndexingGuard $guard): int
     {
-        if (! $this->enabled()) {
+        // The AI-crawler feature gate does NOT apply while the indexing guard is
+        // active: build() then emits a disallow-all robots.txt regardless of the
+        // AI-crawler policy, and refusing here would leave a non-production site
+        // with no (or a stale, permissive) robots.txt — the exact failure the
+        // guard exists to prevent.
+        if (! $this->enabled() && ! $guard->active()) {
             $this->error('AI-crawler robots.txt generation is disabled in configuration.');
 
             return self::FAILURE;

@@ -49,6 +49,27 @@ explicit opt-in and always renders. See the
 [Rendering Contract](/contributing/rendering-contract) for the supported
 directive vocabulary and precedence.
 
+## Indexing guard (non-production safety net)
+
+```php
+'indexing_guard' => [
+    'enabled' => env('SEO_INDEXING_GUARD', false),
+    'allowed_environments' => ['production'],
+],
+```
+
+When the app runs in an environment **not** in `allowed_environments`, the guard
+forces `noindex,nofollow` on every page (above the whole precedence chain, so it
+overrides even a stored per-page value), emits a disallow-all `robots.txt`, and
+makes `seo:audit` print a banner. On production it is inert.
+
+Ships **off** (byte-identical until you opt in); arm it with
+`SEO_INDEXING_GUARD=true` and disable it with `SEO_INDEXING_GUARD=false` — one
+line either way. Override the allow-list via `SEO_INDEXING_GUARD_ALLOWED`
+(comma-separated; `Str::is()` wildcards like `prod*` work; an empty list guards
+everywhere). Strongly recommended — see the full
+[Indexing guard guide](/guide/indexing-guard).
+
 ## Feature toggles
 
 ```php
