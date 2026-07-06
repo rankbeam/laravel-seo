@@ -5,6 +5,26 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.6.0] - 2026-07-06
+
+### Added
+
+- **Generated OG images** — automatic 1200×630 Open Graph / Twitter-card images
+  for pages with no explicit `og:image`, rendered by a real headless browser via
+  the optional `spatie/browsershot` package, so multi-line wrapping, non-Latin
+  scripts (CJK) and accents come out correct. A driver-based renderer (an
+  `OgImageRenderer` contract + `OgImageManager`, with `BrowsershotRenderer` built
+  in), a publishable Blade template (`seo::og.default`) with a bundled OFL font,
+  and an `OgImageGenerator` that stores each card keyed by a content hash (busted
+  on a template/brand change via `cache_version` **and** on a package upgrade).
+  The `seo:og-images` command pre-generates cards for your models (`--force`,
+  `--prune`), and the resolver serves the generated card as a computed `og:image`
+  fallback — existence-gated, so a web request never renders a browser and a page
+  never links a missing image (it fails open to `default_og_image`). **Off by
+  default**; the free core stays zero-dependency (`spatie/browsershot` is a
+  `suggest`). Static pre-generation only — no dynamic render endpoint. See
+  [Generated OG images](docs/guide/og-image.md).
+
 ## [3.5.0] - 2026-06-30
 
 ### Added

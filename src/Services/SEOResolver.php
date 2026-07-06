@@ -6,6 +6,7 @@ namespace Rankbeam\Seo\Services;
 
 use Illuminate\Database\Eloquent\Model;
 use Rankbeam\Seo\Data\SEOData;
+use Rankbeam\Seo\Services\OgImage\OgImageGenerator;
 
 /**
  * Core service for resolving SEO data with proper precedence chain.
@@ -200,6 +201,7 @@ class SEOResolver
         // Post-processing: Apply title suffix, ensure canonical, absolutize images
         $result = $this->applyTitleSuffix($result);
         $result = $this->ensureCanonical($result, $model);
+        $result = $this->applyGeneratedOgImage($result);
         $result = $this->ensureAbsoluteImages($result);
 
         // Layer 6: Computed JSON-LD schema graph — only as a fallback when no
@@ -319,6 +321,7 @@ class SEOResolver
         // verbatim so both paths normalize identically.
         $seoData = $this->applyTitleSuffix($seoData);
         $seoData = $this->ensureCanonical($seoData, null);
+        $seoData = $this->applyGeneratedOgImage($seoData);
         $seoData = $this->ensureAbsoluteImages($seoData);
 
         return $seoData;
@@ -869,6 +872,44 @@ class SEOResolver
         }
 
         return $result;
+    }
+
+    /**
+     * Opt-in: when no og:image survived the merge chain and generation is
+     * enabled, point og:image at a generated 1200x630 card.
+     *
+     * Uses the generator's existence-gated urlFor(), so a web request never
+     * spawns a browser and a page never links a not-yet-generated (404) image
+     * — the seo:og-images command (or a model-save hook) produces the file.
+     * Runs before ensureAbsoluteImages() so a relative storage URL gets
+     * absolutized like any other og:image value.
+     */
+    protected function applyGeneratedOgImage(SEOData $seoData): SEOData
+    {
+        if (! config('seo.og_image.enabled', false)) {
+            return $seoData;
+        }
+
+        // Only replace a "placeholder" image — nothing set, or the site-wide
+        // static default_og_image. An explicit per-model og:image always wins
+        // over a generated card. The computed layer may already have
+        // absolutized the default before this step, so compare the normalized
+        // (absolutized) forms rather than the raw strings.
+        $current = $seoData->ogImage;
+        $default = config('seo.default_og_image');
+
+        $isPlaceholder = $current === null || $current === '' || $current === $default;
+        if (! $isPlaceholder && is_string($default) && $default !== '') {
+            $isPlaceholder = $this->absolutizeUrl($current) === $this->absolutizeUrl($default);
+        }
+
+        if (! $isPlaceholder) {
+            return $seoData;
+        }
+
+        $url = app(OgImageGenerator::class)->urlFor($seoData);
+
+        return $url !== null ? $seoData->with('ogImage', $url) : $seoData;
     }
 
     /**
