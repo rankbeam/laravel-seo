@@ -5,6 +5,26 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.7.0] - 2026-07-06
+
+### Added
+
+- **Indexing guard — an env-based non-production safety net.** A staging or
+  local copy leaking into a search index is one of the most damaging SEO
+  mistakes; this ties indexability to the Laravel *environment*. When the app
+  runs outside `seo.indexing_guard.allowed_environments` (default
+  `['production']`), the resolver forces `noindex,nofollow` on every page
+  **above the whole precedence chain** — so it overrides even an explicit stored
+  per-page `robots` value (a staging DB is usually a production clone; wrongly
+  indexing it is a disaster, wrongly noindexing it a no-op) — `SEO::robotsTxt()`
+  emits a disallow-all `robots.txt` / `ai.txt`, and `seo:audit` prints a banner
+  (with an `indexing_guard` block in `--json`). Ships **off** and byte-identical
+  until you opt in; arm it in one line with `SEO_INDEXING_GUARD=true` (and
+  disable with `=false`). Override the allow-list via `SEO_INDEXING_GUARD_ALLOWED`
+  (comma-separated, `Str::is()` wildcards, empty = guard everywhere). Inert on
+  production. Strongly recommended; a candidate to default on in Core 4. See
+  [the guide](https://rankbeam.dev/guide/indexing-guard).
+
 ## [3.6.2] - 2026-07-06
 
 ### Changed

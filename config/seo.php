@@ -169,6 +169,74 @@ return [
     ],
 
     /*
+    |--------------------------------------------------------------------------
+    | Indexing Guard (non-production safety net)
+    |--------------------------------------------------------------------------
+    |
+    | A staging or local copy of your site leaking into Google is one of the
+    | most common — and most damaging — SEO mistakes: duplicate content, a
+    | private environment in the index, weeks of cleanup. This guard makes it
+    | structurally hard. When the app runs in an environment that is NOT in
+    | `allowed_environments`, three things happen automatically:
+    |
+    |   1. The resolver forces `noindex,nofollow` on EVERY page — applied ABOVE
+    |      the whole precedence chain, so it overrides even an explicit per-page
+    |      robots value stored in seo_meta. (A staging DB is usually a
+    |      production clone, so a page that stored `index,follow` must still be
+    |      held back. This is the one place the "explicit wins" rule is
+    |      deliberately inverted, precisely because the risk is one-directional:
+    |      wrongly indexing staging is a disaster; wrongly noindexing it is a
+    |      no-op.)
+    |   2. SEO::robotsTxt()->build() — the seo:robots-txt command and the
+    |      optional dynamic route — emits a disallow-all robots.txt / ai.txt.
+    |   3. seo:audit prints a prominent banner so the state is never a surprise.
+    |
+    | On production (the default sole allowed environment) the guard is fully
+    | inert: zero changed output, byte-identical rendering.
+    |
+    | DEFAULT OFF. It ships disabled so installing or upgrading the package
+    | never changes what a non-production environment renders without your
+    | say-so — the same byte-identical-until-opt-in policy the resolver's
+    | `blank_is_unset` and the generated-OG-image feature follow. Arm it in ONE
+    | line — SEO_INDEXING_GUARD=true — and staging/local are protected; disable
+    | it with the same one line, SEO_INDEXING_GUARD=false. It is strongly
+    | recommended, and a candidate to default ON in Core 4 (see UPGRADING.md).
+    | Because the guard is inert on production, you can safely commit it enabled
+    | and it only ever acts on the environments you didn't mean to index.
+    |
+    | Docs: /guide/indexing-guard
+    |
+    */
+
+    'indexing_guard' => [
+
+        /*
+         * Master switch. OFF by default (byte-identical until you opt in). Set
+         * SEO_INDEXING_GUARD=true to arm the guard; SEO_INDEXING_GUARD=false to
+         * disable it — either way it is one line.
+         */
+        'enabled' => env('SEO_INDEXING_GUARD', false),
+
+        /*
+         * The environments allowed to be indexed. When app()->environment() is
+         * NOT one of these, the guard activates. Entries are matched with
+         * Str::is(), so wildcards work ('prod*' matches 'production' and
+         * 'prod-eu'). An empty list means NO environment may index — the guard
+         * is active everywhere (the fail-safe direction).
+         *
+         * Override via a comma-separated env var, e.g.
+         * SEO_INDEXING_GUARD_ALLOWED="production,prod-eu". An empty/blank value
+         * falls back to ['production'] so a typo can never silently arm the
+         * guard on production; write an explicit [] here to intend "everywhere".
+         */
+        'allowed_environments' => array_values(array_filter(array_map(
+            'trim',
+            explode(',', (string) env('SEO_INDEXING_GUARD_ALLOWED', 'production')),
+        ))) ?: ['production'],
+
+    ],
+
+    /*
      * Default Twitter card type (summary, summary_large_image, ...).
      */
     'default_twitter_card' => env('SEO_DEFAULT_TWITTER_CARD', 'summary_large_image'),
@@ -553,7 +621,10 @@ return [
     'ai_crawlers' => [
 
         /*
-         * Master switch. When false the seo:robots-txt command refuses to run.
+         * Master switch. When false the seo:robots-txt command refuses to run —
+         * UNLESS the indexing guard (above) is active, in which case the command
+         * still generates the guard's disallow-all robots.txt so a non-production
+         * site is never left with a permissive file.
          */
         'enabled' => env('SEO_AI_CRAWLERS_ENABLED', true),
 

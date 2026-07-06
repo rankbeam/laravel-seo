@@ -142,7 +142,7 @@ class SEOResolver
             $cached = $cache->get($model::class, $model->getKey(), $locale, $effectiveRoute, $url);
 
             if ($cached !== null) {
-                return $cached;
+                return $this->applyIndexingGuard($cached);
             }
         }
 
@@ -158,7 +158,13 @@ class SEOResolver
             $cache->put($model::class, $model->getKey(), $locale, $effectiveRoute, $url, $result);
         }
 
-        return $result;
+        // The indexing guard is applied on the way OUT — never baked into the
+        // cached array. The stored entry stays environment-agnostic, and the
+        // guard is re-evaluated against the live environment on every call
+        // (cache hit or miss), so a shared cache store can never leak a
+        // staging-guarded value into production, or vice versa. Correctness
+        // with the resolver cache ON stays identical to OFF.
+        return $this->applyIndexingGuard($result);
     }
 
     /**
@@ -325,6 +331,11 @@ class SEOResolver
         $seoData = $this->applyGeneratedOgImage($seoData);
         $seoData = $this->ensureAbsoluteImages($seoData);
 
+        // A hand-built SEOData (listing / search / controller-composed page) is
+        // rendered on non-production too, so it gets the same non-production
+        // indexing guard as a model-backed page.
+        $seoData = $this->applyIndexingGuard($seoData);
+
         return $seoData;
     }
 
@@ -393,6 +404,45 @@ class SEOResolver
     protected function resolutionCache(): SEOResolutionCache
     {
         return app(SEOResolutionCache::class);
+    }
+
+    /**
+     * Resolve the shared indexing-guard instance.
+     *
+     * Looked up lazily (like the TagRenderer and resolution cache) so the
+     * constructor signature is unchanged for anyone building SEOResolver
+     * directly.
+     */
+    protected function indexingGuard(): IndexingGuard
+    {
+        return app(IndexingGuard::class);
+    }
+
+    /**
+     * Force `noindex,nofollow` when the non-production indexing guard is active.
+     *
+     * This is the ONE place the resolver's "explicit / highest layer wins" rule
+     * is deliberately inverted. It runs ABOVE the entire precedence chain
+     * (config → defaults → computed → explicit seo_meta), so even a page whose
+     * seo_meta stored `index,follow` still resolves to noindex on a
+     * non-production environment. That inversion is intentional and one-
+     * directional: wrongly indexing a staging clone is an SEO disaster, while
+     * wrongly noindexing it is a harmless no-op, so the guard is a floor the
+     * stored value cannot punch through.
+     *
+     * When the guard is inactive (production, or the feature disabled) the
+     * input is returned unchanged — no allocation, byte-identical output.
+     *
+     * @param SEOData $seoData The fully resolved SEO data
+     * @return SEOData The same data, or a copy forced to noindex,nofollow
+     */
+    protected function applyIndexingGuard(SEOData $seoData): SEOData
+    {
+        if (! $this->indexingGuard()->active()) {
+            return $seoData;
+        }
+
+        return $seoData->with('robots', IndexingGuard::DIRECTIVE);
     }
 
     /**

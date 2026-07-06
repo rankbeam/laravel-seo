@@ -250,3 +250,24 @@ To find affected pages today, run `php artisan seo:audit` — it reports a
 `blank_explicit_override` warning (naming the blank columns) on any page whose
 stored SEO strings are blank, so you can clear them to `null` or opt in with
 confidence before the flip.
+
+### `seo.indexing_guard.enabled` default may flip to `true`
+
+The [indexing guard](https://rankbeam.dev/guide/indexing-guard) forces `noindex,nofollow` (and a
+disallow-all `robots.txt`) whenever the app runs outside
+`seo.indexing_guard.allowed_environments` (default `['production']`) — a safety
+net against a staging or local copy leaking into a search index.
+
+- **Core 3.x (now):** it ships **off** (`SEO_INDEXING_GUARD` defaults to
+  `false`), so installing or upgrading never changes what a non-production
+  environment renders without your say-so. Because the guard is inert on
+  production, enabling it (`SEO_INDEXING_GUARD=true`) is safe to commit and is
+  **strongly recommended**.
+- **Core 4 (candidate):** the default may flip to `true`. If you deliberately
+  index a non-production environment and do *not* keep it in
+  `allowed_environments`, set `SEO_INDEXING_GUARD=false` explicitly before
+  upgrading to keep the old behaviour.
+
+Note the guard runs *above* the precedence chain, so on a guarded environment it
+overrides even an explicit stored `robots` value — see the guide for why that
+inversion is intentional.

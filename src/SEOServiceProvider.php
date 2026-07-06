@@ -25,6 +25,7 @@ use Rankbeam\Seo\Services\Markdown\MarkdownRegistry;
 use Rankbeam\Seo\Services\OgImage\OgImageGenerator;
 use Rankbeam\Seo\Services\OgImage\OgImageManager;
 use Rankbeam\Seo\Services\RobotsTxt\RobotsTxtBuilder;
+use Rankbeam\Seo\Services\IndexingGuard;
 use Rankbeam\Seo\Services\SEOComputedBuilder;
 use Rankbeam\Seo\Services\SEODefaultsRepository;
 use Rankbeam\Seo\Services\SEOResolutionCache;
@@ -45,6 +46,7 @@ class SEOServiceProvider extends ServiceProvider
         TagRenderer::class => TagRenderer::class,
         SitemapRegistry::class => SitemapRegistry::class,
         SEOResolutionCache::class => SEOResolutionCache::class,
+        IndexingGuard::class => IndexingGuard::class,
         AiCrawlerRegistry::class => AiCrawlerRegistry::class,
         RobotsTxtBuilder::class => RobotsTxtBuilder::class,
         MarkdownRegistry::class => MarkdownRegistry::class,
@@ -540,6 +542,7 @@ class SEOServiceProvider extends ServiceProvider
             SEOComputedBuilder::class,
             SitemapRegistry::class,
             SEOResolutionCache::class,
+            IndexingGuard::class,
             AiCrawlerRegistry::class,
             RobotsTxtBuilder::class,
             MarkdownRegistry::class,
