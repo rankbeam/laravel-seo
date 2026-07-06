@@ -222,7 +222,9 @@ Editing a template *in place* does not (the name is unchanged) — bump
 'og_image' => [
     'enabled' => false,             // master switch (off by default)
     'driver'  => 'browsershot',     // the render driver; register your own via OgImageManager::extend()
-    'template' => 'seo::og.default', // the Blade view rendered as the card
+    'template' => 'seo::og.default', // the default Blade view rendered as the card
+    'templates' => [],              // per-model-class template overrides (see "Bundled templates")
+    'strip_title_suffix' => true,   // trim seo.title_suffix off the card title (the card shows the site name itself)
 
     'width'  => 1200,               // social-card standard
     'height' => 630,

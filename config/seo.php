@@ -109,6 +109,11 @@ return [
         //   ],
         'templates' => [],
 
+        // The bundled templates already show the site name, so a card title
+        // that still carries the site-name title_suffix (e.g. "Post | Acme")
+        // would print the brand twice. Trim the suffix off the card title.
+        'strip_title_suffix' => env('SEO_OG_IMAGE_STRIP_SUFFIX', true),
+
         // Output dimensions. 1200x630 is the social-card standard.
         'width' => 1200,
         'height' => 630,

@@ -5,6 +5,16 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.6.2] - 2026-07-06
+
+### Changed
+
+- **OG-image cards no longer print the site name twice.** The bundled templates
+  render the site name as their own element, so a card title that still carried
+  the `seo.title_suffix` (e.g. "My Post | Acme") duplicated the brand. The card
+  title now has that suffix trimmed off by default; opt out with
+  `seo.og_image.strip_title_suffix => false`.
+
 ## [3.6.1] - 2026-07-06
 
 ### Added

@@ -178,10 +178,25 @@ class OgImageGenerator
 
     /**
      * The og:image title — the OG title if set, else the page title.
+     *
+     * The bundled templates render the site name as their own element, so a
+     * title that still carries the site-name suffix (e.g. "My Post | Acme")
+     * would show the brand twice. When strip_title_suffix is on (default), the
+     * configured seo.title_suffix is trimmed off the card title.
      */
     protected function title(SEOData $data): ?string
     {
-        return $data->ogTitle ?? $data->title;
+        $title = $data->ogTitle ?? $data->title;
+
+        if ($title !== null && config('seo.og_image.strip_title_suffix', true)) {
+            $suffix = (string) config('seo.title_suffix', '');
+
+            if ($suffix !== '' && str_ends_with($title, $suffix)) {
+                $title = rtrim(substr($title, 0, -strlen($suffix)));
+            }
+        }
+
+        return $title;
     }
 
     protected function hasRenderableTitle(SEOData $data): bool
