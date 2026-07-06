@@ -204,6 +204,23 @@ describe('OgImageGenerator::cacheKey', function () {
         expect(generator()->cacheKey(ogData(), 'seo::og.article'))->not->toBe($base);
     });
 
+    it('trims the site-name title suffix from the card title', function () {
+        config(['seo.title_suffix' => ' | Acme']);
+        // "My Post | Acme" -> card title "My Post", hashing like a bare "My Post".
+        $suffixed = new SEOData(title: 'My Post | Acme', ogSiteName: 'Acme');
+        $plain = new SEOData(title: 'My Post', ogSiteName: 'Acme');
+
+        expect(generator()->cacheKey($suffixed))->toBe(generator()->cacheKey($plain));
+    });
+
+    it('keeps the suffix when strip_title_suffix is off', function () {
+        config(['seo.title_suffix' => ' | Acme', 'seo.og_image.strip_title_suffix' => false]);
+        $suffixed = new SEOData(title: 'My Post | Acme', ogSiteName: 'Acme');
+        $plain = new SEOData(title: 'My Post', ogSiteName: 'Acme');
+
+        expect(generator()->cacheKey($suffixed))->not->toBe(generator()->cacheKey($plain));
+    });
+
     it('uses the og title in preference to the page title', function () {
         $withOg = new SEOData(title: 'Page Title', ogTitle: 'OG Title', ogSiteName: 'x');
         $plain = new SEOData(title: 'OG Title', ogSiteName: 'x');
