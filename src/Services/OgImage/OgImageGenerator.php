@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rankbeam\Seo\Services\OgImage;
 
+use Carbon\CarbonInterface;
 use Composer\InstalledVersions;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Storage;
@@ -16,9 +17,14 @@ use Throwable;
  * public URL that points at it.
  *
  * The image is keyed by a hash of everything that affects its pixels — title,
- * site name, template, driver, dimensions, brand colors, a manual cache_version
- * AND the installed package version — so it is generated once and busts on both
- * a template/brand change and a package upgrade (dual-trigger invalidation).
+ * site name, locale, the chosen template, driver, dimensions, brand colors, a
+ * manual cache_version AND the installed package version — so it is generated
+ * once and busts on both a template/brand change and a package upgrade
+ * (dual-trigger invalidation).
+ *
+ * The optional $template argument lets a caller pick a per-page template (see
+ * {@see OgImageManager::templateFor()}); when omitted the configured
+ * seo.og_image.template is used, so v1 callers keep working unchanged.
  *
  * Two entry points with different costs:
  *  - urlFor()   is cheap and side-effect-free: it returns the URL only if the
@@ -44,7 +50,7 @@ class OgImageGenerator
      * The public URL for this content's generated image IF it already exists.
      * Cheap and side-effect-free — safe to call on every web request.
      */
-    public function urlFor(SEOData $data): ?string
+    public function urlFor(SEOData $data, ?string $template = null): ?string
     {
         if (! $this->enabled() || ! $this->hasRenderableTitle($data)) {
             return null;
@@ -55,7 +61,7 @@ class OgImageGenerator
         // means no generated card, so the static default_og_image stands.
         try {
             $disk = $this->disk();
-            $path = $this->storagePath($data);
+            $path = $this->storagePath($data, $template);
 
             return $disk->exists($path) ? $disk->url($path) : null;
         } catch (Throwable $e) {
@@ -69,20 +75,21 @@ class OgImageGenerator
      * Render (if needed) and store the image, returning its public URL, or
      * null if generation is disabled, there is no title, or the render failed.
      *
+     * @param  string|null  $template  The view to render; null = the configured default.
      * @param  bool  $force  Re-render even if a cached file exists.
      * @param  bool  $throwOnError  Re-throw render failures (the warm command
      *                              wants them surfaced) instead of failing open.
      *
      * @throws OgImageRenderException Only when $throwOnError is true.
      */
-    public function generate(SEOData $data, bool $force = false, bool $throwOnError = false): ?string
+    public function generate(SEOData $data, ?string $template = null, bool $force = false, bool $throwOnError = false): ?string
     {
         if (! $this->enabled() || ! $this->hasRenderableTitle($data)) {
             return null;
         }
 
         $disk = $this->disk();
-        $path = $this->storagePath($data);
+        $path = $this->storagePath($data, $template);
 
         if (! $force && $disk->exists($path)) {
             return $disk->url($path);
@@ -90,7 +97,7 @@ class OgImageGenerator
 
         try {
             $bytes = $this->manager->driver()->render(
-                $this->renderHtml($data),
+                $this->renderHtml($data, $this->resolveTemplate($template)),
                 (int) config('seo.og_image.width', 1200),
                 (int) config('seo.og_image.height', 630),
             );
@@ -115,10 +122,10 @@ class OgImageGenerator
     /**
      * Delete this content's stored image, if any. Used when regenerating.
      */
-    public function forget(SEOData $data): void
+    public function forget(SEOData $data, ?string $template = null): void
     {
         $disk = $this->disk();
-        $path = $this->storagePath($data);
+        $path = $this->storagePath($data, $template);
 
         if ($disk->exists($path)) {
             $disk->delete($path);
@@ -129,13 +136,13 @@ class OgImageGenerator
      * The content hash the stored filename is derived from. Public so tests and
      * tooling can assert stability/independence of individual inputs.
      */
-    public function cacheKey(SEOData $data): string
+    public function cacheKey(SEOData $data, ?string $template = null): string
     {
         return hash('sha256', (string) json_encode([
             'title' => $this->title($data),
             'site' => $data->ogSiteName,
             'locale' => $data->locale,
-            'template' => config('seo.og_image.template', 'seo::og.default'),
+            'template' => $this->resolveTemplate($template),
             'driver' => config('seo.og_image.driver', 'browsershot'),
             'width' => (int) config('seo.og_image.width', 1200),
             'height' => (int) config('seo.og_image.height', 630),
@@ -147,23 +154,26 @@ class OgImageGenerator
     }
 
     /**
-     * Render the configured Blade template to a self-contained HTML string.
+     * Render a Blade template to a self-contained HTML string. Every template
+     * receives the same variables; a template uses only the ones it needs
+     * (e.g. the article template shows author/date, the default ignores them).
      */
-    protected function renderHtml(SEOData $data): string
+    protected function renderHtml(SEOData $data, string $template): string
     {
-        return View::make(
-            (string) config('seo.og_image.template', 'seo::og.default'),
-            [
-                'title' => $this->title($data),
-                'siteName' => $data->ogSiteName,
-                'fontDataUri' => $this->fontDataUri(),
-                'gradientFrom' => (string) config('seo.og_image.gradient_from', '#1e2a5a'),
-                'gradientTo' => (string) config('seo.og_image.gradient_to', '#3D5AFE'),
-                'width' => (int) config('seo.og_image.width', 1200),
-                'height' => (int) config('seo.og_image.height', 630),
-                'locale' => $data->locale,
-            ]
-        )->render();
+        return View::make($template, [
+            'title' => $this->title($data),
+            'siteName' => $data->ogSiteName,
+            'fontDataUri' => $this->fontDataUri(),
+            'gradientFrom' => (string) config('seo.og_image.gradient_from', '#1e2a5a'),
+            'gradientTo' => (string) config('seo.og_image.gradient_to', '#3D5AFE'),
+            'width' => (int) config('seo.og_image.width', 1200),
+            'height' => (int) config('seo.og_image.height', 630),
+            'locale' => $data->locale,
+            'author' => $data->author,
+            'publishedDate' => $this->formatDate($data->publishedTime, $data->locale),
+            'section' => $data->section,
+            'description' => $data->ogDescription ?? $data->description,
+        ])->render();
     }
 
     /**
@@ -179,11 +189,37 @@ class OgImageGenerator
         return filled($this->title($data));
     }
 
-    protected function storagePath(SEOData $data): string
+    /**
+     * Format a publish date for a card, localized to the page locale when the
+     * value is a Carbon instance (the usual Eloquent date cast). A plain
+     * DateTimeInterface falls back to the English pattern.
+     */
+    protected function formatDate(?\DateTimeInterface $date, ?string $locale): ?string
+    {
+        if ($date === null) {
+            return null;
+        }
+
+        if ($date instanceof CarbonInterface) {
+            return $date->locale($locale ?? app()->getLocale())->translatedFormat('M j, Y');
+        }
+
+        return $date->format('M j, Y');
+    }
+
+    /**
+     * Resolve a template argument to a concrete view name.
+     */
+    protected function resolveTemplate(?string $template): string
+    {
+        return $template ?? (string) config('seo.og_image.template', 'seo::og.default');
+    }
+
+    protected function storagePath(SEOData $data, ?string $template = null): string
     {
         $prefix = trim((string) config('seo.og_image.path', 'og-images'), '/');
 
-        return ($prefix !== '' ? $prefix.'/' : '').$this->cacheKey($data).'.png';
+        return ($prefix !== '' ? $prefix.'/' : '').$this->cacheKey($data, $template).'.png';
     }
 
     protected function disk(): Filesystem

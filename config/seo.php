@@ -95,8 +95,19 @@ return [
         // OgImageManager::extend().
         'driver' => env('SEO_OG_IMAGE_DRIVER', 'browsershot'),
 
-        // The Blade view rendered as the image. Ships with 'seo::og.default'.
+        // The default Blade view rendered as the image. Three ship with the
+        // package: 'seo::og.default', 'seo::og.article' (adds author + date),
+        // and 'seo::og.product'.
         'template' => env('SEO_OG_IMAGE_TEMPLATE', 'seo::og.default'),
+
+        // Per-model-class template overrides, so an Article and a Product get
+        // different cards automatically. A model can also override per instance
+        // with a getOgImageTemplate() method. Example:
+        //   'templates' => [
+        //       App\Models\Post::class    => 'seo::og.article',
+        //       App\Models\Product::class => 'seo::og.product',
+        //   ],
+        'templates' => [],
 
         // Output dimensions. 1200x630 is the social-card standard.
         'width' => 1200,
