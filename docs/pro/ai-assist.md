@@ -29,10 +29,10 @@ cost, speed, and where the request goes.
 
 | Provider | Default model | Structured output | Marginal cost | Best for |
 |---|---|---|---|---|
-| **Google** (recommended) | `gemini-2.5-flash` | Native (`responseSchema`) | **$0** on the free tier | Trying it, and most production use |
 | **Local** (Ollama / LM Studio / vLLM) | `llama3.1` (set your own) | Best-effort (`response_format`) | **$0** (self-hosted) | Privacy — nothing leaves your network |
 | **OpenAI** | `gpt-5.5` | Native (Structured Outputs, strict) | ~$0.005 / suggestion | An existing OpenAI account |
-| **Anthropic** | `claude-opus-4-8` | Prompt-only (text-parsed) | ~$0.015 / suggestion | Highest-quality copy, cost no object |
+| **Anthropic** | `claude-opus-4-8` | Prompt-only (text-parsed) | ~$0.015 / suggestion | Highest-quality copy |
+| **Google** | `gemini-2.5-flash` | Native (`responseSchema`) | ~$0.0005 / suggestion (paid) | Lowest paid cost per call — but its free tier is too rate-limited for real use (see below) |
 
 Notes confirmed against a live run of every provider:
 
@@ -44,9 +44,9 @@ Notes confirmed against a live run of every provider:
   and Gemma are *thinking* models: they burn hidden reasoning tokens before
   any visible output (measured: a three-line description cost Gemini ~500
   hidden reasoning tokens on top of ~100 visible ones). Those tokens are
-  billed as output — cheap on Gemini's rates, free on the free tier, but
-  the reason the reasoning floor below exists. Anthropic used **no** hidden
-  reasoning tokens in the same calls.
+  billed as output — still cheap on Gemini's paid rates, but the reason the
+  reasoning floor below exists. Anthropic used **no** hidden reasoning tokens
+  in the same calls.
 - The default model is a starting point, not a lock-in: any model your key
   or server can reach works (`SEO_PRO_AI_MODEL`), and a smaller model
   (`claude-haiku-4-5`, `gpt-5.4-mini`, `gemma-3-12b-it`) cuts cost.
@@ -57,13 +57,6 @@ Enable the feature and put your provider key in the environment. Switch
 providers by changing exactly two lines — the provider and the key.
 
 ::: code-group
-
-```dotenv [Google (free tier)]
-SEO_PRO_AI_ENABLED=true
-SEO_PRO_AI_PROVIDER=google
-SEO_PRO_AI_API_KEY=AIza...        # a free AI Studio key: aistudio.google.com/apikey
-# optional: SEO_PRO_AI_MODEL=gemma-3-12b-it  (default: gemini-2.5-flash)
-```
 
 ```dotenv [Local (Ollama / LM Studio)]
 SEO_PRO_AI_ENABLED=true
@@ -88,14 +81,22 @@ SEO_PRO_AI_API_KEY=sk-ant-...
 # optional: SEO_PRO_AI_MODEL=claude-haiku-4-5  (default: claude-opus-4-8)
 ```
 
+```dotenv [Google]
+SEO_PRO_AI_ENABLED=true
+SEO_PRO_AI_PROVIDER=google
+SEO_PRO_AI_API_KEY=AIza...        # AI Studio key: aistudio.google.com/apikey
+# use a paid (billing-enabled) key for real use — the free tier is heavily rate-limited
+# optional: SEO_PRO_AI_MODEL=gemma-3-12b-it  (default: gemini-2.5-flash)
+```
+
 :::
 
 ::: tip A provider API key is separate from a Claude / ChatGPT subscription
 A Claude Code, Claude.ai, or ChatGPT **subscription** does not fund the
 **API**. `SEO_PRO_AI_API_KEY` must be a *pay-as-you-go API key* from the
-provider's developer console (or a free Google AI Studio key), with its own
-credit balance. A subscription-only account will authenticate but return an
-**out of credit / quota** error — see [Troubleshooting](#troubleshooting).
+provider's developer console (or a Google AI Studio key), with its own
+credit balance. A subscription-only or unfunded account will authenticate but
+return an **out of credit / quota** error — see [Troubleshooting](#troubleshooting).
 :::
 
 The config file (`config/seo-pro.php`, `ai` block) exposes `timeout`,
@@ -112,17 +113,23 @@ config, `.env` is not loaded, so set `SEO_PRO_AI_API_KEY` as a real
 environment variable on the server.
 :::
 
-## The two $0 providers
+## Running at $0, and the cheapest paid option
 
-Two providers run every surface at **$0 marginal cost**, so you can adopt
-the feature without a billed account:
+- **Local / OpenAI-compatible is the true $0 option.** A model you host runs
+  every surface at no marginal cost and nothing leaves your network — see
+  below.
+- **Google is the cheapest *paid* provider, not a free one.** A free **AI
+  Studio** key (`aistudio.google.com/apikey`, format `AIza…`) authenticates
+  and is fine for a quick trial, but its free tier is **heavily rate-limited**
+  — enough to make real or bulk use impractical (you'll hit
+  `quota_exceeded` / `rate_limited` quickly). Enable billing on the key for
+  production; even then `gemini-2.5-flash` is the cheapest cloud option per
+  call. The default model is `gemini-2.5-flash`; the open `gemma-3-*` models
+  work the same way. Both are *thinking* models, so they are listed in
+  `reasoning_models` and get the higher output-token floor automatically.
 
-- **Google (recommended).** A free **AI Studio** key
-  (`aistudio.google.com/apikey`, format `AIza…`) bills nothing per
-  suggestion on the free tier. The default model is `gemini-2.5-flash`; the
-  open `gemma-3-*` models work the same way. Both are *thinking* models, so
-  they are listed in `reasoning_models` and get the higher output-token
-  floor automatically.
+For a genuinely free, private setup, use a local server instead:
+
 - **Local / OpenAI-compatible.** Point `provider=local` at any server
   speaking the OpenAI Chat Completions API: **Ollama**, **LM Studio**,
   **vLLM**, **LocalAI** (all local, all free), or a remote gateway like
@@ -155,7 +162,7 @@ intentionally no knob for it.
 ## Cost
 
 There is no package markup — you pay the provider directly, or nothing on a
-free/local provider. Two numbers matter: the **per-suggestion** cost for
+local provider. Two numbers matter: the **per-suggestion** cost for
 interactive use, and the **bulk-fill** cost for a whole collection.
 
 The `seo-pro.ai.pricing` table (USD per 1,000,000 tokens) turns a token
@@ -178,17 +185,18 @@ default models), at those prices:
 
 | Provider / model | ~ per suggestion pair | ~ per 1,000 records (bulk-fill) |
 |---|---|---|
-| Google `gemini-2.5-flash` (free tier) | **$0** | **$0** |
 | Local `gemma`/`llama` (Ollama) | **$0** | **$0** |
-| Google `gemini-2.5-flash` (paid) | ~$0.001 | ~$0.18 |
+| Google `gemini-2.5-flash` (paid) | ~$0.001 | ~$0.40 |
 | OpenAI `gpt-5.5` | ~$0.008 | ~$5.25 |
 | Anthropic `claude-opus-4-8` | ~$0.03 | ~$20 |
 
-Bulk-fill figures match the pre-run estimate the command prints (see
-[Bulk-fill](#bulk-fill-missing-metadata)); it is deliberately honest to
-about ±50%, since real input size and output length vary per page. A model
-with no pricing entry (any local model) shows a **token** estimate only,
-with no invented dollar figure.
+Bulk-fill figures are close to the pre-run estimate the command prints (see
+[Bulk-fill](#bulk-fill-missing-metadata)); it is deliberately honest to about
+±50%, since real input size and output length vary per page. **One caveat for
+thinking models:** the estimate counts only visible output, so a model that
+spends heavy hidden reasoning (Gemini 2.5, Gemma — see above) runs somewhat
+higher than the printed figure. A model with no pricing entry (any local
+model) shows a **token** estimate only, with no invented dollar figure.
 
 ## Limits and tuning
 
@@ -410,20 +418,20 @@ message. The common ones and their one real fix:
 
 | Symptom (error code) | What it means | Fix |
 |---|---|---|
-| **`quota_exceeded`** — *"the provider account is out of credit or quota"* | The key is valid but the **API account has no credit / quota**. Not a rate limit — retrying won't help. Distinct per provider: Anthropic returns *"credit balance is too low"*, OpenAI *"exceeded your current quota… check your plan and billing"* (`insufficient_quota`), Google *"prepayment credits are depleted"*. | Add credit / enable billing in the provider's console — or switch to the **free** Google tier or a **local** model for $0. Remember a Claude/ChatGPT **subscription** does not fund the **API**. |
+| **`quota_exceeded`** — *"the provider account is out of credit or quota"* | The key is valid but the **API account has no credit / quota**. Not a rate limit — retrying won't help. Distinct per provider: Anthropic returns *"credit balance is too low"*, OpenAI *"exceeded your current quota… check your plan and billing"* (`insufficient_quota`), Google *"prepayment credits are depleted"*. | Add credit / enable billing in the provider's console — or switch to a **local** model for $0. Remember a Claude/ChatGPT **subscription** does not fund the **API**. |
 | **`unauthorized`** — *"authentication failed"* | The key is missing, wrong, or not valid for the configured provider. | Check the key in the env var named by `seo-pro.ai.api_key_env` (default `SEO_PRO_AI_API_KEY`) — set, current, and matching `SEO_PRO_AI_PROVIDER`. |
-| **`rate_limited`** — *"the provider rate limit was reached"* | A genuine, **transient** rate limit (retried automatically first). | Wait and retry, or move to a $0 provider (Google free tier / local) to avoid it. Raise `seo-pro.ai.fill.throttle_ms` for bulk runs on a low tier. |
+| **`rate_limited`** — *"the provider rate limit was reached"* | A genuine, **transient** rate limit (retried automatically first). | Wait and retry, or move to a **local** model ($0, no limits) to avoid it. Raise `seo-pro.ai.fill.throttle_ms` for bulk runs on a low tier. |
 | **`timeout`** — *"the request timed out"* | The provider didn't respond within `seo-pro.ai.timeout` (default 15s). Common with a **slow local reasoning model**. | Raise it with `SEO_PRO_AI_TIMEOUT`; for Ollama also set `['think' => false]` in `seo-pro.ai.local.extra_body`. |
 | **`truncated`** — *"hit the max_output_tokens limit"* | A **thinking model** spent the budget on hidden reasoning before finishing. | Raise `seo-pro.ai.max_output_tokens` (reasoning models can need 2000+), or confirm the model matches a `reasoning_models` pattern so the floor applies. |
 | **`content_too_large`** (HTTP 413) | The page content sent exceeded the provider limit. | Lower `seo-pro.ai.max_input_chars` to send a shorter excerpt. |
 | **`bad_request`** | A malformed request — usually a **model name** the account can't access, or an unsupported parameter. | Check `SEO_PRO_AI_MODEL` is a model your key/server can reach for the configured provider. |
 | **`content_filtered`** | The provider's safety filter declined to answer. | Rare for SEO copy; try a different provider or model. |
 
-::: tip The fastest way out of a paid-provider problem is a free one
+::: tip The fastest way out of a paid-provider problem is a local one
 A missing key, an exhausted account, or a rate limit all disappear on
-`SEO_PRO_AI_PROVIDER=google` with a free AI Studio key, or
-`SEO_PRO_AI_PROVIDER=local` against Ollama — both $0, and the surfaces
-behave identically.
+`SEO_PRO_AI_PROVIDER=local` against Ollama — genuinely $0, no rate limits,
+and the surfaces behave identically. (A billing-enabled Google key is the
+cheapest *cloud* fallback, but its free tier will rate-limit you.)
 :::
 
 ## What leaves your server
