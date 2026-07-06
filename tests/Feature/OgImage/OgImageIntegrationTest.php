@@ -123,6 +123,20 @@ describe('seo:og-images command', function () {
         expect(Storage::disk('og_test')->files('og-images'))->toHaveCount(2);
     });
 
+    it('warms and serves the per-model-mapped template', function () {
+        config(['seo.og_image.templates' => [OgArticle::class => 'seo::og.article']]);
+        $article = OgArticle::create(['title' => 'A Post', 'slug' => 'a-post']);
+
+        $this->artisan('seo:og-images')->assertExitCode(0);
+
+        // The stored file is keyed by the ARTICLE template, and the resolver
+        // serves exactly that file for this model.
+        $data = ogResolver()->resolve($article);
+        $expected = 'og-images/'.app(OgImageGenerator::class)->cacheKey($data, 'seo::og.article').'.png';
+        Storage::disk('og_test')->assertExists($expected);
+        expect($data->ogImage)->toContain('og-images/');
+    });
+
     it('skips rows with no renderable title', function () {
         OgArticle::create(['title' => 'Has Title', 'slug' => 'a']);
         OgArticle::create(['title' => null, 'slug' => 'b']);

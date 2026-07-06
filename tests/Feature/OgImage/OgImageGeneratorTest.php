@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Rankbeam\Seo\Data\SEOData;
 use Rankbeam\Seo\Services\OgImage\OgImageGenerator;
@@ -45,6 +46,37 @@ describe('OgImageManager', function () {
 
         $manager->driver('nope');
     })->throws(InvalidArgumentException::class);
+});
+
+describe('OgImageManager::templateFor', function () {
+    it('returns the configured default template with no model', function () {
+        expect(app(OgImageManager::class)->templateFor(null))->toBe('seo::og.default');
+    });
+
+    it('prefers the model getOgImageTemplate() hook', function () {
+        $model = new class extends Model
+        {
+            public function getOgImageTemplate(): string
+            {
+                return 'seo::og.article';
+            }
+        };
+
+        expect(app(OgImageManager::class)->templateFor($model))->toBe('seo::og.article');
+    });
+
+    it('falls back to the templates class map', function () {
+        $model = new class extends Model {};
+        config(['seo.og_image.templates' => [$model::class => 'seo::og.product']]);
+
+        expect(app(OgImageManager::class)->templateFor($model))->toBe('seo::og.product');
+    });
+
+    it('uses the default when a model has neither hook nor a map entry', function () {
+        $model = new class extends Model {};
+
+        expect(app(OgImageManager::class)->templateFor($model))->toBe('seo::og.default');
+    });
 });
 
 describe('OgImageGenerator::urlFor', function () {
@@ -164,6 +196,12 @@ describe('OgImageGenerator::cacheKey', function () {
         $de = new SEOData(title: 'A', ogSiteName: 'x', locale: 'de');
 
         expect(generator()->cacheKey($en))->not->toBe(generator()->cacheKey($de));
+    });
+
+    it('changes with the template (different card = different file)', function () {
+        $base = generator()->cacheKey(ogData());
+
+        expect(generator()->cacheKey(ogData(), 'seo::og.article'))->not->toBe($base);
     });
 
     it('uses the og title in preference to the page title', function () {

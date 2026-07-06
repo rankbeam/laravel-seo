@@ -8,6 +8,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 use Rankbeam\Seo\Data\SEOData;
 use Rankbeam\Seo\Services\OgImage\OgImageGenerator;
+use Rankbeam\Seo\Services\OgImage\OgImageManager;
 use Rankbeam\Seo\Services\OgImage\OgImageRenderException;
 use Rankbeam\Seo\Services\SEOResolver;
 
@@ -43,7 +44,7 @@ class OgImagesCommand extends Command
 
     protected $description = 'Pre-generate Open Graph images for your models';
 
-    public function handle(SEOResolver $resolver, OgImageGenerator $generator): int
+    public function handle(SEOResolver $resolver, OgImageGenerator $generator, OgImageManager $manager): int
     {
         if (! config('seo.og_image.enabled', false)) {
             $this->error('OG-image generation is disabled. Set seo.og_image.enabled=true (and install spatie/browsershot).');
@@ -77,10 +78,11 @@ class OgImagesCommand extends Command
 
             foreach ($modelClass::query()->cursor() as $model) {
                 $data = $resolver->resolve($model);
-                $keep[$this->relativePath($generator, $data)] = true;
+                $template = $manager->templateFor($model);
+                $keep[$this->relativePath($generator, $data, $template)] = true;
 
                 try {
-                    $url = $generator->generate($data, $force, throwOnError: true);
+                    $url = $generator->generate($data, $template, $force, throwOnError: true);
                     $url === null ? $skipped++ : $generated++;
                 } catch (OgImageRenderException $e) {
                     $failed++;
@@ -147,11 +149,11 @@ class OgImagesCommand extends Command
         return array_values(array_unique(array_filter($classes)));
     }
 
-    protected function relativePath(OgImageGenerator $generator, SEOData $data): string
+    protected function relativePath(OgImageGenerator $generator, SEOData $data, ?string $template = null): string
     {
         $prefix = trim((string) config('seo.og_image.path', 'og-images'), '/');
 
-        return ($prefix !== '' ? $prefix.'/' : '').$generator->cacheKey($data).'.png';
+        return ($prefix !== '' ? $prefix.'/' : '').$generator->cacheKey($data, $template).'.png';
     }
 
     /**

@@ -6,6 +6,7 @@ namespace Rankbeam\Seo\Services\OgImage;
 
 use Closure;
 use Illuminate\Contracts\Container\Container;
+use Illuminate\Database\Eloquent\Model;
 use InvalidArgumentException;
 use Rankbeam\Seo\Contracts\OgImageRenderer;
 
@@ -61,5 +62,32 @@ class OgImageManager
     public function available(): array
     {
         return array_keys($this->drivers);
+    }
+
+    /**
+     * The template a model should render its OG card with.
+     *
+     * Precedence: the model's own getOgImageTemplate() hook (return a view name
+     * to override per-instance), then the seo.og_image.templates class-name
+     * map, then the configured seo.og_image.template default.
+     */
+    public function templateFor(?Model $model = null): string
+    {
+        $default = (string) config('seo.og_image.template', 'seo::og.default');
+
+        if ($model === null) {
+            return $default;
+        }
+
+        if (method_exists($model, 'getOgImageTemplate')) {
+            $template = $model->getOgImageTemplate();
+            if (is_string($template) && $template !== '') {
+                return $template;
+            }
+        }
+
+        $map = (array) config('seo.og_image.templates', []);
+
+        return isset($map[$model::class]) ? (string) $map[$model::class] : $default;
     }
 }

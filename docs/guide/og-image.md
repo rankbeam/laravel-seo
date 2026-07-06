@@ -140,6 +140,34 @@ That hash is the cache key, and it has two consequences worth understanding:
   card at once; a package upgrade folds in automatically, so a new release that
   changes the bundled template can't serve stale cards.
 
+## Bundled templates
+
+Three templates ship with the package, all 1200×630 on the same brand gradient:
+
+| Template | Best for | Shows |
+| --- | --- | --- |
+| `seo::og.default` | Anything | Title + site name |
+| `seo::og.article` | Blog posts, news | Section eyebrow + title + author · date byline |
+| `seo::og.product` | Products, listings | Brand lockup + category chip + title + description |
+
+Pick one globally with `seo.og_image.template`, or map templates **per model
+type** so an article and a product get different cards automatically:
+
+```php
+// config/seo.php
+'og_image' => [
+    'templates' => [
+        App\Models\Post::class    => 'seo::og.article',
+        App\Models\Product::class => 'seo::og.product',
+    ],
+],
+```
+
+A model can also override its own template at runtime by defining
+`getOgImageTemplate(): ?string` (return a view name, or `null` to fall back to
+the map/default). Precedence: the model hook, then the `templates` map, then the
+global `template`.
+
 ## Customizing the template
 
 The card is a Blade view (`seo::og.default` by default) rendered to a
@@ -175,6 +203,10 @@ The template receives these variables:
 | `$width` | `int` | Output width (default `1200`). |
 | `$height` | `int` | Output height (default `630`). |
 | `$locale` | `?string` | Resolved page locale, for the `<html lang>` attribute. |
+| `$author` | `?string` | Article author (used by `seo::og.article`). |
+| `$publishedDate` | `?string` | Publish date, pre-formatted `M j, Y` (used by `seo::og.article`). |
+| `$section` | `?string` | Content section / category (article eyebrow, product chip). |
+| `$description` | `?string` | The OG description, else the page description (used by `seo::og.product`). |
 
 ::: info The template name is part of the cache key
 Both the template **name** and the gradient colors feed the content hash, so

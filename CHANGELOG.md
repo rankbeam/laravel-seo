@@ -5,6 +5,20 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.6.1] - 2026-07-06
+
+### Added
+
+- **OG-image templates `article` and `product`, plus per-model selection.**
+  Completing the v3.6.0 feature: alongside the default card, `seo::og.article`
+  (section eyebrow + author · date byline) and `seo::og.product` (brand lockup +
+  category chip + description) now ship. Map templates per model class via the
+  new `seo.og_image.templates` config, or override per instance with a
+  `getOgImageTemplate()` method — so an article and a product get different
+  cards automatically. The generator's `urlFor()`/`generate()`/`cacheKey()` gain
+  an optional leading `$template` argument (existing calls are unaffected), and
+  the template name is part of the content hash.
+
 ## [3.6.0] - 2026-07-06
 
 ### Added

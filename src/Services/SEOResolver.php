@@ -7,6 +7,7 @@ namespace Rankbeam\Seo\Services;
 use Illuminate\Database\Eloquent\Model;
 use Rankbeam\Seo\Data\SEOData;
 use Rankbeam\Seo\Services\OgImage\OgImageGenerator;
+use Rankbeam\Seo\Services\OgImage\OgImageManager;
 
 /**
  * Core service for resolving SEO data with proper precedence chain.
@@ -201,7 +202,7 @@ class SEOResolver
         // Post-processing: Apply title suffix, ensure canonical, absolutize images
         $result = $this->applyTitleSuffix($result);
         $result = $this->ensureCanonical($result, $model);
-        $result = $this->applyGeneratedOgImage($result);
+        $result = $this->applyGeneratedOgImage($result, $model);
         $result = $this->ensureAbsoluteImages($result);
 
         // Layer 6: Computed JSON-LD schema graph — only as a fallback when no
@@ -884,7 +885,7 @@ class SEOResolver
      * Runs before ensureAbsoluteImages() so a relative storage URL gets
      * absolutized like any other og:image value.
      */
-    protected function applyGeneratedOgImage(SEOData $seoData): SEOData
+    protected function applyGeneratedOgImage(SEOData $seoData, ?Model $model = null): SEOData
     {
         if (! config('seo.og_image.enabled', false)) {
             return $seoData;
@@ -907,7 +908,8 @@ class SEOResolver
             return $seoData;
         }
 
-        $url = app(OgImageGenerator::class)->urlFor($seoData);
+        $template = app(OgImageManager::class)->templateFor($model);
+        $url = app(OgImageGenerator::class)->urlFor($seoData, $template);
 
         return $url !== null ? $seoData->with('ogImage', $url) : $seoData;
     }
