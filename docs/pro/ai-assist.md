@@ -66,8 +66,9 @@ Filament modal makes while it opens — keep it short), `max_input_chars`
 (caps what is sent), `max_output_tokens` (the base cap on what is
 generated), `token_budgets` (per-task output caps for `suggestions` /
 `explanation`), `reasoning_models` + `reasoning_min_output_tokens` (raise
-the cap for thinking models — see below), `suggestion_count`, and the
-`local` sub-block (below).
+the cap for thinking models — see below), `suggestion_count`, `retry`
+(automatic retry for transient failures — see below), and the `local`
+sub-block (below).
 
 ## Zero-cost providers
 
@@ -226,7 +227,10 @@ It is deliberately conservative:
 use Rankbeam\Seo\Pro\Facades\SeoPro;
 
 $summary = SeoPro::aiFill()->fill([\App\Models\Post::class], 'all', limit: 50, apply: true);
-// ['processed' => 120, 'filled' => 18, 'skipped' => 102, 'failed' => 0, 'records' => [...]]
+// ['processed' => 120, 'filled' => 18, 'skipped' => 102, 'failed' => 0, 'errors' => [], 'records' => [...]]
+// On a provider failure, 'errors' maps each distinct error code to its human
+// message (e.g. 'unauthorized' => 'Anthropic: authentication failed…'), and the
+// seo-pro:ai-fill command prints those reasons — so a run never fails silently.
 ```
 
 ## How replies are handled
@@ -250,14 +254,27 @@ same across providers (and across the ones added later):
   tokens before producing any visible output; those models
   (`reasoning_models` patterns) automatically get a higher floor
   (`reasoning_min_output_tokens`, default 2000).
+- **Transient failures are retried automatically.** A `429` rate limit or
+  a `5xx` is retried with capped exponential backoff, honoring a
+  `Retry-After` header when the provider sends one (bounded, so a hostile
+  value can't stall the request). Deterministic failures (a bad key, a
+  malformed request, an oversized payload) are **not** retried — nor are
+  timeouts, which would only multiply the wait. Tune or disable it via the
+  `retry` block (`max_attempts`, `base_delay_ms`, `max_delay_ms`); set
+  `max_attempts` to `0` to turn retrying off. Because the Filament modal
+  calls the provider synchronously, the defaults stay modest.
 - **Errors are typed and sanitized.** Each failure carries a stable code
-  (`unauthorized`, `rate_limited`, `timeout`, `bad_request`, `truncated`,
-  `content_filtered`, `provider_error`, …) and a `retryable` flag for the
-  transient ones (rate limit, timeout, provider 5xx). The message is a
-  short, sanitized string — the raw provider response body is never
-  surfaced or logged. In Filament a failure renders in the styled modal
-  partial (not a bare red line), and a `rate_limited` failure adds a hint
-  to switch to a free provider (Google) or a local model.
+  (`unauthorized`, `rate_limited`, `timeout`, `content_too_large`,
+  `bad_request`, `truncated`, `content_filtered`, `provider_error`, …) and
+  a `retryable` flag for the transient ones (rate limit, timeout, provider
+  5xx). The message is a short, sanitized string — the raw provider
+  response body is never surfaced or logged, and a timeout reports a clean,
+  actionable message rather than the underlying transport error. In
+  Filament a failure renders in the styled modal partial (not a bare red
+  line), with a tailored next-step hint for the common modes: a bad key
+  points at the API-key env var, a rate limit suggests a free (Google) or
+  local provider, a timeout names `seo-pro.ai.timeout`, and an oversized
+  page names `seo-pro.ai.max_input_chars`.
 
 ## What leaves your server
 
