@@ -5,6 +5,12 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.8.1] - 2026-07-06
+
+### Fixed
+
+- **Meta-less `og:type` no longer clobbered to `website`.** When `seo.features.auto_create_meta` is off and a model has no stored `seo_meta` row, the explicit layer's `SEOData::fromModel()` returned a bare `new SEOData()` whose non-null `ogType='website'` / `twitterCard='summary_large_image'` constructor defaults rode along and overrode the computed layer — so an article-like page (computed `og:type='article'`) resolved to `og:type='website'`. `fromModel()` now returns an all-null DTO for a meta-less model (those two defaults suppressed), so it contributes nothing and the computed value survives. Only bit with `auto_create_meta=false` + a computed `og:type` ≠ `website` + no stored row; the default `auto_create_meta=true` path (a row with nullable `og_type=null`) was never affected. `seo:explain` now attributes such fields to their real lower layer.
+
 ## [3.8.0] - 2026-07-06
 
 ### Added

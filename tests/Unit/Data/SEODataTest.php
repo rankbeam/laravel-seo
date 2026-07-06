@@ -91,6 +91,20 @@ describe('SEOData', function () {
                 ->and($data->description)->toBeNull();
         });
 
+        it('suppresses the ogType/twitterCard defaults for a model without seo meta', function () {
+            // Unlike empty()/new SEOData(), the no-meta fromModel() DTO nulls the
+            // ogType/twitterCard defaults so it contributes nothing when merged
+            // as the resolver's explicit layer (regression: it must not clobber a
+            // computed og_type='article' with 'website').
+            $model = createMockModel(['id' => 1]);
+
+            $data = SEOData::fromModel($model);
+
+            expect($data->ogType)->toBeNull()
+                ->and($data->twitterCard)->toBeNull()
+                ->and($data->isEmpty())->toBeTrue();
+        });
+
         it('creates empty instance', function () {
             $data = SEOData::empty();
 

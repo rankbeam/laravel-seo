@@ -1155,13 +1155,13 @@ class SEOResolver
         }
 
         // Faithful to applyExplicitValues(): the SAME SEOData::fromModel() +
-        // blank_is_unset the resolver merges — including the bare `new self`
-        // fromModel() returns for a model with no stored seo_meta row. That
-        // empty DTO carries SEOData's non-null og_type/twitter_card constructor
-        // defaults, and the real resolve() DOES merge them, so the trace must
-        // too — otherwise the attributed winner could disagree with the final
-        // rendered value (the "cannot drift from what renders" guarantee). The
-        // human/JSON formatter surfaces that faithfully.
+        // blank_is_unset the resolver merges — including the all-null DTO
+        // fromModel() returns for a model with no stored seo_meta row (its
+        // og_type/twitter_card defaults suppressed). Because that DTO
+        // contributes nothing, the trace attributes og_type/twitter_card to the
+        // real lower layer that set them (e.g. computed og_type='article'),
+        // matching what resolve() renders — the "cannot drift from what renders"
+        // guarantee.
         $explicit = SEOData::fromModel($model, $locale);
 
         if (config('seo.resolver.blank_is_unset', false)) {

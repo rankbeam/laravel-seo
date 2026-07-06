@@ -50,6 +50,14 @@ class CharacterizationPage extends Model
     }
 }
 
+class CharacterizationArticle extends CharacterizationPage
+{
+    // Class basename contains "article", so SEOComputedBuilder::computeOgType()
+    // infers og_type='article' — a computed value that differs from SEOData's
+    // 'website' constructor default. Shares the characterization_pages table.
+    protected $table = 'characterization_pages';
+}
+
 class RobotsHookPage extends CharacterizationPage
 {
     // The optional getSEORobots() hook takes priority over the is_indexable
@@ -147,6 +155,27 @@ describe('precedence: manual > computed > defaults > config', function () {
         expect(resolveSeo($page)->description)->toBe('Global fallback description');
     });
 
+});
+
+describe('computed og:type survives a meta-less model', function () {
+    // Regression: with auto_create_meta=false (set in beforeEach) an article-
+    // like model has NO stored seo_meta row. The explicit layer's DTO
+    // (SEOData::fromModel with no row) must contribute nothing for og_type, so
+    // the computed 'article' is not clobbered by SEOData's 'website' default.
+    it('resolves og:type=article for a meta-less article-like model', function () {
+        $article = CharacterizationArticle::create(['title' => 'My Article']);
+
+        // Precondition: truly meta-less (no auto-created row).
+        expect($article->seoMeta()->exists())->toBeFalse()
+            ->and(resolveSeo($article)->ogType)->toBe('article');
+    });
+
+    it('still lets an explicit stored og:type win over the computed article type', function () {
+        $article = CharacterizationArticle::create(['title' => 'My Article']);
+        $article->saveSEO(['og_type' => 'video.other']);
+
+        expect(resolveSeo($article->fresh())->ogType)->toBe('video.other');
+    });
 });
 
 describe('canonical query-strip', function () {

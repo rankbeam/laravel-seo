@@ -45,7 +45,7 @@ Layers, low → high: config · global · model-type · route · computed · exp
 - **↳ notes** — post-processing that changed the value after the layer merge: the title suffix, the canonical query-string strip, og:url derivation, image absolutization, and the indexing guard forcing `noindex` above every layer.
 
 ::: tip og:type and twitter:card
-These two carry non-null framework defaults (`website` / `summary_large_image`) that ride along on every computed layer, so they attribute to `computed` rather than `config`. That's faithful to how the merge actually resolves them — the value is the same either way.
+These two carry non-null framework defaults (`website` / `summary_large_image`), so the highest layer that sets them — normally `computed` — wins over `config`. A page with no stored `seo_meta` row contributes nothing for them, so a computed `og:type` like `article` is never shadowed by a bare `website`. That's faithful to how the merge actually resolves them.
 :::
 
 ## Site-level resolution
