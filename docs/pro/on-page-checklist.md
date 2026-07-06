@@ -29,7 +29,7 @@ particular are **advisory** (see below).
 | `title_length` | meta | Title is within the same 30–60 window as the editor and the scan. |
 | `description_length` | meta | Description is within the same 70–160 window. |
 | `content_length` | content | Enough body copy (config-driven word-count bands). |
-| `readability` | content | **Advisory.** How easy the body copy is to read — Flesch-Kincaid (English) / Gulpease (Italian). |
+| `readability` | content | **Advisory.** How easy the body copy is to read, scored with the formula validated for the analysis locale (English, Italian, Spanish, French, German, + a language-agnostic fallback). |
 | `has_image` | media | The content includes at least one image. |
 | `internal_links` | links | The content links to related internal pages. |
 
@@ -55,11 +55,33 @@ read naturally?", not a target to hit.
 
 ### Readability is advisory
 
-The checklist also scores how easy the body copy is to read — **Flesch-Kincaid**
-for English, **Gulpease** for Italian (routed by the analysis locale) — and
-surfaces it as pass / warn / fail with the score and concrete suggestions
-("shorten your sentences", "use simpler words"). It is computed in-package with
-**no extra dependency**.
+The checklist also scores how easy the body copy is to read, using the
+readability formula **validated for the analysis locale** rather than forcing
+English-Flesch on every language (the word- and syllable-length constants that
+make Flesch work for English are wrong for other languages):
+
+| Locale | Formula |
+| --- | --- |
+| English (`en`) | Flesch-Kincaid Reading Ease |
+| Italian (`it`) | Gulpease Index |
+| Spanish (`es`) | Fernández-Huerta |
+| French (`fr`) | Kandel-Moles |
+| German (`de`) | erste Wiener Sachtextformel |
+| anything else | LIX (Läsbarhetsindex) — language-agnostic |
+
+Every result is normalised to the same **0–100 scale (higher = easier)** with a
+pass / warn / fail level and concrete suggestions, so the checklist treats all
+locales uniformly. It is computed in-package with **no extra dependency**
+(syllables are estimated by a vowel-group heuristic per language). Route the
+analysis with `SeoPro::checklistFor($post, 'es')` or `--locale=fr`.
+
+::: tip Romance languages score lower — by design
+Spanish and French have more syllables per word than English, and their
+Flesch-derived formulas still weight syllables heavily, so ordinary `es`/`fr`
+prose lands lower on the 0–100 scale than equivalent English (the `es`/`fr`
+target band is 60–70, aspirational). The signal is most useful **relatively** —
+simpler copy always scores higher than denser copy in the same language.
+:::
 
 Like keyword density, readability is **advisory by default**: it informs the
 writer but does **not** gate the overall page status — the same separation Yoast
