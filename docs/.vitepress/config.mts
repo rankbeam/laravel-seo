@@ -85,7 +85,7 @@ export default defineConfig({
           { text: 'IndexNow', link: '/pro/indexnow' },
           { text: 'AI-bot monitor', link: '/pro/ai-bot-monitor' },
           { text: 'MCP server', link: '/pro/mcp' },
-          { text: 'AI assist (beta)', link: '/pro/ai-assist' },
+          { text: 'AI assist', link: '/pro/ai-assist' },
         ],
       },
       {
