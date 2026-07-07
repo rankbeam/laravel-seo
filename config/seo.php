@@ -40,7 +40,7 @@ return [
      * Suffix appended to all page titles. Leave empty for no suffix.
      * Example result: "Blog Post Title | My Website"
      */
-    'title_suffix' => ' | ' . env('APP_NAME', 'My Site'),
+    'title_suffix' => ' | '.env('APP_NAME', 'My Site'),
 
     /*
      * Brand-aware suffix suppression.
@@ -145,6 +145,24 @@ return [
 
         // Hard timeout (seconds) for a single render.
         'timeout' => env('SEO_OG_IMAGE_TIMEOUT', 60),
+
+        // Launch Chrome with --no-sandbox. Default Ubuntu 22.04+/24.04 servers
+        // restrict unprivileged user namespaces (AppArmor), so puppeteer's
+        // Chrome fails to start with "No usable sandbox!" and seo:og-images
+        // errors out of the box. Setting this true is the standard fix for
+        // running headless Chrome as a non-root user in a trusted container or
+        // VM. Only the HTML the package itself generates is ever rendered, so
+        // dropping the sandbox does not expose you to untrusted page content.
+        // (The hardened alternative is an AppArmor profile granting userns to
+        // the Chrome binary; this flag is the one-line option.)
+        'no_sandbox' => env('SEO_OG_IMAGE_NO_SANDBOX', false),
+
+        // Extra Chromium CLI flags for the render, e.g. on a container without
+        // enough shared memory: ['disable-dev-shm-usage', 'disable-gpu'].
+        // Passed to Browsershot::addChromiumArguments() — a leading "--" is
+        // optional (both 'disable-gpu' and '--disable-gpu' work). Use the map
+        // form for flags that take a value: ['proxy-server' => 'http://…'].
+        'browsershot_args' => [],
     ],
 
     /*

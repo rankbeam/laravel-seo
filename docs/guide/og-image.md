@@ -251,16 +251,81 @@ Editing a template *in place* does not (the name is unchanged) — bump
     'npm_module_path' => null,      // node_modules dir (no-op on Windows — see Caveats)
 
     'timeout' => 60,                // hard per-render timeout, seconds
+
+    // Launch Chrome with --no-sandbox. The standard fix for the "No usable
+    // sandbox!" launch failure on default Ubuntu 22.04+/24.04 servers (see
+    // "Running on Linux" below). Off by default.
+    'no_sandbox' => false,
+
+    // Extra Chromium CLI flags, e.g. ['disable-dev-shm-usage', 'disable-gpu']
+    // on a low-/dev-shm container. Leading "--" optional; map form for
+    // value-bearing flags: ['proxy-server' => 'http://…'].
+    'browsershot_args' => [],
 ],
 ```
 
-Every value has a matching env var (`SEO_OG_IMAGE_ENABLED`,
-`SEO_OG_IMAGE_DISK`, `SEO_OG_IMAGE_CHROME_PATH`, …) — see the config file for the
-full list.
+Most scalar values have a matching env var (`SEO_OG_IMAGE_ENABLED`,
+`SEO_OG_IMAGE_DISK`, `SEO_OG_IMAGE_CHROME_PATH`, `SEO_OG_IMAGE_NO_SANDBOX`, …) —
+see the config file for the full list. The array-shaped keys (`templates`,
+`models`, `browsershot_args`) are edited in the config file directly.
 
 The disk must be **publicly served**, because the resolver uses its `url()` as the
 `og:image` value. With the `public` disk, run `php artisan storage:link` once so
 `public/storage` points at it.
+
+## Running on Linux (the sandbox)
+
+On a default **Ubuntu 22.04+/24.04** server, `php artisan seo:og-images` fails
+out of the box with:
+
+```
+No usable sandbox! Update your OS ... or see
+https://chromium.googlesource.com/.../linux/suid_sandbox_development.md
+```
+
+This is not a package bug. Ubuntu ships an AppArmor profile that restricts
+**unprivileged user namespaces**, which is exactly the mechanism Chrome's sandbox
+uses to isolate itself — so Chrome refuses to launch. There are two ways past it:
+
+**1. Run Chrome with `--no-sandbox` (one line).** The pragmatic fix when the app
+runs as a non-root user in a trusted container or VM:
+
+```php
+// config/seo.php
+'og_image' => [
+    'no_sandbox' => true,   // or set SEO_OG_IMAGE_NO_SANDBOX=true
+],
+```
+
+Only the HTML this package generates is ever rendered — never untrusted,
+user-supplied web pages — so dropping the sandbox here does not expose you to
+hostile page content the way `--no-sandbox` on a general-purpose scraper would.
+
+**2. Keep the sandbox, grant Chrome the namespace (hardened).** Leave
+`no_sandbox` off and add an AppArmor profile that allows `userns` for the Chrome
+binary Puppeteer drives, e.g.:
+
+```
+# /etc/apparmor.d/chrome-og
+abi <abi/4.0>,
+include <tunables/global>
+profile chrome-og /path/to/chrome flags=(unconfined) {
+  userns,
+  include if exists <local/chrome-og>
+}
+```
+
+then `sudo apparmor_parser -r /etc/apparmor.d/chrome-og`. This preserves Chrome's
+own sandbox — the stronger posture if the host is shared.
+
+::: tip Other flags
+For a container that's short on shared memory (the other common Linux
+failure — a Chrome crash mid-render), add flags via `browsershot_args`:
+
+```php
+'browsershot_args' => ['disable-dev-shm-usage'],
+```
+:::
 
 ## Custom drivers
 
