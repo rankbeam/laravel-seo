@@ -206,3 +206,67 @@ describe('/robots.txt route gating', function () {
         expect(Route::has('seo.robots-txt.index'))->toBeFalse();
     });
 });
+
+describe('Content signals (contentsignals.org)', function () {
+    it('emits no Content-Signal line by default (byte-identical until opted in)', function () {
+        expect(app(RobotsTxtBuilder::class)->build())->not->toContain('Content-Signal');
+    });
+
+    it('folds the Content-Signal into the default User-agent: * group when enabled', function () {
+        config(['seo.ai_crawlers.content_signals' => true]);
+
+        $robots = app(RobotsTxtBuilder::class)->build();
+
+        // Default policy: ai_search=allow, ai_assistant=allow, ai_training=disallow
+        // → search=yes, ai-input=yes, ai-train=no, in the spec's canonical order.
+        expect($robots)->toContain('Content-Signal: search=yes, ai-input=yes, ai-train=no')
+            ->and($robots)->toContain('# Content signals (https://contentsignals.org)')
+            // One User-agent: * group, not two.
+            ->and(substr_count($robots, 'User-agent: *'))->toBe(1);
+    });
+
+    it('maps a disallowed purpose to no and a removed purpose to an omitted signal', function () {
+        config([
+            'seo.ai_crawlers.content_signals' => true,
+            // ai_assistant removed entirely → the ai-input signal is omitted
+            // (the spec's "no preference"); ai_search flipped to disallow → no.
+            'seo.ai_crawlers.policy' => [
+                'ai_training' => 'disallow',
+                'ai_search' => 'disallow',
+            ],
+        ]);
+
+        $robots = app(RobotsTxtBuilder::class)->build();
+
+        expect($robots)->toContain('Content-Signal: search=no, ai-train=no')
+            ->and($robots)->not->toContain('ai-input');
+    });
+
+    it('emits a standalone content-signals group when general is a verbatim string', function () {
+        config([
+            'seo.ai_crawlers.content_signals' => true,
+            'seo.ai_crawlers.general' => "User-agent: SomeBot\nDisallow: /private",
+        ]);
+
+        $robots = app(RobotsTxtBuilder::class)->build();
+
+        // The verbatim general string is preserved, AND the signal still gets a
+        // User-agent: * group of its own to live in.
+        expect($robots)->toContain('User-agent: SomeBot')
+            ->and($robots)->toContain('Disallow: /private')
+            ->and($robots)->toContain('User-agent: *')
+            ->and($robots)->toContain('Content-Signal: search=yes, ai-input=yes, ai-train=no');
+    });
+
+    it('still emits a content-signals group when the general section is off', function () {
+        config([
+            'seo.ai_crawlers.content_signals' => true,
+            'seo.ai_crawlers.general' => false,
+        ]);
+
+        $robots = app(RobotsTxtBuilder::class)->build();
+
+        expect($robots)->toContain('User-agent: *')
+            ->and($robots)->toContain('Content-Signal: search=yes, ai-input=yes, ai-train=no');
+    });
+});

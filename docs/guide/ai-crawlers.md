@@ -95,6 +95,41 @@ non-compliant bot you need server- or edge-level blocking (firewall, WAF,
 Cloudflare bot rules); the [Pro AI-bot hit log](/pro/ai-bot-monitor) tells you
 which ones to worry about.
 
+## Content signals (usage preferences)
+
+`Allow` / `Disallow` control **access** — whether a bot may fetch the page.
+[Content signals](https://contentsignals.org) (the standard championed by
+Cloudflare) are the other axis: they state how the content, once fetched, may be
+**used**. One `Content-Signal:` line in the `User-agent: *` group carries three
+preferences:
+
+| Signal | Derived from policy purpose | Meaning |
+| --- | --- | --- |
+| `search` | `ai_search` | Building a search index (links + short excerpts) |
+| `ai-input` | `ai_assistant` | Feeding the page into an AI model in real time (RAG / grounding) |
+| `ai-train` | `ai_training` | Training or fine-tuning an AI model |
+
+It's **off by default** (the file stays byte-identical until you opt in). Turn it
+on and Rankbeam derives the line straight from your existing `policy` — `allow`
+becomes `yes`, `disallow` becomes `no`:
+
+```php
+'ai_crawlers' => [
+    'content_signals' => true,   // env: SEO_AI_CONTENT_SIGNALS
+    // ...with the default policy, this emits, in the User-agent: * group:
+    //   Content-Signal: search=yes, ai-input=yes, ai-train=no
+],
+```
+
+Remove a purpose from `policy` entirely and its signal is **omitted** — the
+spec's "no preference expressed", distinct from an explicit `yes`/`no`.
+
+::: warning Advisory, like robots.txt itself
+Content signals express a preference; they are **not** a technical control. A
+crawler can ignore them. They sit alongside — not instead of — the access rules
+above and any edge-level blocking.
+:::
+
 ## Configuration
 
 ```php
@@ -121,6 +156,10 @@ which ones to worry about.
     // 'blocked' = only disallowed bots get a line (lean file);
     // 'all'     = every known bot gets an explicit allow/disallow (auditable).
     'list' => 'blocked',
+
+    // Emit a Content-Signal usage-preference line (off by default), derived
+    // from `policy` above. See "Content signals" above.
+    'content_signals' => false,
 
     // The general `User-agent: *` section: true = permissive default,
     // a string = your own rules verbatim, false = omit.

@@ -455,6 +455,13 @@ class SEOResolver
      * resolution correct for a model whose canonical derives from the request
      * URL, while two requests to the same path (differing only by query string)
      * still share one entry.
+     *
+     * The one exception is a configured `seo.canonical.query_whitelist`: a
+     * whitelisted param (e.g. `page`) now survives into the derived canonical,
+     * so the cache key must vary by it too — otherwise ?page=1 and ?page=2 would
+     * collide on a single entry and serve the wrong canonical. When a whitelist
+     * is set we append the same whitelisted, stably-ordered suffix the canonical
+     * uses; with no whitelist this stays exactly url()->current() as before.
      */
     protected function currentRequestUrl(): ?string
     {
@@ -463,9 +470,22 @@ class SEOResolver
         }
 
         try {
-            return url()->current();
+            $current = url()->current();
         } catch (\Throwable) {
             return null;
+        }
+
+        if ($this->canonicalQueryWhitelist() === []) {
+            return $current;
+        }
+
+        try {
+            // The request base equals $current; applyCanonicalQueryPolicy() adds
+            // back only the whitelisted params, matching the derived canonical's
+            // basis exactly — so the key varies precisely when the canonical does.
+            return $this->applyCanonicalQueryPolicy(request()->fullUrl());
+        } catch (\Throwable) {
+            return $current;
         }
     }
 
@@ -874,10 +894,13 @@ class SEOResolver
      * 1. Model's getUrlForSEO() method (if available)
      * 2. Current request URL (fallback)
      *
-     * Derived canonicals always have their query string stripped: query
+     * Derived canonicals have their query string stripped by default: query
      * parameters (tracking, pagination, filters) create duplicate-content
-     * canonical targets. An explicitly set canonical (admin-entered or from
-     * a higher layer) is preserved verbatim, query string included.
+     * canonical targets. The `seo.canonical.query_whitelist` config keeps named
+     * params (e.g. `page`) in derived canonicals — for params that identify a
+     * genuinely distinct page. An explicitly set canonical (admin-entered or
+     * from a higher layer) is preserved verbatim, query string included, and
+     * the whitelist never touches it.
      *
      * Also sets og:url if not already set.
      *
@@ -903,17 +926,24 @@ class SEOResolver
             $canonical = $model->getUrlForSEO();
         }
 
-        // Fallback to current URL
+        // Fallback to the current request URL. With a query whitelist set we
+        // start from the FULL url (query included) so a whitelisted param can
+        // survive the policy below; with no whitelist url()->current() — which
+        // never carries a query — keeps the derived canonical byte-identical to
+        // the historical strip-everything behaviour.
         if (! $canonical && request()) {
-            $canonical = url()->current();
+            $canonical = $this->canonicalQueryWhitelist() === []
+                ? url()->current()
+                : request()->fullUrl();
         }
 
         if (! $canonical) {
             return $seoData;
         }
 
-        // Strip query string for a clean canonical
-        $canonical = strtok($canonical, '?') ?: $canonical;
+        // Clean the query string: strip it entirely (the default) or keep only
+        // the whitelisted params in a stable order.
+        $canonical = $this->applyCanonicalQueryPolicy($canonical);
 
         // Apply both canonical and og:url
         $result = $seoData->with('canonical', $canonical);
@@ -923,6 +953,72 @@ class SEOResolver
         }
 
         return $result;
+    }
+
+    /**
+     * Apply the canonical query-string policy to a DERIVED canonical URL.
+     *
+     * Default (empty whitelist): strip the whole query string — tracking,
+     * filter and pagination params all spawn duplicate-content canonical
+     * targets. Byte-identical to the historical strtok() strip.
+     *
+     * With `seo.canonical.query_whitelist` set: keep ONLY those params, in the
+     * whitelist's order — a stable order regardless of the params' order in the
+     * request, so two requests differing only in param order canonicalize
+     * identically — and drop every other param. For params that identify a
+     * genuinely distinct page, most commonly `page` for paginated archives.
+     *
+     * Only ever applied to a DERIVED canonical; an explicitly set canonical is
+     * returned verbatim by {@see ensureCanonical()} before this runs.
+     *
+     * @param string $url The derived canonical URL (may carry a query string)
+     * @return string The URL with its query stripped or whitelist-filtered
+     */
+    protected function applyCanonicalQueryPolicy(string $url): string
+    {
+        $whitelist = $this->canonicalQueryWhitelist();
+
+        [$base, $query] = array_pad(explode('?', $url, 2), 2, '');
+
+        if ($whitelist === [] || $query === '') {
+            return $base;
+        }
+
+        parse_str($query, $params);
+
+        $kept = [];
+
+        foreach ($whitelist as $key) {
+            if (array_key_exists($key, $params)) {
+                $kept[$key] = $params[$key];
+            }
+        }
+
+        if ($kept === []) {
+            return $base;
+        }
+
+        return $base . '?' . http_build_query($kept);
+    }
+
+    /**
+     * The configured canonical query-param whitelist, normalized to a clean
+     * list of non-empty, unique string keys. Empty (the default) means "strip
+     * every query param from a derived canonical".
+     *
+     * @return array<int, string>
+     */
+    protected function canonicalQueryWhitelist(): array
+    {
+        $list = [];
+
+        foreach ((array) config('seo.canonical.query_whitelist', []) as $key) {
+            if (is_string($key) && trim($key) !== '') {
+                $list[] = trim($key);
+            }
+        }
+
+        return array_values(array_unique($list));
     }
 
     /**

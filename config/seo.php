@@ -234,6 +234,21 @@ return [
             explode(',', (string) env('SEO_INDEXING_GUARD_ALLOWED', 'production')),
         ))) ?: ['production'],
 
+        /*
+         * Also send an `X-Robots-Tag: noindex,nofollow` HTTP header (via a
+         * global middleware) while the guard is active. The forced <meta robots>
+         * only reaches crawlers that parse HTML; the header additionally covers
+         * PDFs, feeds, images and any other non-HTML response routed through the
+         * app — the one noindex signal those responses can carry.
+         *
+         * ON by default WITHIN the guard: the guard itself is opt-in and inert
+         * on production, so this only ever acts once you have armed the guard on
+         * a non-production environment. The middleware is registered only when
+         * the guard is enabled, so a package with the guard off adds nothing.
+         * Set false to keep the meta-only behaviour.
+         */
+        'send_header' => env('SEO_INDEXING_GUARD_HEADER', true),
+
     ],
 
     /*
@@ -334,6 +349,36 @@ return [
 
     'resolver' => [
         'blank_is_unset' => env('SEO_BLANK_IS_UNSET', false),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Canonical URLs
+    |--------------------------------------------------------------------------
+    |
+    | query_whitelist
+    | ---------------
+    | A canonical the resolver DERIVES (from the request URL or a model's
+    | getUrlForSEO()) has its query string stripped by default — tracking,
+    | filter and sort params all create duplicate-content canonical targets
+    | pointing at the same page. But some params identify a genuinely distinct
+    | page that should be its own canonical: most commonly `page` for paginated
+    | archives (/blog?page=2 is not /blog). List those keys here and they are
+    | KEPT in derived canonicals, in this order; every other param is still
+    | stripped.
+    |
+    | An EXPLICITLY set canonical (admin-entered, or from a higher precedence
+    | layer) is always emitted verbatim, query string and all — this list only
+    | governs the derived fallback.
+    |
+    | Default [] preserves the strip-everything behaviour.
+    |
+    | Example: ['page']
+    |
+    */
+
+    'canonical' => [
+        'query_whitelist' => [],
     ],
 
     /*
@@ -670,6 +715,18 @@ return [
          * an explicit allow/disallow line — fully auditable).
          */
         'list' => 'blocked',
+
+        /*
+         * Emit a Content-Signal usage-preference line (contentsignals.org, the
+         * standard championed by Cloudflare) in the `User-agent: *` group,
+         * derived from the `policy` above: ai_search → search, ai_assistant →
+         * ai-input, ai_training → ai-train, each allow → yes / disallow → no. A
+         * purpose you remove from `policy` emits no signal (the spec's "no
+         * preference"). Content signals state how your content may be USED and
+         * are ADVISORY — distinct from the Allow/Disallow crawl-access rules.
+         * OFF by default: the file stays byte-identical until you opt in.
+         */
+        'content_signals' => env('SEO_AI_CONTENT_SIGNALS', false),
 
         /*
          * The general `User-agent: *` section. true emits a permissive default;

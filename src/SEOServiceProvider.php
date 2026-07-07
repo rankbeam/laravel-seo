@@ -16,6 +16,7 @@ use Rankbeam\Seo\Console\Commands\LlmsTxtCommand;
 use Rankbeam\Seo\Console\Commands\OgImagesCommand;
 use Rankbeam\Seo\Console\Commands\RobotsTxtCommand;
 use Rankbeam\Seo\Console\Commands\SitemapCommand;
+use Rankbeam\Seo\Http\Middleware\IndexingGuardHeader;
 use Rankbeam\Seo\Http\Middleware\ServeMarkdownToBots;
 use Rankbeam\Seo\Importing\ImporterRegistry;
 use Rankbeam\Seo\Importing\RalphJSmitImporter;
@@ -202,15 +203,27 @@ class SEOServiceProvider extends ServiceProvider
      */
     protected function registerMiddleware(): void
     {
-        if (! config('seo.markdown_for_bots.enabled', false)
-            || ! config('seo.markdown_for_bots.auto_register_middleware', true)) {
+        $kernel = $this->app->make(Kernel::class);
+
+        if (! method_exists($kernel, 'pushMiddleware')) {
             return;
         }
 
-        $kernel = $this->app->make(Kernel::class);
-
-        if (method_exists($kernel, 'pushMiddleware')) {
+        // Markdown-for-bots content negotiation (off by default).
+        if (config('seo.markdown_for_bots.enabled', false)
+            && config('seo.markdown_for_bots.auto_register_middleware', true)) {
             $kernel->pushMiddleware(ServeMarkdownToBots::class);
+        }
+
+        // The indexing guard's X-Robots-Tag header — registered only when the
+        // guard itself is armed (and the sub-toggle is on). On production the
+        // guard is inactive, so the middleware runs but no-ops; off-production
+        // it stamps noindex on the PDFs/feeds/images that carry no meta tag.
+        // Gating registration on the guard keeps a package without the guard
+        // armed free of any added middleware.
+        if (config('seo.indexing_guard.enabled', false)
+            && config('seo.indexing_guard.send_header', true)) {
+            $kernel->pushMiddleware(IndexingGuardHeader::class);
         }
     }
 
