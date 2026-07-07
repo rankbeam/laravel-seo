@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { generateLlmsArtifacts } from './llms'
 
 export default defineConfig({
   title: 'Rankbeam',
@@ -7,6 +8,9 @@ export default defineConfig({
   lang: 'en-US',
   lastUpdated: true,
   cleanUrls: true,
+
+  // Publish /llms.txt + a raw-Markdown copy of every page for AI answer engines.
+  buildEnd: generateLlmsArtifacts,
 
   head: [
     ['link', { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],

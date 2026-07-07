@@ -1,3 +1,7 @@
+---
+description: Every option in config/seo.php, grouped by resolver layer, with the shipped default for each value.
+---
+
 # Configuration
 
 Publish the config file:
