@@ -38,23 +38,7 @@ class BrowsershotRenderer implements OgImageRenderer
         $tmp = tempnam(sys_get_temp_dir(), 'seo_og_').'.png';
 
         try {
-            $shot = Browsershot::html($html)
-                ->windowSize($width, $height)
-                ->deviceScaleFactor(1)
-                ->waitUntilNetworkIdle()
-                ->timeout((int) config('seo.og_image.timeout', 60));
-
-            if ($chrome = config('seo.og_image.chrome_path')) {
-                $shot->setChromePath($chrome);
-            }
-            if ($node = config('seo.og_image.node_binary')) {
-                $shot->setNodeBinary($node);
-            }
-            if ($modules = config('seo.og_image.npm_module_path')) {
-                $shot->setNodeModulePath($modules);
-            }
-
-            $shot->save($tmp);
+            $this->configureBrowsershot($html, $width, $height)->save($tmp);
 
             $bytes = @file_get_contents($tmp);
         } catch (Throwable $e) {
@@ -70,6 +54,71 @@ class BrowsershotRenderer implements OgImageRenderer
         }
 
         return $bytes;
+    }
+
+    /**
+     * Build the fully-configured Browsershot instance for a render, applying
+     * every seo.og_image.* setting (binary paths, sandbox, extra Chromium
+     * flags) but stopping short of ->save(), which is what actually launches
+     * Chrome. Kept as its own seam so the config→Chrome wiring is verifiable
+     * without a browser.
+     */
+    protected function configureBrowsershot(string $html, int $width, int $height): Browsershot
+    {
+        $shot = Browsershot::html($html)
+            ->windowSize($width, $height)
+            ->deviceScaleFactor(1)
+            ->waitUntilNetworkIdle()
+            ->timeout((int) config('seo.og_image.timeout', 60));
+
+        if ($chrome = config('seo.og_image.chrome_path')) {
+            $shot->setChromePath($chrome);
+        }
+        if ($node = config('seo.og_image.node_binary')) {
+            $shot->setNodeBinary($node);
+        }
+        if ($modules = config('seo.og_image.npm_module_path')) {
+            $shot->setNodeModulePath($modules);
+        }
+
+        // Launch Chrome with --no-sandbox. Needed on default Ubuntu
+        // 22.04+/24.04 hosts where AppArmor's unprivileged-userns
+        // restriction otherwise makes Chrome fail with "No usable sandbox!".
+        if (config('seo.og_image.no_sandbox', false)) {
+            $shot->noSandbox();
+        }
+
+        if ($args = $this->chromiumArguments()) {
+            $shot->addChromiumArguments($args);
+        }
+
+        return $shot;
+    }
+
+    /**
+     * The configured extra Chromium flags (seo.og_image.browsershot_args),
+     * shaped for Browsershot::addChromiumArguments(). That method prepends "--"
+     * to every entry, so we strip any leading dashes the user included — both
+     * 'disable-gpu' and '--disable-gpu' resolve to the same flag. The map form
+     * ('proxy-server' => 'http://…') is preserved for value-bearing flags.
+     *
+     * @return array<int|string, string>
+     */
+    protected function chromiumArguments(): array
+    {
+        $args = (array) config('seo.og_image.browsershot_args', []);
+
+        $normalized = [];
+
+        foreach ($args as $key => $value) {
+            if (is_string($key)) {
+                $normalized[ltrim($key, '-')] = $value;
+            } else {
+                $normalized[] = ltrim((string) $value, '-');
+            }
+        }
+
+        return $normalized;
     }
 
     /**

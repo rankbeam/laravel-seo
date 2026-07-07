@@ -5,6 +5,12 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.10.0] - 2026-07-07
+
+### Added
+
+- **OG-image renderer sandbox + Chromium-flag config.** Two new `seo.og_image` keys let you pass launch flags to the headless Chrome that renders cards. `no_sandbox` (env `SEO_OG_IMAGE_NO_SANDBOX`) runs Chrome with `--no-sandbox` — the standard fix for the **`No usable sandbox!` launch failure on default Ubuntu 22.04+/24.04 servers**, where AppArmor's unprivileged-user-namespace restriction otherwise stops Chrome starting and `php artisan seo:og-images` fails out of the box. `browsershot_args` (a list, or a map for value-bearing flags) forwards arbitrary flags to `Browsershot::addChromiumArguments()` — e.g. `['disable-dev-shm-usage']` on a low-shared-memory container — with a leading `--` optional. Since only package-generated HTML is ever rendered (never untrusted pages), `--no-sandbox` here does not carry the risk it would on a general-purpose scraper; the docs also cover the hardened AppArmor-profile alternative. Both **default off / empty** (byte-identical until you opt in). Docs [/guide/og-image](https://rankbeam.dev/guide/og-image#running-on-linux-the-sandbox).
+
 ## [3.9.0] - 2026-07-07
 
 ### Added
