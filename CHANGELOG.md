@@ -5,6 +5,14 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.9.0] - 2026-07-07
+
+### Added
+
+- **Content signals in `robots.txt`.** Opt in with `seo.ai_crawlers.content_signals` (env `SEO_AI_CONTENT_SIGNALS`) and the managed `robots.txt` emits a [Content-Signal](https://contentsignals.org) usage-preference line — the standard championed by Cloudflare — in the `User-agent: *` group, derived from your existing `ai_crawlers.policy`: `ai_search → search`, `ai_assistant → ai-input`, `ai_training → ai-train`, each `allow → yes` / `disallow → no`. A purpose you remove from the policy omits its signal (the spec's "no preference"). It is folded into the default general group (a single, Cloudflare-shaped group) or emitted as a standalone `User-agent: *` group when `general` is a verbatim string or off. Content signals state how content may be **used** and are advisory — distinct from the `Allow`/`Disallow` crawl-access rules. **Off by default** (byte-identical until you opt in). Docs [/guide/ai-crawlers](https://rankbeam.dev/guide/ai-crawlers).
+- **`X-Robots-Tag` header for the indexing guard.** While the [indexing guard](https://rankbeam.dev/guide/indexing-guard) is active it now also sends `X-Robots-Tag: noindex,nofollow` (via a global middleware) on every response routed through the app — so **PDFs, feeds and images**, which carry no `<meta robots>`, are held out of the index too. The header mirrors the resolver meta via one shared directive constant, so they can never disagree. The middleware is registered **only when the guard is enabled**, so a package with the guard off adds nothing. On by default within the guard; disable with `seo.indexing_guard.send_header` (env `SEO_INDEXING_GUARD_HEADER`). A static file served directly from `public/` bypasses PHP and must be protected at the edge.
+- **`seo.canonical.query_whitelist` — keep chosen query params in derived canonicals.** A canonical the resolver *derives* (from the request URL or a model's `getUrlForSEO()`) still strips its query string by default, but keys listed here (e.g. `page` for paginated archives — `/blog?page=2` is genuinely not `/blog`) are **kept**, in whitelist order (a stable order regardless of the request's param order). An **explicitly set** canonical stays verbatim — the whitelist governs only the derived fallback. The resolver result-cache key varies by whitelisted params, so `?page=1` and `?page=2` never collide on one entry. Default `[]` preserves the strip-everything behaviour. Docs [/reference/configuration](https://rankbeam.dev/reference/configuration#canonical-urls).
+
 ## [3.8.1] - 2026-07-06
 
 ### Fixed
