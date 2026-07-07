@@ -17,19 +17,52 @@ It is a free, core feature.
 ## What it does when active
 
 When `app()->environment()` is **not** in `seo.indexing_guard.allowed_environments`
-(and the guard is enabled), three things happen automatically:
+(and the guard is enabled), four things happen automatically:
 
 1. **The resolver forces `noindex,nofollow` on every page.** This is applied
    *above* the whole [precedence chain](/concepts/resolver-precedence) — it
    overrides even an explicit per-page `robots` value stored in `seo_meta`.
-2. **`SEO::robotsTxt()->build()` emits a disallow-all `robots.txt`** (and
+2. **An `X-Robots-Tag: noindex,nofollow` HTTP header** is sent on every response
+   routed through the app — see [Non-HTML responses](#non-html-responses-pdfs-feeds-images)
+   below.
+3. **`SEO::robotsTxt()->build()` emits a disallow-all `robots.txt`** (and
    `ai.txt`) — a plain `User-agent: *` / `Disallow: /`. This covers both the
    `seo:robots-txt` command and the optional [dynamic route](/guide/ai-crawlers).
-3. **`seo:audit` prints a prominent banner**, so the "everything is noindex"
+4. **`seo:audit` prints a prominent banner**, so the "everything is noindex"
    state is never a surprise when you read a report.
 
 On production the guard is completely **inert** — zero changed output,
 byte-identical rendering.
+
+## Non-HTML responses (PDFs, feeds, images)
+
+The forced `robots` **meta tag** only reaches crawlers that parse HTML — a PDF,
+an RSS/Atom feed, an image or any other non-HTML response carries no `<head>`.
+So while active, the guard also sends the same directive as an HTTP header, via a
+global middleware:
+
+```http
+X-Robots-Tag: noindex,nofollow
+```
+
+The header and the meta tag come from the same source, so they can never
+disagree. It's **on by default within the guard** (the guard itself is opt-in and
+inert on production); turn it off to keep meta-only behaviour:
+
+```php
+'indexing_guard' => [
+    'send_header' => env('SEO_INDEXING_GUARD_HEADER', true),
+],
+```
+
+The middleware is registered **only when the guard is enabled**, so a package
+with the guard off adds nothing to your stack.
+
+::: warning Static files bypass PHP
+A file your web server returns directly from `public/` never enters Laravel, so
+it can't receive this header. Protect those at the edge (web-server config / CDN).
+This covers everything routed through the app.
+:::
 
 ## Why it overrides an explicit robots value
 
@@ -133,8 +166,8 @@ Disallow: /
 
 ## Scope
 
-The guard controls **indexing directives** — the `robots` meta tag and
-`robots.txt`. It does not touch your titles, descriptions, canonicals, or
+The guard controls **indexing directives** — the `robots` meta tag, the
+`X-Robots-Tag` header, and `robots.txt`. It does not touch your titles, descriptions, canonicals, or
 schema, and it is independent of the [robots rendering policy](/concepts/resolver-precedence)
 (`seo.robots.emit_default`): because `noindex,nofollow` deviates from the site
 default, it is always emitted as a tag.

@@ -108,6 +108,17 @@ class RobotsTxtBuilder
             $blocks[] = $general;
         }
 
+        // Content signals live in a `User-agent: *` group. When the general
+        // section IS that default group they are folded into it (one clean
+        // group, matching Cloudflare's own layout); otherwise they get a
+        // dedicated group here. Null when the feature is off or no signal
+        // resolves.
+        $contentSignals = $this->contentSignalsSection();
+
+        if ($contentSignals !== null) {
+            $blocks[] = $contentSignals;
+        }
+
         $ai = $this->aiDirectives();
 
         if ($ai !== '') {
@@ -246,7 +257,134 @@ class RobotsTxtBuilder
             return trim($general) === '' ? null : trim($general);
         }
 
-        return "User-agent: *\nDisallow:";
+        // The default permissive group. When content signals are enabled they
+        // are folded in here — their canonical home is the `User-agent: *`
+        // group — so an enabled file has a single, Cloudflare-shaped group
+        // rather than a duplicate one.
+        $lines = [];
+
+        $signal = $this->contentSignalLine();
+
+        if ($signal !== null) {
+            $lines[] = $this->contentSignalComment();
+        }
+
+        $lines[] = 'User-agent: *';
+
+        if ($signal !== null) {
+            $lines[] = $signal;
+        }
+
+        $lines[] = 'Disallow:';
+
+        return implode("\n", $lines);
+    }
+
+    /**
+     * A standalone content-signals group, emitted ONLY when the general section
+     * is not the default `User-agent: *` group to fold into — i.e. when
+     * `ai_crawlers.general` is a verbatim string or false. In the default case
+     * the signal is folded into {@see generalSection()} and this returns null,
+     * so the `User-agent: *` group is never duplicated.
+     *
+     * Content signals are usage preferences (contentsignals.org, championed by
+     * Cloudflare): they state how the content may be USED — search, ai-input,
+     * ai-train — independently of the Allow/Disallow access rules, and are
+     * advisory. Null when the feature is off or no signal resolves.
+     */
+    protected function contentSignalsSection(): ?string
+    {
+        if ($this->generalIsDefaultGroup()) {
+            return null;
+        }
+
+        $signal = $this->contentSignalLine();
+
+        if ($signal === null) {
+            return null;
+        }
+
+        return implode("\n", [
+            $this->contentSignalComment(),
+            'User-agent: *',
+            $signal,
+        ]);
+    }
+
+    /**
+     * Whether `ai_crawlers.general` resolves to the built-in permissive
+     * `User-agent: *` group (rather than false/null = omitted, or a verbatim
+     * string). This is exactly the case {@see generalSection()} folds the
+     * content signal into.
+     */
+    protected function generalIsDefaultGroup(): bool
+    {
+        $general = config('seo.ai_crawlers.general', true);
+
+        return $general !== false && $general !== null && ! is_string($general);
+    }
+
+    /**
+     * The `Content-Signal:` line derived from the AI-crawler purpose policy, or
+     * null when the feature is disabled or the policy expresses no preference.
+     *
+     * Config-gated on `ai_crawlers.content_signals` (OFF by default, so output
+     * stays byte-identical until opted in). Each of the three spec signals maps
+     * from one purpose in `ai_crawlers.policy`:
+     *   search   ← ai_search      (allow → yes, disallow → no)
+     *   ai-input ← ai_assistant   (real-time fetch feeding an AI model)
+     *   ai-train ← ai_training
+     * A purpose absent from `policy` emits NO pair — the spec's "no preference
+     * expressed" (a blank signal), distinct from an explicit yes/no.
+     *
+     * Syntax verified against contentsignals.org and Cloudflare's Content
+     * Signals Policy: one `Content-Signal:` directive, comma-separated
+     * `name=value` pairs, values `yes`/`no`, inside a `User-agent:` group.
+     */
+    protected function contentSignalLine(): ?string
+    {
+        if (! config('seo.ai_crawlers.content_signals', false)) {
+            return null;
+        }
+
+        /** @var array<string, mixed> $policy */
+        $policy = (array) config('seo.ai_crawlers.policy', []);
+
+        // Emitted in the spec's canonical order: search, ai-input, ai-train.
+        $map = [
+            'search' => AiCrawlerRegistry::PURPOSE_SEARCH,
+            'ai-input' => AiCrawlerRegistry::PURPOSE_ASSISTANT,
+            'ai-train' => AiCrawlerRegistry::PURPOSE_TRAINING,
+        ];
+
+        $pairs = [];
+
+        foreach ($map as $signal => $purpose) {
+            if (! array_key_exists($purpose, $policy)) {
+                // No preference for this purpose → omit the signal (spec: blank).
+                continue;
+            }
+
+            $value = $policy[$purpose] === AiCrawlerRegistry::ACTION_DISALLOW ? 'no' : 'yes';
+            $pairs[] = $signal . '=' . $value;
+        }
+
+        if ($pairs === []) {
+            return null;
+        }
+
+        return 'Content-Signal: ' . implode(', ', $pairs);
+    }
+
+    /**
+     * The explanatory comment printed above a content-signals `User-agent: *`
+     * group.
+     */
+    protected function contentSignalComment(): string
+    {
+        return "# Content signals (https://contentsignals.org) — how this content may be\n"
+            . "# used, independent of the crawl-access rules above. Advisory: honoured by\n"
+            . '# participating crawlers.';
     }
 
     /**

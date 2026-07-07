@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Route;
 use Rankbeam\Seo\Data\SEOData;
 use Rankbeam\Seo\Facades\SEO;
+use Rankbeam\Seo\Http\Middleware\IndexingGuardHeader;
 use Rankbeam\Seo\Services\IndexingGuard;
 use Rankbeam\Seo\Services\RobotsTxt\RobotsTxtBuilder;
 use Rankbeam\Seo\Services\SEOResolver;
@@ -290,4 +292,64 @@ it('carries the guard state in the seo:audit --json payload', function () {
         ->and($payload['indexing_guard']['environment'])->toBe('staging')
         ->and($payload['indexing_guard']['directive'])->toBe('noindex,nofollow')
         ->and($payload['indexing_guard']['allowed_environments'])->toBe(['production']);
+});
+
+// --- X-Robots-Tag header: covers PDFs/feeds/images that carry no meta tag -----
+//
+// The meta tag only reaches crawlers that parse HTML. The IndexingGuardHeader
+// middleware adds the same noindex signal as an HTTP header, so a non-HTML
+// response routed through the app is held out of the index too. Routes here
+// attach the middleware explicitly (the provider registers it globally only
+// when the guard is enabled at boot).
+
+describe('X-Robots-Tag header middleware', function () {
+    beforeEach(function () {
+        Route::middleware(['web', IndexingGuardHeader::class])->group(function () {
+            Route::get('/guard/page', fn () => response('<html><body>Hi</body></html>'))
+                ->name('guard.page');
+            Route::get('/guard/report.pdf', fn () => response('%PDF-1.4 …', 200, [
+                'Content-Type' => 'application/pdf',
+            ]))->name('guard.pdf');
+        });
+    });
+
+    it('stamps noindex on an HTML response when the guard is active', function () {
+        setEnv('staging');
+
+        $this->get('/guard/page')
+            ->assertOk()
+            ->assertHeader('X-Robots-Tag', 'noindex,nofollow');
+    });
+
+    it('stamps noindex on a non-HTML PDF response — the case a meta tag cannot reach', function () {
+        setEnv('staging');
+
+        $this->get('/guard/report.pdf')
+            ->assertOk()
+            ->assertHeader('Content-Type', 'application/pdf')
+            ->assertHeader('X-Robots-Tag', 'noindex,nofollow');
+    });
+
+    it('mirrors the resolver meta directive exactly (single source of truth)', function () {
+        setEnv('staging');
+
+        $this->get('/guard/page')->assertHeader('X-Robots-Tag', IndexingGuard::DIRECTIVE);
+    });
+
+    it('sends no header on production (guard inert)', function () {
+        setEnv('production');
+
+        $this->get('/guard/page')
+            ->assertOk()
+            ->assertHeaderMissing('X-Robots-Tag');
+    });
+
+    it('sends no header when the guard is disabled, even off-production', function () {
+        config()->set('seo.indexing_guard.enabled', false);
+        setEnv('staging');
+
+        $this->get('/guard/page')
+            ->assertOk()
+            ->assertHeaderMissing('X-Robots-Tag');
+    });
 });

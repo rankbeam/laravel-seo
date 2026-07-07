@@ -97,8 +97,10 @@ These run regardless of which layer produced the value:
   already ends with it. If a route-default template already contains your
   brand, end the template with the suffix to avoid "Brand — X | Brand".
 - **Canonical query-strip** — *derived* canonicals (model URL / current URL)
-  get the query string stripped; *explicitly set* canonicals are preserved
-  verbatim.
+  get the query string stripped, except any keys in
+  [`canonical.query_whitelist`](/reference/configuration#canonical-urls) (e.g.
+  `page` for paginated archives), which are kept; *explicitly set* canonicals
+  are preserved verbatim.
 - **Absolute social images** — `og:image` and `twitter:image` are always
   emitted as absolute URLs (the Open Graph spec requires it), even when the
   stored value is a relative path.

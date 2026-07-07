@@ -445,6 +445,73 @@ describe('SEOResolver', function () {
 
             expect($result->canonical)->toBe('https://example.com/custom-canonical');
         });
+
+        it('strips all query params from a derived canonical by default', function () {
+            $this->defaultsRepository->shouldReceive('global')->andReturn(null);
+            $this->defaultsRepository->shouldReceive('forModelType')->andReturn(null);
+            $this->defaultsRepository->shouldReceive('forRoute')->andReturn(null);
+            $this->computedBuilder->shouldReceive('fromModel')->andReturn(new SEOData());
+
+            // Non-empty seoMeta forces the concrete test model, whose real
+            // getUrlForSEO() method is visible to method_exists() (a Mockery
+            // partial's is not).
+            $model = createMockEloquentModel(['canonical' => null], 1, 'https://example.com/blog?page=2&utm_source=x');
+
+            $result = $this->resolver->resolve($model, null, 'en');
+
+            expect($result->canonical)->toBe('https://example.com/blog');
+        });
+
+        it('keeps a whitelisted query param in a derived canonical and drops the rest', function () {
+            config()->set('seo.canonical.query_whitelist', ['page']);
+
+            $this->defaultsRepository->shouldReceive('global')->andReturn(null);
+            $this->defaultsRepository->shouldReceive('forModelType')->andReturn(null);
+            $this->defaultsRepository->shouldReceive('forRoute')->andReturn(null);
+            $this->computedBuilder->shouldReceive('fromModel')->andReturn(new SEOData());
+
+            $model = createMockEloquentModel(['canonical' => null], 1, 'https://example.com/blog?utm_source=x&page=2&sort=asc');
+
+            $result = $this->resolver->resolve($model, null, 'en');
+
+            // page survives; utm_source and sort are stripped.
+            expect($result->canonical)->toBe('https://example.com/blog?page=2');
+        });
+
+        it('orders kept params by the whitelist, not the URL, for a stable canonical', function () {
+            config()->set('seo.canonical.query_whitelist', ['page', 'lang']);
+
+            $this->defaultsRepository->shouldReceive('global')->andReturn(null);
+            $this->defaultsRepository->shouldReceive('forModelType')->andReturn(null);
+            $this->defaultsRepository->shouldReceive('forRoute')->andReturn(null);
+            $this->computedBuilder->shouldReceive('fromModel')->andReturn(new SEOData());
+
+            // URL lists lang before page; the canonical must still be page then lang.
+            $model = createMockEloquentModel(['canonical' => null], 1, 'https://example.com/blog?lang=en&page=2');
+
+            $result = $this->resolver->resolve($model, null, 'en');
+
+            expect($result->canonical)->toBe('https://example.com/blog?page=2&lang=en');
+        });
+
+        it('never touches an explicit canonical, even one carrying query params', function () {
+            config()->set('seo.canonical.query_whitelist', ['page']);
+
+            $this->defaultsRepository->shouldReceive('global')->andReturn(null);
+            $this->defaultsRepository->shouldReceive('forModelType')->andReturn(null);
+            $this->defaultsRepository->shouldReceive('forRoute')->andReturn(null);
+            $this->computedBuilder
+                ->shouldReceive('fromModel')
+                ->andReturn(new SEOData(canonical: 'https://example.com/custom?ref=abc&x=1'));
+
+            $model = createMockEloquentModel([], 1, 'https://example.com/blog?page=2');
+
+            $result = $this->resolver->resolve($model, null, 'en');
+
+            // Explicit-canonical-verbatim rule holds: the whitelist governs only
+            // derived canonicals.
+            expect($result->canonical)->toBe('https://example.com/custom?ref=abc&x=1');
+        });
     });
 
     describe('Base Config', function () {
