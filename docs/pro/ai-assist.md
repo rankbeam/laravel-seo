@@ -31,15 +31,17 @@ cost, speed, and where the request goes.
 |---|---|---|---|---|
 | **Local** (Ollama / LM Studio / vLLM) | `llama3.1` (set your own) | Best-effort (`response_format`) | **$0** (self-hosted) | Privacy — nothing leaves your network |
 | **OpenAI** | `gpt-5.5` | Native (Structured Outputs, strict) | ~$0.005 / suggestion | An existing OpenAI account |
-| **Anthropic** | `claude-opus-4-8` | Prompt-only (text-parsed) | ~$0.015 / suggestion | Highest-quality copy |
+| **Anthropic** | `claude-opus-4-8` | Native (`output_config.format`) | ~$0.015 / suggestion | Highest-quality copy |
 | **Google** | `gemini-2.5-flash` | Native (`responseSchema`) | ~$0.0005 / suggestion (paid) | Lowest paid cost per call — but its free tier is too rate-limited for real use (see below) |
 
 Notes confirmed against a live run of every provider:
 
-- **Structured output** is enforced by the API on OpenAI and Google, asked
-  for best-effort on a local server, and prompt-coaxed then tolerantly
-  parsed on Anthropic. Either way a caller gets a clean list or a clear
-  failure — never a half-parsed reply.
+- **Structured output** is enforced by the API on OpenAI, Google, and
+  Anthropic — each is constrained to the exact JSON schema, so no surface
+  regex-parses model text on the happy path. A local server is asked for it
+  best-effort (a server that ignores `response_format` still returns usable
+  text, which is tolerantly parsed as the fallback). Either way a caller gets
+  a clean list or a clear failure — never a half-parsed reply.
 - **Google and Anthropic are the two extremes on token spend.** Gemini 2.5
   and Gemma are *thinking* models: they burn hidden reasoning tokens before
   any visible output (measured: a three-line description cost Gemini ~500
@@ -101,8 +103,9 @@ return an **out of credit / quota** error — see [Troubleshooting](#troubleshoo
 
 The config file (`config/seo-pro.php`, `ai` block) exposes `timeout`,
 `max_input_chars`, `max_output_tokens`, `token_budgets`, `reasoning_models`
-+ `reasoning_min_output_tokens`, `suggestion_count`, `retry`, the `pricing`
-table, and the `local` sub-block — all covered under
++ `reasoning_min_output_tokens`, `suggestion_count`, `bulk_model` (the cheap
+tier for bulk-fill — see [Cost](#cheaper-bulk-generation)), `retry`,
+the `pricing` table, and the `local` sub-block — all covered under
 [Limits and tuning](#limits-and-tuning).
 
 ::: warning Key handling with a cached config
@@ -197,6 +200,45 @@ thinking models:** the estimate counts only visible output, so a model that
 spends heavy hidden reasoning (Gemini 2.5, Gemma — see above) runs somewhat
 higher than the printed figure. A model with no pricing entry (any local
 model) shows a **token** estimate only, with no invented dollar figure.
+
+### Cheaper bulk generation
+
+Interactive single suggestions want your best model; a **bulk-fill** of
+hundreds–thousands of short title/description gaps rarely does — the quality
+edge of a top model is seldom worth its per-call cost at that volume. Set
+`seo-pro.ai.bulk_model` (`SEO_PRO_AI_BULK_MODEL`) to your provider's cheap
+tier and **only the bulk-fill pass** (`seo-pro:ai-fill` / `SeoPro::aiFill()`)
+uses it — the Filament and `seo-pro:ai-suggest` single-suggestion paths keep
+the quality `model`. Left unset (`null`), bulk-fill uses the same `model` — no
+silent downgrade. The pre-run cost estimate prices whichever model the run
+will actually bill.
+
+```dotenv
+SEO_PRO_AI_MODEL=claude-opus-4-8        # interactive: highest quality
+SEO_PRO_AI_BULK_MODEL=claude-haiku-4-5  # bulk-fill: cheap tier
+```
+
+Recommended cheap tier per provider (each matches the `pricing` table, so the
+estimate stays priced): **anthropic** `claude-haiku-4-5` · **openai**
+`gpt-5.5-mini` · **google** `gemini-2.5-flash` (already the default) ·
+**local** a smaller local model.
+
+A **100-page fill** (each page missing both title and description = 200
+provider calls), priced from the shipped `pricing` defaults and the
+estimator's per-call token model (600 input + 150 output tokens/call), quality
+model vs its `bulk_model` cheap tier:
+
+| Provider | Quality model — 100 pages | `bulk_model` cheap tier — 100 pages |
+|---|---|---|
+| **Anthropic** | `claude-opus-4-8` ≈ **$4.05** | `claude-haiku-4-5` ≈ **$0.27** |
+| **OpenAI** | `gpt-5.5` ≈ **$1.05** | `gpt-5.5-mini` ≈ **$0.11** |
+| **Google** | `gemini-2.5-pro` ≈ **$0.45** | `gemini-2.5-flash` ≈ **$0.04** |
+| **Local** (Ollama / vLLM) | any model — **$0** | any model — **$0** |
+
+Same ±50% honesty caveat as the printed estimate — real input size and output
+length vary per page, and a thinking model's hidden reasoning tokens aren't in
+the visible-output figure. Override `seo-pro.ai.pricing` with your provider's
+current published prices for an accurate number.
 
 ## Limits and tuning
 
@@ -383,12 +425,13 @@ Every call returns one provider-neutral envelope, so the behaviour is the
 same across providers (and across the ones added later):
 
 - **Structured output where the provider supports it.** OpenAI (native
-  Structured Outputs) and Google (Gemini `responseSchema`) have the JSON
-  shape enforced by the API. A local / OpenAI-compatible server is asked for
-  it too (`response_format`), best-effort: a server that ignores the field
-  still returns usable text, which is tolerantly parsed. Prompt-only
-  providers (Anthropic) always fall back to that tolerant parser. Either way
-  you get a clean list or a clear failure — never a half-parsed reply.
+  Structured Outputs), Google (Gemini `responseSchema`), and Anthropic
+  (`output_config.format`) all have the JSON shape enforced by the API — a
+  reply that is not valid JSON is a clean failure, never text-scraped. A
+  local / OpenAI-compatible server is asked for it too (`response_format`),
+  best-effort: a server that ignores the field still returns usable text,
+  which is tolerantly parsed as the fallback. Either way you get a clean list
+  or a clear failure — never a half-parsed reply.
 - **Truncation is an explicit, actionable error.** If a reply is cut off at
   the output-token cap, you get a `truncated` error that says to raise
   `seo-pro.ai.max_output_tokens` — not a silently shortened title. This is
