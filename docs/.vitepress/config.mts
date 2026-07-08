@@ -105,6 +105,9 @@ export default defineConfig({
       {
         text: 'Blog',
         items: [
+          { text: 'Answer Engine Optimization for Laravel', link: '/blog/answer-engine-optimization-for-laravel' },
+          { text: 'hreflang done right in Laravel', link: '/blog/hreflang-done-right-in-laravel' },
+          { text: 'We replaced Rank Math with a Laravel package', link: '/blog/replaced-rank-math-with-a-laravel-package' },
           { text: 'Canonical URLs in Laravel', link: '/blog/canonical-urls-in-laravel' },
           { text: 'JSON-LD schema graphs', link: '/blog/json-ld-schema-graphs-in-laravel' },
         ],
