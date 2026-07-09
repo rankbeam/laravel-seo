@@ -25,8 +25,10 @@ month.
   since the last report. Read from the real issue history — issues now carry a
   fixed / reopened [lifecycle](/pro/scan-issues#issue-lifecycle) — once a full
   period has run under it, and from the previous report's snapshot otherwise.
-- **Recovered** — broken links resolved and 404s redirected since the last
-  report, plus what's still open.
+- **Recovered** — broken links resolved, 404s **recovered** (the path returns
+  200 again on its own — see [`seo-pro:404-recheck`](/pro/production#scheduler))
+  and 404s **redirected** since the last report, plus what's still open. A
+  recovered 404 is a genuine source-side fix, counted separately from a redirect.
 - **Search Console** — top queries and pages, and **movers**: the biggest
   click swings versus the last report. Skipped cleanly when GSC isn't set up.
 - **AI-bot activity** — which AI crawlers hit the site, lifetime totals, and
