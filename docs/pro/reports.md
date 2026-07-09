@@ -21,8 +21,10 @@ month.
   score and are simply skipped).
 - **Issues found per scan** — a real trend over your recent completed scans
   (fewer is better).
-- **Issues fixed vs. new** — the open-issue set diffed against the previous
-  report: how many defects you cleared, how many appeared.
+- **Issues fixed vs. new** — how many defects you cleared and how many appeared
+  since the last report. Read from the real issue history — issues now carry a
+  fixed / reopened [lifecycle](/pro/scan-issues#issue-lifecycle) — once a full
+  period has run under it, and from the previous report's snapshot otherwise.
 - **Recovered** — broken links resolved and 404s redirected since the last
   report, plus what's still open.
 - **Search Console** — top queries and pages, and **movers**: the biggest
@@ -38,10 +40,14 @@ an arbitrary date. Each time you generate one, a lightweight snapshot is stored
 rows, and each bot's hit counter. The next report diffs today's state against
 that snapshot.
 
-This is deliberate. The underlying data can't answer "what changed" on its own:
-per-page scores are kept latest-only, open issues are replaced on every scan,
-Search Console metrics aren't stored, and the AI-bot log keeps lifetime counters.
-Snapshotting at report time turns all of those into an honest comparison.
+This is deliberate for the signals that keep no history of their own: per-page
+scores are kept latest-only, Search Console metrics aren't stored, and the
+AI-bot log keeps lifetime counters. Snapshotting at report time turns those into
+an honest comparison. **Issues are the exception** — they now carry a real
+fixed / reopened [lifecycle](/pro/scan-issues#issue-lifecycle), so once a full
+period has run under it the report reads genuine fixed/new counts from the issue
+history, falling back to the snapshot diff only for the first report after
+upgrading.
 
 Two consequences:
 
