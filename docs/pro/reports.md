@@ -14,7 +14,11 @@ month.
 ## What's in it
 
 - **Overall score** — the average of the latest per-page scores (the published
-  [rubric](/pro/scoring): A ≥ 90 … F), with the change since your last report.
+  [rubric](/pro/scoring): A ≥ 90 … F), with the change since your last report,
+  plus an **overall-score trend** across your recent scans. Each scan now stamps
+  the site's score onto the run, so the trend is real per-scan history — it
+  starts filling in from the first scan after you upgrade (older runs carry no
+  score and are simply skipped).
 - **Issues found per scan** — a real trend over your recent completed scans
   (fewer is better).
 - **Issues fixed vs. new** — the open-issue set diffed against the previous
