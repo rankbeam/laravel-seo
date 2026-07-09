@@ -89,6 +89,7 @@ export default defineConfig({
           { text: 'On-page checklist', link: '/pro/on-page-checklist' },
           { text: 'Broken-link crawler', link: '/pro/broken-links' },
           { text: 'Search Console', link: '/pro/search-console' },
+          { text: 'Search Console insights', link: '/pro/search-console-insights' },
           { text: 'White-label reports', link: '/pro/reports' },
           { text: 'IndexNow', link: '/pro/indexnow' },
           { text: 'AI-bot monitor', link: '/pro/ai-bot-monitor' },
