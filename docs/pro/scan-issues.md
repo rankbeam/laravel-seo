@@ -146,6 +146,44 @@ held out of the score for now).
 The [scoring page](/pro/scoring) has the full allowlist and the penalty for
 every code.
 
+## Issue lifecycle
+
+An issue is not just a row that exists while a problem is present — it has a
+lifecycle, and a scan **reconciles** the target's issues rather than wiping and
+re-creating them. Each issue has a stable identity: the target
+(`scannable_type` + `scannable_id` for a model, or the `url` for a route/sitemap
+target) plus its `issue_type`. Every code is emitted at most once per target per
+scan — the "N offenders" codes (`missing_image_alt`, `mixed_content`,
+`hreflang_*`, …) fold their instances into a single row with a `count` / `sample`
+— so that identity is unique.
+
+On each scan, for every target:
+
+- a finding with **no existing row** is created `open`, stamped `detected_at`;
+- a finding that **matches an existing open row** refreshes its evidence and
+  keeps its original `detected_at` — a stable *first-seen*, no longer reset on
+  every scan;
+- an open issue the scan **no longer finds** is marked **`fixed`**
+  (`resolved_at` stamped) — the row is **kept, not deleted**, so a genuine fix
+  is recorded;
+- a **`fixed`** issue that **returns** is **reopened** in place (a regression),
+  re-stamping `detected_at`;
+- an issue a user marked **`ignored`** in the dashboard is left untouched.
+
+| Status | Meaning | Set by |
+|---|---|---|
+| `open` | Currently present. | the scan (new or still-found) |
+| `fixed` | Was present, no longer found. | the scan (auto), on the next run that doesn't re-find it |
+| `ignored` | Muted by a user; excluded from open counts and the score. | the dashboard Ignore action |
+
+Because fixes are now recorded rather than discarded, the white-label
+[report](/pro/reports) can show **real fixed / new counts** over a period
+instead of a report-to-report snapshot diff. Open-count consumers — the
+dashboard, the [`seo-pro:scan-status`](/pro/headless) command, the
+[score](/pro/scoring) — all filter to `open`, so persisted `fixed` rows never
+inflate them. Fixed rows are attributed to the run that resolved them and age
+out with the normal scan-run [retention](/pro/production) window.
+
 ## Configuration
 
 ```php
