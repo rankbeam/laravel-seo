@@ -31,8 +31,10 @@ month.
   recovered 404 is a genuine source-side fix, counted separately from a redirect.
 - **Search Console** — top queries and pages, and **movers**: the biggest
   click swings versus the last report. Skipped cleanly when GSC isn't set up.
-- **AI-bot activity** — which AI crawlers hit the site, lifetime totals, and
-  **how many hits landed this period**.
+- **AI-bot activity** — which AI crawlers hit the site, lifetime totals, and —
+  from the day-granular [bucket history](/pro/ai-bot-monitor#period-metrics-daily-buckets)
+  when it covers the window — **real hits this period and distinct URLs each bot
+  crawled** (falling back to the snapshot lifetime-diff otherwise).
 
 ## "Since the last report"
 
@@ -42,14 +44,16 @@ an arbitrary date. Each time you generate one, a lightweight snapshot is stored
 rows, and each bot's hit counter. The next report diffs today's state against
 that snapshot.
 
-This is deliberate for the signals that keep no history of their own: per-page
-scores are kept latest-only, Search Console metrics aren't stored, and the
-AI-bot log keeps lifetime counters. Snapshotting at report time turns those into
-an honest comparison. **Issues are the exception** — they now carry a real
-fixed / reopened [lifecycle](/pro/scan-issues#issue-lifecycle), so once a full
-period has run under it the report reads genuine fixed/new counts from the issue
-history, falling back to the snapshot diff only for the first report after
-upgrading.
+This is the fallback for signals that keep no history of their own: per-page
+scores are kept latest-only. Snapshotting at report time turns those into an
+honest comparison. Several signals now keep **real** history and the report
+prefers it, using the snapshot only as a fallback: issues carry a fixed /
+reopened [lifecycle](/pro/scan-issues#issue-lifecycle) (genuine fixed/new counts
+once a full period has run under it), Search Console keeps
+[day-granular metrics](/pro/search-console#historical-metrics), and AI-bot hits
+keep [day-granular buckets](/pro/ai-bot-monitor#period-metrics-daily-buckets)
+(real per-period hits + distinct URLs). Each falls back to the snapshot diff for
+the first report after upgrading, or when the history doesn't cover the window.
 
 Two consequences:
 

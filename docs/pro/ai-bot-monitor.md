@@ -54,7 +54,7 @@ Each row exposes `bot`, `label`, `operator`, `purpose`, `hit_count`,
 ```bash
 php artisan seo-pro:ai-bots                       # most-hit first
 php artisan seo-pro:ai-bots --purpose=ai_training # filter by purpose
-php artisan seo-pro:ai-bots-prune                 # drop bots not seen in retention_days
+php artisan seo-pro:ai-bots-prune                 # drop stale bots + old daily buckets
 ```
 
 ### Filament
@@ -75,9 +75,40 @@ never written.
     'hash_ip' => false,            // true → keyed sha256 only
     'exclude_paths' => ['/filament/*', '/livewire/*', /* … */],
     'max_path_length' => 500,
-    'retention_days' => 90,        // seo-pro:ai-bots-prune; null disables
+    'retention_days' => 90,        // lifetime rows; seo-pro:ai-bots-prune; null disables
+
+    // Day-granular per-path buckets (below)
+    'daily_enabled' => true,       // false → keep only the lifetime leaderboard
+    'daily_max_paths' => 500,      // distinct paths tracked per bot per day
+    'daily_retention_days' => 90,  // prune buckets older than this; null disables
 ],
 ```
+
+## Period metrics (daily buckets)
+
+The lifetime table keeps one row per bot — great for a leaderboard, but it can't
+answer *how many hits* or *how many distinct URLs* a bot took **in a given
+window**. With `daily_enabled` on (the default), each hit is also recorded into a
+day-granular, per-path bucket (`seo_ai_bot_daily`), so the
+[white-label report](/pro/reports) shows **real** per-period figures — hits since
+the last report and distinct URLs this period — instead of a lifetime diff.
+
+Boundedness (the reason the lifetime log was one-row-per-bot) is preserved:
+
+- a per-bot-per-day **distinct-path cap** (`daily_max_paths`) — beyond it, a
+  bot's further new paths fold into a single overflow bucket, so the day's hit
+  total stays exact while the row count can't run away (a distinct-URL count that
+  hit the cap is shown as "N+");
+- a **retention window** (`daily_retention_days`) pruned by `seo-pro:ai-bots-prune`.
+
+Set `daily_enabled` to `false` to keep only the lifetime leaderboard (the report
+then falls back to the previous-report snapshot diff for "since last", and any
+existing buckets are ignored so a stale table is never read).
+
+The period figures are **day-resolution**: "since last report" counts whole days
+from the previous report's day onward, so a hit on that day itself may fall on
+either side of the exact generation time. At a normal (daily/weekly/monthly)
+cadence this boundary slack is negligible.
 
 ## Turning observation into control
 
