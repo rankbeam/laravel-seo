@@ -138,6 +138,8 @@ Schedule::command('seo-pro:scan-prune')->daily();
 Schedule::command('seo-pro:redirects-flush-hits')->everyFiveMinutes();
 // Keep the 404 log within its retention window and row cap.
 Schedule::command('seo-pro:404-prune')->daily();
+// Re-fetch open 404 paths; mark any that return 200 again as recovered.
+Schedule::command('seo-pro:404-recheck')->daily();
 
 // --- Broken-link crawler (only when enabled) ----------------------------
 Schedule::command('seo-pro:broken-links-scan')->weekly();
@@ -155,6 +157,7 @@ Recommended cadence at a glance:
 | `seo-pro:scan-prune` | daily | Apply the scan-run retention window |
 | `seo-pro:redirects-flush-hits` | every 5 min, only when `redirects.hits.flush_immediately=false` | Drain cache-batched hit counters to the DB |
 | `seo-pro:404-prune` | daily | Trim the 404 log to retention + row cap |
+| `seo-pro:404-recheck` | daily | Re-fetch open 404 paths; mark source-fixed ones (now 200) recovered |
 | `seo-pro:broken-links-scan` | weekly | Re-crawl for broken links (confirmation is cross-scan) |
 | `seo-pro:broken-links-recover` | hourly | Reclaim crawls lost to a dead worker |
 | `seo-pro:broken-links-prune` | daily | Apply the crawler retention windows |
