@@ -120,6 +120,48 @@ if ($result->ok) {
 }
 ```
 
+## Historical metrics
+
+The panel and command above read a **live rolling window** — Search Console
+itself is the only store. To get **day-granularity history** you can query for
+any past period, run the sync command, which persists per-day per-query and
+per-page metrics into a `seo_gsc_metrics` table:
+
+```bash
+# Publish + run the migration once (creates seo_gsc_metrics):
+php artisan vendor:publish --tag=seo-pro-migrations
+php artisan migrate
+
+# Backfill on the first run, then keep it current — schedule it daily:
+php artisan seo-pro:gsc-sync
+
+# Pull a specific number of days back (forces a full re-pull of that window):
+php artisan seo-pro:gsc-sync --days=180
+```
+
+```php
+// app/Console/Kernel.php (or bootstrap/app.php withSchedule)
+$schedule->command('seo-pro:gsc-sync')->daily();
+```
+
+- **First run backfills** `sync.backfill_days` (default 90; Search Console
+  retains ~16 months, so raise it to pull more). Later runs **resume from the
+  last stored date**, re-pulling `sync.overlap_days` at the tail to catch Search
+  Console's late finalization of recent data. The window always ends 3 days back
+  (the data lag).
+- **Idempotent.** Rows are upserted on `(date, dimension, key)`, so re-running is
+  safe. A day that fails (e.g. a quota error) stops the run cleanly and reports
+  how many rows were stored; the next run resumes from where it left off.
+- **What it powers.** The white-label [report](/pro/reports)'s Search Console
+  **movers** switch to real period-over-period history (this period vs the
+  equivalent span before it) once the table covers both periods, instead of
+  diffing the previous report's snapshot. It is also the substrate for richer
+  keyword intelligence.
+
+Only aggregate metrics are stored — the query text, the page URL, and the four
+counts (clicks, impressions, CTR, position) per day. No per-user or per-request
+data is ever fetched or written.
+
 ## Data handling & security
 
 - **Read-only scope, by construction.** Only `webmasters.readonly` is ever
@@ -144,9 +186,10 @@ if ($result->ok) {
   written to logs; an API error surfaces only Google's own sanitized,
   length-capped error message.
 - **Metrics are cached locally** for `seo-pro.search_console.cache_ttl` seconds
-  (default 30 minutes) so the panel doesn't re-hit the API on every render.
-  Search Analytics returns aggregated metrics; the package stores none of it
-  permanently — only the in-memory/cache report and the encrypted access token.
+  (default 30 minutes) so the panel doesn't re-hit the API on every render. The
+  live panel/command persist nothing beyond that cache and the encrypted access
+  token. Only the opt-in `seo-pro:gsc-sync` command writes metrics permanently —
+  aggregate per-day query/page counts in `seo_gsc_metrics`, no per-user data.
 
 ## Configuration reference
 
@@ -164,3 +207,6 @@ All keys live under `config/seo-pro.php` → `search_console`:
 | `default_days` | `28` | Reporting window (ends 3 days back — GSC data lags). |
 | `row_limit` | `100` | Top-N rows per report (API max 25000). |
 | `cache_ttl` | `1800` | Seconds a fetched report is cached. |
+| `sync.backfill_days` | `90` | Days pulled on the first `gsc-sync` (empty table). |
+| `sync.overlap_days` | `2` | Tail days re-pulled each run (late finalization). |
+| `sync.row_limit` | `5000` | Max rows per day per dimension the sync requests. |
