@@ -184,14 +184,16 @@ provider's current published prices** for an accurate estimate:
 | `gemini-*flash*` | 0.15 | 0.60 |
 
 Measured against a real page (one title + one description suggestion, the
-default models), at those prices:
+default models), at those prices. The last column is the same 1,000-record run
+through [`--batch`](#batch-mode-50-cheaper), which bills at **half** the
+per-token rate on the two providers that offer a batch endpoint:
 
-| Provider / model | ~ per suggestion pair | ~ per 1,000 records (bulk-fill) |
-|---|---|---|
-| Local `gemma`/`llama` (Ollama) | **$0** | **$0** |
-| Google `gemini-2.5-flash` (paid) | ~$0.001 | ~$0.40 |
-| OpenAI `gpt-5.5` | ~$0.008 | ~$5.25 |
-| Anthropic `claude-opus-4-8` | ~$0.03 | ~$20 |
+| Provider / model | ~ per suggestion pair | ~ per 1,000 records (bulk-fill) | ~ per 1,000 records (`--batch`) |
+|---|---|---|---|
+| Local `gemma`/`llama` (Ollama) | **$0** | **$0** | n/a (no batch endpoint) |
+| Google `gemini-2.5-flash` (paid) | ~$0.001 | ~$0.40 | n/a (no batch endpoint) |
+| OpenAI `gpt-5.5` | ~$0.008 | ~$5.25 | **~$2.63** (50% off) |
+| Anthropic `claude-opus-4-8` | ~$0.03 | ~$20 | **~$10** (50% off) |
 
 Bulk-fill figures are close to the pre-run estimate the command prints (see
 [Bulk-fill](#bulk-fill-missing-metadata)); it is deliberately honest to about
@@ -418,6 +420,77 @@ $summary = SeoPro::aiFill()->fill([\App\Models\Post::class], 'all', limit: 50, a
 // credit or quota…'), and the seo-pro:ai-fill command prints those reasons —
 // so a run never fails silently.
 ```
+
+### Batch mode (50% cheaper)
+
+For a large fill where you don't need the results in the next minute, `--batch`
+routes the whole run through the provider's **asynchronous batch endpoint** —
+[Anthropic Message Batches](https://docs.anthropic.com/en/docs/build-with-claude/batch-processing)
+or the [OpenAI Batch API](https://platform.openai.com/docs/guides/batch) — which
+bill at **half** the per-token price. Google and local providers have no batch
+endpoint, so `--batch` prints a notice and runs the sequential fill instead.
+
+A batch is **submit-now, collect-later**, split across two runs of the same
+command so the process can be closed in between:
+
+```bash
+# 1) Submit: builds one request per missing field, sends the whole batch in a
+#    single call, prints the discounted estimate, and exits. Nothing is written yet.
+php artisan seo-pro:ai-fill "App\Models\Post" --field=description --batch
+
+#    → Batch submitted: msgbatch_01Hkc… — 890 requests across 890 records via anthropic.
+#      Most batches finish within an hour (max 24h, then they expire).
+#      Re-run the SAME command to poll and apply the results:
+#        php artisan seo-pro:ai-fill "App\Models\Post" --field=description --batch
+
+# 2) Collect: re-run the same command. While the batch is still processing it
+#    just says so and exits; once results are ready it writes them and prints
+#    the usual summary.
+php artisan seo-pro:ai-fill "App\Models\Post" --field=description --batch
+```
+
+- **Same requests, half the price.** Each batched item is byte-identical to the
+  synchronous call — same prompts, same structured-output schema, same model
+  (the cheap [`bulk_model`](#cheaper-bulk-generation) when set). The only thing
+  that changes is *when* the model runs.
+- **The pre-run estimate is the discounted one.** Over the
+  `seo-pro.ai.fill.confirm_over` threshold, submit prints the **50%-off** figure
+  and asks before sending anything (`--force` skips it for automation).
+- **Survives being closed.** The provider batch id and the request→record map
+  are persisted with the same crash-resume bookkeeping as a sequential run, so
+  the collect step works from a fresh process (a later cron tick, a redeploy).
+  If the submitting run is killed in the split second between the provider
+  accepting the batch and its id being written, the next run **fails closed** —
+  it tells you a batch may be in flight and to check the provider dashboard,
+  rather than silently re-submitting the whole (paid) batch.
+- **Never overwrites.** The no-overwrite rule holds across the *entire* batch
+  window: at collect time each record is re-checked, and only fields **still
+  missing** are written — a title or description you added by hand while the
+  batch was running is never clobbered.
+- **Partial results are safe.** Results are matched back to records by id, in any
+  order. A record whose field succeeded is written and marked done. A record that
+  failed **transiently** (rate limit, timeout, provider error, or an expired
+  item) is left open, so running `--batch` again submits a fresh, smaller batch
+  for exactly those. A record the provider **rejected outright** (content filter,
+  invalid request) is recorded and *not* retried — a doomed record can't loop and
+  re-bill.
+- **Switching provider mid-batch is refused, not silently mis-handled.** If you
+  change `SEO_PRO_AI_PROVIDER` between submit and collect, the collect step stops
+  with a clear message (switch back to collect, or `--fresh` to discard) instead
+  of polling the wrong API. Run a single `--batch` submit at a time (don't fire
+  two concurrent submits for the same models/field).
+- **One knob:** `seo-pro.ai.fill.batch.request_timeout` (default `120`s,
+  env `SEO_PRO_AI_FILL_BATCH_TIMEOUT`) — the HTTP timeout for the submit /
+  poll / collect calls (its own, longer value than the short synchronous
+  `timeout`, because a submit uploads every request and a collect streams the
+  whole result file). Raise it for very large runs.
+
+::: tip Schedule the collect
+Because submit and collect are independent, a natural pattern is to submit from
+a deploy hook or a one-off command and let a scheduled `seo-pro:ai-fill … --batch`
+(every 15–30 min) poll and apply the moment the batch finishes — no long-running
+process babysitting the run.
+:::
 
 ## How replies are handled
 
