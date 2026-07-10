@@ -28,6 +28,17 @@ Route::get('sitemap-{name}.xml', [SitemapController::class, 'show'])
     ->where('name', '[a-z0-9\-]+')
     ->name('sitemap.show');
 
+// Styled-sitemap XSL stylesheet, referenced from generated sitemaps via an
+// xml-stylesheet processing instruction so a browser renders them as a
+// readable, branded page. Registered only when the styled sitemap is enabled;
+// browsers apply an XSLT only when it is same-origin with the XML, so the
+// package serves it here. (Note: no literal PHP close tag in this comment — it
+// would terminate the // comment and the whole PHP block.)
+if (config('seo.sitemap.stylesheet.enabled', true)) {
+    Route::get('sitemap.xsl', [SitemapController::class, 'stylesheet'])
+        ->name('sitemap.stylesheet');
+}
+
 // llms.txt — the AEO/GEO index served the same way as the sitemap. Opt out per
 // route via seo.llms_txt.route (the whole group is still gated by
 // seo.routes.enabled above) when serving a statically generated /llms.txt.

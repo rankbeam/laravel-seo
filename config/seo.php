@@ -582,6 +582,45 @@ return [
         'alternates' => env('SEO_SITEMAP_ALTERNATES', false),
 
         /*
+         * Styled sitemap stylesheet.
+         *
+         * References an XSL stylesheet from every generated sitemap (via an
+         * <?xml-stylesheet?> instruction) so a browser renders the sitemap as a
+         * readable, branded table — URLs, lastmod, image/alternate counts, and
+         * inline validation notes — instead of raw XML. Search engines ignore
+         * the instruction, so this is purely a human/browser nicety and costs
+         * nothing at generation time.
+         *
+         * On by default: unlike 'images'/'alternates' above it does not change
+         * the machine-readable data or add any per-record work — it only adds
+         * one instruction line crawlers skip. Set 'enabled' => false to emit
+         * plain XML with no stylesheet reference.
+         */
+        'stylesheet' => [
+
+            /*
+             * Emit the <?xml-stylesheet?> reference and register the route that
+             * serves the .xsl. When false, sitemaps are plain XML again.
+             */
+            'enabled' => env('SEO_SITEMAP_STYLESHEET', true),
+
+            /*
+             * The href written into the <?xml-stylesheet?> instruction. Leave
+             * null to derive it from the package's own /sitemap.xsl route
+             * (recommended — browsers only apply an XSL served from the same
+             * origin as the sitemap). Set an absolute or root-relative URL when
+             * you self-host the stylesheet (e.g. behind a CDN): publish it with
+             * `php artisan vendor:publish --tag=seo-assets` and point here.
+             *
+             * If you disabled the package routes (seo.routes.enabled = false) to
+             * serve your own sitemaps, set this explicitly — otherwise no
+             * stylesheet is referenced, since the package no longer serves one.
+             */
+            'url' => env('SEO_SITEMAP_STYLESHEET_URL'),
+
+        ],
+
+        /*
          * Whether to ping search engines (Google, Bing) after generation.
          * Only enable in production environments.
          */

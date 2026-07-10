@@ -5,6 +5,12 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.11.0] - 2026-07-10
+
+### Added
+
+- **Styled sitemaps — a readable, branded browser view.** Every generated sitemap now references an XSL stylesheet (via an `<?xml-stylesheet?>` instruction), so opening one in a browser shows a readable table — URL, `lastmod`, change frequency, priority, and image/alternate counts — with inline validation notes (URLs missing a `lastmod`; non-absolute `http(s)` URLs) instead of raw XML. Search engines **ignore** the instruction, so the sitemap stays a normal machine-readable XML document; the index and every child sitemap are styled alike. The stylesheet is served from the package's own `/sitemap.xsl` route — browsers only apply a same-origin XSLT — or self-host it behind a CDN by publishing `--tag=seo-assets` and setting `seo.sitemap.stylesheet.url`. Every value it renders is XSLT-escaped and a `<loc>` only becomes a clickable link when it is an `http(s)` URL, so hostile URL content can't inject markup or a `javascript:` link. **On by default** — unlike the image/hreflang extensions it adds no data and does no per-record work (just one instruction line crawlers skip); set `seo.sitemap.stylesheet.enabled = false` (env `SEO_SITEMAP_STYLESHEET`) to emit plain XML. Docs [/guide/sitemaps](https://rankbeam.dev/guide/sitemaps#styled-sitemap-in-the-browser).
+
 ## [3.10.0] - 2026-07-07
 
 ### Added
