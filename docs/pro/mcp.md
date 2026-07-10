@@ -16,7 +16,7 @@ default**; edits are opt-in behind a config flag and a model allowlist.
 
 ## What the assistant can do
 
-### Read tools (always available)
+### Analysis tools (always available)
 
 | Tool | What it does |
 | --- | --- |
@@ -24,6 +24,32 @@ default**; edits are opt-in behind a config flag and a model allowlist.
 | `seo_audit` | The in-process [metadata audit](/guide/audit) for a model record (or the first N records) — the same `seo:audit` checks, live, no queue. |
 | `seo_score` | The latest persisted [Pro SEO score](/pro/scoring) (0–100 + grade) for a model record. |
 | `seo_robots_directives` | The managed [AI-crawler robots.txt directives](/guide/ai-crawlers) and the resolved per-bot allow/disallow policy. |
+| `validate_schema` | Validate a JSON-LD object — or an allowlisted model's resolved schema graph — against the core structured-data validator (Google rich-result requirements per `@type`). |
+| `analyze_robots` | The authoritative allow/disallow verdict **per known AI crawler**, plus what decided it (a per-bot override, the purpose policy, or the default). The policy is site-global. |
+| `debug_social_share` | The resolved Open Graph + Twitter card a social crawler would actually see for a model record (after fallbacks), with advisory card-health notes. |
+| `check_meta` | A focused meta-health view — resolved title/description/canonical/robots/og:image with lengths and presence, plus the audit issues — for one model record. |
+
+### Site-content tools (always available)
+
+The "talk to your site" tools — they turn the server into a content-aware
+assistant that can enumerate and search your pages.
+
+| Tool | What it does |
+| --- | --- |
+| `list_pages` | List an **allowlisted** model's SEO-managed pages (records) — each with its URL and effective title. Supports `limit`/`offset` paging. |
+| `search_pages` | Full-text search across an **allowlisted** model's pages — Laravel [Scout](https://laravel.com/docs/scout) when the model is searchable, a safe SQL `LIKE` (title/name/headline + joined SEO meta) otherwise. Returns URL, title, and a snippet per hit. |
+
+### Ops tools (opt-in)
+
+Operational tools that read scan state and change site configuration. Like the
+edit tool, they are **gated behind `allow_edits`** — invisible and inert on a
+read-only server (the default).
+
+| Tool | What it does |
+| --- | --- |
+| `list_issues` | The current open SEO scan issues (the durable cross-run open set) and the latest [scan](/pro/scan-issues) run header. Filter by `severity` / `type`. |
+| `trigger_scan` | Start a scan: a targeted scan of one allowlisted record (returns the run), or a full scan of every target — queued by default, or inline with `sync: true`. |
+| `create_redirect` | Create a redirect rule (source path or regex → target, status `301`/`302`/`307`/`308`/`410`), reusing the redirect model's own validators. |
 
 ### Edit tool (opt-in)
 
@@ -31,9 +57,9 @@ default**; edits are opt-in behind a config flag and a model allowlist.
 | --- | --- |
 | `seo_save_meta` | Write SEO metadata (title, description, canonical, robots, OG, Twitter, JSON-LD) onto an **allowlisted** model record via `saveSEO()`. |
 
-`seo_save_meta` is **not advertised in `tools/list` and not runnable** unless you
-turn edits on — see [Security](#security). A read-only server never even tells
-the assistant the tool exists.
+The ops tools and `seo_save_meta` are **not advertised in `tools/list` and not
+runnable** unless you turn edits on — see [Security](#security). A read-only
+server never even tells the assistant those tools exist.
 
 ## Wiring an AI client
 
@@ -199,6 +225,56 @@ the model's fillable fields and casts). It is **not** run through the Filament
 form's length validators — so the re-audit is what confirms the new value is
 actually good. The assistant proposed; the audit verified.
 
+### Talking to your site's content
+
+The site-content tools let the assistant answer questions **about the site
+itself**, not just one record you name — the "talk to your site" demo.
+
+> **You:** Which pages mention "immunoterapia", and are their titles in good shape?
+
+The assistant **searches** — `search_pages { model: "App\\Models\\Page", query: "immunoterapia" }`:
+
+```json
+{
+  "model": "App\\Models\\Page",
+  "query": "immunoterapia",
+  "driver": "like",
+  "count": 3,
+  "results": [
+    { "id": 42, "url": "http://localhost/ricerca/immunoterapia-oncologica", "title": "Immunoterapia oncologica", "snippet": "Il programma di immunoterapia dell'IDI: terapie, sperimentazioni e accesso…" },
+    { "id": 87, "url": "http://localhost/reparti/dermatologia-oncologica", "title": "Dermatologia oncologica", "snippet": "…include protocolli di immunoterapia per i tumori cutanei avanzati…" },
+    { "id": 91, "url": "http://localhost/news/nuova-immunoterapia-2026", "title": "Nuova", "snippet": "Al via una nuova immunoterapia…" }
+  ]
+}
+```
+
+The third title is just "Nuova", so it **checks that page's meta** —
+`check_meta { model: "App\\Models\\Page", id: 91 }`:
+
+```json
+{
+  "url": "http://localhost/news/nuova-immunoterapia-2026",
+  "title": { "value": "Nuova", "length": 5, "present": true },
+  "description": { "value": null, "length": 0, "present": false },
+  "og_image": { "value": null, "present": false },
+  "issue_count": 2,
+  "issues": [
+    { "code": "title_too_short", "severity": "notice", "field": "title", "message": "Title is only 5 characters (recommended min 30)." },
+    { "code": "missing_description", "severity": "warning", "field": "description", "message": "No meta description is set." }
+  ]
+}
+```
+
+> **Assistant:** Three pages mention "immunoterapia". Two look good, but
+> **/news/nuova-immunoterapia-2026** has a 5-character title ("Nuova") and no
+> meta description. Want me to write a fuller title and description for it?
+
+With `allow_edits` on it could fix it on the spot with `seo_save_meta`; read-only,
+it stops at the recommendation. `search_pages` used the SQL `LIKE` fallback here
+(`"driver": "like"`) because the model isn't Scout-indexed — add
+[Laravel Scout](https://laravel.com/docs/scout) and the same tool transparently
+searches through your engine instead.
+
 ## Security
 
 Three layers keep the server safe by default. All three are on in the
@@ -264,11 +340,69 @@ allowlist tight, and turn edits off again when you're done. The master switch
 // config/seo-pro.php
 'mcp' => [
     'enabled'     => true,           // master switch; the command refuses to run when false
-    'allow_edits' => false,          // expose + permit seo_save_meta
+    'allow_edits' => false,          // expose + permit the ops tools + seo_save_meta
     'models'      => [],             // allowlist; [] = fall back to audit/sitemap models
     'server_name' => 'rankbeam-seo', // reported in the MCP initialize handshake
+
+    // Optional Server Card discovery route (off by default) — see below.
+    'server_card' => [
+        'enabled'     => false,      // serve GET {path} with the discovery card
+        'path'        => '.well-known/mcp/server-card.json',
+        'name'        => null,       // reverse-DNS server name (null = derived from app.url)
+        'schema_url'  => 'https://modelcontextprotocol.io/schemas/draft/server-card.json',
+        'website_url' => null,       // optional homepage/docs URL stamped on the card
+    ],
 ],
 ```
+
+## Server Card (discovery) — experimental, draft spec
+
+An MCP **Server Card** is a small JSON document at a well-known URL that lets a
+client discover a server — its name, version, and what it offers — before
+connecting. Rankbeam can serve one for your site, advertising *"this site has an
+MCP server you can talk to"* to agent tooling. It is **off by default** and
+purely additive — turning it on changes nothing else.
+
+```php
+// config/seo-pro.php
+'mcp' => [
+    'server_card' => [
+        'enabled' => true,   // default: false
+    ],
+],
+```
+
+With it on, `GET /.well-known/mcp/server-card.json` returns a card like:
+
+```json
+{
+  "$schema": "https://modelcontextprotocol.io/schemas/draft/server-card.json",
+  "name": "com.example/rankbeam-seo",
+  "version": "1.0.0",
+  "title": "Rankbeam SEO MCP server",
+  "description": "Read — and optionally edit — this site's SEO over the Model Context Protocol…",
+  "_meta": {
+    "io.rankbeam.seo/transport": "stdio",
+    "io.rankbeam.seo/launch": "php artisan seo-pro:mcp",
+    "io.rankbeam.seo/tool_count": 10,
+    "io.rankbeam.seo/tools": [ { "name": "seo_resolve", "description": "…" } ]
+  }
+}
+```
+
+The card lists only the **currently enabled** tools, so a read-only server never
+advertises the gated ops/edit tools through it.
+
+::: warning Tracks a draft spec
+This follows the **draft** MCP Server Card proposal
+([SEP-2127](https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2127),
+status *Draft*). The well-known path, the `$schema` URL, and the exact field set
+are **not finalised** — so each is configurable (`path`, `schema_url`, `name`,
+`website_url`). This server runs over **stdio** (`php artisan seo-pro:mcp`), so
+the card carries no HTTP `remotes` block — it is a discoverability hint, not an
+HTTP endpoint to connect to. Confirm the path and shape against your client
+before relying on it, and leave it off if you don't need it.
+:::
 
 ## Protocol notes
 
