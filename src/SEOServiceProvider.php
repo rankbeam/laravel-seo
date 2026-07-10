@@ -132,6 +132,13 @@ class SEOServiceProvider extends ServiceProvider
                 __DIR__.'/../resources/views' => resource_path('views/vendor/seo'),
             ], 'seo-views');
 
+            // Publish the styled-sitemap XSL as a static asset, for apps that
+            // self-host it (e.g. behind a CDN) and point seo.sitemap.stylesheet.url
+            // at their copy instead of the package's /sitemap.xsl route.
+            $this->publishes([
+                __DIR__.'/../resources/xsl' => public_path('vendor/seo'),
+            ], 'seo-assets');
+
             // Publish translations
             $this->publishes([
                 __DIR__.'/../resources/lang' => $this->app->langPath('vendor/seo'),

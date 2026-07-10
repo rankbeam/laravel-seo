@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\SitemapIndex;
@@ -128,7 +129,7 @@ class SitemapBuilder
         $staticUrls = $this->staticUrls();
 
         if (empty($modelsConfig) && empty($registered) && $staticUrls === []) {
-            return Sitemap::create();
+            return $this->applyStylesheet(Sitemap::create());
         }
 
         // Only static URLs (no models, no registered sources): emit them in a
@@ -198,7 +199,7 @@ class SitemapBuilder
             $sitemap->add($url);
         }
 
-        return $sitemap;
+        return $this->applyStylesheet($sitemap);
     }
 
     /**
@@ -335,7 +336,7 @@ class SitemapBuilder
             $index->add(url('sitemap-static.xml'));
         }
 
-        return $index;
+        return $this->applyStylesheet($index);
     }
 
     /**
@@ -516,6 +517,58 @@ class SitemapBuilder
     }
 
     /**
+     * Reference the configured XSL stylesheet on a freshly built sitemap or
+     * index, so its rendered XML carries an <?xml-stylesheet?> instruction and a
+     * browser shows a readable, branded page. Every Sitemap/SitemapIndex the
+     * builder constructs passes through here, so the index and every child part
+     * are stamped alike. A no-op when the styled sitemap is disabled. Spatie
+     * escapes the href and propagates the stylesheet to any split parts.
+     */
+    protected function applyStylesheet(SitemapIndex|Sitemap $sitemap): SitemapIndex|Sitemap
+    {
+        $url = $this->stylesheetUrl();
+
+        if ($url !== null) {
+            $sitemap->setStylesheet($url);
+        }
+
+        return $sitemap;
+    }
+
+    /**
+     * The href written into the <?xml-stylesheet?> instruction, or null when no
+     * stylesheet should be referenced. An explicit seo.sitemap.stylesheet.url
+     * wins — for a self-hosted or CDN-served copy. Otherwise it derives from the
+     * package's own /sitemap.xsl route (an absolute, same-origin URL, which is
+     * what browsers require).
+     *
+     * Returns null — so the sitemap stays plain XML — when the styled sitemap is
+     * off (seo.sitemap.stylesheet.enabled), or when the package route is not
+     * registered and no explicit url is set. That last case is deliberate: if an
+     * app disabled the package routes (seo.routes.enabled = false) to serve its
+     * own sitemaps, we must not point every sitemap at a /sitemap.xsl the app
+     * never serves — a self-hoster sets seo.sitemap.stylesheet.url instead.
+     */
+    protected function stylesheetUrl(): ?string
+    {
+        if (! config('seo.sitemap.stylesheet.enabled', true)) {
+            return null;
+        }
+
+        $configured = config('seo.sitemap.stylesheet.url');
+
+        if (is_string($configured) && $configured !== '') {
+            return $configured;
+        }
+
+        if (Route::has('seo.sitemap.stylesheet')) {
+            return route('seo.sitemap.stylesheet');
+        }
+
+        return null;
+    }
+
+    /**
      * Build a sitemap for a registered named source.
      *
      * A model-class source is sharded exactly like a configured model
@@ -576,7 +629,7 @@ class SitemapBuilder
             );
         }
 
-        return $sitemap;
+        return $this->applyStylesheet($sitemap);
     }
 
     /**
@@ -663,7 +716,7 @@ class SitemapBuilder
         // No such part, or the model is empty (a single null-bounded window):
         // an empty, well-formed sitemap.
         if ($boundary === null || $boundary['first'] === null) {
-            return $sitemap;
+            return $this->applyStylesheet($sitemap);
         }
 
         $instance = new $modelClass();
@@ -695,7 +748,7 @@ class SitemapBuilder
             }
         }
 
-        return $sitemap;
+        return $this->applyStylesheet($sitemap);
     }
 
     /**

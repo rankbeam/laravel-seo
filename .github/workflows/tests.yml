@@ -36,7 +36,10 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: dom, curl, libxml, mbstring, zip, pdo, sqlite, pdo_sqlite
+          # xsl powers the real XSLTProcessor transform in the styled-sitemap
+          # escaping test; without it that test self-skips (structural checks
+          # still run).
+          extensions: dom, xsl, curl, libxml, mbstring, zip, pdo, sqlite, pdo_sqlite
           coverage: none
 
       - name: Install dependencies

@@ -84,6 +84,75 @@ Serving your own statically generated sitemap instead? Disable the routes:
 'routes' => ['enabled' => false],
 ```
 
+## Styled sitemap in the browser
+
+Spatie's engine renders a raw wall of XML. Open a Rankbeam sitemap in a browser
+and you get a readable, branded page instead — every URL in a table with its
+`lastmod`, change frequency, priority, and image/alternate counts, plus inline
+validation notes:
+
+![A Rankbeam sitemap rendered as a readable, branded table in the browser](/sitemap-styled.png)
+
+It works by referencing an XSL stylesheet from each generated sitemap:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="https://your-app.test/sitemap.xsl"?>
+<urlset ...>
+```
+
+Search engines **ignore** the instruction, so the sitemap stays a normal
+machine-readable XML document — this only changes what a *human* sees. The
+index and every child sitemap are styled alike.
+
+**On by default.** Unlike the image/hreflang extensions, the stylesheet adds no
+data and does no per-record work — it's one instruction line crawlers skip, so
+it's on out of the box. Turn it off to emit plain XML:
+
+```php
+// config/seo.php
+'sitemap' => [
+    'stylesheet' => ['enabled' => false],
+],
+```
+
+### Validation notes
+
+The rendered page flags two things it can check without leaving the browser:
+
+- **URLs missing a `lastmod`** — surfaced, never invented. Google discounts a
+  sitemap that fibs about freshness, so the stylesheet points the gap out rather
+  than filling it in.
+- **Non-absolute URLs** — a `<loc>` that isn't an absolute `http(s)` URL.
+
+### Self-hosting the stylesheet
+
+By default the package serves the stylesheet from its own `/sitemap.xsl` route
+and points each sitemap at it. Browsers only apply an XSLT that is **same-origin**
+with the sitemap, so if your sitemaps live on another origin (a CDN, say),
+publish the file and point the config at your copy:
+
+```bash
+php artisan vendor:publish --tag=seo-assets
+```
+
+```php
+// config/seo.php
+'sitemap' => [
+    'stylesheet' => [
+        'url' => 'https://cdn.example.com/vendor/seo/sitemap.xsl',
+    ],
+],
+```
+
+::: info Safe by construction
+Every value the stylesheet renders — URLs included — goes through XSLT output
+escaping, and a `<loc>` only becomes a clickable link when it is an `http(s)`
+URL, so hostile URL content can't inject markup or a `javascript:` link into the
+page. If you customise the published `.xsl`, keep it that way: don't add
+`disable-output-escaping`.
+:::
+
 ## What gets included
 
 Model sources include records that resolve as indexable; a model whose
