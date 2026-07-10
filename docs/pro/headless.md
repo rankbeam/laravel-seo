@@ -29,7 +29,7 @@ in CI.
 
 | Command | What it does |
 |---|---|
-| `seo-pro:scan` | Queue a full scan of every registered target (`--sync` to run inline) |
+| `seo-pro:scan` | Queue a full scan of every registered target (`--sync` to run inline; **CI gate** `--fail-on-error`, `--fail-on-warning`, `--report=`, `--format=json\|md\|html` — require `--sync`) |
 | `seo-pro:scan-status` | Latest run summary + open issues, most severe first (`--limit=20`, `--severity=critical\|warning\|notice`) |
 | `seo-pro:scan-recover` | Mark runs abandoned by a dead queue worker as failed |
 | `seo-pro:scan-prune` | Delete finished runs (and their issues) past the retention window |
@@ -43,7 +43,7 @@ dedicated worker for its queue. See [Production setup](/pro/production) for tuni
 | Command | What it does |
 |---|---|
 | `seo-pro:broken-links-scan` | Queue a bounded, resumable crawl (`--scope=internal_only\|internal_and_external`, `--url=*` extra seeds) |
-| `seo-pro:broken-links-status` | Latest crawl summary + open broken findings (`--limit=20`) |
+| `seo-pro:broken-links-status` | Latest crawl summary, open findings + this run's [typed inspections](/pro/broken-links#typed-link-inspections); **CI gate** (`--fail-on-error`, `--fail-on-warning`, `--report=`, `--format=`) |
 | `seo-pro:broken-links-cancel` | Cancel a running/queued crawl (`{run?}` — defaults to the latest active) |
 | `seo-pro:broken-links-recover` | Fail crawls abandoned by a dead worker (stale lease) |
 | `seo-pro:broken-links-prune` | Apply the crawler retention policy (old runs + resolved findings) |
