@@ -85,6 +85,7 @@ export default defineConfig({
           { text: 'Production setup', link: '/pro/production' },
           { text: 'Headless usage', link: '/pro/headless' },
           { text: 'Scan issues', link: '/pro/scan-issues' },
+          { text: 'Scan scheduling & delta', link: '/pro/scan-scheduling' },
           { text: 'SEO score', link: '/pro/scoring' },
           { text: 'AI-readiness score', link: '/pro/ai-readiness-score' },
           { text: 'On-page checklist', link: '/pro/on-page-checklist' },
