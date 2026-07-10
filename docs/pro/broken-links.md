@@ -149,6 +149,16 @@ Redirect, broken, unreachable and insecure inspections apply to every link. Link
 to your own framework routes and static assets are skipped so a first run stays
 quiet (see `exclude_paths` / `exclude_extensions` below).
 
+Each link is fetched at its **exact authored URL** — only the `#fragment` is
+removed — rather than a normalized form, so a server-side canonical redirect such
+as `/about/ → /about` is actually observed and surfaces as a `redirect_chain`
+instead of being pre-empted by normalization. Every distinct authored form of a
+link on a page is inspected, so `/page#ok` and `/page#missing` (or `/a//b` and
+`/a/b`) are each judged rather than only the first. The underlying broken-link
+*finding* still folds every alias of a target to one identity; inspection rows are
+recorded per `(page, target, inspection)`, so a target with several failing in-page
+anchors surfaces one `missing_fragment` row (with an exemplar), not one per anchor.
+
 ### Tuning the taxonomy
 
 Everything lives under `seo-pro.broken_links.inspections`:
