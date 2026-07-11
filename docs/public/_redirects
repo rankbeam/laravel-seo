@@ -1,0 +1,8 @@
+# The docs blog section retired 2026-07-11 — articles live on the real blog
+# (which runs on Rankbeam itself). Same slugs, new home.
+/blog/answer-engine-optimization-for-laravel https://blog.rankbeam.dev/posts/answer-engine-optimization-for-laravel 301
+/blog/hreflang-done-right-in-laravel https://blog.rankbeam.dev/posts/hreflang-done-right-in-laravel 301
+/blog/replaced-rank-math-with-a-laravel-package https://blog.rankbeam.dev/posts/replaced-rank-math-with-a-laravel-package 301
+/blog/canonical-urls-in-laravel https://blog.rankbeam.dev/posts/canonical-urls-in-laravel 301
+/blog/json-ld-schema-graphs-in-laravel https://blog.rankbeam.dev/posts/json-ld-schema-graphs-in-laravel 301
+/blog/* https://blog.rankbeam.dev/ 302
