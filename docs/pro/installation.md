@@ -101,6 +101,7 @@ php artisan seo:doctor
     ✓ Pro tables present (redirects, 404 logs, scan runs/issues/results)
   Scanning
     ✓ Scan targets registered: posts, static
+    ✓ Scan delta snapshot store present (seo_scan_run_issues)
   Queue
     ! Queue connection is 'sync'
       ↳ Scans run inline on the dispatching request/CLI. Use a real queue …
@@ -109,10 +110,14 @@ php artisan seo:doctor
     ✓ Broken-link crawler is off (optional)
   AI assist
     ✓ AI assist is off (optional)
+  AI bots
+    ✓ AI-bot logging is off (optional)
   Search Console
     ✓ Search Console is off (optional)
+  Reports
+    ✓ Reports on (snapshot store present: seo_report_runs)
 
-  ! Healthy with warnings — 1 warning(s), 8 passed.
+  ! Healthy with warnings — 1 warning(s), 11 passed.
 ```
 
 It makes no network calls and never prints secret values. It validates
