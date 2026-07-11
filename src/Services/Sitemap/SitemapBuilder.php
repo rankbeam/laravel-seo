@@ -523,12 +523,17 @@ class SitemapBuilder
      * builder constructs passes through here, so the index and every child part
      * are stamped alike. A no-op when the styled sitemap is disabled. Spatie
      * escapes the href and propagates the stylesheet to any split parts.
+     *
+     * setStylesheet() only exists on spatie/laravel-sitemap >= 8.1 (this
+     * package accepts ^7.0|^8.0, and some PHP/Laravel combinations resolve
+     * below 8.1) — on an older resolution the sitemap is emitted as plain,
+     * unstyled XML instead of fataling mid-generation.
      */
     protected function applyStylesheet(SitemapIndex|Sitemap $sitemap): SitemapIndex|Sitemap
     {
         $url = $this->stylesheetUrl();
 
-        if ($url !== null) {
+        if ($url !== null && method_exists($sitemap, 'setStylesheet')) {
             $sitemap->setStylesheet($url);
         }
 

@@ -49,6 +49,10 @@ class SitemapStylesheetRoutesDisabledTest extends TestCase
 
     public function test_explicit_url_is_still_honoured_when_routes_disabled(): void
     {
+        if (! method_exists(\Spatie\Sitemap\Sitemap::class, 'setStylesheet')) {
+            $this->markTestSkipped('spatie/laravel-sitemap <8.1 — no setStylesheet(); the PI is not emitted.');
+        }
+
         Storage::fake('public');
 
         config([
