@@ -31,7 +31,7 @@ export default defineConfig({
       { text: 'Concepts', link: '/concepts/resolver-precedence' },
       { text: 'Filament', link: '/guide/filament' },
       { text: 'Pro', link: '/pro/installation' },
-      { text: 'Blog', link: '/blog/canonical-urls-in-laravel' },
+      { text: 'Blog ↗', link: 'https://blog.rankbeam.dev' },
       { text: 'rankbeam.dev ↗', link: 'https://rankbeam.dev' },
       {
         text: 'v3.11',
@@ -104,16 +104,6 @@ export default defineConfig({
         items: [
           { text: 'Configuration', link: '/reference/configuration' },
           { text: 'Upgrading from v1', link: '/guide/upgrade-from-v1' },
-        ],
-      },
-      {
-        text: 'Blog',
-        items: [
-          { text: 'Answer Engine Optimization for Laravel', link: '/blog/answer-engine-optimization-for-laravel' },
-          { text: 'hreflang done right in Laravel', link: '/blog/hreflang-done-right-in-laravel' },
-          { text: 'We replaced Rank Math with a Laravel package', link: '/blog/replaced-rank-math-with-a-laravel-package' },
-          { text: 'Canonical URLs in Laravel', link: '/blog/canonical-urls-in-laravel' },
-          { text: 'JSON-LD schema graphs', link: '/blog/json-ld-schema-graphs-in-laravel' },
         ],
       },
       {
