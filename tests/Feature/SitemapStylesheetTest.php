@@ -43,6 +43,12 @@ function stylesheetPath(): string
     return dirname(__DIR__, 2).'/resources/xsl/sitemap.xsl';
 }
 
+/** spatie/laravel-sitemap < 8.1 has no setStylesheet(); the PI is skipped there. */
+function spatieSupportsStylesheet(): bool
+{
+    return method_exists(\Spatie\Sitemap\Sitemap::class, 'setStylesheet');
+}
+
 // ---------------------------------------------------------------------------
 // Route serving
 // ---------------------------------------------------------------------------
@@ -88,7 +94,7 @@ it('references the stylesheet from a single urlset sitemap', function () {
         ->toContain('<urlset')
         ->toContain('<?xml-stylesheet type="text/xsl"')
         ->toContain('sitemap.xsl');
-});
+})->skip(fn () => ! spatieSupportsStylesheet(), 'spatie/laravel-sitemap <8.1 — no setStylesheet(); the PI is not emitted.');
 
 it('references the stylesheet even from an empty sitemap', function () {
     // No models, no registered sources, no static URLs -> an empty <urlset>.
@@ -99,7 +105,7 @@ it('references the stylesheet even from an empty sitemap', function () {
     expect($xml)
         ->toContain('<urlset')
         ->toContain('<?xml-stylesheet type="text/xsl"');
-});
+})->skip(fn () => ! spatieSupportsStylesheet(), 'spatie/laravel-sitemap <8.1 — no setStylesheet(); the PI is not emitted.');
 
 it('references the stylesheet from both the index and its child sitemaps', function () {
     SEO::sitemaps()->register('pages', fn () => ['/about', '/contact']);
@@ -120,7 +126,7 @@ it('references the stylesheet from both the index and its child sitemaps', funct
         ->toContain('<urlset')
         ->toContain('<?xml-stylesheet type="text/xsl"')
         ->toContain('sitemap.xsl');
-});
+})->skip(fn () => ! spatieSupportsStylesheet(), 'spatie/laravel-sitemap <8.1 — no setStylesheet(); the PI is not emitted.');
 
 it('points the instruction at the package /sitemap.xsl route by default', function () {
     config(['seo.sitemap.static_urls' => [['url' => '/']]]);
@@ -130,7 +136,7 @@ it('points the instruction at the package /sitemap.xsl route by default', functi
     $xml = Storage::disk('public')->get('sitemap.xml');
 
     expect($xml)->toContain('href="'.route('seo.sitemap.stylesheet').'"');
-});
+})->skip(fn () => ! spatieSupportsStylesheet(), 'spatie/laravel-sitemap <8.1 — no setStylesheet(); the PI is not emitted.');
 
 // ---------------------------------------------------------------------------
 // Disabling / overriding
@@ -158,7 +164,7 @@ it('honours an explicit stylesheet.url override (for self-hosted / CDN copies)',
     $xml = Storage::disk('public')->get('sitemap.xml');
 
     expect($xml)->toContain('href="https://cdn.example.com/assets/sitemap.xsl"');
-});
+})->skip(fn () => ! spatieSupportsStylesheet(), 'spatie/laravel-sitemap <8.1 — no setStylesheet(); the PI is not emitted.');
 
 // ---------------------------------------------------------------------------
 // Escaping — structural (always runs; needs only ext-dom)

@@ -5,6 +5,12 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.11.1] - 2026-07-11
+
+### Fixed
+
+- **Sitemap generation no longer fatals on spatie/laravel-sitemap < 8.1.** The styled-sitemap instruction (v3.11.0) calls `setStylesheet()`, which only exists from spatie/laravel-sitemap **8.1** — but this package accepts `^7.0|^8.0`, and some PHP/Laravel combinations resolve below 8.1 (e.g. Laravel 11 → 8.0.0). There, every `seo:sitemap` run threw `Call to undefined method Spatie\Sitemap\Sitemap::setStylesheet()` because the stylesheet is on by default. Generation now degrades gracefully: on an older spatie resolution the sitemap is emitted as plain, unstyled XML (everything else unchanged); on ≥ 8.1 the styled view works as documented. To get the styled view, make sure your app resolves `spatie/laravel-sitemap:^8.1`.
+
 ## [3.11.0] - 2026-07-10
 
 ### Added

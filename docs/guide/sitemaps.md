@@ -109,6 +109,13 @@ index and every child sitemap are styled alike.
 data and does no per-record work — it's one instruction line crawlers skip, so
 it's on out of the box. Turn it off to emit plain XML:
 
+::: warning Requires spatie/laravel-sitemap ≥ 8.1
+The instruction is written through spatie's `setStylesheet()`, added in
+`spatie/laravel-sitemap` **8.1**. If your app resolves an older version (some
+PHP/Laravel combinations do), sitemaps are generated as plain, unstyled XML —
+nothing breaks. `composer update spatie/laravel-sitemap` to get the styled view.
+:::
+
 ```php
 // config/seo.php
 'sitemap' => [
