@@ -817,7 +817,7 @@ Initial release as `fibonoir/laravel-seo` (the old "full suite" package:
 core + analyzer + scanner + redirects + 404 monitor + analytics + UI stubs;
 since removed from distribution).
 
-[Unreleased]: https://github.com/rankbeam/laravel-seo/compare/v3.0.0...HEAD
+[Unreleased]: https://github.com/rankbeam/laravel-seo/compare/v3.11.0...HEAD
 [3.0.0]: https://github.com/rankbeam/laravel-seo/compare/v2.0.1...v3.0.0
 [2.0.1]: https://github.com/rankbeam/laravel-seo/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/rankbeam/laravel-seo/releases/tag/v2.0.0
