@@ -160,7 +160,13 @@ function emitPageMarkdown(cfg: SiteConfigLike): number {
 
 /** Build the `/llms.txt` index from the sidebar and write it to the output dir. */
 function emitLlmsTxt(cfg: SiteConfigLike): { entries: number; missing: string[] } {
-  const sidebar = (cfg.site.themeConfig?.sidebar ?? []) as SidebarGroup[]
+  // The sidebar is now path-keyed (multi-sidebar: one per docs section), not a
+  // single array. Flatten it back to an ordered group list — the `seen` set
+  // below dedupes the groups that more than one section shares.
+  const configured = cfg.site.themeConfig?.sidebar ?? []
+  const sidebar: SidebarGroup[] = Array.isArray(configured)
+    ? configured
+    : (Object.values(configured).flat() as SidebarGroup[])
   const title = cfg.site.title || 'Rankbeam'
   const summary = strip(cfg.site.description || '')
 
