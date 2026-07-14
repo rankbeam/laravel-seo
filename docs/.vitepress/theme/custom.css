@@ -1,52 +1,533 @@
-/* Rankbeam docs — brand overrides on top of the default VitePress theme.
-   Keeps the docs visually aligned with rankbeam.dev: Figtree type, the site's
-   blue accent, and the R-mark logo (set in config.mts). */
+/* ==========================================================================
+   Rankbeam docs — the rankbeam.dev design system, mapped onto VitePress.
+
+   Source of truth: rankbeam-site/assets/css/rb.css. Tokens are copied from it
+   verbatim below and then assigned to VitePress's own variables, so the docs
+   and the marketing site resolve to the same colours, type and spacing rather
+   than to two visual languages that merely look similar.
+
+   Rules carried over from that system:
+     - Inter, 400..800 variable.
+     - Brand red (#FF0000) is the logo mark ONLY. It is never a button.
+     - One action blue (#2457d6) is the only primary-CTA colour, in both modes.
+     - Colour is functional: green / amber / red mean status, never decoration.
+     - Code always sits on the console surface, in light mode too — the same way
+       rankbeam.dev puts dark code cards on its light sections.
+   ========================================================================== */
 
 :root {
-  /* Type — match the landing site (Figtree, loaded in config.mts head) */
-  --vp-font-family-base: "Figtree", ui-sans-serif, system-ui, -apple-system,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* ---- rb.css tokens, verbatim ---- */
+  --rb-brand: #ff0000;           /* mark only */
+  --rb-page: #f7f7f5;
+  --rb-surface: #fafaf8;
+  --rb-surface-raised: #ffffff;
+  --rb-surface-soft: #efefec;
+  --rb-surface-tint: #f2f5ff;
+  --rb-ink: #171719;
+  --rb-muted: #626268;
+  --rb-line: #ddddda;
+  --rb-line-strong: #b8b8b4;
 
-  /* Accent — the site's blue (#0057ff) for links, active nav, buttons */
-  --vp-c-brand-1: #0a5cff;
-  --vp-c-brand-2: #0057ff;
-  --vp-c-brand-3: #0057ff;
-  --vp-c-brand-soft: rgba(0, 87, 255, 0.14);
-  --vp-c-brand-softer: rgba(0, 87, 255, 0.08);
+  --rb-night: #07091c;
+  --rb-night-soft: #11152f;
+  --rb-night-ink: #f8f8ff;
+  --rb-night-muted: #b7b9d1;
+  --rb-night-line: #2a3553;
 
-  /* Brand-coloured home hero accent (if a home page is ever added) */
-  --vp-home-hero-name-color: #0057ff;
+  --rb-action: #2457d6;
+  --rb-action-hover: #356de8;
+  --rb-action-ink: #ffffff;
+  --rb-focus: #1758c7;
+
+  --rb-crit: #b42318;
+  --rb-warn: #b54708;
+  --rb-ok: #067647;
+  --rb-note: #475467;
+  --rb-crit-wash: #fef3f2;
+  --rb-warn-wash: #fffaeb;
+  --rb-ok-wash: #ecfdf3;
+
+  --rb-console: #0b1020;
+  --rb-console-surface: #121a2f;
+  --rb-console-line: #2a3553;
+  --rb-console-ink: #f5f7ff;
+  --rb-console-muted: #aeb7cf;
+  --rb-code-blue: #9fc7ff;
+
+  --rb-radius-s: 12px;
+  --rb-radius-m: 16px;
+  --rb-radius-l: 24px;
+  --rb-radius-xl: 32px;
+  --rb-radius-pill: 999px;
+  --rb-ease: cubic-bezier(.22, .8, .24, 1);
+
+  /* Prose stays at a readable measure even though the column is wider — see
+     "Layout" below for why the column had to grow. */
+  --rb-measure: 74ch;
+
+  /* ---- Type ---- */
+  --vp-font-family-base: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --vp-font-family-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+
+  /* ---- Action language. One blue, one job: the primary CTA. ---- */
+  --vp-c-brand-1: var(--rb-action);          /* links — 6.16:1 on white */
+  --vp-c-brand-2: #1c46ab;                   /* link hover, darker */
+  --vp-c-brand-3: var(--rb-action);          /* solid fills */
+  --vp-c-brand-soft: color-mix(in srgb, var(--rb-action) 12%, transparent);
+  --vp-c-brand-softer: color-mix(in srgb, var(--rb-action) 7%, transparent);
+
+  /* ---- Surfaces ---- */
+  --vp-c-bg: var(--rb-surface-raised);
+  --vp-c-bg-alt: var(--rb-page);
+  --vp-c-bg-soft: var(--rb-surface-soft);
+  --vp-c-bg-elv: var(--rb-surface-raised);
+
+  --vp-c-text-1: var(--rb-ink);              /* 17.2:1 on white */
+  --vp-c-text-2: var(--rb-muted);            /* 6.06:1 on white */
+  --vp-c-text-3: #6f6f75;                    /* 5.16:1 — still AA at 14px */
+
+  --vp-c-divider: var(--rb-line);
+  --vp-c-border: var(--rb-line);
+  --vp-c-gutter: var(--rb-line);
+
+  /* ---- The primary CTA. Identical treatment in both modes (rule: one
+         primary-CTA treatment, everywhere). White on #2457d6 = 6.16:1. ---- */
+  --vp-button-brand-bg: var(--rb-action);
+  --vp-button-brand-text: var(--rb-action-ink);
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-hover-bg: var(--rb-action-hover);
+  --vp-button-brand-hover-text: var(--rb-action-ink);
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-active-bg: var(--rb-action);
+  --vp-button-brand-active-text: var(--rb-action-ink);
+
+  --vp-button-alt-bg: transparent;
+  --vp-button-alt-text: var(--rb-ink);
+  --vp-button-alt-border: var(--rb-line-strong);
+  --vp-button-alt-hover-bg: var(--rb-surface-soft);
+  --vp-button-alt-hover-text: var(--rb-ink);
+  --vp-button-alt-hover-border: var(--rb-ink);
+
+  /* ---- Code: always the console surface ---- */
+  --vp-code-block-bg: var(--rb-console);
+  --vp-code-tab-bg: var(--rb-console-surface);
+  --vp-code-tab-divider: var(--rb-console-line);
+  --vp-code-tab-text-color: var(--rb-console-muted);
+  --vp-code-tab-active-text-color: var(--rb-console-ink);
+  --vp-code-tab-hover-text-color: var(--rb-console-ink);
+  --vp-code-tab-active-bar-color: var(--rb-code-blue);
+  --vp-code-copy-code-bg: var(--rb-console-surface);
+  --vp-code-copy-code-hover-bg: var(--rb-console-line);
+  --vp-code-copy-code-active-text: var(--rb-console-ink);
+  --vp-code-lang-color: var(--rb-console-muted);
+  --vp-code-line-highlight-color: color-mix(in srgb, var(--rb-code-blue) 12%, transparent);
+
+  /* ---- Status colour is functional, never decorative ---- */
+  --vp-custom-block-tip-bg: var(--rb-ok-wash);
+  --vp-custom-block-tip-border: color-mix(in srgb, var(--rb-ok) 30%, transparent);
+  --vp-custom-block-tip-text: #05402a;       /* 9.4:1 on --rb-ok-wash */
+  --vp-custom-block-tip-code-bg: color-mix(in srgb, var(--rb-ok) 10%, transparent);
+
+  --vp-custom-block-warning-bg: var(--rb-warn-wash);
+  --vp-custom-block-warning-border: color-mix(in srgb, var(--rb-warn) 30%, transparent);
+  --vp-custom-block-warning-text: #6b2a05;   /* 8.6:1 on --rb-warn-wash */
+  --vp-custom-block-warning-code-bg: color-mix(in srgb, var(--rb-warn) 10%, transparent);
+
+  --vp-custom-block-danger-bg: var(--rb-crit-wash);
+  --vp-custom-block-danger-border: color-mix(in srgb, var(--rb-crit) 30%, transparent);
+  --vp-custom-block-danger-text: #6d150e;    /* 9.1:1 on --rb-crit-wash */
+  --vp-custom-block-danger-code-bg: color-mix(in srgb, var(--rb-crit) 10%, transparent);
+
+  --vp-custom-block-info-bg: var(--rb-surface-soft);
+  --vp-custom-block-info-border: var(--rb-line);
+  --vp-custom-block-info-text: var(--rb-ink);
+
+  /* ---- Layout. The old 688px column squeezed /pro/scan-issues' six-column
+         registry tables down to 86px per column — one word per line. The column
+         grows so tables and code can breathe; prose is held to --rb-measure so
+         the line length does not grow with it. ---- */
+  --vp-layout-max-width: 1536px;
+  --vp-sidebar-width: 288px;
+
+  --vp-home-hero-name-color: var(--rb-ink);
 }
 
 .dark {
-  /* Slightly brighter blue for contrast on the dark theme */
-  --vp-c-brand-1: #5ea0ff;
-  --vp-c-brand-2: #3d8bff;
-  --vp-c-brand-3: #2a7cff;
-  --vp-c-brand-soft: rgba(60, 139, 255, 0.16);
-  --vp-c-brand-softer: rgba(60, 139, 255, 0.1);
+  /* Night surfaces — the same two the marketing site uses. */
+  --vp-c-bg: var(--rb-night);
+  --vp-c-bg-alt: var(--rb-night-soft);
+  --vp-c-bg-soft: var(--rb-console-surface);
+  --vp-c-bg-elv: var(--rb-night-soft);
+
+  --vp-c-text-1: var(--rb-night-ink);        /* 17.9:1 on --rb-night */
+  --vp-c-text-2: var(--rb-night-muted);      /* 10.2:1 on --rb-night */
+  --vp-c-text-3: #8d90ab;                    /* 5.7:1 on --rb-night */
+
+  --vp-c-divider: var(--rb-night-line);
+  --vp-c-border: var(--rb-night-line);
+  --vp-c-gutter: var(--rb-night-line);
+
+  /* The action blue is only 3.2:1 on #07091c, which fails AA for body-size
+     link text. Links therefore take the console's blue (11.4:1) — an existing
+     brand token, not a new hex. The CTA button keeps the action blue, because
+     there the blue is the *fill* and the white text on it is what must pass. */
+  --vp-c-brand-1: var(--rb-code-blue);
+  --vp-c-brand-2: #c3dbff;
+  --vp-c-brand-3: var(--rb-action);
+  --vp-c-brand-soft: color-mix(in srgb, var(--rb-code-blue) 14%, transparent);
+  --vp-c-brand-softer: color-mix(in srgb, var(--rb-code-blue) 8%, transparent);
+
+  --vp-button-alt-text: var(--rb-night-ink);
+  --vp-button-alt-border: color-mix(in srgb, var(--rb-night-ink) 42%, transparent);
+  --vp-button-alt-hover-bg: color-mix(in srgb, var(--rb-night-ink) 10%, transparent);
+  --vp-button-alt-hover-text: var(--rb-night-ink);
+  --vp-button-alt-hover-border: var(--rb-night-ink);
+
+  /* Status washes become tints of the same semantic hues. */
+  --vp-custom-block-tip-bg: color-mix(in srgb, #79c99e 12%, var(--rb-night-soft));
+  --vp-custom-block-tip-border: color-mix(in srgb, #79c99e 34%, transparent);
+  --vp-custom-block-tip-text: #b9e6cd;
+  --vp-custom-block-tip-code-bg: color-mix(in srgb, #79c99e 14%, transparent);
+
+  --vp-custom-block-warning-bg: color-mix(in srgb, #e8c17b 10%, var(--rb-night-soft));
+  --vp-custom-block-warning-border: color-mix(in srgb, #e8c17b 34%, transparent);
+  --vp-custom-block-warning-text: #f0d5a5;
+  --vp-custom-block-warning-code-bg: color-mix(in srgb, #e8c17b 14%, transparent);
+
+  --vp-custom-block-danger-bg: color-mix(in srgb, #ff9f9f 10%, var(--rb-night-soft));
+  --vp-custom-block-danger-border: color-mix(in srgb, #ff9f9f 34%, transparent);
+  --vp-custom-block-danger-text: #ffc4c4;
+  --vp-custom-block-danger-code-bg: color-mix(in srgb, #ff9f9f 14%, transparent);
+
+  --vp-custom-block-info-bg: var(--rb-console-surface);
+  --vp-custom-block-info-border: var(--rb-night-line);
+  --vp-custom-block-info-text: var(--rb-night-ink);
+
+  --vp-home-hero-name-color: var(--rb-night-ink);
 }
 
-/* ---- Mobile: keep code blocks inset (rounded card) instead of full-bleed ----
-   The default theme pulls code blocks edge-to-edge below 640px
-   (margin: 0 -24px; border-radius: 0), which reads as "no padding". Restore the
-   container inset + rounded corners so they look like the rest of the content. */
+/* --------------------------------------------------------------------------
+   Base + focus
+
+   One visible focus ring for the whole site, matching rb.css. VitePress ships
+   per-component focus styles; this sits on top so no control can end up
+   focusable-but-invisible.
+   -------------------------------------------------------------------------- */
+
+html {
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+:focus-visible {
+  outline: 3px solid var(--rb-focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.dark :focus-visible {
+  outline-color: var(--rb-code-blue);
+}
+
+/* --------------------------------------------------------------------------
+   Layout — a wider column, a fixed prose measure
+   -------------------------------------------------------------------------- */
+
+/* VitePress ships this as `.VPDoc.has-aside .content-container[data-v-…]` — a
+   scoped rule that outranks a plain three-class selector on specificity, not on
+   source order. Naming the full ancestor chain beats it without !important. */
+.VPDoc.has-aside .container .content .content-container {
+  max-width: var(--rb-content-width, 928px);
+}
+
+/* Prose keeps a readable line length; tables, code and images take the full
+   column. Without this the wider column would just make every line longer. */
+.vp-doc > div > p,
+.vp-doc > div > ul,
+.vp-doc > div > ol,
+.vp-doc > div > blockquote,
+.vp-doc > div > h1,
+.vp-doc > div > h2,
+.vp-doc > div > h3,
+.vp-doc > div > h4 {
+  max-width: var(--rb-measure);
+}
+
+/* --------------------------------------------------------------------------
+   Tables
+
+   VitePress emits a bare <table>; a markdown-it rule in config.mts wraps each
+   one in .rb-table so it can scroll on its own axis instead of pushing the
+   page sideways at 375px.
+   -------------------------------------------------------------------------- */
+
+.vp-doc .rb-table {
+  width: 100%;
+  overflow-x: auto;
+  margin: 20px 0;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: var(--rb-radius-m);
+  background: var(--vp-c-bg);
+}
+/* Each column gets a floor of ~176px, so the width a table demands scales with
+   what it actually holds. The five-column issue registry lands at 880px — its
+   nowrap identifiers had otherwise starved the prose "Meaning" column down to
+   178px (~22 characters a line), which is what made /pro/scan-issues 9,500px
+   tall. A three-column table asks for 528px, fits the container, and so never
+   scrolls. Anything past the container scrolls on the table's own axis, never
+   the page's. --rb-cols is set per table by the markdown-it rule in config.mts. */
+.vp-doc .rb-table table {
+  display: table;
+  width: 100%;
+  min-width: calc(var(--rb-cols, 3) * 176px);
+  margin: 0;
+  border-collapse: collapse;
+  border-radius: 0;
+  overflow: visible;
+}
+.vp-doc .rb-table tr {
+  background: transparent;
+  border-top: 0;
+}
+.vp-doc .rb-table tr:not(:last-child) td {
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+.vp-doc .rb-table th {
+  padding: 10px 16px;
+  color: var(--vp-c-text-2);
+  background: var(--vp-c-bg-soft);
+  border: 0;
+  border-bottom: 1px solid var(--vp-c-divider);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.vp-doc .rb-table td {
+  padding: 12px 16px;
+  border: 0;
+  font-size: 14px;
+  vertical-align: top;
+}
+/* Identifiers must not break mid-token, but they don't need body size to be
+   read — dropping them a step returns width to the prose column beside them. */
+.vp-doc .rb-table td code,
+.vp-doc .rb-table th code {
+  padding: 2px 5px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Code — the console surface, in both colour modes.
+
+   config.mts pins Shiki to a dark theme for light and dark alike, so a code
+   block is the same object on both. Only the container is styled here.
+   -------------------------------------------------------------------------- */
+
+.vp-doc div[class*="language-"] {
+  background: var(--rb-console);
+  border: 1px solid var(--rb-console-line);
+  border-radius: var(--rb-radius-m);
+}
+/* Shiki colours each token with an inline custom property, so the block's own
+   colour only ever shows through on text Shiki did not tokenise. In light mode
+   that inherited colour is near-black ink sitting on the near-black console —
+   invisible. Pinning the base to the console ink means the worst case is
+   unstyled-but-legible instead of unstyled-and-gone. */
+.vp-doc div[class*="language-"] pre,
+.vp-doc div[class*="language-"] code {
+  color: var(--rb-console-ink);
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+.vp-doc [class*="language-"] > button.copy {
+  border-radius: var(--rb-radius-pill);
+}
+.vp-doc [class*="language-"] > span.lang {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+/* A code group is one object: tabs on top, block below. The block's top corners
+   are squared off by VitePress already; the tabs supply the top of the card. */
+.vp-doc .vp-code-group .tabs {
+  background: var(--rb-console-surface);
+  border: 1px solid var(--rb-console-line);
+  border-bottom: 0;
+  border-radius: var(--rb-radius-m) var(--rb-radius-m) 0 0;
+}
+
+/* Inline code stays legible on the page surface rather than becoming a second
+   dark object mid-sentence. */
+.vp-doc :not(pre) > code {
+  padding: 3px 6px;
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  font-size: .86em;
+  font-weight: 500;
+}
+.vp-doc a > code {
+  color: var(--vp-c-brand-1);
+}
+
+/* --------------------------------------------------------------------------
+   Chrome — nav, sidebar, aside
+   -------------------------------------------------------------------------- */
+
+.VPNavBar .title {
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+.VPNavBar .logo {
+  height: 22px;
+}
+
+/* The active section is stated once, with weight and colour — not with a box. */
+.VPNavBarMenuLink.active,
+.VPNavBarMenuGroup.active .VPNavBarMenuGroup > button {
+  font-weight: 650;
+}
+
+.VPSidebarItem.level-0 > .item > .text {
+  color: var(--vp-c-text-1);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.VPSidebarItem.is-active > .item > .link > .text {
+  font-weight: 650;
+}
+
+.VPDocAsideOutline .outline-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   Motion
+
+   Additive only. Nothing here is required for content to be visible, so the
+   reduced-motion block below can safely switch all of it off.
+   -------------------------------------------------------------------------- */
+
+.vp-doc a,
+.VPButton,
+.VPSidebarItem .link {
+  transition: color 180ms var(--rb-ease), background-color 180ms var(--rb-ease), border-color 180ms var(--rb-ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Print
+
+   Browsers drop background graphics by default, so a dark surface prints as
+   white paper — while the pale text on it prints as pale text. Putting code on
+   the console surface therefore has to be undone here, or every snippet in the
+   docs comes out of the printer as near-invisible ink on white. Syntax colour
+   is deliberately flattened to one ink: legible beats colourful on paper.
+   -------------------------------------------------------------------------- */
+
+@media print {
+  .vp-doc div[class*="language-"],
+  .vp-doc .vp-code-group .tabs,
+  .rb-hero,
+  .rb-section-dark,
+  .rb-code,
+  .rb-card,
+  .rb-install {
+    color: #171719 !important;
+    background: #fff !important;
+    border-color: #ddddda !important;
+    box-shadow: none !important;
+  }
+  .vp-doc div[class*="language-"] pre,
+  .vp-doc div[class*="language-"] code,
+  .vp-doc div[class*="language-"] span,
+  .rb-code pre,
+  .rb-code span,
+  .rb-hero .rb-lede,
+  .rb-hero h1,
+  .rb-section-dark h2,
+  .rb-section-dark p,
+  .rb-card h3,
+  .rb-card p {
+    color: #171719 !important;
+    -webkit-text-fill-color: #171719;
+  }
+  /* The commit field is decoration; it has no business on paper. */
+  .rb-commit-field,
+  .VPNavBar,
+  .VPSidebar,
+  .VPDocAside {
+    display: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 959px) {
+  .VPDoc.has-aside .container .content .content-container {
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 639px) {
+  /* The default theme pulls code blocks edge-to-edge below 640px
+     (margin: 0 -24px; border-radius: 0), which reads as "no padding".
+     Keep them as inset cards, like every other block on the page. */
   .vp-doc div[class*="language-"] {
     margin-left: 0;
     margin-right: 0;
-    border-radius: 8px;
+    border-radius: var(--rb-radius-s);
   }
-  /* code padding is 24px by default; trim it a touch so the inset block keeps
-     a comfortable line width on narrow screens */
   .vp-doc [class*="language-"] > pre > code {
     padding-left: 16px;
     padding-right: 16px;
   }
-
-  /* home hero logo: the default 320px block + 160px mark is too big on phones */
-  .VPHero .image { margin: 0 auto; }
-  .VPHero .image-container { width: 132px; height: 132px; padding: 0; transform: none; }
-  .VPHero .image-bg { width: 108px; height: 108px; }
-  .VPHero .image-src { width: 92px; height: auto; max-width: 92px; max-height: 92px; }
+  .vp-doc div[class*="language-"] code {
+    font-size: 12.5px;
+  }
+  /* A code group's tabs carry their own -24px bleed. Insetting only the block
+     below them left the tabs running edge-to-edge over a narrower body — one
+     object torn in half. Inset the tabs by the same amount. */
+  .vp-doc .vp-code-group .tabs {
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: var(--rb-radius-s) var(--rb-radius-s) 0 0;
+  }
+  .vp-doc .rb-table {
+    border-radius: var(--rb-radius-s);
+  }
+  /* Prose is already narrower than the measure here; releasing the cap avoids
+     a stray max-width fighting the container padding. */
+  .vp-doc > div > p,
+  .vp-doc > div > ul,
+  .vp-doc > div > ol,
+  .vp-doc > div > blockquote,
+  .vp-doc > div > h1,
+  .vp-doc > div > h2,
+  .vp-doc > div > h3,
+  .vp-doc > div > h4 {
+    max-width: 100%;
+  }
 }
