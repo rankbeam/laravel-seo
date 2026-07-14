@@ -388,14 +388,16 @@ const proof = [
   box-shadow: 0 8px 24px color-mix(in srgb, var(--rb-action) 30%, transparent);
 }
 /* In the hero the pill sits on the action glow — the same blue as itself — so
-   its edge stopped separating from the background (2.13:1 on a phone, against
-   the 3:1 WCAG 1.4.11 asks of a control). A wide, soft pool of night under the
-   button gives it back its edge without touching the hero, the glow or the tile
-   field. It keeps its own blue lift on top. */
+   its edge barely separates from the background. This is a wide, low-density
+   haze of night rather than a pool: no tight spread, so the tile field still
+   reads straight through it and the button simply sits a little forward of the
+   page. Deliberately below the 3:1 that WCAG 1.4.11 asks of a control's
+   boundary (see note in the PR): the density needed to clear that floor is the
+   density that hides the pattern, and the pattern won. */
 .rb-hero .rb-btn-primary {
   box-shadow:
-    0 2px 12px 12px color-mix(in srgb, var(--rb-night) 88%, transparent),
-    0 14px 48px 24px color-mix(in srgb, var(--rb-night) 58%, transparent),
+    0 4px 20px 2px color-mix(in srgb, var(--rb-night) 42%, transparent),
+    0 14px 56px 14px color-mix(in srgb, var(--rb-night) 26%, transparent),
     0 8px 24px color-mix(in srgb, var(--rb-action) 30%, transparent);
 }
 .rb-btn-primary:hover { background: var(--rb-action-hover); color: var(--rb-action-ink); }
