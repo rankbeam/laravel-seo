@@ -306,21 +306,14 @@ const proof = [
 }
 .rb-sub-dark { color: var(--rb-console-muted); }
 
-/* ---- Hero ----
-
-   The glow is centred low and right of the copy column, and the scrim below
-   covers the whole column. Both exist for the same reason: the action blue
-   tops out at 3.20:1 against night, so anywhere the primary CTA overlaps the
-   glow its boundary drops under the 3:1 that WCAG 1.4.11 asks of a control.
-   The pill therefore always sits on night; the glow lights the space around
-   it, where nothing has to be read. */
+/* ---- Hero ---- */
 .rb-hero {
   position: relative;
   overflow: hidden;
   padding-block: var(--rb-space-12) var(--rb-space-8);
   color: var(--rb-night-ink);
   background:
-    radial-gradient(circle at 62% 92%, color-mix(in srgb, var(--rb-action) 72%, transparent), transparent 30rem),
+    radial-gradient(circle at 50% 82%, color-mix(in srgb, var(--rb-action) 72%, transparent), transparent 30rem),
     radial-gradient(circle at 6% 70%, color-mix(in srgb, var(--rb-brand) 14%, transparent), transparent 22rem),
     var(--rb-night);
 }
@@ -329,7 +322,7 @@ const proof = [
   inset: 0;
   z-index: 1;
   content: "";
-  background: radial-gradient(ellipse 72% 76% at 24% 40%, color-mix(in srgb, var(--rb-night) 96%, transparent) 0, color-mix(in srgb, var(--rb-night) 88%, transparent) 58%, color-mix(in srgb, var(--rb-night) 52%, transparent) 82%, transparent 100%);
+  background: radial-gradient(ellipse 64% 48% at 26% 26%, color-mix(in srgb, var(--rb-night) 96%, transparent) 0, color-mix(in srgb, var(--rb-night) 76%, transparent) 54%, transparent 100%);
   pointer-events: none;
 }
 .rb-hero-inner { position: relative; z-index: 2; }
@@ -393,6 +386,17 @@ const proof = [
   color: var(--rb-action-ink);
   background: var(--rb-action);
   box-shadow: 0 8px 24px color-mix(in srgb, var(--rb-action) 30%, transparent);
+}
+/* In the hero the pill sits on the action glow — the same blue as itself — so
+   its edge stopped separating from the background (2.13:1 on a phone, against
+   the 3:1 WCAG 1.4.11 asks of a control). A wide, soft pool of night under the
+   button gives it back its edge without touching the hero, the glow or the tile
+   field. It keeps its own blue lift on top. */
+.rb-hero .rb-btn-primary {
+  box-shadow:
+    0 2px 12px 12px color-mix(in srgb, var(--rb-night) 88%, transparent),
+    0 14px 48px 24px color-mix(in srgb, var(--rb-night) 58%, transparent),
+    0 8px 24px color-mix(in srgb, var(--rb-action) 30%, transparent);
 }
 .rb-btn-primary:hover { background: var(--rb-action-hover); color: var(--rb-action-ink); }
 .rb-btn-secondary {
@@ -562,36 +566,6 @@ const proof = [
 }
 
 @media (max-width: 640px) {
-  /* The hero's action glow sits at 50% 82% — which on a phone is directly
-     behind the buttons, not below them as it is on a wide screen. A #2457d6
-     pill on that glow measured 2.13:1 against its own backdrop, so the primary
-     CTA stopped reading as a control at all (WCAG 1.4.11 wants 3:1 for a
-     control's boundary), and the ghost button's border nearly vanished.
-
-     Two changes, because the scrim alone could not win: even against pure night
-     the action blue only reaches 3.20:1, so the glow has to come out from under
-     the control rather than merely be dimmed. The glow drops below the copy
-     stack, and the scrim that makes the hero text legible is extended to cover
-     the buttons too. The glow still lights the bottom of the hero, where
-     nothing has to be read against it. */
-  .rb-hero {
-    background:
-      radial-gradient(circle at 50% 112%, color-mix(in srgb, var(--rb-action) 68%, transparent), transparent 22rem),
-      radial-gradient(circle at 4% 96%, color-mix(in srgb, var(--rb-brand) 12%, transparent), transparent 16rem),
-      var(--rb-night);
-  }
-  .rb-hero::after {
-    background: radial-gradient(ellipse 170% 76% at 34% 32%,
-      color-mix(in srgb, var(--rb-night) 97%, transparent) 0,
-      color-mix(in srgb, var(--rb-night) 94%, transparent) 62%,
-      color-mix(in srgb, var(--rb-night) 64%, transparent) 86%,
-      transparent 100%);
-  }
-  /* On night, a 42%-white hairline is not a boundary. */
-  .rb-btn-secondary {
-    border-color: color-mix(in srgb, var(--rb-night-ink) 62%, transparent);
-  }
-
   .rb-container { width: calc(100% - var(--rb-space-3)); }
   .rb-hero { padding-block: var(--rb-space-8) var(--rb-space-6); }
   .rb-section { padding-block: var(--rb-space-8); }
