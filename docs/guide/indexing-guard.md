@@ -1,3 +1,7 @@
+---
+description: "Tie indexability to the Laravel environment so staging or local copies can't leak into search — anywhere off your allow-list is forced to noindex and blocks crawlers."
+---
+
 # Indexing guard (non-production safety net)
 
 A staging or local copy of your site leaking into Google is one of the most

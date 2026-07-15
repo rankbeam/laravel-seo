@@ -1,3 +1,7 @@
+---
+description: "seo:explain shows which resolver layer set each SEO field and what it overrode — read-only, no network or license — so you can debug an unexpected title or robots tag."
+---
+
 # Explain the resolution (`seo:explain`)
 
 Rankbeam resolves a page's SEO through a [layered precedence chain](/concepts/resolver-precedence) — config, database defaults (global / model-type / route), computed model values, then explicit `seo_meta` — followed by post-processing (title suffix, canonical, image absolutization) and the [indexing guard](/guide/indexing-guard). When the rendered `<title>` or `robots` tag isn't what you expected, **`seo:explain` shows you exactly which layer set each field, and what it overrode.**

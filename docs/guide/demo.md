@@ -1,3 +1,7 @@
+---
+description: "Run the seeded Rankbeam demo app in one command — released packages, no path repos — to see rendered metadata, a JSON-LD schema graph and a sitemap on real pages."
+---
+
 # Run the demo
 
 The fastest way to see Rankbeam working on real pages — without wiring it into

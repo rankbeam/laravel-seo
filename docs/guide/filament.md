@@ -1,3 +1,7 @@
+---
+description: "Add a complete SEO section to any Filament resource form in two lines with the free laravel-seo-filament package. Supports Filament 4.x and 5.x on the HasSEO trait."
+---
+
 # Filament admin fields
 
 The free [`rankbeam/laravel-seo-filament`](https://github.com/rankbeam/laravel-seo-filament)

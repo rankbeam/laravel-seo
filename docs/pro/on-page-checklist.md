@@ -1,3 +1,7 @@
+---
+description: "A keyword-aware pass/warn/fail on-page checklist: pick a focus keyword and get traffic-light checks for the title, URL, opening paragraph, meta, length, images and readability."
+---
+
 # The on-page checklist — keyword-aware, pass/warn/fail
 
 The on-page checklist is the live editorial loop a RankMath or Yoast user

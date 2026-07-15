@@ -1,3 +1,7 @@
+---
+description: "A bounded, resumable crawler that records links that don't resolve — dead internal routes, fixable as a one-click redirect, and optional broken external links. Off by default."
+---
+
 # Broken-link crawler
 
 A **bounded, resumable crawler** that walks your site, follows the links on each

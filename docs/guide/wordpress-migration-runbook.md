@@ -1,3 +1,7 @@
+---
+description: "A step-by-step, low-risk procedure for replacing Yoast or Rank Math on a live site — importers fill only empty fields, dry-runs write nothing, WordPress stays untouched."
+---
+
 # WordPress → Rankbeam migration runbook
 
 A step-by-step, **low-risk** procedure for replacing a legacy WordPress SEO

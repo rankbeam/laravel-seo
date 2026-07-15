@@ -1,3 +1,7 @@
+---
+description: "Serve a clean Markdown representation of a page to AI crawlers via content negotiation, while normal visitors keep the untouched HTML. Free, core, off by default."
+---
+
 # Markdown for bots
 
 AI crawlers and answer engines parse content far more reliably from clean

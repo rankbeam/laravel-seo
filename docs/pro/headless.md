@@ -1,3 +1,7 @@
+---
+description: "Every Pro feature — scanning, redirects, 404 logging — runs headless with no Filament. A command reference for managing Pro entirely from artisan."
+---
+
 # Headless usage
 
 Every Pro feature — scanning, redirecting, 404 logging — runs headless: it

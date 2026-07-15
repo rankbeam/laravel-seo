@@ -1,3 +1,7 @@
+---
+description: "Give each page its own 1200×630 Open Graph image, rendered from a Blade template by a headless browser so titles wrap and truncate cleanly. Free, core, off by default."
+---
+
 # Generated OG images
 
 A page with no social card falls back to one shared `default_og_image` — the

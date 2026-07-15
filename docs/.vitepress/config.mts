@@ -1,5 +1,21 @@
 import { defineConfig } from 'vitepress'
-import { generateLlmsArtifacts } from './llms'
+import { generateLlmsArtifacts, SITE_ORIGIN } from './llms'
+
+// Default social-share image: the brand OG card, self-hosted in docs/public so
+// every card resolves to an absolute docs URL that returns 200 (1200×630 PNG).
+// Built with new URL() so a trailing slash on SITE_ORIGIN can't double up.
+const OG_IMAGE = new URL('og.png', SITE_ORIGIN).toString()
+
+// Map a page's source path to its live, clean URL using the SAME operation
+// VitePress's sitemap generator uses to serialise a <loc>: the relative path
+// (index.md → dir root, .md dropped because cleanUrls is on) resolved against
+// the origin with new URL(). That makes each page's self-canonical byte-for-byte
+// the URL listed in sitemap.xml — including the homepage ('' → origin + '/') —
+// no matter how the origin string is written.
+function canonicalFor(relativePath: string): string {
+  const p = relativePath.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '')
+  return new URL(p, SITE_ORIGIN).toString()
+}
 
 // The docs share rankbeam.dev's design system (rankbeam-site/assets/css/rb.css):
 // Inter, night surfaces, one action blue for CTAs, brand red reserved for the mark.
@@ -124,6 +140,52 @@ export default defineConfig({
 
   // Publish /llms.txt + a raw-Markdown copy of every page for AI answer engines.
   buildEnd: generateLlmsArtifacts,
+
+  // Emit /sitemap.xml. Setting hostname is what switches VitePress's built-in
+  // generator on; it walks the built pages, honours cleanUrls, and — because
+  // lastUpdated is on above — stamps each entry's <lastmod> from git. Redirect
+  // routes (docs/public/_redirects) and the raw .md copies aren't VitePress
+  // pages, so they never enter the sitemap.
+  sitemap: { hostname: SITE_ORIGIN },
+
+  // Per-page head that VitePress can't add statically: one absolute
+  // self-canonical plus Open Graph / Twitter Card metadata, injected into each
+  // page's own head. VitePress already emits <meta name="description"> from the
+  // resolved page description (frontmatter first), so we don't repeat it here.
+  transformPageData(pageData, { siteConfig }) {
+    // Skip virtual pages: the 404 sets isNotFound, and VitePress leaves
+    // filePath empty for virtual pages. relativePath also feeds the canonical
+    // below, so an empty one would wrongly resolve to the homepage — guard on
+    // all three signals.
+    if (pageData.isNotFound || !pageData.relativePath || !pageData.filePath) return
+
+    const head = (pageData.frontmatter.head ??= [])
+    // If a page already declares its own canonical it is managing its head
+    // deliberately; don't add a second one (keeps exactly one canonical/page).
+    if (head.some((h: any) => h[0] === 'link' && h[1]?.rel === 'canonical')) return
+
+    const canonical = canonicalFor(pageData.relativePath)
+    const siteTitle = siteConfig.site.title || 'Rankbeam'
+    const title = pageData.title || siteTitle
+    const description = pageData.description || siteConfig.site.description
+
+    head.push(
+      ['link', { rel: 'canonical', href: canonical }],
+      ['meta', { property: 'og:type', content: 'website' }],
+      ['meta', { property: 'og:site_name', content: siteTitle }],
+      ['meta', { property: 'og:title', content: title }],
+      ['meta', { property: 'og:description', content: description }],
+      ['meta', { property: 'og:url', content: canonical }],
+      ['meta', { property: 'og:image', content: OG_IMAGE }],
+      ['meta', { property: 'og:image:width', content: '1200' }],
+      ['meta', { property: 'og:image:height', content: '630' }],
+      ['meta', { property: 'og:image:alt', content: 'Rankbeam — open-core SEO infrastructure for Laravel' }],
+      ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+      ['meta', { name: 'twitter:title', content: title }],
+      ['meta', { name: 'twitter:description', content: description }],
+      ['meta', { name: 'twitter:image', content: OG_IMAGE }],
+    )
+  },
 
   markdown: {
     // Code sits on the console surface (#0b1020) in both colour modes, the same

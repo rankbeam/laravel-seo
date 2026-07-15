@@ -1,3 +1,7 @@
+---
+description: "Record what AI crawlers actually did on your site: which bots fetched you, how often, and the last URL and status each touched — the observability half of AI-crawler control."
+---
+
 # AI-bot monitor
 
 The [AI crawler control](/guide/ai-crawlers) feature (core) decides what

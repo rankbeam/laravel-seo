@@ -1,3 +1,7 @@
+---
+description: "Optional bring-your-own-key AI help: title and meta suggestions, plain-language scan-issue explanations, one-click rewrites and schema.org suggestions. Off by default."
+---
+
 # AI assist
 
 Optional, **bring-your-own-key** AI assistance: title and meta-description

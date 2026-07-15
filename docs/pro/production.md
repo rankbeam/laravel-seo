@@ -1,3 +1,7 @@
+---
+description: "Run Pro at scale: dedicated queues, scheduler, retry and recovery policy, retention and telemetry — the Filament-independent topology behind a ~900-page production install."
+---
+
 # Production setup
 
 Pro's day-to-day work — site scans, the broken-link crawler, optional

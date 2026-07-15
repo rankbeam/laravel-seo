@@ -1,3 +1,7 @@
+---
+description: "Upgrade from fibonoir/laravel-seo v1 to rankbeam/laravel-seo v2, which renames the package and narrows the core to meta resolution, rendering, JSON-LD and sitemaps."
+---
+
 # Upgrading from fibonoir/laravel-seo v1
 
 v2.0.0 renames the package to `rankbeam/laravel-seo` and carves it down to a

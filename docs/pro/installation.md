@@ -1,3 +1,7 @@
+---
+description: "Install laravel-seo-pro: queued site scans with issue tracking, a redirect manager and a 404 monitor on top of the core. Runs on any Laravel 11–13 app; Filament optional."
+---
+
 # Installing Pro
 
 `rankbeam/laravel-seo-pro` adds queued site scans with issue tracking, a

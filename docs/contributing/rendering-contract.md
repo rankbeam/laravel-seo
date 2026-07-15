@@ -1,3 +1,7 @@
+---
+description: "The canonical checklist every front-end stack's head must satisfy when rendering Rankbeam SEO data — the source of truth behind the core renderer tests and reference apps."
+---
+
 # The Rendering Contract
 
 This is the **single canonical checklist** every front-end stack's `<head>`

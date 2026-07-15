@@ -1,3 +1,7 @@
+---
+description: "A dependency-free stdio MCP server that lets an AI assistant read — and, when allowed, edit — a Laravel site's SEO over the Model Context Protocol. PHP 8.2–8.4 × Laravel 11–13."
+---
+
 # MCP server
 
 The Rankbeam MCP server lets an AI assistant **read — and optionally edit — a

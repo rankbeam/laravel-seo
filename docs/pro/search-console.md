@@ -1,3 +1,7 @@
+---
+description: "A strictly read-only Google Search Console panel: top queries and pages with impressions, clicks, CTR and position, joined to pages the scanner already knows. Off by default."
+---
+
 # Search Console (read-only)
 
 A **read-only** Google Search Console panel: your top queries and pages with

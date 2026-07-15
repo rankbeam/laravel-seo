@@ -1,3 +1,7 @@
+---
+description: "The stable issue-code registry behind every problem the Pro scan reports — each code carries a fixed severity and field, so dashboards and exports read codes, not messages."
+---
+
 # Scan issues — the issue-code registry
 
 Every problem the Pro scan reports is a **stable issue code** drawn from a

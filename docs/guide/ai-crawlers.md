@@ -1,3 +1,7 @@
+---
+description: "Render a managed robots.txt (and optional ai.txt) from an allow/disallow policy over a curated AI-crawler catalog, so you choose which bots may fetch your site. Free, core."
+---
+
 # AI crawler control (robots.txt / ai.txt)
 
 The AI answer engines crawl the web with named bots, and they read **robots.txt**

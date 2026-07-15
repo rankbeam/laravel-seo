@@ -1,3 +1,7 @@
+---
+description: "Generate XML sitemaps — one file per source plus an index — served at /sitemap.xml. Register sources from models, closures or URL lists; wraps spatie/laravel-sitemap."
+---
+
 # Sitemap registry
 
 The package generates XML sitemaps (one file per source plus an index) and

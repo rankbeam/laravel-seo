@@ -1,3 +1,7 @@
+---
+description: "Emit a linked JSON-LD schema graph whose nodes reference each other by stable @id — Organization, WebSite, WebPage, Article — so every page renders a consistent graph."
+---
+
 # Schema graph (JSON-LD)
 
 Search engines read JSON-LD best when the nodes reference each other — the

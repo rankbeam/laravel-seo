@@ -1,3 +1,7 @@
+---
+description: "Render SEO in server-rendered Laravel with the package's Blade directives — the all-in-one @seo resolves a model and emits meta, Open Graph, Twitter Cards and JSON-LD."
+---
+
 # Blade guide
 
 For classic server-rendered apps, the package ships seven Blade directives.

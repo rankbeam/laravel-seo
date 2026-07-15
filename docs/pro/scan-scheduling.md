@@ -1,3 +1,7 @@
+---
+description: "Run full SEO scans on a schedule and see what changed since the last — issues that appeared, returned or were fixed — ordered by impact, on the dashboard and an optional email."
+---
+
 # Scan scheduling & delta
 
 Run a full SEO scan **on a schedule**, and see **what changed since the last

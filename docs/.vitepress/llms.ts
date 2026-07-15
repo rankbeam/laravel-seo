@@ -20,10 +20,11 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 // Canonical public origin for the docs site. Single source of truth for the
-// URLs written into /llms.txt. Overridable via env so a preview/staging build
-// can't silently publish production URLs; the VitePress config sets no
-// `sitemap.hostname` to derive it from.
-const SITE_ORIGIN = process.env.RANKBEAM_DOCS_ORIGIN ?? 'https://docs.rankbeam.dev'
+// URLs written into /llms.txt — and, since it's exported, for the sitemap
+// hostname, per-page canonicals and Open Graph URLs the VitePress config emits
+// too. Overridable via env so a preview/staging build can't silently publish
+// production URLs.
+export const SITE_ORIGIN = process.env.RANKBEAM_DOCS_ORIGIN ?? 'https://docs.rankbeam.dev'
 
 type SidebarItem = { text?: string; link?: string; items?: SidebarItem[] }
 type SidebarGroup = { text?: string; items?: SidebarItem[] }

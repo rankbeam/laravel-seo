@@ -1,3 +1,7 @@
+---
+description: "How Rankbeam resolves every SEO value: six layers merged by precedence, higher layers winning and null never overwriting, so every page renders something sensible."
+---
+
 # Resolver precedence
 
 Every effective SEO value — title, description, canonical, robots, images —

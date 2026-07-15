@@ -1,3 +1,7 @@
+---
+description: "A second deterministic score beside the SEO score: a Rankbeam-defined measure of technical AI-readiness — can crawlers reach and read a page — kept separate from the SEO number."
+---
+
 # The AI-Readiness score — a second, deterministic axis
 
 The Pro scan gives every page a second number alongside the

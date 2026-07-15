@@ -1,3 +1,7 @@
+---
+description: "Bring hand-written Yoast or Rank Math SEO — titles, descriptions, canonicals, robots, focus keywords — across to your Laravel models. The importer field-mapping reference."
+---
+
 # Migrating from WordPress
 
 Moving a content site off WordPress? Rankbeam can bring the SEO metadata your

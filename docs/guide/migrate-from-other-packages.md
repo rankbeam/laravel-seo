@@ -1,3 +1,7 @@
+---
+description: "Switch to Rankbeam from another Laravel SEO package by mapping its API and storage onto the HasSEO trait and saveSEO(), with a one-command importer for per-model SEO data."
+---
+
 # Migrating from other Laravel SEO packages
 
 Already using another SEO package? Switching to Rankbeam is meant to be a

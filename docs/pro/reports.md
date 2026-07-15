@@ -1,3 +1,7 @@
+---
+description: "A branded, white-label PDF report — score, issue trend, fixed-vs-new, recovered 404s, Search Console movers, AI-bot activity — from one command, optionally emailed on a schedule."
+---
+
 # White-label reports
 
 A branded **PDF report** for one site — overall score, the issues-found trend,

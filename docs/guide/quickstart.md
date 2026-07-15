@@ -1,3 +1,7 @@
+---
+description: "From install to fully rendered meta tags in five minutes: add the HasSEO trait, save a model's SEO fields, and render them in Blade. Every step is copy-pasteable."
+---
+
 # Quickstart
 
 Five minutes from install to fully rendered meta tags. This walkthrough is

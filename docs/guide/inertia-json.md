@@ -1,3 +1,7 @@
+---
+description: "Render the same resolved SEO data through Inertia or a JSON API, and get crawler-visible meta and JSON-LD into the initial HTML with Inertia SSR or prerendering."
+---
+
 # Inertia & JSON APIs
 
 The same resolved `SEOData` that powers `@seo` renders to structured arrays —

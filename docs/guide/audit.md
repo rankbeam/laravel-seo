@@ -1,3 +1,7 @@
+---
+description: "Run php artisan seo:audit for a per-page pass/warn/fail table of what's wrong with your SEO right now — in-process, with no queue, license or network. Free, core."
+---
+
 # Free SEO audit (`seo:audit`)
 
 `php artisan seo:audit` answers one question in one command, for free: **what's

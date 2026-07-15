@@ -1,3 +1,7 @@
+---
+description: "Tell search engines the moment a URL is published or updated. Pro submits to the shared api.indexnow.org endpoint, which propagates to participating engines. Off by default."
+---
+
 # IndexNow — push-on-publish indexing
 
 Instead of waiting for a crawler to find a changed page, **IndexNow** lets you

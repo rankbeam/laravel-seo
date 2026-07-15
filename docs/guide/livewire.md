@@ -1,3 +1,7 @@
+---
+description: "Use Rankbeam's framework-generic @seo directives in Livewire apps — they emit plain HTML into the head and work in full-page components and Blade layouts just as in Blade."
+---
+
 # Livewire
 
 The `@seo` Blade directives are framework-generic — they emit plain HTML into

@@ -1,3 +1,7 @@
+---
+description: "Keyword intelligence from the Search Console data you already own: five reports on what's about to rank, what's under-clicked, and where your pages compete with each other."
+---
+
 # Search Console insights
 
 Moz/Semrush-style **keyword intelligence**, computed entirely on the Search

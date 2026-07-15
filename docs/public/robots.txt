@@ -1,0 +1,11 @@
+# https://docs.rankbeam.dev/robots.txt
+# The Rankbeam documentation is open to every crawler — search engines and AI
+# answer engines alike. Every page is also served as raw Markdown at the same
+# URL with a .md suffix, and indexed in /llms.txt.
+#
+# Allowing a crawler makes retrieval possible; it does not guarantee indexing,
+# ranking, inclusion or citation.
+User-agent: *
+Allow: /
+
+Sitemap: https://docs.rankbeam.dev/sitemap.xml

@@ -1,3 +1,7 @@
+---
+description: "The Pro scan's 0–100 SEO score: fully auditable and deterministic, every deducted point tracing to exactly one scan issue, so the same issues always produce the same number."
+---
+
 # The SEO score — transparent, versioned, Pro-owned
 
 The Pro scan gives every page a **0-100 SEO score** — the single number a
