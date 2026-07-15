@@ -863,8 +863,18 @@ return [
         /*
          * Default organization data for Organization schema.
          * Used when no specific organization is defined on a page.
+         *
+         * Set 'id' to an absolute @id when this property reuses an Organization
+         * that is defined on another host (e.g. a blog subdomain pointing at the
+         * main site's Organization), so search engines resolve one entity across
+         * domains. Copy the target node's @id byte-for-byte — @id equality is
+         * exact, so a trailing slash before the fragment matters. When 'id' is
+         * set, 'url' below is applied to the node too and the same @id flows into
+         * the WebSite publisher and WebPage about links. Leave 'id' unset to
+         * derive {app_url}#organization as before.
          */
         'organization' => [
+            // 'id' => 'https://main-site.example/#organization', // must match the reused node's @id exactly
             'name' => env('APP_NAME'),
             'url' => env('APP_URL'),
             'logo' => env('SEO_ORGANIZATION_LOGO'),

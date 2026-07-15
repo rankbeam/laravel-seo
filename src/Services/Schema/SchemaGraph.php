@@ -62,10 +62,22 @@ class SchemaGraph
 
     /**
      * The stable @id for the Organization node.
+     *
+     * Defaults to `{site_url}#organization`. Set
+     * `config('seo.schema.organization.id')` to an absolute @id when this
+     * property reuses an Organization that is defined on another host — for
+     * example a blog subdomain that points every Organization reference at the
+     * main site's node, so search engines resolve one entity across domains
+     * instead of one Organization per host. When set, the same @id flows into
+     * the WebSite `publisher` and WebPage `about` links automatically.
      */
     public function organizationId(): string
     {
-        return $this->siteUrl() . '#organization';
+        $configured = config('seo.schema.organization.id');
+
+        return $this->isNonEmptyString($configured)
+            ? $configured
+            : $this->siteUrl() . '#organization';
     }
 
     /**
@@ -98,7 +110,7 @@ class SchemaGraph
             '@id' => $this->organizationId(),
             '@type' => $config['type'] ?? 'Organization',
             'name' => $config['name'] ?? config('seo.site_name'),
-            'url' => $this->siteUrl(),
+            'url' => $this->organizationUrl(),
             'logo' => isset($config['logo']) ? $this->absoluteUrl($config['logo']) : null,
             'sameAs' => $config['sameAs'] ?? [],
             'address' => $config['address'] ?? null,
@@ -172,6 +184,37 @@ class SchemaGraph
     protected function siteUrl(): string
     {
         return rtrim((string) config('app.url'), '/');
+    }
+
+    /**
+     * The Organization node's url.
+     *
+     * In external-Organization mode — when `config('seo.schema.organization.id')`
+     * points the node at an Organization on another host — the configured
+     * `config('seo.schema.organization.url')` wins, so the node's url matches
+     * that external @id. Outside that mode the url stays derived from the site
+     * root exactly as before, so default output is unchanged. (The
+     * `organization.url` key is intentionally inert without an external id;
+     * broadening it would change existing default nodes.)
+     */
+    protected function organizationUrl(): string
+    {
+        $id = config('seo.schema.organization.id');
+        $url = config('seo.schema.organization.url');
+
+        return $this->isNonEmptyString($id) && $this->isNonEmptyString($url)
+            ? $url
+            : $this->siteUrl();
+    }
+
+    /**
+     * Whether a config value is a usable, non-blank string. Non-strings
+     * (null/array/bool) and whitespace-only values fall back to the default
+     * derivation rather than leaking into the graph verbatim.
+     */
+    private function isNonEmptyString(mixed $value): bool
+    {
+        return is_string($value) && trim($value) !== '';
     }
 
     /**

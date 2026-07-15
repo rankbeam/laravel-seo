@@ -5,6 +5,12 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.12.0] - 2026-07-15
+
+### Added
+
+- **Reuse an Organization across domains (external `@id`).** `SchemaGraph` can now point its Organization node — and every reference to it (the WebSite `publisher` and WebPage `about` links) — at an Organization defined on another host, by setting `config('seo.schema.organization.id')` to that node's absolute `@id`. This lets a satellite property (for example a blog on a subdomain) resolve to the **same** Organization entity as the main site instead of declaring a second one per host. When `organization.id` is set, `config('seo.schema.organization.url')` is applied to the node too, so its `url` matches that `@id` (copy the target node's `@id` byte-for-byte — `@id` equality is exact). Fully backward-compatible: with `organization.id` unset (the default), the Organization `@id` and `url` are derived from the app URL exactly as before — the `organization.url` key stays inert in that path, so existing nodes are unchanged. Non-string and blank config values fall back to the default derivation. See `config/seo.php` → `schema.organization`.
+
 ## [3.11.2] - 2026-07-15
 
 ### Changed

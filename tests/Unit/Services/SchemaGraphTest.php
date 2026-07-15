@@ -89,6 +89,48 @@ describe('organization node', function () {
     });
 });
 
+describe('external organization', function () {
+    // A property (e.g. a blog subdomain) can reuse an Organization defined on
+    // another host by pointing config('seo.schema.organization.id') at that
+    // node's @id, so search engines see one entity across domains.
+    it('uses a configured external @id for the organization and every link to it', function () {
+        config(['seo.schema.organization.id' => 'https://rankbeam.dev/#organization']);
+        config(['seo.schema.organization.url' => 'https://rankbeam.dev/']);
+
+        $org = graph()->organization();
+        $site = graph()->webSite();
+        $page = graph()->webPage(new SEOData(canonical: 'https://blog.example.com/post'));
+
+        expect(graph()->organizationId())->toBe('https://rankbeam.dev/#organization')
+            ->and($org['@id'])->toBe('https://rankbeam.dev/#organization')
+            ->and($org['url'])->toBe('https://rankbeam.dev/')
+            // The blog keeps its own WebSite; only the Organization is shared.
+            ->and($site['@id'])->toBe('https://example.com#website')
+            ->and($site['publisher'])->toBe(['@id' => 'https://rankbeam.dev/#organization'])
+            ->and($page['isPartOf'])->toBe(['@id' => 'https://example.com#website'])
+            ->and($page['about'])->toBe(['@id' => 'https://rankbeam.dev/#organization']);
+    });
+
+    it('ignores a blank or non-string external @id and falls back to the site-derived id', function (mixed $id) {
+        config(['seo.schema.organization.id' => $id]);
+
+        expect(graph()->organizationId())->toBe('https://example.com#organization');
+    })->with([
+        'empty string' => [''],
+        'whitespace only' => ['   '],
+        'array' => [['https://x.example/#organization']],
+        'boolean' => [false],
+    ]);
+
+    // Backward-compat guard: organization.url is inert unless an external id
+    // is also set, so existing default nodes keep their site-derived url.
+    it('does not honour organization.url without an external id', function () {
+        config(['seo.schema.organization.url' => 'https://elsewhere.example/']);
+
+        expect(graph()->organization()['url'])->toBe('https://example.com');
+    });
+});
+
 describe('website node', function () {
     it('links the website to the organization via publisher @id', function () {
         $site = graph()->webSite();
