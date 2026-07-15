@@ -51,9 +51,10 @@ contradicts the character counters in the [Filament editor](/guide/filament).
 
 The **answer-readiness (AEO)** checks fire only when a page declares
 article-type JSON-LD (`Article`, `BlogPosting`, `NewsArticle`, …) that is
-missing a signal AI answer engines rely on — an `author` entity for attribution
-and E-E-A-T, or a `datePublished` / `dateModified` for recency. A page without
-an article is never flagged, so the audit stays quiet where AEO doesn't apply.
+missing a signal that makes the article legible in structured data — an `author`
+entity (explicit authorship / provenance), or a `datePublished` / `dateModified`
+(an explicit timeline). A page without an article is never flagged, so the audit
+stays quiet where AEO doesn't apply.
 They are advisory (notice-level) and held out of the Pro 0–100 score.
 
 ## What it does *not* check — the capability boundary

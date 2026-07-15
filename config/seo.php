@@ -633,10 +633,10 @@ return [
     | llms.txt Generation
     |--------------------------------------------------------------------------
     |
-    | llms.txt (https://llmstxt.org) is the AEO/GEO counterpart to the XML
-    | sitemap: a markdown index of your site's key content that AI crawlers
-    | (GPTBot, ClaudeBot, PerplexityBot, Google-Extended) read to understand
-    | your site. It REUSES the sitemap's content sources — the models under
+    | llms.txt (https://llmstxt.org) is an optional markdown index of your
+    | site's key content, for the tools that choose to consume it. It is not an
+    | established standard, and Google Search does not use it. It REUSES the
+    | sitemap's content sources — the models under
     | `sitemap.models` and the named sources registered via
     | `SEO::sitemaps()->register(...)` — so the two artifacts never disagree.
     |
@@ -710,10 +710,10 @@ return [
     | A managed robots.txt for the AI era. robots.txt is the file the major AI
     | crawlers actually honour — OpenAI's GPTBot / OAI-SearchBot, Anthropic's
     | ClaudeBot, PerplexityBot and Google-Extended all document it as the
-    | control surface. The default policy "allows the bots that cite you and
-    | gates the ones that train on you": AI-search + AI-assistant crawlers are
-    | allowed (they drive the AI referral channel), AI-training crawlers are
-    | disallowed.
+    | control surface. The default policy "allows the AI-search and assistant
+    | crawlers and disallows the ones that train on you": AI-search + AI-assistant
+    | crawlers are allowed (they drive the AI referral channel), AI-training
+    | crawlers are disallowed.
     |
     | Generate: php artisan seo:robots-txt
     | Paste-only: SEO::robotsTxt()->aiDirectives()
@@ -749,7 +749,7 @@ return [
         /*
          * Default policy per crawler purpose. Each catalogued bot is tagged as
          * one of: 'ai_training' (collects data to train models), 'ai_search'
-         * (indexes content to cite it in AI answers), or 'ai_assistant'
+         * (indexes content for AI-search answers), or 'ai_assistant'
          * (fetches a page in real time on a user's behalf). Map each to 'allow'
          * or 'disallow'.
          */

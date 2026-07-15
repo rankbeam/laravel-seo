@@ -6,7 +6,7 @@ use Rankbeam\Seo\AiCrawlers\AiCrawler;
 use Rankbeam\Seo\AiCrawlers\AiCrawlerRegistry;
 
 beforeEach(function () {
-    // Default "allow the bots that cite you, gate the trainers" policy.
+    // Default "allow the AI-search and assistant crawlers, gate the trainers" policy.
     config([
         'seo.ai_crawlers.policy' => [
             'ai_training' => 'disallow',

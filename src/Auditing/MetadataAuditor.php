@@ -85,8 +85,9 @@ class MetadataAuditor
     ];
 
     /**
-     * Answer-readiness (AEO) checks: is the page's article content extractable
-     * and attributable by AI answer engines?
+     * Answer-readiness (AEO) checks: is the page's article content legible in
+     * its structured data — is authorship, provenance and the article timeline
+     * made explicit?
      *
      * Both checks read the RESOLVED JSON-LD graph (the same one the page
      * renders), so they run in the free audit with no fetch. They fire ONLY
@@ -129,14 +130,14 @@ class MetadataAuditor
         if ($missingAuthor) {
             $issues[] = MetadataIssues::make(
                 'aeo_missing_author',
-                'An article on this page has no author in its structured data; AI answer engines use the author for attribution and E-E-A-T.',
+                'An article on this page has no author in its structured data. Declaring an author makes the article\'s authorship and provenance explicit in the schema.',
             );
         }
 
         if ($missingDate) {
             $issues[] = MetadataIssues::make(
                 'aeo_article_missing_date',
-                'An article on this page has no publish date in its structured data; AI answer engines use it to judge recency.',
+                'An article on this page has no publish date in its structured data. A datePublished or dateModified makes the article\'s timeline explicit in the schema.',
             );
         }
 

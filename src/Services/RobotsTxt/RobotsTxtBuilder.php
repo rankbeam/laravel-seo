@@ -17,8 +17,8 @@ use Rankbeam\Seo\Services\IndexingGuard;
  * robots.txt is the file the major AI crawlers actually read — OpenAI's GPTBot
  * /OAI-SearchBot, Anthropic's ClaudeBot, PerplexityBot and Google-Extended all
  * document robots.txt as the control surface. This builder turns the resolved
- * {@see AiCrawlerRegistry} policy ("allow the bots that cite you, gate the ones
- * that train on you") into directive blocks, then frames them with an optional
+ * {@see AiCrawlerRegistry} policy ("allow the AI-search and assistant crawlers,
+ * gate the ones that train on you") into directive blocks, then frames them with an optional
  * general `User-agent: *` section, a `Sitemap:` line, and a pointer at the
  * llms.txt content index — so the one file orients both classic and AI crawlers.
  *

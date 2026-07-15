@@ -4,10 +4,12 @@ description: "Serve a clean Markdown representation of a page to AI crawlers via
 
 # Markdown for bots
 
-AI crawlers and answer engines parse content far more reliably from clean
-markdown than from a page of application HTML. This feature serves a **markdown
-representation** of a page to those clients via content negotiation — while every
-normal visitor keeps getting your HTML, untouched.
+A page of application HTML wraps its content in navigation, scripts and layout
+markup. Some AI crawlers and answer engines accept a cleaner representation when
+one is offered, so this feature can serve a **markdown representation** of a page
+to clients that ask for it via content negotiation — while every normal visitor
+keeps getting your HTML, untouched. It's an opt-in compatibility choice, not a
+promise about how any given client parses or uses the result.
 
 It pairs with [AI crawler control](/guide/ai-crawlers): that decides *whether* a
 bot may fetch you; this decides *what* it gets when it does.

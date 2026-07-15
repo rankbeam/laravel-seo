@@ -11,6 +11,16 @@ attribute this content?* — and is **never blended into the organic SEO number*
 They are two separate axes, each with its own rubric, its own version, and its
 own column.
 
+::: warning What the number is — and is not
+The AI-Readiness score is a **Rankbeam-defined, deterministic measure of technical
+compatibility** — whether the crawl-based signals on a page are present and
+well-formed. It is **not** a prediction of ranking, indexing, inclusion or
+citation in any search or AI system, and no score guarantees those outcomes. The
+`air_llms_txt` check credits an **optional** `llms.txt` compatibility file for
+tools that choose to consume it — Google Search does not use it, and it is not a
+ranking signal.
+:::
+
 Like the SEO score it is **fully deterministic and reproducible**: every point
 traces to one named, crawl-based check, and the same signals always produce the
 same number. **There are zero AI calls anywhere in scoring.** That is the whole
@@ -44,7 +54,7 @@ four categories:
 
 ### A · Bot Access & Control — 30 points
 
-Can the crawlers that *cite* you actually reach you? Evaluated against the
+Can the AI-search and assistant crawlers actually reach you? Evaluated against the
 site's **served `/robots.txt`**, resolved for the **scanned page's own path**
 (a page under a `Disallow: /section` is genuinely unreachable even when the root
 is open), using the [AI-crawler catalogue](/guide/ai-crawlers)'s purpose
@@ -82,7 +92,7 @@ search and assistant crawlers can score full marks in this category.
 
 | Check | Weight | Credit |
 |---|---|---|
-| `air_schema_completeness` — JSON-LD present, primary entity typed, attribution complete (author + date for articles) | 18 | complete / partial / none |
+| `air_schema_completeness` — JSON-LD present, primary entity typed, authorship and date present (author + date for articles) | 18 | complete / partial / none |
 | `air_answer_structure` — answer-extraction affordances: FAQ/QA/HowTo schema, heading hierarchy, lists, a concise lead | 10 | by affordance count |
 
 Every check returns **full**, **partial**, or **no** credit — or **skipped**

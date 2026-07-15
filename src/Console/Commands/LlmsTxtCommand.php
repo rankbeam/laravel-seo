@@ -11,9 +11,9 @@ use Rankbeam\Seo\Services\LlmsTxt\LlmsTxtBuilder;
 /**
  * Artisan command to generate an llms.txt index.
  *
- * llms.txt is the AEO/GEO counterpart to the XML sitemap: a markdown index of
- * the site's key content that AI crawlers (GPTBot, ClaudeBot, PerplexityBot,
- * Google-Extended) read. This command writes it the same way `seo:sitemap`
+ * llms.txt is an optional markdown index of the site's key content, for the
+ * tools that choose to consume it (Google Search does not use it). This command
+ * writes it the same way `seo:sitemap`
  * writes its file — to the configured disk and path.
  *
  * ## Usage

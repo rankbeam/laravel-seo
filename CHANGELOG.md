@@ -5,6 +5,12 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.11.2] - 2026-07-15
+
+### Changed
+
+- **Crawler, `llms.txt` and answer-readiness copy precision.** A documentation and diagnostic-message sweep that keeps the crawler-policy feature exactly as it is (no defaults, weights or behaviour changed) while removing wording that implied crawler access guarantees citation. The default AI-crawler policy is now described as "allow the AI-search and assistant crawlers, disallow the ones that train on you" (previously "allow the bots that cite you"); `llms.txt` is described as an optional Markdown index for the tools that choose to consume it, and the docs and config now state plainly that **Google Search does not use it** (it is no longer framed as a sitemap "counterpart" that training crawlers read); the free `seo:audit` answer-readiness findings (`aeo_missing_author`, `aeo_article_missing_date`) now describe what an author/date makes explicit in the page's structured data rather than asserting how AI answer engines universally use them; the AI-crawler and Markdown-for-bots guides drop the "far more reliably" / "stay visible" generalisations and add one central note that allowing a crawler makes retrieval possible but guarantees no discovery, indexing, ranking, inclusion, quotation or citation; the AI-Readiness score docs add an explicit scope note (a deterministic technical-compatibility measure, not a ranking/inclusion/citation prediction). Copy/documentation only; suite unchanged (632 passed / 4 skipped).
+
 ## [3.11.1] - 2026-07-11
 
 ### Fixed

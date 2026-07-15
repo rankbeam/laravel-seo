@@ -16,10 +16,11 @@ namespace Rankbeam\Seo\AiCrawlers;
  *
  * ## Purpose taxonomy
  * Every bot is tagged with what it primarily does, which drives the default
- * policy ("allow the bots that cite you, gate the ones that train on you"):
+ * policy ("allow the AI-search and assistant crawlers, gate the ones that train
+ * on you"):
  *
  * - {@see PURPOSE_TRAINING} — collects content to train models. Default: disallow.
- * - {@see PURPOSE_SEARCH} — indexes content to cite / surface it in AI answers
+ * - {@see PURPOSE_SEARCH} — indexes content to surface it in AI-search answers
  *   (the AI-search referral channel). Default: allow.
  * - {@see PURPOSE_ASSISTANT} — fetches a page in real time on a user's behalf
  *   inside a chat. Default: allow.
@@ -51,7 +52,7 @@ class AiCrawlerRegistry
     /** Collects content to train models. */
     public const PURPOSE_TRAINING = 'ai_training';
 
-    /** Indexes content to cite / surface it in AI search answers. */
+    /** Indexes content to surface it in AI-search answers. */
     public const PURPOSE_SEARCH = 'ai_search';
 
     /** Fetches a page in real time on a user's behalf inside a chat. */

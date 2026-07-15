@@ -18,8 +18,8 @@ The free MIT core of **[Rankbeam](https://rankbeam.dev)** — open-core SEO infr
 | **Canonical policy** | Derived canonicals (model URL / current URL) get the query string stripped; explicitly set canonicals are preserved verbatim. |
 | **Schema (JSON-LD)** | Builders for Article, Breadcrumb, FAQ, LocalBusiness, Organization, Product; `SchemaGraph` for Organization/WebSite/WebPage nodes cross-linked via stable `@id`s; breadcrumbs from a page's ancestor chain with a loop guard. |
 | **Sitemaps** | `SitemapBuilder` (wraps spatie/laravel-sitemap) with config-driven model sources, programmatic named sources via `SEO::sitemaps()->register(...)`, sitemap index support, `seo:sitemap` command, and `/sitemap.xml` routes that can be disabled. Sitemaps open as a readable, branded page in the browser via a [styled XSL stylesheet](https://rankbeam.dev/guide/sitemaps#styled-sitemap-in-the-browser) (on by default; search engines ignore it). |
-| **llms.txt** | `seo:llms-txt` writes a markdown [`llms.txt`](https://llmstxt.org) index for AI crawlers (GPTBot / ClaudeBot / PerplexityBot / Google-Extended) from the **same sources as the sitemap** (the registry + `seo.sitemap.models`), so the two never disagree. Served at `/llms.txt`, gated by config. |
-| **AI crawler control** | `seo:robots-txt` renders a managed `robots.txt` (and `ai.txt`) from a doc-verified catalog of AI crawlers tagged by purpose — **allow the bots that cite you (`ai_search`/`ai_assistant`), gate the ones that train on you (`ai_training`)** by default. `SEO::robotsTxt()->aiDirectives()` for a paste-able block; `SEO::aiCrawlers()` for the catalog + policy. Bots that ignore robots.txt are flagged advisory. |
+| **llms.txt** | `seo:llms-txt` writes an optional markdown [`llms.txt`](https://llmstxt.org) index from the **same sources as the sitemap** (the registry + `seo.sitemap.models`), so the two never disagree. It's a compatibility file for tools that choose to consume it — Google Search does not use it. Served at `/llms.txt`, gated by config. |
+| **AI crawler control** | `seo:robots-txt` renders a managed `robots.txt` (and `ai.txt`) from a doc-verified catalog of AI crawlers tagged by purpose — **allow the AI-search and assistant crawlers (`ai_search`/`ai_assistant`), disallow the ones that train on you (`ai_training`)** by default. `SEO::robotsTxt()->aiDirectives()` for a paste-able block; `SEO::aiCrawlers()` for the catalog + policy. Bots that ignore robots.txt are flagged advisory. |
 | **Markdown for bots** | Content negotiation that serves clean **markdown** to AI crawlers instead of HTML — on `Accept: text/markdown`, `?format=md`, or (opt-in) a known AI crawler — from a model's `toSeoMarkdown()`, a `SEO::markdown()->register()` source, or a built title+description+content fallback. Off by default; never touches a normal visitor's response. |
 | **Indexing guard** | Ties indexability to the Laravel *environment*: outside `seo.indexing_guard.allowed_environments` (default `['production']`) every page is forced to `noindex,nofollow` (above the whole precedence chain — overrides even a stored per-page value), `robots.txt`/`ai.txt` go disallow-all, and `seo:audit` warns. Stops a staging/local copy leaking into the index. **Off by default**, one-line opt-in `SEO_INDEXING_GUARD=true`, inert on production. See [Indexing guard](docs/guide/indexing-guard.md). |
 | **Generated OG images** | Optional 1200×630 Open Graph images rendered by a real headless browser (`spatie/browsershot`) — correct multi-line wrapping, CJK/accents and truncation. Three publishable templates (default / article / product, selectable per model) + bundled OFL font; `seo:og-images` pre-generates and caches each card (content-hashed); the resolver serves it as a computed `og:image` fallback (existence-gated — never renders on a web request). **Off by default**, browser is a suggested dependency, static pre-generation only. See [Generated OG images](docs/guide/og-image.md). |
@@ -152,9 +152,10 @@ php artisan seo:robots-txt --ai-txt # also write public/ai.txt
 ```
 
 A managed `robots.txt` for the AI era, rendered from a doc-verified catalog of
-AI crawlers tagged by purpose. The default policy **allows the bots that cite you
-(`ai_search` / `ai_assistant`) and disallows the ones that train on your content
-(`ai_training`)**; override per purpose or per bot in `seo.ai_crawlers`. Grab
+AI crawlers tagged by purpose. The default policy **allows the AI-search and
+assistant crawlers (`ai_search` / `ai_assistant`) and disallows the ones that
+train on your content (`ai_training`)**; override per purpose or per bot in
+`seo.ai_crawlers`. Grab
 just the managed block for an existing file with `SEO::robotsTxt()->aiDirectives()`,
 or serve `/robots.txt` dynamically (off by default — it won't shadow a static
 file). Bots documented not to honour robots.txt are flagged advisory. See

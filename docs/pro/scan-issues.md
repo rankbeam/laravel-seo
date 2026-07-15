@@ -67,8 +67,8 @@ scan, measuring the served `<head>` — same codes, same meaning.)
 | `hreflang_missing_self_reference` | warning | alternates | `locale`, `page_url` | Alternates are declared but none references the page's own locale (a self-referencing hreflang). |
 | `hreflang_duplicate_code` | warning | alternates | `duplicate_codes` | The same hreflang code maps to more than one URL (an ambiguous cluster). |
 | `hreflang_missing_x_default` | notice | alternates | `languages` | A multi-language hreflang cluster has no `x-default` fallback. |
-| `aeo_missing_author` | notice | schema | — | An article in the page's structured data has no author entity (no attribution for AI answer engines). |
-| `aeo_article_missing_date` | notice | schema | — | An article in the page's structured data has no published/modified date (a recency signal for AI answer engines). |
+| `aeo_missing_author` | notice | schema | — | An article in the page's structured data has no author entity (authorship / provenance not made explicit in the schema). |
+| `aeo_article_missing_date` | notice | schema | — | An article in the page's structured data has no published/modified date (the article timeline not made explicit in the schema). |
 
 The length thresholds reuse the core `SEOWarningEvaluator` constants (60/160),
 so a scan never contradicts the editor's character counters; the lower bounds
@@ -84,10 +84,10 @@ page declares alternates. Cross-page **reciprocity** ("return tags") is not yet
 validated.
 
 The `aeo_*` codes are **answer-readiness (AEO)** signals — is the page's article
-content extractable and attributable by AI answer engines? They read the
-resolved JSON-LD graph and fire **only** when it declares article-type
-structured data (`Article`, `BlogPosting`, `NewsArticle`, …) missing an `author`
-entity (attribution / E-E-A-T) or a `datePublished` / `dateModified` (recency).
+content legible in its structured data? They read the resolved JSON-LD graph and
+fire **only** when it declares article-type structured data (`Article`,
+`BlogPosting`, `NewsArticle`, …) missing an `author` entity (explicit authorship
+/ provenance) or a `datePublished` / `dateModified` (an explicit timeline).
 A page without an article is never flagged. They are gated by
 `seo-pro.scan.checks.aeo` (on by default) and mirror the free
 [`seo:audit`](/guide/audit).

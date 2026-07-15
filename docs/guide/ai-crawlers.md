@@ -4,11 +4,11 @@ description: "Render a managed robots.txt (and optional ai.txt) from an allow/di
 
 # AI crawler control (robots.txt / ai.txt)
 
-The AI answer engines crawl the web with named bots, and they read **robots.txt**
-to decide what they may use. Rankbeam ships a curated catalog of those bots and
+The major AI operators crawl the web with named bots, and most read **robots.txt**
+to decide what they may fetch. Rankbeam ships a curated catalog of those bots and
 renders a managed `robots.txt` (and optional `ai.txt`) from a simple allow /
-disallow policy — so you can **let the bots that cite you in, and gate the ones
-that train on your content.**
+disallow policy — so you can **allow the AI-search and assistant crawlers, and
+gate the ones that train on your content.**
 
 This is a free, core feature. The Pro package adds the other half —
 [observability: an AI-bot hit log](/pro/ai-bot-monitor) showing which AI crawlers
@@ -20,13 +20,19 @@ Every catalogued bot is tagged with what it primarily does:
 
 | Purpose | What it does | Default |
 | --- | --- | --- |
-| `ai_search` | Indexes your pages to **cite** them in AI answers (the AI referral channel) | **allow** |
+| `ai_search` | Fetches your pages to index them for **AI search** answers (the AI referral channel) | **allow** |
 | `ai_assistant` | Fetches a page in real time on a **user's** behalf inside a chat | **allow** |
 | `ai_training` | Collects content to **train** a model | **disallow** |
 
-That mirrors how most publishers want to treat the AI era: stay visible in
-ChatGPT search, Perplexity and friends, while opting out of being training data.
-Change any of it in config.
+That mirrors how most publishers approach the AI era: reachable by the AI-search
+and assistant crawlers behind ChatGPT search, Perplexity and friends, while opting
+out of being training data. Change any of it in config.
+
+::: warning Access is not citation
+Allowing a crawler makes retrieval *possible*; it does not guarantee discovery,
+indexing, ranking, inclusion, quotation or citation. This policy controls
+**access** — which bots may fetch your pages — and nothing downstream of that.
+:::
 
 ## Quick start
 
