@@ -176,6 +176,17 @@ vendor/bin/pest
 
 Queued site scans, content analysis, redirect manager, 404 monitor, and the SEO dashboard ship in `laravel-seo-pro` (commercial); the Filament admin form fields ship in `laravel-seo-filament` (free). The old `seo:install` stub-publishing flow is gone.
 
+## Contributing
+
+Bug reports, fixes and features are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md)
+for the package boundary (what belongs in core vs. the Filament/Pro packages),
+how to run the suite, the rendering contract, and the versioning/BC policy.
+
+## Security
+
+Please report security vulnerabilities privately, not in a public issue — see
+[SECURITY.md](SECURITY.md).
+
 ## License
 
 MIT — see [LICENSE.md](LICENSE.md).
