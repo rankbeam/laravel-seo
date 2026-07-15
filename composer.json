@@ -1,17 +1,20 @@
 {
     "name": "rankbeam/laravel-seo",
-    "description": "SEO core for Laravel - meta tag resolution with precedence chain, Open Graph / Twitter Cards, JSON-LD schema markup, and XML sitemap generation.",
+    "description": "Open-core SEO infrastructure for Laravel: metadata, canonical URLs, social cards, linked JSON-LD, XML sitemaps and crawler controls - the free MIT core.",
     "type": "library",
     "license": "MIT",
     "keywords": [
         "laravel",
+        "php",
         "seo",
         "meta-tags",
-        "sitemap",
-        "schema",
-        "structured-data",
         "open-graph",
-        "twitter-cards"
+        "twitter-cards",
+        "structured-data",
+        "json-ld",
+        "schema",
+        "sitemap",
+        "canonical"
     ],
     "authors": [
         {
@@ -19,7 +22,13 @@
             "email": "valentinogoxhaj@gmail.com"
         }
     ],
-    "homepage": "https://github.com/rankbeam/laravel-seo",
+    "homepage": "https://rankbeam.dev",
+    "support": {
+        "issues": "https://github.com/rankbeam/laravel-seo/issues",
+        "source": "https://github.com/rankbeam/laravel-seo",
+        "docs": "https://docs.rankbeam.dev",
+        "email": "hello@rankbeam.dev"
+    },
     "require": {
         "php": "^8.2",
         "illuminate/support": "^11.0|^12.0|^13.0",

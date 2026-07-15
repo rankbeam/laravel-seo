@@ -113,7 +113,7 @@ const proof = [
 
         <div class="rb-actions">
           <a class="rb-btn rb-btn-primary" :href="withBase('/guide/quickstart')">Quickstart</a>
-          <a class="rb-btn rb-btn-secondary" :href="withBase('/guide/why-rankbeam')">Why Rankbeam</a>
+          <a class="rb-btn rb-btn-secondary" :href="withBase('/guide/why-rankbeam')">What is Rankbeam?</a>
         </div>
 
         <ul class="rb-notes">

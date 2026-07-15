@@ -9,7 +9,7 @@ const core = [
   {
     text: 'Getting started',
     items: [
-      { text: 'Why Rankbeam', link: '/guide/why-rankbeam' },
+      { text: 'What is Rankbeam?', link: '/guide/why-rankbeam' },
       { text: 'Installation', link: '/guide/installation' },
       { text: 'Quickstart', link: '/guide/quickstart' },
       { text: 'Run the demo', link: '/guide/demo' },

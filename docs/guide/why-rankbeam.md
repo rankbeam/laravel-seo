@@ -1,4 +1,62 @@
-# Why Rankbeam, not three packages + glue
+---
+title: What is Rankbeam? Laravel SEO infrastructure explained
+description: "What Rankbeam is: open-core SEO infrastructure for Laravel — a free MIT core for metadata, canonical URLs, JSON-LD, sitemaps and crawler controls, plus a commercial Pro monitoring engine and an optional Filament UI."
+---
+
+# What is Rankbeam?
+
+**Rankbeam is open-core SEO infrastructure for Laravel: a free MIT core for
+metadata, canonical URLs, social cards, linked JSON-LD, sitemaps and crawler
+controls, plus optional commercial Pro monitoring and workflows.** It isn't a
+runtime tag helper bolted onto the side of an app. It resolves SEO from your own
+models and config, renders the same typed data as Blade, an Inertia head or a
+JSON API, and — with Pro — keeps watching it after the deploy.
+
+## The package family
+
+Rankbeam is three packages that share one support matrix:
+
+| Package | License | What it is |
+|---|---|---|
+| [`rankbeam/laravel-seo`](https://github.com/rankbeam/laravel-seo) | **MIT, free** | the core — meta resolution, the linked JSON-LD schema graph, XML sitemaps, crawler controls, the free `seo:audit`, and the importers |
+| [`rankbeam/laravel-seo-filament`](https://github.com/rankbeam/laravel-seo-filament) | **MIT, free** | Filament 4/5 form fields and live previews that write to the core's `seo_meta` |
+| `rankbeam/laravel-seo-pro` | **commercial** | the operations engine — queued scans with a 0–100 score, a redirect manager, a no-IP 404 monitor, a broken-link crawler, Search Console insights, and bring-your-own-key AI assist |
+
+The boundary is deliberate. Everything the rendered page outputs is MIT and free
+forever; what you pay for is the production **audit and monitoring** layer.
+Commercial Pro is its own package — it never ships inside the free core.
+
+## Who it's for
+
+Rankbeam earns its keep when SEO is **stored, model-attached, multi-locale,
+headless, and audited** — a production Laravel application with dynamic or
+model-backed content. For a handful of static pages that need one title and
+description, a small runtime meta helper is the better fit; the note below on
+[when the assembled stack is still fine](#what-is-honestly-not-in-the-free-core)
+says so plainly.
+
+## Supported versions
+
+One matrix for the whole family:
+
+- **PHP** 8.2 – 8.4
+- **Laravel** 11 / 12 / 13 (Laravel 13 requires PHP 8.3+)
+- **Filament** 4 / 5 (optional)
+
+## What Rankbeam doesn't replace
+
+Rankbeam coordinates a Laravel app's own SEO output. It is not a hosted rank
+tracker, a keyword-research suite, or an analytics product, and it promises
+nothing about rankings, indexing, or AI citations. For XML sitemap generation it
+wraps [`spatie/laravel-sitemap`](https://packagist.org/packages/spatie/laravel-sitemap)
+rather than reinventing it, and it leaves your content, routing, and analytics
+where they are.
+
+New here? [Install the free core](/guide/installation), or read on for the
+receipts from a real production swap. Pro and the founding waitlist live at
+[rankbeam.dev](https://rankbeam.dev/).
+
+## Why not three packages + glue
 
 Most Laravel apps don't have an "SEO package." They have an **SEO stack**: a
 package that stores meta per model, a second package that adds the fields to
