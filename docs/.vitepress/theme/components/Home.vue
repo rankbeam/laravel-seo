@@ -97,8 +97,8 @@ const proof = [
     <section class="rb-hero">
       <CommitField />
       <div class="rb-container rb-hero-inner">
-        <p class="rb-eyebrow">Laravel 11–13 · PHP 8.2–8.4</p>
-        <h1 class="rb-h1">The headless SEO engine for Laravel</h1>
+        <p class="rb-eyebrow">Free MIT core · Laravel 11–13 · PHP 8.2–8.4</p>
+        <h1 class="rb-h1">The Laravel SEO package built for production</h1>
         <p class="rb-lede">
           Typed, Git-native metadata resolution, a linked JSON-LD schema graph and XML sitemaps
           in a free MIT core — rendered the same in Blade, Inertia or a JSON API.

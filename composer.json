@@ -1,6 +1,6 @@
 {
     "name": "rankbeam/laravel-seo",
-    "description": "Open-core SEO infrastructure for Laravel: metadata, canonical URLs, social cards, linked JSON-LD, XML sitemaps and crawler controls - the free MIT core.",
+    "description": "Laravel SEO package for metadata, canonical URLs, Open Graph, linked JSON-LD, XML sitemaps and crawler controls - free and MIT licensed.",
     "type": "library",
     "license": "MIT",
     "keywords": [
