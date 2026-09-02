@@ -4,7 +4,13 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/rankbeam/laravel-seo.svg?style=flat-square)](https://packagist.org/packages/rankbeam/laravel-seo)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE.md)
 
-The free MIT core of **[Rankbeam](https://rankbeam.dev)** — open-core SEO infrastructure for Laravel. This package resolves meta tags through a layered precedence chain and renders Open Graph / Twitter Cards, a linked `@id` JSON-LD schema graph, XML sitemaps and crawler controls, straight from your Laravel models and config. Production monitoring (Pro) and the Filament admin UI ship as separate packages — this one never pulls them in.
+**[Rankbeam](https://rankbeam.dev/laravel-seo)** is a Laravel SEO package built for production applications. The free MIT core resolves metadata through a layered precedence chain and renders canonical URLs, Open Graph and Twitter cards, a linked `@id` JSON-LD graph, XML sitemaps and crawler controls straight from your Laravel models and config.
+
+```bash
+composer require rankbeam/laravel-seo
+```
+
+Production auditing and monitoring (Pro) and the Filament admin UI ship as separate packages. This package never pulls them in.
 
 > **Upgrading from `fibonoir/laravel-seo` v1?** See [UPGRADING.md](UPGRADING.md) — v2 renames the vendor and carves the old "full suite" down to this core; the analyzer, scanner, redirect manager, 404 monitor, and admin UI live on as separate packages ([`laravel-seo-filament`](https://github.com/rankbeam/laravel-seo-filament), free; `laravel-seo-pro`, commercial).
 

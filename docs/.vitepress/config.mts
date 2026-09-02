@@ -133,7 +133,7 @@ const reference = [
 export default defineConfig({
   title: 'Rankbeam',
   description:
-    'SEO for Laravel: layered meta resolution, Open Graph / Twitter Cards, JSON-LD schema graph, and XML sitemaps.',
+    'Laravel SEO package for layered metadata, canonical URLs, Open Graph, linked JSON-LD, XML sitemaps and crawler controls.',
   lang: 'en-US',
   lastUpdated: true,
   cleanUrls: true,
@@ -242,7 +242,7 @@ export default defineConfig({
       { text: 'Pro', link: '/pro/installation', activeMatch: '^/pro/' },
       { text: 'Reference', link: '/reference/configuration', activeMatch: '^/(reference|contributing)/' },
       {
-        text: 'v3.11.1',
+        text: 'v3.12.0',
         items: [
           { text: 'Changelog', link: 'https://github.com/rankbeam/laravel-seo/blob/master/CHANGELOG.md' },
           { text: 'Upgrading from v1', link: '/guide/upgrade-from-v1' },
