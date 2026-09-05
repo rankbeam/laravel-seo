@@ -47,6 +47,24 @@ back to the package file, then to English.
 Machine-translated first passes are welcome as long as the PR says so; a native review is what
 turns them into a supported language.
 
+### Status
+
+| Locale | Language | Status |
+|---|---|---|
+| `en` | English | source |
+| `it` | Italian | reviewed by the maintainer |
+| `de` | German | first pass, native review wanted |
+| `fr` | French | first pass, native review wanted |
+| `es` | Spanish | first pass, native review wanted |
+| `pt_BR` | Portuguese (Brazil) | first pass, native review wanted |
+| `nl` | Dutch | first pass, native review wanted |
+| `tr` | Turkish | first pass, native review wanted |
+| `ru` | Russian | first pass, native review wanted |
+| `pl` | Polish | first pass, native review wanted |
+
+Planned next: Japanese, Chinese (Simplified and Traditional), Korean, Greek, Ukrainian, Czech.
+
 ### Credits
 
 - English — Rankbeam
+- Italian — Valentin Goxhaj (review); first passes for the other languages by Claude, 2026-09-05

@@ -5,6 +5,12 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.14.0] - 2026-09-05
+
+### Added
+
+- **Nine languages for the audit findings and editor warnings:** Italian (`it`), German (`de`), French (`fr`), Spanish (`es`), Brazilian Portuguese (`pt_BR`), Dutch (`nl`), Turkish (`tr`), Russian (`ru`) and Polish (`pl`). Italian was reviewed by the maintainer; the other eight are first passes awaiting a native review — corrections are welcome as pull requests, see `TRANSLATING.md`. Every file is held to the parity test (same keys as `en`, every placeholder preserved). The package keeps following `app()->getLocale()`; apps running in English see no change.
+
 ## [3.13.0] - 2026-09-05
 
 ### Added
