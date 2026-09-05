@@ -199,6 +199,8 @@ Queued site scans, content analysis, redirect manager, 404 monitor, and the SEO 
 
 ## Contributing
 
+Translations are welcome — see [TRANSLATING.md](TRANSLATING.md) (language files, glossary, the parity test).
+
 Bug reports, fixes and features are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md)
 for the package boundary (what belongs in core vs. the Filament/Pro packages),
 how to run the suite, the rendering contract, and the versioning/BC policy.

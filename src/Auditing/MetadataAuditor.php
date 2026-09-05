@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace Rankbeam\Seo\Auditing;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 use Rankbeam\Seo\Facades\SEO;
 use Rankbeam\Seo\Models\SEOMeta;
+use Rankbeam\Seo\Pro\Scanning\PageScanner;
 use Rankbeam\Seo\Services\SEOWarningEvaluator;
 use Rankbeam\Seo\Traits\HasSEO;
 use Throwable;
@@ -18,7 +20,7 @@ use Throwable;
  * Every check here is resolvable from the model + the core SEOResolver with NO
  * page fetch and NO rendered HTML, so the command needs no queue, no license,
  * and no network. This is the free counterpart to the Pro EXEC_METADATA scanner
- * ({@see \Rankbeam\Seo\Pro\Scanning\PageScanner}); the two implement the same
+ * ({@see PageScanner}); the two implement the same
  * codes with the same semantics (see {@see MetadataIssues}).
  *
  * What it deliberately does NOT do: the rendered-HTML checks (H1, image alt,
@@ -130,14 +132,14 @@ class MetadataAuditor
         if ($missingAuthor) {
             $issues[] = MetadataIssues::make(
                 'aeo_missing_author',
-                'An article on this page has no author in its structured data. Declaring an author makes the article\'s authorship and provenance explicit in the schema.',
+                __('seo::seo.audit.aeo_missing_author'),
             );
         }
 
         if ($missingDate) {
             $issues[] = MetadataIssues::make(
                 'aeo_article_missing_date',
-                'An article on this page has no publish date in its structured data. A datePublished or dateModified makes the article\'s timeline explicit in the schema.',
+                __('seo::seo.audit.aeo_article_missing_date'),
             );
         }
 
@@ -286,7 +288,7 @@ class MetadataAuditor
 
         return MetadataIssues::make(
             'duplicate_title',
-            "Title \"{$seoMeta->title}\" is used on ".count($duplicates).' other page(s).',
+            __('seo::seo.audit.duplicate_title', ['title' => $seoMeta->title, 'count' => count($duplicates)]),
             [
                 'title' => $seoMeta->title,
                 'duplicate_urls' => $this->duplicateUrls($duplicates),
@@ -317,7 +319,7 @@ class MetadataAuditor
 
         return MetadataIssues::make(
             'duplicate_description',
-            'Meta description is duplicated on '.count($duplicates).' other page(s).',
+            __('seo::seo.audit.duplicate_description', ['count' => count($duplicates)]),
             [
                 'description' => mb_substr($seoMeta->description, 0, 100).'...',
                 'duplicate_urls' => $this->duplicateUrls($duplicates),
@@ -341,7 +343,7 @@ class MetadataAuditor
             $modelTitle = method_exists($model, 'getSEOTitle') ? $model->getSEOTitle() : null;
 
             if (empty($modelTitle)) {
-                $issues[] = MetadataIssues::make('missing_title', 'Page is missing a title tag.');
+                $issues[] = MetadataIssues::make('missing_title', __('seo::seo.audit.missing_title'));
             }
         }
 
@@ -349,7 +351,7 @@ class MetadataAuditor
             $modelDesc = method_exists($model, 'getSEODescription') ? $model->getSEODescription() : null;
 
             if (empty($modelDesc)) {
-                $issues[] = MetadataIssues::make('missing_description', 'Page is missing a meta description.');
+                $issues[] = MetadataIssues::make('missing_description', __('seo::seo.audit.missing_description'));
             }
         }
 
@@ -357,7 +359,7 @@ class MetadataAuditor
             $modelImage = method_exists($model, 'getSEOImage') ? $model->getSEOImage() : null;
 
             if (empty($modelImage)) {
-                $issues[] = MetadataIssues::make('missing_og_image', 'Page is missing an Open Graph image.');
+                $issues[] = MetadataIssues::make('missing_og_image', __('seo::seo.audit.missing_og_image'));
             }
         }
 
@@ -366,7 +368,7 @@ class MetadataAuditor
         // is not nagged. The Pro PageScanner reads the SAME core flag, so the
         // audit, the Pro scan, and the Pro editor nag always agree.
         if (config('seo.keywords.enabled', false) && (! $seoMeta || empty($seoMeta->focus_keywords))) {
-            $issues[] = MetadataIssues::make('missing_focus_keyword', 'No focus keyword set for this page.');
+            $issues[] = MetadataIssues::make('missing_focus_keyword', __('seo::seo.audit.missing_focus_keyword'));
         }
 
         return $issues;
@@ -399,13 +401,13 @@ class MetadataAuditor
             if ($length > SEOWarningEvaluator::TITLE_MAX_LENGTH) {
                 $issues[] = MetadataIssues::make(
                     'title_too_long',
-                    "Title is {$length} characters (recommended max ".SEOWarningEvaluator::TITLE_MAX_LENGTH.'); it may be truncated on Google.',
+                    __('seo::seo.audit.title_too_long', ['length' => $length, 'max' => SEOWarningEvaluator::TITLE_MAX_LENGTH]),
                     ['length' => $length, 'max' => SEOWarningEvaluator::TITLE_MAX_LENGTH],
                 );
             } elseif ($length < MetadataIssues::TITLE_MIN_LENGTH) {
                 $issues[] = MetadataIssues::make(
                     'title_too_short',
-                    "Title is only {$length} characters (recommended min ".MetadataIssues::TITLE_MIN_LENGTH.').',
+                    __('seo::seo.audit.title_too_short', ['length' => $length, 'min' => MetadataIssues::TITLE_MIN_LENGTH]),
                     ['length' => $length, 'min' => MetadataIssues::TITLE_MIN_LENGTH],
                 );
             }
@@ -418,13 +420,13 @@ class MetadataAuditor
             if ($length > SEOWarningEvaluator::DESCRIPTION_MAX_LENGTH) {
                 $issues[] = MetadataIssues::make(
                     'description_too_long',
-                    "Description is {$length} characters (recommended max ".SEOWarningEvaluator::DESCRIPTION_MAX_LENGTH.'); it may be truncated.',
+                    __('seo::seo.audit.description_too_long', ['length' => $length, 'max' => SEOWarningEvaluator::DESCRIPTION_MAX_LENGTH]),
                     ['length' => $length, 'max' => SEOWarningEvaluator::DESCRIPTION_MAX_LENGTH],
                 );
             } elseif ($length < MetadataIssues::DESCRIPTION_MIN_LENGTH) {
                 $issues[] = MetadataIssues::make(
                     'description_too_short',
-                    "Description is only {$length} characters (recommended min ".MetadataIssues::DESCRIPTION_MIN_LENGTH.').',
+                    __('seo::seo.audit.description_too_short', ['length' => $length, 'min' => MetadataIssues::DESCRIPTION_MIN_LENGTH]),
                     ['length' => $length, 'min' => MetadataIssues::DESCRIPTION_MIN_LENGTH],
                 );
             }
@@ -453,7 +455,7 @@ class MetadataAuditor
         if (in_array('noindex', $directives, true) && in_array('index', $directives, true)) {
             return MetadataIssues::make(
                 'robots_conflict_indexing',
-                'Robots meta has conflicting index/noindex directives.',
+                __('seo::seo.audit.robots_conflict_indexing'),
                 ['robots' => $seoMeta->robots],
             );
         }
@@ -461,7 +463,7 @@ class MetadataAuditor
         if (in_array('nofollow', $directives, true) && in_array('follow', $directives, true)) {
             return MetadataIssues::make(
                 'robots_conflict_following',
-                'Robots meta has conflicting follow/nofollow directives.',
+                __('seo::seo.audit.robots_conflict_following'),
                 ['robots' => $seoMeta->robots],
             );
         }
@@ -469,7 +471,7 @@ class MetadataAuditor
         if (in_array('noindex', $directives, true) && ! empty($seoMeta->canonical)) {
             return MetadataIssues::make(
                 'noindex_warning',
-                'Page has noindex but appears to be important content.',
+                __('seo::seo.audit.noindex_warning'),
                 ['robots' => $seoMeta->robots],
             );
         }
@@ -495,7 +497,7 @@ class MetadataAuditor
         if (! filter_var($canonical, FILTER_VALIDATE_URL)) {
             return [MetadataIssues::make(
                 'invalid_canonical',
-                'Canonical URL is not a valid URL format.',
+                __('seo::seo.audit.invalid_canonical'),
                 ['canonical' => $canonical],
             )];
         }
@@ -509,7 +511,7 @@ class MetadataAuditor
         if ($canonicalHost && $pageHost && $canonicalHost !== $pageHost) {
             $issues[] = MetadataIssues::make(
                 'cross_domain_canonical',
-                'Canonical URL points to a different domain.',
+                __('seo::seo.audit.cross_domain_canonical'),
                 ['canonical' => $canonical, 'page_url' => $pageUrl],
             );
         }
@@ -520,7 +522,7 @@ class MetadataAuditor
         if ($this->isInsecureCanonical($canonical)) {
             $issues[] = MetadataIssues::make(
                 'insecure_canonical',
-                'Canonical URL uses http:// on an https site.',
+                __('seo::seo.audit.insecure_canonical'),
                 ['canonical' => $canonical],
             );
         }
@@ -532,7 +534,7 @@ class MetadataAuditor
         if ($sameCanonical > 0) {
             $issues[] = MetadataIssues::make(
                 'shared_canonical',
-                ($sameCanonical + 1).' pages share the same canonical URL.',
+                __('seo::seo.audit.shared_canonical', ['count' => $sameCanonical + 1]),
                 ['canonical' => $canonical],
             );
         }
@@ -553,7 +555,7 @@ class MetadataAuditor
     }
 
     /**
-     * @param  \Illuminate\Support\Collection<int, SEOMeta>  $duplicates
+     * @param  Collection<int, SEOMeta>  $duplicates
      * @return array<int, string>
      */
     protected function duplicateUrls($duplicates): array
