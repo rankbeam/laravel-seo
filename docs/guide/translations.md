@@ -11,6 +11,11 @@ follow `app()->getLocale()`: a panel running in Italian shows Italian, with noth
 Issue and warning **codes** (`missing_title`, `title_too_long`, …) never change and are never
 translated. Only the human sentence attached to a code is.
 
+Shipped languages: English, Italian (reviewed), and first passes in German, French, Spanish,
+Brazilian Portuguese, Dutch, Turkish, Russian and Polish. The exact status per locale is in
+[TRANSLATING.md](https://github.com/rankbeam/laravel-seo/blob/master/TRANSLATING.md); a
+native review is what turns a first pass into a supported language.
+
 ## Override a string
 
 ```bash

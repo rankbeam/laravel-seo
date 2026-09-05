@@ -260,7 +260,7 @@ export default defineConfig({
       { text: 'Pro', link: '/pro/installation', activeMatch: '^/pro/' },
       { text: 'Reference', link: '/reference/configuration', activeMatch: '^/(reference|contributing)/' },
       {
-        text: 'v3.13.0',
+        text: 'v3.14.0',
         items: [
           { text: 'Changelog', link: 'https://github.com/rankbeam/laravel-seo/blob/master/CHANGELOG.md' },
           { text: 'Upgrading from v1', link: '/guide/upgrade-from-v1' },
