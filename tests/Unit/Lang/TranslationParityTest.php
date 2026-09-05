@@ -82,6 +82,20 @@ it('references only keys that exist in en', function () use ($langDir) {
     }
 });
 
+it('renders the placeholder-heavy messages byte-for-byte like the previous sprintf output', function () {
+    // ":widthx:height" — adjacent placeholders; Laravel replaces the longest keys first.
+    expect(__('seo::seo.warnings.image_too_small', ['width' => 300, 'height' => 200, 'min_width' => 600, 'min_height' => 315]))
+        ->toBe('Image too small (300x200). Social platforms require at least 600x315 px.');
+    expect(__('seo::seo.warnings.image_not_ideal', ['width' => 800, 'height' => 420, 'ideal_width' => 1200, 'ideal_height' => 630]))
+        ->toBe('Image is 800x420 px. The ideal size for social platforms is 1200x630 px.');
+    expect(__('seo::seo.audit.duplicate_title', ['title' => 'Home', 'count' => 2]))
+        ->toBe('Title "Home" is used on 2 other page(s).');
+    expect(__('seo::seo.audit.shared_canonical', ['count' => 3]))
+        ->toBe('3 pages share the same canonical URL.');
+    expect(__('seo::seo.audit.title_too_long', ['length' => 70, 'max' => 60]))
+        ->toBe('Title is 70 characters (recommended max 60); it may be truncated on Google.');
+});
+
 it('emits messages in the app locale', function () {
     Lang::addLines(['seo.warnings.title_is_fallback' => 'Nessun titolo SEO impostato.'], 'it', 'seo');
 

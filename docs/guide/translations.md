@@ -14,9 +14,9 @@ translated. Only the human sentence attached to a code is.
 ## Override a string
 
 ```bash
-php artisan vendor:publish --tag=seo-lang            # core
-php artisan vendor:publish --tag=seo-filament-lang   # Filament fields
-php artisan vendor:publish --tag=seo-pro-lang        # Pro
+php artisan vendor:publish --tag=seo-lang            # core (3.13+)
+php artisan vendor:publish --tag=seo-filament-lang   # Filament fields (1.6+)
+php artisan vendor:publish --tag=seo-pro-lang        # Pro (2.31+)
 ```
 
 Then edit `lang/vendor/seo/{locale}/seo.php` (and the sibling folders for the other
