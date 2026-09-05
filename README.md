@@ -167,6 +167,21 @@ or serve `/robots.txt` dynamically (off by default — it won't shadow a static
 file). Bots documented not to honour robots.txt are flagged advisory. See
 [AI crawler control](docs/guide/ai-crawlers.md).
 
+## Guides
+
+Long-form articles on the [Rankbeam blog](https://blog.rankbeam.dev), a Laravel app that runs this package on itself:
+
+- [Laravel SEO: the complete guide](https://blog.rankbeam.dev/posts/laravel-seo-guide)
+- [Best Laravel SEO packages compared](https://blog.rankbeam.dev/posts/laravel-seo-packages-compared)
+- [Laravel meta tags](https://blog.rankbeam.dev/posts/laravel-meta-tags)
+- [Canonical URLs in Laravel](https://blog.rankbeam.dev/posts/canonical-urls-in-laravel)
+- [JSON-LD schema graphs](https://blog.rankbeam.dev/posts/json-ld-schema-graphs-in-laravel)
+- [Laravel sitemaps](https://blog.rankbeam.dev/posts/laravel-sitemaps)
+- [Laravel SEO audit in CI](https://blog.rankbeam.dev/posts/laravel-seo-audit)
+- [hreflang done right](https://blog.rankbeam.dev/posts/hreflang-done-right-in-laravel)
+- [Answer engine optimization](https://blog.rankbeam.dev/posts/answer-engine-optimization-for-laravel)
+- [Filament SEO fields](https://blog.rankbeam.dev/posts/laravel-filament-seo)
+
 ## Test status
 
 `vendor/bin/pest` on `master`: **632 passed (1825 assertions), 0 failed** (plus 4 skipped by default: 3 Chrome-dependent OG-image smokes and 1 ext-xsl transform check) under PHP 8.4 / Laravel 13 (CI matrix: PHP 8.2–8.4 × Laravel 11/12/13).
