@@ -75,6 +75,23 @@ const core = [
       { text: 'Upgrading from v1', link: '/guide/upgrade-from-v1' },
     ],
   },
+  {
+    // Long-form articles on the blog. The reference pages above say what a
+    // feature does; these say why and show it on a site that runs the package.
+    text: 'Guides',
+    items: [
+      { text: 'Laravel SEO: the complete guide ↗', link: 'https://blog.rankbeam.dev/posts/laravel-seo-guide' },
+      { text: 'Best Laravel SEO packages compared ↗', link: 'https://blog.rankbeam.dev/posts/laravel-seo-packages-compared' },
+      { text: 'Laravel meta tags ↗', link: 'https://blog.rankbeam.dev/posts/laravel-meta-tags' },
+      { text: 'Canonical URLs in Laravel ↗', link: 'https://blog.rankbeam.dev/posts/canonical-urls-in-laravel' },
+      { text: 'JSON-LD schema graphs ↗', link: 'https://blog.rankbeam.dev/posts/json-ld-schema-graphs-in-laravel' },
+      { text: 'Laravel sitemaps ↗', link: 'https://blog.rankbeam.dev/posts/laravel-sitemaps' },
+      { text: 'Laravel SEO audit in CI ↗', link: 'https://blog.rankbeam.dev/posts/laravel-seo-audit' },
+      { text: 'hreflang done right ↗', link: 'https://blog.rankbeam.dev/posts/hreflang-done-right-in-laravel' },
+      { text: 'Answer engine optimization ↗', link: 'https://blog.rankbeam.dev/posts/answer-engine-optimization-for-laravel' },
+      { text: 'Filament SEO fields ↗', link: 'https://blog.rankbeam.dev/posts/laravel-filament-seo' },
+    ],
+  },
 ]
 
 const pro = [
