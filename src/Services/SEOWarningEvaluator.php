@@ -74,11 +74,10 @@ class SEOWarningEvaluator
             $warnings[] = [
                 'level' => 'warning',
                 'key' => 'title_too_long',
-                'message' => sprintf(
-                    'The title is %d characters long (recommended max: %d). It may be truncated on Google.',
-                    mb_strlen($title),
-                    self::TITLE_MAX_LENGTH,
-                ),
+                'message' => __('seo::seo.warnings.title_too_long', [
+                    'length' => mb_strlen($title),
+                    'max' => self::TITLE_MAX_LENGTH,
+                ]),
             ];
         }
 
@@ -86,7 +85,7 @@ class SEOWarningEvaluator
             $warnings[] = [
                 'level' => 'info',
                 'key' => 'title_is_fallback',
-                'message' => 'No SEO title set — the content title will be used as a fallback.',
+                'message' => __('seo::seo.warnings.title_is_fallback'),
             ];
         }
 
@@ -108,11 +107,10 @@ class SEOWarningEvaluator
             $warnings[] = [
                 'level' => 'warning',
                 'key' => 'description_too_long',
-                'message' => sprintf(
-                    'The description is %d characters long (recommended max: %d). It may be truncated.',
-                    mb_strlen($description),
-                    self::DESCRIPTION_MAX_LENGTH,
-                ),
+                'message' => __('seo::seo.warnings.description_too_long', [
+                    'length' => mb_strlen($description),
+                    'max' => self::DESCRIPTION_MAX_LENGTH,
+                ]),
             ];
         }
 
@@ -120,7 +118,7 @@ class SEOWarningEvaluator
             $warnings[] = [
                 'level' => 'info',
                 'key' => 'description_is_fallback',
-                'message' => 'No SEO description set — one will be generated automatically from the content.',
+                'message' => __('seo::seo.warnings.description_is_fallback'),
             ];
         }
 
@@ -140,7 +138,7 @@ class SEOWarningEvaluator
             $warnings[] = [
                 'level' => 'danger',
                 'key' => 'no_image',
-                'message' => 'No image available for social previews. Add an SEO image or a content image.',
+                'message' => __('seo::seo.warnings.no_image'),
             ];
 
             return $warnings;
@@ -150,7 +148,7 @@ class SEOWarningEvaluator
             $warnings[] = [
                 'level' => 'info',
                 'key' => 'image_is_fallback',
-                'message' => 'No specific SEO image — the content image will be used as a fallback.',
+                'message' => __('seo::seo.warnings.image_is_fallback'),
             ];
         }
 
@@ -161,25 +159,23 @@ class SEOWarningEvaluator
                 $warnings[] = [
                     'level' => 'danger',
                     'key' => 'image_too_small',
-                    'message' => sprintf(
-                        'Image too small (%dx%d). Social platforms require at least %dx%d px.',
-                        $dimensions['width'],
-                        $dimensions['height'],
-                        self::MIN_SOCIAL_IMAGE_WIDTH,
-                        self::MIN_SOCIAL_IMAGE_HEIGHT,
-                    ),
+                    'message' => __('seo::seo.warnings.image_too_small', [
+                        'width' => $dimensions['width'],
+                        'height' => $dimensions['height'],
+                        'min_width' => self::MIN_SOCIAL_IMAGE_WIDTH,
+                        'min_height' => self::MIN_SOCIAL_IMAGE_HEIGHT,
+                    ]),
                 ];
             } elseif ($dimensions['width'] < self::IDEAL_SOCIAL_IMAGE_WIDTH || $dimensions['height'] < self::IDEAL_SOCIAL_IMAGE_HEIGHT) {
                 $warnings[] = [
                     'level' => 'info',
                     'key' => 'image_not_ideal',
-                    'message' => sprintf(
-                        'Image is %dx%d px. The ideal size for social platforms is %dx%d px.',
-                        $dimensions['width'],
-                        $dimensions['height'],
-                        self::IDEAL_SOCIAL_IMAGE_WIDTH,
-                        self::IDEAL_SOCIAL_IMAGE_HEIGHT,
-                    ),
+                    'message' => __('seo::seo.warnings.image_not_ideal', [
+                        'width' => $dimensions['width'],
+                        'height' => $dimensions['height'],
+                        'ideal_width' => self::IDEAL_SOCIAL_IMAGE_WIDTH,
+                        'ideal_height' => self::IDEAL_SOCIAL_IMAGE_HEIGHT,
+                    ]),
                 ];
             }
         }
@@ -194,10 +190,10 @@ class SEOWarningEvaluator
      * the computed-image "best" selection measure images identically.
      *
      * @return array{width: int, height: int}|null Null when the image is
-     *         remote, missing, or unreadable
+     *                                             remote, missing, or unreadable
      */
     protected function detectDimensions(string $image): ?array
     {
-        return (new LocalImageInspector())->dimensions($image);
+        return (new LocalImageInspector)->dimensions($image);
     }
 }

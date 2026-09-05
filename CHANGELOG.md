@@ -5,6 +5,12 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.13.0] - 2026-09-05
+
+### Added
+
+- **Translatable messages (i18n foundation).** Every user-facing string the core emits — the `seo:audit` findings (`MetadataAuditor`) and the live editor warnings (`SEOWarningEvaluator`, the counters and image hints under the Filament fields) — now goes through Laravel translation lines in the `seo` namespace, published with `php artisan vendor:publish --tag=seo-lang`. The package follows `app()->getLocale()`. Issue and warning **codes** are unchanged and never translated; English output is byte-identical to 3.12. `resources/lang/en/seo.php` was rewritten to the current message set (the file previously carried unused v1 keys). A parity test (`tests/Unit/Lang/TranslationParityTest.php`) fails CI when any language file misses a key, carries an orphan key, an empty value or a lost placeholder, and when `src/` references a key `en` does not define. New `TRANSLATING.md` (glossary, rules, credits) and a docs page at `/guide/translations`. First step of the multilingual program; the Filament and Pro packages follow with their own namespaces.
+
 ## [3.12.0] - 2026-07-15
 
 ### Added

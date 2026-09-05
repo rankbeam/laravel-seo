@@ -64,6 +64,7 @@ const core = [
       { text: 'Indexing guard', link: '/guide/indexing-guard' },
       { text: 'Markdown for bots', link: '/guide/markdown-for-bots' },
       { text: 'Free SEO audit', link: '/guide/audit' },
+      { text: 'Translations', link: '/guide/translations' },
     ],
   },
   {
@@ -259,7 +260,7 @@ export default defineConfig({
       { text: 'Pro', link: '/pro/installation', activeMatch: '^/pro/' },
       { text: 'Reference', link: '/reference/configuration', activeMatch: '^/(reference|contributing)/' },
       {
-        text: 'v3.12.0',
+        text: 'v3.13.0',
         items: [
           { text: 'Changelog', link: 'https://github.com/rankbeam/laravel-seo/blob/master/CHANGELOG.md' },
           { text: 'Upgrading from v1', link: '/guide/upgrade-from-v1' },
