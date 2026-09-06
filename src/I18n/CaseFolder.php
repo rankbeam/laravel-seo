@@ -37,7 +37,16 @@ final class CaseFolder
             $text = strtr($text, ['I' => 'ı', 'İ' => 'i']);
         }
 
-        return mb_strtolower($text);
+        $lower = mb_strtolower($text);
+
+        // Greek final sigma: a σ that ends a word is written ς. PHP ≥ 8.3
+        // applies this conditional mapping itself; PHP 8.2 does not, so the
+        // rule is spelled out here and the output is the same on every version.
+        if (str_contains($lower, 'σ')) {
+            $lower = (string) preg_replace('/(?<=[\p{L}\p{M}])σ(?![\p{L}\p{M}])/u', 'ς', $lower);
+        }
+
+        return $lower;
     }
 
     /**

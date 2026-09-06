@@ -78,8 +78,8 @@ describe('Script::length and graphemes', function () {
             ->and(Script::length(str_repeat('สี', 60)))->toBe(60)
             // Decomposed é (e + combining acute) is ONE grapheme.
             ->and(Script::length("e\u{0301}"))->toBe(1)
-            // Emoji with a skin-tone modifier + ZWJ sequence is ONE grapheme.
-            ->and(Script::length("\u{1F469}\u{1F3FD}\u{200D}\u{1F4BB}"))->toBe(1)
+            // Emoji with a skin-tone modifier is ONE grapheme on every PCRE2.
+            ->and(Script::length("\u{1F44B}\u{1F3FD}"))->toBe(1)
             // Plain Latin equals mb_strlen.
             ->and(Script::length('Hello, world'))->toBe(mb_strlen('Hello, world'))
             ->and(Script::length(''))->toBe(0)
@@ -87,7 +87,7 @@ describe('Script::length and graphemes', function () {
     });
 
     it('splits into graphemes that reassemble to the original', function () {
-        $text = "นครราชสีมา e\u{0301} 東京 \u{1F469}\u{1F3FD}";
+        $text = "นครราชสีมา e\u{0301} 東京 \u{1F44B}\u{1F3FD}";
         $graphemes = Script::graphemes($text);
 
         expect(implode('', $graphemes))->toBe($text)

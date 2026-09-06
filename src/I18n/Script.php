@@ -176,8 +176,12 @@ final class Script
      * A Thai syllable with its vowel marks, a Devanagari conjunct, an emoji
      * with a skin-tone modifier or a Latin letter with a combining accent each
      * count as ONE — the unit an editor sees and the unit search engines
-     * effectively budget. Pure PCRE (`\X`), so it needs no ext-intl and agrees
-     * with itself on every host. For plain Latin text it equals mb_strlen().
+     * effectively budget. Pure PCRE (`\X`), so it needs no ext-intl. For plain
+     * Latin text it equals mb_strlen(). The cluster rules are those of the
+     * host's PCRE2 build; an old build without the GB11 rule counts an emoji
+     * ZWJ sequence (👨‍👩‍👧) as several characters instead of one — the only
+     * case where two hosts can disagree, and {@see Truncator} never cuts
+     * inside such a sequence either way.
      */
     public static function length(?string $text): int
     {

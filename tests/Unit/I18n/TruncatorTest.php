@@ -116,13 +116,33 @@ describe('scripts without word spaces', function () {
 });
 
 describe('graphemes everywhere', function () {
-    it('never separates an emoji modifier or ZWJ sequence from its base', function () {
-        $family = "\u{1F468}\u{200D}\u{1F469}\u{200D}\u{1F467}"; // one grapheme, 5 codepoints
+    it('never separates an emoji skin-tone modifier from its base', function () {
+        $wave = "\u{1F44B}\u{1F3FD}"; // one grapheme, 2 codepoints, on every PCRE2
+        $text = str_repeat($wave, 30);
+
+        $cut = Truncator::truncate($text, 20, Script::LATIN);
+
+        expect($cut)->toBe(str_repeat($wave, 20));
+    });
+
+    it('never cuts inside an emoji ZWJ sequence, whatever the host PCRE2 rules', function () {
+        // A current PCRE2 keeps 👨‍👩‍👧 as ONE grapheme; an older build splits it
+        // at each ZWJ. The cut must be a whole number of families either way.
+        $family = "\u{1F468}\u{200D}\u{1F469}\u{200D}\u{1F467}";
         $text = str_repeat($family, 30);
 
         $cut = Truncator::truncate($text, 20, Script::LATIN);
 
-        expect($cut)->toBe(str_repeat($family, 20));
+        expect($cut)->not->toBe('')
+            ->and(str_starts_with($text, $cut))->toBeTrue()
+            ->and(strlen($cut) % strlen($family))->toBe(0)
+            ->and(str_ends_with($cut, "\u{200D}"))->toBeFalse()
+            ->and(Script::length($cut))->toBeLessThanOrEqual(20);
+
+        // On a host whose \X implements GB11, the count is exact.
+        if (Script::length($family) === 1) {
+            expect($cut)->toBe(str_repeat($family, 20));
+        }
     });
 
     it('never separates a combining accent from its letter', function () {

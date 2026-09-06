@@ -34,8 +34,11 @@ describe('Greek final sigma and German sharp s', function () {
         expect(CaseFolder::equals('ΟΔΟΣ', 'οδος', 'el'))->toBeTrue()
             ->and(CaseFolder::equals('οδός', 'ΟΔΌΣ', 'el'))->toBeTrue()
             ->and(CaseFolder::fold('ΟΔΟΣ'))->toBe('οδοσ')
-            // lower() keeps the final form for display.
-            ->and(CaseFolder::lower('ΟΔΟΣ'))->toBe('οδος');
+            // lower() writes the final form for display, on every PHP version.
+            ->and(CaseFolder::lower('ΟΔΟΣ'))->toBe('οδος')
+            ->and(CaseFolder::lower('ΟΔΟΣ ΣΟΦΙΑΣ.'))->toBe('οδος σοφιας.')
+            // A lone sigma is not word-final.
+            ->and(CaseFolder::lower('Σ'))->toBe('σ');
     });
 
     it('folds ß and ẞ to ss', function () {

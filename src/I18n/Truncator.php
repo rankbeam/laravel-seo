@@ -64,9 +64,42 @@ final class Truncator
             ? self::spaceBoundary($graphemes, $max, $minIndex)
             : (self::clauseBoundary($graphemes, $max, $minIndex) ?? self::spaceBoundary($graphemes, $max, $minIndex));
 
-        $slice = array_slice($graphemes, 0, $cut ?? $max);
+        $end = self::outsideZwjSequence($graphemes, $cut ?? $max);
+
+        $slice = array_slice($graphemes, 0, $end);
 
         return (string) preg_replace(self::TRAILING, '', implode('', $slice));
+    }
+
+    /**
+     * Move a cut point back until it is not inside an emoji ZWJ sequence
+     * (👨‍👩‍👧 is U+1F468 ZWJ U+1F469 ZWJ U+1F467).
+     *
+     * A current PCRE2 keeps a whole ZWJ sequence in one grapheme, so the cut
+     * never lands inside one and this is a no-op. An older PCRE2 (without the
+     * GB11 rule) may split the sequence at each ZWJ; a cut there would leave
+     * a dangling joiner and a broken family. Backing off to the last grapheme
+     * that neither ends with a ZWJ nor is followed by one keeps the sequence
+     * whole on every host.
+     *
+     * @param  array<int, string>  $graphemes
+     */
+    private static function outsideZwjSequence(array $graphemes, int $end): int
+    {
+        $zwj = "\u{200D}";
+
+        while ($end > 0) {
+            $endsWithJoiner = str_ends_with($graphemes[$end - 1], $zwj);
+            $nextStartsWithJoiner = isset($graphemes[$end]) && str_starts_with($graphemes[$end], $zwj);
+
+            if (! $endsWithJoiner && ! $nextStartsWithJoiner) {
+                return $end;
+            }
+
+            $end--;
+        }
+
+        return $end;
     }
 
     /**
