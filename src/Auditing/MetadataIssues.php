@@ -96,6 +96,13 @@ final class MetadataIssues
     {
         return [
             'blank_explicit_override' => ['severity' => AuditIssue::SEVERITY_WARNING, 'field' => null],
+
+            // ── hreflang (3.15) — observed on the resolved alternates after
+            //    the `seo.hreflang` policies. A page with no alternates emits
+            //    none of these.
+            'hreflang_invalid_code' => ['severity' => AuditIssue::SEVERITY_WARNING, 'field' => 'alternates'],
+            'hreflang_duplicate_code' => ['severity' => AuditIssue::SEVERITY_NOTICE, 'field' => 'alternates'],
+            'hreflang_missing_self' => ['severity' => AuditIssue::SEVERITY_WARNING, 'field' => 'alternates'],
         ];
     }
 

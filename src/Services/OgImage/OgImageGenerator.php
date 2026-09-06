@@ -10,6 +10,7 @@ use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
 use Rankbeam\Seo\Data\SEOData;
+use Rankbeam\Seo\I18n\Hreflang;
 use Throwable;
 
 /**
@@ -37,6 +38,45 @@ use Throwable;
  */
 class OgImageGenerator
 {
+    /**
+     * Font families tried, in order, for every glyph the bundled Latin face
+     * lacks. Chrome falls back per character to the first family that is
+     * installed on the host, so this list only ever *helps*: a family that
+     * is not installed is skipped. Override via seo.og_image.font_stack.
+     *
+     * @var array<int, string>
+     */
+    public const DEFAULT_FONT_STACK = [
+        'Noto Sans',
+        'Noto Sans CJK JP',
+        'Noto Sans CJK SC',
+        'Noto Sans CJK TC',
+        'Noto Sans CJK KR',
+        'Noto Sans Thai',
+        'Noto Sans Arabic',
+        'Noto Sans Hebrew',
+        'Noto Sans Devanagari',
+        'Noto Color Emoji',
+    ];
+
+    /**
+     * The CJK family to try FIRST per language, so Han characters take the
+     * glyph forms of the page's language (Han unification: the same code
+     * point is drawn differently in Japanese, Simplified and Traditional
+     * Chinese and Korean fonts).
+     *
+     * @var array<string, string>
+     */
+    protected const CJK_PREFERENCE = [
+        'ja' => 'Noto Sans CJK JP',
+        'ko' => 'Noto Sans CJK KR',
+        'zh-hant' => 'Noto Sans CJK TC',
+        'zh-tw' => 'Noto Sans CJK TC',
+        'zh-hk' => 'Noto Sans CJK TC',
+        'zh-mo' => 'Noto Sans CJK TC',
+        'zh' => 'Noto Sans CJK SC',
+    ];
+
     protected ?string $fontDataUri = null;
 
     public function __construct(protected OgImageManager $manager) {}
@@ -148,6 +188,7 @@ class OgImageGenerator
             'height' => (int) config('seo.og_image.height', 630),
             'gradient_from' => config('seo.og_image.gradient_from'),
             'gradient_to' => config('seo.og_image.gradient_to'),
+            'fonts' => $this->fontStack(),
             'cache_version' => config('seo.og_image.cache_version', 1),
             'package' => $this->packageVersion(),
         ], JSON_UNESCAPED_UNICODE));
@@ -169,6 +210,8 @@ class OgImageGenerator
             'width' => (int) config('seo.og_image.width', 1200),
             'height' => (int) config('seo.og_image.height', 630),
             'locale' => $data->locale,
+            'lang' => Hreflang::fromLocale($data->locale ?? $this->appLocale()) ?? 'en',
+            'fontFamily' => $this->fontFamily($data->locale),
             'author' => $data->author,
             'publishedDate' => $this->formatDate($data->publishedTime, $data->locale),
             'section' => $data->section,
@@ -240,6 +283,86 @@ class OgImageGenerator
     protected function disk(): Filesystem
     {
         return Storage::disk((string) config('seo.og_image.disk', 'public'));
+    }
+
+    /**
+     * The configured fallback font families (seo.og_image.font_stack), or
+     * the built-in default when unset. Quotes, semicolons and braces are
+     * stripped so a family name can never break out of the CSS declaration.
+     *
+     * @return array<int, string>
+     */
+    public function fontStack(): array
+    {
+        $configured = config('seo.og_image.font_stack');
+        $stack = is_array($configured) && $configured !== [] ? $configured : self::DEFAULT_FONT_STACK;
+
+        $clean = [];
+
+        foreach ($stack as $family) {
+            if (! is_string($family)) {
+                continue;
+            }
+
+            $family = trim((string) preg_replace('/[\'";{}\\\\]/', '', $family));
+
+            if ($family !== '') {
+                $clean[] = $family;
+            }
+        }
+
+        return array_values(array_unique($clean));
+    }
+
+    /**
+     * The CSS `font-family` value for a card: the bundled face first, then the
+     * fallback stack with the page language's CJK family moved to the front,
+     * then the generic family. Ready to drop into a template unescaped.
+     */
+    public function fontFamily(?string $locale): string
+    {
+        $stack = $this->fontStack();
+        $preferred = $this->preferredCjkFamily($locale);
+
+        if ($preferred !== null && in_array($preferred, $stack, true)) {
+            $stack = array_merge([$preferred], array_values(array_diff($stack, [$preferred])));
+        }
+
+        $families = array_map(static fn (string $family): string => "'".$family."'", $stack);
+
+        return implode(', ', array_merge(["'OGBrand'"], $families, ['sans-serif']));
+    }
+
+    /**
+     * The CJK family a locale prefers (`zh-Hant-TW` → TC, `ja` → JP), or null
+     * for a non-CJK locale.
+     */
+    protected function preferredCjkFamily(?string $locale): ?string
+    {
+        $code = Hreflang::fromLocale($locale);
+
+        if ($code === null) {
+            return null;
+        }
+
+        $code = strtolower($code);
+
+        foreach (self::CJK_PREFERENCE as $prefix => $family) {
+            if ($code === $prefix || str_starts_with($code, $prefix.'-')) {
+                return $family;
+            }
+        }
+
+        return null;
+    }
+
+    protected function appLocale(): ?string
+    {
+        try {
+            return app()->getLocale();
+        } catch (Throwable) {
+            return null;
+        }
     }
 
     /**

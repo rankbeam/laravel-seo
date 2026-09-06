@@ -35,6 +35,9 @@ return [
         'shared_canonical' => ':count sayfa aynı canonical URL\'yi paylaşıyor.',
         'aeo_missing_author' => 'Bu sayfadaki bir makalenin yapılandırılmış verisinde yazar belirtilmemiş. Yazar belirtmek, makalenin yazarlığını ve kaynağını şemada açık hâle getirir.',
         'aeo_article_missing_date' => 'Bu sayfadaki bir makalenin yapılandırılmış verisinde yayın tarihi belirtilmemiş. Bir datePublished veya dateModified, makalenin zaman çizelgesini şemada açık hâle getirir.',
+        'hreflang_invalid_code' => 'hreflang alternatifleri arama motorlarının yok sayacağı bir kod içeriyor (:codes). dil[-Yazı][-BÖLGE] biçimini kullanın, örn. tr, pt-BR, zh-Hant.',
+        'hreflang_duplicate_code' => 'hreflang alternatifleri aynı kodu birden fazla kez listeliyor (:codes).',
+        'hreflang_missing_self' => 'hreflang alternatifleri bu sayfanın kendisini içermiyor. Google her dil sürümünün kendi URL\'sini de listelemesini ister.',
     ],
 
     'warnings' => [

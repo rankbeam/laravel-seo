@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rankbeam\Seo\Services;
 
 use Rankbeam\Seo\Data\SEOData;
+use Rankbeam\Seo\I18n\Hreflang;
 
 /**
  * Converts SEOData into HTML meta tags or structured arrays.
@@ -127,8 +128,13 @@ class TagRenderer
         // Twitter Card meta tags
         $tags = array_merge($tags, $this->renderTwitterCard($seo));
 
+        // Search-engine site-verification tokens (only the configured ones)
+        foreach ($this->verificationTags() as $tag) {
+            $tags[] = $this->metaName($tag['name'], $tag['content']);
+        }
+
         // Hreflang alternate links
-        $tags = array_merge($tags, $this->renderAlternates($seo));
+        $tags = array_merge($tags, $this->renderAlternates($seo, $canonical));
 
         // JSON-LD Schema
         $schemaTag = $this->renderSchema($seo);
@@ -246,6 +252,11 @@ class TagRenderer
             $meta[] = ['name' => 'twitter:creator', 'content' => $seo->twitterCreator];
         }
 
+        // Search-engine site-verification tokens (only the configured ones)
+        foreach ($this->verificationTags() as $tag) {
+            $meta[] = ['name' => $tag['name'], 'content' => $tag['content']];
+        }
+
         // Filter out entries with empty content — the contract forbids
         // null/empty tags.
         $meta = array_filter($meta, fn ($item) => $item['content'] !== null && $item['content'] !== '');
@@ -258,8 +269,9 @@ class TagRenderer
 
         // Hreflang alternates — skip malformed entries (SEOData::fromArray
         // accepts unvalidated alternates, so a non-array entry or a missing
-        // hreflang/href must never throw here).
-        foreach ($this->normalizeAlternates($seo->alternates) as $alternate) {
+        // hreflang/href must never throw here), then apply the seo.hreflang
+        // policies (BCP 47 form, self-reference, x-default).
+        foreach ($this->resolvedAlternates($seo, $canonical) as $alternate) {
             $link[] = [
                 'rel' => 'alternate',
                 'hreflang' => $alternate['hreflang'],
@@ -561,13 +573,14 @@ class TagRenderer
      * Render hreflang alternate link tags.
      *
      * @param SEOData $seo The resolved SEO data
+     * @param string $canonical The page's canonical URL, for the self-reference policy
      * @return array<int, string> Array of HTML link tag strings
      */
-    protected function renderAlternates(SEOData $seo): array
+    protected function renderAlternates(SEOData $seo, string $canonical): array
     {
         $tags = [];
 
-        foreach ($this->normalizeAlternates($seo->alternates) as $alternate) {
+        foreach ($this->resolvedAlternates($seo, $canonical) as $alternate) {
             $hreflang = $this->escape($alternate['hreflang']);
             $href = $this->escape($alternate['href']);
             $tags[] = '<link rel="alternate" hreflang="' . $hreflang . '" href="' . $href . '">';
@@ -577,39 +590,66 @@ class TagRenderer
     }
 
     /**
-     * Normalize the hreflang alternates list, dropping any malformed entry.
+     * The hreflang alternates to emit for a page.
      *
      * SEOData::fromArray() accepts an arbitrary alternates value, so the
      * renderers must tolerate a non-array list, non-array entries, and entries
      * missing a string hreflang/href instead of throwing a TypeError on
-     * string-offset access. Mirrors the normalize-and-skip guard the sitemap
-     * builder applies to the same data.
+     * string-offset access. {@see Hreflang::alternatesFor()} applies that
+     * guard and then the `seo.hreflang` policies — the same list the sitemap
+     * builder and the audit see for this page.
      *
-     * @param  mixed  $alternates
      * @return array<int, array{hreflang: string, href: string}>
      */
-    protected function normalizeAlternates(mixed $alternates): array
+    protected function resolvedAlternates(SEOData $seo, string $canonical): array
     {
-        if (! is_array($alternates) || $alternates === []) {
+        return Hreflang::alternatesFor($seo->alternates, $canonical !== '' ? $canonical : null, $seo->locale);
+    }
+
+    /**
+     * Meta names per `seo.verification` key. A value may be one token or a
+     * list of tokens (Google issues one per property owner).
+     *
+     * @var array<string, string>
+     */
+    protected const VERIFICATION_META = [
+        'google' => 'google-site-verification',
+        'bing' => 'msvalidate.01',
+        'yandex' => 'yandex-verification',
+        'baidu' => 'baidu-site-verification',
+        'naver' => 'naver-site-verification',
+        'seznam' => 'seznam-wmt',
+        'pinterest' => 'p:domain_verify',
+        'facebook' => 'facebook-domain-verification',
+    ];
+
+    /**
+     * The configured site-verification meta tags (`seo.verification`), in
+     * config order, blanks skipped. Emitted on every page: Google accepts the
+     * token anywhere, and Yandex / Baidu / Naver look for it on the root page,
+     * which every page covers.
+     *
+     * @return array<int, array{name: string, content: string}>
+     */
+    protected function verificationTags(): array
+    {
+        $configured = config('seo.verification', []);
+
+        if (! is_array($configured) || $configured === []) {
             return [];
         }
 
-        $valid = [];
+        $tags = [];
 
-        foreach ($alternates as $alternate) {
-            if (! is_array($alternate)) {
-                continue;
-            }
-
-            $hreflang = $alternate['hreflang'] ?? null;
-            $href = $alternate['href'] ?? null;
-
-            if (is_string($hreflang) && $hreflang !== '' && is_string($href) && $href !== '') {
-                $valid[] = ['hreflang' => $hreflang, 'href' => $href];
+        foreach (self::VERIFICATION_META as $key => $name) {
+            foreach ((array) ($configured[$key] ?? []) as $token) {
+                if (is_string($token) && trim($token) !== '') {
+                    $tags[] = ['name' => $name, 'content' => trim($token)];
+                }
             }
         }
 
-        return $valid;
+        return $tags;
     }
 
     /**

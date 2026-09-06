@@ -7,6 +7,7 @@ namespace Rankbeam\Seo\Services\Schema;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;
 use Rankbeam\Seo\Data\SEOData;
+use Rankbeam\Seo\I18n\Hreflang;
 
 /**
  * Site-wide JSON-LD graph nodes with stable @id cross-references.
@@ -137,6 +138,7 @@ class SchemaGraph
             'publisher' => [
                 '@id' => $this->organizationId(),
             ],
+            'inLanguage' => $this->configuredLanguages($config['inLanguage'] ?? null),
             'potentialAction' => $config['potentialAction'] ?? null,
         ]);
     }
@@ -165,6 +167,7 @@ class SchemaGraph
             'url' => $canonical,
             'datePublished' => $this->iso8601($seo->publishedTime),
             'dateModified' => $this->iso8601($seo->modifiedTime),
+            'inLanguage' => $this->inLanguage($seo->locale),
             'isPartOf' => [
                 '@id' => $this->webSiteId(),
             ],
@@ -176,6 +179,47 @@ class SchemaGraph
                 'url' => $image,
             ] : null,
         ]);
+    }
+
+    /**
+     * The BCP 47 `inLanguage` value for a page locale (`it_IT` → `it-IT`), or
+     * null when the locale is blank or `seo.schema.in_language` is off.
+     */
+    public function inLanguage(?string $locale): ?string
+    {
+        if (! (bool) config('seo.schema.in_language', true)) {
+            return null;
+        }
+
+        return Hreflang::fromLocale($locale);
+    }
+
+    /**
+     * The WebSite `inLanguage` from config: one locale or a list, each in
+     * BCP 47 form; null when unset.
+     *
+     * @return string|array<int, string>|null
+     */
+    protected function configuredLanguages(mixed $configured): string|array|null
+    {
+        if (! (bool) config('seo.schema.in_language', true)) {
+            return null;
+        }
+
+        if (is_string($configured)) {
+            return Hreflang::fromLocale($configured);
+        }
+
+        if (is_array($configured)) {
+            $languages = array_values(array_filter(array_map(
+                static fn ($locale) => is_string($locale) ? Hreflang::fromLocale($locale) : null,
+                $configured,
+            )));
+
+            return $languages === [] ? null : (count($languages) === 1 ? $languages[0] : $languages);
+        }
+
+        return null;
     }
 
     /**

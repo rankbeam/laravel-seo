@@ -65,6 +65,7 @@ const core = [
       { text: 'Markdown for bots', link: '/guide/markdown-for-bots' },
       { text: 'Free SEO audit', link: '/guide/audit' },
       { text: 'Translations', link: '/guide/translations' },
+      { text: 'Multilingual content', link: '/guide/multilingual' },
     ],
   },
   {

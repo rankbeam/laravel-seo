@@ -25,6 +25,17 @@ namespace Rankbeam\Seo\AiCrawlers;
  * - {@see PURPOSE_ASSISTANT} — fetches a page in real time on a user's behalf
  *   inside a chat. Default: allow.
  *
+ * ## Regional search engines (3.15)
+ * A second, separate list — {@see searchEngines()} — holds the classic web
+ * search crawlers that matter outside the Google/Bing world: Yandex (RU),
+ * Baidu, Sogou and 360 (CN), Naver (KR), Seznam (CZ), Cốc Cốc (VN) and
+ * DuckDuckGo. They are tagged {@see PURPOSE_SEARCH_ENGINE} (default: allow)
+ * and take part in the robots.txt directives and per-bot overrides — an EU
+ * shop that wants Baidu and Sogou off its bandwidth sets
+ * `'overrides' => ['baiduspider' => 'disallow', 'sogou' => 'disallow']`.
+ * {@see all()} and {@see match()} stay AI-only unless asked, so the Pro AI-bot
+ * log and every "N AI crawlers" count are unchanged.
+ *
  * ## Honesty note
  * Some "assistant" / user-triggered agents (ChatGPT-User, Perplexity-User) and
  * some training crawlers (Bytespider) are NOT documented to honour robots.txt —
@@ -57,6 +68,9 @@ class AiCrawlerRegistry
 
     /** Fetches a page in real time on a user's behalf inside a chat. */
     public const PURPOSE_ASSISTANT = 'ai_assistant';
+
+    /** A classic web search index (Yandex, Baidu, Naver, …) — not an AI bot. */
+    public const PURPOSE_SEARCH_ENGINE = 'search_engine';
 
     public const ACTION_ALLOW = 'allow';
 
@@ -105,6 +119,25 @@ class AiCrawlerRegistry
     ];
 
     /**
+     * The regional web search engines, same tuple shape as {@see CATALOG}.
+     * The `agent` is the robots.txt token each operator documents (Yandex
+     * asks for the bare `Yandex`, which covers all of its bots; Sogou's token
+     * really does contain spaces).
+     *
+     * @var array<int, array{0: string, 1: string, 2: string, 3: string, 4: bool, 5: ?string}>
+     */
+    protected const SEARCH_ENGINES = [
+        ['yandex', 'Yandex', 'Yandex', self::PURPOSE_SEARCH_ENGINE, true, 'https://yandex.com/support/webmaster/robot-workings/check-yandex-robots.html'],
+        ['baiduspider', 'Baiduspider', 'Baidu', self::PURPOSE_SEARCH_ENGINE, true, 'https://help.baidu.com/question?prod_id=99&class=0&id=3001'],
+        ['yeti', 'Yeti', 'Naver', self::PURPOSE_SEARCH_ENGINE, true, 'https://searchadvisor.naver.com/guide/seo-basic-robots'],
+        ['seznambot', 'SeznamBot', 'Seznam', self::PURPOSE_SEARCH_ENGINE, true, 'https://o-seznam.cz/napoveda/vyhledavani/en/seznambot-crawler/'],
+        ['sogou', 'Sogou web spider', 'Sogou', self::PURPOSE_SEARCH_ENGINE, true, 'https://www.sogou.com/docs/help/webmasters.htm'],
+        ['360spider', '360Spider', 'Qihoo 360', self::PURPOSE_SEARCH_ENGINE, true, null],
+        ['coccocbot', 'coccocbot-web', 'Cốc Cốc', self::PURPOSE_SEARCH_ENGINE, true, 'https://help.coccoc.com/en/search-engine/coccoc-robots'],
+        ['duckduckbot', 'DuckDuckBot', 'DuckDuckGo', self::PURPOSE_SEARCH_ENGINE, true, 'https://duckduckgo.com/duckduckgo-help-pages/results/duckduckbot/'],
+    ];
+
+    /**
      * Memoised catalog of {@see AiCrawler} objects, keyed by id.
      *
      * @var array<string, AiCrawler>|null
@@ -112,19 +145,66 @@ class AiCrawlerRegistry
     protected ?array $crawlers = null;
 
     /**
-     * The full catalog of known AI crawlers, keyed by id.
+     * Memoised search-engine crawlers, keyed by id.
+     *
+     * @var array<string, AiCrawler>|null
+     */
+    protected ?array $searchEngines = null;
+
+    /**
+     * The full catalog of known AI crawlers, keyed by id — plus, when asked,
+     * the regional search engines. AI-only by default so every "N AI
+     * crawlers" count and the Pro AI-bot log keep their meaning.
      *
      * @return array<string, AiCrawler>
      */
-    public function all(): array
+    public function all(bool $includeSearchEngines = false): array
     {
-        if ($this->crawlers !== null) {
-            return $this->crawlers;
-        }
+        $this->crawlers ??= $this->hydrate(self::CATALOG);
 
+        return $includeSearchEngines
+            ? $this->crawlers + $this->searchEngines()
+            : $this->crawlers;
+    }
+
+    /**
+     * The regional web search-engine crawlers, keyed by id.
+     *
+     * @return array<string, AiCrawler>
+     */
+    public function searchEngines(): array
+    {
+        return $this->searchEngines ??= $this->hydrate(self::SEARCH_ENGINES);
+    }
+
+    /**
+     * Get a single crawler (AI or search engine) by its catalog id, or null
+     * when unknown.
+     */
+    public function get(string $id): ?AiCrawler
+    {
+        return $this->all(true)[$id] ?? null;
+    }
+
+    /**
+     * The crawlers tagged with a given purpose, search engines included.
+     *
+     * @return array<string, AiCrawler>
+     */
+    public function byPurpose(string $purpose): array
+    {
+        return array_filter($this->all(true), static fn (AiCrawler $c): bool => $c->purpose === $purpose);
+    }
+
+    /**
+     * @param  array<int, array{0: string, 1: string, 2: string, 3: string, 4: bool, 5: ?string}>  $rows
+     * @return array<string, AiCrawler>
+     */
+    protected function hydrate(array $rows): array
+    {
         $crawlers = [];
 
-        foreach (self::CATALOG as [$id, $agent, $operator, $purpose, $respects, $url]) {
+        foreach ($rows as [$id, $agent, $operator, $purpose, $respects, $url]) {
             $crawlers[$id] = new AiCrawler(
                 id: $id,
                 agent: $agent,
@@ -137,25 +217,7 @@ class AiCrawlerRegistry
             );
         }
 
-        return $this->crawlers = $crawlers;
-    }
-
-    /**
-     * Get a single crawler by its catalog id, or null when unknown.
-     */
-    public function get(string $id): ?AiCrawler
-    {
-        return $this->all()[$id] ?? null;
-    }
-
-    /**
-     * The crawlers tagged with a given purpose.
-     *
-     * @return array<string, AiCrawler>
-     */
-    public function byPurpose(string $purpose): array
-    {
-        return array_filter($this->all(), static fn (AiCrawler $c): bool => $c->purpose === $purpose);
+        return $crawlers;
     }
 
     /**
@@ -200,8 +262,9 @@ class AiCrawlerRegistry
      *
      * In `'blocked'` mode (the default) only disallowed bots get a directive —
      * a lean robots.txt that gates the trainers and leaves everything else to
-     * the general rules. In `'all'` mode every catalogued bot gets an explicit
-     * allow/disallow line, for an auditable, fully-explicit file.
+     * the general rules. In `'all'` mode every catalogued bot — the regional
+     * search engines included — gets an explicit allow/disallow line, for an
+     * auditable, fully-explicit file.
      *
      * @return array<int, array{crawler: AiCrawler, action: string}>
      */
@@ -210,7 +273,7 @@ class AiCrawlerRegistry
         $mode = config('seo.ai_crawlers.list', 'blocked');
         $directives = [];
 
-        foreach ($this->all() as $crawler) {
+        foreach ($this->all(true) as $crawler) {
             $action = $this->actionFor($crawler);
 
             if ($mode !== 'all' && $action !== self::ACTION_DISALLOW) {
@@ -228,9 +291,10 @@ class AiCrawlerRegistry
      *
      * Matches case-insensitively on the longest needle first, so a specific
      * token (e.g. `claude-searchbot`) is preferred over a broader one. Returns
-     * null for a browser or an unknown agent. Reused by the Pro AI-bot hit log.
+     * null for a browser or an unknown agent. Reused by the Pro AI-bot hit log,
+     * which is why the regional search engines are only considered when asked.
      */
-    public function match(?string $userAgent): ?AiCrawler
+    public function match(?string $userAgent, bool $includeSearchEngines = false): ?AiCrawler
     {
         if ($userAgent === null || $userAgent === '') {
             return null;
@@ -238,7 +302,7 @@ class AiCrawlerRegistry
 
         $haystack = strtolower($userAgent);
 
-        $candidates = $this->all();
+        $candidates = $this->all($includeSearchEngines);
 
         // Longest needle first so 'claude-searchbot' beats a hypothetical 'claude'.
         uasort($candidates, static fn (AiCrawler $a, AiCrawler $b): int => strlen($b->userAgentNeedle()) <=> strlen($a->userAgentNeedle()));

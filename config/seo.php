@@ -163,6 +163,75 @@ return [
         // optional (both 'disable-gpu' and '--disable-gpu' work). Use the map
         // form for flags that take a value: ['proxy-server' => 'http://…'].
         'browsershot_args' => [],
+
+        // Fallback font families for every glyph the bundled Latin/Cyrillic/
+        // Greek face lacks (CJK, Thai, Arabic, Hebrew, Devanagari, emoji).
+        // Chrome falls back per character to the first family INSTALLED on
+        // the host, so this list only helps — nothing is bundled beyond
+        // Latin (a CJK font is 16 MB+). Install the fonts on the machine that
+        // runs seo:og-images (Debian/Ubuntu: fonts-noto-cjk fonts-noto-core
+        // fonts-noto-color-emoji); the command warns when a title's script
+        // has no installed font. The page language's CJK family is moved to
+        // the front automatically (Han unification). Leave null for the
+        // built-in list.
+        'font_stack' => null,
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | hreflang policies
+    |--------------------------------------------------------------------------
+    |
+    | Applied to a model's getSEOAlternates() list before it is rendered as
+    | <link rel="alternate">, written to the sitemap, listed in llms.txt and
+    | audited — one list, seen identically by every artifact.
+    |
+    */
+
+    'hreflang' => [
+
+        // Rewrite codes to the BCP 47 form search engines read: a Laravel
+        // locale such as it_IT / pt_br / zh_hans_cn becomes it-IT / pt-BR /
+        // zh-Hans-CN (an underscore is not valid in hreflang). Off = codes are
+        // emitted exactly as the model returned them.
+        'normalize' => true,
+
+        // Add the page itself (its resolved locale + canonical URL) when the
+        // alternates list omits it. Google requires each language version to
+        // list its own URL; the free audit flags a missing self-reference as
+        // `hreflang_missing_self`. Off by default so existing output is
+        // unchanged — turn it on when your getSEOAlternates() lists only the
+        // OTHER languages.
+        'include_self' => false,
+
+        // The x-default policy: a language code (e.g. 'en'). When a page's
+        // alternates carry no x-default, the alternate for this language is
+        // duplicated as x-default (the URL a searcher gets when no language
+        // matches). Null = never add one automatically.
+        'x_default' => env('SEO_HREFLANG_X_DEFAULT'),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Search-engine site verification
+    |--------------------------------------------------------------------------
+    |
+    | Ownership tokens rendered as <meta name="…-verification"> on every page
+    | (Google accepts the tag on any page; Yandex, Baidu and Naver look for it
+    | on the root page, which is covered). Only the keys you set are emitted;
+    | a value may be one token or a list of tokens.
+    |
+    */
+
+    'verification' => [
+        'google' => env('SEO_VERIFY_GOOGLE'),       // google-site-verification
+        'bing' => env('SEO_VERIFY_BING'),           // msvalidate.01
+        'yandex' => env('SEO_VERIFY_YANDEX'),       // yandex-verification
+        'baidu' => env('SEO_VERIFY_BAIDU'),         // baidu-site-verification
+        'naver' => env('SEO_VERIFY_NAVER'),         // naver-site-verification
+        'seznam' => env('SEO_VERIFY_SEZNAM'),       // seznam-wmt
+        'pinterest' => env('SEO_VERIFY_PINTEREST'), // p:domain_verify
+        'facebook' => env('SEO_VERIFY_FACEBOOK'),   // facebook-domain-verification
     ],
 
     /*
@@ -426,6 +495,34 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Length policy (title / description budgets per script)
+    |--------------------------------------------------------------------------
+    |
+    | Google shows roughly 600 px of title and 920 px of description on a
+    | desktop result. The historical "60 / 160 characters" is that budget for
+    | Latin text; a full-width CJK glyph is about twice as wide, so the same
+    | budget is ~30 / ~80 characters of Japanese, Chinese or Korean. The editor
+    | warnings, the free audit, the Pro scan and the Filament counters all read
+    | these rows through Rankbeam\Seo\I18n\LengthPolicy, which detects the
+    | dominant script of the value and counts user-perceived characters
+    | (graphemes), so "İstanbul", "นครราชสีมา" and "東京" are each measured
+    | correctly.
+    |
+    | Rows are keyed by script bucket — latin, cyrillic, greek, cjk, thai,
+    | arabic, hebrew, devanagari — with `default` for every bucket not listed.
+    | A row may set only some keys; the rest inherit from `default`. Leave the
+    | block out (or a row out) to keep the built-in values below.
+    |
+    */
+
+    'length_policy' => [
+        'default' => ['title_min' => 30, 'title_max' => 60, 'description_min' => 70, 'description_max' => 160],
+        'cjk' => ['title_min' => 15, 'title_max' => 30, 'description_min' => 35, 'description_max' => 80],
+        // 'thai' => ['title_max' => 55],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Computed Values
     |--------------------------------------------------------------------------
     |
@@ -450,8 +547,13 @@ return [
         'description_fields' => [],
 
         /*
-         * Maximum length for computed descriptions. Text is truncated at a
-         * word boundary (no ellipsis) and trailing punctuation is trimmed.
+         * Maximum length for computed descriptions, as a Latin budget. Text
+         * is truncated at a word boundary (no ellipsis) — or, for Han, Kana
+         * and Thai, at a sentence/clause mark — and trailing punctuation is
+         * trimmed; the cut never lands inside a combining sequence. For a
+         * script with wider glyphs the budget is scaled by the length_policy
+         * above (a CJK description gets half), so one number stays right for
+         * every language.
          */
         'description_max_length' => 160,
 
@@ -700,6 +802,14 @@ return [
          */
         'max_entries_per_section' => 100,
 
+        /*
+         * List a page's other-language versions on its bullet ("Also in:
+         * [it](…), [de](…)"), from the model's hreflang alternates after the
+         * `hreflang` policies above. Off by default: the file is unchanged
+         * until you opt in.
+         */
+        'alternates' => env('SEO_LLMS_TXT_ALTERNATES', false),
+
     ],
 
     /*
@@ -749,19 +859,24 @@ return [
         /*
          * Default policy per crawler purpose. Each catalogued bot is tagged as
          * one of: 'ai_training' (collects data to train models), 'ai_search'
-         * (indexes content for AI-search answers), or 'ai_assistant'
-         * (fetches a page in real time on a user's behalf). Map each to 'allow'
-         * or 'disallow'.
+         * (indexes content for AI-search answers), 'ai_assistant' (fetches a
+         * page in real time on a user's behalf), or 'search_engine' (the
+         * regional web search crawlers — Yandex, Baidu, Naver, Seznam, Sogou,
+         * 360, Cốc Cốc, DuckDuckGo). Map each to 'allow' or 'disallow'; a
+         * purpose left out is allowed.
          */
         'policy' => [
             'ai_training' => 'disallow',
             'ai_search' => 'allow',
             'ai_assistant' => 'allow',
+            'search_engine' => 'allow',
         ],
 
         /*
          * Per-bot overrides keyed by catalog id (overrides the purpose policy).
-         * e.g. ['gptbot' => 'allow', 'perplexitybot' => 'disallow']
+         * e.g. ['gptbot' => 'allow', 'perplexitybot' => 'disallow'], or to keep
+         * search engines you do not serve off your bandwidth:
+         * ['baiduspider' => 'disallow', 'sogou' => 'disallow'].
          * See \Rankbeam\Seo\AiCrawlers\AiCrawlerRegistry for the catalog ids.
          */
         'overrides' => [],
@@ -861,6 +976,15 @@ return [
     'schema' => [
 
         /*
+         * Emit `inLanguage` on the WebPage node (from the page's resolved
+         * locale, in BCP 47 form: it_IT → it-IT) and on Article/BlogPosting
+         * nodes built from a model (from its stored seo_meta locale). The
+         * WebSite node takes its languages from `website.inLanguage` below.
+         * Off = no inLanguage anywhere (pre-3.15 output).
+         */
+        'in_language' => true,
+
+        /*
          * Default organization data for Organization schema.
          * Used when no specific organization is defined on a page.
          *
@@ -897,6 +1021,7 @@ return [
         'website' => [
             'name' => env('APP_NAME'),
             'url' => env('APP_URL'),
+            // 'inLanguage' => ['it', 'en'], // the site's languages (one code or a list)
             // 'potentialAction' => [], // SearchAction for sitelinks search box
         ],
 

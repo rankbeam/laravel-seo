@@ -148,7 +148,11 @@ public function getSEOAlternates(): ?array
 ```
 
 Use absolute URLs. `@seo($post)` resolves these entries and renders each one as
-`<link rel="alternate" hreflang="..." href="...">`.
+`<link rel="alternate" hreflang="..." href="...">`. Codes are rewritten to
+their BCP 47 form first (`it_IT` → `it-IT`), and the `seo.hreflang` policies can
+add the page's own self-reference and an `x-default`; the free audit flags
+invalid, duplicated or missing-self entries. See
+[Multilingual content](/guide/multilingual#hreflang).
 
 ## Escaping and safety
 

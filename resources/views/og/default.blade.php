@@ -3,11 +3,11 @@
     OgImageRenderer. Everything is inlined (the font arrives as a data URI in
     $fontDataUri) so the HTML is self-contained for a headless browser.
 
-    Variables: $title, $siteName, $fontDataUri, $gradientFrom, $gradientTo,
-    $width, $height. Publish with `php artisan vendor:publish --tag=seo-views`
+    Variables: $title, $siteName, $fontDataUri, $fontFamily, $lang, $gradientFrom,
+    $gradientTo, $width, $height. Publish with `php artisan vendor:publish --tag=seo-views`
     to customize; register additional templates via config('seo.og_image.template').
 --}}<!doctype html>
-<html lang="{{ $locale ?? 'en' }}">
+<html lang="{{ $lang ?? $locale ?? 'en' }}">
 <head>
 <meta charset="utf-8">
 <style>
@@ -21,9 +21,11 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { width: {{ $width }}px; height: {{ $height }}px; }
     body {
-        /* Bundled Latin bold first; the browser's own system font stack then
-           supplies glyphs for any script the bundled font lacks (CJK, etc.). */
-        font-family: 'OGBrand', sans-serif;
+        /* Bundled Latin bold first, then the per-script fallback stack
+           (config seo.og_image.font_stack — the Noto CJK family of the page
+           language first) for any glyph the bundled font lacks, then the
+           browser's own sans-serif. */
+        font-family: {!! $fontFamily ?? "'OGBrand', sans-serif" !!};
         display: flex;
         flex-direction: column;
         justify-content: center;

@@ -10,6 +10,7 @@ use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Rankbeam\Seo\Contracts\Sitemapable;
+use Rankbeam\Seo\I18n\Hreflang;
 use Rankbeam\Seo\Services\Sitemap\SitemapRegistry;
 use Rankbeam\Seo\Traits\HasSEO;
 use Spatie\Sitemap\Tags\Url;
@@ -341,12 +342,14 @@ class LlmsTxtBuilder
 
         $title = null;
         $description = null;
+        $alternates = [];
 
         if (method_exists($model, 'seoData')) {
             try {
                 $seo = $model->seoData();
                 $title = $this->nonEmpty($seo->title);
                 $description = $this->nonEmpty($seo->description);
+                $alternates = $this->alternatesForEntry($seo->alternates, $url, $seo->locale);
             } catch (\Throwable) {
                 // Degrade to a URL-derived title rather than failing the file.
             }
@@ -356,7 +359,30 @@ class LlmsTxtBuilder
             'title' => $title ?? $this->fallbackTitle($url),
             'url' => $url,
             'description' => $description,
+            'alternates' => $alternates,
         ];
+    }
+
+    /**
+     * The other-language versions of a page to list on its bullet, when
+     * `seo.llms_txt.alternates` is on: the model's hreflang alternates after
+     * the `seo.hreflang` policies, minus `x-default` and the page itself.
+     *
+     * @return array<int, array{hreflang: string, href: string}>
+     */
+    protected function alternatesForEntry(mixed $alternates, string $url, ?string $locale): array
+    {
+        if (! (bool) config('seo.llms_txt.alternates', false) || empty($alternates)) {
+            return [];
+        }
+
+        $own = rtrim($url, '/');
+
+        return array_values(array_filter(
+            Hreflang::alternatesFor($alternates, $url, $locale),
+            static fn (array $alternate): bool => $alternate['hreflang'] !== Hreflang::X_DEFAULT
+                && rtrim($alternate['href'], '/') !== $own,
+        ));
     }
 
     /**
@@ -365,8 +391,11 @@ class LlmsTxtBuilder
      * `- [title](url): description` — the description (and its colon) is omitted
      * when absent. Markdown-significant characters in the title and the
      * descriptions are neutralized so the line never breaks the list shape.
+     * With `seo.llms_txt.alternates` on, a page that exists in other
+     * languages ends with `Also in: [it](…), [de](…)` so a reader can pick
+     * the version it needs.
      *
-     * @param  array{title: string, url: string, description: ?string}  $entry
+     * @param  array{title: string, url: string, description: ?string, alternates?: array<int, array{hreflang: string, href: string}>}  $entry
      */
     protected function renderEntry(array $entry): string
     {
@@ -376,7 +405,32 @@ class LlmsTxtBuilder
             $line .= ': ' . $this->oneLine($entry['description']);
         }
 
+        $alternates = $entry['alternates'] ?? [];
+
+        if ($alternates !== []) {
+            $links = array_map(
+                static fn (array $alternate): string => '[' . $alternate['hreflang'] . '](' . $alternate['href'] . ')',
+                $alternates,
+            );
+
+            $line .= $this->alternatesSeparator($entry['description']) . 'Also in: ' . implode(', ', $links);
+        }
+
         return $line;
+    }
+
+    /**
+     * What sits between the bullet and its "Also in:" tail: a colon when there
+     * is no description, a space when the description already ends a
+     * sentence, a period + space otherwise.
+     */
+    protected function alternatesSeparator(?string $description): string
+    {
+        if ($description === null || $description === '') {
+            return ': ';
+        }
+
+        return preg_match('/[.!?\x{3002}\x{FF01}\x{FF1F}]$/u', rtrim($this->oneLine($description))) === 1 ? ' ' : '. ';
     }
 
     /**

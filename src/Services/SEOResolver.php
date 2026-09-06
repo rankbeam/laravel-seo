@@ -6,6 +6,7 @@ namespace Rankbeam\Seo\Services;
 
 use Illuminate\Database\Eloquent\Model;
 use Rankbeam\Seo\Data\SEOData;
+use Rankbeam\Seo\I18n\CaseFolder;
 use Rankbeam\Seo\Services\OgImage\OgImageGenerator;
 use Rankbeam\Seo\Services\OgImage\OgImageManager;
 
@@ -850,7 +851,7 @@ class SEOResolver
             return $seoData;
         }
 
-        if ($this->titleContainsBrandToken($seoData->title)) {
+        if ($this->titleContainsBrandToken($seoData->title, $seoData->locale)) {
             return $seoData;
         }
 
@@ -863,11 +864,16 @@ class SEOResolver
      * Tokens from seo.title_suffix_skip_when_contains are matched
      * case-insensitively on a word boundary, so a title that already carries
      * the brand keeps a single brand mention instead of gaining the suffix.
+     * The comparison is locale-aware ({@see CaseFolder}): a Turkish
+     * "İstanbul" matches "istanbul", a Greek final sigma matches its mid-word
+     * form, and word boundaries are Unicode-aware so accented and non-Latin
+     * brands behave like ASCII ones.
      *
      * @param string $title The resolved title
+     * @param string|null $locale The page locale, for the casing rules
      * @return bool True when a skip token is present as a whole word
      */
-    protected function titleContainsBrandToken(string $title): bool
+    protected function titleContainsBrandToken(string $title, ?string $locale = null): bool
     {
         /** @var array<int, string> $tokens */
         $tokens = (array) config('seo.title_suffix_skip_when_contains', []);
@@ -879,7 +885,7 @@ class SEOResolver
                 continue;
             }
 
-            if (preg_match('/\b' . preg_quote($token, '/') . '\b/iu', $title) === 1) {
+            if (CaseFolder::containsWord($title, $token, $locale)) {
                 return true;
             }
         }

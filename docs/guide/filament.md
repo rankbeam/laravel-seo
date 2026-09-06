@@ -39,9 +39,11 @@ class PostResource extends Resource
 
 That renders a collapsible "SEO" section with:
 
-- **Title & description** with live character counters — the 60/160
-  thresholds come from the core `SEOWarningEvaluator`, so the admin UI and
-  the audit layer can never disagree.
+- **Title & description** with live character counters — the budget comes
+  from the core [length policy](/guide/multilingual#title-and-description-budgets-per-script)
+  for the script being typed (60/160 for Latin text, ~30/80 for CJK, counted
+  in graphemes; Filament 1.8), so the admin UI and the audit layer can never
+  disagree.
 - **Focus keywords** — a tags input. You type plain keywords; they persist in
   the core's structured `[{keyword, is_primary}]` shape (the first is primary),
   so `getPrimaryKeyword()` and `SEOData` read them unchanged. Enable

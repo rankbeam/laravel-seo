@@ -3,7 +3,7 @@
     lockup (top), an optional category chip, the product title, and a one-line
     description. Extra variables over the default: $description, $section.
 --}}<!doctype html>
-<html lang="{{ $locale ?? 'en' }}">
+<html lang="{{ $lang ?? $locale ?? 'en' }}">
 <head>
 <meta charset="utf-8">
 <style>
@@ -17,7 +17,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { width: {{ $width }}px; height: {{ $height }}px; }
     body {
-        font-family: 'OGBrand', sans-serif;
+        font-family: {!! $fontFamily ?? "'OGBrand', sans-serif" !!};
         font-weight: 700;
         display: flex;
         flex-direction: column;

@@ -34,12 +34,18 @@ it('pins the metadata code contract shared with the Pro registry', function () {
 });
 
 it('keeps core-only codes out of the Pro-mirror list but buildable via make()', function () {
-    // blank_explicit_override is a CORE-only resolver-policy code. It must
-    // NOT appear in metadataCodes() (which stays identical to the Pro registry),
-    // but the catalogue still recognises and can build it.
-    expect(MetadataIssues::metadataCodes())->not->toContain('blank_explicit_override')
-        ->and(array_keys(MetadataIssues::coreDefinitions()))->toBe(['blank_explicit_override'])
-        ->and(MetadataIssues::has('blank_explicit_override'))->toBeTrue();
+    // blank_explicit_override (resolver policy) and the three hreflang codes
+    // are CORE-only. They must NOT appear in metadataCodes() (which stays
+    // identical to the Pro registry), but the catalogue still recognises and
+    // can build them.
+    $coreOnly = ['blank_explicit_override', 'hreflang_invalid_code', 'hreflang_duplicate_code', 'hreflang_missing_self'];
+
+    expect(array_keys(MetadataIssues::coreDefinitions()))->toBe($coreOnly);
+
+    foreach ($coreOnly as $code) {
+        expect(MetadataIssues::metadataCodes())->not->toContain($code)
+            ->and(MetadataIssues::has($code))->toBeTrue();
+    }
 
     $issue = MetadataIssues::make('blank_explicit_override', 'Blank fields override.', ['fields' => ['title']]);
 

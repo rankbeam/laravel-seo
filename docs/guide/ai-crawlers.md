@@ -151,16 +151,18 @@ above and any edge-level blocking.
     'path'    => 'robots.txt',
     'ai_txt_path' => 'ai.txt',
 
-    // Policy by purpose.
+    // Policy by purpose. A purpose left out is allowed.
     'policy' => [
-        'ai_training'  => 'disallow',
-        'ai_search'    => 'allow',
-        'ai_assistant' => 'allow',
+        'ai_training'   => 'disallow',
+        'ai_search'     => 'allow',
+        'ai_assistant'  => 'allow',
+        'search_engine' => 'allow',   // Yandex, Baidu, Naver, Seznam, … (3.15)
     ],
 
     // Per-bot overrides, keyed by catalog id (win over the purpose policy).
     'overrides' => [
         'gptbot' => 'allow',          // e.g. opt GPTBot back in
+        'baiduspider' => 'disallow',  // e.g. keep a search engine you don't serve off your bandwidth
     ],
 
     // 'blocked' = only disallowed bots get a line (lean file);
@@ -201,3 +203,39 @@ It covers the major operators — OpenAI (GPTBot, OAI-SearchBot, ChatGPT-User),
 Anthropic (ClaudeBot, Claude-SearchBot, Claude-User), Google (Google-Extended),
 Perplexity, Apple (Applebot-Extended), Common Crawl (CCBot), Meta, Amazon,
 ByteDance and more — each with its documented purpose and robots.txt token.
+
+### Regional search engines
+
+Since 3.15 the catalog also carries the classic web search crawlers that matter
+outside the Google/Bing world, tagged with the purpose `search_engine` and
+**allowed by default**:
+
+| id | Token | Operator |
+|---|---|---|
+| `yandex` | `Yandex` | Yandex (Russia) — the bare token covers all its bots |
+| `baiduspider` | `Baiduspider` | Baidu (China) |
+| `yeti` | `Yeti` | Naver (Korea) |
+| `seznambot` | `SeznamBot` | Seznam (Czechia) |
+| `sogou` | `Sogou web spider` | Sogou (China) |
+| `360spider` | `360Spider` | Qihoo 360 (China) |
+| `coccocbot` | `coccocbot-web` | Cốc Cốc (Vietnam) |
+| `duckduckbot` | `DuckDuckBot` | DuckDuckGo |
+
+They take part in `policy` and `overrides` like any other bot — so
+`'overrides' => ['baiduspider' => 'disallow', 'sogou' => 'disallow']` keeps two
+crawlers you do not serve off your bandwidth, and `'list' => 'all'` gives each
+an explicit line. They are kept **out** of `all()` and `match()` unless asked —
+`searchEngines()`, `all(true)`, `match($ua, true)` — so the Pro AI-bot log and
+every "N AI crawlers" count keep their meaning:
+
+```php
+SEO::aiCrawlers()->searchEngines();          // the eight engines
+SEO::aiCrawlers()->get('yandex');            // works for both lists
+SEO::aiCrawlers()->match($userAgent, true);  // identify an engine too
+```
+
+Supporting a crawler says nothing about ranking — real Baidu visibility needs
+hosting in China and an ICP licence. The matching site-verification tags
+(`yandex-verification`, `baidu-site-verification`, `naver-site-verification`,
+`seznam-wmt`) live under `seo.verification`; see
+[Multilingual content](/guide/multilingual#site-verification).

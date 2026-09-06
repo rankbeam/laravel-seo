@@ -208,14 +208,19 @@ public function getSEOAlternates(): ?array
 ```
 
 ::: warning hreflang must be reciprocal and self-referencing
-The values you return are emitted **verbatim** — the package does not validate
-language codes or invent links. Google only honours an annotation when every
-language version lists **itself and all the others**, and the references are
-**reciprocal** (each page points back). So `getSEOAlternates()` must return the
-**complete** set (including a self-reference) and every localised variant must
-return that same complete set. Use valid `language` / `language-REGION` codes
-or `x-default`, and absolute `http(s)` URLs. Entries missing a non-empty
-`hreflang` or `href` are skipped.
+Google only honours an annotation when every language version lists **itself
+and all the others**, and the references are **reciprocal** (each page points
+back). So `getSEOAlternates()` must return the **complete** set and every
+localised variant must return that same complete set. Use valid
+`language[-Script][-REGION]` codes or `x-default`, and absolute `http(s)` URLs.
+Entries missing a non-empty `hreflang` or `href` are skipped.
+
+The list goes through the [`seo.hreflang` policies](/guide/multilingual#hreflang)
+before it is written — codes are normalised to BCP 47 (`it_IT` → `it-IT`), and
+`include_self` / `x_default` can add the self-reference and the `x-default`
+for you — and the sitemap always carries the same list as the page `<head>`.
+The free audit reports `hreflang_invalid_code`, `hreflang_duplicate_code` and
+`hreflang_missing_self`; reciprocity needs a crawl (Pro).
 :::
 
 ::: info Cost at scale

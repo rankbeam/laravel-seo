@@ -36,6 +36,12 @@ Render it in Blade (head or body):
 Organization and WebSite data come from `config/seo.php` (`schema.organization`,
 `schema.website`); the WebPage node is filled from the resolved `SEOData`.
 
+The WebPage node carries `inLanguage` from the page's resolved locale in BCP 47
+form (`it_IT` → `it-IT`), `ArticleSchema::fromModel()` takes it from the stored
+`seo_meta` locale, and the WebSite node lists the site's languages from
+`schema.website.inLanguage` (one code or a list). Set `schema.in_language` to
+`false` to emit no `inLanguage` at all. See [Multilingual content](/guide/multilingual#inlanguage-in-the-schema-graph).
+
 ## Typed builders
 
 Builders exist for the common rich-result types:

@@ -102,7 +102,9 @@ describe('AiCrawlerRegistry directives()', function () {
         $registry = app(AiCrawlerRegistry::class);
         $directives = $registry->directives();
 
-        expect(count($directives))->toBe(count($registry->all()))
+        // AI crawlers AND the regional search engines get a line in "all" mode.
+        expect(count($directives))->toBe(count($registry->all(true)))
+            ->and(count($registry->all(true)))->toBe(count($registry->all()) + count($registry->searchEngines()))
             ->and(array_unique(array_column($directives, 'action')))
             ->toContain('allow', 'disallow');
     });

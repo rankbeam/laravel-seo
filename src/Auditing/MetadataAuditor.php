@@ -7,6 +7,9 @@ namespace Rankbeam\Seo\Auditing;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Rankbeam\Seo\Facades\SEO;
+use Rankbeam\Seo\I18n\Hreflang;
+use Rankbeam\Seo\I18n\LengthPolicy;
+use Rankbeam\Seo\I18n\Url;
 use Rankbeam\Seo\Models\SEOMeta;
 use Rankbeam\Seo\Pro\Scanning\PageScanner;
 use Rankbeam\Seo\Services\SEOWarningEvaluator;
@@ -72,6 +75,7 @@ class MetadataAuditor
         }
 
         $issues = array_merge($issues, $this->checkCanonicalConsistency($model));
+        $issues = array_merge($issues, $this->checkHreflang($model, $locale));
 
         return array_merge($issues, $this->checkAnswerReadiness($model, $locale));
     }
@@ -396,43 +400,133 @@ class MetadataAuditor
 
         $title = trim((string) ($resolved->title ?? ''));
         if ($title !== '') {
-            $length = mb_strlen($title);
+            $policy = LengthPolicy::for($title, $resolved->locale ?? $locale);
+            $length = $policy->length($title);
 
-            if ($length > SEOWarningEvaluator::TITLE_MAX_LENGTH) {
+            if ($policy->titleTooLong($title)) {
                 $issues[] = MetadataIssues::make(
                     'title_too_long',
-                    __('seo::seo.audit.title_too_long', ['length' => $length, 'max' => SEOWarningEvaluator::TITLE_MAX_LENGTH]),
-                    ['length' => $length, 'max' => SEOWarningEvaluator::TITLE_MAX_LENGTH],
+                    __('seo::seo.audit.title_too_long', ['length' => $length, 'max' => $policy->titleMax]),
+                    ['length' => $length, 'max' => $policy->titleMax, 'script' => $policy->script],
                 );
-            } elseif ($length < MetadataIssues::TITLE_MIN_LENGTH) {
+            } elseif ($policy->titleTooShort($title)) {
                 $issues[] = MetadataIssues::make(
                     'title_too_short',
-                    __('seo::seo.audit.title_too_short', ['length' => $length, 'min' => MetadataIssues::TITLE_MIN_LENGTH]),
-                    ['length' => $length, 'min' => MetadataIssues::TITLE_MIN_LENGTH],
+                    __('seo::seo.audit.title_too_short', ['length' => $length, 'min' => $policy->titleMin]),
+                    ['length' => $length, 'min' => $policy->titleMin, 'script' => $policy->script],
                 );
             }
         }
 
         $description = trim((string) ($resolved->description ?? ''));
         if ($description !== '') {
-            $length = mb_strlen($description);
+            $policy = LengthPolicy::for($description, $resolved->locale ?? $locale);
+            $length = $policy->length($description);
 
-            if ($length > SEOWarningEvaluator::DESCRIPTION_MAX_LENGTH) {
+            if ($policy->descriptionTooLong($description)) {
                 $issues[] = MetadataIssues::make(
                     'description_too_long',
-                    __('seo::seo.audit.description_too_long', ['length' => $length, 'max' => SEOWarningEvaluator::DESCRIPTION_MAX_LENGTH]),
-                    ['length' => $length, 'max' => SEOWarningEvaluator::DESCRIPTION_MAX_LENGTH],
+                    __('seo::seo.audit.description_too_long', ['length' => $length, 'max' => $policy->descriptionMax]),
+                    ['length' => $length, 'max' => $policy->descriptionMax, 'script' => $policy->script],
                 );
-            } elseif ($length < MetadataIssues::DESCRIPTION_MIN_LENGTH) {
+            } elseif ($policy->descriptionTooShort($description)) {
                 $issues[] = MetadataIssues::make(
                     'description_too_short',
-                    __('seo::seo.audit.description_too_short', ['length' => $length, 'min' => MetadataIssues::DESCRIPTION_MIN_LENGTH]),
-                    ['length' => $length, 'min' => MetadataIssues::DESCRIPTION_MIN_LENGTH],
+                    __('seo::seo.audit.description_too_short', ['length' => $length, 'min' => $policy->descriptionMin]),
+                    ['length' => $length, 'min' => $policy->descriptionMin, 'script' => $policy->script],
                 );
             }
         }
 
         return $issues;
+    }
+
+    /**
+     * Check the page's hreflang alternates, after the `seo.hreflang` policies.
+     *
+     * Runs only when the resolved data carries alternates. Three core-only
+     * codes (not part of the Pro metadata mirror):
+     *
+     * - `hreflang_invalid_code` — a code search engines will ignore (not
+     *   `language[-Script][-REGION]` with known subtags, e.g. `en-UK`, `jp`).
+     * - `hreflang_duplicate_code` — the same code listed twice.
+     * - `hreflang_missing_self` — the page's own URL is not in its list;
+     *   Google requires each language version to list itself.
+     *
+     * @return array<int, AuditIssue>
+     */
+    public function checkHreflang(Model $model, ?string $locale = null): array
+    {
+        try {
+            $resolved = SEO::resolve($model, null, $locale);
+        } catch (Throwable) {
+            return [];
+        }
+
+        if (empty($resolved->alternates)) {
+            return [];
+        }
+
+        $canonical = $resolved->canonical;
+        $alternates = Hreflang::alternatesFor($resolved->alternates, $canonical, $resolved->locale);
+
+        if ($alternates === []) {
+            return [];
+        }
+
+        $issues = [];
+        $problems = Hreflang::issues($alternates);
+
+        if ($problems['invalid'] !== []) {
+            $issues[] = MetadataIssues::make(
+                'hreflang_invalid_code',
+                __('seo::seo.audit.hreflang_invalid_code', ['codes' => implode(', ', $problems['invalid'])]),
+                ['codes' => $problems['invalid']],
+            );
+        }
+
+        if ($problems['duplicate'] !== []) {
+            $issues[] = MetadataIssues::make(
+                'hreflang_duplicate_code',
+                __('seo::seo.audit.hreflang_duplicate_code', ['codes' => implode(', ', $problems['duplicate'])]),
+                ['codes' => $problems['duplicate']],
+            );
+        }
+
+        $self = array_values(array_filter(
+            [$canonical, method_exists($model, 'getUrlForSEO') ? $model->getUrlForSEO() : null],
+            static fn ($url): bool => is_string($url) && $url !== '',
+        ));
+
+        if ($self !== [] && ! $this->alternatesListSelf($alternates, $self)) {
+            $issues[] = MetadataIssues::make(
+                'hreflang_missing_self',
+                __('seo::seo.audit.hreflang_missing_self'),
+                ['canonical' => $self[0], 'alternates' => array_column($alternates, 'href')],
+            );
+        }
+
+        return $issues;
+    }
+
+    /**
+     * Whether any alternate points at one of the page's own URLs
+     * (trailing-slash tolerant).
+     *
+     * @param  array<int, array{hreflang: string, href: string}>  $alternates
+     * @param  array<int, string>  $self
+     */
+    protected function alternatesListSelf(array $alternates, array $self): bool
+    {
+        $own = array_map(static fn (string $url): string => rtrim($url, '/'), $self);
+
+        foreach ($alternates as $alternate) {
+            if (in_array(rtrim($alternate['href'], '/'), $own, true)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -494,7 +588,9 @@ class MetadataAuditor
 
         $canonical = $seoMeta->canonical;
 
-        if (! filter_var($canonical, FILTER_VALIDATE_URL)) {
+        // Unicode-aware: an IDN host or a non-ASCII path is a valid canonical
+        // (FILTER_VALIDATE_URL would reject both).
+        if (! Url::isValid($canonical)) {
             return [MetadataIssues::make(
                 'invalid_canonical',
                 __('seo::seo.audit.invalid_canonical'),

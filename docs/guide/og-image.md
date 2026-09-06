@@ -265,13 +265,18 @@ Editing a template *in place* does not (the name is unchanged) — bump
     // on a low-/dev-shm container. Leading "--" optional; map form for
     // value-bearing flags: ['proxy-server' => 'http://…'].
     'browsershot_args' => [],
+
+    // Fallback font families for glyphs the bundled face lacks (CJK, Thai,
+    // Arabic, …). null = the built-in Noto list; see "Fonts and non-Latin
+    // scripts" below.
+    'font_stack' => null,
 ],
 ```
 
 Most scalar values have a matching env var (`SEO_OG_IMAGE_ENABLED`,
 `SEO_OG_IMAGE_DISK`, `SEO_OG_IMAGE_CHROME_PATH`, `SEO_OG_IMAGE_NO_SANDBOX`, …) —
 see the config file for the full list. The array-shaped keys (`templates`,
-`models`, `browsershot_args`) are edited in the config file directly.
+`models`, `browsershot_args`, `font_stack`) are edited in the config file directly.
 
 The disk must be **publicly served**, because the resolver uses its `url()` as the
 `og:image` value. With the `public` disk, run `php artisan storage:link` once so
@@ -346,6 +351,60 @@ app(OgImageManager::class)->extend('my-driver', fn ($app) => new MyRenderer());
 A driver only turns a self-contained HTML string into PNG bytes at a given size;
 it owns no layout or templating.
 
+## Fonts and non-Latin scripts
+
+The bundled card font (Noto Sans Bold, OFL) covers **Latin, Cyrillic and Greek**.
+Every other script — Chinese, Japanese, Korean, Thai, Arabic, Hebrew,
+Devanagari, emoji — comes from fonts **installed on the machine that runs
+`seo:og-images`**. Nothing else is bundled on purpose: one CJK font is 16 MB+,
+and Chrome's own per-character fallback does the right thing as soon as a
+suitable font exists on the host.
+
+Three things make that reliable (3.15):
+
+1. **A per-script `font-family` stack in every bundled template.** The body
+   declares `'OGBrand'` (the bundled face) first, then
+   `seo.og_image.font_stack` — by default `Noto Sans`, the four `Noto Sans CJK`
+   families, `Noto Sans Thai`, `Noto Sans Arabic`, `Noto Sans Hebrew`,
+   `Noto Sans Devanagari`, `Noto Color Emoji` — then `sans-serif`. Chrome falls
+   back per character to the first family that is installed, so the list only
+   helps; a family that is missing is skipped. The **page language's CJK family
+   is moved to the front** (`ja` → JP, `zh-Hans` → SC, `zh-Hant` / `zh-TW` /
+   `zh-HK` → TC, `ko` → KR), because the same Han code point is drawn
+   differently in each national font (Han unification), and the `<html lang>`
+   attribute carries the page locale in BCP 47 form. The stack is part of the
+   cache key, so changing it re-renders every card.
+
+2. **A pre-flight in `seo:og-images`.** Before rendering, the command asks
+   fontconfig (`fc-list :lang=ja`, `th`, `ar`, …) whether a font covers the
+   script of each title it is about to draw, and warns **once per script** with
+   the package to install:
+
+   ```
+   No installed font covers cjk text — its cards will render as boxes. Install one: apt-get install fonts-noto-cjk
+   ```
+
+   Where fontconfig is absent (Windows, macOS, a minimal container) it stays
+   quiet rather than guess. The render itself never fails for a missing font —
+   Chrome draws .notdef boxes — which is exactly why the warning exists.
+
+3. **A glyph fixture per script in the live smoke test.** With
+   `SEO_OG_IMAGE_LIVE_TEST=1`, `tests/Feature/OgImage/BrowsershotSmokeTest.php`
+   renders a title in ja, zh-Hans, zh-Hant, ko, el, ru, tr, th, ar, he and hi
+   next to a same-length control made of an unassigned code point (guaranteed
+   boxes) and fails, naming the script and the package, when the two PNGs are
+   byte-identical. Run it on a fresh deploy image to prove the fonts are there.
+
+On Debian/Ubuntu:
+
+```bash
+apt-get install fonts-noto-cjk fonts-noto-core fonts-noto-color-emoji
+fc-cache -f
+```
+
+Own templates published with `--tag=seo-views` before 3.15 keep working: they
+receive the new `$fontFamily` and `$lang` variables and may ignore them.
+
 ## Caveats
 
 Stated honestly, because they bite in production:
@@ -360,11 +419,10 @@ Stated honestly, because they bite in production:
   ignored by Windows. On Windows, install `puppeteer` in the **application root**
   so Node resolves it by walking up directories. (On Linux/macOS the setting works
   as expected.)
-- **Non-Latin scripts need a font on the host.** The browser does per-script font
-  fallback, but only to fonts **installed on the deploy image**. The bundled font
-  is Latin-only (Noto Sans Bold, OFL). Without a CJK/Noto font on the host,
-  Chinese/Japanese/Korean (and other non-Latin) titles render as tofu boxes —
-  install a font such as Noto Sans CJK on the machine that runs the command.
+- **Non-Latin scripts need a font on the host.** See
+  [Fonts and non-Latin scripts](#fonts-and-non-latin-scripts) below: the bundled
+  font covers Latin, Cyrillic and Greek; everything else comes from fonts
+  installed on the deploy image, and the command tells you when one is missing.
 - **Fails open.** If a render fails (missing package, browser crash, timeout), the
   command reports it and the page simply keeps its static `default_og_image` — a
   broken browser never 500s a page.
