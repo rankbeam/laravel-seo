@@ -86,15 +86,30 @@ describe('Script::length and graphemes', function () {
             ->and(Script::length(null))->toBe(0);
     });
 
+    it('counts consecutive emoji one by one, whatever the PCRE2 version', function () {
+        // PCRE2 < 10.44 joins a run of emoji into one \X cluster; the split
+        // before every pictograph not preceded by a ZWJ restores GB11.
+        $family = "\u{1F468}\u{200D}\u{1F469}\u{200D}\u{1F467}";
+
+        expect(Script::length("\u{1F525}\u{1F525}\u{1F525}"))->toBe(3)
+            ->and(Script::length(str_repeat("\u{1F44B}\u{1F3FD}", 3)))->toBe(3)
+            ->and(Script::length(str_repeat($family, 3)))->toBe(3)
+            ->and(Script::graphemes(str_repeat($family, 2)))->toBe([$family, $family])
+            // A modifier, a variation selector, a keycap and a flag stay whole.
+            ->and(Script::graphemes("\u{1F44B}\u{1F3FD}\u{1F44B}"))->toBe(["\u{1F44B}\u{1F3FD}", "\u{1F44B}"])
+            ->and(Script::length("\u{2764}\u{FE0F}\u{2764}\u{FE0F}"))->toBe(2)
+            ->and(Script::length("1\u{FE0F}\u{20E3}2\u{FE0F}\u{20E3}"))->toBe(2)
+            ->and(Script::length("\u{1F1EE}\u{1F1F9}\u{1F1EE}\u{1F1F9}"))->toBe(2)
+            ->and(Script::graphemes("Sale \u{1F525}\u{1F525} now"))->toBe(['S', 'a', 'l', 'e', ' ', "\u{1F525}", "\u{1F525}", ' ', 'n', 'o', 'w']);
+    });
+
     it('survives long emoji runs where the PCRE JIT stack would overflow', function () {
-        // \X under the JIT blows its stack after a few dozen emoji and returns
-        // false — which used to degrade silently to a codepoint count.
         $waves = str_repeat("\u{1F44B}\u{1F3FD}", 500);
         $families = str_repeat("\u{1F468}\u{200D}\u{1F469}\u{200D}\u{1F467}", 300);
 
         expect(Script::length($waves))->toBe(500)
             ->and(count(Script::graphemes($waves)))->toBe(500)
-            ->and(Script::length($families))->toBe(Script::length("\u{1F468}\u{200D}\u{1F469}\u{200D}\u{1F467}") * 300)
+            ->and(Script::length($families))->toBe(300)
             ->and(implode('', Script::graphemes($families)))->toBe($families);
     });
 

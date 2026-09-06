@@ -177,11 +177,8 @@ final class Script
      * with a skin-tone modifier or a Latin letter with a combining accent each
      * count as ONE — the unit an editor sees and the unit search engines
      * effectively budget. Pure PCRE (`\X`), so it needs no ext-intl. For plain
-     * Latin text it equals mb_strlen(). The cluster rules are those of the
-     * host's PCRE2 build; an old build without the GB11 rule counts an emoji
-     * ZWJ sequence (👨‍👩‍👧) as several characters instead of one — the only
-     * case where two hosts can disagree, and {@see Truncator} never cuts
-     * inside such a sequence either way.
+     * Latin text it equals mb_strlen(). See {@see graphemes()} for the one
+     * PCRE2 quirk this corrects.
      */
     public static function length(?string $text): int
     {
@@ -189,15 +186,22 @@ final class Script
             return 0;
         }
 
-        $count = preg_match_all(self::GRAPHEME, $text);
-
-        // Invalid UTF-8 makes preg_match_all fail; degrade to the codepoint
-        // count rather than reporting zero characters.
-        return $count === false ? mb_strlen($text) : $count;
+        return count(self::graphemes($text));
     }
 
     /**
      * Split text into its grapheme clusters.
+     *
+     * PCRE2 builds before 10.44 (Ubuntu 24.04 ships 10.42, PHP 8.2/8.3 bundle
+     * 10.40/10.42) join consecutive emoji into ONE `\X` cluster — "🔥🔥🔥"
+     * comes back as a single character, and thirty 👋🏽 in a row as one —
+     * although the Unicode rule (GB11) only joins two pictographs across a
+     * zero-width joiner. Every cluster that holds a pictograph is therefore
+     * re-split before each pictograph that is not preceded by a joiner, which
+     * leaves ZWJ sequences (👨‍👩‍👧), modifiers (👋🏽), variation selectors,
+     * keycaps and flags intact and makes the count identical on every host.
+     * A PCRE2 too old to know the Extended_Pictographic property keeps its own
+     * clusters.
      *
      * @return array<int, string>
      */
@@ -208,18 +212,58 @@ final class Script
         }
 
         if (preg_match_all(self::GRAPHEME, $text, $matches) === false) {
+            // Invalid UTF-8 makes preg_match_all fail; degrade to codepoints
+            // rather than reporting no characters at all.
             return mb_str_split($text);
         }
 
-        return $matches[0];
+        if (! self::knowsPictographs()) {
+            return $matches[0];
+        }
+
+        $graphemes = [];
+
+        foreach ($matches[0] as $cluster) {
+            // A lone pictograph is 4 bytes; anything longer that contains one
+            // may be an over-joined run.
+            if (strlen($cluster) > 4 && preg_match(self::PICTOGRAPH, $cluster) === 1) {
+                foreach (preg_split(self::EMOJI_RUN, $cluster, -1, PREG_SPLIT_NO_EMPTY) ?: [$cluster] as $part) {
+                    $graphemes[] = $part;
+                }
+
+                continue;
+            }
+
+            $graphemes[] = $cluster;
+        }
+
+        return $graphemes;
     }
 
     /**
-     * One extended grapheme cluster. `(*NO_JIT)` runs the match in the PCRE2
+     * Whether this PCRE2 knows the Extended_Pictographic property (10.40+).
+     */
+    private static function knowsPictographs(): bool
+    {
+        static $known = null;
+
+        return $known ??= @preg_match(self::PICTOGRAPH, "\u{1F600}") === 1;
+    }
+
+    /**
+     * One extended grapheme cluster. `(*NO_JIT)` keeps the match in the PCRE2
      * interpreter: `\X` compiles to a deep pattern and the JIT's fixed stack
-     * overflows on a few dozen emoji in a row (PREG_JIT_STACKLIMIT_ERROR,
-     * which reads as "false" and would silently fall back to codepoints).
-     * Titles and descriptions are short, so the interpreter costs nothing.
+     * can overflow on long emoji runs (PREG_JIT_STACKLIMIT_ERROR reads as
+     * "false"). Titles and descriptions are short; the interpreter costs
+     * nothing.
      */
     private const GRAPHEME = '/(*NO_JIT)\X/u';
+
+    private const PICTOGRAPH = '/\p{Extended_Pictographic}/u';
+
+    /**
+     * A split point before every pictograph not preceded by a zero-width
+     * joiner — the boundary GB11 requires between two emoji.
+     */
+    private const EMOJI_RUN = '/(?<!\x{200D})(?=\p{Extended_Pictographic})/u';
 }
