@@ -6,6 +6,7 @@ namespace Rankbeam\Seo\Services\Schema;
 
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;
+use Rankbeam\Seo\I18n\Hreflang;
 
 /**
  * Builder for Article JSON-LD schema.
@@ -58,6 +59,8 @@ class ArticleSchema
 
     /** @var array<int, string>|null */
     protected ?array $keywords = null;
+
+    protected ?string $inLanguage = null;
 
     /**
      * Set the article type.
@@ -230,6 +233,17 @@ class ArticleSchema
     }
 
     /**
+     * The article's language as a BCP 47 code (`it`, `pt-BR`). A Laravel
+     * locale (`pt_BR`) is normalised; an empty value clears it.
+     */
+    public function setInLanguage(?string $language): self
+    {
+        $this->inLanguage = $language === null ? null : Hreflang::fromLocale($language);
+
+        return $this;
+    }
+
+    /**
      * Build schema from an Eloquent model.
      */
     public static function fromModel(Model $model): self
@@ -292,6 +306,11 @@ class ArticleSchema
         // URL
         if (method_exists($model, 'getUrlForSEO')) {
             $schema->setMainEntityOfPage($model->getUrlForSEO());
+        }
+
+        // Language — the stored seo_meta locale, when the graph emits languages
+        if ((bool) config('seo.schema.in_language', true) && is_string($model->seoMeta?->locale ?? null)) {
+            $schema->setInLanguage($model->seoMeta->locale);
         }
 
         return $schema;
@@ -358,6 +377,10 @@ class ArticleSchema
 
         if ($this->keywords) {
             $schema['keywords'] = implode(', ', $this->keywords);
+        }
+
+        if ($this->inLanguage) {
+            $schema['inLanguage'] = $this->inLanguage;
         }
 
         return $schema;

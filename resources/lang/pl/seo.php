@@ -35,6 +35,9 @@ return [
         'shared_canonical' => ':count stron ma ten sam adres canonical.',
         'aeo_missing_author' => 'Artykuł na tej stronie nie podaje autora w danych strukturalnych. Wskazanie autora czyni autorstwo i pochodzenie artykułu jawnymi w schemacie.',
         'aeo_article_missing_date' => 'Artykuł na tej stronie nie podaje daty publikacji w danych strukturalnych. datePublished lub dateModified czyni oś czasu artykułu jawną w schemacie.',
+        'hreflang_invalid_code' => 'Alternatywy hreflang zawierają kod, który wyszukiwarki zignorują (:codes). Użyj formatu język[-Pismo][-REGION], np. pl, pt-BR, zh-Hant.',
+        'hreflang_duplicate_code' => 'Alternatywy hreflang wymieniają ten sam kod więcej niż raz (:codes).',
+        'hreflang_missing_self' => 'Alternatywy hreflang nie zawierają tej strony. Google wymaga, aby każda wersja językowa wymieniała także własny adres URL.',
     ],
 
     'warnings' => [

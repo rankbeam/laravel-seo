@@ -40,3 +40,10 @@ and open a pull request. The full rules and the glossary are in
 - CLI chrome (`seo:audit` table headings, `seo:explain` output): English, like Artisan itself.
 - Rendered HTML (`<meta>`, JSON-LD): your content's language, never the package's.
 - Issue codes and the `--json` output of every command: stable identifiers.
+
+## The other half: your content's language
+
+This page is about the language the *package* speaks. How it understands the
+language of your *content* — per-script title budgets, truncation, casing,
+hreflang policies, `inLanguage`, regional search engines, OG-image fonts — is
+[Multilingual content](/guide/multilingual).

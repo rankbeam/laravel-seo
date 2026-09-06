@@ -8,6 +8,8 @@ use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;
 use Rankbeam\Seo\Data\SEOData;
 use Rankbeam\Seo\Data\SEOImageCandidate;
+use Rankbeam\Seo\I18n\LengthPolicy;
+use Rankbeam\Seo\I18n\Truncator;
 use Rankbeam\Seo\Traits\HasSEO;
 
 /**
@@ -75,22 +77,13 @@ use Rankbeam\Seo\Traits\HasSEO;
 class SEOComputedBuilder
 {
     /**
-     * Default maximum length for computed descriptions.
+     * Default maximum length for computed descriptions, for Latin text.
      *
-     * Override via config('seo.computed.description_max_length').
+     * Override via config('seo.computed.description_max_length'). The value is
+     * a Latin budget; {@see LengthPolicy::scaleDescription()} scales it for
+     * scripts with wider glyphs (a CJK description gets half).
      */
     protected const MAX_DESCRIPTION_LENGTH = 160;
-
-    /**
-     * Minimum fraction of the max length a word boundary must reach for
-     * truncation to cut at the boundary instead of mid-word.
-     */
-    protected const WORD_BOUNDARY_MIN_RATIO = 0.6;
-
-    /**
-     * Characters trimmed from the end of a truncated description.
-     */
-    protected const TRUNCATION_TRIM_CHARS = " \t\n\r\0\x0B,.;:-";
 
     /**
      * Default image-selection thresholds for the dimension-aware "best"
@@ -754,11 +747,17 @@ class SEOComputedBuilder
      * Truncate and clean text for use as a description.
      *
      * Strips HTML, decodes entities, collapses whitespace, then truncates
-     * at a word boundary without adding an ellipsis. Search engines ignore
-     * trailing "..." and mid-word cuts read poorly in SERP snippets, so the
-     * cut lands on the last full word within the limit (as long as that
-     * word boundary is at least 60% into the limit; otherwise a hard cut
-     * is used). Trailing punctuation left by the cut is trimmed.
+     * without adding an ellipsis — search engines ignore trailing "..." and
+     * mid-word cuts read poorly in SERP snippets. The cut is script-aware
+     * ({@see Truncator}): for text with word spaces it lands on the last full
+     * word within the limit (as long as that boundary is at least 60% into
+     * the limit; otherwise a hard cut is used), for Han/Kana/Thai on the last
+     * sentence or clause mark, and it is grapheme-safe so a combining vowel
+     * or an emoji modifier is never separated from its base. Trailing
+     * punctuation left by the cut is trimmed.
+     *
+     * The configured `description_max_length` is a Latin budget; it is scaled
+     * per script by {@see LengthPolicy} (a CJK description gets half).
      *
      * @param  string  $text  The raw text
      * @return string Cleaned and truncated text
@@ -773,19 +772,9 @@ class SEOComputedBuilder
         $text = trim($text);
 
         $maxLength = (int) config('seo.computed.description_max_length', self::MAX_DESCRIPTION_LENGTH);
+        $policy = LengthPolicy::for($text);
 
-        if (mb_strlen($text) <= $maxLength) {
-            return $text;
-        }
-
-        $candidate = mb_substr($text, 0, $maxLength + 1);
-        $lastSpacePosition = mb_strrpos($candidate, ' ');
-
-        if ($lastSpacePosition !== false && $lastSpacePosition >= (int) floor($maxLength * self::WORD_BOUNDARY_MIN_RATIO)) {
-            return rtrim(mb_substr($candidate, 0, $lastSpacePosition), self::TRUNCATION_TRIM_CHARS);
-        }
-
-        return rtrim(mb_substr($text, 0, $maxLength), self::TRUNCATION_TRIM_CHARS);
+        return Truncator::truncate($text, $policy->scaleDescription($maxLength), $policy->script);
     }
 
     /**

@@ -35,6 +35,9 @@ return [
         'shared_canonical' => ':count pagina\'s delen dezelfde canonical-URL.',
         'aeo_missing_author' => 'Een artikel op deze pagina noemt geen auteur in de gestructureerde data. Een auteur maakt het auteurschap en de herkomst van het artikel expliciet in het schema.',
         'aeo_article_missing_date' => 'Een artikel op deze pagina noemt geen publicatiedatum in de gestructureerde data. Een datePublished of dateModified maakt de tijdlijn van het artikel expliciet in het schema.',
+        'hreflang_invalid_code' => 'De hreflang-alternatieven bevatten een code die zoekmachines negeren (:codes). Gebruik taal[-Script][-REGIO], bijv. nl, pt-BR, zh-Hant.',
+        'hreflang_duplicate_code' => 'De hreflang-alternatieven noemen dezelfde code meer dan eens (:codes).',
+        'hreflang_missing_self' => 'De hreflang-alternatieven bevatten deze pagina zelf niet. Google vereist dat elke taalversie ook haar eigen URL vermeldt.',
     ],
 
     'warnings' => [

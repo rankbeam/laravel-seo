@@ -35,6 +35,9 @@ return [
         'shared_canonical' => ':count páginas comparten la misma URL canonical.',
         'aeo_missing_author' => 'Un artículo de esta página no declara autor en sus datos estructurados. Declararlo hace explícitas la autoría y la procedencia del artículo en el schema.',
         'aeo_article_missing_date' => 'Un artículo de esta página no declara fecha de publicación en sus datos estructurados. Un datePublished o dateModified hace explícita la cronología del artículo en el schema.',
+        'hreflang_invalid_code' => 'Las alternativas hreflang contienen un código que los buscadores ignorarán (:codes). Usa idioma[-Script][-REGIÓN], p. ej. es, pt-BR, zh-Hant.',
+        'hreflang_duplicate_code' => 'Las alternativas hreflang repiten el mismo código (:codes).',
+        'hreflang_missing_self' => 'Las alternativas hreflang no incluyen esta misma página. Google exige que cada versión de idioma liste también su propia URL.',
     ],
 
     'warnings' => [

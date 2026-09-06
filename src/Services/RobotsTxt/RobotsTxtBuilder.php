@@ -453,6 +453,7 @@ class RobotsTxtBuilder
             AiCrawlerRegistry::PURPOSE_TRAINING => 'AI training',
             AiCrawlerRegistry::PURPOSE_SEARCH => 'AI search',
             AiCrawlerRegistry::PURPOSE_ASSISTANT => 'AI assistant',
+            AiCrawlerRegistry::PURPOSE_SEARCH_ENGINE => 'search engine',
             default => $purpose,
         };
     }

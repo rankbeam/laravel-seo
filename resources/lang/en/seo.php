@@ -43,6 +43,9 @@ return [
         'shared_canonical' => ':count pages share the same canonical URL.',
         'aeo_missing_author' => 'An article on this page has no author in its structured data. Declaring an author makes the article\'s authorship and provenance explicit in the schema.',
         'aeo_article_missing_date' => 'An article on this page has no publish date in its structured data. A datePublished or dateModified makes the article\'s timeline explicit in the schema.',
+        'hreflang_invalid_code' => 'hreflang alternates carry a code search engines will ignore (:codes). Use language[-Script][-REGION], e.g. en, pt-BR, zh-Hant.',
+        'hreflang_duplicate_code' => 'hreflang alternates list the same code more than once (:codes).',
+        'hreflang_missing_self' => 'hreflang alternates do not include this page itself. Google requires each language version to list its own URL.',
     ],
 
     // Live editor warnings (SEOWarningEvaluator) — the character counters and

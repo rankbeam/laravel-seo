@@ -35,6 +35,9 @@ return [
         'shared_canonical' => ':count Seiten teilen dieselbe Canonical-URL.',
         'aeo_missing_author' => 'Ein Artikel auf dieser Seite nennt in den strukturierten Daten keinen Autor. Ein Autor macht Urheberschaft und Herkunft des Artikels im Schema explizit.',
         'aeo_article_missing_date' => 'Ein Artikel auf dieser Seite nennt in den strukturierten Daten kein Veröffentlichungsdatum. Ein datePublished oder dateModified macht den zeitlichen Verlauf des Artikels im Schema explizit.',
+        'hreflang_invalid_code' => 'Die hreflang-Alternativen enthalten einen Code, den Suchmaschinen ignorieren (:codes). Verwende Sprache[-Schrift][-REGION], z. B. de, pt-BR, zh-Hant.',
+        'hreflang_duplicate_code' => 'Die hreflang-Alternativen führen denselben Code mehrfach auf (:codes).',
+        'hreflang_missing_self' => 'Die hreflang-Alternativen enthalten diese Seite selbst nicht. Google verlangt, dass jede Sprachversion auch ihre eigene URL auflistet.',
     ],
 
     'warnings' => [

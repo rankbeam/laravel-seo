@@ -7,6 +7,8 @@ namespace Rankbeam\Seo\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 use Rankbeam\Seo\Data\SEOData;
+use Rankbeam\Seo\I18n\Script;
+use Rankbeam\Seo\Services\OgImage\FontProbe;
 use Rankbeam\Seo\Services\OgImage\OgImageGenerator;
 use Rankbeam\Seo\Services\OgImage\OgImageManager;
 use Rankbeam\Seo\Services\OgImage\OgImageRenderException;
@@ -44,7 +46,14 @@ class OgImagesCommand extends Command
 
     protected $description = 'Pre-generate Open Graph images for your models';
 
-    public function handle(SEOResolver $resolver, OgImageGenerator $generator, OgImageManager $manager): int
+    /**
+     * Scripts already checked against the host's fonts this run.
+     *
+     * @var array<string, bool>
+     */
+    protected array $fontChecked = [];
+
+    public function handle(SEOResolver $resolver, OgImageGenerator $generator, OgImageManager $manager, FontProbe $fonts): int
     {
         if (! config('seo.og_image.enabled', false)) {
             $this->error('OG-image generation is disabled. Set seo.og_image.enabled=true (and install spatie/browsershot).');
@@ -81,6 +90,8 @@ class OgImagesCommand extends Command
                 $template = $manager->templateFor($model);
                 $keep[$this->relativePath($generator, $data, $template)] = true;
 
+                $this->warnOnMissingFont($fonts, $data);
+
                 try {
                     $url = $generator->generate($data, $template, $force, throwOnError: true);
                     $url === null ? $skipped++ : $generated++;
@@ -113,6 +124,26 @@ class OgImagesCommand extends Command
         $this->line("  Time: {$duration}s");
 
         return $failed > 0 ? self::FAILURE : self::SUCCESS;
+    }
+
+    /**
+     * Warn once per script when the host has no font for the title's script —
+     * the render would succeed and ship a card full of boxes. Silent where
+     * the host cannot say (no fontconfig) and for the bundled scripts.
+     */
+    protected function warnOnMissingFont(FontProbe $fonts, SEOData $data): void
+    {
+        $script = Script::detect($data->ogTitle ?? $data->title, $data->locale);
+
+        if (isset($this->fontChecked[$script])) {
+            return;
+        }
+
+        $this->fontChecked[$script] = true;
+
+        if ($fonts->covers($script) === false) {
+            $this->warn("  No installed font covers {$script} text — its cards will render as boxes. Install one: {$fonts->installHint($script)}");
+        }
     }
 
     /**

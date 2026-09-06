@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rankbeam\Seo\Services;
 
 use Rankbeam\Seo\Data\SEOData;
+use Rankbeam\Seo\I18n\LengthPolicy;
 
 /**
  * Evaluates editorial SEO warnings for resolved SEO data.
@@ -12,12 +13,20 @@ use Rankbeam\Seo\Data\SEOData;
  * Produces warning entries that admin UIs can surface next to SEO fields,
  * encoding production-proven thresholds:
  *
- * - Title: warn above 60 characters (Google truncates around there);
- *   info when no manual title is set (fallback in use).
- * - Description: warn above 160 characters; info when auto-generated.
+ * - Title: warn above the script's title budget — 60 characters for Latin
+ *   text, ~30 for CJK (Google truncates around there); info when no manual
+ *   title is set (fallback in use).
+ * - Description: warn above the script's description budget (160 / ~80);
+ *   info when auto-generated.
  * - Social image: danger when missing entirely; info when falling back to
  *   a content image; danger below 200x200 px (social platforms reject
  *   smaller images); info below the 1200x630 px ideal.
+ *
+ * The budgets come from {@see LengthPolicy} (config `seo.length_policy`),
+ * which detects the dominant script of the value and counts graphemes, so a
+ * Japanese title and an English one are judged against the pixel width they
+ * really take. The TITLE_MAX_LENGTH / DESCRIPTION_MAX_LENGTH constants below
+ * are the Latin defaults, kept for code that still reads them.
  *
  * Image dimensions are probed only for local files (public disk via
  * /storage/ URLs, or files under public/). Remote images are not fetched.
@@ -29,8 +38,15 @@ use Rankbeam\Seo\Data\SEOData;
  */
 class SEOWarningEvaluator
 {
+    /**
+     * The Latin-script title budget. Prefer {@see LengthPolicy::for()}, which
+     * returns the budget for the script actually in front of you.
+     */
     public const TITLE_MAX_LENGTH = 60;
 
+    /**
+     * The Latin-script description budget. See TITLE_MAX_LENGTH.
+     */
     public const DESCRIPTION_MAX_LENGTH = 160;
 
     public const MIN_SOCIAL_IMAGE_WIDTH = 200;
@@ -53,8 +69,8 @@ class SEOWarningEvaluator
     public function evaluate(SEOData $resolved, ?SEOData $manual = null): array
     {
         return array_merge(
-            $this->evaluateTitle($resolved->title, $manual?->title),
-            $this->evaluateDescription($resolved->description, $manual?->description),
+            $this->evaluateTitle($resolved->title, $manual?->title, $resolved->locale),
+            $this->evaluateDescription($resolved->description, $manual?->description, $resolved->locale),
             $this->evaluateImage($resolved->ogImage, $manual?->ogImage),
         );
     }
@@ -62,21 +78,23 @@ class SEOWarningEvaluator
     /**
      * Evaluate title-related warnings from raw values.
      *
+     * @param  string|null  $locale  The page locale — the script hint for a value with no letters
      * @return array<int, array{level: string, key: string, message: string}>
      */
-    public function evaluateTitle(?string $effectiveTitle, ?string $manualTitle): array
+    public function evaluateTitle(?string $effectiveTitle, ?string $manualTitle, ?string $locale = null): array
     {
         $warnings = [];
 
         $title = $effectiveTitle ?? '';
+        $policy = LengthPolicy::for($title, $locale);
 
-        if (mb_strlen($title) > self::TITLE_MAX_LENGTH) {
+        if ($policy->titleTooLong($title)) {
             $warnings[] = [
                 'level' => 'warning',
                 'key' => 'title_too_long',
                 'message' => __('seo::seo.warnings.title_too_long', [
-                    'length' => mb_strlen($title),
-                    'max' => self::TITLE_MAX_LENGTH,
+                    'length' => $policy->length($title),
+                    'max' => $policy->titleMax,
                 ]),
             ];
         }
@@ -95,21 +113,23 @@ class SEOWarningEvaluator
     /**
      * Evaluate description-related warnings from raw values.
      *
+     * @param  string|null  $locale  The page locale — the script hint for a value with no letters
      * @return array<int, array{level: string, key: string, message: string}>
      */
-    public function evaluateDescription(?string $effectiveDescription, ?string $manualDescription): array
+    public function evaluateDescription(?string $effectiveDescription, ?string $manualDescription, ?string $locale = null): array
     {
         $warnings = [];
 
         $description = $effectiveDescription ?? '';
+        $policy = LengthPolicy::for($description, $locale);
 
-        if (mb_strlen($description) > self::DESCRIPTION_MAX_LENGTH) {
+        if ($policy->descriptionTooLong($description)) {
             $warnings[] = [
                 'level' => 'warning',
                 'key' => 'description_too_long',
                 'message' => __('seo::seo.warnings.description_too_long', [
-                    'length' => mb_strlen($description),
-                    'max' => self::DESCRIPTION_MAX_LENGTH,
+                    'length' => $policy->length($description),
+                    'max' => $policy->descriptionMax,
                 ]),
             ];
         }

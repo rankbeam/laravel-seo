@@ -14,6 +14,7 @@ use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\SitemapIndex;
 use Spatie\Sitemap\Tags\Url;
 use Rankbeam\Seo\Contracts\Sitemapable;
+use Rankbeam\Seo\I18n\Hreflang;
 use Rankbeam\Seo\Traits\HasSEO;
 
 /**
@@ -914,19 +915,11 @@ class SitemapBuilder
             }
 
             if ($wantAlternates && ! empty($seo->alternates) && empty($url->alternates)) {
-                foreach ($seo->alternates as $alternate) {
-                    // Tolerate a malformed alternates shape (a non-array entry
-                    // would throw on string-offset access below).
-                    if (! is_array($alternate)) {
-                        continue;
-                    }
-
-                    $hreflang = $alternate['hreflang'] ?? null;
-                    $href = $alternate['href'] ?? null;
-
-                    if (is_string($hreflang) && $hreflang !== '' && is_string($href) && $href !== '') {
-                        $url->addAlternate($href, $hreflang);
-                    }
+                // Malformed entries are dropped and the seo.hreflang policies
+                // (BCP 47 form, self-reference, x-default) applied — the same
+                // list the <link> tags render for this page.
+                foreach (Hreflang::alternatesFor($seo->alternates, $url->url, $seo->locale) as $alternate) {
+                    $url->addAlternate($alternate['href'], $alternate['hreflang']);
                 }
             }
         } catch (\Throwable) {

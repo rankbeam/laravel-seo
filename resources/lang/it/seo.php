@@ -36,6 +36,9 @@ return [
         'shared_canonical' => ':count pagine condividono lo stesso URL canonical.',
         'aeo_missing_author' => 'Un articolo in questa pagina non dichiara l\'autore nei dati strutturati. Dichiararlo rende esplicite la paternità e la provenienza dell\'articolo nello schema.',
         'aeo_article_missing_date' => 'Un articolo in questa pagina non dichiara la data di pubblicazione nei dati strutturati. Un datePublished o dateModified rende esplicita la cronologia dell\'articolo nello schema.',
+        'hreflang_invalid_code' => 'Gli hreflang contengono un codice che i motori di ricerca ignoreranno (:codes). Usa lingua[-Script][-REGIONE], es. it, pt-BR, zh-Hant.',
+        'hreflang_duplicate_code' => 'Gli hreflang elencano lo stesso codice più di una volta (:codes).',
+        'hreflang_missing_self' => 'Gli hreflang non includono questa stessa pagina. Google richiede che ogni versione linguistica elenchi anche il proprio URL.',
     ],
 
     'warnings' => [
