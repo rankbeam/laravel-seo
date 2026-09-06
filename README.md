@@ -185,7 +185,7 @@ Long-form articles on the [Rankbeam blog](https://blog.rankbeam.dev), a Laravel 
 
 ## Test status
 
-`vendor/bin/pest` on `master`: **872 passed (3059 assertions), 0 failed** (plus 15 skipped by default: 14 Chrome-dependent OG-image smokes — incl. one per-script glyph fixture — and 1 ext-xsl transform check) under PHP 8.4 / Laravel 13 (CI matrix: PHP 8.2–8.4 × Laravel 11/12/13).
+`vendor/bin/pest` on `master`: **876 passed (3077 assertions), 0 failed** (plus 15 skipped by default: 14 Chrome-dependent OG-image smokes — incl. one per-script glyph fixture — and 1 ext-xsl transform check) under PHP 8.4 / Laravel 13 (CI matrix: PHP 8.2–8.4 × Laravel 11/12/13).
 
 ```bash
 git clone https://github.com/rankbeam/laravel-seo.git

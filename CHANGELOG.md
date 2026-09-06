@@ -31,7 +31,7 @@ Second step of the multilingual program: the package now understands the languag
 
 ### Tests
 
-- 872 passed / 15 skipped (was 642 / 4): unit suites for `Script`, `LengthPolicy`, `Truncator`, `CaseFolder`, `Hreflang`, `Url`; script-aware evaluator, truncation, verification tags, `inLanguage`, hreflang policies through tags + sitemap + audit, the search-engine catalog and robots output, the OG font stack + pre-flight, `llms.txt` alternates; 11 new live Browsershot glyph fixtures (skipped without Chrome, verified locally on all 11 scripts).
+- 876 passed / 15 skipped (was 642 / 4): unit suites for `Script`, `LengthPolicy`, `Truncator`, `CaseFolder`, `Hreflang`, `Url`; script-aware evaluator, truncation, verification tags, `inLanguage`, hreflang policies through tags + sitemap + audit, the search-engine catalog and robots output, the OG font stack + pre-flight, `llms.txt` alternates; 11 new live Browsershot glyph fixtures (skipped without Chrome, verified locally on all 11 scripts). The grapheme, casing and truncation rules are verified identical under PCRE2 10.40, 10.42 and 10.44 (PHP 8.2–8.4), JIT on and off.
 
 ## [3.14.0] - 2026-09-05
 
