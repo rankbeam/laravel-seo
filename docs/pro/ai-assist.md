@@ -19,8 +19,9 @@ Three things define the design:
 - **Suggestions, never silent changes.** The model proposes; you pick.
   A picked suggestion or fix is only ever *applied by an explicit action*
   — it fills a form field, or writes one reviewed value when you click
-  Apply — and the regular validation (60/160 counters, evaluator
-  warnings, the schema validator) applies to it like any hand-typed value.
+  Apply — and the regular validation (the script-aware length counters,
+  evaluator warnings, the schema validator) applies to it like any hand-typed
+  value.
 - **Always non-fatal.** A missing key, an invalid key, an exhausted
   account, a rate limit, or a timeout produces an inline message. It can
   never block saving, rendering, or scanning.
@@ -287,7 +288,9 @@ With the optional Filament packages installed
   explanation of the issue and the concrete fix.
 - **Rewrite description (AI)** on the dashboard issue table (next to
   Explain): proposes one improved meta description, always within the
-  160-character limit. Review it in the modal; clicking **Apply rewrite**
+  page's description budget (160 characters for Latin text, ~80 for CJK —
+  the core [length policy](/guide/multilingual#title-and-description-budgets-per-script)).
+  Review it in the modal; clicking **Apply rewrite**
   writes it to the page's `seo_meta` record. Nothing is written until you
   apply it.
 - **Suggest structured data (AI)** on the dashboard issue table: proposes
@@ -308,8 +311,10 @@ Two assist actions go one step beyond a suggestion — they produce a single,
 nothing is persisted until you explicitly accept.
 
 - **Rewrite description** (`SeoSuggestionService::rewriteDescription($model, $issue?)`)
-  returns one meta description **always within the core
-  `DESCRIPTION_MAX_LENGTH` (160)**. If the model overshoots, the text is
+  returns one meta description **always within the core length policy's
+  budget for the page's script (160 for Latin, ~80 for CJK)** — the same
+  budget the title and description suggestion prompts carry, chosen from the
+  page's own resolved value. If the model overshoots, the text is
   trimmed deterministically at a sentence (then word) boundary, so an
   accepted rewrite can never itself trip the `description_too_long` warning.
   Passing the scan issue steers the rewrite (e.g. *too long* vs *missing*).

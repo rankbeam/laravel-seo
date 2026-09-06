@@ -30,8 +30,8 @@ particular are **advisory** (see below).
 | `keyword_in_url` | keyword | The focus keyword appears in the URL slug. |
 | `keyword_in_first_paragraph` | keyword | The focus keyword appears in the opening paragraph. |
 | `keyword_density` | keyword | **Advisory.** Density reads naturally (no target — see below). |
-| `title_length` | meta | Title is within the same 30–60 window as the editor and the scan. |
-| `description_length` | meta | Description is within the same 70–160 window. |
+| `title_length` | meta | Title is within the same window as the editor and the scan — 30–60 for Latin text, ~15–30 for CJK, from the core [length policy](/guide/multilingual#title-and-description-budgets-per-script) (Pro 2.33). |
+| `description_length` | meta | Description is within the same window — 70–160 for Latin, ~35–80 for CJK. |
 | `content_length` | content | Enough body copy (config-driven word-count bands). |
 | `readability` | content | **Advisory.** How easy the body copy is to read, scored with the formula validated for the analysis locale (English, Italian, Spanish, French, German, + a language-agnostic fallback). |
 | `has_image` | media | The content includes at least one image. |

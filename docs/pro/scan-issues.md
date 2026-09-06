@@ -52,10 +52,10 @@ scan, measuring the served `<head>` — same codes, same meaning.)
 | `missing_focus_keyword` | notice | focus_keywords | — | No focus keyword set. |
 | `duplicate_title` | warning | title | `title`, `duplicate_urls` | Title reused on other pages in the same locale. |
 | `duplicate_description` | warning | description | `description`, `duplicate_urls` | Description reused on other pages in the same locale. |
-| `title_too_long` | warning | title | `length`, `max` | Resolved title over the 60-char recommendation. |
-| `title_too_short` | notice | title | `length`, `min` | Resolved title under the 30-char floor. |
-| `description_too_long` | warning | description | `length`, `max` | Resolved description over the 160-char recommendation. |
-| `description_too_short` | notice | description | `length`, `min` | Resolved description under the 70-char floor. |
+| `title_too_long` | warning | title | `length`, `max`, `script` | Resolved title over the script's recommendation (60 for Latin, ~30 for CJK). |
+| `title_too_short` | notice | title | `length`, `min`, `script` | Resolved title under the script's floor (30 for Latin, ~15 for CJK). |
+| `description_too_long` | warning | description | `length`, `max`, `script` | Resolved description over the script's recommendation (160 / ~80). |
+| `description_too_short` | notice | description | `length`, `min`, `script` | Resolved description under the script's floor (70 / ~35). |
 | `robots_conflict_indexing` | critical | robots | `robots` | Robots directive has both `index` and `noindex`. |
 | `robots_conflict_following` | warning | robots | `robots` | Robots directive has both `follow` and `nofollow`. |
 | `noindex_warning` | warning | robots | `robots`, `canonical`, `page_url`, `shipping_signal` | A self-canonical (apparently important) page is `noindex`. Emitted on both model and rendered URL scans. |
@@ -70,10 +70,13 @@ scan, measuring the served `<head>` — same codes, same meaning.)
 | `aeo_missing_author` | notice | schema | — | An article in the page's structured data has no author entity (authorship / provenance not made explicit in the schema). |
 | `aeo_article_missing_date` | notice | schema | — | An article in the page's structured data has no published/modified date (the article timeline not made explicit in the schema). |
 
-The length thresholds reuse the core `SEOWarningEvaluator` constants (60/160),
-so a scan never contradicts the editor's character counters; the lower bounds
-(title 30, description 70) are the Pro scan's under-optimised floor and live on
-`IssueRegistry::TITLE_MIN_LENGTH` / `DESCRIPTION_MIN_LENGTH`. Length is measured
+The length thresholds come from the core script-aware
+[length policy](/guide/multilingual#title-and-description-budgets-per-script)
+(Pro 2.33): 60/160 for Latin text, ~30/80 for CJK, counted in graphemes, so a
+scan never contradicts the editor's character counters; the lower bounds
+(title 30, description 70 for Latin, about half for CJK) are the scan's
+under-optimised floor, and the `script` context key names the bucket that was
+applied. Length is measured
 against the **resolved** title/description — the value that actually renders,
 including any fallback and title suffix.
 

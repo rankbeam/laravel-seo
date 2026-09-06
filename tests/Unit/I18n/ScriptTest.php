@@ -86,6 +86,18 @@ describe('Script::length and graphemes', function () {
             ->and(Script::length(null))->toBe(0);
     });
 
+    it('survives long emoji runs where the PCRE JIT stack would overflow', function () {
+        // \X under the JIT blows its stack after a few dozen emoji and returns
+        // false — which used to degrade silently to a codepoint count.
+        $waves = str_repeat("\u{1F44B}\u{1F3FD}", 500);
+        $families = str_repeat("\u{1F468}\u{200D}\u{1F469}\u{200D}\u{1F467}", 300);
+
+        expect(Script::length($waves))->toBe(500)
+            ->and(count(Script::graphemes($waves)))->toBe(500)
+            ->and(Script::length($families))->toBe(Script::length("\u{1F468}\u{200D}\u{1F469}\u{200D}\u{1F467}") * 300)
+            ->and(implode('', Script::graphemes($families)))->toBe($families);
+    });
+
     it('splits into graphemes that reassemble to the original', function () {
         $text = "นครราชสีมา e\u{0301} 東京 \u{1F44B}\u{1F3FD}";
         $graphemes = Script::graphemes($text);

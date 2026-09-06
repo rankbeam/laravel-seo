@@ -189,7 +189,7 @@ final class Script
             return 0;
         }
 
-        $count = preg_match_all('/\X/u', $text);
+        $count = preg_match_all(self::GRAPHEME, $text);
 
         // Invalid UTF-8 makes preg_match_all fail; degrade to the codepoint
         // count rather than reporting zero characters.
@@ -207,10 +207,19 @@ final class Script
             return [];
         }
 
-        if (preg_match_all('/\X/u', $text, $matches) === false) {
+        if (preg_match_all(self::GRAPHEME, $text, $matches) === false) {
             return mb_str_split($text);
         }
 
         return $matches[0];
     }
+
+    /**
+     * One extended grapheme cluster. `(*NO_JIT)` runs the match in the PCRE2
+     * interpreter: `\X` compiles to a deep pattern and the JIT's fixed stack
+     * overflows on a few dozen emoji in a row (PREG_JIT_STACKLIMIT_ERROR,
+     * which reads as "false" and would silently fall back to codepoints).
+     * Titles and descriptions are short, so the interpreter costs nothing.
+     */
+    private const GRAPHEME = '/(*NO_JIT)\X/u';
 }
