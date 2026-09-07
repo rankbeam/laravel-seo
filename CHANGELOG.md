@@ -5,6 +5,19 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.16.0] - 2026-09-07
+
+Fifth step of the multilingual program: the **Tier 2 languages**. Nothing changes for English or for any existing locale; output is byte-identical.
+
+### Added
+
+- **Seven more languages for the audit findings and the editor warnings**: Japanese (`ja`), Simplified Chinese (`zh_CN`), Traditional Chinese (`zh_TW`, written as Taiwan copy, not a character conversion), Korean (`ko`), Greek (`el`), Ukrainian (`uk`) and Czech (`cs`) — first passes, native review wanted, listed with their status in `TRANSLATING.md`. The parity test covers them like the first ten, so a new English string cannot land without all seventeen files. Chinese ships as the two Laravel locales; a bare `zh` app locale falls through to English (set `zh_CN` or `zh_TW`).
+- The live Browsershot glyph smoke (`SEO_OG_IMAGE_LIVE_TEST=1`) gains Ukrainian (ґ є і ї) and Czech (ř ě ů ž) titles, both on the bundled font — a fresh box must draw them with nothing installed.
+
+### Fixed
+
+- **`SEODefaultsRepository::clearCache($scope)` forgot only six locales.** It walked a fixed `en, de, fr, es, nl, pt_BR` list plus the locales tracked as *falling back* to English, so a scope cached under any other locale — Italian, Japanese, Czech, any of the seventeen — kept serving its stale defaults from the cache store until the TTL expired. Every locale a scope is cached under is now tracked as the entry is written (on the database-load path, so a cache hit costs nothing extra) and cleared; the fixed list stays as the safety net for entries written before this release.
+
 ## [3.15.0] - 2026-09-06
 
 Second step of the multilingual program: the package now understands the language of your **content**, not only yours. New docs page: [Multilingual content](docs/guide/multilingual.md). Everything below has a built-in value; nothing needs configuring to work, and English/Latin output is unchanged unless stated.

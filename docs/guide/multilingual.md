@@ -249,6 +249,68 @@ by the audit (`Rankbeam\Seo\I18n\Url::isValid()` replaces PHP's ASCII-only
 percent-encoded, not both — so canonical, hreflang and sitemap entries compare
 equal byte for byte.
 
+## Which languages are supported, and what that means
+
+A language is *supported* when the packages ship its strings, budget its titles
+by the right script, analyse its words with an engine that suits it, draw its
+glyphs on a social card and reach the search engines its readers use. Seventeen
+languages clear that bar today. The table is asserted by tests in both
+repositories, not maintained by hand: `tests/Feature/I18n/SupportedLanguagesTest.php`
+in the core pins the locale list, the hreflang codes and the budgets, and
+`tests/Feature/OnPage/LanguageSupportMatrixTest.php` in Pro pins the analysis
+engines, so a row that stops being true fails CI.
+
+| Language | Locale | Title / description | Word counting | Keyword matching | Readability |
+|---|---|---|---|---|---|
+| English | `en` | 60 / 160 | spaces | Snowball | Flesch-Kincaid |
+| Italian | `it` | 60 / 160 | spaces | Snowball | Gulpease |
+| German | `de` | 60 / 160 | spaces | Snowball | Wiener Sachtextformel |
+| French | `fr` | 60 / 160 | spaces | Snowball | Kandel-Moles |
+| Spanish | `es` | 60 / 160 | spaces | Snowball | Fernández-Huerta |
+| Portuguese (Brazil) | `pt_BR` | 60 / 160 | spaces | Snowball | Martins |
+| Dutch | `nl` | 60 / 160 | spaces | Snowball | Flesch-Douma |
+| Turkish | `tr` | 60 / 160 | spaces | exact, case-folded (İ/ı) | Ateşman |
+| Russian | `ru` | 60 / 160 | spaces | Snowball | Oborneva |
+| Polish | `pl` | 60 / 160 | spaces | exact, case-folded | Pisarek |
+| Japanese | `ja` | 30 / 80 | ICU dictionary | exact, case-folded | heuristic, **no score** |
+| Chinese (Simplified) | `zh_CN` | 30 / 80 | ICU dictionary | exact, case-folded | heuristic, **no score** |
+| Chinese (Traditional) | `zh_TW` | 30 / 80 | ICU dictionary | exact, case-folded | heuristic, **no score** |
+| Korean | `ko` | 30 / 80 | spaces | exact, case-folded | heuristic, **no score** |
+| Greek | `el` | 60 / 160 | spaces | exact, case-folded (final ς) | LIX |
+| Ukrainian | `uk` | 60 / 160 | spaces | exact, case-folded | LIX |
+| Czech | `cs` | 60 / 160 | spaces | exact, case-folded | LIX |
+
+Three things that table is deliberately honest about:
+
+- **"exact, case-folded" is not a failure.** Snowball has no algorithm for
+  Turkish, Polish, Greek, Ukrainian, Czech or the CJK languages, so the keyword
+  is matched on its exact form after locale-aware folding. That is never wrong,
+  only less forgiving than stemming; inventing suffix rules for an agglutinative
+  language would be.
+- **"heuristic, no score" and "LIX" are not the same thing.** Japanese, Chinese
+  and Korean have no validated syllable formula, so the checklist reports a
+  *level* from sentence length and kanji share with a `null` score and stays
+  advisory whatever you configure. Greek, Ukrainian and Czech have no formula
+  either, but LIX (a long-word index) needs no syllables and does apply, so they
+  are scored with it and the checklist says which method ran.
+- **Translations are first passes** unless `TRANSLATING.md` says a native
+  reviewed them. Italian is reviewed; the rest want a reviewer, and reviewing
+  one is the cheapest way to get your language credited in the package.
+
+Any other language still works: Latin budgets, whitespace word counting, exact
+keyword matching, LIX readability and English strings. Nothing degrades silently
+— the checklist's `analysis` block names the script, segmenter, stemmer and
+readability method that actually ran for the page you are looking at.
+
+### Reaching the search engines that matter locally
+
+Shipping a language is not only about the text. The crawler catalog carries
+Yandex, Baidu, Naver's Yeti, Seznam, Sogou, 360 and Cốc Cốc next to Google and
+Bing, and `seo.verification` renders their site-verification tags — Naver for a
+Korean site, Seznam for a Czech one, Yandex for a Ukrainian or Russian one. See
+[Regional search engines](#regional-search-engines) and
+[Site verification](#site-verification).
+
 ## What the other packages add
 
 - **laravel-seo-filament** reads the same length policy for the live counters
@@ -259,8 +321,9 @@ equal byte for byte.
   `description_length` checks and the AI-assist prompts, and (2.34) analyses
   the page in its own language: ICU word segmentation for Chinese, Japanese
   and Thai, Snowball stemming, locale-aware keyword matching through this
-  `CaseFolder`, a validated readability formula for each Tier 1 language and
-  labelled heuristics for CJK, stop words for sixteen languages, `html lang`
+  `CaseFolder`, a validated readability formula for each Tier 1 language,
+  labelled heuristics for CJK and LIX (stated as such) for Greek, Ukrainian
+  and Czech, stop words for sixteen languages, `html lang`
   and hreflang-reciprocity scan checks, AI prompts that name the page's
   language, and a Chrome-rendered report for scripts dompdf cannot draw. See
   the [on-page checklist](/pro/on-page-checklist#keyword-matching),

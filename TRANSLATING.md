@@ -61,10 +61,23 @@ turns them into a supported language.
 | `tr` | Turkish | first pass, native review wanted |
 | `ru` | Russian | first pass, native review wanted |
 | `pl` | Polish | first pass, native review wanted |
+| `ja` | Japanese | first pass, native review wanted |
+| `zh_CN` | Chinese (Simplified) | first pass, native review wanted |
+| `zh_TW` | Chinese (Traditional, Taiwan) | first pass, native review wanted |
+| `ko` | Korean | first pass, native review wanted |
+| `el` | Greek | first pass, native review wanted |
+| `uk` | Ukrainian | first pass, native review wanted |
+| `cs` | Czech | first pass, native review wanted |
 
-Planned next: Japanese, Chinese (Simplified and Traditional), Korean, Greek, Ukrainian, Czech.
+Tier 1 (the first ten) and Tier 2 (the seven added in September 2026) are complete in all
+three packages. Chinese ships as the two Laravel locales `zh_CN` and `zh_TW`; an app whose locale
+is a bare `zh` should set `zh_CN` or `zh_TW` (Laravel resolves one locale plus the fallback, so a
+`zh` app would fall through to English). Suggested next: Indonesian, Vietnamese, Swedish,
+European Portuguese — cheap once a reviewer volunteers. Arabic and Hebrew need right-to-left
+layout work in the editor, the OG templates and the reports and are not planned yet.
 
 ### Credits
 
 - English — Rankbeam
 - Italian — Valentin Goxhaj (review); first passes for the other languages by Claude, 2026-09-05
+  (Tier 1) and 2026-09-07 (Tier 2)

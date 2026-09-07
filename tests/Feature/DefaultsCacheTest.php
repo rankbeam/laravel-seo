@@ -269,3 +269,47 @@ it('forgets the persistent resolved-defaults cache entry on save', function () {
 
     expect($store->get($key))->toBeNull();
 });
+
+describe('clearing a scope forgets every locale it was cached under (3.16)', function () {
+    it('forgets a locale that has its own defaults row, not only the six the old fixed list named', function () {
+        // Japanese and Italian both have their own row, and neither was in the
+        // fixed list clearCache() walked, so their cache entries survived a
+        // clear and the app kept serving stale defaults until the TTL ran out.
+        foreach (['ja', 'it'] as $locale) {
+            SEODefault::create([
+                'scope' => 'global',
+                'locale' => $locale,
+                'title_template' => "Before {$locale}",
+            ]);
+        }
+
+        $repository = app(SEODefaultsRepository::class);
+
+        foreach (['ja', 'it'] as $locale) {
+            expect($repository->global($locale)?->title)->toBe("Before {$locale}");
+        }
+
+        DB::table('seo_defaults')->where('scope', 'global')->update(['title_template' => 'After']);
+        $repository->clearCache('global');
+
+        // A fresh repository carries no per-request memo, so this reads the
+        // cache store — the layer that used to hold the stale value.
+        $fresh = new SEODefaultsRepository;
+
+        expect($fresh->global('ja')?->title)->toBe('After')
+            ->and($fresh->global('it')?->title)->toBe('After');
+    });
+
+    it('still forgets a locale that falls back to the English row', function () {
+        SEODefault::create(['scope' => 'global', 'locale' => 'en', 'title_template' => 'Before']);
+
+        $repository = app(SEODefaultsRepository::class);
+
+        expect($repository->global('cs')?->title)->toBe('Before');
+
+        DB::table('seo_defaults')->where('scope', 'global')->update(['title_template' => 'After']);
+        $repository->clearCache('global');
+
+        expect((new SEODefaultsRepository)->global('cs')?->title)->toBe('After');
+    });
+});

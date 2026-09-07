@@ -115,6 +115,7 @@ make Flesch work for English are wrong for other languages):
 | Turkish (`tr`) | Ateşman | Ateşman 1997 |
 | Polish (`pl`) | Pisarek (years-of-schooling index, normalised) | Pisarek 1969 |
 | Japanese, Chinese, Korean (`ja`, `zh`, `ko`) | **heuristic, no score** — see below | — |
+| Greek, Ukrainian, Czech (`el`, `uk`, `cs`) | LIX — no validated syllable formula exists for these languages and none is invented; `ReadabilityCalculator::LIX_LANGUAGES` says so and the level description is in the content language (Pro 2.35) | Björnsson 1968 |
 | anything else | LIX (Läsbarhetsindex) — language-agnostic | Björnsson 1968 |
 
 Every formula result is normalised to the same **0–100 scale (higher = easier)**

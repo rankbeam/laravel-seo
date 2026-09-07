@@ -12,7 +12,9 @@ Issue and warning **codes** (`missing_title`, `title_too_long`, …) never chang
 translated. Only the human sentence attached to a code is.
 
 Shipped languages: English, Italian (reviewed), and first passes in German, French, Spanish,
-Brazilian Portuguese, Dutch, Turkish, Russian and Polish. The exact status per locale is in
+Brazilian Portuguese, Dutch, Turkish, Russian, Polish (Tier 1) and, since core 3.16 / Filament
+1.10 / Pro 2.35, Japanese, Simplified Chinese (`zh_CN`), Traditional Chinese (`zh_TW`), Korean,
+Greek, Ukrainian and Czech (Tier 2). The exact status per locale is in
 [TRANSLATING.md](https://github.com/rankbeam/laravel-seo/blob/master/TRANSLATING.md); a
 native review is what turns a first pass into a supported language.
 

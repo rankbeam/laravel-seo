@@ -240,9 +240,13 @@ class SEODefaultsRepository
                         ->first();
 
                     if ($default) {
-                        $this->rememberFallbackLocale($scope, $locale);
+                        $this->rememberCachedLocale($scope, $locale);
                     }
                 }
+            } else {
+                // A locale with its own row is cached under its own key, so it
+                // has to be tracked too or clearCache($scope) cannot forget it.
+                $this->rememberCachedLocale($scope, $locale);
             }
 
             if (! $default) {
@@ -324,7 +328,7 @@ class SEODefaultsRepository
             unset($this->memo["{$scope}:{$locale}"]);
 
             if ($locale === 'en') {
-                $this->clearFallbackCacheKeys($scope);
+                $this->clearTrackedLocaleCacheKeys($scope);
             }
 
             $this->bumpMemoVersion();
@@ -333,12 +337,15 @@ class SEODefaultsRepository
         }
 
         if ($scope) {
-            // Clear all locales for a scope
+            // Every locale this scope has actually been cached under is
+            // forgotten by clearTrackedLocaleCacheKeys() below. This fixed list
+            // stays as the safety net for entries written before that tracking
+            // existed (the tracking key is created on the next cache miss).
             foreach (['en', 'de', 'fr', 'es', 'nl', 'pt_BR'] as $loc) {
                 $store->forget($this->getCacheKey($scope, $loc));
             }
 
-            $this->clearFallbackCacheKeys($scope);
+            $this->clearTrackedLocaleCacheKeys($scope);
 
             // The memo may hold locales outside the list above, so drop every
             // entry for this scope rather than the fixed set.
@@ -397,7 +404,14 @@ class SEODefaultsRepository
         return config('seo.cache.prefix', 'seo_').'defaults:memo_version';
     }
 
-    protected function rememberFallbackLocale(string $scope, string $locale): void
+    /**
+     * Record that this scope has a cache entry under this locale, so
+     * clearCache($scope) can forget every locale actually in use rather than a
+     * fixed list. Called on the database-load path only, so it costs one cache
+     * read on a miss and nothing on a hit. `en` needs no entry: it is the key
+     * clearCache() always forgets.
+     */
+    protected function rememberCachedLocale(string $scope, string $locale): void
     {
         if ($locale === 'en') {
             return;
@@ -414,7 +428,7 @@ class SEODefaultsRepository
         }
     }
 
-    protected function clearFallbackCacheKeys(string $scope): void
+    protected function clearTrackedLocaleCacheKeys(string $scope): void
     {
         $store = Cache::store($this->getCacheStore());
         $key = $this->fallbackLocalesKey($scope);
