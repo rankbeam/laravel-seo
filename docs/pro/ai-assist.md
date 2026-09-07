@@ -247,6 +247,38 @@ length vary per page, and a thinking model's hidden reasoning tokens aren't in
 the visible-output figure. Override `seo-pro.ai.pricing` with your provider's
 current published prices for an accurate number.
 
+## Output language
+
+Every prompt names the page's language and its BCP-47 code — *"in Brazilian
+Portuguese (pt-BR), the language of the page, regardless of any other language
+in the excerpt"* — and the page context sent to the model carries a
+`Language:` line (Pro 2.34). Before that the prompts said "in the same language
+as the source content", which left the model to guess from a short or
+code-mixed excerpt: a Turkish page with an English brand name in its excerpt
+could come back in English. The locale is the one the page's metadata resolved
+under (the app locale when the page has none), the same locale the
+[length budget](/guide/multilingual#title-and-description-budgets-per-script)
+is chosen for, so a Japanese page asks for ~30-character titles *in Japanese*.
+
+### Per-language eval fixtures
+
+`tests/Fixtures/ai-evals/{locale}.json` in the Pro repository holds ten
+realistic pages for each Tier 1 language (a product, a how-to, a local service,
+a recipe, a news item, a finance page, a travel page, a docs page, a job listing
+and an event). Two layers guard the prompts:
+
+- **Offline, always in CI**: every fixture is well-formed and the built-in
+  stop-word language guesser identifies each page's language.
+- **Live, opt-in** — `SEO_PRO_AI_EVAL=1` with a real key runs two titles and two
+  descriptions per page against your provider, asserts the output language and
+  the script-aware length budget, and writes `storage/app/seo-ai-evals/{locale}.json`
+  for a native reviewer to score (*would you publish this without editing?*,
+  1–5). A language counts as supported by AI-assist when its ten pages average
+  4 or better. The review protocol is in the fixtures' `README.md`.
+
+A driver or prompt change that silently degrades Italian while English still
+looks fine fails the live eval; that is what it is for.
+
 ## Limits and tuning
 
 Every knob lives in the `config/seo-pro.php` `ai` block:

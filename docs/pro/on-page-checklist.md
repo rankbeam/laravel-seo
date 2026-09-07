@@ -33,7 +33,7 @@ particular are **advisory** (see below).
 | `title_length` | meta | Title is within the same window as the editor and the scan — 30–60 for Latin text, ~15–30 for CJK, from the core [length policy](/guide/multilingual#title-and-description-budgets-per-script) (Pro 2.33). |
 | `description_length` | meta | Description is within the same window — 70–160 for Latin, ~35–80 for CJK. |
 | `content_length` | content | Enough body copy (config-driven word-count bands). |
-| `readability` | content | **Advisory.** How easy the body copy is to read, scored with the formula validated for the analysis locale (English, Italian, Spanish, French, German, + a language-agnostic fallback). |
+| `readability` | content | **Advisory.** How easy the body copy is to read, scored with the formula validated for the analysis locale (ten languages + a language-agnostic fallback; a labelled, unscored heuristic for Japanese, Chinese and Korean). |
 | `has_image` | media | The content includes at least one image. |
 | `internal_links` | links | The content links to related internal pages. |
 
@@ -43,11 +43,49 @@ is set — the checklist tells you to add one. Add it with the
 
 ### Keyword matching
 
-Keyword and copy are compared after **stemming**, so "espresso grinder" still
-matches "espresso grinders". The stemmer is a small, dependency-free English
-inflectional stemmer; for every other locale it falls back to an exact,
-lowercase match — which is correct for non-Latin scripts (CJK, etc.) and safe
-for other languages. Pass a locale to analyze in: `SeoPro::checklistFor($post, 'it')`.
+Keyword and copy are compared after **case folding and stemming**, so
+"espresso grinder" still matches "espresso grinders", and — with the analysis
+locale — Turkish "İstanbul" matches "istanbul", Greek "ΟΔΟΣ" matches "οδός"
+and German "Straße" matches "STRASSE" (the core `CaseFolder`). Pass the locale
+to analyze in: `SeoPro::checklistFor($post, 'it')` or `--locale=it`.
+
+Three stemming engines, chosen per locale (Pro 2.34):
+
+| Engine | When | Languages |
+| --- | --- | --- |
+| `snowball` | the optional `wamania/php-stemmer` package is installed (`composer require wamania/php-stemmer`) | en, fr, de, it, es, pt, nl, ru (+ ca, da, fi, no, ro, sv) |
+| `builtin` | Snowball absent | English only — a light inflectional stemmer (-s, -ing, -ed), deliberately without Porter's derivational steps, which over-stem and cause false matches |
+| `identity` | everything else | Turkish, Polish, Greek, Ukrainian, Czech, Japanese, Chinese, Korean, Thai … — an exact case-folded match, never wrong, only less forgiving. Turkish is agglutinative and would need its own rules; none are invented |
+
+`seo-pro.checklist.analysis.stemmer` forces `builtin` or `none`. Both sides
+of a comparison are stemmed with the same engine, so what matters is
+consistency, not linguistic perfection.
+
+### Word segmentation
+
+Word counts, keyword density and the readability stats need words. For spaced
+scripts a regex splits on letters and digits — exact, and byte-identical across
+hosts. Chinese, Japanese and Thai have no spaces, so a regex sees a paragraph as
+one "word". When **ext-intl** is loaded the tokenizer hands those runs to ICU's
+dictionary-based break iterator (`IntlBreakIterator::createWordInstance`), which
+segments 東京タワーは東京のランドマークです into seven words; without it the
+regex path stays (the pre-2.34 behaviour) and the checklist says so.
+`seo-pro.checklist.analysis.segmenter = regex` forces the fallback.
+
+### Which engines analysed the page
+
+Every checklist carries an `analysis` block — the dominant script of the copy,
+the tokenizer (`intl` / `regex`), the stemmer (`snowball` / `builtin` /
+`identity`) and the readability method (`formula` / `heuristic` / `lix`) — in
+`toArray()` / `--json`, as a footer line in the Filament modal and as the last
+line of `seo-pro:checklist`:
+
+```
+Analysis: locale ja · script cjk · tokenizer intl (ICU dictionary) · stemmer identity · readability heuristic
+```
+
+So a Japanese page on a server without ext-intl, or a Turkish page without
+Snowball, never looks better analysed than it was.
 
 ### Keyword density is advisory
 
@@ -64,20 +102,28 @@ readability formula **validated for the analysis locale** rather than forcing
 English-Flesch on every language (the word- and syllable-length constants that
 make Flesch work for English are wrong for other languages):
 
-| Locale | Formula |
-| --- | --- |
-| English (`en`) | Flesch-Kincaid Reading Ease |
-| Italian (`it`) | Gulpease Index |
-| Spanish (`es`) | Fernández-Huerta |
-| French (`fr`) | Kandel-Moles |
-| German (`de`) | erste Wiener Sachtextformel |
-| anything else | LIX (Läsbarhetsindex) — language-agnostic |
+| Locale | Formula | Source |
+| --- | --- | --- |
+| English (`en`) | Flesch-Kincaid Reading Ease | Flesch 1948 |
+| Italian (`it`) | Gulpease Index | Lucisano & Piemontese 1988 |
+| Spanish (`es`) | Fernández-Huerta | Fernández Huerta 1959 |
+| French (`fr`) | Kandel-Moles | Kandel & Moles 1958 |
+| German (`de`) | erste Wiener Sachtextformel | Bamberger & Vanecek 1984 |
+| Portuguese (`pt`, `pt_BR`) | Flesch adapted to Brazilian Portuguese | Martins et al. 1996 |
+| Dutch (`nl`) | Flesch-Douma | Douma 1960 |
+| Russian (`ru`) | Oborneva's Flesch adaptation | Оборнева 2006 |
+| Turkish (`tr`) | Ateşman | Ateşman 1997 |
+| Polish (`pl`) | Pisarek (years-of-schooling index, normalised) | Pisarek 1969 |
+| Japanese, Chinese, Korean (`ja`, `zh`, `ko`) | **heuristic, no score** — see below | — |
+| anything else | LIX (Läsbarhetsindex) — language-agnostic | Björnsson 1968 |
 
-Every result is normalised to the same **0–100 scale (higher = easier)** with a
-pass / warn / fail level and concrete suggestions, so the checklist treats all
-locales uniformly. It is computed in-package with **no extra dependency**
-(syllables are estimated by a vowel-group heuristic per language). Route the
-analysis with `SeoPro::checklistFor($post, 'es')` or `--locale=fr`.
+Every formula result is normalised to the same **0–100 scale (higher = easier)**
+with a pass / warn / fail level and concrete suggestions, so the checklist
+treats all locales uniformly. It is computed in-package with **no extra
+dependency** (syllables are estimated by a vowel-group count over a vowel class
+chosen per script — Latin with diacritics, Polish ą ę ó, Turkish dotless ı,
+Cyrillic for Russian). Route the analysis with `SeoPro::checklistFor($post, 'es')`
+or `--locale=fr`.
 
 ::: tip Romance languages score lower — by design
 Spanish and French have more syllables per word than English, and their
@@ -85,6 +131,18 @@ Flesch-derived formulas still weight syllables heavily, so ordinary `es`/`fr`
 prose lands lower on the 0–100 scale than equivalent English (the `es`/`fr`
 target band is 60–70, aspirational). The signal is most useful **relatively** —
 simpler copy always scores higher than denser copy in the same language.
+:::
+
+::: warning Japanese, Chinese and Korean: a labelled heuristic, never a number
+There is no validated syllable-based readability formula for these languages,
+and Rankbeam does not invent one. The calculator returns a **level** from rules
+of thumb — average sentence length in characters (ja ≤ 40/60/80, zh ≤ 30/45/60)
+or words (ko ≤ 12/18/25), and for Japanese the kanji share (above ~45 % reads
+one step harder) — flagged `heuristic: true` with a **null score**. The
+checklist message says "heuristic", and the check stays **advisory for these
+languages whatever `readability.advisory` says**: a rule of thumb informs, it
+never fails a page. Word counts for `ja`/`zh` come from ICU segmentation when
+ext-intl is present, else from a characters-per-word estimate.
 :::
 
 Like keyword density, readability is **advisory by default**: it informs the

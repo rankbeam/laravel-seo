@@ -118,17 +118,21 @@ guarded fetch.
 | `missing_h1` | notice | page | — | No `<h1>` heading. |
 | `multiple_h1` | notice | page | `count` | More than one `<h1>` (informational). |
 | `missing_image_alt` | warning | page | `count`, `total`, `sample` | Content images missing an `alt` attribute (an explicit `alt=""` is treated as decorative, not flagged). |
-| `thin_content` | notice | page | `word_count`, `threshold` | Body text below the configured word count. |
+| `thin_content` | notice | page | `word_count`, `threshold`, `segmenter` | Body text below the configured word count. Words are counted by the checklist tokenizer: whitespace for spaced scripts, ICU dictionary segmentation (`segmenter: intl`, needs ext-intl) for Chinese, Japanese and Thai — so a 400-word Japanese article is not one "word". |
 | `mixed_content` | warning | page | `count`, `sample` | `http://` sub-resources on an `https` page. |
+| `html_lang_missing` | notice | page | — | No `<html lang>` (or an empty one). Search engines infer the language; screen readers pick the wrong voice. |
+| `html_lang_invalid` | notice | page | `declared` | The `lang` value is not a BCP-47 tag (`english`, `en_US` with an underscore, `jp`). |
+| `html_lang_mismatch` | warning | page | `declared`, `declared_script`, `detected_script` | The visible body text is written in a script the declared language is not — `lang="en"` on a Japanese page, `lang="ru"` on Latin copy. Script-level only (a Latin page claiming the wrong Latin language is a guess, and the scan does not guess); needs ≥ 40 letters of body text. |
 
 ## Network codes
 
-Detected by `UrlScanner` only when
-`seo-pro.scan.url_checks.check_canonical_target` is enabled. The canonical
-target is fetched **through the `SsrfGuard`** (scheme allowlist, host scope,
-private-IP rejection, redirect/time/size budgets) and **not** followed through
-redirects, so a redirecting canonical is visible. A self-referencing canonical
-is skipped — the page itself was just fetched.
+Detected by `UrlScanner` only when the matching opt-in flag is on:
+`seo-pro.scan.url_checks.check_canonical_target` for the canonical target,
+`check_hreflang_reciprocity` for the hreflang alternates. Every target is
+fetched **through the `SsrfGuard`** (scheme allowlist, host scope, private-IP
+rejection, redirect/time/size budgets) and **not** followed through redirects,
+so a redirecting canonical is visible. A self-referencing canonical or
+alternate is skipped — the page itself was just fetched.
 
 | Code | Severity | Field | Evidence | Meaning |
 |---|---|---|---|---|
@@ -137,6 +141,13 @@ is skipped — the page itself was just fetched.
 | `canonical_target_redirect` | warning | canonical | `canonical`, `status`, `location` | Canonical points to a page that redirects; point it at the final URL. |
 | `canonical_target_noindex` | warning | canonical | `canonical` | Canonical points to a page that is itself `noindex`. |
 | `canonical_target_blocked` | notice | canonical | `canonical`, `reason` | Canonical target could not be verified (guard refusal / unresolvable). |
+| `hreflang_not_reciprocal` | warning | alternates | `hreflang`, `href`, `status` | An alternate the page declares does not declare the page back. Search engines drop one-way hreflang pairs, so the translation is invisible in the other market. |
+| `hreflang_target_unverified` | notice | alternates | `hreflang`, `href`, `reason` | The alternate could not be fetched (guard refusal, error status, redirect, over the size cap), so reciprocity was never checked. Absence of evidence, not a defect. |
+
+Reciprocity fetches at most `hreflang_max_alternates` (default 10) targets per
+page, `x-default` included, duplicates and the page itself skipped. The
+model-level `hreflang_*` metadata codes above validate the *declared* list;
+this crawl is the one check that needs the other page.
 
 Every network path here reuses the shared `SsrfGuard`; see
 [SECURITY.md](https://github.com/rankbeam/laravel-seo-pro/blob/master/SECURITY.md)
@@ -147,9 +158,10 @@ for the threat model and the residual TOCTOU note.
 The [Pro SEO score](/pro/scoring) is `100 −` a fixed penalty per scored issue,
 weighted by the severities above. Most codes count; a few are deliberately
 excluded — `missing_focus_keyword` (advisory), `noindex_page` and `multiple_h1`
-(informational), `blocked_url` / `canonical_target_blocked` ("we couldn't
-check" ≠ a defect), and the `hreflang_*` and `aeo_*` codes (advisory signals
-held out of the score for now).
+(informational), `blocked_url` / `canonical_target_blocked` /
+`hreflang_target_unverified` ("we couldn't check" ≠ a defect), and the
+`hreflang_*`, `html_lang_*` and `aeo_*` codes (advisory signals held out of the
+score for now).
 The [scoring page](/pro/scoring) has the full allowlist and the penalty for
 every code.
 
@@ -197,12 +209,14 @@ out with the normal scan-run [retention](/pro/production) window.
 // config/seo-pro.php → 'scan'
 'url_checks' => [
     'enabled' => true,
-    'crawl_external' => false,          // fetch external URL targets (guarded)
-    'check_canonical_target' => false,  // EXEC_NETWORK canonical validation (guarded)
+    'crawl_external' => false,             // fetch external URL targets (guarded)
+    'check_canonical_target' => false,     // EXEC_NETWORK canonical validation (guarded)
+    'check_hreflang_reciprocity' => false, // EXEC_NETWORK hreflang link-back crawl (guarded)
+    'hreflang_max_alternates' => 10,       // targets fetched per page by that crawl
 ],
 'checks' => [
     'length' => true,            // title/description length (metadata + rendered)
-    'rendered_content' => true,  // H1 / alt / thin content / mixed content
+    'rendered_content' => true,  // H1 / alt / thin content / mixed content / html lang
 ],
 'content' => [
     'min_word_count' => 200,     // thin_content threshold
