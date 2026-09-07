@@ -79,6 +79,61 @@ The section binds to a `seo_meta` state group and saves through the core
 and the values immediately become layer 6 (explicit) in the
 [resolver](/concepts/resolver-precedence).
 
+## Several languages
+
+The core keeps [one `seo_meta` row per (model, locale)](/guide/multilingual).
+Pass the locales a page is published in and the section renders **one tab per
+language** (Filament 1.9):
+
+```php
+static::seoSection(locales: ['en', 'it', 'ja']);
+// or, without the trait
+SEOFields::make(locales: ['en', 'it', 'ja']);
+```
+
+Or once for every resource, in the package config:
+
+```bash
+php artisan vendor:publish --tag=seo-filament-config
+```
+
+```php
+// config/seo-filament.php
+'locales' => ['en', 'it', 'ja'],
+```
+
+Each tab edits its own row and carries its own:
+
+- **counters** — the [length policy](/guide/multilingual#title-and-description-budgets-per-script)
+  for that language's script, so an empty Japanese title reads `0 / 30`
+  while the English tab reads `0 / 60` on the same page;
+- **preview** (SERP / social card) rendered from that locale's resolved values;
+- **fallback indicators** describing that locale's row;
+- a **badge** with the number of fields set in that version, so the empty
+  translations stand out.
+
+The tab is labelled with the language's name in the panel's language
+(`Italiano` / `Italian`) when `ext-intl` is loaded, and with the code
+otherwise. All tabs are validated and saved together; a language nothing was
+entered for never gets a placeholder row. Form state is
+`seo_meta.{locale}.title` with several locales and stays `seo_meta.title`
+with one, so existing tests keep passing.
+
+### With a translatable plugin
+
+When the page exposes an active schema locale — Filament's
+`getActiveSchemaLocale()`, implemented by the spatie translatable plugins'
+`Translatable` page concern — and the section was given no locale list, it
+**follows the page's locale switcher** instead of rendering tabs: it edits
+that locale's row and re-hydrates whenever the header switcher changes
+(the plugins re-fill the form on a switch). The structured-data section
+follows the same locale. Save before switching: the plugins re-fill the form
+from the database. An explicit `locales:` list on the section always wins
+over the page locale; the config list yields to it.
+
+With neither a list nor a page locale, the section edits the app locale's row,
+as it always did.
+
 ## Structured data (schema.org)
 
 An optional **Structured data** section lets editors attach JSON-LD rich-result
