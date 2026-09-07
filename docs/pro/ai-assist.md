@@ -263,7 +263,9 @@ is chosen for, so a Japanese page asks for ~30-character titles *in Japanese*.
 ### Per-language eval fixtures
 
 `tests/Fixtures/ai-evals/{locale}.json` in the Pro repository holds ten
-realistic pages for each Tier 1 language (a product, a how-to, a local service,
+realistic pages for each shipped language — the ten Tier 1 locales and, since
+Pro 2.35, the seven Tier 2 ones (`ja`, `zh_CN`, `zh_TW`, `ko`, `el`, `uk`, `cs`),
+170 pages written natively, not translated (a product, a how-to, a local service,
 a recipe, a news item, a finance page, a travel page, a docs page, a job listing
 and an event). Two layers guard the prompts:
 

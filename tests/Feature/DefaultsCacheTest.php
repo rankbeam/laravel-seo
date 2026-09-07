@@ -269,3 +269,81 @@ it('forgets the persistent resolved-defaults cache entry on save', function () {
 
     expect($store->get($key))->toBeNull();
 });
+
+describe('clearing a scope forgets every locale it was cached under (3.16)', function () {
+    it('forgets a locale that has its own defaults row, not only the six the old fixed list named', function () {
+        // Japanese and Italian both have their own row, and neither was in the
+        // fixed list clearCache() walked, so their cache entries survived a
+        // clear and the app kept serving stale defaults until the TTL ran out.
+        foreach (['ja', 'it'] as $locale) {
+            SEODefault::create([
+                'scope' => 'global',
+                'locale' => $locale,
+                'title_template' => "Before {$locale}",
+            ]);
+        }
+
+        $repository = app(SEODefaultsRepository::class);
+
+        foreach (['ja', 'it'] as $locale) {
+            expect($repository->global($locale)?->title)->toBe("Before {$locale}");
+        }
+
+        DB::table('seo_defaults')->where('scope', 'global')->update(['title_template' => 'After']);
+        $repository->clearCache('global');
+
+        // A fresh repository carries no per-request memo, so this reads the
+        // cache store — the layer that used to hold the stale value.
+        $fresh = new SEODefaultsRepository;
+
+        expect($fresh->global('ja')?->title)->toBe('After')
+            ->and($fresh->global('it')?->title)->toBe('After');
+    });
+
+    it('still forgets a locale that falls back to the English row', function () {
+        SEODefault::create(['scope' => 'global', 'locale' => 'en', 'title_template' => 'Before']);
+
+        $repository = app(SEODefaultsRepository::class);
+
+        expect($repository->global('cs')?->title)->toBe('Before');
+
+        DB::table('seo_defaults')->where('scope', 'global')->update(['title_template' => 'After']);
+        $repository->clearCache('global');
+
+        expect((new SEODefaultsRepository)->global('cs')?->title)->toBe('After');
+    });
+});
+
+it('keeps the locale tracker alive as long as the entries it is responsible for clearing', function () {
+    // The tracker used to be written only when a locale was added to it, so
+    // with two locales it expired while an entry cached later was still live:
+    //   T+0    ja and it cached; tracker [ja, it] expires T+3600
+    //   T+1800 ja re-cached after its entry expired; entry now lives to T+5400,
+    //          but ja is already listed, so the tracker keeps its T+3600 expiry
+    //   T+3700 tracker gone — clearCache('global') can no longer forget ja,
+    //          which is not in the fixed en/de/fr/es/nl/pt_BR list either.
+    SEODefault::create(['scope' => 'global', 'locale' => 'ja', 'title_template' => 'Before']);
+    SEODefault::create(['scope' => 'global', 'locale' => 'it', 'title_template' => 'Before']);
+
+    $prefix = config('seo.cache.prefix', 'seo_');
+    $store = Cache::store(config('seo.cache.store'));
+
+    app(SEODefaultsRepository::class)->global('ja');
+    app(SEODefaultsRepository::class)->global('it');
+
+    // Halfway through the TTL, `ja` expires and the next request re-caches it.
+    $this->travel(1800)->seconds();
+    $store->forget($prefix.'defaults:global:ja');
+    expect((new SEODefaultsRepository)->global('ja')?->title)->toBe('Before');
+
+    // Past the tracker's original expiry, while the re-cached `ja` entry lives.
+    $this->travel(1900)->seconds();
+    expect($store->get($prefix.'defaults:global:ja'))->not->toBeNull('the ja entry should still be cached here');
+
+    DB::table('seo_defaults')->where('scope', 'global')->update(['title_template' => 'After']);
+    (new SEODefaultsRepository)->clearCache('global');
+
+    expect((new SEODefaultsRepository)->global('ja')?->title)->toBe('After');
+
+    $this->travelBack();
+});
