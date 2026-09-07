@@ -16,7 +16,7 @@ Fifth step of the multilingual program: the **Tier 2 languages**. Nothing change
 
 ### Fixed
 
-- **`SEODefaultsRepository::clearCache($scope)` forgot only six locales.** It walked a fixed `en, de, fr, es, nl, pt_BR` list plus the locales tracked as *falling back* to English, so a scope cached under any other locale — Italian, Japanese, Czech, any of the seventeen — kept serving its stale defaults from the cache store until the TTL expired. Every locale a scope is cached under is now tracked as the entry is written (on the database-load path, so a cache hit costs nothing extra) and cleared; the fixed list stays as the safety net for entries written before this release.
+- **`SEODefaultsRepository::clearCache($scope)` forgot only six locales.** It walked a fixed `en, de, fr, es, nl, pt_BR` list plus the locales tracked as *falling back* to English, so a scope cached under any other locale — Italian, Japanese, Czech, any of the seventeen — kept serving its stale defaults from the cache store until the TTL expired. Every locale a scope is cached under is now tracked as the entry is written (on the database-load path, so a cache hit costs nothing extra) and cleared; the fixed list stays as the safety net for entries written before this release. The tracking key is rewritten on every such write rather than only when a locale is new, so it always outlives the entries it is responsible for clearing — with two locales it could otherwise expire while an entry cached later was still live.
 
 ## [3.15.0] - 2026-09-06
 

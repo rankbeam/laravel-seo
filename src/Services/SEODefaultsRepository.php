@@ -424,8 +424,13 @@ class SEODefaultsRepository
 
         if (! in_array($locale, $locales, true)) {
             $locales[] = $locale;
-            $store->put($key, array_values($locales), self::CACHE_TTL);
         }
+
+        // Rewritten on every cache write, not only when the locale is new: the
+        // tracker has to outlive the entries it is responsible for clearing,
+        // and an entry re-cached later than the tracker was written would
+        // otherwise survive a clearCache($scope) it should not have.
+        $store->put($key, array_values($locales), self::CACHE_TTL);
     }
 
     protected function clearTrackedLocaleCacheKeys(string $scope): void
