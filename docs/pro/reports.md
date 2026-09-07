@@ -161,11 +161,51 @@ multi-tenant "sites" model.
 
 ## How it's built
 
-The PDF is rendered with **dompdf** — pure PHP, no Node or headless Chromium —
-so a scheduled report renders inside a queue worker or cron with zero system
-binaries, and Pro stays headless. Remote fetching is disabled in the renderer;
-the only image (your logo) is embedded, so nothing in a rendered field can
-trigger a fetch.
+The PDF is rendered with **dompdf** by default — pure PHP, no Node or headless
+Chromium — so a scheduled report renders inside a queue worker or cron with
+zero system binaries, and Pro stays headless. Remote fetching is disabled in
+the renderer; the only image (your logo) is embedded, so nothing in a rendered
+field can trigger a fetch.
+
+### Reports in every script (Browsershot renderer)
+
+dompdf draws only the font it embeds (DejaVu Sans: Latin, Cyrillic, Greek), so
+a report for a Japanese, Thai or Arabic client renders tofu. Since Pro 2.34 the
+report can be rendered by **headless Chrome** through `spatie/browsershot`
+instead — the same dependency the core uses for OG images, so one machine is
+configured once:
+
+```php
+// config/seo-pro.php → 'reports'
+'renderer' => 'browsershot',   // default 'dompdf'
+'browsershot' => [
+    'chrome_path' => null,      // null = reuse seo.og_image.chrome_path
+    'node_binary' => null,      //   …  seo.og_image.node_binary
+    'npm_module_path' => null,  //   …  seo.og_image.npm_module_path
+    'no_sandbox' => null,       //   …  seo.og_image.no_sandbox
+    'timeout' => 90,
+],
+'locale' => null,               // dates and numbers; null = the app locale
+```
+
+Chrome draws whatever the server has installed, and the template then uses the
+core per-script font stack (`Noto Sans`, the page language's `Noto Sans CJK`
+family first, Thai, Arabic, Hebrew, Devanagari, colour emoji, DejaVu Sans as
+the Latin anchor). Install the families you need —
+`apt install fonts-noto-cjk fonts-noto-core fonts-noto-color-emoji` on Debian
+and Ubuntu — exactly as for [OG images](/guide/multilingual#og-images-in-every-script);
+`seo:og-images` warns during a run when a page's script has no installed
+family, which is the same answer for reports. The Blade template, the
+data and the snapshot are identical under both engines; only the rasteriser
+changes, and `ReportGenerator::renderer()` tells you which one is bound.
+
+### Dates and numbers in the reader's locale
+
+With ext-intl the report's dates ("7 September 2026" / "7. September 2026" /
+"7 de setembro de 2026") and the Search Console counts (12,345 / 12.345 /
+12 345) follow `seo-pro.reports.locale` (default: the app locale) through ICU;
+without ext-intl the English formatting of earlier releases is kept. The
+`<html lang>` of the report follows the app locale too.
 
 Programmatically, resolve `ReportGenerator` from the container:
 

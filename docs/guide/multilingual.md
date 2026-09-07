@@ -142,7 +142,11 @@ The free audit adds three checks on the policy-applied list:
 | `hreflang_missing_self` | warning | The page's own URL is not in its list. |
 
 Reciprocity (does the other page point back?) needs a crawl; that is the Pro
-scan's job. The helper is public if you need it:
+scan's job — its opt-in `check_hreflang_reciprocity` fetches each alternate
+through the SsrfGuard and emits `hreflang_not_reciprocal` when the other page
+does not declare this one (Pro 2.34, see
+[scan issues](/pro/scan-issues#network-codes)). The helper is public if you
+need it:
 
 ```php
 use Rankbeam\Seo\I18n\Hreflang;
@@ -250,6 +254,13 @@ equal byte for byte.
 - **laravel-seo-filament** reads the same length policy for the live counters
   and the SERP preview.
 - **laravel-seo-pro** reads it for the scan's `title_length` /
-  `description_length` checks and the AI-assist prompts; per-language analysis
-  (segmentation, stemming, readability formulas, keyword matching) is the next
-  step of the program.
+  `description_length` checks and the AI-assist prompts, and (2.34) analyses
+  the page in its own language: ICU word segmentation for Chinese, Japanese
+  and Thai, Snowball stemming, locale-aware keyword matching through this
+  `CaseFolder`, a validated readability formula for each Tier 1 language and
+  labelled heuristics for CJK, stop words for sixteen languages, `html lang`
+  and hreflang-reciprocity scan checks, AI prompts that name the page's
+  language, and a Chrome-rendered report for scripts dompdf cannot draw. See
+  the [on-page checklist](/pro/on-page-checklist#keyword-matching),
+  [scan issues](/pro/scan-issues), [AI assist](/pro/ai-assist#output-language)
+  and [reports](/pro/reports#reports-in-every-script-browsershot-renderer).
