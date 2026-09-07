@@ -252,7 +252,9 @@ equal byte for byte.
 ## What the other packages add
 
 - **laravel-seo-filament** reads the same length policy for the live counters
-  and the SERP preview.
+  and the SERP preview, and (1.9) edits [one `seo_meta` row per language](/guide/filament#several-languages)
+  — one tab per locale with its own counters, preview and fallback
+  indicators, or following a translatable plugin's locale switcher.
 - **laravel-seo-pro** reads it for the scan's `title_length` /
   `description_length` checks and the AI-assist prompts, and (2.34) analyses
   the page in its own language: ICU word segmentation for Chinese, Japanese
