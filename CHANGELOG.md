@@ -5,6 +5,12 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.16.2] - 2026-09-08
+
+### Fixed
+
+- **`seo:og-images` warmed every model under the console locale, so a model that resolves in its own language never found its card.** The command resolved each row through `SEOResolver::resolve($model)` — the app locale, `en` on a console — while the page resolves through the model's `seoData()`, which a translation row may default to its own locale (a `PostTranslation` that is Italian whatever the process locale is). The card's filename is a hash that includes the locale, so the warmed file was keyed `en`, the page looked up `it`, found nothing and fell back to the static default image. The command now resolves through `$model->seoData()` when the model has one — identical to before for every model that does not override it — so the card is warmed in the language the page will ask for. Found dogfooding the Italian edition of blog.rankbeam.dev.
+
 ## [3.16.1] - 2026-09-08
 
 ### Fixed
