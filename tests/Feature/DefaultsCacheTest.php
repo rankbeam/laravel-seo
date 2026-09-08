@@ -347,3 +347,60 @@ it('keeps the locale tracker alive as long as the entries it is responsible for 
 
     $this->travelBack();
 });
+
+describe('clearing everything forgets the cache store, not only the per-request memo (3.16.1)', function () {
+    it('forgets every scope and locale that was cached', function () {
+        // clearCache() with no arguments used to empty the memo and bump its
+        // version and stop there, so every entry in the persistent store kept
+        // serving stale defaults until the TTL expired — a full clear was not
+        // a clear.
+        $pairs = [
+            ['global', 'en'],
+            ['global', 'ja'],
+            ['blog.index', 'en'],
+            ['blog.index', 'it'],
+            ['App\Models\Post', 'de'],
+        ];
+
+        foreach ($pairs as [$scope, $locale]) {
+            SEODefault::create([
+                'scope' => $scope,
+                'locale' => $locale,
+                'title_template' => "Before {$scope} {$locale}",
+            ]);
+        }
+
+        $repository = app(SEODefaultsRepository::class);
+
+        foreach ($pairs as [$scope, $locale]) {
+            expect($repository->forScope($scope, $locale)?->title)->toBe("Before {$scope} {$locale}");
+        }
+
+        // A locale that falls back to the English row is cached under its own key too.
+        expect($repository->forScope('blog.index', 'cs')?->title)->toBe('Before blog.index en');
+
+        DB::table('seo_defaults')->update(['title_template' => 'After']);
+        $repository->clearCache();
+
+        // A fresh repository carries no per-request memo, so this reads the
+        // cache store — the layer the old full clear never touched.
+        $fresh = new SEODefaultsRepository;
+
+        foreach ($pairs as [$scope, $locale]) {
+            expect($fresh->forScope($scope, $locale)?->title)->toBe('After', "{$scope}:{$locale} still served the stale entry");
+        }
+
+        expect($fresh->forScope('blog.index', 'cs')?->title)->toBe('After');
+    });
+
+    it('forgets a scope whose rows are gone, which getAvailableScopes() no longer lists', function () {
+        SEODefault::create(['scope' => 'blog.index', 'locale' => 'en', 'title_template' => 'Before']);
+
+        expect(app(SEODefaultsRepository::class)->forRoute('blog.index', 'en')?->title)->toBe('Before');
+
+        DB::table('seo_defaults')->where('scope', 'blog.index')->delete();
+        app(SEODefaultsRepository::class)->clearCache();
+
+        expect((new SEODefaultsRepository)->forRoute('blog.index', 'en'))->toBeNull();
+    });
+});

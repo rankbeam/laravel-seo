@@ -5,6 +5,11 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.16.1] - 2026-09-08
+
+### Fixed
+
+- **`SEODefaultsRepository::clearCache()` with no arguments now clears the cache store.** It emptied the per-request memo and bumped the memo version, then stopped — the comment said the store "will naturally expire" — so every persistent entry kept serving stale defaults until its TTL ran out. A full clear was not a clear. It now walks every scope with rows in `seo_defaults` plus every scope recorded as cached (a scope whose rows were deleted since is only in that second list, and is forgotten too) and forgets each one through the per-scope path 3.16.0 fixed, which knows every locale a scope was cached under. The scope record is rewritten on every cache write, like the locale tracker, so it always outlives the entries it is responsible for clearing.
 ## [3.16.0] - 2026-09-07
 
 Fifth step of the multilingual program: the **Tier 2 languages**. Nothing changes for English or for any existing locale; output is byte-identical.
