@@ -403,4 +403,18 @@ describe('clearing everything forgets the cache store, not only the per-request 
 
         expect((new SEODefaultsRepository)->forRoute('blog.index', 'en'))->toBeNull();
     });
+
+    it('forgets an entry written before the trackers existed when its locale has a row', function () {
+        // An entry cached by a release before 3.16 has no locale tracker and no
+        // scope tracker. The locale cannot be learned from the cache store, but
+        // it has a row of its own, so the table says which key to forget.
+        SEODefault::create(['scope' => 'global', 'locale' => 'it', 'title_template' => 'After']);
+
+        $store = Cache::store(config('seo.cache.store'));
+        $store->put(config('seo.cache.prefix', 'seo_').'defaults:global:it', ['title' => 'Stale'], 3600);
+
+        app(SEODefaultsRepository::class)->clearCache();
+
+        expect((new SEODefaultsRepository)->global('it')?->title)->toBe('After');
+    });
 });

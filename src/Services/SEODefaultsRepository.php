@@ -54,6 +54,14 @@ class SEODefaultsRepository
     protected const CACHE_TTL = 3600;
 
     /**
+     * TTL for the scope and locale trackers. They are written inside the
+     * remember() callback, before the entry they describe, so an equal TTL
+     * would let a tracker expire moments before its last entry; the buffer
+     * keeps "the tracker outlives its entries" true.
+     */
+    protected const TRACKER_TTL = self::CACHE_TTL + 60;
+
+    /**
      * Whether the seo_defaults table is known to exist (per instance).
      */
     protected bool $tableExists = false;
@@ -352,10 +360,19 @@ class SEODefaultsRepository
         // has rows plus every scope recorded as cached (a scope whose rows were
         // deleted is only in the second list) and forget each one through the
         // per-scope path, which knows every locale it was cached under.
-        $scopes = array_unique(array_merge($this->getAvailableScopes(), $this->trackedScopes()));
+        $pairs = $this->storedScopeLocales();
+        $scopes = array_unique(array_merge(array_column($pairs, 0), $this->trackedScopes()));
 
         foreach ($scopes as $trackedScope) {
             $this->forgetScope($trackedScope);
+        }
+
+        // An entry written before the trackers existed is recorded nowhere in
+        // the store, but when its locale has a row of its own the table still
+        // names the key. (A legacy entry for a locale that only fell back to
+        // English cannot be named and expires within its TTL.)
+        foreach ($pairs as [$rowScope, $rowLocale]) {
+            $store->forget($this->getCacheKey($rowScope, $rowLocale));
         }
 
         $store->forget($this->cachedScopesKey());
@@ -457,7 +474,7 @@ class SEODefaultsRepository
         // tracker has to outlive the entries it is responsible for clearing,
         // and an entry re-cached later than the tracker was written would
         // otherwise survive a clearCache($scope) it should not have.
-        $store->put($key, array_values($locales), self::CACHE_TTL);
+        $store->put($key, array_values($locales), self::TRACKER_TTL);
     }
 
     protected function clearTrackedLocaleCacheKeys(string $scope): void
@@ -500,7 +517,7 @@ class SEODefaultsRepository
             $scopes[] = $scope;
         }
 
-        $store->put($key, array_values($scopes), self::CACHE_TTL);
+        $store->put($key, array_values($scopes), self::TRACKER_TTL);
     }
 
     /**
@@ -520,6 +537,30 @@ class SEODefaultsRepository
     protected function cachedScopesKey(): string
     {
         return config('seo.cache.prefix', 'seo_').'defaults:cached_scopes';
+    }
+
+    /**
+     * Every scope/locale pair with a row of its own; the scopes are the same
+     * set getAvailableScopes() returns.
+     *
+     * @return array<int, array{0: string, 1: string}>
+     */
+    protected function storedScopeLocales(): array
+    {
+        if (! $this->tableExists()) {
+            return [];
+        }
+
+        try {
+            return SEODefault::query()
+                ->select(['scope', 'locale'])
+                ->distinct()
+                ->get()
+                ->map(fn (SEODefault $row) => [(string) $row->scope, (string) $row->locale])
+                ->all();
+        } catch (\Exception) {
+            return [];
+        }
     }
 
     /**
