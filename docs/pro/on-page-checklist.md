@@ -164,6 +164,11 @@ it to authoritative if you want a hard-to-read page to fail:
 
 ### Headless
 
+Pro 2.36 reads resolved metadata, `getContentForSEO()` and focus keywords in the
+requested content locale, while checklist labels remain in the operator's language.
+Without an explicit locale, a translation model's `seoData()` default is respected.
+The Filament action follows its field's language tab or the page locale switcher.
+
 ```php
 use Rankbeam\Seo\Pro\Facades\SeoPro;
 

@@ -7,6 +7,7 @@ namespace Rankbeam\Seo\Services;
 use Illuminate\Database\Eloquent\Model;
 use Rankbeam\Seo\Data\SEOData;
 use Rankbeam\Seo\I18n\CaseFolder;
+use Rankbeam\Seo\I18n\ModelLocale;
 use Rankbeam\Seo\Services\OgImage\OgImageGenerator;
 use Rankbeam\Seo\Services\OgImage\OgImageManager;
 
@@ -115,6 +116,14 @@ class SEOResolver
     ): SEOData {
         $locale ??= app()->getLocale();
 
+        return $model === null
+            ? $this->resolveLocalized(null, $route, $locale)
+            : ModelLocale::run($model, $locale,
+                fn (Model $localized): SEOData => $this->resolveLocalized($localized, $route, $locale), withMetadata: false);
+    }
+
+    protected function resolveLocalized(?Model $model, ?string $route, string $locale): SEOData
+    {
         $cache = $this->resolutionCache();
 
         // The resolver result cache (opt-in, seo.cache.resolver.enabled) short-
@@ -182,6 +191,12 @@ class SEOResolver
      */
     protected function buildResolved(?Model $model, ?string $route, string $locale): SEOData
     {
+        // Read the locale row only after the cache miss, before any content or
+        // schema hook can access HasSEO's otherwise unscoped seoMeta relation.
+        if ($model !== null && method_exists($model, 'seoMetaForLocale')) {
+            $model->setRelation('seoMeta', $model->seoMetaForLocale($locale)->getResults());
+        }
+
         // Layer 0: Base configuration from config/seo.php
         $result = $this->buildBaseConfig($locale);
 
@@ -624,7 +639,9 @@ class SEOResolver
             return $result;
         }
 
-        $explicit = SEOData::fromModel($model, $locale);
+        $explicit = $model->relationLoaded('seoMeta')
+            ? SEOData::fromMeta($model->getRelation('seoMeta'))
+            : SEOData::fromModel($model, $locale);
 
         // Blank explicit-value policy: a persisted '' / '   ' is an explicit
         // value and would override (via "last non-null wins") the computed

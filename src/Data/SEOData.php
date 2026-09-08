@@ -154,6 +154,12 @@ final class SEOData implements Arrayable, JsonSerializable
             ? $model->seoMetaForLocale($locale)->first()
             : ($model->seoMeta ?? null);
 
+        return self::fromMeta($meta);
+    }
+
+    /** Convert an already selected metadata row without querying again. */
+    public static function fromMeta(?object $meta): self
+    {
         if (! $meta) {
             // A meta-less model has NO explicit SEO to contribute. Return an
             // all-null DTO — explicitly nulling SEOData's non-null
