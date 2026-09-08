@@ -5,6 +5,16 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.17.0] - 2026-09-08
+
+### Fixed
+
+- Explicit `seoData('it')` resolution now reads computed title, description, canonical and schema hooks in Italian even when the application interface is English. Resolution uses an isolated model, selects the matching metadata row, and restores the application locale after success or exceptions. Models exposing Spatie's translation methods also receive an isolated instance locale.
+
+### Added
+
+- `ModelLocale::forModel()` and `ModelLocale::run()` provide shared content-locale resolution and scoped reads for package consumers. An explicit locale takes precedence over a translation model's `seoData()` default. `SEOData::fromMeta()` converts a selected row without a duplicate query; resolver cache hits remain query-free.
+
 ## [3.16.3] - 2026-09-08
 
 ### Fixed

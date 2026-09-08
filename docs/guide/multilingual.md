@@ -15,6 +15,37 @@ decided in the core so every surface agrees.
 Nothing here needs configuring to work. Every rule below has a sensible built-in
 value and a config knob under `config/seo.php`.
 
+## Content locale and interface locale
+
+Core 3.17, Filament 1.11 and Pro 2.36 carry the selected content locale through
+metadata, computed hooks, preview URLs, checklist keywords and AI requests.
+An English panel can edit Italian and Japanese without changing its labels.
+
+```php
+$italian = $post->seoData('it');
+$japanese = $post->seoData('ja');
+```
+
+These reads select that locale's metadata row and execute model hooks such as
+`getSEOTitle()`, `getSEODescription()`, `getUrlForSEO()` and `getSEOSchema()` in
+a temporary locale scope. The caller's model and application locale are preserved,
+including when a hook throws. Models implementing Spatie's `setLocale()` and
+`getTranslatableAttributes()` also receive an isolated instance locale.
+Your hooks still need to return translated content; Rankbeam does not translate
+ordinary database attributes automatically.
+
+Pro accepts an explicit `locale:` on its model-based AI methods and bulk fill.
+Without it, a translation model's overridden `seoData()` default determines its
+content locale, falling back to the application locale. Filament actions receive
+the locale of their own field, including a single-language editor and follow mode.
+In a custom queue job, serialize the chosen locale and pass it explicitly when
+the job runs. Do not rely on the worker's current locale.
+
+For custom synchronous content readers, `ModelLocale::run($model, $locale, $callback)`
+passes an isolated model to the callback and restores the application locale in
+`finally`. Finish all locale-dependent reads inside the callback; returning a lazy
+iterator or a closure does not extend the scope.
+
 ## Title and description budgets per script
 
 Google shows roughly 600 px of title and 920 px of description on a desktop

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Rankbeam\Seo\Data\SEOData;
 use Rankbeam\Seo\Data\SEOImageCandidate;
 use Rankbeam\Seo\I18n\LengthPolicy;
+use Rankbeam\Seo\I18n\ModelLocale;
 use Rankbeam\Seo\I18n\Truncator;
 use Rankbeam\Seo\Traits\HasSEO;
 
@@ -158,6 +159,12 @@ class SEOComputedBuilder
      * ```
      */
     public function fromModel(Model $model, string $locale): SEOData
+    {
+        return ModelLocale::run($model, $locale,
+            fn (Model $localized): SEOData => $this->fromLocalizedModel($localized, $locale));
+    }
+
+    protected function fromLocalizedModel(Model $model, string $locale): SEOData
     {
         return new SEOData(
             title: $this->computeTitle($model),
@@ -373,7 +380,7 @@ class SEOComputedBuilder
      *
      * @param  Model  $model  The Eloquent model
      * @return string|null The best-sized candidate's absolute URL, or null when
-     *                      no local candidate clears the minimum
+     *                     no local candidate clears the minimum
      */
     protected function selectBestSizedImage(Model $model): ?string
     {
@@ -383,7 +390,7 @@ class SEOComputedBuilder
         $idealWidth = (int) ($selection['ideal_width'] ?? self::DEFAULT_IDEAL_IMAGE_WIDTH);
         $idealHeight = (int) ($selection['ideal_height'] ?? self::DEFAULT_IDEAL_IMAGE_HEIGHT);
 
-        $inspector = new LocalImageInspector();
+        $inspector = new LocalImageInspector;
         $best = null;
 
         foreach ($this->imageCandidates($model) as $index => $candidate) {

@@ -260,6 +260,43 @@ under (the app locale when the page has none), the same locale the
 [length budget](/guide/multilingual#title-and-description-budgets-per-script)
 is chosen for, so a Japanese page asks for ~30-character titles *in Japanese*.
 
+Since Pro 2.36, an explicit content locale controls the metadata row, content hooks
+and prompt language together. The operator's interface language stays unchanged.
+
+```php
+$ai = app(\Rankbeam\Seo\Pro\Ai\SeoSuggestionService::class);
+$titles = $ai->suggestTitles($post, locale: 'it');
+$descriptions = $ai->suggestDescriptions($post, locale: 'ja');
+$rewrite = $ai->rewriteDescription($post, locale: 'it');
+$schema = $ai->suggestSchemaType($post, locale: 'it');
+$request = $ai->suggestionRequest($post, 'title', locale: 'ja');
+```
+
+Existing positional arguments are unchanged. Omit `locale:` to use the model's
+`seoData()` default, which lets separate translation models declare their language.
+The excerpt uses `getContentForSEO()` when it returns nonempty content, then falls
+back to the configured content fields. Filament 1.11 passes the selected tab's
+locale automatically, including its single-locale and page-switcher modes.
+
+```bash
+php artisan seo-pro:ai-suggest "App\Models\Post" 42 --locale=it
+php artisan seo-pro:suggest-schema "App\Models\Post" 42 --locale=ja
+php artisan seo-pro:ai-fill "App\Models\Post" --field=description --locale=it --batch
+```
+
+Bulk `plan()`, `fill()` and `submitBatchFill()` also accept a trailing `locale:`.
+Use the same locale when creating `FillProgress(..., locale: 'it')` and submitting
+the run. Each batch item records its content locale; collection uses that saved
+locale and rechecks its metadata row before writing. Explicit locale runs have
+separate checkpoint files and processed markers distinguish languages. Re-run the
+same command to collect. Custom jobs should serialize and pass the content locale.
+
+Checkpoints created before Pro 2.36 did not record a content locale. An outstanding
+legacy batch is retained and rejected for automatic collection. Reconcile its
+provider results and intended locale before discarding it with `--fresh`; otherwise
+a replacement submission can bill the same work again. A legacy sequential
+checkpoint with processed records likewise requires reconciliation before reset.
+
 ### Per-language eval fixtures
 
 `tests/Fixtures/ai-evals/{locale}.json` in the Pro repository holds ten
