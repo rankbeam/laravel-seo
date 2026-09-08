@@ -54,6 +54,14 @@ class SEODefaultsRepository
     protected const CACHE_TTL = 3600;
 
     /**
+     * TTL for the scope and locale trackers. They are written inside the
+     * remember() callback, before the entry they describe, so an equal TTL
+     * would let a tracker expire moments before its last entry; the buffer
+     * keeps "the tracker outlives its entries" true.
+     */
+    protected const TRACKER_TTL = self::CACHE_TTL + 60;
+
+    /**
      * Whether the seo_defaults table is known to exist (per instance).
      */
     protected bool $tableExists = false;
@@ -315,6 +323,11 @@ class SEODefaultsRepository
     /**
      * Clear cached defaults for a specific scope/locale.
      *
+     * With no arguments, every scope is cleared from the cache store as
+     * well as from the per-request memo: the scopes with rows in the
+     * database plus every scope recorded as cached, so a scope whose rows
+     * were deleted is forgotten too.
+     *
      * @param  string|null  $scope  The scope to clear (null = all)
      * @param  string|null  $locale  The locale to clear (null = all locales for scope)
      */
@@ -337,33 +350,62 @@ class SEODefaultsRepository
         }
 
         if ($scope) {
-            // Every locale this scope has actually been cached under is
-            // forgotten by clearTrackedLocaleCacheKeys() below. This fixed list
-            // stays as the safety net for entries written before that tracking
-            // existed (the tracking key is created on the next cache miss).
-            foreach (['en', 'de', 'fr', 'es', 'nl', 'pt_BR'] as $loc) {
-                $store->forget($this->getCacheKey($scope, $loc));
-            }
-
-            $this->clearTrackedLocaleCacheKeys($scope);
-
-            // The memo may hold locales outside the list above, so drop every
-            // entry for this scope rather than the fixed set.
-            foreach (array_keys($this->memo) as $memoKey) {
-                if (str_starts_with($memoKey, "{$scope}:")) {
-                    unset($this->memo[$memoKey]);
-                }
-            }
-
+            $this->forgetScope($scope);
             $this->bumpMemoVersion();
 
             return;
         }
 
-        // For full cache clear, use cache tags if available
-        // Otherwise, the cache will naturally expire
+        // Full clear: the store cannot be enumerated, so walk every scope that
+        // has rows plus every scope recorded as cached (a scope whose rows were
+        // deleted is only in the second list) and forget each one through the
+        // per-scope path, which knows every locale it was cached under.
+        $pairs = $this->storedScopeLocales();
+        $scopes = array_unique(array_merge(array_column($pairs, 0), $this->trackedScopes()));
+
+        foreach ($scopes as $trackedScope) {
+            $this->forgetScope($trackedScope);
+        }
+
+        // An entry written before the trackers existed is recorded nowhere in
+        // the store, but when its locale has a row of its own the table still
+        // names the key. (A legacy entry for a locale that only fell back to
+        // English cannot be named and expires within its TTL.)
+        foreach ($pairs as [$rowScope, $rowLocale]) {
+            $store->forget($this->getCacheKey($rowScope, $rowLocale));
+        }
+
+        $store->forget($this->cachedScopesKey());
+
         $this->memo = [];
         $this->bumpMemoVersion();
+    }
+
+    /**
+     * Forget every cache entry and memo entry for one scope. The caller bumps
+     * the memo version afterwards so other workers drop their memo too.
+     */
+    protected function forgetScope(string $scope): void
+    {
+        $store = Cache::store($this->getCacheStore());
+
+        // Every locale this scope has actually been cached under is forgotten
+        // by clearTrackedLocaleCacheKeys() below. This fixed list stays as the
+        // safety net for entries written before that tracking existed (the
+        // tracking key is created on the next cache miss).
+        foreach (['en', 'de', 'fr', 'es', 'nl', 'pt_BR'] as $loc) {
+            $store->forget($this->getCacheKey($scope, $loc));
+        }
+
+        $this->clearTrackedLocaleCacheKeys($scope);
+
+        // The memo may hold locales outside the list above, so drop every
+        // entry for this scope rather than the fixed set.
+        foreach (array_keys($this->memo) as $memoKey) {
+            if (str_starts_with($memoKey, "{$scope}:")) {
+                unset($this->memo[$memoKey]);
+            }
+        }
     }
 
     public function flushMemo(): void
@@ -413,6 +455,8 @@ class SEODefaultsRepository
      */
     protected function rememberCachedLocale(string $scope, string $locale): void
     {
+        $this->rememberCachedScope($scope);
+
         if ($locale === 'en') {
             return;
         }
@@ -430,7 +474,7 @@ class SEODefaultsRepository
         // tracker has to outlive the entries it is responsible for clearing,
         // and an entry re-cached later than the tracker was written would
         // otherwise survive a clearCache($scope) it should not have.
-        $store->put($key, array_values($locales), self::CACHE_TTL);
+        $store->put($key, array_values($locales), self::TRACKER_TTL);
     }
 
     protected function clearTrackedLocaleCacheKeys(string $scope): void
@@ -453,6 +497,70 @@ class SEODefaultsRepository
     protected function fallbackLocalesKey(string $scope): string
     {
         return config('seo.cache.prefix', 'seo_').'defaults:fallback_locales:'.$scope;
+    }
+
+    /**
+     * Record that this scope has at least one cache entry, so clearCache()
+     * with no arguments can forget it even after its rows are deleted and
+     * getAvailableScopes() no longer lists it. Rewritten on every cache
+     * write for the same reason as the locale tracker: it has to outlive
+     * the entries it is responsible for clearing.
+     */
+    protected function rememberCachedScope(string $scope): void
+    {
+        $store = Cache::store($this->getCacheStore());
+        $key = $this->cachedScopesKey();
+        $scopes = $store->get($key, []);
+        $scopes = is_array($scopes) ? $scopes : [];
+
+        if (! in_array($scope, $scopes, true)) {
+            $scopes[] = $scope;
+        }
+
+        $store->put($key, array_values($scopes), self::TRACKER_TTL);
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    protected function trackedScopes(): array
+    {
+        $scopes = Cache::store($this->getCacheStore())->get($this->cachedScopesKey(), []);
+
+        if (! is_array($scopes)) {
+            return [];
+        }
+
+        return array_values(array_filter($scopes, fn ($scope) => is_string($scope) && $scope !== ''));
+    }
+
+    protected function cachedScopesKey(): string
+    {
+        return config('seo.cache.prefix', 'seo_').'defaults:cached_scopes';
+    }
+
+    /**
+     * Every scope/locale pair with a row of its own; the scopes are the same
+     * set getAvailableScopes() returns.
+     *
+     * @return array<int, array{0: string, 1: string}>
+     */
+    protected function storedScopeLocales(): array
+    {
+        if (! $this->tableExists()) {
+            return [];
+        }
+
+        try {
+            return SEODefault::query()
+                ->select(['scope', 'locale'])
+                ->distinct()
+                ->get()
+                ->map(fn (SEODefault $row) => [(string) $row->scope, (string) $row->locale])
+                ->all();
+        } catch (\Exception) {
+            return [];
+        }
     }
 
     /**
