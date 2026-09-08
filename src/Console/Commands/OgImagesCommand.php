@@ -86,7 +86,14 @@ class OgImagesCommand extends Command
             $this->line("Warming <info>{$modelClass}</info> ...");
 
             foreach ($modelClass::query()->cursor() as $model) {
-                $data = $resolver->resolve($model);
+                // Resolve through the model's own seoData() when it has one:
+                // a HasSEO model may default to ITS locale (a translation row
+                // that is Italian whatever the console locale is), and the
+                // card's filename is a hash that includes the locale — warmed
+                // under the wrong one, the page never finds it and falls back
+                // to the static default. Identical to resolve($model) for a
+                // model that does not override the default.
+                $data = method_exists($model, 'seoData') ? $model->seoData() : $resolver->resolve($model);
                 $template = $manager->templateFor($model);
                 $keep[$this->relativePath($generator, $data, $template)] = true;
 

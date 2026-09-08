@@ -41,6 +41,18 @@ class OgArticle extends Model
     }
 }
 
+/**
+ * A translation row: resolves in its own language whatever the app locale is
+ * (the blog's PostTranslation does exactly this).
+ */
+class OgTranslatedArticle extends OgArticle
+{
+    public function seoData(?string $locale = null): \Rankbeam\Seo\Data\SEOData
+    {
+        return app(SEOResolver::class)->resolve(model: $this, locale: $locale ?? 'it');
+    }
+}
+
 beforeEach(function () {
     $schema = $this->app['db']->connection()->getSchemaBuilder();
     $schema->dropIfExists('og_articles');
@@ -134,6 +146,22 @@ describe('seo:og-images command', function () {
         $data = ogResolver()->resolve($article);
         $expected = 'og-images/'.app(OgImageGenerator::class)->cacheKey($data, 'seo::og.article').'.png';
         Storage::disk('og_test')->assertExists($expected);
+        expect($data->ogImage)->toContain('og-images/');
+    });
+
+    it('warms a model in the locale its own seoData() resolves, not the console locale', function () {
+        // A translation row: its seoData() defaults to ITS language. The
+        // card's filename hashes the locale, so warming under the console
+        // locale (en) would store a card the Italian page never finds.
+        config(['seo.og_image.models' => [OgTranslatedArticle::class]]);
+        $article = OgTranslatedArticle::create(['title' => 'Le sitemap in Laravel', 'slug' => 'sitemap-laravel']);
+
+        app()->setLocale('en');
+        $this->artisan('seo:og-images')->assertExitCode(0);
+
+        $data = $article->seoData();
+        expect($data->locale)->toBe('it');
+        Storage::disk('og_test')->assertExists('og-images/'.app(OgImageGenerator::class)->cacheKey($data, 'seo::og.default').'.png');
         expect($data->ogImage)->toContain('og-images/');
     });
 
