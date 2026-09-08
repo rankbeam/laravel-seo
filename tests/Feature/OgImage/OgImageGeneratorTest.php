@@ -113,6 +113,33 @@ describe('OgImageGenerator::urlFor', function () {
     });
 });
 
+describe('OgImageGenerator article card date', function () {
+    // The resolver hands the generator a DateTimeImmutable, not the model's
+    // Carbon cast — the card date used to stay English for every locale.
+    $card = function (string $locale): string {
+        generator()->generate(new SEOData(
+            title: 'Le sitemap in Laravel',
+            ogSiteName: 'rankbeam.dev',
+            locale: $locale,
+            publishedTime: new DateTimeImmutable('2026-09-08 10:00:00', new DateTimeZone('UTC')),
+        ), 'seo::og.article');
+
+        return (string) FakeOgImageRenderer::$lastHtml;
+    };
+
+    it('writes the date in the page locale, in that locale\'s own order', function () use ($card) {
+        expect($card('it'))->toContain('8 set 2026')
+            ->and($card('de'))->toContain('08.09.2026')
+            ->and($card('ja'))->toContain('2026/09/08')
+            ->and($card('en'))->toContain('Sep 8, 2026');
+    })->skip(! extension_loaded('intl'), 'ICU dates need ext-intl');
+
+    it('still translates the month for a plain DateTimeInterface without ext-intl', function () use ($card) {
+        // The Carbon path: a DateTimeImmutable is wrapped, not left in English.
+        expect($card('it'))->not->toContain('Sep 8, 2026');
+    });
+});
+
 describe('OgImageGenerator::generate', function () {
     it('renders once, stores the png, and returns its url', function () {
         $url = generator()->generate(ogData());
