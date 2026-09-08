@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rankbeam\Seo\Services\OgImage;
 
+use Carbon\Carbon;
 use Carbon\CarbonInterface;
 use Composer\InstalledVersions;
 use Illuminate\Contracts\Filesystem\Filesystem;
@@ -248,9 +249,14 @@ class OgImageGenerator
     }
 
     /**
-     * Format a publish date for a card, localized to the page locale when the
-     * value is a Carbon instance (the usual Eloquent date cast). A plain
-     * DateTimeInterface falls back to the English pattern.
+     * Format a publish date for a card in the page's language.
+     *
+     * With ext-intl, ICU's medium date for the locale — "Sep 8, 2026",
+     * "8 set 2026", "08.09.2026", "2026/09/08" — so the order and the month
+     * name are the locale's, not English with a translated month. Without
+     * it, Carbon's translated month in the English order; a plain
+     * DateTimeInterface (the resolver hands over a DateTimeImmutable, not the
+     * model's Carbon cast) is wrapped rather than left in English.
      */
     protected function formatDate(?\DateTimeInterface $date, ?string $locale): ?string
     {
@@ -258,11 +264,24 @@ class OgImageGenerator
             return null;
         }
 
-        if ($date instanceof CarbonInterface) {
-            return $date->locale($locale ?? app()->getLocale())->translatedFormat('M j, Y');
+        $locale ??= app()->getLocale();
+
+        if (class_exists(\IntlDateFormatter::class)) {
+            $formatted = (new \IntlDateFormatter(
+                $locale,
+                \IntlDateFormatter::MEDIUM,
+                \IntlDateFormatter::NONE,
+                $date->getTimezone(),
+            ))->format($date);
+
+            if (is_string($formatted) && $formatted !== '') {
+                return $formatted;
+            }
         }
 
-        return $date->format('M j, Y');
+        $carbon = $date instanceof CarbonInterface ? $date : Carbon::instance($date);
+
+        return $carbon->locale($locale)->translatedFormat('M j, Y');
     }
 
     /**
