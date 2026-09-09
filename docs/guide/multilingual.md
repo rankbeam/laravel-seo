@@ -298,7 +298,7 @@ engines, so a row that stops being true fails CI.
 
 | Language | Locale | Title / description | Word counting | Keyword matching | Readability |
 |---|---|---|---|---|---|
-| English | `en` | 60 / 160 | spaces | Snowball | Flesch-Kincaid |
+| English | `en` | 60 / 160 | spaces | Snowball | Flesch Reading Ease |
 | Italian | `it` | 60 / 160 | spaces | Snowball | Gulpease |
 | German | `de` | 60 / 160 | spaces | Snowball | Wiener Sachtextformel |
 | French | `fr` | 60 / 160 | spaces | Snowball | Kandel-Moles |
@@ -324,11 +324,12 @@ Three things that table is deliberately honest about:
   can miss inflected forms, while stemming can conflate distinct words. See the
   [engine controls and migration notes](/pro/on-page-checklist#upgrading-from-pro-2-36).
 - **"heuristic, no score" and "LIX" are not the same thing.** Japanese, Chinese
-  and Korean have no validated syllable formula, so the checklist reports a
+  and Korean use an unscored method in this package: the checklist reports a
   *level* from sentence length and kanji share with a `null` score and stays
-  advisory whatever you configure. Greek, Ukrainian and Czech have no formula
-  either, but LIX (a long-word index) needs no syllables and does apply, so they
-  are scored with it and the checklist says which method ran.
+  advisory whatever you configure. Greek, Ukrainian and Czech use LIX because
+  no dedicated formula is implemented here. LIX needs no syllables, but its
+  thresholds are not calibrated for every language. All formula inputs include
+  estimates; see the [statistics contract](/pro/on-page-checklist#text-statistics-and-api-limits).
 - **Translations are first passes** unless `TRANSLATING.md` says a native
   reviewed them. Italian is reviewed; the rest want a reviewer, and reviewing
   one is the cheapest way to get your language credited in the package.
@@ -357,7 +358,7 @@ Korean site, Seznam for a Czech one, Yandex for a Ukrainian or Russian one. See
   `description_length` checks and the AI-assist prompts, and (2.34) analyses
   the page in its own language: ICU word segmentation for Chinese, Japanese
   and Thai, Snowball stemming, locale-aware keyword matching through this
-  `CaseFolder`, a validated readability formula for each Tier 1 language,
+  `CaseFolder`, published readability formulas with estimated inputs for ten languages,
   labelled heuristics for CJK and LIX (stated as such) for Greek, Ukrainian
   and Czech, stop words for sixteen languages, `html lang`
   and hreflang-reciprocity scan checks, AI prompts that name the page's
