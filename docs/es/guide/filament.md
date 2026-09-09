@@ -48,8 +48,8 @@ Abre un registro existente, introduce una descripción SEO, guarda y recarga. La
 
 La sección incluye:
 
-- **Título y descripción** con contadores. La [política de longitud (EN)](/guide/multilingual#title-and-description-budgets-per-script) considera la escritura: 60/160 para texto latino, aproximadamente 30/80 para CJK, en grafemas.
-- **Palabras clave objetivo:** se introducen como etiquetas y se guardan en `[{keyword, is_primary}]`. La primera es principal; `getPrimaryKeyword()` y `SEOData` leen esta estructura. Activa `seo.keywords.enabled` para que [`seo:audit` (EN)](/es/guide/audit) y Pro señalen las páginas sin palabras clave. Está desactivado por defecto; consulta la [configuración (EN)](/reference/configuration#focus-keywords).
+- **Título y descripción** con contadores. La [política de longitud](/es/guide/multilingual#title-and-description-budgets-per-script) considera la escritura: 60/160 para texto latino, aproximadamente 30/80 para CJK, en grafemas.
+- **Palabras clave objetivo:** se introducen como etiquetas y se guardan en `[{keyword, is_primary}]`. La primera es principal; `getPrimaryKeyword()` y `SEOData` leen esta estructura. Activa `seo.keywords.enabled` para que [`seo:audit`](/es/guide/audit) y Pro señalen las páginas sin palabras clave. Está desactivado por defecto; consulta la [configuración (EN)](/reference/configuration#focus-keywords).
 - **URL canónica:** vacía para derivarla automáticamente, sin parámetros de consulta.
 - **Robots:** vacío para usar el valor del sitio.
 - **Imagen social:** subida para `og:image` y `twitter:image`, guardada bajo `seo/` en el disco predeterminado de Filament.
@@ -70,7 +70,7 @@ La sección usa el grupo de estado `seo_meta` y guarda mediante la relación `se
 
 ## Varios idiomas {#several-languages}
 
-El núcleo conserva [una fila `seo_meta` por modelo e idioma (EN)](/es/guide/multilingual). Desde Filament 1.9 puedes pasar los idiomas publicados para obtener una pestaña por idioma:
+El núcleo conserva [una fila `seo_meta` por modelo e idioma](/es/guide/multilingual). Desde Filament 1.9 puedes pasar los idiomas publicados para obtener una pestaña por idioma:
 
 ```php
 static::seoSection(locales: ['en', 'it', 'ja']);
