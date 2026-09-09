@@ -14,6 +14,26 @@ declare(strict_types=1);
 */
 
 return [
+    'cli' => [
+        'audit' => [
+            'no_models' => 'Δεν υπάρχουν μοντέλα για έλεγχο.',
+            'model_hint' => 'Χρησιμοποιήστε --model="App\\Models\\Post" ή ρυθμίστε seo.audit.models ή seo.sitemap.models στο config/seo.php.',
+            'skipped' => 'Παραλείφθηκε το μοντέλο :model: :reason',
+            'no_pages' => 'Δεν βρέθηκαν σελίδες για έλεγχο.',
+            'page' => 'Σελίδα',
+            'status' => 'Κατάσταση',
+            'findings' => 'Ευρήματα',
+            'all_passed' => 'Δεν βρέθηκαν προβλήματα: όλες οι σελίδες πέρασαν τον έλεγχο.',
+            'page_summary' => 'Σελίδες: :pages · επιτυχία: :passed · με προειδοποιήσεις: :warned · αποτυχία: :failed',
+            'issue_summary' => 'Προβλήματα: :issues · κρίσιμα: :critical · προειδοποιήσεις: :warning · ειδοποιήσεις: :notice',
+            'guard_title' => 'ΠΡΟΣΤΑΣΙΑ ΕΥΡΕΤΗΡΙΑΣΗΣ ΕΝΕΡΓΗ',
+            'guard_environment' => 'Το περιβάλλον ":environment" δεν περιλαμβάνεται στο seo.indexing_guard.allowed_environments (:allowed).',
+            'guard_explanation' => 'Κάθε σελίδα χρησιμοποιεί :directive και το διαχειριζόμενο robots.txt αποκλείει τους ανιχνευτές. Χρησιμοποιήστε επιτρεπόμενο περιβάλλον παραγωγής ή ορίστε SEO_INDEXING_GUARD=false.',
+            'coverage' => 'Κάλυψη',
+            'coverage_core' => 'Ελέγχονται εδώ (μοντέλο και resolver, χωρίς αιτήματα): παρουσία/μήκος τίτλου και περιγραφής, εικόνα OG, συγκρούσεις robots, μορφή/τομέας/κοινή χρήση/ασφάλεια canonical URL και κύρια λέξη-κλειδί.',
+            'coverage_pro' => 'Απαιτείται σάρωση Pro (αποδομένο HTML ή εξωτερικά αιτήματα): H1, alt εικόνων, ανεπαρκές περιεχόμενο, μικτό περιεχόμενο και έλεγχοι canonical URL στο διαδίκτυο. Η βαθμολογία 0–100 είναι επίσης λειτουργία Pro.',
+        ],
+    ],
     'audit' => [
         'missing_title' => 'Η σελίδα δεν έχει ετικέτα title.',
         'missing_description' => 'Η σελίδα δεν έχει meta περιγραφή.',

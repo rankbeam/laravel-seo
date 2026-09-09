@@ -15,6 +15,26 @@ declare(strict_types=1);
 */
 
 return [
+    'cli' => [
+        'audit' => [
+            'no_models' => 'Nessun modello da controllare.',
+            'model_hint' => 'Usa --model="App\\Models\\Post" oppure configura seo.audit.models o seo.sitemap.models in config/seo.php.',
+            'skipped' => 'Modello saltato, :model: :reason',
+            'no_pages' => 'Nessuna pagina da controllare.',
+            'page' => 'Pagina',
+            'status' => 'Stato',
+            'findings' => 'Problemi rilevati',
+            'all_passed' => 'Nessun problema: tutte le pagine controllate hanno superato la verifica.',
+            'page_summary' => 'Pagine: :pages · superate: :passed · con avvisi: :warned · non superate: :failed',
+            'issue_summary' => 'Problemi: :issues · critici: :critical · avvisi: :warning · note: :notice',
+            'guard_title' => 'PROTEZIONE DELL’INDICIZZAZIONE ATTIVA',
+            'guard_environment' => 'L’ambiente ":environment" non è in seo.indexing_guard.allowed_environments (:allowed).',
+            'guard_explanation' => 'Ogni pagina usa :directive e il robots.txt gestito blocca i crawler. Usa un ambiente di produzione consentito oppure imposta SEO_INDEXING_GUARD=false.',
+            'coverage' => 'Copertura',
+            'coverage_core' => 'Controlli inclusi (modello e resolver, senza richieste): presenza e lunghezza di titolo e descrizione, immagine OG, conflitti robots, formato/dominio/condivisione/sicurezza del canonical e parola chiave principale.',
+            'coverage_pro' => 'Richiedono la scansione Pro (HTML visualizzato o richieste esterne): H1, alt delle immagini, contenuti insufficienti, contenuti misti e verifica dei canonical online. Anche il punteggio 0–100 è una funzione Pro.',
+        ],
+    ],
 
     'audit' => [
         'missing_title' => 'La pagina non ha un tag title.',

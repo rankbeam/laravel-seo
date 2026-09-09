@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace Rankbeam\Seo\Console\Commands;
 
-use Illuminate\Console\Command;
+use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\Facades\Storage;
+use Rankbeam\Seo\Console\LocalizedCommand as Command;
 use Rankbeam\Seo\Services\IndexingGuard;
 use Rankbeam\Seo\Services\RobotsTxt\RobotsTxtBuilder;
 
@@ -108,7 +109,7 @@ class RobotsTxtCommand extends Command
 
             return self::SUCCESS;
         } catch (\Exception $e) {
-            $this->error("Failed to generate {$label}: " . $e->getMessage());
+            $this->error("Failed to generate {$label}: ".$e->getMessage());
 
             return self::FAILURE;
         }
@@ -125,7 +126,7 @@ class RobotsTxtCommand extends Command
     /**
      * The storage disk the builder writes to (so --output stays on it).
      */
-    protected function getStorage(): \Illuminate\Filesystem\FilesystemAdapter
+    protected function getStorage(): FilesystemAdapter
     {
         $disk = config('seo.ai_crawlers.disk', config('seo.sitemap.disk', 'public'));
 

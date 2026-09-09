@@ -14,6 +14,26 @@ declare(strict_types=1);
 */
 
 return [
+    'cli' => [
+        'audit' => [
+            'no_models' => 'Denetlenecek model yok.',
+            'model_hint' => '--model="App\\Models\\Post" kullanın veya config/seo.php içinde seo.audit.models ya da seo.sitemap.models ayarlayın.',
+            'skipped' => 'Atlanan model, :model: :reason',
+            'no_pages' => 'Denetlenecek sayfa bulunamadı.',
+            'page' => 'Sayfa',
+            'status' => 'Durum',
+            'findings' => 'Bulgular',
+            'all_passed' => 'Sorun bulunamadı; denetlenen tüm sayfalar kontrolleri geçti.',
+            'page_summary' => 'Sayfa: :pages · geçen: :passed · uyarılı: :warned · başarısız: :failed',
+            'issue_summary' => 'Sorun: :issues · kritik: :critical · uyarı: :warning · bildirim: :notice',
+            'guard_title' => 'DİZİNE EKLEME KORUMASI ETKİN',
+            'guard_environment' => '":environment" ortamı seo.indexing_guard.allowed_environments (:allowed) içinde değil.',
+            'guard_explanation' => 'Her sayfa :directive kullanır ve yönetilen robots.txt tarayıcıları engeller. İzin verilen bir üretim ortamı kullanın veya SEO_INDEXING_GUARD=false ayarlayın.',
+            'coverage' => 'Kapsam',
+            'coverage_core' => 'Burada denetlenir (model ve çözümleyici, istek gönderilmez): başlık/açıklama varlığı ve uzunluğu, OG görseli, robots çakışmaları, canonical URL biçimi/alan adı/paylaşımı/güvenliği ve odak anahtar kelime.',
+            'coverage_pro' => 'Pro taraması gerekir (işlenmiş HTML veya dış istekler): H1, görsel alt metni, yetersiz içerik, karma içerik ve canlı canonical kontrolleri. 0–100 puanı da bir Pro özelliğidir.',
+        ],
+    ],
 
     'audit' => [
         'missing_title' => 'Sayfada title etiketi yok.',

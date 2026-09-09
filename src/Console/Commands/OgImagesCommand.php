@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Rankbeam\Seo\Console\Commands;
 
-use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
+use Rankbeam\Seo\Console\LocalizedCommand as Command;
 use Rankbeam\Seo\Data\SEOData;
 use Rankbeam\Seo\I18n\Script;
 use Rankbeam\Seo\Services\OgImage\FontProbe;

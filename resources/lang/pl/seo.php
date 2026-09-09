@@ -14,6 +14,26 @@ declare(strict_types=1);
 */
 
 return [
+    'cli' => [
+        'audit' => [
+            'no_models' => 'Brak modeli do audytu.',
+            'model_hint' => 'Użyj --model="App\\Models\\Post" lub skonfiguruj seo.audit.models albo seo.sitemap.models w config/seo.php.',
+            'skipped' => 'Pominięty model, :model: :reason',
+            'no_pages' => 'Nie znaleziono stron do audytu.',
+            'page' => 'Strona',
+            'status' => 'Status',
+            'findings' => 'Wyniki',
+            'all_passed' => 'Nie znaleziono problemów: wszystkie sprawdzone strony przeszły audyt.',
+            'page_summary' => 'Strony: :pages · zaliczone: :passed · z ostrzeżeniami: :warned · niezaliczone: :failed',
+            'issue_summary' => 'Problemy: :issues · krytyczne: :critical · ostrzeżenia: :warning · informacje: :notice',
+            'guard_title' => 'OCHRONA INDEKSOWANIA AKTYWNA',
+            'guard_environment' => 'Środowisko ":environment" nie znajduje się w seo.indexing_guard.allowed_environments (:allowed).',
+            'guard_explanation' => 'Każda strona używa :directive, a zarządzany robots.txt blokuje roboty. Użyj dozwolonego środowiska produkcyjnego lub ustaw SEO_INDEXING_GUARD=false.',
+            'coverage' => 'Zakres',
+            'coverage_core' => 'Sprawdzane tutaj (model i resolver, bez żądań): obecność/długość tytułu i opisu, obraz OG, konflikty robots, format/domena/współdzielenie/bezpieczeństwo adresu canonical i główne słowo kluczowe.',
+            'coverage_pro' => 'Wymaga skanowania Pro (wyrenderowany HTML lub żądania zewnętrzne): H1, teksty alt, uboga treść, treść mieszana i sprawdzanie adresów canonical online. Wynik 0–100 również jest funkcją Pro.',
+        ],
+    ],
 
     'audit' => [
         'missing_title' => 'Strona nie ma tagu title.',

@@ -14,6 +14,26 @@ declare(strict_types=1);
 */
 
 return [
+    'cli' => [
+        'audit' => [
+            'no_models' => 'Žádné modely k auditu.',
+            'model_hint' => 'Použijte --model="App\\Models\\Post" nebo nastavte seo.audit.models či seo.sitemap.models v config/seo.php.',
+            'skipped' => 'Přeskočený model :model: :reason',
+            'no_pages' => 'Nebyly nalezeny stránky k auditu.',
+            'page' => 'Stránka',
+            'status' => 'Stav',
+            'findings' => 'Nálezy',
+            'all_passed' => 'Nebyly nalezeny problémy: všechny auditované stránky prošly kontrolou.',
+            'page_summary' => 'Stránky: :pages · úspěšné: :passed · s varováním: :warned · neúspěšné: :failed',
+            'issue_summary' => 'Problémy: :issues · kritické: :critical · varování: :warning · oznámení: :notice',
+            'guard_title' => 'OCHRANA INDEXOVÁNÍ JE AKTIVNÍ',
+            'guard_environment' => 'Prostředí ":environment" není v seo.indexing_guard.allowed_environments (:allowed).',
+            'guard_explanation' => 'Každá stránka používá :directive a spravovaný robots.txt blokuje roboty. Použijte povolené produkční prostředí nebo nastavte SEO_INDEXING_GUARD=false.',
+            'coverage' => 'Rozsah',
+            'coverage_core' => 'Kontroluje se zde (model a resolver, bez požadavků): přítomnost/délka titulku a popisu, OG obrázek, konflikty robots, formát/doména/sdílení/zabezpečení canonical URL a hlavní klíčové slovo.',
+            'coverage_pro' => 'Vyžaduje sken Pro (vykreslené HTML nebo externí požadavky): H1, alt obrázků, nedostatečný obsah, smíšený obsah a online kontroly canonical URL. Skóre 0–100 je také funkcí Pro.',
+        ],
+    ],
     'audit' => [
         'missing_title' => 'Stránce chybí tag title.',
         'missing_description' => 'Stránce chybí meta popis.',

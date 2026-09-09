@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace Rankbeam\Seo\Console\Commands;
 
-use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Http;
+use Rankbeam\Seo\Console\LocalizedCommand as Command;
 use Rankbeam\Seo\Jobs\GenerateSitemapJob;
 use Rankbeam\Seo\Services\Sitemap\SitemapBuilder;
 
@@ -133,7 +134,7 @@ class SitemapCommand extends Command
 
             return self::SUCCESS;
         } catch (\Exception $e) {
-            $this->error('Failed to generate sitemap: ' . $e->getMessage());
+            $this->error('Failed to generate sitemap: '.$e->getMessage());
 
             return self::FAILURE;
         }
@@ -156,7 +157,7 @@ class SitemapCommand extends Command
 
         foreach ($engines as $name => $pingUrl) {
             try {
-                $response = \Illuminate\Support\Facades\Http::timeout(30)->get($pingUrl);
+                $response = Http::timeout(30)->get($pingUrl);
 
                 if ($response->successful()) {
                     $this->line("  ✓ {$name}: Pinged successfully");

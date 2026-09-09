@@ -14,6 +14,26 @@ declare(strict_types=1);
 */
 
 return [
+    'cli' => [
+        'audit' => [
+            'no_models' => '감사할 모델이 없습니다.',
+            'model_hint' => '--model="App\\Models\\Post"를 사용하거나 config/seo.php에서 seo.audit.models 또는 seo.sitemap.models를 설정하세요.',
+            'skipped' => '건너뛴 모델 :model: :reason',
+            'no_pages' => '감사할 페이지를 찾지 못했습니다.',
+            'page' => '페이지',
+            'status' => '상태',
+            'findings' => '발견 사항',
+            'all_passed' => '문제를 찾지 못했습니다. 감사한 모든 페이지가 검사를 통과했습니다.',
+            'page_summary' => '페이지: :pages · 통과: :passed · 경고 있음: :warned · 실패: :failed',
+            'issue_summary' => '문제: :issues · 심각: :critical · 경고: :warning · 알림: :notice',
+            'guard_title' => '색인 생성 보호 활성화',
+            'guard_environment' => '":environment" 환경이 seo.indexing_guard.allowed_environments (:allowed)에 없습니다.',
+            'guard_explanation' => '모든 페이지에 :directive가 적용되고 관리되는 robots.txt가 크롤러를 차단합니다. 허용된 운영 환경을 사용하거나 SEO_INDEXING_GUARD=false를 설정하세요.',
+            'coverage' => '검사 범위',
+            'coverage_core' => '여기서 검사하는 항목(모델과 리졸버, 외부 요청 없음): 제목과 설명의 유무 및 길이, OG 이미지, robots 충돌, canonical URL의 형식·도메인·공유·보안, 포커스 키워드.',
+            'coverage_pro' => 'Pro 스캔이 필요한 항목(렌더링된 HTML 또는 외부 요청): H1, 이미지 alt, 부족한 콘텐츠, 혼합 콘텐츠, 실제 canonical URL 검사. 0–100 점수도 Pro 기능입니다.',
+        ],
+    ],
     'audit' => [
         'missing_title' => '페이지에 title 태그가 없습니다.',
         'missing_description' => '페이지에 메타 설명이 없습니다.',

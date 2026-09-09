@@ -14,6 +14,26 @@ declare(strict_types=1);
 */
 
 return [
+    'cli' => [
+        'audit' => [
+            'no_models' => 'Nenhum modelo para auditar.',
+            'model_hint' => 'Use --model="App\\Models\\Post" ou configure seo.audit.models ou seo.sitemap.models em config/seo.php.',
+            'skipped' => 'Modelo ignorado, :model: :reason',
+            'no_pages' => 'Nenhuma página encontrada para auditoria.',
+            'page' => 'Página',
+            'status' => 'Status',
+            'findings' => 'Resultados',
+            'all_passed' => 'Nenhum problema encontrado: todas as páginas auditadas passaram nas verificações.',
+            'page_summary' => 'Páginas: :pages · aprovadas: :passed · com alertas: :warned · reprovadas: :failed',
+            'issue_summary' => 'Problemas: :issues · críticos: :critical · alertas: :warning · avisos: :notice',
+            'guard_title' => 'PROTEÇÃO DE INDEXAÇÃO ATIVA',
+            'guard_environment' => 'O ambiente ":environment" não está em seo.indexing_guard.allowed_environments (:allowed).',
+            'guard_explanation' => 'Todas as páginas usam :directive e o robots.txt gerenciado bloqueia os rastreadores. Use um ambiente de produção permitido ou defina SEO_INDEXING_GUARD=false.',
+            'coverage' => 'Cobertura',
+            'coverage_core' => 'Verificado aqui (modelo e resolvedor, sem requisições): presença/tamanho do título e da descrição, imagem OG, conflitos robots, formato/domínio/compartilhamento/segurança da URL canônica e palavra-chave principal.',
+            'coverage_pro' => 'Exige o escaneamento Pro (HTML renderizado ou requisições externas): H1, textos alt, conteúdo insuficiente, conteúdo misto e verificação de URLs canônicas online. A pontuação de 0 a 100 também é um recurso Pro.',
+        ],
+    ],
 
     'audit' => [
         'missing_title' => 'A página não tem uma tag title.',

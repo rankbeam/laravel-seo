@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace Rankbeam\Seo\Console\Commands;
 
-use Illuminate\Console\Command;
+use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\Facades\Storage;
+use Rankbeam\Seo\Console\LocalizedCommand as Command;
 use Rankbeam\Seo\Services\LlmsTxt\LlmsTxtBuilder;
 
 /**
@@ -93,7 +94,7 @@ class LlmsTxtCommand extends Command
 
             return self::SUCCESS;
         } catch (\Exception $e) {
-            $this->error('Failed to generate llms.txt: ' . $e->getMessage());
+            $this->error('Failed to generate llms.txt: '.$e->getMessage());
 
             return self::FAILURE;
         }
@@ -114,7 +115,7 @@ class LlmsTxtCommand extends Command
     /**
      * The storage disk the builder writes to (so --output stays on it).
      */
-    protected function getStorage(): \Illuminate\Filesystem\FilesystemAdapter
+    protected function getStorage(): FilesystemAdapter
     {
         $disk = config('seo.llms_txt.disk', config('seo.sitemap.disk', 'public'));
 

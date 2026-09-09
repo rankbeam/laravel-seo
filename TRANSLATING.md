@@ -8,8 +8,20 @@ Rankbeam ships its user-facing strings as Laravel language files, in every packa
 | `rankbeam/laravel-seo-filament` | `seo-filament` | `seo-filament-lang` | `resources/lang/{locale}/seo-filament.php` |
 | `rankbeam/laravel-seo-pro` | `seo-pro` | `seo-pro-lang` | `resources/lang/{locale}/seo-pro.php` |
 
-The package follows the application locale (`app()->getLocale()`), so a Filament panel
-running in Italian shows Italian labels, counters and audit findings with no configuration.
+Web UI messages follow the application's translator locale, so a Filament panel
+running in Italian shows Italian labels, counters and audit findings.
+
+CLI presentation defaults to English. Set `seo.cli_locale` / `SEO_CLI_LOCALE`, or
+pass `--display-locale=it`. This changes translated messages, not the application
+content locale or machine identifiers. The audit summary is extracted in `cli.audit`;
+command help, maintenance diagnostics, URLs, PASS/WARN/FAIL and issue codes remain
+stable. Pro has its own `seo-pro.cli_locale` setting and translated checklist/report
+summaries. Human labels in JSON may translate; consume keys and status codes instead.
+
+`Rankbeam\Seo\I18n\DisplayLocale::run($locale, $callback)` scopes only the translator
+and restores its previous locale even on exceptions. `ModelLocale::run()` separately
+scopes content reads and restores both locale states. Do not return lazy work from
+either callback that depends on a temporary locale.
 
 ## Override a string in your app
 
