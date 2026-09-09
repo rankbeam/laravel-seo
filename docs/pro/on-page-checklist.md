@@ -45,9 +45,23 @@ is set — the checklist tells you to add one. Add it with the
 
 Keyword and copy are compared after **case folding and stemming**, so
 "espresso grinder" still matches "espresso grinders", and — with the analysis
-locale — Turkish "İstanbul" matches "istanbul", Greek "ΟΔΟΣ" matches "οδός"
+locale — Turkish "İstanbul" matches "istanbul", Greek "ΟΔΟΣ" matches "οδος"
 and German "Straße" matches "STRASSE" (the core `CaseFolder`). Pass the locale
 to analyze in: `SeoPro::checklistFor($post, 'it')` or `--locale=it`.
+
+From Pro 2.36.1, keywords, synonyms and field text use the same tokenizer before
+stemming. Matches require consecutive **whole tokens**: `cat` does not match
+`education`, and Japanese phrases use the same ICU word boundaries as the body.
+Apostrophes and hyphens separate tokens, so `meta-tag` matches `meta tag` and
+straight/curly apostrophes behave alike. Combining marks remain attached to their
+letters. Case folding preserves accents; a particular language stemmer may apply
+additional reductions.
+
+Occurrence counts select the longest matching keyword/synonym at each position
+and count that span once. Duplicate synonyms and overlapping shorter alternatives
+do not inflate density. For example, keyword `seo` with synonym `seo tools` has
+two occurrences in `seo tools seo`. ICU remains necessary for dictionary word
+boundaries in scripts without spaces; regex fallback cannot provide those boundaries.
 
 Three stemming engines, chosen per locale (Pro 2.34):
 
@@ -55,7 +69,7 @@ Three stemming engines, chosen per locale (Pro 2.34):
 | --- | --- | --- |
 | `snowball` | the optional `wamania/php-stemmer` package is installed (`composer require wamania/php-stemmer`) | en, fr, de, it, es, pt, nl, ru (+ ca, da, fi, no, ro, sv) |
 | `builtin` | Snowball absent | English only — a light inflectional stemmer (-s, -ing, -ed), deliberately without Porter's derivational steps, which over-stem and cause false matches |
-| `identity` | everything else | Turkish, Polish, Greek, Ukrainian, Czech, Japanese, Chinese, Korean, Thai … — an exact case-folded match, never wrong, only less forgiving. Turkish is agglutinative and would need its own rules; none are invented |
+| `identity` | everything else | Turkish, Polish, Greek, Ukrainian, Czech, Japanese, Chinese, Korean, Thai … — folded token matching without stemming. This is the chosen wrapper's coverage, not a claim that upstream Snowball lacks these algorithms. |
 
 `seo-pro.checklist.analysis.stemmer` forces `builtin` or `none`. Both sides
 of a comparison are stemmed with the same engine, so what matters is
