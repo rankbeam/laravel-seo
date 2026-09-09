@@ -41,14 +41,16 @@ On boot the demo runs [`seo:doctor`](/pro/headless#health-check) and a first
 `seo-pro:scan` over the seeded pages — the health report, scan summary, and
 [0–100 score](/pro/scoring) print in the compose logs.
 
-## Hosted demo
+## See the Pro workflow
 
-A read-only hosted instance — the full Filament dashboard with live scan
-progress, issue browsing, the redirect manager, and the 404 monitor — is
-published at launch. Until then, the Docker demo above is the way to run the
-engine yourself; see the
-[demo README](https://github.com/rankbeam/rankbeam-examples/tree/main/demo) for
-the full rundown and the dev ↔ released "one-line flip".
+The [scan → fix → report walkthrough](/pro/walkthrough) shows a running
+Merchant demo: an actual scan, the issue details, a saved description in
+Filament, the rescan and a downloadable PDF. Its content is labelled sample
+data, and its before-and-after results come from two fresh scans.
+
+There is no public interactive hosted demo yet. Use Docker to run the engine
+locally; the [demo README](https://github.com/rankbeam/rankbeam-examples/tree/main/demo)
+describes the setup and how to switch between released and local packages.
 
 ::: tip Already have an app?
 Skip the demo and go straight to the [Quickstart](/guide/quickstart) — install

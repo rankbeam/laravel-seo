@@ -10,10 +10,12 @@ recovered, Search Console movers, and AI-bot activity — generated with one
 command and, optionally, **e-mailed on a schedule**. Built for agencies: put
 your logo, colour, and "prepared for {client}" on it and hand it to the client.
 
-It is a one-time part of Pro — no per-seat report subscription to resent every
-month.
+[Download a generated sample report (PDF, 98 KB)](/pro-walkthrough/merchant-demo-report.pdf)
+or follow the [scan → fix → report walkthrough](/pro/walkthrough). The sample
+uses seeded Merchant content and two fresh scans; it shows one fixed issue,
+19 still open and no Search Console data.
 
-![A generated white-label SEO report](/reports-example.png)
+[![First page of the generated Merchant demo report.](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
 
 ## What's in it
 

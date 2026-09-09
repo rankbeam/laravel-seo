@@ -101,6 +101,7 @@ const pro = [
     text: 'Pro setup',
     items: [
       { text: 'Installing Pro', link: '/pro/installation' },
+      { text: 'Scan → fix → report', link: '/pro/walkthrough' },
       { text: 'Production setup', link: '/pro/production' },
       { text: 'Headless usage', link: '/pro/headless' },
     ],
