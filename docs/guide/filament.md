@@ -150,18 +150,49 @@ scan result, not a separate score for each language tab.*
 
 ### With a translatable plugin
 
-When the page exposes an active schema locale — Filament's
-`getActiveSchemaLocale()`, implemented by the spatie translatable plugins'
-`Translatable` page concern — and the section was given no locale list, it
-**follows the page's locale switcher** instead of rendering tabs: it edits
-that locale's row and re-hydrates whenever the header switcher changes
-(the plugins re-fill the form on a switch). The structured-data section
-follows the same locale. Save before switching: the plugins re-fill the form
-from the database. An explicit `locales:` list on the section always wins
-over the page locale; the config list yields to it.
 
-With neither a list nor a page locale, the section edits the app locale's row,
-as it always did.
+
+With `lara-zeus/spatie-translatable` **1.x on Filament 4** or **2.x on
+Filament 5**, use Rankbeam's page adapters for Edit and Create. Replace only
+the page trait imports; keep the plugin's resource/list traits, panel plugin
+and `LocaleSwitcher` action:
+
+```php
+// In your EditPost page:
+use Rankbeam\Seo\Filament\Resources\Pages\EditRecord\Concerns\Translatable;
+
+// In your CreatePost page (a separate file):
+use Rankbeam\Seo\Filament\Resources\Pages\CreateRecord\Concerns\Translatable;
+```
+
+Each page still declares `use Translatable;` inside its class. The plugin
+remains an optional application dependency. Use its latest patched version;
+the local integration fixture covers plugin 1.0.4 / Filament 4.13.1 and plugin
+2.0.1 / Filament 5.8.1.
+
+Switching keeps unsaved parent content, SEO metadata and structured-data drafts
+in the editor. Save validates every visited language and saves them together
+in a database transaction. A validation error opens the language that needs
+attention. Uploads are stored on Save; leaving or reloading the page discards
+unsaved drafts. Saving a draft does not translate missing content for you.
+
+The adapters preserve the normal before/after hooks and form-data mutators.
+If your page overrides `handleRecordCreation()`, `handleRecordUpdate()`,
+`callHook()` or transaction methods, integrate the adapter behavior in that
+customization and test its save flow. Database transactions do not roll back
+filesystem writes; applications should retain their usual orphan-file cleanup.
+
+For custom live text fields on Livewire 3, prefer `->live()` or
+`->live(onBlur: true)` over an explicit debounce: the latter delays local model
+state and can lose the last keystrokes during a quick locale switch. Rankbeam's
+title and description fields use the default request debounce.
+
+The upstream page traits alone refill forms during a switch. Rankbeam guards
+against their accidental metadata writes, but those traits do not preserve SEO
+drafts; migrate Edit/Create pages to the adapters. Explicit `locales:` tabs
+remain a shared editor and take precedence over the page switcher.
+
+With no explicit locale list or page locale, the section edits the app locale.
 
 ## Structured data (schema.org)
 
