@@ -124,7 +124,8 @@ is scaled by the policy — a CJK description gets half — and cut by
 use Rankbeam\Seo\I18n\CaseFolder;
 
 CaseFolder::lower('İSTANBUL', 'tr');            // "istanbul" — dotted İ → i under Turkish rules
-CaseFolder::equals('ΟΔΟΣ', 'οδός', 'el');       // true — final sigma folded
+CaseFolder::equals('ΟΔΟΣ', 'οδος', 'el');       // true — final sigma folded
+CaseFolder::equals('ΟΔΟΣ', 'οδός', 'el');       // false — the accent is preserved
 CaseFolder::equals('Straße', 'STRASSE', 'de');  // true — ß folded to ss
 CaseFolder::containsWord('Notizie dalla Città', 'città'); // true — Unicode word boundaries
 ```
@@ -134,6 +135,10 @@ CaseFolder::containsWord('Notizie dalla Città', 'città'); // true — Unicode 
 suffix skip (`seo.title_suffix_skip_when_contains`), so a Turkish brand matches
 in either `i` form and an accented brand gets a real word boundary; the Pro
 keyword checks build on the same helper.
+
+Case folding preserves accents. It does not make every accented and unaccented
+spelling equivalent. A language-specific stemmer may apply its own reductions;
+that is separate from `CaseFolder` and identity matching.
 
 ## hreflang
 
