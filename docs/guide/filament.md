@@ -7,7 +7,14 @@ description: "Add a complete SEO section to any Filament resource form in two li
 The free [`rankbeam/laravel-seo-filament`](https://github.com/rankbeam/laravel-seo-filament)
 package adds a complete SEO section to any Filament resource form —
 **two lines per resource**. It supports Filament **4.x and 5.x** (Livewire 3
-and 4); the test suite passes unchanged on both majors.
+and 4). Metadata editing is free; Pro adds scans and the score shown in the
+example below.
+
+## Prerequisites
+
+Use an existing Filament 4 or 5 panel and a model with the core `HasSEO`
+trait. Complete the [core Quickstart](/guide/quickstart), including migrations
+and rendering, before adding the editor.
 
 ## Install
 
@@ -16,11 +23,6 @@ composer require rankbeam/laravel-seo-filament
 ```
 
 The model behind the resource must use the core `HasSEO` trait.
-
-![SEO fields in the Merchant demo: title, description, canonical, social image, search preview and resolved value sources.](/filament-seo-section.png)
-
-*Example from the Merchant demo. The fields use your panel's theme; available
-controls and character budgets depend on your installed version and configuration.*
 
 ## Add the section to a resource
 
@@ -42,13 +44,24 @@ class PostResource extends Resource
 }
 ```
 
-That renders a collapsible "SEO" section with:
+## Check the saved result
+
+Open an existing record. Enter an SEO description, save, and reload the form.
+The value should persist, the preview should show it, and its source should
+read **Manual**. Check the rendered page's `<head>` to confirm that the same
+description reaches your visitors.
+
+![SEO fields in the Merchant demo: title, description, canonical, social image, search preview and resolved value sources.](/filament-seo-section.png)
+
+*Example from the Merchant demo. The fields use your panel's theme; available
+controls and character budgets depend on your installed version and configuration.*
+
+The section includes:
 
 - **Title & description** with live character counters — the budget comes
   from the core [length policy](/guide/multilingual#title-and-description-budgets-per-script)
   for the script being typed (60/160 for Latin text, ~30/80 for CJK, counted
-  in graphemes; Filament 1.8), so the admin UI and the audit layer can never
-  disagree.
+  in graphemes).
 - **Focus keywords** — a tags input. You type plain keywords; they persist in
   the core's structured `[{keyword, is_primary}]` shape (the first is primary),
   so `getPrimaryKeyword()` and `SEOData` read them unchanged. Enable
@@ -120,9 +133,20 @@ Each tab edits its own row and carries its own:
 The tab is labelled with the language's name in the panel's language
 (`Italiano` / `Italian`) when `ext-intl` is loaded, and with the code
 otherwise. All tabs are validated and saved together; a language nothing was
-entered for never gets a placeholder row. Form state is
-`seo_meta.{locale}.title` with several locales and stays `seo_meta.title`
-with one, so existing tests keep passing.
+entered for never gets a placeholder row.
+
+::: details Custom form-state bindings
+With several locales the state path is `seo_meta.{locale}.title`; with one
+it remains `seo_meta.title`. Use the matching path in custom form actions.
+:::
+
+[![English, Italian and Japanese tabs in the Merchant demo, with Japanese title and description budgets of 30 and 80 and an unset description.](/filament-language-tabs.jpg)](/filament-language-tabs.jpg)
+
+*Merchant demo, September 9, 2026, with `locales: ['en', 'it', 'ja']`.
+The empty Japanese tab uses its own counters. The English title here comes
+from the demo model's content fallback: adding a language tab does not
+translate your content. The Pro score above the fields is the record's last
+scan result, not a separate score for each language tab.*
 
 ### With a translatable plugin
 
@@ -193,10 +217,20 @@ Schema you authored in code that this editor cannot represent — a hand-authore
 (reviews, ratings, GTIN/MPN) — is **preserved verbatim**. Opening and saving the
 form never clobbers it.
 
-## Testing note (testbench only)
+## Troubleshooting
+
+- **The saved field is missing from the page:** confirm that your template renders
+  `@seo($model)` for the same record and locale.
+- **A field still uses a fallback:** check whether the field has a saved override
+  in the active language. The source indicators identify the resolved layer.
+- **A language tab is missing:** check the explicit `locales:` argument, package
+  config and any page-level translation switcher. Their precedence is described above.
+
+::: details Testing a custom panel in Testbench
 
 If you boot Filament inside orchestra/testbench, register Filament's
 `SupportServiceProvider` **before** `LivewireServiceProvider` — Filament
 rebinds Livewire's `DataStore`, and the wrong order fails every Livewire test
 with `ViewErrorBag::put(): ... null given`. Real apps are unaffected
 (package discovery orders providers correctly).
+:::
