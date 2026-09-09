@@ -185,7 +185,12 @@ Long-form articles on the [Rankbeam blog](https://blog.rankbeam.dev), a Laravel 
 
 ## Test status
 
-Local suite: **1029 passed (3825 assertions), 0 failed** (plus 17 skipped by default: 16 Chrome-dependent OG-image smokes — incl. one per-script glyph fixture — and 1 ext-xsl transform check) under PHP 8.4 / Laravel 13 (CI matrix: PHP 8.2–8.4 × Laravel 11/12/13).
+Recorded full suite for core 3.20.0: **1036 passed (4363 assertions), 0 failed**
+under PHP 8.4 / Laravel 13, with 17 default skips (16 opt-in Chrome image
+checks and one ext-xsl check). Real OG/PDF rendering and runtime-consumer
+checks run separately; default skips are not evidence that those paths ran.
+Public CI covers the supported PHP 8.2–8.4 / Laravel 11–13 combinations;
+Laravel 13 requires PHP 8.3 or newer.
 
 ```bash
 git clone https://github.com/rankbeam/laravel-seo.git
