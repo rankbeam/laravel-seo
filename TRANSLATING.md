@@ -64,7 +64,7 @@ turns them into a supported language.
 | Locale | Language | Status |
 |---|---|---|
 | `en` | English | source |
-| `it` | Italian | reviewed by the maintainer |
+| `it` | Italian | earlier strings reviewed by the maintainer; changed strings need re-review |
 | `de` | German | first pass, native review wanted |
 | `fr` | French | first pass, native review wanted |
 | `es` | Spanish | first pass, native review wanted |
@@ -81,8 +81,15 @@ turns them into a supported language.
 | `uk` | Ukrainian | first pass, native review wanted |
 | `cs` | Czech | first pass, native review wanted |
 
-Tier 1 (the first ten) and Tier 2 (the seven added in September 2026) are complete in all
-three packages. Chinese ships as the two Laravel locales `zh_CN` and `zh_TW`; an app whose locale
+Translation key sets for Tier 1 (the first ten) and Tier 2 (the seven added in
+September 2026) are present in all three packages. Key parity, placeholder
+checks and rendered fixtures verify engineering behavior; they do not establish
+native wording quality. New or changed strings need review against their exact
+revision. The localized docs and website have their own pending technical
+reviews, separate from the earlier Italian package review. AI-output quality
+requires review of actual generated suggestions, not only the input fixtures.
+
+Chinese ships as the two Laravel locales `zh_CN` and `zh_TW`; an app whose locale
 is a bare `zh` should set `zh_CN` or `zh_TW` (Laravel resolves one locale plus the fallback, so a
 `zh` app would fall through to English). Suggested next: Indonesian, Vietnamese, Swedish,
 European Portuguese — cheap once a reviewer volunteers. Arabic and Hebrew need right-to-left
