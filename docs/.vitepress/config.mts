@@ -258,7 +258,7 @@ export default defineConfig({
     // Six entries, and the two outbound links are grouped behind one menu
     // instead of sitting in the row as if they were sections of this site.
     nav: [
-      { text: 'Guide', link: '/guide/installation', activeMatch: '^/(guide|concepts)/' },
+      { text: 'Guide', link: '/guide/quickstart', activeMatch: '^/(guide|concepts)/' },
       { text: 'Pro', link: '/pro/installation', activeMatch: '^/pro/' },
       { text: 'Reference', link: '/reference/configuration', activeMatch: '^/(reference|contributing)/' },
       {
@@ -270,9 +270,12 @@ export default defineConfig({
         ],
       },
       {
-        text: 'rankbeam.dev',
+        text: 'Product',
         items: [
-          { text: 'Product site ↗', link: 'https://rankbeam.dev' },
+          { text: 'Free core ↗', link: 'https://rankbeam.dev/#core' },
+          { text: 'Free Filament editor ↗', link: 'https://rankbeam.dev/#filament' },
+          { text: 'Pro and pricing ↗', link: 'https://rankbeam.dev/#founding' },
+          { text: 'AI access checker ↗', link: 'https://rankbeam.dev/can-ai-read-your-site' },
           { text: 'Blog ↗', link: 'https://blog.rankbeam.dev' },
         ],
       },

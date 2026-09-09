@@ -259,6 +259,17 @@ html {
    page sideways at 375px.
    -------------------------------------------------------------------------- */
 
+/* Product captures keep their native proportions and open at full resolution. */
+.vp-doc .rb-capture { margin: 24px 0; }
+.vp-doc .rb-capture a { display: block; }
+.vp-doc .rb-capture img { display: block; width: 100%; height: auto; border-radius: 8px; }
+.vp-doc .rb-capture-pair { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; align-items: start; }
+.vp-doc .rb-capture-pair .rb-capture { min-width: 0; }
+@media (max-width: 600px) {
+  .vp-doc .rb-capture-pair { grid-template-columns: minmax(0, 1fr); gap: 16px; margin-block: 24px; }
+  .vp-doc .rb-capture-pair .rb-capture { margin: 0; }
+}
+
 .vp-doc .rb-table {
   width: 100%;
   overflow-x: auto;
@@ -342,13 +353,30 @@ html {
   line-height: 1.7;
 }
 .vp-doc [class*="language-"] > button.copy {
-  border-radius: var(--rb-radius-pill);
+  top: 8px;
+  right: 12px;
+  border-radius: 8px;
 }
 .vp-doc [class*="language-"] > span.lang {
+  top: 18px;
+  left: 24px;
+  right: auto;
   font-size: 11px;
+  line-height: 20px;
   font-weight: 600;
   letter-spacing: .06em;
   text-transform: uppercase;
+}
+/* Reserve a header row so labels and copy controls never cover the code. */
+.vp-doc div[class*="language-"] > pre {
+  padding-top: 56px;
+}
+.vp-doc div[class*="language-"] > .line-numbers-wrapper {
+  padding-top: 56px;
+}
+.vp-doc div[class*="language-"]:hover > button.copy + span.lang,
+.vp-doc div[class*="language-"] > button.copy:focus + span.lang {
+  opacity: 1;
 }
 
 /* A code group is one object: tabs on top, block below. The block's top corners
@@ -358,6 +386,10 @@ html {
   border: 1px solid var(--rb-console-line);
   border-bottom: 0;
   border-radius: var(--rb-radius-m) var(--rb-radius-m) 0 0;
+}
+.vp-doc .vp-code-group div[class*="language-"] {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 /* Inline code stays legible on the page surface rather than becoming a second
@@ -503,6 +535,9 @@ html {
   .vp-doc [class*="language-"] > pre > code {
     padding-left: 16px;
     padding-right: 16px;
+  }
+  .vp-doc [class*="language-"] > span.lang {
+    left: 16px;
   }
   .vp-doc div[class*="language-"] code {
     font-size: 12.5px;

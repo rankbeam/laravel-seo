@@ -51,7 +51,7 @@ The value should persist, the preview should show it, and its source should
 read **Manual**. Check the rendered page's `<head>` to confirm that the same
 description reaches your visitors.
 
-![SEO fields in the Merchant demo: title, description, canonical, social image, search preview and resolved value sources.](/filament-seo-section.png)
+<figure class="rb-capture"><a href="/filament-seo-section.png"><img src="/filament-seo-section.png" alt="SEO fields in the Merchant demo: title, description, canonical, social image, search preview and resolved value sources." width="1792" height="2616" loading="lazy" decoding="async"></a></figure>
 
 *Example from the Merchant demo. The fields use your panel's theme; available
 controls and character budgets depend on your installed version and configuration.*
@@ -140,7 +140,7 @@ With several locales the state path is `seo_meta.{locale}.title`; with one
 it remains `seo_meta.title`. Use the matching path in custom form actions.
 :::
 
-[![English, Italian and Japanese tabs in the Merchant demo, with Japanese title and description budgets of 30 and 80 and an unset description.](/filament-language-tabs.jpg)](/filament-language-tabs.jpg)
+<figure class="rb-capture"><a href="/filament-language-tabs.png"><img src="/filament-language-tabs.png" alt="English, Italian and Japanese tabs in the Merchant demo, with Japanese title and description budgets of 30 and 80 and an unset description." width="2112" height="2564" loading="lazy" decoding="async"></a></figure>
 
 *Merchant demo, September 9, 2026, with `locales: ['en', 'it', 'ja']`.
 The empty Japanese tab uses its own counters. The English title here comes
