@@ -5,6 +5,18 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.20.0] - 2026-09-09
+
+### Added
+
+- `Script::present()` and `FontProbe::missingForText()` inspect all supported scripts in mixed text. The OG command now warns for minority scripts as well as the dominant script; reports can check host fonts without assuming the OG font is embedded.
+- Isolated production-consumer smoke tooling and PHP 8.2–8.4 CI coverage with and without ICU, without development or rendering dependencies.
+
+### Fixed
+
+- Chrome OG rendering disables JavaScript and blocks network asset URLs. Custom templates must be static and embed their assets. Temporary-file cleanup now removes the base file too.
+- Font documentation distinguishes a rendering smoke check from actual glyph-coverage evidence and identifies the existing `seo:og-images` preflight.
+
 ## [3.19.0] - 2026-09-09
 
 ### Added

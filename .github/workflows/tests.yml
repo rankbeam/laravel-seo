@@ -12,6 +12,35 @@ on:
       - '*.md'
 
 jobs:
+  minimal-consumer:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - php: '8.2'
+            framework: '^12.0'
+          - php: '8.3'
+            framework: '^13.0'
+          - php: '8.4'
+            framework: '^13.0'
+    name: Production consumer PHP ${{ matrix.php }} with/without ICU
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: intl, dom, curl, mbstring, pdo_sqlite
+          coverage: none
+      - name: Install and boot without development dependencies
+        run: |
+          php tools/consumer-smoke.php prepare "$RUNNER_TEMP/consumer" '${{ matrix.framework }}'
+          composer install --working-dir="$RUNNER_TEMP/consumer" --no-dev --no-scripts --prefer-dist --no-interaction
+          RANKBEAM_EXPECT_INTL=1 php tools/consumer-smoke.php run "$RUNNER_TEMP/consumer"
+          php tools/without-intl.php "$RUNNER_TEMP/no-intl.ini"
+          mkdir "$RUNNER_TEMP/empty-ini"
+          RANKBEAM_EXPECT_INTL=0 PHP_INI_SCAN_DIR="$RUNNER_TEMP/empty-ini" php -c "$RUNNER_TEMP/no-intl.ini" tools/consumer-smoke.php run "$RUNNER_TEMP/consumer"
+
   test:
     runs-on: ubuntu-latest
 

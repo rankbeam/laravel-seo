@@ -35,6 +35,9 @@ class FontProbe
      * @var array<string, string>
      */
     protected const LANG = [
+        Script::LATIN => 'en',
+        Script::CYRILLIC => 'ru',
+        Script::GREEK => 'el',
         Script::CJK => 'ja',
         Script::THAI => 'th',
         Script::ARABIC => 'ar',
@@ -89,6 +92,27 @@ class FontProbe
         $package = self::PACKAGES[$script] ?? 'fonts-noto-core';
 
         return "apt-get install {$package}";
+    }
+
+    /**
+     * Missing host fonts for every supported script in mixed text, with an
+     * install hint. This is a language-level preflight, not glyph certification.
+     * Reports do not embed the OG font, so pass $bundledOgFont = false there.
+     * Unknown fontconfig results remain unknown and are not reported as missing.
+     *
+     * @return array<string, string>
+     */
+    public function missingForText(string $text, bool $bundledOgFont = true): array
+    {
+        $missing = [];
+        foreach (Script::present($text) as $script) {
+            $covered = $bundledOgFont ? $this->covers($script) : $this->query(self::LANG[$script]);
+            if ($covered === false) {
+                $missing[$script] = $this->installHint($script);
+            }
+        }
+
+        return $missing;
     }
 
     /**

@@ -4,6 +4,10 @@ description: "Give each page its own 1200×630 Open Graph image, rendered from a
 
 # Generated OG images
 
+From core 3.20, Chrome rendering disables JavaScript and blocks HTTP(S), FTP
+and WebSocket asset requests. Custom templates must use static HTML/CSS and
+embedded assets, as the bundled templates do.
+
 A page with no social card falls back to one shared `default_og_image` — the
 same picture on every share. This feature gives each page **its own** 1200×630
 Open Graph / Twitter card, rendered from a Blade template by a real headless
@@ -377,11 +381,12 @@ Three things make that reliable (3.15):
 
 2. **A pre-flight in `seo:og-images`.** Before rendering, the command asks
    fontconfig (`fc-list :lang=ja`, `th`, `ar`, …) whether a font covers the
-   script of each title it is about to draw, and warns **once per script** with
+   scripts in the title, site name and description, including a minority script
+   in mixed text, and warns **once per script** with
    the package to install:
 
    ```
-   No installed font covers cjk text — its cards will render as boxes. Install one: apt-get install fonts-noto-cjk
+   No installed font covers cjk text — its cards may render as boxes. Install one: apt-get install fonts-noto-cjk
    ```
 
    Where fontconfig is absent (Windows, macOS, a minimal container) it stays
@@ -393,7 +398,12 @@ Three things make that reliable (3.15):
    renders a title in ja, zh-Hans, zh-Hant, ko, el, ru, tr, th, ar, he and hi
    next to a same-length control made of an unassigned code point (guaranteed
    boxes) and fails, naming the script and the package, when the two PNGs are
-   byte-identical. Run it on a fresh deploy image to prove the fonts are there.
+   byte-identical. This is a smoke check, not proof of every glyph: mixed Latin
+   text or different wrapping can make the images differ even when some glyphs
+   are missing. Inspect the actual render and the fonts used on the deployment
+   host. The language-level FontProbe warning is also a preflight, not a complete
+   font-coverage certificate. There is no core `seo:doctor` command; use
+   `seo:og-images` for this preflight.
 
 On Debian/Ubuntu:
 

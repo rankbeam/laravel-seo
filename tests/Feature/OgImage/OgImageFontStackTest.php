@@ -152,6 +152,22 @@ describe('font-family in the rendered template', function () {
 });
 
 describe('FontProbe', function () {
+    it('checks all mixed-text scripts and does not assume the OG font is embedded in reports', function () {
+        $probe = new class extends FontProbe
+        {
+            protected function query(string $lang): ?bool
+            {
+                return false;
+            }
+        };
+        expect(Script::present('English 東京 ภาษาไทย 。'))->toBe(['cjk', 'latin', 'thai'])
+            ->and(Script::present('123 。'))->toBe([])
+            ->and($probe->missingForText('English 東京'))->toBe(['cjk' => 'apt-get install fonts-noto-cjk'])
+            ->and($probe->missingForText('English 東京', false))->toBe([
+                'cjk' => 'apt-get install fonts-noto-cjk', 'latin' => 'apt-get install fonts-noto-core',
+            ]);
+    });
+
     it('treats the bundled scripts as covered without asking the host', function () {
         $probe = new FontProbe;
 
@@ -178,6 +194,13 @@ describe('FontProbe', function () {
 });
 
 describe('seo:og-images font pre-flight', function () {
+    it('warns for a short minority script in a mostly Latin title', function () {
+        FontStackArticle::create(['title' => 'A complete technical optimization guide for Tokyo 東京', 'slug' => 'mixed']);
+        ScriptedFontProbe::$answers = [Script::CJK => false, Script::LATIN => true];
+        Artisan::call('seo:og-images');
+        expect(Artisan::output())->toContain('No installed font covers cjk text');
+    });
+
     it('warns once per uncovered script with the install hint', function () {
         FontStackArticle::create(['title' => '検索エンジン最適化', 'slug' => 'ja-1']);
         FontStackArticle::create(['title' => '日本語のタイトル', 'slug' => 'ja-2']);
@@ -192,7 +215,7 @@ describe('seo:og-images font pre-flight', function () {
             ->and($output)->toContain('No installed font covers cjk text')
             ->and($output)->toContain('apt-get install fonts-noto-cjk')
             ->and(substr_count($output, 'No installed font'))->toBe(1)
-            ->and(array_count_values(ScriptedFontProbe::$asked))->toBe([Script::CJK => 1, Script::THAI => 1, Script::LATIN => 1])
+            ->and(array_count_values(ScriptedFontProbe::$asked))->toMatchArray([Script::CJK => 1, Script::THAI => 1, Script::LATIN => 1])
             ->and(FakeOgImageRenderer::$calls)->toBe(4);
     });
 

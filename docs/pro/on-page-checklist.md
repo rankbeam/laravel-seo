@@ -101,13 +101,28 @@ ship with the package. See `THIRD-PARTY-NOTICES.md` in the source distribution.
 ### Word segmentation
 
 Word counts, keyword density and the readability stats need words. For spaced
-scripts a regex splits on letters and digits — exact, and byte-identical across
-hosts. Chinese, Japanese and Thai have no spaces, so a regex sees a paragraph as
+scripts a regex uses stable letter/digit token boundaries. Chinese, Japanese
+and Thai need dictionary segmentation, so a regex can see a paragraph as
 one "word". When **ext-intl** is loaded the tokenizer hands those runs to ICU's
 dictionary-based break iterator (`IntlBreakIterator::createWordInstance`), which
-segments 東京タワーは東京のランドマークです into seven words; without it the
-regex path stays (the pre-2.34 behaviour) and the checklist says so.
-`seo-pro.checklist.analysis.segmenter = regex` forces the fallback.
+segments 東京タワーは東京のランドマークです into words. If ICU is missing,
+disabled or cannot initialize, Pro skips affected content-length, readability
+and keyword checks with an install/configuration message. It does not turn an
+unreliable count into a failure. Unrelated checks, including title length and
+spaced-script matching, still run. `seo-pro.checklist.analysis.segmenter = regex`
+forces the same unavailable state for text that needs dictionary segmentation.
+
+The `analysis` block includes `word_count_status` (`available` or `unavailable`)
+and `segmentation_reason` (`null`, `missing_intl`, `disabled`, or
+`initialization_failed`). The low-level tokenizer retains fallback tokens for
+compatibility; inspect this status before interpreting them as words.
+
+The rendered-page scan emits an unscored `word_segmentation_unavailable` notice
+instead of a thin-content verdict. A previously confirmed thin-content finding
+stays open until it can be checked again. This incomplete scan does not refresh
+the page score: an existing score keeps its original `scored_at`, and a first
+scan has no score until segmentation works. Install PHP `ext-intl`, enable the
+`auto` segmenter and rescan to resume those checks.
 
 ### Which engines analysed the page
 
@@ -217,8 +232,8 @@ or words (ko ≤ 12/18/25), and for Japanese the kanji share (above ~45 % reads
 one step higher in the package's difficulty bands) — flagged `heuristic: true` with a **null score**. The
 checklist message says "heuristic", and the check stays **advisory for these
 languages whatever `readability.advisory` says**: a rule of thumb informs, it
-never gates the overall checklist status. Word counts for `ja`/`zh` come from ICU segmentation when
-ext-intl is present, else from a characters-per-word estimate.
+never gates the overall checklist status. Checklist word counts for `ja`/`zh`
+require working ICU segmentation; these checks are skipped when it is unavailable.
 :::
 
 Like keyword density, readability is **advisory by default**: it informs the

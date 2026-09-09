@@ -171,6 +171,14 @@ field can trigger a fetch.
 
 ### Reports in every script (Browsershot renderer)
 
+From core 3.20 / Pro 2.40, the Chrome renderers disable JavaScript and block
+HTTP(S), FTP and WebSocket asset requests. Published templates must use static
+HTML/CSS with embedded assets. These controls concern page assets; Chrome still
+needs a correctly configured host and sandbox. The PDF renderer logs an
+actionable font-install warning when Fontconfig reports a missing script,
+including a minority script in mixed text. A missing font does not stop Chrome
+from producing a PDF, so inspect the output before sending a report.
+
 dompdf draws only the font it embeds (DejaVu Sans: Latin, Cyrillic, Greek), so
 a report for a Japanese, Thai or Arabic client renders tofu. Since Pro 2.34 the
 report can be rendered by **headless Chrome** through `spatie/browsershot`

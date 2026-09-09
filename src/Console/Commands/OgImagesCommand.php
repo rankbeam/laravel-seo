@@ -140,16 +140,14 @@ class OgImagesCommand extends Command
      */
     protected function warnOnMissingFont(FontProbe $fonts, SEOData $data): void
     {
-        $script = Script::detect($data->ogTitle ?? $data->title, $data->locale);
-
-        if (isset($this->fontChecked[$script])) {
-            return;
-        }
-
-        $this->fontChecked[$script] = true;
-
-        if ($fonts->covers($script) === false) {
-            $this->warn("  No installed font covers {$script} text — its cards will render as boxes. Install one: {$fonts->installHint($script)}");
+        foreach (Script::present(($data->ogTitle ?? $data->title ?? '').' '.($data->ogSiteName ?? '').' '.($data->ogDescription ?? $data->description ?? '')) as $script) {
+            if (isset($this->fontChecked[$script])) {
+                continue;
+            }
+            $this->fontChecked[$script] = true;
+            if ($fonts->covers($script) === false) {
+                $this->warn("  No installed font covers {$script} text — its cards may render as boxes. Install one: {$fonts->installHint($script)}");
+            }
         }
     }
 
