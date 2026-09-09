@@ -136,17 +136,7 @@ final class Script
         $language = $parts[0] ?? '';
 
         foreach (array_slice($parts, 1) as $part) {
-            $bucket = match ($part) {
-                'latn' => self::LATIN,
-                'cyrl' => self::CYRILLIC,
-                'grek' => self::GREEK,
-                'hans', 'hant', 'jpan', 'kore', 'hani' => self::CJK,
-                'thai' => self::THAI,
-                'arab' => self::ARABIC,
-                'hebr' => self::HEBREW,
-                'deva' => self::DEVANAGARI,
-                default => null,
-            };
+            $bucket = self::fromCode($part);
 
             if ($bucket !== null) {
                 return $bucket;
@@ -158,6 +148,22 @@ final class Script
         }
 
         return preg_match('/^[a-z]{2,3}$/', $language) === 1 ? self::LATIN : null;
+    }
+
+    /** Map a known ISO 15924 script to a supported group; unknown stays null. */
+    public static function fromCode(?string $code): ?string
+    {
+        return match (strtolower($code ?? '')) {
+            'latn' => self::LATIN,
+            'cyrl' => self::CYRILLIC,
+            'grek' => self::GREEK,
+            'hans', 'hant', 'jpan', 'kore', 'hani' => self::CJK,
+            'thai' => self::THAI,
+            'arab' => self::ARABIC,
+            'hebr' => self::HEBREW,
+            'deva' => self::DEVANAGARI,
+            default => null,
+        };
     }
 
     /**

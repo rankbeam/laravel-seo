@@ -5,6 +5,18 @@ All notable changes to `rankbeam/laravel-seo` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.18.0] - 2026-09-09
+
+### Fixed
+
+- Separate application locale normalization from emitted Google hreflang validation. `Hreflang::isValid()` and `parse()` no longer silently repair underscores, whitespace or repeated separators, and no longer accept numeric regions (`es-419`) or three-letter languages as Google-compatible. Application callers should use `fromLocale()` before validation.
+- Normalization applies explicit IANA preferred aliases (`iw_IL` → `he-IL`) and preserves malformed repeated separators for audit visibility. Tags, sitemap, llms links and audits retain their shared alternate policies.
+
+### Added
+
+- `LanguageTag::isValid()` validates RFC 5646 structure and registered subtags; `isValidHtml()` separates HTML unknown-language and Rankbeam's `x-default` policy. Registered variants, extlangs, grandfathered/deprecated tags and private use are supported. Extension namespaces and structure are checked, not CLDR payload semantics.
+- Pinned, reproducible IANA data with provenance ships in Composer distributions. No runtime download or ICU requirement. `LanguageTag::script()` and `Script::fromCode()` provide conservative script hints without treating private-use payloads or unknown languages as a script declaration.
+
 ## [3.17.0] - 2026-09-08
 
 ### Fixed

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Rankbeam\Seo\Auditing\MetadataAuditor;
 use Rankbeam\Seo\Data\SEOData;
+use Rankbeam\Seo\Services\LlmsTxt\LlmsTxtBuilder;
 use Rankbeam\Seo\Services\Sitemap\SitemapBuilder;
 use Rankbeam\Seo\Services\TagRenderer;
 use Rankbeam\Seo\Traits\HasSEO;
@@ -84,6 +85,40 @@ function hreflangCodes(MetadataAuditor $auditor, HreflangPolicyPage $page): arra
 }
 
 describe('rendering', function () {
+    it('shares normalized aliases and visible invalid codes across every consumer', function () {
+        config(['seo.llms_txt.alternates' => true, 'seo.llms_txt.sources' => [], 'seo.hreflang.include_self' => true, 'seo.hreflang.x_default' => 'he']);
+        app()->setLocale('it');
+        $page = hreflangPage([
+            ['hreflang' => 'iw_IL', 'href' => 'http://localhost/he/page'],
+            ['hreflang' => 'es-419', 'href' => 'http://localhost/es/page'],
+            ['hreflang' => 'en__US', 'href' => 'http://localhost/en/page'],
+        ]);
+        $html = app(TagRenderer::class)->render($page->seoData());
+        app(SitemapBuilder::class)->generate();
+        $xml = Storage::disk('public')->get('sitemap.xml');
+        $markdown = app(LlmsTxtBuilder::class)->build();
+        foreach (['he-IL', 'es-419', 'en--US', 'it', 'x-default'] as $code) {
+            expect($html)->toContain('hreflang="'.$code.'"')
+                ->and($xml)->toContain('hreflang="'.$code.'"');
+        }
+        // llms uses the same policy, intentionally omitting self and x-default.
+        expect($markdown)->toContain('[he-IL](http://localhost/he/page)', '[es-419](http://localhost/es/page)', '[en--US](http://localhost/en/page)')
+            ->and($markdown)->not->toContain('[x-default]');
+        $issue = collect(app(MetadataAuditor::class)->checkHreflang($page))->firstWhere('code', 'hreflang_invalid_code');
+        expect($issue->context['codes'])->toBe(['es-419', 'en--US']);
+    });
+
+    it('audits served separators and whitespace when normalization is disabled', function () {
+        config(['seo.hreflang.normalize' => false]);
+        $page = hreflangPage([
+            ['hreflang' => 'it_IT', 'href' => 'http://localhost/it/pagina'],
+            ['hreflang' => ' en ', 'href' => 'http://localhost/en/page'],
+        ]);
+        expect(app(TagRenderer::class)->render($page->seoData()))->toContain('hreflang="it_IT"', 'hreflang=" en "');
+        $issue = collect(app(MetadataAuditor::class)->checkHreflang($page))->firstWhere('code', 'hreflang_invalid_code');
+        expect($issue->context['codes'])->toBe(['it_IT', ' en ']);
+    });
+
     it('rewrites Laravel locales to BCP 47 in the link tags and the sitemap', function () {
         $page = hreflangPage([
             ['hreflang' => 'it_IT', 'href' => 'http://localhost/it/pagina'],

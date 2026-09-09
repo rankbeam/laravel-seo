@@ -26,7 +26,13 @@ describe('normalize', function () {
         ['X-DEFAULT', 'x-default'],
         [' en-us ', 'en-US'],
         ['', ''],
-        ['en__US', 'en-US'],
+        ['en__US', 'en--US'],
+        ['iw_IL', 'he-IL'],
+        ['in_ID', 'id-ID'],
+        ['ji', 'yi'],
+        ['my_BU', 'my-MM'],
+        ['i-klingon', 'tlh'],
+        ['en_u_ca_gregory', 'en-u-ca-gregory'],
     ]);
 
     it('maps a Laravel locale and returns null for a blank one', function () {
@@ -47,19 +53,21 @@ describe('validation', function () {
     it('accepts the codes search engines read', function (string $code) {
         expect(Hreflang::isValid($code))->toBeTrue();
     })->with([
-        'en', 'it-IT', 'pt-BR', 'pt_BR', 'zh-Hans', 'zh-Hant-TW', 'sr-Latn-RS', 'es-419', 'x-default',
-        'fil', 'yue', 'de-CH', 'fr-CA', 'ar-AE', 'ja-JP', 'ko', 'he', 'uk-UA', 'nb-NO',
+        'en', 'it-IT', 'pt-BR', 'zh-Hans', 'zh-Hant-TW', 'sr-Latn-RS', 'x-default',
+        'de-CH', 'fr-CA', 'ar-AE', 'ja-JP', 'ko', 'he', 'uk-UA', 'nb-NO', 'EN-us', 'zh-Hans-US', 'en-Shaw',
     ]);
 
     it('rejects the codes search engines ignore', function (string $code) {
         expect(Hreflang::isValid($code))->toBeFalse();
     })->with([
         'en-UK', 'jp', 'english', 'en-US-x-private', 'zh-Hnas', 'xx', '', 'en-Latn-Latn', 'us-en', 'it-it-IT', 'de-12',
+        'pt_BR', 'es-419', 'fil', 'yue', 'iw-IL', 'en-US-Latn', 'de-CH-1901', 'en-u-ca-gregory',
     ]);
 
     it('parses the subtags', function () {
         expect(Hreflang::parse('zh-Hant-TW'))->toBe(['language' => 'zh', 'script' => 'Hant', 'region' => 'TW', 'x_default' => false])
-            ->and(Hreflang::parse('pt_BR'))->toBe(['language' => 'pt', 'script' => null, 'region' => 'BR', 'x_default' => false])
+            ->and(Hreflang::parse(Hreflang::fromLocale('pt_BR')))->toBe(['language' => 'pt', 'script' => null, 'region' => 'BR', 'x_default' => false])
+            ->and(Hreflang::parse('pt_BR'))->toBeNull()
             ->and(Hreflang::parse('x-default'))->toBe(['language' => 'x-default', 'script' => null, 'region' => null, 'x_default' => true])
             ->and(Hreflang::parse('en-UK'))->toBeNull();
     });
