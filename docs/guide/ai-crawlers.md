@@ -234,8 +234,8 @@ SEO::aiCrawlers()->get('yandex');            // works for both lists
 SEO::aiCrawlers()->match($userAgent, true);  // identify an engine too
 ```
 
-Supporting a crawler says nothing about ranking — real Baidu visibility needs
-hosting in China and an ICP licence. The matching site-verification tags
+Recognizing a crawler does not guarantee visibility or rankings in that
+search engine. The matching site-verification tags
 (`yandex-verification`, `baidu-site-verification`, `naver-site-verification`,
 `seznam-wmt`) live under `seo.verification`; see
 [Multilingual content](/guide/multilingual#site-verification).

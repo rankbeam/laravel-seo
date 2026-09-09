@@ -11,6 +11,11 @@ Il core gratuito gestisce i metadati della tua applicazione. Parti dalla guida r
 - [Priorità del resolver](/it/concepts/resolver-precedence)
 - [Registro delle sitemap](/it/guide/sitemaps)
 - [Campi SEO per Filament](/it/guide/filament)
+- [Audit SEO gratuito](/it/guide/audit)
+- [Controllo dei crawler AI](/it/guide/ai-crawlers)
+- [Contenuti multilingua e hreflang](/it/guide/multilingual)
+- [Immagini OG generate](/it/guide/og-image)
+- [Migrazione da altri pacchetti](/it/guide/migrate-from-other-packages)
 
 Le altre pagine sono ancora in inglese. Il selettore della lingua mantiene la pagina corrente: quando manca una traduzione, mostra un collegamento esplicito alla versione inglese.
 

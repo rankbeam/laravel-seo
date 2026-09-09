@@ -260,9 +260,8 @@ Editing a template *in place* does not (the name is unchanged) — bump
 
     'timeout' => 60,                // hard per-render timeout, seconds
 
-    // Launch Chrome with --no-sandbox. The standard fix for the "No usable
-    // sandbox!" launch failure on default Ubuntu 22.04+/24.04 servers (see
-    // "Running on Linux" below). Off by default.
+    // Launch Chrome with --no-sandbox; weakens browser isolation.
+    // Prefer configuring the host to support Chrome's sandbox (see below).
     'no_sandbox' => false,
 
     // Extra Chromium CLI flags, e.g. ['disable-dev-shm-usage', 'disable-gpu']
@@ -288,20 +287,21 @@ The disk must be **publicly served**, because the resolver uses its `url()` as t
 
 ## Running on Linux (the sandbox)
 
-On a default **Ubuntu 22.04+/24.04** server, `php artisan seo:og-images` fails
-out of the box with:
+On hosts that restrict Chrome's sandbox mechanisms, `php artisan seo:og-images`
+can fail with:
 
 ```
 No usable sandbox! Update your OS ... or see
 https://chromium.googlesource.com/.../linux/suid_sandbox_development.md
 ```
 
-This is not a package bug. Ubuntu ships an AppArmor profile that restricts
-**unprivileged user namespaces**, which is exactly the mechanism Chrome's sandbox
-uses to isolate itself — so Chrome refuses to launch. There are two ways past it:
+One possible cause is restricted user namespaces on Ubuntu 23.10+.
+Check the [Puppeteer troubleshooting guide](https://pptr.dev/troubleshooting)
+and the browser's actual launch error. Prefer fixing the host configuration
+so Chrome can retain its sandbox.
 
-**1. Run Chrome with `--no-sandbox` (one line).** The pragmatic fix when the app
-runs as a non-root user in a trusted container or VM:
+**1. Explicit fallback: run Chrome with `--no-sandbox`.** This disables browser
+isolation. Use only if your deployment deliberately accepts that tradeoff:
 
 ```php
 // config/seo.php
@@ -310,13 +310,14 @@ runs as a non-root user in a trusted container or VM:
 ],
 ```
 
-Only the HTML this package generates is ever rendered — never untrusted,
-user-supplied web pages — so dropping the sandbox here does not expose you to
-hostile page content the way `--no-sandbox` on a general-purpose scraper would.
+Rankbeam renders static generated HTML and blocks remote asset requests, but
+those controls do not replace Chrome's sandbox. Keep the render process
+unprivileged and isolated from unrelated workloads and secrets.
 
-**2. Keep the sandbox, grant Chrome the namespace (hardened).** Leave
-`no_sandbox` off and add an AppArmor profile that allows `userns` for the Chrome
-binary Puppeteer drives, e.g.:
+**2. Keep the sandbox.** Leave `no_sandbox` off. Where AppArmor is the cause,
+adapt a profile for the exact Chrome executable; see the
+[Chromium guidance](https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md).
+For example:
 
 ```
 # /etc/apparmor.d/chrome-og
@@ -328,8 +329,8 @@ profile chrome-og /path/to/chrome flags=(unconfined) {
 }
 ```
 
-then `sudo apparmor_parser -r /etc/apparmor.d/chrome-og`. This preserves Chrome's
-own sandbox — the stronger posture if the host is shared.
+Then load the profile with `sudo apparmor_parser -r /etc/apparmor.d/chrome-og`
+and verify Chrome launches with its sandbox enabled.
 
 ::: tip Other flags
 For a container that's short on shared memory (the other common Linux

@@ -12,8 +12,9 @@ cut breaks Thai, `İstanbul` and `istanbul` are the same word in Turkish, an
 only Google's. None of that is translation — it is correctness, and it is
 decided in the core so every surface agrees.
 
-Nothing here needs configuring to work. Every rule below has a sensible built-in
-value and a config knob under `config/seo.php`.
+Defaults and policy overrides live in `config/seo.php`. Some capabilities
+require runtime dependencies, including ICU word segmentation and installed
+fonts; translated content must come from your application.
 
 ## Content locale and interface locale
 
@@ -48,11 +49,12 @@ iterator or a closure does not extend the scope.
 
 ## Title and description budgets per script
 
-Google shows roughly 600 px of title and 920 px of description on a desktop
-result. "60 / 160 characters" is that budget for Latin text. A full-width CJK
-glyph is about twice as wide, so the same budget is ~30 / ~80 characters of
-Japanese, Chinese or Korean — a 45-character Japanese title is already cut
-where a 45-character English one is fine.
+Rankbeam uses editorial budgets of 60/160 graphemes for Latin titles/descriptions
+and 30/80 for CJK. These are configurable approximations, not pixel measurements
+or guarantees that a search engine will display the whole value. Google does
+not prescribe a fixed character limit for [title links](https://developers.google.com/search/docs/appearance/title-link)
+or [meta descriptions](https://developers.google.com/search/docs/appearance/snippet);
+displayed text can be truncated for the device width.
 
 `Rankbeam\Seo\I18n\LengthPolicy` decides the budget for the text in front of it:
 
@@ -69,10 +71,11 @@ $policy->titleTooLong($title);
 
 It is what the editor warnings (`SEOWarningEvaluator`), the free `seo:audit`,
 the computed-description truncation, the Pro scan and the Filament counters read,
-so the counter under the field, the audit finding and the scan issue can never
-disagree. Lengths are counted in **graphemes** — a Thai syllable with its vowel
-marks, a Devanagari conjunct or an emoji with a skin tone each count as one, the
-unit an editor sees and search engines effectively budget.
+so they use the same policy. Warnings evaluate resolved values, including the
+title suffix, while an editor can also show unsaved text. Lengths count
+**grapheme clusters** rather than bytes or code points. Cluster boundaries
+follow the installed Unicode implementation; they are not a syllable counter
+or a measurement of search-result pixels.
 
 The rows live in `seo.length_policy`, keyed by script bucket (`latin`,
 `cyrillic`, `greek`, `cjk`, `thai`, `arabic`, `hebrew`, `devanagari`) with
@@ -289,8 +292,8 @@ every "N AI crawlers" count are unchanged); ask for the engines with
 [AI crawler control](/guide/ai-crawlers#regional-search-engines).
 
 ::: warning Baidu
-Support for the crawler and the verification tag says nothing about ranking:
-real Baidu visibility needs hosting in China and an ICP licence.
+Support for the crawler and verification tag does not guarantee discovery,
+indexing or rankings in Baidu.
 :::
 
 ## Site verification
@@ -325,7 +328,7 @@ glyph forms), and the command warns, once per script, when the host has no font
 for a title it is about to render:
 
 ```
-No installed font covers cjk text — its cards will render as boxes. Install one: apt-get install fonts-noto-cjk
+No installed font covers cjk text — its cards may render as boxes. Install one: apt-get install fonts-noto-cjk
 ```
 
 On Debian/Ubuntu: `apt-get install fonts-noto-cjk fonts-noto-core fonts-noto-color-emoji`.
@@ -349,11 +352,12 @@ equal byte for byte.
 
 ## Which languages are supported, and what that means
 
-A language is *supported* when the packages ship its strings, budget its titles
-by the right script, analyse its words with an engine that suits it, draw its
-glyphs on a social card and reach the search engines its readers use. Seventeen
-languages clear that bar today. The table is asserted by tests in both
-repositories, not maintained by hand: `tests/Feature/I18n/SupportedLanguagesTest.php`
+The packages ship strings and analysis routing for the seventeen locales below.
+This table describes engineering coverage, not native editorial approval or
+guaranteed rendering on an unconfigured host. Japanese/Chinese word analysis
+requires usable ICU; affected word-based checks skip when it is unavailable.
+Non-Latin rendering requires suitable fonts. The routing is asserted by tests
+in both repositories: `tests/Feature/I18n/SupportedLanguagesTest.php`
 in the core pins the locale list, the hreflang codes and the budgets, and
 `tests/Feature/OnPage/LanguageSupportMatrixTest.php` in Pro pins the analysis
 engines, so a row that stops being true fails CI.
@@ -396,10 +400,11 @@ Three things that table is deliberately honest about:
   reviewed them. Italian is reviewed; the rest want a reviewer, and reviewing
   one is the cheapest way to get your language credited in the package.
 
-Any other language still works: Latin budgets, whitespace word counting, exact
-keyword matching, LIX readability and English strings. Nothing degrades silently
-— the checklist's `analysis` block names the script, segmenter, stemmer and
-readability method that actually ran for the page you are looking at.
+Unlisted locales can fall back to English strings, script/default budgets,
+identity keyword matching and LIX or heuristic readability. That fallback is
+not validated language support. The checklist's `analysis` block identifies
+the script, segmenter, stemmer and readability method; inspect its availability
+and skipped judgments as well as the labels.
 
 ### Reaching the search engines that matter locally
 

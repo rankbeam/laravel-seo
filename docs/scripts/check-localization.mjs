@@ -2,12 +2,14 @@ import fs from 'node:fs'
 import path from 'node:path'
 import assert from 'node:assert/strict'
 import { fileURLToPath } from 'node:url'
+import { createMarkdownRenderer } from 'vitepress'
 
 const root = fileURLToPath(new URL('..', import.meta.url))
 const dist = path.join(root, '.vitepress/dist')
 const manifest = JSON.parse(fs.readFileSync(path.join(root, '.vitepress/translation-manifest.json'), 'utf8'))
 const read = p => fs.readFileSync(p, 'utf8').replaceAll('\r\n', '\n')
-const blocks = text => [...text.matchAll(/^```[^\n]*\n([\s\S]*?)^```/gm)].map(m => m[1])
+const markdown = await createMarkdownRenderer(root)
+const blocks = text => markdown.parse(text, {}).filter(token => token.type === 'fence').map(token => token.content)
 const route = p => '/' + p.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '')
 const htmlPath = url => path.join(dist, (url.endsWith('/') ? url + 'index' : url) + '.html')
 const attrs = tag => Object.fromEntries([...tag.matchAll(/([\w-]+)="([^"]*)"/g)].map(m => [m[1], m[2]]))
@@ -21,7 +23,20 @@ for (const [target, record] of Object.entries(manifest.pages)) {
     examples += blocks(source).length
   }
   const html = read(htmlPath(route(target)))
+  for (const match of html.matchAll(/<a\b[^>]*href="([^"]*)"/g)) {
+    const url = new URL(match[1].replaceAll('&amp;', '&'), 'https://docs.rankbeam.dev' + route(target))
+    if (url.origin !== 'https://docs.rankbeam.dev') continue
+    const isAsset = /\.[a-z\d]+$/i.test(url.pathname) && !url.pathname.endsWith('.html')
+    const destination = isAsset ? path.join(dist, decodeURI(url.pathname)) : htmlPath(decodeURI(url.pathname).replace(/\.html$/, ''))
+    assert(fs.existsSync(destination), `Missing link ${target} -> ${url.pathname}`)
+    if (url.hash && !isAsset) assert(read(destination).includes(`id="${decodeURIComponent(url.hash.slice(1))}"`), `Missing anchor ${target} -> ${url.pathname}${url.hash}`)
+  }
   const en = read(htmlPath(route(record.source)))
+  if (!target.endsWith('/index.md')) {
+    const headings = content => [...content.matchAll(/<h[23]\b[^>]*id="([^"]+)"/g)].map(m => m[1])
+    const localizedIds = headings(html)
+    for (const id of headings(en)) assert(localizedIds.includes(id), `Missing source heading anchor ${target}#${id}`)
+  }
   const translatedLinks = links(html)
   assert.equal(translatedLinks.filter(l => l.rel === 'canonical').length, 1)
   assert.equal(translatedLinks.find(l => l.rel === 'canonical').href, 'https://docs.rankbeam.dev' + route(target))

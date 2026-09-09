@@ -1,7 +1,8 @@
 # Documentation translations
 
-English is the source. Italian is the first batch: installation, quickstart,
-resolver precedence, sitemaps and Filament, plus a language home. Native
+English is the source. Italian covers all ten scoped guides: installation,
+quickstart, resolver precedence, sitemaps, Filament, audit, AI crawlers,
+multilingual/hreflang, OG images and migration, plus a language home. Native
 technical review of this documentation is pending; the maintainer's earlier
 Italian package-string credit is not approval of these pages.
 
@@ -24,6 +25,7 @@ After a batch:
 ```bash
 npm run docs:build
 node docs/scripts/check-localization.mjs
+node --experimental-strip-types --test docs/scripts/localization.test.mjs
 ```
 
 Check language switching, localized search, English fallbacks and narrow
@@ -31,6 +33,6 @@ viewports in a browser too. Restart `docs:preview` after rebuilding: its static
 asset inventory can retain old hashed asset names. A broken stale preview is
 not production evidence.
 
-Next: the other five Italian pages (audit, AI crawlers, multilingual/hreflang,
-OG images, migration), then German, French, Spanish and Brazilian Portuguese.
-The target remains ten scoped pages per language; this batch does not close R11.
+Next: German, French, Spanish and Brazilian Portuguese. The target remains
+ten scoped pages per language; Italian does not close R11. The isolated
+source-gate test uses Node's TypeScript stripping (tested with Node24.11.1).
