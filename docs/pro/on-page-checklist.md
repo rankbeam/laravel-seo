@@ -63,17 +63,40 @@ do not inflate density. For example, keyword `seo` with synonym `seo tools` has
 two occurrences in `seo tools seo`. ICU remains necessary for dictionary word
 boundaries in scripts without spaces; regex fallback cannot provide those boundaries.
 
-Three stemming engines, chosen per locale (Pro 2.34):
+From Pro 2.37, stemming uses a **bundled Snowball 3.1.1 subset**. It needs no
+extra Composer package and downloads nothing at runtime. PHP 8.2 remains supported.
 
 | Engine | When | Languages |
 | --- | --- | --- |
-| `snowball` | the optional `wamania/php-stemmer` package is installed (`composer require wamania/php-stemmer`) | en, fr, de, it, es, pt, nl, ru (+ ca, da, fi, no, ro, sv) |
-| `builtin` | Snowball absent | English only — a light inflectional stemmer (-s, -ing, -ed), deliberately without Porter's derivational steps, which over-stem and cause false matches |
-| `identity` | everything else | Turkish, Polish, Greek, Ukrainian, Czech, Japanese, Chinese, Korean, Thai … — folded token matching without stemming. This is the chosen wrapper's coverage, not a claim that upstream Snowball lacks these algorithms. |
+| `snowball` | Default; existing `auto` settings select the same bundled engine | en, it, de, fr, es, pt, nl, ru, tr, el, pl, cs |
+| `builtin` | Explicit `seo-pro.checklist.analysis.stemmer = builtin` | English only, using the older light inflectional stemmer; other languages use identity |
+| `identity` | Unsupported language, or explicit `none` mode | Ukrainian, Japanese, Chinese, Korean, Thai and other languages outside the bundled subset |
 
-`seo-pro.checklist.analysis.stemmer` forces `builtin` or `none`. Both sides
-of a comparison are stemmed with the same engine, so what matters is
-consistency, not linguistic perfection.
+Both sides of a comparison use the same engine. Stemming is a suffix-reduction
+algorithm, not a synonym dictionary or a guarantee of linguistic equivalence.
+For example, the Greek algorithm can match accented and unaccented forms that
+identity matching keeps separate. Whole-token boundaries still prevent `cat`
+from matching `education`.
+
+#### Upgrading from Pro 2.36
+
+Existing `auto` configuration now consistently uses the bundled algorithms,
+whether or not `wamania/php-stemmer` is installed. Recheck editorial suggestions
+after upgrading: updated algorithms can change matches, and Turkish, Greek,
+Polish and Czech now have stemming. The optional wrapper's additional Catalan,
+Danish, Finnish, Norwegian, Romanian and Swedish algorithms are outside this
+subset and now use identity matching.
+
+Set `SEO_PRO_CHECKLIST_STEMMER=builtin` for the previous English-only fallback,
+or `none` for case-folded identity matching in every language. Rebuild cached
+configuration after changing this setting. These controls do not reproduce the
+old optional wrapper's multilingual algorithms; retaining those exact results
+requires retaining the previous Pro release. No stored SEO metadata is rewritten.
+
+The bundled adapter passes 600,395 pinned official vocabulary/output pairs on
+PHP 8.2, 8.3 and 8.4. This establishes algorithm conformance, not native editorial
+approval. Source hashes, the syntax-only PHP 8.2 adaptation and upstream licenses
+ship with the package. See `THIRD-PARTY-NOTICES.md` in the source distribution.
 
 ### Word segmentation
 
@@ -98,8 +121,8 @@ line of `seo-pro:checklist`:
 Analysis: locale ja · script cjk · tokenizer intl (ICU dictionary) · stemmer identity · readability heuristic
 ```
 
-So a Japanese page on a server without ext-intl, or a Turkish page without
-Snowball, never looks better analysed than it was.
+The footer identifies the engine actually used, including regex segmentation
+when ext-intl is absent and identity matching when stemming is disabled.
 
 ### Keyword density is advisory
 

@@ -305,24 +305,24 @@ engines, so a row that stops being true fails CI.
 | Spanish | `es` | 60 / 160 | spaces | Snowball | Fernández-Huerta |
 | Portuguese (Brazil) | `pt_BR` | 60 / 160 | spaces | Snowball | Martins |
 | Dutch | `nl` | 60 / 160 | spaces | Snowball | Flesch-Douma |
-| Turkish | `tr` | 60 / 160 | spaces | exact, case-folded (İ/ı) | Ateşman |
+| Turkish | `tr` | 60 / 160 | spaces | Snowball | Ateşman |
 | Russian | `ru` | 60 / 160 | spaces | Snowball | Oborneva |
-| Polish | `pl` | 60 / 160 | spaces | exact, case-folded | Pisarek |
+| Polish | `pl` | 60 / 160 | spaces | Snowball | Pisarek |
 | Japanese | `ja` | 30 / 80 | ICU dictionary | exact, case-folded | heuristic, **no score** |
 | Chinese (Simplified) | `zh_CN` | 30 / 80 | ICU dictionary | exact, case-folded | heuristic, **no score** |
 | Chinese (Traditional) | `zh_TW` | 30 / 80 | ICU dictionary | exact, case-folded | heuristic, **no score** |
 | Korean | `ko` | 30 / 80 | spaces | exact, case-folded | heuristic, **no score** |
-| Greek | `el` | 60 / 160 | spaces | exact, case-folded (final ς) | LIX |
+| Greek | `el` | 60 / 160 | spaces | Snowball | LIX |
 | Ukrainian | `uk` | 60 / 160 | spaces | exact, case-folded | LIX |
-| Czech | `cs` | 60 / 160 | spaces | exact, case-folded | LIX |
+| Czech | `cs` | 60 / 160 | spaces | Snowball | LIX |
 
 Three things that table is deliberately honest about:
 
-- **"exact, case-folded" is not a failure.** Snowball has no algorithm for
-  Turkish, Polish, Greek, Ukrainian, Czech or the CJK languages, so the keyword
-  is matched on its exact form after locale-aware folding. That is never wrong,
-  only less forgiving than stemming; inventing suffix rules for an agglutinative
-  language would be.
+- **Snowball is bundled from Pro 2.37.** Twelve languages use the pinned 3.1.1
+  algorithms independently of optional packages. Ukrainian and CJK use identity
+  matching; the package does not invent suffix rules for them. Identity matching
+  can miss inflected forms, while stemming can conflate distinct words. See the
+  [engine controls and migration notes](/pro/on-page-checklist#upgrading-from-pro-2-36).
 - **"heuristic, no score" and "LIX" are not the same thing.** Japanese, Chinese
   and Korean have no validated syllable formula, so the checklist reports a
   *level* from sentence length and kanji share with a `null` score and stays
