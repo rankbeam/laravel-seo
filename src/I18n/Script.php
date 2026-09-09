@@ -84,6 +84,22 @@ final class Script
         return array_keys(self::PATTERNS);
     }
 
+    /** Supported script buckets actually present in letters, in stable order.
+     *
+     * @return array<int, string>
+     */
+    public static function present(string $text): array
+    {
+        $scripts = [];
+        foreach (self::PATTERNS as $script => [$class]) {
+            if (preg_match('/(?=\\p{L})['.$class.']/u', $text) === 1) {
+                $scripts[] = $script;
+            }
+        }
+
+        return $scripts;
+    }
+
     /**
      * The dominant script of $text; the locale's script when the text has no
      * letters at all; LATIN when neither says anything.

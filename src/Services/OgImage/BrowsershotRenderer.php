@@ -35,7 +35,11 @@ class BrowsershotRenderer implements OgImageRenderer
 
         // Render to a temp PNG then read it back — mirrors the invocation
         // verified working on Windows/macOS/Linux during the P6 spike.
-        $tmp = tempnam(sys_get_temp_dir(), 'seo_og_').'.png';
+        $base = tempnam(sys_get_temp_dir(), 'seo_og_');
+        if ($base === false) {
+            throw new OgImageRenderException('Cannot create the OG image temporary file.');
+        }
+        $tmp = $base.'.png';
 
         try {
             $this->configureBrowsershot($html, $width, $height)->save($tmp);
@@ -44,6 +48,7 @@ class BrowsershotRenderer implements OgImageRenderer
         } catch (Throwable $e) {
             throw new OgImageRenderException('Browsershot render failed: '.$e->getMessage(), 0, $e);
         } finally {
+            @unlink($base);
             if (is_file($tmp)) {
                 @unlink($tmp);
             }
@@ -66,6 +71,9 @@ class BrowsershotRenderer implements OgImageRenderer
     protected function configureBrowsershot(string $html, int $width, int $height): Browsershot
     {
         $shot = Browsershot::html($html)
+            // Templates are static and self-contained, including embedded fonts.
+            ->disableJavascript()
+            ->blockUrls(['http:', 'https:', 'ftp:', 'ws:', 'wss:'])
             ->windowSize($width, $height)
             ->deviceScaleFactor(1)
             ->waitUntilNetworkIdle()

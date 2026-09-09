@@ -51,6 +51,12 @@ it('adds no extra Chromium flags by default', function () {
     expect(chromeFlags(ogRenderer()->build()))->toBe([]);
 });
 
+it('disables script execution and network assets in the browser command', function () {
+    $options = ogRenderer()->build()->createScreenshotCommand()['options'];
+    expect($options['disableJavascript'])->toBeTrue()
+        ->and($options['blockUrls'])->toContain('http:', 'https:', 'ftp:', 'ws:', 'wss:');
+});
+
 it('passes no_sandbox=true through to Chrome as --no-sandbox', function () {
     config(['seo.og_image.no_sandbox' => true]);
 

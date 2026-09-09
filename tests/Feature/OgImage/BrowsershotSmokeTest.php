@@ -11,12 +11,9 @@ use Rankbeam\Seo\Services\OgImage\OgImageGenerator;
  * hard fixtures as the P6 spike (Italian accents, CJK, long-title truncation),
  * plus — since M2 of the multilingual program — one fixture per non-Latin
  * script (ja, zh-Hans, zh-Hant, ko, el, ru, tr, th, ar, he, hi) with a
- * **tofu check**: the card is rendered twice, once with the real title and
- * once with a control title of the same length made of an unassigned code
- * point (U+0378, which no font has a glyph for). If the host has no font for
- * the script, both renders draw identical .notdef boxes and the PNGs come out
- * byte-identical — and the test fails, naming the script and the package to
- * install. That is the "renders every glyph on a fresh server" exit test.
+ * smoke comparison with an unassigned-codepoint control. Different images do
+ * not certify every glyph: mixed Latin text or different wrapping can also
+ * change the PNG. Inspect real output and the fonts used on the target host.
  *
  * SKIPPED by default — it needs a real Chrome + puppeteer, which CI does not
  * have. Run it locally with:
@@ -117,7 +114,7 @@ foreach ($fixtures as $id => [$locale, $title]) {
 }
 
 foreach ($scripts as $id => [$locale, $title, $package]) {
-    test("Browsershot smoke draws real glyphs for {$id}, not tofu", function () use ($id, $locale, $title, $package) {
+    test("Browsershot smoke differs from the unassigned-character control for {$id}", function () use ($id, $locale, $title, $package) {
         ogSmokeConfigure();
         $generator = app(OgImageGenerator::class);
 
