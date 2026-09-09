@@ -171,7 +171,7 @@ public function getSEOAlternates(): ?array
 ::: warning hreflang muss gegenseitig sein und die eigene Seite enthalten
 Jede Sprachversion muss sich selbst und alle anderen Versionen nennen; die Verweise müssen gegenseitig sein. `getSEOAlternates()` sollte deshalb für jede Variante dieselbe vollständige Liste liefern. Verwende gültige Codes `language[-Script][-REGION]` oder `x-default` und absolute `http(s)`-URLs. Einträge ohne nichtleeres `hreflang` oder `href` werden übersprungen.
 
-Vor der Ausgabe greifen die [`seo.hreflang`-Regeln (EN)](/guide/multilingual#hreflang): Codes werden normalisiert (`it_IT` → `it-IT`); `include_self` und `x_default` können die entsprechenden Einträge ergänzen. Sitemap und `<head>` verwenden dieselbe Liste. Das kostenlose Audit meldet `hreflang_invalid_code`, `hreflang_duplicate_code` und `hreflang_missing_self`. Gegenseitige Verweise prüft der Pro-Crawl.
+Vor der Ausgabe greifen die [`seo.hreflang`-Regeln](/de/guide/multilingual#hreflang): Codes werden normalisiert (`it_IT` → `it-IT`); `include_self` und `x_default` können die entsprechenden Einträge ergänzen. Sitemap und `<head>` verwenden dieselbe Liste. Das kostenlose Audit meldet `hreflang_invalid_code`, `hreflang_duplicate_code` und `hreflang_missing_self`. Gegenseitige Verweise prüft der Pro-Crawl.
 :::
 
 ::: info Aufwand bei großen Katalogen

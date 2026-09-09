@@ -33,12 +33,12 @@ viewports in a browser too. Restart `docs:preview` after rebuilding: its static
 asset inventory can retain old hashed asset names. A broken stale preview is
 not production evidence.
 
-German now has the first five guides (installation, quickstart, resolver,
-sitemaps and Filament) plus its home. Shared UI vocabulary is in
+German also covers all ten scoped guides plus home. Shared UI vocabulary is in
 `docs/.vitepress/locale-ui.ts`; only locales explicitly activated in
 `localization.ts` are published. The vocabulary includes the planned languages
 without advertising pages that have not been written.
 
-Next: the other five German guides, then French, Spanish and Brazilian
-Portuguese. The target remains ten scoped pages per language. The isolated
-source-gate test uses Node's TypeScript stripping (tested with Node24.11.1).
+Next: French, Spanish and Brazilian Portuguese. The target remains ten scoped
+pages per language. Native technical review remains pending for both Italian
+and German. The isolated source-gate test uses Node's TypeScript stripping
+(tested with Node24.11.1).
