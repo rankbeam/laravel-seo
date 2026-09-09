@@ -48,7 +48,7 @@ Apri un record, inserisci una descrizione SEO, salva e ricarica il form. Il valo
 
 La sezione comprende:
 
-- **Titolo e descrizione** con contatori aggiornati durante la digitazione. La [policy di lunghezza (EN)](/guide/multilingual#title-and-description-budgets-per-script) usa il sistema di scrittura: 60/160 per il testo latino, circa 30/80 per CJK, contando i grafemi.
+- **Titolo e descrizione** con contatori aggiornati durante la digitazione. La [policy di lunghezza](/it/guide/multilingual#title-and-description-budgets-per-script) usa il sistema di scrittura: 60/160 per il testo latino, circa 30/80 per CJK, contando i grafemi.
 - **Parole chiave principali:** un campo a tag salva le parole nella struttura `[{keyword, is_primary}]`; la prima è primaria. `getPrimaryKeyword()` e `SEOData` leggono questa struttura. Attiva `seo.keywords.enabled` per far segnalare le pagine senza parole chiave all'[audit gratuito](/it/guide/audit) e alla scansione Pro. L'opzione è inizialmente disattivata; vedi la [configurazione (EN)](/reference/configuration#focus-keywords).
 - **URL canonical:** vuoto significa automatico, con query rimossa.
 - **Robots:** vuoto usa il default del sito.
@@ -70,7 +70,7 @@ La sezione usa il gruppo di stato `seo_meta` e salva tramite la relazione `seoMe
 
 ## Più lingue {#several-languages}
 
-Il core mantiene una [riga `seo_meta` per modello e lingua (EN)](/it/guide/multilingual). Passa le lingue in cui pubblichi una pagina per ottenere una scheda per lingua, disponibile da Filament 1.9:
+Il core mantiene una [riga `seo_meta` per modello e lingua](/it/guide/multilingual). Passa le lingue in cui pubblichi una pagina per ottenere una scheda per lingua, disponibile da Filament 1.9:
 
 ```php
 static::seoSection(locales: ['en', 'it', 'ja']);

@@ -171,7 +171,7 @@ public function getSEOAlternates(): ?array
 ::: warning hreflang deve essere reciproco e includere la pagina stessa
 Ogni versione deve elencare se stessa e tutte le altre, con rimandi reciproci. `getSEOAlternates()` deve quindi restituire lo stesso insieme completo per ogni variante localizzata. Usa codici validi `language[-Script][-REGION]` oppure `x-default` e URL `http(s)` assoluti. Le voci con `hreflang` o `href` vuoti vengono saltate.
 
-Prima dell'emissione si applicano le [policy `seo.hreflang` (EN)](/guide/multilingual#hreflang): i codici vengono normalizzati (`it_IT` → `it-IT`) e `include_self` / `x_default` possono aggiungere i relativi riferimenti. La sitemap usa lo stesso elenco del `<head>`. L'audit gratuito segnala `hreflang_invalid_code`, `hreflang_duplicate_code` e `hreflang_missing_self`; la reciprocità richiede il crawl di Pro.
+Prima dell'emissione si applicano le [policy `seo.hreflang`](/it/guide/multilingual#hreflang): i codici vengono normalizzati (`it_IT` → `it-IT`) e `include_self` / `x_default` possono aggiungere i relativi riferimenti. La sitemap usa lo stesso elenco del `<head>`. L'audit gratuito segnala `hreflang_invalid_code`, `hreflang_duplicate_code` e `hreflang_missing_self`; la reciprocità richiede il crawl di Pro.
 :::
 
 ::: info Costo sui cataloghi grandi

@@ -13,6 +13,11 @@ export const pageTitles = {
   'concepts/resolver-precedence': 'Priorità del resolver',
   'guide/sitemaps': 'Registro delle sitemap',
   'guide/filament': 'Campi SEO per Filament',
+  'guide/audit': 'Audit SEO gratuito',
+  'guide/ai-crawlers': 'Controllo dei crawler AI',
+  'guide/multilingual': 'Contenuti multilingua e hreflang',
+  'guide/og-image': 'Immagini OG generate',
+  'guide/migrate-from-other-packages': 'Migrazione da altri pacchetti',
 } as const
 export function translatedPaths(locale: string): string[] {
   return Object.keys(pageTitles).filter(p => fs.existsSync(path.join(docsRoot, locale, p + '.md')))

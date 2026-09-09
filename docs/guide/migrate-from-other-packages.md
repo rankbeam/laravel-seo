@@ -30,7 +30,7 @@ table to read; you replace their per-request calls with stored `seo_meta`.
 
 ## From `ralphjsmit/laravel-seo`
 
-`ralphjsmit/laravel-seo` (~533k installs) stores one polymorphic row per model
+`ralphjsmit/laravel-seo` stores one polymorphic row per model
 in a `seo` table whose shape is close to Rankbeam's `seo_meta`. That makes a
 clean, idempotent bulk import possible.
 
