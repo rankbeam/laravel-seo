@@ -221,6 +221,36 @@
       "source": "guide/og-image.md",
       "sha256": "a81efedc1d833ea7c3c06e561aaadfea078bc87962a1127a904cd4fc677a0338",
       "native_review": null
+    },
+    "pt-BR/index.md": {
+      "source": "index.md",
+      "sha256": "1fe0fb5e64039c222519c36e499eb8dcbf9b775cf38241862971bb607089c522",
+      "native_review": null
+    },
+    "pt-BR/guide/installation.md": {
+      "source": "guide/installation.md",
+      "sha256": "9bd8a5a2c6d763427a4a7aa442f724331be1dbb93f0be8fd9ec2aa89f06ad934",
+      "native_review": null
+    },
+    "pt-BR/guide/quickstart.md": {
+      "source": "guide/quickstart.md",
+      "sha256": "4b29b83b85d525275692a45bc20775c3615e83a5ba954bb7d732b353a95ccd0b",
+      "native_review": null
+    },
+    "pt-BR/concepts/resolver-precedence.md": {
+      "source": "concepts/resolver-precedence.md",
+      "sha256": "4391a29a1d25253802f2ad598b3eea68908906df8816260ae8dc912944417512",
+      "native_review": null
+    },
+    "pt-BR/guide/sitemaps.md": {
+      "source": "guide/sitemaps.md",
+      "sha256": "830dbd33c264b51f665444f49d94d91b3d786c927da57b69f58f2e717972b7ae",
+      "native_review": null
+    },
+    "pt-BR/guide/filament.md": {
+      "source": "guide/filament.md",
+      "sha256": "ae6cf109c425e0a88a5632452240f7f95cde43bc3eeac8d1880fc9ab94f8c762",
+      "native_review": null
     }
   }
 }
