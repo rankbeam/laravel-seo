@@ -16,8 +16,9 @@ everything with [artisan commands](/pro/headless).
 |---|---|
 | PHP | 8.2+ (8.3+ on Laravel 13) |
 | Laravel | 11, 12, or 13 |
-| `rankbeam/laravel-seo` | ^3.15 (installed automatically) |
+| `rankbeam/laravel-seo` | ^3.17 (installed automatically by Pro 2.36+) |
 | `filament/filament` | **optional** — 4.x or 5.x, only for the admin UI |
+| `rankbeam/laravel-seo-filament` | **optional** — ^1.11 when using the SEO editor with Pro 2.36+ |
 
 Start with an existing Laravel app and a configured database. Complete the
 [core Quickstart](/guide/quickstart) first so a model renders metadata and the

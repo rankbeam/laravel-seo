@@ -285,6 +285,11 @@ html {
    tall. A three-column table asks for 528px, fits the container, and so never
    scrolls. Anything past the container scrolls on the table's own axis, never
    the page's. --rb-cols is set per table by the markdown-it rule in config.mts. */
+.vp-doc .rb-table:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 3px;
+}
+
 .vp-doc .rb-table table {
   display: table;
   width: 100%;

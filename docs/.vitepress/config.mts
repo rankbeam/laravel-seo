@@ -235,7 +235,7 @@ export default defineConfig({
           if (tokens[i].type === 'tr_close') break
           if (tokens[i].type === 'th_open') columns++
         }
-        return `<div class="rb-table" style="--rb-cols:${columns || 3}">` + self.renderToken(tokens, idx, options)
+        return `<div class="rb-table" tabindex="0" role="region" aria-label="Data table" style="--rb-cols:${columns || 3}">` + self.renderToken(tokens, idx, options)
       }
       md.renderer.rules.table_close = (tokens, idx, options, _env, self) =>
         self.renderToken(tokens, idx, options) + '</div>'
