@@ -4,23 +4,12 @@ import { createHash } from 'node:crypto'
 import { fileURLToPath } from 'node:url'
 
 export const docsRoot = fileURLToPath(new URL('..', import.meta.url))
-export const localeInfo = {
-  it: { label: 'Italiano', lang: 'it', guide: 'Guida', english: 'Documentazione in inglese', fallback: 'Questa pagina non è ancora disponibile in italiano.', open: 'Leggi la pagina in inglese', review: 'Traduzione in attesa di revisione tecnica madrelingua.', source: 'Versione inglese', outline: 'In questa pagina', next: 'Pagina successiva', prev: 'Pagina precedente' },
-} as const
-export const pageTitles = {
-  'guide/installation': 'Installazione',
-  'guide/quickstart': 'Guida rapida',
-  'concepts/resolver-precedence': 'Priorità del resolver',
-  'guide/sitemaps': 'Registro delle sitemap',
-  'guide/filament': 'Campi SEO per Filament',
-  'guide/audit': 'Audit SEO gratuito',
-  'guide/ai-crawlers': 'Controllo dei crawler AI',
-  'guide/multilingual': 'Contenuti multilingua e hreflang',
-  'guide/og-image': 'Immagini OG generate',
-  'guide/migrate-from-other-packages': 'Migrazione da altri pacchetti',
-} as const
+import { localeUi, scopedPaths } from './locale-ui.ts'
+
+export const localeInfo = { it: localeUi.it, de: localeUi.de } as const
+
 export function translatedPaths(locale: string): string[] {
-  return Object.keys(pageTitles).filter(p => fs.existsSync(path.join(docsRoot, locale, p + '.md')))
+  return scopedPaths.filter(p => fs.existsSync(path.join(docsRoot, locale, p + '.md')))
 }
 export function translationFiles(locale: string): string[] {
   const walk = (dir: string): string[] => fs.readdirSync(dir, { withFileTypes: true }).flatMap(entry => {

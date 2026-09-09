@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { generateLlmsArtifacts, SITE_ORIGIN } from './llms'
-import { alternatePaths, localeInfo, pageTitles, translatedPaths, translationFiles, verifyTranslationSources } from './localization'
+import { alternatePaths, localeInfo, translatedPaths, translationFiles, verifyTranslationSources } from './localization'
 
 verifyTranslationSources()
 
@@ -162,14 +162,14 @@ export default defineConfig({
     root: { label: 'English', lang: 'en-US' },
     ...Object.fromEntries(Object.entries(localeInfo).map(([locale, info]) => [locale, {
       label: info.label, lang: info.lang,
-      description: 'Documentazione Rankbeam per Laravel: metadati, sitemap, crawler e campi SEO per Filament.',
+      description: info.description,
       themeConfig: {
         nav: [{ text: info.guide, link: `/${locale}/guide/quickstart` }, { text: 'Pro (EN)', link: `/${locale}/pro/installation` }, { text: 'Rankbeam ↗', link: 'https://rankbeam.dev' }],
-        sidebar: [{ text: info.guide, items: translatedPaths(locale).map(p => ({ text: pageTitles[p as keyof typeof pageTitles], link: `/${locale}/${p}` })) }, { text: info.english, items: [{ text: 'Reference (EN)', link: `/${locale}/reference/configuration` }, { text: 'Pro (EN)', link: `/${locale}/pro/installation` }] }],
+        sidebar: [{ text: info.guide, items: translatedPaths(locale).map(p => ({ text: info.titles[p as keyof typeof info.titles], link: `/${locale}/${p}` })) }, { text: info.english, items: [{ text: info.reference, link: `/${locale}/reference/configuration` }, { text: 'Pro (EN)', link: `/${locale}/pro/installation` }] }],
         outline: { label: info.outline }, docFooter: { prev: info.prev, next: info.next },
-        returnToTopLabel: 'Torna in alto', sidebarMenuLabel: 'Menu', darkModeSwitchLabel: 'Tema scuro', lightModeSwitchTitle: 'Passa al tema chiaro', darkModeSwitchTitle: 'Passa al tema scuro',
-        editLink: { pattern: 'https://github.com/rankbeam/laravel-seo/edit/master/docs/:path', text: 'Modifica questa pagina su GitHub' },
-        footer: { message: 'rankbeam/laravel-seo è distribuito con licenza MIT.', copyright: 'Copyright © 2026 Valentin Goxhaj — P.IVA 04936270612' },
+        ...info.theme,
+        editLink: { pattern: 'https://github.com/rankbeam/laravel-seo/edit/master/docs/:path', text: info.edit },
+        footer: { message: info.license, copyright: 'Copyright © 2026 Valentin Goxhaj — P.IVA 04936270612' },
       },
     }])),
   },
@@ -279,7 +279,7 @@ export default defineConfig({
           if (tokens[i].type === 'tr_close') break
           if (tokens[i].type === 'th_open') columns++
         }
-        return `<div class="rb-table" tabindex="0" role="region" aria-label="Data table" style="--rb-cols:${columns || 3}">` + self.renderToken(tokens, idx, options)
+        return `<div class="rb-table" tabindex="0" role="region" aria-label="${localeInfo[_env.relativePath?.split('/')[0] as keyof typeof localeInfo]?.table ?? 'Data table'}" style="--rb-cols:${columns || 3}">` + self.renderToken(tokens, idx, options)
       }
       md.renderer.rules.table_close = (tokens, idx, options, _env, self) =>
         self.renderToken(tokens, idx, options) + '</div>'
@@ -339,10 +339,7 @@ export default defineConfig({
 
     search: {
       provider: 'local',
-      options: { locales: { it: { translations: {
-        button: { buttonText: 'Cerca', buttonAriaLabel: 'Cerca nella documentazione' },
-        modal: { displayDetails: 'Mostra dettagli', resetButtonTitle: 'Cancella ricerca', backButtonTitle: 'Chiudi ricerca', noResultsText: 'Nessun risultato per', footer: { selectText: 'seleziona', navigateText: 'naviga', closeText: 'chiudi', selectKeyAriaLabel: 'Invio', navigateUpKeyAriaLabel: 'Freccia su', navigateDownKeyAriaLabel: 'Freccia giù', closeKeyAriaLabel: 'Esc' } },
-      } } } },
+      options: { locales: Object.fromEntries(Object.entries(localeInfo).map(([locale, info]) => [locale, { translations: info.search }])) },
     },
 
     outline: { level: [2, 3], label: 'On this page' },

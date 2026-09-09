@@ -16,6 +16,7 @@ test('translation source gate rejects stale, missing and misbound evidence', asy
   }
   try {
     copy('.vitepress/localization.ts')
+    copy('.vitepress/locale-ui.ts')
     for (const [target, record] of Object.entries(manifest.pages)) { copy(target); copy(record.source) }
     const save = value => fs.writeFileSync(path.join(temp, '.vitepress/translation-manifest.json'), JSON.stringify(value))
     save(manifest)
