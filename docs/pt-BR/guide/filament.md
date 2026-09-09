@@ -48,8 +48,8 @@ Abra um registro existente, preencha a descrição SEO, salve e recarregue. A de
 
 A seção inclui:
 
-- **Título e descrição** com contadores. A [política de tamanho (EN)](/guide/multilingual#title-and-description-budgets-per-script) considera a escrita: 60/160 para texto latino, aproximadamente 30/80 para CJK, em grafemas.
-- **Palavras-chave de foco:** entrada de tags salva em `[{keyword, is_primary}]`. A primeira é principal; `getPrimaryKeyword()` e `SEOData` leem essa estrutura. Ative `seo.keywords.enabled` para que [`seo:audit` (EN)](/pt-BR/guide/audit) e Pro sinalizem páginas sem palavras-chave. Desativado por padrão; veja [configuração (EN)](/reference/configuration#focus-keywords).
+- **Título e descrição** com contadores. A [política de tamanho](/pt-BR/guide/multilingual#title-and-description-budgets-per-script) considera a escrita: 60/160 para texto latino, aproximadamente 30/80 para CJK, em grafemas.
+- **Palavras-chave de foco:** entrada de tags salva em `[{keyword, is_primary}]`. A primeira é principal; `getPrimaryKeyword()` e `SEOData` leem essa estrutura. Ative `seo.keywords.enabled` para que [`seo:audit`](/pt-BR/guide/audit) e Pro sinalizem páginas sem palavras-chave. Desativado por padrão; veja [configuração (EN)](/reference/configuration#focus-keywords).
 - **URL canônica:** vazia para derivação automática, sem parâmetros de consulta.
 - **Robots:** vazio para o padrão do site.
 - **Imagem social:** upload para `og:image` e `twitter:image`, salvo em `seo/` no disco padrão do Filament.
@@ -70,7 +70,7 @@ A seção usa o grupo de estado `seo_meta` e salva pela relação `seoMeta()` do
 
 ## Vários idiomas {#several-languages}
 
-O núcleo mantém [uma linha `seo_meta` por model e idioma (EN)](/pt-BR/guide/multilingual). Desde Filament 1.9, informe os idiomas publicados para gerar uma aba por idioma:
+O núcleo mantém [uma linha `seo_meta` por model e idioma](/pt-BR/guide/multilingual). Desde Filament 1.9, informe os idiomas publicados para gerar uma aba por idioma:
 
 ```php
 static::seoSection(locales: ['en', 'it', 'ja']);
