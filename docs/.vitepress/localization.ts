@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url'
 export const docsRoot = fileURLToPath(new URL('..', import.meta.url))
 import { localeUi, scopedPaths } from './locale-ui.ts'
 
-export const localeInfo = { it: localeUi.it, de: localeUi.de } as const
+export const localeInfo = { it: localeUi.it, de: localeUi.de, fr: localeUi.fr } as const
 
 export function translatedPaths(locale: string): string[] {
   return scopedPaths.filter(p => fs.existsSync(path.join(docsRoot, locale, p + '.md')))
