@@ -26,9 +26,9 @@ The demo registers 18 content records and three routes. This first scan
 completed all 21 targets with no failures and found 20 issues: six warnings
 and 14 notices.
 
-[![The first completed scan: 21 targets, 20 issues, six warnings and 14 notices.](/pro-walkthrough/scan-before.jpg)](/pro-walkthrough/scan-before.jpg)
+<figure class="rb-capture"><a href="/pro-walkthrough/scan-before.png"><img src="/pro-walkthrough/scan-before.png" alt="The first completed scan: 21 targets, 20 issues, six warnings and 14 notices." width="1792" height="1368" loading="lazy" decoding="async"></a></figure>
 
-*Open any screenshot to inspect it at full size.*
+*Screenshots are captured at 2× resolution. Open one to inspect it at full size.*
 
 ## Inspect one issue
 
@@ -36,7 +36,7 @@ In **SEO Dashboard**, open **Page issues** beside the affected row.
 For “Behind the Scenes: Our Product Photography,” the finding identifies
 the missing `description`, the page URL and the scan that detected it.
 
-[![The Page issues dialog identifies Post 5, its URL and the missing description field.](/pro-walkthrough/issue-description.jpg)](/pro-walkthrough/issue-description.jpg)
+<figure class="rb-capture"><a href="/pro-walkthrough/issue-description.png"><img src="/pro-walkthrough/issue-description.png" alt="The Page issues dialog identifies Post 5, its URL and the missing description field." width="1792" height="590" loading="lazy" decoding="async"></a></figure>
 
 ## Save the description
 
@@ -45,10 +45,13 @@ The [free Filament editor](/guide/filament) shows the entered text in its
 search preview and identifies its source as **Manual**. In this example,
 the description is 142 characters; the title still comes from the article.
 
-[![The saved description in the real Filament editor, with a 142-character counter and Manual source in the preview.](/pro-walkthrough/editor-description.jpg)](/pro-walkthrough/editor-description.jpg)
+<div class="rb-capture-pair">
+<figure class="rb-capture"><a href="/pro-walkthrough/editor-description.png"><img src="/pro-walkthrough/editor-description.png" alt="The saved SEO description and its 142-character counter." width="1164" height="520" loading="lazy" decoding="async"></a></figure>
+<figure class="rb-capture"><a href="/pro-walkthrough/editor-preview.png"><img src="/pro-walkthrough/editor-preview.png" alt="The live preview uses the entered description, labelled Manual." width="812" height="940" loading="lazy" decoding="async"></a></figure>
+</div>
 
-The scan score still shows the previous result at this point. Saving a field
-and verifying the fix are separate steps. Without Filament, save the same
+Saving a field and verifying the fix are separate steps. The scan score
+updates after the next scan. Without Filament, save the same
 value through your model's `saveSEO()` method.
 
 ## Rescan and check what changed
@@ -62,7 +65,7 @@ php artisan seo-pro:scan --sync
 The dashboard now identifies this exact issue as **Fixed**. The other
 19 issues remain open.
 
-[![The scan delta shows zero new issues, zero regressions, one fixed missing description and 19 still open.](/pro-walkthrough/scan-delta.jpg)](/pro-walkthrough/scan-delta.jpg)
+<figure class="rb-capture"><a href="/pro-walkthrough/scan-delta.png"><picture><source media="(max-width: 600px)" srcset="/pro-walkthrough/scan-delta-mobile.png"><img src="/pro-walkthrough/scan-delta.png" alt="Recorded scan comparison: zero new issues, zero regressions, one fixed and 19 still open." width="2112" height="582" loading="lazy" decoding="async"></picture></a></figure>
 
 | Check | Before | After |
 |---|---|---|
