@@ -34,7 +34,8 @@ interface SiteConfigLike {
   srcDir: string
   outDir: string
   pages: string[]
-  site: { title?: string; description?: string; themeConfig?: any }
+  dynamicRoutes?: { routes: Array<{ path: string; route: string }> }
+  site: { title?: string; description?: string; themeConfig?: any; locales?: Record<string, { themeConfig?: any }> }
   logger?: { info?: (m: string) => void; warn?: (m: string) => void }
 }
 
@@ -145,6 +146,8 @@ function linkToMdUrl(link: string): string {
 function emitPageMarkdown(cfg: SiteConfigLike): number {
   let count = 0
   for (const page of cfg.pages) {
+    // Language fallback notices are navigation helpers, not translated docs.
+    if (cfg.dynamicRoutes?.routes.some(route => route.path === page && route.route === '[fallback].md')) continue
     const src = path.join(cfg.srcDir, page)
     const dest = path.join(cfg.outDir, page)
     try {
@@ -168,6 +171,10 @@ function emitLlmsTxt(cfg: SiteConfigLike): { entries: number; missing: string[] 
   const sidebar: SidebarGroup[] = Array.isArray(configured)
     ? configured
     : (Object.values(configured).flat() as SidebarGroup[])
+  for (const locale of Object.values(cfg.site.locales ?? {})) {
+    const localized = locale.themeConfig?.sidebar
+    if (Array.isArray(localized)) sidebar.push(...localized)
+  }
   const title = cfg.site.title || 'Rankbeam'
   const summary = strip(cfg.site.description || '')
 
@@ -191,6 +198,8 @@ function emitLlmsTxt(cfg: SiteConfigLike): { entries: number; missing: string[] 
   const walk = (items: SidebarItem[], bullets: string[]) => {
     for (const it of items) {
       if (it.link && !/^https?:\/\//.test(it.link)) {
+        if (!fs.existsSync(linkToSource(cfg.srcDir, it.link)) && cfg.dynamicRoutes?.routes.some(route =>
+          route.route === '[fallback].md' && route.path === it.link!.replace(/^\//, '').replace(/[?#].*$/, '') + '.md')) continue
         const key = it.link.replace(/[?#].*$/, '')
         if (!seen.has(key)) {
           seen.add(key)
