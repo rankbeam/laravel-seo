@@ -329,4 +329,3 @@ export const scopedPaths = [
   "guide/og-image",
   "guide/migrate-from-other-packages"
 ] as const
-
