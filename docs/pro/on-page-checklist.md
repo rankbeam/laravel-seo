@@ -33,7 +33,7 @@ particular are **advisory** (see below).
 | `title_length` | meta | Title is within the same window as the editor and the scan — 30–60 for Latin text, ~15–30 for CJK, from the core [length policy](/guide/multilingual#title-and-description-budgets-per-script) (Pro 2.33). |
 | `description_length` | meta | Description is within the same window — 70–160 for Latin, ~35–80 for CJK. |
 | `content_length` | content | Enough body copy (config-driven word-count bands). |
-| `readability` | content | **Advisory.** How easy the body copy is to read, scored with the formula validated for the analysis locale (ten languages + a language-agnostic fallback; a labelled, unscored heuristic for Japanese, Chinese and Korean). |
+| `readability` | content | **Advisory.** An estimated readability level using the selected formula (ten languages), LIX fallback or a labelled, unscored heuristic for Japanese, Chinese and Korean. |
 | `has_image` | media | The content includes at least one image. |
 | `internal_links` | links | The content links to related internal pages. |
 
@@ -134,14 +134,12 @@ read naturally?", not a target to hit.
 
 ### Readability is advisory
 
-The checklist also scores how easy the body copy is to read, using the
-readability formula **validated for the analysis locale** rather than forcing
-English-Flesch on every language (the word- and syllable-length constants that
-make Flesch work for English are wrong for other languages):
+The checklist estimates readability with the method selected for the analysis
+locale. The formulas and fallbacks currently implemented are:
 
 | Locale | Formula | Source |
 | --- | --- | --- |
-| English (`en`) | Flesch-Kincaid Reading Ease | Flesch 1948 |
+| English (`en`) | Flesch Reading Ease | Flesch 1948 |
 | Italian (`it`) | Gulpease Index | Lucisano & Piemontese 1988 |
 | Spanish (`es`) | Fernández-Huerta | Fernández Huerta 1959 |
 | French (`fr`) | Kandel-Moles | Kandel & Moles 1958 |
@@ -152,34 +150,74 @@ make Flesch work for English are wrong for other languages):
 | Turkish (`tr`) | Ateşman | Ateşman 1997 |
 | Polish (`pl`) | Pisarek (years-of-schooling index, normalised) | Pisarek 1969 |
 | Japanese, Chinese, Korean (`ja`, `zh`, `ko`) | **heuristic, no score** — see below | — |
-| Greek, Ukrainian, Czech (`el`, `uk`, `cs`) | LIX — no validated syllable formula exists for these languages and none is invented; `ReadabilityCalculator::LIX_LANGUAGES` says so and the level description is in the content language (Pro 2.35) | Björnsson 1968 |
-| anything else | LIX (Läsbarhetsindex) — language-agnostic | Björnsson 1968 |
+| Greek, Ukrainian, Czech (`el`, `uk`, `cs`) | LIX — a fallback because no dedicated formula is implemented here; not calibrated for these languages | Björnsson 1968 |
+| anything else | LIX (Läsbarhetsindex) — uncalibrated fallback | Björnsson 1968 |
 
-Every formula result is normalised to the same **0–100 scale (higher = easier)**
-with a pass / warn / fail level and concrete suggestions, so the checklist
-treats all locales uniformly. It is computed in-package with **no extra
-dependency** (syllables are estimated by a vowel-group count over a vowel class
-chosen per script — Latin with diacritics, Polish ą ę ó, Turkish dotless ı,
-Cyrillic for Russian). Route the analysis with `SeoPro::checklistFor($post, 'es')`
-or `--locale=fr`.
+The displayed **0–100 score (higher = easier)** is a package convention. Flesch-family
+and Gulpease results are clamped; Wiener grade, Pisarek and LIX indexes are mapped
+onto that scale. Equal scores in different languages do **not** imply equal reading
+difficulty. The coefficient formulas come from published work; Rankbeam's token,
+sentence and syllable estimates have not been validated as a complete instrument.
+They do not predict comprehension or search rankings.
 
-::: tip Romance languages score lower — by design
-Spanish and French have more syllables per word than English, and their
-Flesch-derived formulas still weight syllables heavily, so ordinary `es`/`fr`
-prose lands lower on the 0–100 scale than equivalent English (the `es`/`fr`
-target band is 60–70, aspirational). The signal is most useful **relatively** —
-simpler copy always scores higher than denser copy in the same language.
-:::
+From Pro 2.37.1, Turkish and Russian syllables count adjacent vowels separately
+(`saat`: 2; `поэт`: 2). Other syllable estimators still have limitations: vowel
+groups miss some hiatuses and silent vowels. English has a small exception map;
+it is not a pronunciation dictionary. For example, Spanish `país` and French
+`monde` can be miscounted. Review unfamiliar words and proper names manually.
+
+#### Text statistics and API limits
+
+HTML block tags and `br` elements separate text; inline emphasis stays attached to
+its word. Source wrapping inside ordinary HTML collapses to spaces, while plain
+text and `pre` retain line boundaries. Script, style and noscript contents are
+excluded. Extraction does not
+evaluate CSS visibility or the rendered page. Entities are decoded once.
+For formula statistics, letter/number runs are words; punctuation alone is not.
+Hyphens and apostrophes separate words. Digits count as tokens but have no inferred
+syllables. Letters are counted from the original text, without stemming or the
+German `ß` → `ss` case fold changing their length.
+
+Sentence estimates split terminal `. ! ? 。 ！ ？` and block/line boundaries, include
+an unterminated final fragment, and protect decimals plus a small list of common
+abbreviations (`Dr.`, `Prof.`, `e.g.` and similar English forms). Headings and list
+items can therefore count as sentences. Other abbreviations, quotations, numbers,
+mixed scripts and text with little punctuation need particular care. The selected
+locale routes the method; it does not detect whether every sentence is in that language.
+
+The direct calculator's `toArray()` adds an `assessment` block:
+
+```json
+{
+  "status": "computed",
+  "method": "formula",
+  "formula": "flesch_reading_ease",
+  "inputs_estimated": true,
+  "score_scale": "normalized_0_100",
+  "grade_level_estimated": true
+}
+```
+
+`method` distinguishes `formula`, `lix`, `heuristic` and `unavailable` (`unspecified`
+for manually constructed results without formula metadata). Empty/punctuation-only
+input is `insufficient` and `isValid()` is false; its legacy `score: 0` is an
+unavailable sentinel, not a difficulty score. Existing English/Italian grade labels
+are approximate; other languages and heuristic/LIX results no longer receive
+those school-grade labels. `calculateFleschKincaid()` retains its public method name
+for compatibility but computes **Flesch Reading Ease**, not Flesch-Kincaid grade.
+
+The formula tests pin independently counted inputs and expected arithmetic for
+all ten named formulas plus LIX. They verify calculation behavior, not native
+editorial quality. Readability remains separate from the Pro SEO score.
 
 ::: warning Japanese, Chinese and Korean: a labelled heuristic, never a number
-There is no validated syllable-based readability formula for these languages,
-and Rankbeam does not invent one. The calculator returns a **level** from rules
-of thumb — average sentence length in characters (ja ≤ 40/60/80, zh ≤ 30/45/60)
+Rankbeam implements an unscored method for these languages. The calculator
+returns a **level** from package-specific rules of thumb — average sentence length in characters (ja ≤ 40/60/80, zh ≤ 30/45/60)
 or words (ko ≤ 12/18/25), and for Japanese the kanji share (above ~45 % reads
-one step harder) — flagged `heuristic: true` with a **null score**. The
+one step higher in the package's difficulty bands) — flagged `heuristic: true` with a **null score**. The
 checklist message says "heuristic", and the check stays **advisory for these
 languages whatever `readability.advisory` says**: a rule of thumb informs, it
-never fails a page. Word counts for `ja`/`zh` come from ICU segmentation when
+never gates the overall checklist status. Word counts for `ja`/`zh` come from ICU segmentation when
 ext-intl is present, else from a characters-per-word estimate.
 :::
 
