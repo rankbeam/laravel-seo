@@ -17,6 +17,11 @@ composer require rankbeam/laravel-seo-filament
 
 The model behind the resource must use the core `HasSEO` trait.
 
+![SEO fields in the Merchant demo: title, description, canonical, social image, search preview and resolved value sources.](/filament-seo-section.png)
+
+*Example from the Merchant demo. The fields use your panel's theme; available
+controls and character budgets depend on your installed version and configuration.*
+
 ## Add the section to a resource
 
 ```php

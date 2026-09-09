@@ -5,8 +5,7 @@ description: "Install laravel-seo-pro: queued site scans with issue tracking, a 
 # Installing Pro
 
 `rankbeam/laravel-seo-pro` adds queued site scans with issue tracking, a
-redirect manager, and a 404 monitor on top of the core package. Since v1.1.0
-the engine runs on **any Laravel 11–13 app** — Blade, Inertia, or pure API.
+redirect manager, and a 404 monitor on top of the core package. The engine runs on **any Laravel 11–13 app** — Blade, Inertia, or pure API.
 Filament is an optional UI layer: install it and you get the SEO dashboard,
 redirect manager, and 404 monitor as panel pages; skip it and you manage
 everything with [artisan commands](/pro/headless).
@@ -15,9 +14,9 @@ everything with [artisan commands](/pro/headless).
 
 | | |
 |---|---|
-| PHP | 8.2+ |
+| PHP | 8.2+ (8.3+ on Laravel 13) |
 | Laravel | 11, 12, or 13 |
-| `rankbeam/laravel-seo` | ^2.0 (installed automatically) |
+| `rankbeam/laravel-seo` | ^3.15 (installed automatically) |
 | `filament/filament` | **optional** — 4.x or 5.x, only for the admin UI |
 
 ## Install the package
