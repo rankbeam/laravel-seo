@@ -38,7 +38,8 @@ German also covers all ten scoped guides plus home. Shared UI vocabulary is in
 `localization.ts` are published. The vocabulary includes the planned languages
 without advertising pages that have not been written.
 
-Next: French, Spanish and Brazilian Portuguese. The target remains ten scoped
-pages per language. Native technical review remains pending for both Italian
-and German. The isolated source-gate test uses Node's TypeScript stripping
+French covers installation, quickstart, resolver, sitemaps and Filament, plus
+home. Next: its remaining five references, then Spanish and Brazilian
+Portuguese. The target remains ten scoped pages per language. Native technical
+review remains pending. The isolated source-gate test uses Node's TypeScript stripping
 (tested with Node24.11.1).
