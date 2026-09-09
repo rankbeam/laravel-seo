@@ -48,8 +48,8 @@ class PostResource extends Resource
 
 Der Bereich enthält:
 
-- **Titel und Beschreibung** mit Live-Zählern. Die [Längenregel (EN)](/guide/multilingual#title-and-description-budgets-per-script) berücksichtigt die Schrift: 60/160 für lateinische Texte, ungefähr 30/80 für CJK, gezählt in Graphemen.
-- **Fokus-Keywords:** Das Tag-Feld speichert Wörter in der Struktur `[{keyword, is_primary}]`; das erste Keyword ist primär. `getPrimaryKeyword()` und `SEOData` lesen diese Struktur. Mit `seo.keywords.enabled` melden das [kostenlose Audit (EN)](/de/guide/audit) und Pro fehlende Keywords. Standardmäßig ist dies deaktiviert; siehe [Konfiguration (EN)](/reference/configuration#focus-keywords).
+- **Titel und Beschreibung** mit Live-Zählern. Die [Längenregel](/de/guide/multilingual#title-and-description-budgets-per-script) berücksichtigt die Schrift: 60/160 für lateinische Texte, ungefähr 30/80 für CJK, gezählt in Graphemen.
+- **Fokus-Keywords:** Das Tag-Feld speichert Wörter in der Struktur `[{keyword, is_primary}]`; das erste Keyword ist primär. `getPrimaryKeyword()` und `SEOData` lesen diese Struktur. Mit `seo.keywords.enabled` melden das [kostenlose Audit](/de/guide/audit) und Pro fehlende Keywords. Standardmäßig ist dies deaktiviert; siehe [Konfiguration (EN)](/reference/configuration#focus-keywords).
 - **Canonical-URL:** Leer bedeutet automatisch, mit entfernter Query.
 - **Robots-Auswahl:** Leer verwendet die Website-Vorgabe.
 - **Social-Bild:** Upload für `og:image` und `twitter:image` in `seo/` auf Filaments Standard-Disk.
@@ -70,7 +70,7 @@ Der Bereich verwendet die Zustandsgruppe `seo_meta` und speichert über die Core
 
 ## Mehrere Sprachen {#several-languages}
 
-Der Core speichert [eine `seo_meta`-Zeile je Modell und Sprache (EN)](/de/guide/multilingual). Seit Filament 1.9 kannst du die veröffentlichten Sprachen angeben, um je Sprache einen Tab zu erhalten:
+Der Core speichert [eine `seo_meta`-Zeile je Modell und Sprache](/de/guide/multilingual). Seit Filament 1.9 kannst du die veröffentlichten Sprachen angeben, um je Sprache einen Tab zu erhalten:
 
 ```php
 static::seoSection(locales: ['en', 'it', 'ja']);
