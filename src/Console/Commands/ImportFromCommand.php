@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Rankbeam\Seo\Console\Commands;
 
-use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;
+use Rankbeam\Seo\Console\LocalizedCommand as Command;
 use Rankbeam\Seo\Importing\Contracts\Importer;
 use Rankbeam\Seo\Importing\ImporterRegistry;
 use Rankbeam\Seo\Importing\ImportOptions;

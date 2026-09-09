@@ -18,6 +18,8 @@ declare(strict_types=1);
  */
 
 return [
+    // Translated CLI presentation only; --locale still selects model content.
+    'cli_locale' => env('SEO_CLI_LOCALE', 'en'),
 
     /*
     |--------------------------------------------------------------------------

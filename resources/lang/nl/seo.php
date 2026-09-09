@@ -14,6 +14,26 @@ declare(strict_types=1);
 */
 
 return [
+    'cli' => [
+        'audit' => [
+            'no_models' => 'Geen modellen om te controleren.',
+            'model_hint' => 'Gebruik --model="App\\Models\\Post" of configureer seo.audit.models of seo.sitemap.models in config/seo.php.',
+            'skipped' => 'Overgeslagen, :model: :reason',
+            'no_pages' => 'Geen pagina’s gevonden om te controleren.',
+            'page' => 'Pagina',
+            'status' => 'Status',
+            'findings' => 'Bevindingen',
+            'all_passed' => 'Geen problemen gevonden: alle gecontroleerde pagina’s zijn geslaagd.',
+            'page_summary' => 'Pagina’s: :pages · geslaagd: :passed · met waarschuwingen: :warned · mislukt: :failed',
+            'issue_summary' => 'Problemen: :issues · kritiek: :critical · waarschuwingen: :warning · meldingen: :notice',
+            'guard_title' => 'INDEXERINGSBEVEILIGING ACTIEF',
+            'guard_environment' => 'Omgeving ":environment" staat niet in seo.indexing_guard.allowed_environments (:allowed).',
+            'guard_explanation' => 'Elke pagina gebruikt :directive en de beheerde robots.txt blokkeert crawlers. Gebruik een toegestane productieomgeving of stel SEO_INDEXING_GUARD=false in.',
+            'coverage' => 'Dekking',
+            'coverage_core' => 'Hier gecontroleerd (model en resolver, zonder ophalen): aanwezigheid/lengte van titel en beschrijving, OG-afbeelding, robots-conflicten, formaat/domein/deling/beveiliging van de canonical-URL en focuszoekwoord.',
+            'coverage_pro' => 'Vereist de Pro-scan (gerenderde HTML of externe verzoeken): H1, alt-teksten, dunne inhoud, gemengde inhoud en live canonical-controles. Ook de score van 0–100 is een Pro-functie.',
+        ],
+    ],
 
     'audit' => [
         'missing_title' => 'De pagina mist een title-tag.',

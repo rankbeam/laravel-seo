@@ -13,6 +13,26 @@ declare(strict_types=1);
 */
 
 return [
+    'cli' => [
+        'audit' => [
+            'no_models' => '沒有可稽核的模型。',
+            'model_hint' => '請使用 --model="App\\Models\\Post"，或在 config/seo.php 中設定 seo.audit.models 或 seo.sitemap.models。',
+            'skipped' => '已略過模型 :model：:reason',
+            'no_pages' => '找不到可稽核的頁面。',
+            'page' => '頁面',
+            'status' => '狀態',
+            'findings' => '發現的問題',
+            'all_passed' => '未發現問題，所有已稽核頁面皆通過檢查。',
+            'page_summary' => '頁面：:pages · 通過：:passed · 有警告：:warned · 未通過：:failed',
+            'issue_summary' => '問題：:issues · 嚴重：:critical · 警告：:warning · 提示：:notice',
+            'guard_title' => '索引保護已啟用',
+            'guard_environment' => '環境「:environment」不在 seo.indexing_guard.allowed_environments（:allowed）中。',
+            'guard_explanation' => '每個頁面都使用 :directive，受管理的 robots.txt 會封鎖檢索器。請使用允許的正式環境，或設定 SEO_INDEXING_GUARD=false。',
+            'coverage' => '涵蓋範圍',
+            'coverage_core' => '在此檢查（模型和解析器，無外部請求）：標題與描述是否存在及其長度、OG 圖片、robots 衝突、標準網址的格式、網域、共用和安全性，以及焦點關鍵字。',
+            'coverage_pro' => '需要 Pro 掃描（轉譯後的 HTML 或外部請求）：H1、圖片 alt、內容不足、混合內容和線上標準網址檢查。0–100 分的評分也是 Pro 功能。',
+        ],
+    ],
     'audit' => [
         'missing_title' => '頁面缺少 title 標籤。',
         'missing_description' => '頁面缺少 meta 描述。',

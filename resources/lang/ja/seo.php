@@ -14,6 +14,26 @@ declare(strict_types=1);
 */
 
 return [
+    'cli' => [
+        'audit' => [
+            'no_models' => '監査対象のモデルがありません。',
+            'model_hint' => '--model="App\\Models\\Post" を指定するか、config/seo.php の seo.audit.models または seo.sitemap.models を設定してください。',
+            'skipped' => 'モデルをスキップしました（:model）：:reason',
+            'no_pages' => '監査対象のページが見つかりません。',
+            'page' => 'ページ',
+            'status' => '状態',
+            'findings' => '検出結果',
+            'all_passed' => '問題は見つかりませんでした。監査したすべてのページがチェックに合格しました。',
+            'page_summary' => 'ページ数：:pages · 合格：:passed · 警告あり：:warned · 不合格：:failed',
+            'issue_summary' => '問題数：:issues · 重大：:critical · 警告：:warning · お知らせ：:notice',
+            'guard_title' => 'インデックス登録保護が有効',
+            'guard_environment' => '環境「:environment」は seo.indexing_guard.allowed_environments（:allowed）に含まれていません。',
+            'guard_explanation' => 'すべてのページに :directive が適用され、管理対象の robots.txt がクローラーをブロックします。許可された本番環境を使用するか、SEO_INDEXING_GUARD=false を設定してください。',
+            'coverage' => '対象範囲',
+            'coverage_core' => 'ここで確認する項目（モデルとリゾルバー、外部取得なし）：タイトルと説明の有無・長さ、OG画像、robotsの競合、canonical URLの形式・ドメイン・共有・安全性、フォーカスキーワード。',
+            'coverage_pro' => 'Proスキャンが必要な項目（レンダリング済みHTMLまたは外部取得）：H1、画像のalt、情報量の少ないコンテンツ、混在コンテンツ、実際のcanonical URLの確認。0～100のスコアもProの機能です。',
+        ],
+    ],
     'audit' => [
         'missing_title' => 'ページに title タグがありません。',
         'missing_description' => 'ページに meta description がありません。',

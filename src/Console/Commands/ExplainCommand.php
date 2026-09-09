@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Rankbeam\Seo\Console\Commands;
 
-use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Model;
+use Rankbeam\Seo\Console\LocalizedCommand as Command;
 use Rankbeam\Seo\Explaining\ResolutionExplainer;
 use Rankbeam\Seo\Traits\HasSEO;
 

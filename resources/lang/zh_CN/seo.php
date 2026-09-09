@@ -13,6 +13,26 @@ declare(strict_types=1);
 */
 
 return [
+    'cli' => [
+        'audit' => [
+            'no_models' => '没有可审核的模型。',
+            'model_hint' => '请使用 --model="App\\Models\\Post"，或在 config/seo.php 中配置 seo.audit.models 或 seo.sitemap.models。',
+            'skipped' => '已跳过模型 :model：:reason',
+            'no_pages' => '未找到可审核的页面。',
+            'page' => '页面',
+            'status' => '状态',
+            'findings' => '发现的问题',
+            'all_passed' => '未发现问题，所有已审核页面均已通过检查。',
+            'page_summary' => '页面：:pages · 通过：:passed · 有警告：:warned · 未通过：:failed',
+            'issue_summary' => '问题：:issues · 严重：:critical · 警告：:warning · 提示：:notice',
+            'guard_title' => '索引保护已启用',
+            'guard_environment' => '环境“:environment”不在 seo.indexing_guard.allowed_environments（:allowed）中。',
+            'guard_explanation' => '每个页面都使用 :directive，托管的 robots.txt 会阻止抓取工具。请使用允许的生产环境，或设置 SEO_INDEXING_GUARD=false。',
+            'coverage' => '覆盖范围',
+            'coverage_core' => '在此检查（模型和解析器，无外部请求）：标题和描述是否存在及其长度、OG 图片、robots 冲突、规范网址的格式、域名、共用和安全性，以及焦点关键词。',
+            'coverage_pro' => '需要 Pro 扫描（渲染后的 HTML 或外部请求）：H1、图片 alt、内容不足、混合内容和在线规范网址检查。0–100 分的评分也是 Pro 功能。',
+        ],
+    ],
     'audit' => [
         'missing_title' => '页面缺少 title 标签。',
         'missing_description' => '页面缺少元描述。',

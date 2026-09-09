@@ -187,7 +187,8 @@ configured once:
     'no_sandbox' => null,       //   …  seo.og_image.no_sandbox
     'timeout' => 90,
 ],
-'locale' => null,               // dates and numbers; null = the app locale
+'locale' => null,               // report language; null captures the app locale
+'format_locale' => null,        // optional regional date/number format
 ```
 
 Chrome draws whatever the server has installed, and the template then uses the
@@ -203,11 +204,29 @@ changes, and `ReportGenerator::renderer()` tells you which one is bound.
 
 ### Dates and numbers in the reader's locale
 
-With ext-intl the report's dates ("7 September 2026" / "7. September 2026" /
-"7 de setembro de 2026") and the Search Console counts (12,345 / 12.345 /
-12 345) follow `seo-pro.reports.locale` (default: the app locale) through ICU;
-without ext-intl the English formatting of earlier releases is kept. The
-`<html lang>` of the report follows the app locale too.
+The report captures `seo-pro.reports.locale` when it is built. Null uses the
+application locale. The resolved translation language controls PDF and email
+labels, the default subject, font selection and HTML `lang`. Regional locales
+without their own translation file fall back to the bundled base language, then
+English. Simplified (`zh_CN`) and Traditional (`zh_TW`) Chinese remain distinct.
+
+Dates and numbers follow that requested locale through ICU when `ext-intl` is
+installed. Set `seo-pro.reports.format_locale` to choose a different regional
+format deliberately: `locale=it` and `format_locale=en_US` produce Italian labels
+with US date and number formatting. Without `ext-intl`, the English date and
+comma-grouped number fallback is retained.
+
+Queued mail keeps the captured language, formatting and subject even when worker
+configuration changes. Choose the language before generating the PDF; changing a
+mailable's locale later cannot translate its attachment. Old queued payloads from
+before Pro 2.39 use worker configuration because they have no captured settings.
+Custom subjects, branding and stored issue messages remain source data.
+
+CLI display is separate: `php artisan seo-pro:report --display-locale=it` translates
+the command summary; report configuration selects the client's PDF/email language.
+CLI defaults to English, configurable with `SEO_PRO_CLI_LOCALE`. JSON keys and codes
+stay stable, while human labels may translate. Publish `seo-pro-lang` to override
+report and workflow messages in `lang/vendor/seo-pro/{locale}/seo-pro.php`.
 
 Programmatically, resolve `ReportGenerator` from the container:
 

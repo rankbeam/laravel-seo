@@ -14,6 +14,26 @@ declare(strict_types=1);
 */
 
 return [
+    'cli' => [
+        'audit' => [
+            'no_models' => 'Aucun modèle à auditer.',
+            'model_hint' => 'Utilisez --model="App\\Models\\Post" ou configurez seo.audit.models ou seo.sitemap.models dans config/seo.php.',
+            'skipped' => 'Modèle ignoré, :model : :reason',
+            'no_pages' => 'Aucune page à auditer.',
+            'page' => 'Page',
+            'status' => 'État',
+            'findings' => 'Résultats',
+            'all_passed' => 'Aucun problème trouvé : toutes les pages auditées ont réussi les vérifications.',
+            'page_summary' => 'Pages : :pages · réussites : :passed · avertissements : :warned · échecs : :failed',
+            'issue_summary' => 'Problèmes : :issues · critiques : :critical · avertissements : :warning · remarques : :notice',
+            'guard_title' => 'PROTECTION DE L’INDEXATION ACTIVE',
+            'guard_environment' => 'L’environnement ":environment" ne figure pas dans seo.indexing_guard.allowed_environments (:allowed).',
+            'guard_explanation' => 'Chaque page utilise :directive et le fichier robots.txt géré bloque les robots. Utilisez un environnement de production autorisé ou définissez SEO_INDEXING_GUARD=false.',
+            'coverage' => 'Couverture',
+            'coverage_core' => 'Vérifié ici (modèle et résolveur, sans requête) : présence/longueur du titre et de la description, image OG, conflits robots, format/domaine/partage/sécurité de l’URL canonique et mot-clé principal.',
+            'coverage_pro' => 'Nécessite le scan Pro (HTML rendu ou requêtes externes) : H1, textes alt, contenu insuffisant, contenu mixte et vérifications des URL canoniques en ligne. Le score de 0 à 100 est aussi une fonction Pro.',
+        ],
+    ],
 
     'audit' => [
         'missing_title' => 'La page n\'a pas de balise title.',

@@ -14,6 +14,26 @@ declare(strict_types=1);
 */
 
 return [
+    'cli' => [
+        'audit' => [
+            'no_models' => 'Keine Modelle zu prüfen.',
+            'model_hint' => 'Verwende --model="App\\Models\\Post" oder konfiguriere seo.audit.models bzw. seo.sitemap.models in config/seo.php.',
+            'skipped' => 'Übersprungen, :model: :reason',
+            'no_pages' => 'Keine Seiten zur Prüfung gefunden.',
+            'page' => 'Seite',
+            'status' => 'Status',
+            'findings' => 'Befunde',
+            'all_passed' => 'Keine Probleme gefunden — alle geprüften Seiten haben bestanden.',
+            'page_summary' => 'Seiten: :pages · bestanden: :passed · mit Warnungen: :warned · fehlgeschlagen: :failed',
+            'issue_summary' => 'Probleme: :issues · kritisch: :critical · Warnungen: :warning · Hinweise: :notice',
+            'guard_title' => 'INDEXIERUNGSSCHUTZ AKTIV',
+            'guard_environment' => 'Die Umgebung ":environment" ist nicht in seo.indexing_guard.allowed_environments (:allowed) enthalten.',
+            'guard_explanation' => 'Jede Seite verwendet :directive, und die verwaltete robots.txt blockiert Crawler. Verwende eine erlaubte Produktionsumgebung oder setze SEO_INDEXING_GUARD=false.',
+            'coverage' => 'Prüfumfang',
+            'coverage_core' => 'Hier geprüft (Modell und Resolver, ohne Abruf): Vorhandensein/Länge von Titel und Beschreibung, OG-Bild, robots-Konflikte, Format/Domain/Mehrfachnutzung/Sicherheit der Canonical-URL und Fokus-Keyword.',
+            'coverage_pro' => 'Erfordert den Pro-Scan (gerendertes HTML oder externe Abrufe): H1, Bild-Alt-Texte, dünne Inhalte, gemischte Inhalte und Live-Canonical-Prüfungen. Auch der Wert von 0–100 ist eine Pro-Funktion.',
+        ],
+    ],
 
     'audit' => [
         'missing_title' => 'Der Seite fehlt ein Title-Tag.',

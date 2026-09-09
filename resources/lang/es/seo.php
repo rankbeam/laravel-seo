@@ -14,6 +14,26 @@ declare(strict_types=1);
 */
 
 return [
+    'cli' => [
+        'audit' => [
+            'no_models' => 'No hay modelos que auditar.',
+            'model_hint' => 'Usa --model="App\\Models\\Post" o configura seo.audit.models o seo.sitemap.models en config/seo.php.',
+            'skipped' => 'Modelo omitido, :model: :reason',
+            'no_pages' => 'No se encontraron páginas que auditar.',
+            'page' => 'Página',
+            'status' => 'Estado',
+            'findings' => 'Resultados',
+            'all_passed' => 'No se encontraron problemas: todas las páginas auditadas superaron las comprobaciones.',
+            'page_summary' => 'Páginas: :pages · aprobadas: :passed · con advertencias: :warned · fallidas: :failed',
+            'issue_summary' => 'Problemas: :issues · críticos: :critical · advertencias: :warning · avisos: :notice',
+            'guard_title' => 'PROTECCIÓN DE INDEXACIÓN ACTIVA',
+            'guard_environment' => 'El entorno ":environment" no está en seo.indexing_guard.allowed_environments (:allowed).',
+            'guard_explanation' => 'Todas las páginas usan :directive y el robots.txt gestionado bloquea los rastreadores. Usa un entorno de producción permitido o establece SEO_INDEXING_GUARD=false.',
+            'coverage' => 'Cobertura',
+            'coverage_core' => 'Se comprueba aquí (modelo y resolvedor, sin solicitudes): presencia/longitud del título y la descripción, imagen OG, conflictos robots, formato/dominio/uso compartido/seguridad de la URL canónica y palabra clave principal.',
+            'coverage_pro' => 'Requiere el escaneo Pro (HTML renderizado o solicitudes externas): H1, textos alt, contenido insuficiente, contenido mixto y comprobaciones de URL canónicas en línea. La puntuación de 0 a 100 también es una función Pro.',
+        ],
+    ],
 
     'audit' => [
         'missing_title' => 'A la página le falta la etiqueta title.',

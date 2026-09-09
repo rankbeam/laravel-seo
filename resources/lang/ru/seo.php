@@ -14,6 +14,26 @@ declare(strict_types=1);
 */
 
 return [
+    'cli' => [
+        'audit' => [
+            'no_models' => 'Нет моделей для аудита.',
+            'model_hint' => 'Укажите --model="App\\Models\\Post" или настройте seo.audit.models либо seo.sitemap.models в config/seo.php.',
+            'skipped' => 'Модель пропущена, :model: :reason',
+            'no_pages' => 'Страницы для аудита не найдены.',
+            'page' => 'Страница',
+            'status' => 'Статус',
+            'findings' => 'Результаты',
+            'all_passed' => 'Проблем не найдено: все проверенные страницы прошли аудит.',
+            'page_summary' => 'Страниц: :pages · пройдено: :passed · с предупреждениями: :warned · не пройдено: :failed',
+            'issue_summary' => 'Проблем: :issues · критических: :critical · предупреждений: :warning · уведомлений: :notice',
+            'guard_title' => 'ЗАЩИТА ОТ ИНДЕКСАЦИИ ВКЛЮЧЕНА',
+            'guard_environment' => 'Среда ":environment" отсутствует в seo.indexing_guard.allowed_environments (:allowed).',
+            'guard_explanation' => 'Каждая страница использует :directive, а управляемый robots.txt блокирует роботов. Используйте разрешённую рабочую среду или задайте SEO_INDEXING_GUARD=false.',
+            'coverage' => 'Охват',
+            'coverage_core' => 'Проверяется здесь (модель и резолвер, без запросов): наличие/длина заголовка и описания, изображение OG, конфликты robots, формат/домен/совместное использование/безопасность canonical URL и основное ключевое слово.',
+            'coverage_pro' => 'Требуется сканирование Pro (отрисованный HTML или внешние запросы): H1, alt изображений, недостаточный контент, смешанный контент и проверка canonical URL в сети. Оценка 0–100 также относится к Pro.',
+        ],
+    ],
 
     'audit' => [
         'missing_title' => 'На странице отсутствует тег title.',

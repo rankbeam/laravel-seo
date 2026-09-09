@@ -18,6 +18,7 @@ final class ModelLocale
 
         // A separate translation model can declare its own language in seoData().
         $previous = app()->getLocale();
+        $previousDisplay = app('translator')->getLocale();
         try {
             $copy = clone $model;
 
@@ -28,6 +29,7 @@ final class ModelLocale
             return $previous;
         } finally {
             app()->setLocale($previous);
+            app('translator')->setLocale($previousDisplay);
         }
     }
 
@@ -44,6 +46,7 @@ final class ModelLocale
     public static function run(Model $model, string $locale, Closure $callback, bool $withMetadata = true): mixed
     {
         $previous = app()->getLocale();
+        $previousDisplay = app('translator')->getLocale();
         $localized = clone $model;
 
         try {
@@ -65,6 +68,7 @@ final class ModelLocale
             return $callback($localized);
         } finally {
             app()->setLocale($previous);
+            app('translator')->setLocale($previousDisplay);
         }
     }
 }

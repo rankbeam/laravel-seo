@@ -19,6 +19,26 @@ declare(strict_types=1);
 */
 
 return [
+    'cli' => [
+        'audit' => [
+            'no_models' => 'No models to audit.',
+            'model_hint' => 'Pass --model="App\\Models\\Post", or configure seo.audit.models or seo.sitemap.models in config/seo.php.',
+            'skipped' => 'Skipped :model: :reason',
+            'no_pages' => 'No pages found to audit.',
+            'page' => 'Page',
+            'status' => 'Status',
+            'findings' => 'Findings',
+            'all_passed' => 'No issues found — every audited page passed.',
+            'page_summary' => 'Pages: :pages · :passed passed · :warned warned · :failed failed',
+            'issue_summary' => 'Issues: :issues · critical: :critical · warning: :warning · notice: :notice',
+            'guard_title' => 'INDEXING GUARD ACTIVE',
+            'guard_environment' => 'Environment ":environment" is not in seo.indexing_guard.allowed_environments (:allowed).',
+            'guard_explanation' => 'Every page resolves to :directive and managed robots.txt blocks crawlers. Use an allowed production environment or set SEO_INDEXING_GUARD=false.',
+            'coverage' => 'Coverage',
+            'coverage_core' => 'Audited here (model + resolver, no fetch): title and description presence/length, OG image, robots conflicts, canonical format/domain/sharing/security, focus keyword.',
+            'coverage_pro' => 'Needs the Pro scan (rendered HTML / outbound fetch): H1, image alt, thin content, mixed content and live canonical checks. The 0–100 score is also a Pro feature.',
+        ],
+    ],
 
     // Findings emitted by `php artisan seo:audit` (MetadataAuditor). Keyed by
     // the issue code, which is what the Pro scan, the MCP tools and CI reports

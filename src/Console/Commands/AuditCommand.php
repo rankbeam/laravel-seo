@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Rankbeam\Seo\Console\Commands;
 
-use Illuminate\Console\Command;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Rankbeam\Seo\Auditing\AuditIssue;
 use Rankbeam\Seo\Auditing\MetadataAuditor;
+use Rankbeam\Seo\Console\LocalizedCommand as Command;
 use Rankbeam\Seo\Services\IndexingGuard;
 use Rankbeam\Seo\Traits\HasSEO;
 use Throwable;
@@ -81,9 +82,8 @@ class AuditCommand extends Command
         $classes = $this->resolveModelClasses();
 
         if ($classes === []) {
-            $this->error('No models to audit.');
-            $this->line('Pass one with <comment>--model="App\\Models\\Post"</comment>, or list models under');
-            $this->line('<comment>seo.audit.models</comment> or <comment>seo.sitemap.models</comment> in config/seo.php.');
+            $this->error(__('seo::seo.cli.audit.no_models'));
+            $this->line(__('seo::seo.cli.audit.model_hint'));
 
             return self::FAILURE;
         }
@@ -116,7 +116,7 @@ class AuditCommand extends Command
         }
 
         foreach ($skipped as [$class, $reason]) {
-            $this->warn("Skipped {$class}: {$reason}");
+            $this->warn(__('seo::seo.cli.audit.skipped', ['model' => $class, 'reason' => $reason]));
         }
 
         $this->renderReport($report);
@@ -215,7 +215,7 @@ class AuditCommand extends Command
     {
         $rows = [];
 
-        /** @var \Illuminate\Database\Eloquent\Builder<Model> $query */
+        /** @var Builder<Model> $query */
         $query = $class::query();
 
         if ($limit > 0) {
@@ -281,7 +281,7 @@ class AuditCommand extends Command
     protected function renderReport(array $report): void
     {
         if ($report === []) {
-            $this->info('No pages found to audit.');
+            $this->info(__('seo::seo.cli.audit.no_pages'));
 
             return;
         }
@@ -292,7 +292,7 @@ class AuditCommand extends Command
 
         if ($visible !== []) {
             $this->table(
-                ['Page', 'Status', 'Findings'],
+                [__('seo::seo.cli.audit.page'), __('seo::seo.cli.audit.status'), __('seo::seo.cli.audit.findings')],
                 array_map(fn (array $r): array => [
                     $r['label'],
                     $this->statusCell($r['status']),
@@ -300,7 +300,7 @@ class AuditCommand extends Command
                 ], $visible),
             );
         } elseif ($this->option('issues-only')) {
-            $this->info('No issues found — every audited page passed.');
+            $this->info(__('seo::seo.cli.audit.all_passed'));
         }
 
         $this->renderSummary($report);
@@ -348,20 +348,8 @@ class AuditCommand extends Command
         $issueTotal = array_sum($severities);
 
         $this->newLine();
-        $this->line(sprintf(
-            '<options=bold>%d page(s)</> — <fg=green>%d passed</>, <fg=yellow>%d warned</>, <fg=red>%d failed</>',
-            count($report),
-            $counts['pass'],
-            $counts['warn'],
-            $counts['fail'],
-        ));
-        $this->line(sprintf(
-            '<options=bold>%d issue(s)</> — <fg=red>%d critical</>, <fg=yellow>%d warning</>, <fg=cyan>%d notice</>',
-            $issueTotal,
-            $severities[AuditIssue::SEVERITY_CRITICAL],
-            $severities[AuditIssue::SEVERITY_WARNING],
-            $severities[AuditIssue::SEVERITY_NOTICE],
-        ));
+        $this->line(__('seo::seo.cli.audit.page_summary', ['pages' => count($report), 'passed' => $counts['pass'], 'warned' => $counts['warn'], 'failed' => $counts['fail']]));
+        $this->line(__('seo::seo.cli.audit.issue_summary', ['issues' => $issueTotal, 'critical' => $severities[AuditIssue::SEVERITY_CRITICAL], 'warning' => $severities[AuditIssue::SEVERITY_WARNING], 'notice' => $severities[AuditIssue::SEVERITY_NOTICE]]));
     }
 
     /**
@@ -410,11 +398,9 @@ class AuditCommand extends Command
         $allowed = $allowed !== '' ? $allowed : '(none)';
 
         $this->newLine();
-        $this->line('<bg=red;fg=white;options=bold> INDEXING GUARD ACTIVE </>');
-        $this->line("  Environment <options=bold>\"{$environment}\"</> is not in <comment>seo.indexing_guard.allowed_environments</comment> ({$allowed}).");
-        $this->line('  Every page resolves to <options=bold>'.IndexingGuard::DIRECTIVE.'</> and a managed robots.txt would');
-        $this->line('  disallow all crawlers. This is expected off production — deploy to an allowed');
-        $this->line('  environment to index, or disable with <comment>SEO_INDEXING_GUARD=false</comment>.');
+        $this->line('<bg=red;fg=white;options=bold> '.__('seo::seo.cli.audit.guard_title').' </>');
+        $this->line(__('seo::seo.cli.audit.guard_environment', ['environment' => $environment, 'allowed' => $allowed]));
+        $this->line(__('seo::seo.cli.audit.guard_explanation', ['directive' => IndexingGuard::DIRECTIVE]));
         $this->newLine();
     }
 
@@ -425,14 +411,10 @@ class AuditCommand extends Command
     protected function renderCapabilityMatrix(): void
     {
         $this->newLine();
-        $this->line('<options=bold>Coverage</>');
-        $this->line('  <fg=green>Audited here</> (model + resolver, no fetch): title & description');
-        $this->line('  presence and length, OG image, robots conflicts, canonical format /');
-        $this->line('  cross-domain / shared / insecure, focus keyword.');
-        $this->line('  <fg=yellow>Needs the Pro scan</> (rendered HTML / outbound fetch): H1, image alt,');
-        $this->line('  thin content, mixed content, and live-canonical (404 / redirect / noindex)');
-        $this->line('  checks. The numerical 0-100 score is also a Pro feature.');
-        $this->line('  Full issue registry: https://rankbeam.dev/pro/scan-issues');
+        $this->line('<options=bold>'.__('seo::seo.cli.audit.coverage').'</>');
+        $this->line(__('seo::seo.cli.audit.coverage_core'));
+        $this->line(__('seo::seo.cli.audit.coverage_pro'));
+        $this->line('https://docs.rankbeam.dev/pro/scan-issues');
     }
 
     /**
