@@ -171,7 +171,7 @@ public function getSEOAlternates(): ?array
 ::: warning Références réciproques et autoréférence
 Chaque version linguistique doit lister **sa propre URL et les autres versions**, avec des références réciproques. `getSEOAlternates()` doit renvoyer l'ensemble complet sur chaque variante. Utilisez des codes `language[-Script][-REGION]` valides ou `x-default`, avec des URL `http(s)` absolues. Une entrée sans `hreflang` ou `href` non vide est ignorée.
 
-Les [politiques `seo.hreflang` (EN)](/guide/multilingual#hreflang) s'appliquent avant l'écriture : normalisation (`it_IT` → `it-IT`), ajout éventuel de l'autoréférence et de `x-default`. La liste est commune au sitemap et au `<head>`. L'audit gratuit signale `hreflang_invalid_code`, `hreflang_duplicate_code` et `hreflang_missing_self`. La réciprocité nécessite un crawl, proposé par Pro.
+Les [politiques `seo.hreflang`](/fr/guide/multilingual#hreflang) s'appliquent avant l'écriture : normalisation (`it_IT` → `it-IT`), ajout éventuel de l'autoréférence et de `x-default`. La liste est commune au sitemap et au `<head>`. L'audit gratuit signale `hreflang_invalid_code`, `hreflang_duplicate_code` et `hreflang_missing_self`. La réciprocité nécessite un crawl, proposé par Pro.
 :::
 
 ::: info Coût sur les grands catalogues
