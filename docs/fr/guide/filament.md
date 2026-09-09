@@ -48,8 +48,8 @@ Ouvrez un enregistrement existant, saisissez une description SEO, enregistrez pu
 
 La section comprend :
 
-- **Titre et description** avec compteurs. La [politique de longueur (EN)](/guide/multilingual#title-and-description-budgets-per-script) tient compte de l'écriture : 60/160 pour les textes latins, environ 30/80 pour CJK, en graphèmes.
-- **Mots-clés cibles :** saisie sous forme de tags, enregistrés en `[{keyword, is_primary}]`. Le premier est principal ; `getPrimaryKeyword()` et `SEOData` lisent cette structure. Activez `seo.keywords.enabled` pour que [`seo:audit` (EN)](/fr/guide/audit) et Pro signalent les mots-clés manquants. Cette option est désactivée par défaut ; voir [configuration (EN)](/reference/configuration#focus-keywords).
+- **Titre et description** avec compteurs. La [politique de longueur](/fr/guide/multilingual#title-and-description-budgets-per-script) tient compte de l'écriture : 60/160 pour les textes latins, environ 30/80 pour CJK, en graphèmes.
+- **Mots-clés cibles :** saisie sous forme de tags, enregistrés en `[{keyword, is_primary}]`. Le premier est principal ; `getPrimaryKeyword()` et `SEOData` lisent cette structure. Activez `seo.keywords.enabled` pour que [`seo:audit`](/fr/guide/audit) et Pro signalent les mots-clés manquants. Cette option est désactivée par défaut ; voir [configuration (EN)](/reference/configuration#focus-keywords).
 - **URL canonique :** vide pour une URL automatique, dont les paramètres de requête sont retirés.
 - **Robots :** vide pour la valeur du site.
 - **Image sociale :** téléversement pour `og:image` et `twitter:image`, stocké sous `seo/` sur le disque par défaut de Filament.
@@ -70,7 +70,7 @@ La section se lie au groupe d'état `seo_meta` et enregistre via la relation `se
 
 ## Plusieurs langues {#several-languages}
 
-Le Core conserve [une ligne `seo_meta` par modèle et langue (EN)](/fr/guide/multilingual). Depuis Filament 1.9, fournissez les langues publiées pour obtenir un onglet par langue :
+Le Core conserve [une ligne `seo_meta` par modèle et langue](/fr/guide/multilingual). Depuis Filament 1.9, fournissez les langues publiées pour obtenir un onglet par langue :
 
 ```php
 static::seoSection(locales: ['en', 'it', 'ja']);

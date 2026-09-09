@@ -141,6 +141,31 @@
       "source": "guide/filament.md",
       "sha256": "ae6cf109c425e0a88a5632452240f7f95cde43bc3eeac8d1880fc9ab94f8c762",
       "native_review": null
+    },
+    "fr/guide/audit.md": {
+      "source": "guide/audit.md",
+      "sha256": "cbe99fd4ca4b431a79992c871197ab90c8752afc2e69f600c38d1283412dd99b",
+      "native_review": null
+    },
+    "fr/guide/ai-crawlers.md": {
+      "source": "guide/ai-crawlers.md",
+      "sha256": "30895f227130c9e06315b53c7c7cac342dc9755f7ed1813c3d560633dfff8c4b",
+      "native_review": null
+    },
+    "fr/guide/migrate-from-other-packages.md": {
+      "source": "guide/migrate-from-other-packages.md",
+      "sha256": "8c54cb9a8ca35389d98f1da0e64ac6aed6c02696f19c6eec5d61966b218b7cc1",
+      "native_review": null
+    },
+    "fr/guide/multilingual.md": {
+      "source": "guide/multilingual.md",
+      "sha256": "3ae9687568846476d3c5f972f34b14124409eb67e401569e1eec5a11305945af",
+      "native_review": null
+    },
+    "fr/guide/og-image.md": {
+      "source": "guide/og-image.md",
+      "sha256": "a81efedc1d833ea7c3c06e561aaadfea078bc87962a1127a904cd4fc677a0338",
+      "native_review": null
     }
   }
 }
