@@ -9,3 +9,5 @@
 * text=auto
 /.node-version export-ignore
 /wrangler.jsonc export-ignore
+/tools export-ignore
+/resources/data/language-registry.json -text

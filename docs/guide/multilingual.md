@@ -142,13 +142,16 @@ that is separate from `CaseFolder` and identity matching.
 
 ## hreflang
 
-Google reads `language[-Script][-REGION]` — ISO 639-1 language, optional
-ISO 15924 script, optional ISO 3166-1 (or UN M.49) region — plus `x-default`.
+Google reads `language[-Script][-REGION]` — ISO 639-1 two-letter language,
+optional ISO 15924 script and optional ISO 3166-1 alpha-2 region — plus
+`x-default`. Numeric regions such as `es-419` are valid BCP47 but outside
+[Google's hreflang contract](https://developers.google.com/search/docs/specialty/international/localized-versions#supported-language-and-region-codes).
 Laravel apps tend to hand over their *locale* instead (`it_IT`, `pt_br`), and an
 underscore is not valid there. Three policies in `seo.hreflang` apply to a
 model's `getSEOAlternates()` list **before** it becomes `<link rel="alternate">`
-tags, sitemap `<xhtml:link>` entries, `llms.txt` links and audit input — one
-list, seen identically everywhere:
+tags, sitemap `<xhtml:link>` entries, `llms.txt` links and audit input. All use
+the same policy; `llms.txt` omits the page itself and `x-default` from its
+“Also in” links:
 
 ```php
 'hreflang' => [
@@ -158,8 +161,9 @@ list, seen identically everywhere:
 ],
 ```
 
-- **`normalize`** (on by default) rewrites every code to its BCP 47 form. Turn it
-  off to emit codes exactly as returned.
+- **`normalize`** (on by default) adapts separators, case and registered aliases
+  (`iw_IL` → `he-IL`). It preserves repeated separators (`en__US` → `en--US`)
+  so the audit can flag them. Turn it off to retain the supplied bytes.
 - **`include_self`** appends the page's own locale + canonical when neither its
   URL nor its code is in the list. Google requires each language version to list
   itself; turn this on when your hook returns only the *other* languages.
@@ -173,14 +177,14 @@ The free audit adds three checks on the policy-applied list:
 
 | Code | Severity | Meaning |
 |---|---|---|
-| `hreflang_invalid_code` | warning | A code search engines ignore (`en-UK`, `jp`, `english`). |
+| `hreflang_invalid_code` | warning | A code outside Google's contract (`en-UK`, `jp`, `english`, `es-419`, `fil`). |
 | `hreflang_duplicate_code` | notice | The same code listed twice. |
 | `hreflang_missing_self` | warning | The page's own URL is not in its list. |
 
 Reciprocity (does the other page point back?) needs a crawl; that is the Pro
 scan's job — its opt-in `check_hreflang_reciprocity` fetches each alternate
 through the SsrfGuard and emits `hreflang_not_reciprocal` when the other page
-does not declare this one (Pro 2.34, see
+does not declare this one's URL **with its language code** (Pro 2.38+, see
 [scan issues](/pro/scan-issues#network-codes)). The helper is public if you
 need it:
 
@@ -191,6 +195,64 @@ Hreflang::fromLocale(app()->getLocale()); // 'it_IT' → 'it-IT'
 Hreflang::isValid('pt-BR');               // true
 Hreflang::isValid('en-UK');               // false
 ```
+
+### Three language-code contracts
+
+Core **3.18+** separates an application setting from the value served in HTML:
+
+| Input | Application normalization | HTML language | Google hreflang |
+|---|---|---|---|
+| `pt_BR` | `pt-BR` | Invalid as served | Invalid as served |
+| `de-CH-1901` | Preserved | Valid registered variant | Unsupported variant |
+| `es-419` | Preserved | Valid numeric region | Unsupported numeric region |
+| `zh-Hant-TW` | Preserved | Valid | Valid |
+| `fil` | Preserved | Valid registered language | Outside the two-letter contract |
+| `iw_IL` | `he-IL` | Underscore is invalid; `iw-IL` remains a valid deprecated tag | Use normalized `he-IL` |
+| `en__US` | `en--US` | Invalid | Invalid |
+| `x-default` | Preserved | Rejected by Rankbeam's content-language policy | Valid fallback marker |
+
+```php
+use Rankbeam\Seo\I18n\LanguageTag;
+
+LanguageTag::isValidHtml('de-CH-1901');    // true
+LanguageTag::isValidHtml('en_US');        // false: inspect the served value
+LanguageTag::isValidHtml('');             // true: HTML defines this as unknown
+LanguageTag::isValid('x-default');        // true: generic BCP47 private use
+LanguageTag::isValidHtml('x-default');    // false: Rankbeam content-language policy
+Hreflang::isValid('es-419');              // false: Google compatibility
+Hreflang::isValid(Hreflang::fromLocale('pt_BR')); // true: application boundary
+```
+
+**Migration from core 3.17 and earlier:** `Hreflang::isValid()` and `parse()`
+validate served codes strictly. If a caller supplies a Laravel locale, call
+`fromLocale()` first. If it inspects an HTML `lang` attribute, use
+`LanguageTag::isValidHtml()` without trimming or normalizing it. Deprecated
+registered tags remain valid for HTML; normalization applies only explicit
+IANA preferred aliases and does not guess that `en-UK` means `en-GB`.
+Malformed entries are not filtered out before the audit can report them.
+
+The validator bundles facts from IANA's registry dated **2026-08-08**, with
+source hashes and a reproducible generator. It checks RFC 5646 structure,
+registered subtags, extlang prefixes and duplicate variants/extensions. It
+supports grandfathered tags and private-use ranges. Variant prefix
+recommendations are not mandatory validity rules; extension namespaces and
+structure are checked, while CLDR option semantics and private-use meaning
+remain outside the API. No ICU or runtime download is required. See
+[RFC 5646](https://www.rfc-editor.org/rfc/rfc5646.html) and the
+[HTML language definition](https://html.spec.whatwg.org/multipage/dom.html#the-lang-and-xml:lang-attributes).
+
+Pro **2.38+** reports an absent or empty `lang` as unknown/missing, while malformed
+served bytes produce `html_lang_invalid`. Script mismatch checks use an actual
+script subtag or IANA's registered default; private/extension payloads and
+unfamiliar languages do not imply Latin. Unsupported script groups remain
+unjudged. These checks are not a full language detector.
+
+Reciprocity uses the source page's valid self-reference codes, or its valid
+Google-compatible HTML language when self-reference codes are absent. A return
+URL under another language code does not pass. When the source code cannot be
+established, the result stays `hreflang_target_unverified`. Duplicate target
+URLs are fetched once within the existing alternate/body limits; SSRF guards,
+redirect refusal and unverified failure handling remain in force.
 
 ## `inLanguage` in the schema graph
 
