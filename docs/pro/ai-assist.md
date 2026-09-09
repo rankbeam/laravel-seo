@@ -297,26 +297,29 @@ provider results and intended locale before discarding it with `--fresh`; otherw
 a replacement submission can bill the same work again. A legacy sequential
 checkpoint with processed records likewise requires reconciliation before reset.
 
-### Per-language eval fixtures
+### Per-language evaluation
 
-`tests/Fixtures/ai-evals/{locale}.json` in the Pro repository holds ten
-realistic pages for each shipped language — the ten Tier 1 locales and, since
-Pro 2.35, the seven Tier 2 ones (`ja`, `zh_CN`, `zh_TW`, `ko`, `el`, `uk`, `cs`),
-170 pages written natively, not translated (a product, a how-to, a local service,
-a recipe, a news item, a finance page, a travel page, a docs page, a job listing
-and an event). Two layers guard the prompts:
+The Pro source repository contains 170 input pages across 17 locales, plus an
+opt-in evaluation harness. The input pages have structural and base-language
+heuristic checks; independent native approval remains pending.
 
-- **Offline, always in CI**: every fixture is well-formed and the built-in
-  stop-word language guesser identifies each page's language.
-- **Live, opt-in** — `SEO_PRO_AI_EVAL=1` with a real key runs two titles and two
-  descriptions per page against your provider, asserts the output language and
-  the script-aware length budget, and writes `storage/app/seo-ai-evals/{locale}.json`
-  for a native reviewer to score (*would you publish this without editing?*,
-  1–5). A language counts as supported by AI-assist when its ten pages average
-  4 or better. The review protocol is in the fixtures' `README.md`.
+The harness checks **both titles and descriptions**, records grapheme lengths and
+language/script evidence, and preserves each provider response before assertions.
+Short titles, mixed text and shared Chinese/Japanese characters can remain
+uncertain. A Portuguese base-language guess does not establish Brazilian usage,
+and the partial Chinese character checks do not certify regional writing quality.
 
-A driver or prompt change that silently degrades Italian while English still
-looks fine fails the live eval; that is what it is for.
+Live runs require `SEO_PRO_AI_EVAL=1`, an explicit `SEO_PRO_AI_EVAL_LOCALES`
+selection and a `SEO_PRO_AI_EVAL_RUN` ID. They can incur provider charges; none run
+by default. Each run binds its evidence to the provider, requested/returned model,
+fixture/request/code hashes and timestamps. Failed attempts remain available.
+Resuming reuses saved responses; an interrupted request needs an explicit retry
+because it may already have reached the provider.
+
+Evidence is stored under `storage/app/seo-ai-evals/<run-id>/` in the source test
+environment. The fixture `README.md` documents the versioned schema and commands.
+Native reviewers score exact output hashes in separate review records. A passing
+automatic check is not native approval or a guarantee of publishable copy.
 
 ## Limits and tuning
 
