@@ -1,11 +1,35 @@
 ---
-description: "From install to fully rendered meta tags in five minutes: add the HasSEO trait, save a model's SEO fields, and render them in Blade. Every step is copy-pasteable."
+description: "Install Rankbeam, add the HasSEO trait to an existing model, save SEO fields, and verify the rendered tags in Blade."
 ---
 
 # Quickstart
 
-Five minutes from install to fully rendered meta tags. This walkthrough is
-verified against a fresh Laravel app — every block is copy-pasteable.
+Start with an existing Laravel 11, 12 or 13 application and a working database.
+You need PHP 8.2+ (8.3+ for Laravel 13). The core is free under the MIT license;
+no account or Pro license is required.
+
+## Install
+
+Run these commands from your application's directory:
+
+```bash
+composer require rankbeam/laravel-seo
+php artisan vendor:publish --tag=seo-config
+php artisan migrate
+```
+
+The service provider is auto-discovered. The migration creates the SEO tables;
+it does not create your application's content models.
+
+## Before the example
+
+The steps below assume you already have a `Post` model, a saved post, and a
+`posts.show` route whose Blade view receives that post as `$post`. Adapt these
+names to your app. This guide adds SEO to that page; it does not build a blog.
+
+Set `APP_URL` to your site's public origin in `.env`. For other rendering
+stacks, use the [Inertia & JSON guide](/guide/inertia-json) or
+[Livewire guide](/guide/livewire).
 
 ## 1. Add the trait to a model
 
@@ -61,10 +85,22 @@ silently disables `HasSEO`'s auto-create hook. Remove the trait or call
 `saveSEO()` explicitly in seeders.
 :::
 
-## 4. Sitemaps
+## 4. Verify the result
+
+Open the post's public page and use **View page source**. In the `<head>`, check
+that the title contains `Custom SEO Title`, the description is
+`Custom meta description`, and the canonical points to the public post URL.
+Your configured title suffix may follow the title.
+
+Render `@seo($post)` once per page. If the layout already emits title or meta
+tags, replace those tags to avoid duplicates. If a value is unexpected, use the
+[resolution guide](/guide/explain) to inspect where it came from.
+
+## 5. Add a sitemap (optional)
 
 ```php
 // e.g. in AppServiceProvider::boot()
+use App\Models\Post;
 use Rankbeam\Seo\Facades\SEO;
 
 SEO::sitemaps()->register('posts', Post::class);
