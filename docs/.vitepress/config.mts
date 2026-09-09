@@ -1,5 +1,8 @@
 import { defineConfig } from 'vitepress'
 import { generateLlmsArtifacts, SITE_ORIGIN } from './llms'
+import { alternatePaths, localeInfo, pageTitles, translatedPaths, translationFiles, verifyTranslationSources } from './localization'
+
+verifyTranslationSources()
 
 // Default social-share image: the brand OG card, self-hosted in docs/public so
 // every card resolves to an absolute docs URL that returns 200 (1200×630 PNG).
@@ -155,6 +158,21 @@ export default defineConfig({
   description:
     'Laravel SEO package for layered metadata, canonical URLs, Open Graph, linked JSON-LD, XML sitemaps and crawler controls.',
   lang: 'en-US',
+  locales: {
+    root: { label: 'English', lang: 'en-US' },
+    ...Object.fromEntries(Object.entries(localeInfo).map(([locale, info]) => [locale, {
+      label: info.label, lang: info.lang,
+      description: 'Documentazione Rankbeam per Laravel: metadati, sitemap, crawler e campi SEO per Filament.',
+      themeConfig: {
+        nav: [{ text: info.guide, link: `/${locale}/guide/quickstart` }, { text: 'Pro (EN)', link: `/${locale}/pro/installation` }, { text: 'Rankbeam ↗', link: 'https://rankbeam.dev' }],
+        sidebar: [{ text: info.guide, items: translatedPaths(locale).map(p => ({ text: pageTitles[p as keyof typeof pageTitles], link: `/${locale}/${p}` })) }, { text: info.english, items: [{ text: 'Reference (EN)', link: `/${locale}/reference/configuration` }, { text: 'Pro (EN)', link: `/${locale}/pro/installation` }] }],
+        outline: { label: info.outline }, docFooter: { prev: info.prev, next: info.next },
+        returnToTopLabel: 'Torna in alto', sidebarMenuLabel: 'Menu', darkModeSwitchLabel: 'Tema scuro', lightModeSwitchTitle: 'Passa al tema chiaro', darkModeSwitchTitle: 'Passa al tema scuro',
+        editLink: { pattern: 'https://github.com/rankbeam/laravel-seo/edit/master/docs/:path', text: 'Modifica questa pagina su GitHub' },
+        footer: { message: 'rankbeam/laravel-seo è distribuito con licenza MIT.', copyright: 'Copyright © 2026 Valentin Goxhaj — P.IVA 04936270612' },
+      },
+    }])),
+  },
   lastUpdated: true,
   cleanUrls: true,
 
@@ -166,7 +184,19 @@ export default defineConfig({
   // lastUpdated is on above — stamps each entry's <lastmod> from git. Redirect
   // routes (docs/public/_redirects) and the raw .md copies aren't VitePress
   // pages, so they never enter the sitemap.
-  sitemap: { hostname: SITE_ORIGIN },
+  sitemap: { hostname: SITE_ORIGIN, transformItems: items => items.filter(item => {
+    const p = item.url.replace(/^\//, '').replace(/\.html$/, '')
+    const [locale, ...rest] = p.split('/')
+    const target = (!p || p.endsWith('/') ? p + 'index' : p) + '.md'
+    return !(locale in localeInfo) || translationFiles(locale).includes(target)
+  }).map(item => {
+    const p = item.url.replace(/^\//, '').replace(/\.html$/, '')
+    const relative = (!p || p.endsWith('/') ? p + 'index' : p) + '.md'
+    const alternates = alternatePaths(relative)
+    return { ...item, links: alternates.length > 1
+      ? [...alternates.map(a => ({ lang: a.lang, url: canonicalFor(a.path) })), { lang: 'x-default', url: canonicalFor(alternates[0].path) }]
+      : [] }
+  }) },
 
   // Per-page head that VitePress can't add statically: one absolute
   // self-canonical plus Open Graph / Twitter Card metadata, injected into each
@@ -180,6 +210,20 @@ export default defineConfig({
     if (pageData.isNotFound || !pageData.relativePath || !pageData.filePath) return
 
     const head = (pageData.frontmatter.head ??= [])
+    if (pageData.frontmatter.fallbackFor) {
+      head.push(['link', { rel: 'canonical', href: new URL(pageData.frontmatter.fallbackFor, SITE_ORIGIN).toString() }], ['meta', { name: 'robots', content: 'noindex,follow' }])
+      return
+    }
+    const locale = pageData.relativePath.split('/')[0] as keyof typeof localeInfo
+    if (locale in localeInfo) {
+      pageData.frontmatter.translationNotice = localeInfo[locale].review
+      pageData.frontmatter.sourceLabel = localeInfo[locale].source
+    }
+    const alternates = alternatePaths(pageData.relativePath)
+    if (alternates.length > 1) {
+      for (const alternate of alternates) head.push(['link', { rel: 'alternate', hreflang: alternate.lang, href: canonicalFor(alternate.path) }])
+      head.push(['link', { rel: 'alternate', hreflang: 'x-default', href: canonicalFor(alternates[0].path) }])
+    }
     // If a page already declares its own canonical it is managing its head
     // deliberately; don't add a second one (keeps exactly one canonical/page).
     if (head.some((h: any) => h[0] === 'link' && h[1]?.rel === 'canonical')) return
@@ -295,6 +339,10 @@ export default defineConfig({
 
     search: {
       provider: 'local',
+      options: { locales: { it: { translations: {
+        button: { buttonText: 'Cerca', buttonAriaLabel: 'Cerca nella documentazione' },
+        modal: { displayDetails: 'Mostra dettagli', resetButtonTitle: 'Cancella ricerca', backButtonTitle: 'Chiudi ricerca', noResultsText: 'Nessun risultato per', footer: { selectText: 'seleziona', navigateText: 'naviga', closeText: 'chiudi', selectKeyAriaLabel: 'Invio', navigateUpKeyAriaLabel: 'Freccia su', navigateDownKeyAriaLabel: 'Freccia giù', closeKeyAriaLabel: 'Esc' } },
+      } } } },
     },
 
     outline: { level: [2, 3], label: 'On this page' },
