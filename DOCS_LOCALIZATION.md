@@ -1,10 +1,11 @@
 # Documentation translations
 
-English is the source. Italian covers all ten scoped guides: installation,
-quickstart, resolver precedence, sitemaps, Filament, audit, AI crawlers,
-multilingual/hreflang, OG images and migration, plus a language home. Native
-technical review of this documentation is pending; the maintainer's earlier
-Italian package-string credit is not approval of these pages.
+English is the source. Italian, German, French, Spanish and Brazilian Portuguese
+each cover ten scoped guides: installation, quickstart, resolver precedence,
+sitemaps, Filament, audit, AI crawlers, multilingual/hreflang, OG images and
+migration. Each also has a language home: 50 guides and five homes in total.
+Native technical review remains pending for these documentation translations;
+the maintainer's earlier Italian package-string credit does not approve them.
 
 `docs/.vitepress/localization.ts` defines active locales and navigation.
 Translated pages keep the English path and explicit heading anchors, preserve
@@ -33,13 +34,7 @@ viewports in a browser too. Restart `docs:preview` after rebuilding: its static
 asset inventory can retain old hashed asset names. A broken stale preview is
 not production evidence.
 
-German also covers all ten scoped guides plus home. Shared UI vocabulary is in
-`docs/.vitepress/locale-ui.ts`; only locales explicitly activated in
-`localization.ts` are published. The vocabulary includes the planned languages
-without advertising pages that have not been written.
-
-French and Spanish also cover all ten scoped guides plus home. Brazilian
-Portuguese covers installation, quickstart, resolver, sitemaps and Filament,
-plus home. Its remaining five references are next. The target remains ten
-scoped pages per language. Native technical review remains pending. The
-isolated source-gate test uses Node's TypeScript stripping (Node24.11.1).
+Shared UI vocabulary is in `docs/.vitepress/locale-ui.ts`; active locales are
+explicit in `localization.ts`. Keep code examples verbatim, translate prose and
+image descriptions, and preserve the English heading anchors when updating.
+The isolated source-gate test uses Node's TypeScript stripping (Node24.11.1).

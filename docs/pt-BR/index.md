@@ -11,6 +11,11 @@ O núcleo gratuito gerencia os metadados da sua aplicação. Comece pelo guia de
 - [Prioridade do resolvedor](/pt-BR/concepts/resolver-precedence)
 - [Registro de sitemaps](/pt-BR/guide/sitemaps)
 - [Campos SEO para Filament](/pt-BR/guide/filament)
+- [Auditoria SEO gratuita](/pt-BR/guide/audit)
+- [Controle de rastreadores de IA](/pt-BR/guide/ai-crawlers)
+- [Conteúdo multilíngue e hreflang](/pt-BR/guide/multilingual)
+- [Gerar imagens OG](/pt-BR/guide/og-image)
+- [Migrar de outros pacotes](/pt-BR/guide/migrate-from-other-packages)
 
 As demais páginas estão disponíveis em inglês. O seletor de idioma mantém a página atual. Quando falta uma tradução, ele mostra um link explícito para a versão em inglês.
 

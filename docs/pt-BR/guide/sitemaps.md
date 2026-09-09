@@ -171,7 +171,7 @@ public function getSEOAlternates(): ?array
 ::: warning Referências recíprocas e autorreferência
 Cada versão deve listar **a própria URL e as demais**, com referências recíprocas. `getSEOAlternates()` precisa devolver o conjunto completo em todas as versões. Use códigos `language[-Script][-REGION]` válidos ou `x-default`, com URLs `http(s)` absolutas. Entradas sem `hreflang` ou `href` preenchidos são ignoradas.
 
-Antes da escrita, aplicam-se as [políticas `seo.hreflang` (EN)](/guide/multilingual#hreflang): normalização (`it_IT` → `it-IT`) e inclusão opcional da própria página e de `x-default`. A lista é a mesma do `<head>`. A auditoria gratuita sinaliza `hreflang_invalid_code`, `hreflang_duplicate_code` e `hreflang_missing_self`; reciprocidade exige o rastreamento do Pro.
+Antes da escrita, aplicam-se as [políticas `seo.hreflang`](/pt-BR/guide/multilingual#hreflang): normalização (`it_IT` → `it-IT`) e inclusão opcional da própria página e de `x-default`. A lista é a mesma do `<head>`. A auditoria gratuita sinaliza `hreflang_invalid_code`, `hreflang_duplicate_code` e `hreflang_missing_self`; reciprocidade exige o rastreamento do Pro.
 :::
 
 ::: info Custo em catálogos grandes
