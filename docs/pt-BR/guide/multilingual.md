@@ -4,7 +4,7 @@ description: "Conteúdo multilíngue no Rankbeam: limites por escrita, grafemas,
 
 # Conteúdo multilíngue
 
-As [traduções (EN)](/guide/translations) definem o idioma da interface. Esta página trata da **língua do conteúdo**: limites diferentes para japonês, corte de tailandês sem espaços, equivalência turca entre `İstanbul` e `istanbul`, correção de `it_IT` em hreflang e rastreadores como o Naver para a Coreia. Essas regras ficam no núcleo para manter os componentes alinhados.
+As [traduções](/pt-BR/guide/translations) definem o idioma da interface. Esta página trata da **língua do conteúdo**: limites diferentes para japonês, corte de tailandês sem espaços, equivalência turca entre `İstanbul` e `istanbul`, correção de `it_IT` em hreflang e rastreadores como o Naver para a Coreia. Essas regras ficam no núcleo para manter os componentes alinhados.
 
 Os padrões e políticas ficam em `config/seo.php`. Algumas funções precisam de ICU para segmentar palavras ou de fontes instaladas para renderizar caracteres. A aplicação deve fornecer o conteúdo traduzido.
 
@@ -265,4 +265,4 @@ A cobertura técnica inclui robôs e verificação: Naver para a Coreia, Seznam 
 ## O que os outros pacotes acrescentam {#what-the-other-packages-add}
 
 - **laravel-seo-filament** usa a mesma política em contadores e prévia SERP. Desde 1.9, edita [uma linha `seo_meta` por idioma](/pt-BR/guide/filament#several-languages), com abas e indicadores próprios ou seguindo o seletor de um plugin.
-- **laravel-seo-pro** usa a política em `title_length`, `description_length` e prompts de IA. A análise inclui ICU para chinês, japonês e tailandês, Snowball, correspondência com `CaseFolder`, fórmulas publicadas com entradas estimadas para dez línguas, heurísticas CJK identificadas, LIX para grego/ucraniano/tcheco, stop words para 16 línguas, `html lang`, reciprocidade hreflang, prompts com idioma e relatórios Chrome para escritas não renderizadas pelo dompdf. Veja [checklist (EN)](/pro/on-page-checklist#keyword-matching), [problemas (EN)](/pro/scan-issues), [assistência IA (EN)](/pro/ai-assist#output-language) e [relatórios (EN)](/pro/reports#reports-in-every-script-browsershot-renderer).
+- **laravel-seo-pro** usa a política em `title_length`, `description_length` e prompts de IA. A análise inclui ICU para chinês, japonês e tailandês, Snowball, correspondência com `CaseFolder`, fórmulas publicadas com entradas estimadas para dez línguas, heurísticas CJK identificadas, LIX para grego/ucraniano/tcheco, stop words para 16 línguas, `html lang`, reciprocidade hreflang, prompts com idioma e relatórios Chrome para escritas não renderizadas pelo dompdf. Veja [checklist (EN)](/pro/on-page-checklist#keyword-matching), [problemas (EN)](/pt-BR/pro/scan-issues), [assistência IA (EN)](/pro/ai-assist#output-language) e [relatórios (EN)](/pro/reports#reports-in-every-script-browsershot-renderer).

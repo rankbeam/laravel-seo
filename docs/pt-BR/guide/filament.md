@@ -145,7 +145,7 @@ public static function form(Schema $schema): Schema
 }
 ```
 
-Você também pode usar `SEOSchemaFields::make()` sem trait. A seção grava em `seo_meta.schema_jsonld`, lido pelo [renderizador de schemas (EN)](/pt-BR/guide/schema). Ela apenas conecta a interface: os builders do núcleo produzem os documentos e `SchemaValidator` os valida antes de salvar.
+Você também pode usar `SEOSchemaFields::make()` sem trait. A seção grava em `seo_meta.schema_jsonld`, lido pelo [renderizador de schemas](/pt-BR/guide/schema). Ela apenas conecta a interface: os builders do núcleo produzem os documentos e `SchemaValidator` os valida antes de salvar.
 
 Opções disponíveis:
 
