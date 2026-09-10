@@ -175,7 +175,7 @@ Prima dell'emissione si applicano le [policy `seo.hreflang`](/it/guide/multiling
 :::
 
 ::: info Costo sui cataloghi grandi
-Con almeno un’estensione attiva, il builder risolve `seoData()` per immagini e varianti linguistiche. Il normale percorso dei modelli risolve i metadati anche in `shouldInclude()` per controllare robots. Con la cache del resolver disattivata, come da default, un record incluso può quindi percorrere due volte la catena di precedenza. Ogni risoluzione può comportare operazioni di cache o database, oltre alle query dei getter `getSEO*()` personalizzati. Esegui `seo:sitemap` come comando pianificato, non durante una richiesta web. Misura il costo prima di attivare le estensioni vicino al limite di 50.000 URL e lasciale disattivate se non ti servono.
+Dal **core 3.20.1**, il controllo di inclusione del modello e le estensioni immagini/hreflang riusano lo stesso `seoData()` risolto durante la costruzione di ciascun URL. Il riuso termina dopo quell’URL, anche in caso di errore; una costruzione successiva o un’altra lingua risolve dati aggiornati. Nella 3.20.0, con la cache del resolver disattivata come da default, inclusione ed estensioni potevano percorrere due volte la catena. Ogni risoluzione può ancora accedere a cache o database e i getter `getSEO*()` personalizzati possono aggiungere query. Esegui `seo:sitemap` come comando **pianificato**, fuori dalla richiesta web. Misura il costo vicino ai 50.000 URL e lascia spente le estensioni che non ti servono.
 :::
 
 ::: tip Hai già pubblicato la configurazione?

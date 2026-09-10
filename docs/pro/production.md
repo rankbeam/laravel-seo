@@ -59,6 +59,8 @@ Do these in order — each step is verifiable before the next:
    Console are all off by default. The crawler needs its tables migrated (step 1
    already published them) and a dedicated worker (below).
 
+**Upgrading to Pro 2.41.0:** pause scan workers, publish migrations with `php artisan vendor:publish --tag=seo-pro-migrations --force`, run `php artisan migrate`, then restart workers and run `php artisan seo:doctor`. The new `seo_scan_target_completions` table and `seo_scan_runs.target_tracking` column are required. Per-run/target receipts prevent duplicate terminal outcomes from inflating counters; the first accepted outcome wins. Old queued runs with no processed targets continue. Partly processed pre-upgrade runs preserve history but close with a fresh-scan instruction on their next delivery. Retry exhausted targets in a new run. For rollback, stop workers and revert code before rolling back the migration; keep a pre-upgrade database backup if you need to undo later scans too.
+
 ## Dedicated queues per workload
 
 A long scan or crawl must never sit in front of user-facing jobs (mail,

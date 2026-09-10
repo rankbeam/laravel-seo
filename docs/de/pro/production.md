@@ -44,6 +44,8 @@ Gehe in dieser Reihenfolge vor. Prüfe jeden Schritt, bevor du den nächsten beg
 
 5. **Optionale Funktionen zuletzt aktivieren**. Der Crawler für defekte Links, die KI-Unterstützung und Search Console sind standardmäßig deaktiviert. Für den Crawler müssen seine Tabellen migriert sein (Schritt 1 veröffentlicht die Migrationen bereits); außerdem braucht er einen eigenen Worker (siehe unten).
 
+**Upgrade auf Pro 2.41.0:** pausiere Scan-Worker, veröffentliche Migrationen mit `php artisan vendor:publish --tag=seo-pro-migrations --force`, führe `php artisan migrate` aus, starte Worker neu und prüfe mit `php artisan seo:doctor`. Die Tabelle `seo_scan_target_completions` und die Spalte `seo_scan_runs.target_tracking` sind erforderlich. Belege je Lauf/Ziel verhindern, dass doppelte Endergebnisse Zähler erhöhen; das erste akzeptierte Ergebnis gilt. Alte Warteschlangenläufe ohne verarbeitete Ziele laufen weiter. Vor dem Upgrade teilweise verarbeitete Läufe behalten ihre Historie, werden aber bei der nächsten Zustellung mit der Aufforderung zu einem neuen Scan geschlossen. Starte für ausgeschöpfte Ziele einen neuen Lauf. Stoppe beim Rollback die Worker und setze zuerst den Code, dann die Migration zurück; behalte ein vorheriges Datenbankbackup, um auch spätere Scans rückgängig machen zu können.
+
 ## Eigene Queues für jede Aufgabenart {#dedicated-queues-per-workload}
 
 Ein langer Scan oder Crawl sollte keine nutzerbezogenen Jobs wie E-Mails oder Benachrichtigungen aufhalten. Gib jeder SEO-Aufgabenart eine eigene Queue und einen eigenen Worker.
