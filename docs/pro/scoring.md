@@ -29,8 +29,8 @@ The score is computed from a **published, versioned rubric** —
 
 | Severity | Penalty | Meaning |
 |---|---|---|
-| `critical` | **−40** | Blocks indexing or breaks the page. |
-| `warning` | **−15** | A real defect to fix soon. |
+| `critical` | **−40** | High-impact finding in this rubric. |
+| `warning` | **−15** | Finding to investigate soon. |
 | `notice` | **−5** | A nice-to-have. |
 
 Each code's severity is read straight from the [issue registry](/pro/scan-issues)
@@ -39,8 +39,9 @@ Each code's severity is read straight from the [issue registry](/pro/scan-issues
 
 ### What the score counts
 
-Every code below is a deterministic, objective defect of the page itself. A
-critical costs 40, a warning 15, a notice 5.
+These are deterministic checks selected by Rankbeam’s product rubric, including
+heuristics that need editorial interpretation. A critical costs 40, a warning 15,
+a notice 5; the score is not a prediction of search performance.
 
 | Code | Severity | Penalty |
 |---|---|---|
@@ -85,16 +86,19 @@ contract (a test asserts every registry code is either scored or listed here):
 | Code | Why it's excluded |
 |---|---|
 | `missing_focus_keyword` | **Advisory.** Gated behind the opt-in `seo.keywords.enabled` workflow — a page must not score lower for not adopting focus keywords, and the score must not depend on a config flag. |
-| `noindex_page` | **Informational.** Being `noindex` is a deliberate state, not a meta-quality defect. The "noindex on an apparently important page" contradiction is scored via `noindex_warning` instead. |
+| `noindex_page` | **Informational.** Being `noindex` is a deliberate state, not a meta-quality defect. The "noindex with a self-canonical" heuristic is scored via `noindex_warning` instead. |
 | `multiple_h1` | **Informational.** Google tolerates multiple H1s — no multi-H1 penalty. |
 | `blocked_url` | **Absence of evidence.** The SsrfGuard refused the fetch, so the page was never checked — not a defect of the page. |
 | `canonical_target_blocked` | **Absence of evidence.** The canonical target could not be verified — not a defect of the page. |
-| `hreflang_invalid_code`, `hreflang_missing_self_reference`, `hreflang_duplicate_code`, `hreflang_missing_x_default` | **Advisory (for now).** The hreflang validator surfaces in the scan + free audit but does not yet move the score — adding it would require a `VERSION` bump. |
+| `hreflang_invalid_code`, `hreflang_missing_self_reference`, `hreflang_duplicate_code`, `hreflang_missing_x_default` | **Advisory (for now).** These Pro hreflang codes surface in the scan; the free audit has its own hreflang codes but does not yet move the score — adding it would require a `VERSION` bump. |
+| `html_lang_missing`, `html_lang_invalid`, `html_lang_mismatch` | **Advisory.** Language checks are held out of this rubric. |
+| `hreflang_not_reciprocal` | **Advisory.** Optional reciprocity check, not scored. |
+| `hreflang_target_unverified` | **Absence of evidence.** Reciprocity could not be verified. |
 | `aeo_missing_author`, `aeo_article_missing_date` | **Advisory.** Answer-readiness (AEO) signals — they flag an article missing an author entity or a publish date in the scan + free audit, but do not move the score (would require a `VERSION` bump). |
 
 Keyword density, power words, and the rest of the
 [on-page checklist](/pro/on-page-checklist) never enter the score at all — they
-are advisory checks (a separate, never-gameable pass/warn/fail list), not
+are advisory checks (a separate pass/warn/fail list), not
 registry codes.
 
 ## Versioning — historical scores never silently change

@@ -129,7 +129,7 @@ Wenn die importierten Daten geprüft sind, kannst du `ralphjsmit/laravel-seo` en
 | `SEOMeta::setTitle($t)` | `saveSEO(['title' => $t])` oder `getSEOTitle()` |
 | `SEOMeta::setDescription($d)` | `saveSEO(['description' => $d])` oder `getSEODescription()` |
 | `SEOMeta::setCanonical($u)` | `saveSEO(['canonical' => $u])` oder `getUrlForSEO()` |
-| `SEOMeta::addKeyword(...)` | `saveSEO(['focus_keywords' => [...]])`, siehe [Audit](/de/guide/audit) |
+| `SEOMeta::addKeyword(...)` | Kein gleichwertiges Keywords-Metatag: Fokus-Keywords dienen internen redaktionellen Prüfungen. `saveSEO(['focus_keywords' => [...]])`, siehe [Audit](/de/guide/audit) |
 | `OpenGraph::setTitle / setDescription / addImage` | `saveSEO(['og_title' => …, 'og_description' => …, 'og_image' => …])` |
 | `TwitterCard::setType / setTitle / setImage` | `saveSEO(['twitter_card' => …, 'twitter_title' => …, 'twitter_image' => …])` |
 | `JsonLd::setType(...)` / `JsonLdMulti` | [JSON-LD-Schema-Graph (EN)](/guide/schema) |

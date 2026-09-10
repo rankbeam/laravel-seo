@@ -16,7 +16,7 @@ Il pacchetto offre sette direttive Blade per le applicazioni con rendering sul s
 </head>
 ```
 
-`@seo` risolve il modello attraverso la [catena di priorità](/it/concepts/resolver-precedence) e genera l’intero blocco head: `<title>`, meta description, link canonical, robots, tag Open Graph, tag Twitter Card e JSON-LD associato. Il tag robots viene emesso **solo quando differisce dal valore predefinito del sito**: `index,follow` viene omesso perché la sua assenza ha già quel significato. Imposta `seo.robots.emit_default` per generarlo sempre. Il [contratto di rendering (EN)](/it/contributing/rendering-contract) descrive il comportamento completo.
+`@seo` risolve il modello attraverso la [catena di priorità](/it/concepts/resolver-precedence) e genera l’intero blocco head: `<title>`, meta description, link canonical, robots, tag Open Graph, tag Twitter Card e JSON-LD associato. Il tag robots viene emesso **solo quando differisce dal valore predefinito del sito**: `index,follow` viene omesso perché la sua assenza ha già quel significato. Imposta `seo.robots.emit_default` per generarlo sempre. Il [contratto di rendering](/it/contributing/rendering-contract) descrive il comportamento completo.
 
 Firme delle chiamate:
 
@@ -66,7 +66,7 @@ return view('search.results', [
 Un `SEOData` costruito manualmente rappresenta una **scelta esplicita**. Ogni valore impostato viene conservato; durante il rendering vengono completati solo i dati mancanti:
 
 - `canonical` e `og:url` vengono ricavati dall’URL corrente quando sono assenti; un `canonical` esplicito viene mantenuto così com’è, query string compresa;
-- `title_suffix` viene aggiunto solo se manca nel titolo e viene ignorato del tutto se il titolo contiene già un termine del marchio: vedi [`title_suffix_skip_when_contains` (EN)](/it/reference/configuration);
+- `title_suffix` viene aggiunto solo se manca nel titolo e viene ignorato del tutto se il titolo contiene già un termine del marchio: vedi [`title_suffix_skip_when_contains`](/it/reference/configuration);
 - i percorsi relativi di `og:image` e `twitter:image` vengono convertiti in URL assoluti con `url()`, che rispetta lo schema corrente e **non** forza HTTPS;
 - `og:site_name` e `locale` vengono completati dalla configurazione e dalla lingua dell’applicazione.
 

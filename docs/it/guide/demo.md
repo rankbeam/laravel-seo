@@ -4,7 +4,7 @@ description: "Avvia la demo Rankbeam con dati di esempio e pacchetti rilasciati,
 
 # Avviare la demo {#run-the-demo}
 
-La demo permette di vedere Rankbeam su pagine reali prima di integrarlo nella tua applicazione. È un’app Laravel con dati di esempio che installa i pacchetti **rilasciati**, senza repository path né checkout affiancati. Genera alcune pagine con metadati SEO completi, un grafo JSON-LD e una sitemap. Con una licenza esegue anche l’[audit SEO tecnico (EN)](/it/pro/scan-issues) di Pro.
+La demo permette di vedere Rankbeam su pagine reali prima di integrarlo nella tua applicazione. È un’app Laravel con dati di esempio che installa i pacchetti **rilasciati**, senza repository path né checkout affiancati. Genera alcune pagine con metadati SEO completi, un grafo JSON-LD e una sitemap. Con una licenza esegue anche l’[audit SEO tecnico](/it/pro/scan-issues) di Pro.
 
 ## Un comando per il core gratuito {#one-command-free-core}
 
@@ -27,11 +27,11 @@ export COMPOSER_AUTH='{"http-basic":{"laravel-seo-pro.composer.sh":{"username":"
 WITH_PRO=true docker compose up --build
 ```
 
-All’avvio la demo esegue [`seo:doctor` (EN)](/pro/headless#setup-health-check) e una prima `seo-pro:scan` sulle pagine di esempio. Il report diagnostico, il riepilogo della scansione e il [punteggio da 0 a 100 (EN)](/it/pro/scoring) compaiono nei log di Compose.
+All’avvio la demo esegue [`seo:doctor`](/it/pro/headless#setup-health-check) e una prima `seo-pro:scan` sulle pagine di esempio. Il report diagnostico, il riepilogo della scansione e il [punteggio da 0 a 100](/it/pro/scoring) compaiono nei log di Compose.
 
 ## Vedere il flusso di lavoro di Pro {#see-the-pro-workflow}
 
-La guida [scansione → correzione → report (EN)](/it/pro/walkthrough) mostra una demo Merchant in esecuzione: una scansione reale, i dettagli dei problemi, una descrizione salvata in Filament, una nuova scansione e un PDF scaricabile. I contenuti sono identificati come dati di esempio; il confronto prima/dopo deriva da due scansioni effettive.
+La guida [scansione → correzione → report](/it/pro/walkthrough) mostra una demo Merchant in esecuzione: una scansione reale, i dettagli dei problemi, una descrizione salvata in Filament, una nuova scansione e un PDF scaricabile. I contenuti sono identificati come dati di esempio; il confronto prima/dopo deriva da due scansioni effettive.
 
 Non è ancora disponibile una demo interattiva pubblica ospitata online. Usa Docker per eseguire il motore in locale; il [README della demo](https://github.com/rankbeam/rankbeam-examples/tree/main/demo) spiega la configurazione e il passaggio tra pacchetti rilasciati e locali.
 

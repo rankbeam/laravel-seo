@@ -129,7 +129,7 @@ Après validation du résultat, vous pouvez retirer `ralphjsmit/laravel-seo` et 
 | `SEOMeta::setTitle($t)` | `saveSEO(['title' => $t])` ou `getSEOTitle()` |
 | `SEOMeta::setDescription($d)` | `saveSEO(['description' => $d])` ou `getSEODescription()` |
 | `SEOMeta::setCanonical($u)` | `saveSEO(['canonical' => $u])` ou `getUrlForSEO()` |
-| `SEOMeta::addKeyword(...)` | `saveSEO(['focus_keywords' => [...]])`, voir [audit](/fr/guide/audit) |
+| `SEOMeta::addKeyword(...)` | Pas de balise keywords équivalente : les mots-clés cibles servent aux contrôles éditoriaux internes. `saveSEO(['focus_keywords' => [...]])`, voir [audit](/fr/guide/audit) |
 | `OpenGraph::setTitle / setDescription / addImage` | `saveSEO(['og_title' => …, 'og_description' => …, 'og_image' => …])` |
 | `TwitterCard::setType / setTitle / setImage` | `saveSEO(['twitter_card' => …, 'twitter_title' => …, 'twitter_image' => …])` |
 | `JsonLd::setType(...)` / `JsonLdMulti` | [Graphe JSON-LD (EN)](/guide/schema) |

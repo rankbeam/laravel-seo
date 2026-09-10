@@ -2,11 +2,11 @@
 description: "Genera robots.txt e, facoltativamente, ai.txt da una policy sui crawler AI. Il core gratuito gestisce le preferenze di accesso; Pro aggiunge il monitoraggio."
 ---
 
-# Controllo dei crawler AI: robots.txt / ai.txt
+# Controllo dei crawler AI: robots.txt / ai.txt {#ai-crawler-control-robots-txt-ai-txt}
 
 Rankbeam include un catalogo di crawler AI e genera `robots.txt`, e facoltativamente `ai.txt`, da una policy allow/disallow. Puoi consentire i crawler di ricerca e degli assistenti ed esprimere il rifiuto per quelli che raccolgono dati di addestramento.
 
-È una funzione del core gratuito. Pro aggiunge il [registro delle visite dei bot AI (EN)](/pro/ai-bot-monitor), per osservare le richieste ricevute.
+È una funzione del core gratuito. Pro aggiunge il [registro delle visite dei bot AI](/it/pro/ai-bot-monitor), per osservare le richieste ricevute.
 
 ## Policy predefinita {#the-default-policy}
 
@@ -83,7 +83,7 @@ Il server web serve normalmente `public/robots.txt` prima che la richiesta arriv
 
 robots.txt esprime una richiesta: non impedisce tecnicamente l'accesso. Alcuni agenti avviati dall'utente, come `ChatGPT-User` e `Perplexity-User`, e alcuni crawler di addestramento, come `Bytespider`, non garantiscono di rispettarlo. Rankbeam contrassegna queste righe come `advisory`.
 
-Per bloccare un bot non conforme serve un controllo sul server o sull'edge, per esempio firewall, WAF o regole bot di Cloudflare. Il [registro Pro (EN)](/pro/ai-bot-monitor) aiuta a identificare le visite.
+Per bloccare un bot non conforme serve un controllo sul server o sull'edge, per esempio firewall, WAF o regole bot di Cloudflare. Il [registro Pro](/it/pro/ai-bot-monitor) attribuisce le richieste tramite user-agent, senza verificarne l’identità.
 
 ## Content signals: preferenze d'uso {#content-signals-usage-preferences}
 

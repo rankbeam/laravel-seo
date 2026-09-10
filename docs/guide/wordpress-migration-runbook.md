@@ -1,14 +1,13 @@
 ---
-description: "A step-by-step, low-risk procedure for replacing Yoast or Rank Math on a live site — importers fill only empty fields, dry-runs write nothing, WordPress stays untouched."
+description: "A step-by-step, low-risk procedure for replacing Yoast or Rank Math on a live site — importers fill empty fields by default, dry-runs write nothing, WordPress stays untouched."
 ---
 
 # WordPress → Rankbeam migration runbook
 
-A step-by-step, **low-risk** procedure for replacing a legacy WordPress SEO
-stack (Yoast or Rank Math) with Rankbeam on a real, live site. It is built so
-that **nothing is destructive until you have explicitly verified the import** —
-the importers only ever *fill empty* fields, dry-runs write nothing, and the old
-WordPress database/table stays untouched until you choose to drop it.
+A step-by-step procedure for replacing a WordPress SEO stack (Yoast or Rank Math)
+with Rankbeam. By default, importers fill empty destination fields; `--overwrite`
+explicitly permits replacement. Dry runs write nothing, and the source WordPress
+database stays untouched. Back up both source and destination before importing.
 
 This is the operational companion to [Migrating from WordPress](/guide/migrate-from-wordpress),
 which documents the field mapping, template-token handling, and source keys in

@@ -2,7 +2,7 @@
 description: "I sei livelli con cui Rankbeam risolve i metadati: il livello superiore prevale e null non sovrascrive i valori inferiori."
 ---
 
-# Priorità del resolver
+# Priorità del resolver {#resolver-precedence}
 
 Ogni valore SEO effettivo — titolo, descrizione, canonical, robots e immagini — deriva dall'unione di **sei livelli** operata da `SEOResolver`. Il livello superiore prevale; `null` non sovrascrive mai un valore proveniente da un livello inferiore.
 
@@ -74,14 +74,14 @@ Prima di arrivare al `<head>`, la direttiva risolta passa dalla policy di emissi
 - Una pagina **non indicizzabile** genera `<meta name="robots" content="noindex, nofollow">`.
 - Le altre direttive diverse dal default, come `noindex`, `max-snippet:-1` e `unavailable_after`, vengono emesse mantenendo anche gli spazi inseriti.
 
-Imposta `seo.robots.emit_default = true` per generare sempre il tag. Consulta la [policy robots (EN)](/reference/configuration#robots-rendering-policy) per i dettagli.
+Imposta `seo.robots.emit_default = true` per generare sempre il tag. Consulta la [policy robots](/it/reference/configuration#robots-rendering-policy) per i dettagli.
 
 ## Policy applicate dopo la risoluzione {#policies-applied-after-resolution}
 
 Queste trasformazioni si applicano indipendentemente dalla sorgente del valore:
 
 - **Suffisso del titolo:** `title_suffix` viene aggiunto se il titolo non termina già con quel suffisso. Se un template di rotta contiene il marchio, termina il template con il suffisso per evitare risultati come «Brand — X | Brand».
-- **Query del canonical:** gli URL canonici derivati dal modello o dalla richiesta perdono la query, tranne le chiavi di [`canonical.query_whitelist` (EN)](/reference/configuration#canonical-urls), per esempio `page` negli archivi paginati. I canonical impostati esplicitamente restano invariati.
+- **Query del canonical:** gli URL canonici derivati dal modello o dalla richiesta perdono la query, tranne le chiavi di [`canonical.query_whitelist`](/it/reference/configuration#canonical-urls), per esempio `page` negli archivi paginati. I canonical impostati esplicitamente restano invariati.
 - **Immagini social assolute:** `og:image` e `twitter:image` vengono sempre emessi come URL assoluti, anche se il percorso salvato è relativo.
 
 ## Individua il livello che ha prevalso {#inspecting-which-layer-won}

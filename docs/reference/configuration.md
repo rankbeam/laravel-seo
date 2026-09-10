@@ -63,11 +63,11 @@ directive vocabulary and precedence.
 ],
 ```
 
-When the app runs in an environment **not** in `allowed_environments`, the guard
+When enabled and the app runs in an environment **not** in `allowed_environments`, the guard
 forces `noindex,nofollow` on every page (above the whole precedence chain, so it
 overrides even a stored per-page value), sends a matching `X-Robots-Tag` header,
-emits a disallow-all `robots.txt`, and makes `seo:audit` print a banner. On
-production it is inert.
+emits a disallow-all `robots.txt`, and makes `seo:audit` print a banner. In
+allowed environments (by default, `production`) it is inert.
 
 Ships **off** (byte-identical until you opt in); arm it with
 `SEO_INDEXING_GUARD=true` and disable it with `SEO_INDEXING_GUARD=false` — one

@@ -4,6 +4,9 @@ description: "Record what AI crawlers actually did on your site: which bots fetc
 
 # AI-bot monitor
 
+Requests are attributed by **user-agent matching**, not verified bot identity.
+The monitor records observed requests; a user-agent can be spoofed.
+
 The [AI crawler control](/guide/ai-crawlers) feature (core) decides what
 `robots.txt` *tells* the AI crawlers. The Pro **AI-bot monitor** is the other
 half: it records what they actually *did* — which AI crawlers fetched your site,

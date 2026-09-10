@@ -9,7 +9,7 @@ must satisfy when it renders Rankbeam SEO data. It is the source of truth for:
 
 - the renderer-shape unit tests in core
   (`tests/Unit/Services/RenderingContractTest.php`) — the fast, framework-free
-  leg that runs on every push;
+  leg covered by package CI;
 - the per-stack reference apps in `rankbeam-examples` (Blade, Inertia + Vue /
   React / Svelte, Livewire), whose browser + SSR tests verify the same
   assertions in a real DOM;
@@ -170,8 +170,8 @@ unrelated `v-for` reconciliation key and does nothing for Inertia's head dedup).
 
 ## 7. Conformance status
 
-What proves each clause today. **Unit** = `RenderingContractTest` (core, every
-push). **Browser/SSR** = `rankbeam-examples` (scheduled matrix). **App** =
+What proves each clause today. **Unit** = `RenderingContractTest` (core,
+package CI). **Browser/SSR** = `rankbeam-examples` (scheduled matrix). **App** =
 the host application owns it. **Planned** = in the contract as the target, but
 the data is not yet modelled by `SEOData`, so the renderer emits the safe
 subset.

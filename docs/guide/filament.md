@@ -232,7 +232,8 @@ The section offers:
 
 A block that would build malformed JSON-LD is **rejected on save** with the core
 validator's message — e.g. an FAQ entry with no answer, or a Product with no
-image or offer (Google requires an offer for Product rich results). Blocks left
+image or offer (this builder requires these fields; this is not a complete statement of
+Google’s requirements for every Product search feature). Blocks left
 empty are simply ignored.
 
 ### What it stores

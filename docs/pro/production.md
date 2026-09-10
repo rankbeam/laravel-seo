@@ -173,14 +173,15 @@ does it. The recover/prune commands run inline and are cheap.
 A link is flagged broken only after `seo-pro.broken_links.mark_broken_after_failures`
 **consecutive scans** fail to reach it (the counter resets on any success). That is
 why the crawl is scheduled, not one-shot: a single transient outage never flags a
-link. Weekly means ~3 weeks to confirm at the default of 3; tighten the cadence (or
+link. At the default of 3, weekly scans confirm after about two weeks from the first
+failed observation, or up to about three weeks from the break; tighten the cadence (or
 lower the threshold) if you want faster confirmation.
 :::
 
 ## Batch tuning (broken-link crawler)
 
 The crawl runs across many bounded, self-redispatching jobs. The defaults are
-conservative and finite — a misconfiguration can never hammer a site. Tune them in
+finite; tune them to the capacity of your site and the hosts you check. Tune them in
 `seo-pro.broken_links`:
 
 | Key | Default | What it bounds |
@@ -270,8 +271,8 @@ rely on the worker `--tries`:
 | `seo-pro.scan.timeout` | `300` | Per-target job timeout (the overlap lock expires at timeout + 60) |
 
 A target job that exhausts its retries records the target as **failed** and the
-run still finishes (`partial` or `failed`) — a failing job can never leave a run
-stuck `running`. Failures land in the standard `failed_jobs` table; manage them
+run still finishes (`partial` or `failed`) — handled target failures do not leave a run `running`. A worker killed before
+bookkeeping still needs the recovery sweep below. Failures land in the standard `failed_jobs` table; manage them
 the usual way:
 
 ```bash

@@ -10,7 +10,7 @@ recovered, Search Console movers, and AI-bot activity — generated with one
 command and, optionally, **e-mailed on a schedule**. Built for agencies: put
 your logo, colour, and "prepared for {client}" on it and hand it to the client.
 
-[Download a generated sample report (PDF, 98 KB)](/pro-walkthrough/merchant-demo-report.pdf)
+[Download a generated sample report in English (PDF, 98 KB)](/pro-walkthrough/merchant-demo-report.pdf)
 or follow the [scan → fix → report walkthrough](/pro/walkthrough). The sample
 uses seeded Merchant content and two fresh scans; it shows one fixed issue,
 19 still open and no Search Console data.
@@ -37,7 +37,8 @@ uses seeded Merchant content and two fresh scans; it shows one fixed issue,
   recovered 404 is a genuine source-side fix, counted separately from a redirect.
 - **Search Console** — top queries and pages, and **movers**: the biggest
   click swings versus the last report. Skipped cleanly when GSC isn't set up.
-- **AI-bot activity** — which AI crawlers hit the site, lifetime totals, and —
+- **AI-bot activity** — requests attributed by user-agent (not verified bot identity), lifetime
+  totals, and —
   from the day-granular [bucket history](/pro/ai-bot-monitor#period-metrics-daily-buckets)
   when it covers the window — **real hits this period and distinct URLs each bot
   crawled** (falling back to the snapshot lifetime-diff otherwise).
@@ -144,8 +145,8 @@ SEO_PRO_REPORT_FOOTER="Confidential — prepared for Acme Outdoor Co."
 Notes:
 
 - **Logo** — an absolute path to a `PNG`/`JPG`/`GIF`/`WEBP`/`SVG` file. It is
-  embedded in the PDF as a data URI, so the renderer never needs network or
-  filesystem access. `PNG` or `JPG` is safest.
+  embedded in the PDF as a data URI, after the application reads the file, so the renderer does not need to
+  fetch that image over the network. `PNG` or `JPG` is safest.
 - **Accent colour** — validated to a hex literal; a bad value falls back to the
   default. It only ever appears as a colour, never as raw CSS.
 - **Agency name** — defaults to your app's name (`config('app.name')`).

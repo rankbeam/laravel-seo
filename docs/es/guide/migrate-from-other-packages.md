@@ -129,7 +129,7 @@ Este paquete genera etiquetas **en ejecución** mediante `SEOMeta`, `OpenGraph`,
 | `SEOMeta::setTitle($t)` | `saveSEO(['title' => $t])` o `getSEOTitle()` |
 | `SEOMeta::setDescription($d)` | `saveSEO(['description' => $d])` o `getSEODescription()` |
 | `SEOMeta::setCanonical($u)` | `saveSEO(['canonical' => $u])` o `getUrlForSEO()` |
-| `SEOMeta::addKeyword(...)` | `saveSEO(['focus_keywords' => [...]])`, consulta [auditoría](/es/guide/audit) |
+| `SEOMeta::addKeyword(...)` | No hay una etiqueta keywords equivalente: las palabras clave objetivo sirven para controles editoriales internos. `saveSEO(['focus_keywords' => [...]])`, consulta [auditoría](/es/guide/audit) |
 | `OpenGraph::setTitle / setDescription / addImage` | `saveSEO(['og_title' => …, 'og_description' => …, 'og_image' => …])` |
 | `TwitterCard::setType / setTitle / setImage` | `saveSEO(['twitter_card' => …, 'twitter_title' => …, 'twitter_image' => …])` |
 | `JsonLd::setType(...)` / `JsonLdMulti` | [Grafo JSON-LD (EN)](/guide/schema) |

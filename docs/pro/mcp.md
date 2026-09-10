@@ -226,8 +226,8 @@ Finally it **re-audits** to prove the fix — `issue_count` is now `0`:
 The write went through the same `saveSEO()` any programmatic save uses, so the
 value is stored and resolved exactly like one set in code (mass-assigned through
 the model's fillable fields and casts). It is **not** run through the Filament
-form's length validators — so the re-audit is what confirms the new value is
-actually good. The assistant proposed; the audit verified.
+form's length validators — so the re-audit verifies only its automatic checks. Editorial accuracy still
+needs review; a clean audit is not certification of the text’s quality.
 
 ### Talking to your site's content
 
@@ -335,7 +335,9 @@ can never corrupt the stream.
 `allow_edits` lets a connected assistant change SEO rows in the database the
 command runs against. Point it at local/staging while you experiment, keep the
 allowlist tight, and turn edits off again when you're done. The master switch
-`'enabled' => false` refuses to start the command at all.
+`'enabled' => false` refuses to start the command at all. Local stdio transport
+does not prevent the AI client from sending tool results to its own provider;
+consider that client’s data configuration too.
 :::
 
 ## Configuration
@@ -400,7 +402,7 @@ advertises the gated ops/edit tools through it.
 ::: warning Tracks a draft spec
 This follows the **draft** MCP Server Card proposal
 ([SEP-2127](https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2127),
-status *Draft*). The well-known path, the `$schema` URL, and the exact field set
+open proposal, not merged as of September 10, 2026). The well-known path, the `$schema` URL, and the exact field set
 are **not finalised** — so each is configurable (`path`, `schema_url`, `name`,
 `website_url`). This server runs over **stdio** (`php artisan seo-pro:mcp`), so
 the card carries no HTTP `remotes` block — it is a discoverability hint, not an

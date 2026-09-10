@@ -2,7 +2,7 @@
 description: "Lingua dei contenuti, limiti per sistema di scrittura, grafemi, hreflang, inLanguage, font OG e URL Unicode in Rankbeam."
 ---
 
-# Contenuti multilingua
+# Contenuti multilingua {#multilingual-content}
 
 Le [traduzioni dell'interfaccia](/it/guide/translations) cambiano i messaggi del pacchetto. Questa pagina riguarda la lingua dei **contenuti**: come influisce su limiti editoriali, confronti del testo, hreflang, font e altre funzioni.
 
@@ -118,7 +118,7 @@ L'audit gratuito controlla l'elenco dopo le policy:
 | `hreflang_duplicate_code` | notice | Codice ripetuto |
 | `hreflang_missing_self` | warning | L'URL della pagina non compare nell'elenco |
 
-La reciprocità richiede richieste alle altre pagine ed è una funzione Pro. L'opzione `check_hreflang_reciprocity` recupera le alternative tramite `SsrfGuard`; dalla 2.38 segnala `hreflang_not_reciprocal` quando manca il rimando all'URL sorgente **con il suo codice lingua**. Vedi i [codici di rete (EN)](/pro/scan-issues#network-codes).
+La reciprocità richiede richieste alle altre pagine ed è una funzione Pro. L'opzione `check_hreflang_reciprocity` recupera le alternative tramite `SsrfGuard`; dalla 2.38 segnala `hreflang_not_reciprocal` quando manca il rimando all'URL sorgente **con il suo codice lingua**. Vedi i [codici di rete](/it/pro/scan-issues#network-codes).
 
 ```php
 use Rankbeam\Seo\I18n\Hreflang;
@@ -256,8 +256,8 @@ I pacchetti includono stringhe e selezione degli algoritmi per le diciassette lo
 
 Tre distinzioni da mantenere:
 
-- **Snowball è incluso da Pro 2.37.** Dodici lingue usano gli algoritmi 3.1.1 fissati dal pacchetto, indipendentemente da dipendenze opzionali. Ucraino e CJK usano confronti senza stemming. Questi possono non riconoscere forme flesse; lo stemming può invece accorpare parole distinte. Vedi [controlli dei motori e migrazione (EN)](/pro/on-page-checklist#upgrading-from-pro-2-36).
-- **Euristica senza punteggio e LIX sono diversi.** Giapponese, cinese e coreano restituiscono un livello, basato su lunghezza delle frasi e, per il giapponese, quota di kanji, con punteggio `null` e indicazioni sempre consultive. Greco, ucraino e ceco usano LIX perché qui non è implementata una formula specifica. LIX non richiede sillabe, ma le soglie non sono calibrate per ogni lingua. Anche le altre formule usano input stimati; vedi il [contratto delle statistiche (EN)](/pro/on-page-checklist#text-statistics-and-api-limits).
+- **Snowball è incluso da Pro 2.37.** Dodici lingue usano gli algoritmi 3.1.1 fissati dal pacchetto, indipendentemente da dipendenze opzionali. Ucraino e CJK usano confronti senza stemming. Questi possono non riconoscere forme flesse; lo stemming può invece accorpare parole distinte. Vedi [controlli dei motori e migrazione](/it/pro/on-page-checklist#upgrading-from-pro-2-36).
+- **Euristica senza punteggio e LIX sono diversi.** Giapponese, cinese e coreano restituiscono un livello, basato su lunghezza delle frasi e, per il giapponese, quota di kanji, con punteggio `null` e indicazioni sempre consultive. Greco, ucraino e ceco usano LIX perché qui non è implementata una formula specifica. LIX non richiede sillabe, ma le soglie non sono calibrate per ogni lingua. Anche le altre formule usano input stimati; vedi il [contratto delle statistiche](/it/pro/on-page-checklist#text-statistics-and-api-limits).
 - **Le traduzioni sono prime stesure** salvo revisione registrata in `TRANSLATING.md`. Le stringhe italiane hanno il credito di revisione del maintainer; questo non approva automaticamente questa documentazione o gli output AI.
 
 Le locale non elencate possono usare stringhe inglesi, limiti del sistema di scrittura o di default, confronti senza stemming e LIX o euristiche. Non equivale a supporto linguistico validato. Il blocco `analysis` della checklist identifica sistema di scrittura, segmentatore, stemmer e metodo di leggibilità: verifica anche disponibilità e giudizi saltati.
@@ -269,4 +269,4 @@ Il catalogo riconosce anche crawler regionali e `seo.verification` genera i rela
 ## Funzioni dei pacchetti aggiuntivi {#what-the-other-packages-add}
 
 - **laravel-seo-filament** usa la stessa policy nei contatori e nelle anteprime. Dalla 1.9 modifica [una riga `seo_meta` per lingua](/it/guide/filament#several-languages), con schede indipendenti o seguendo il selettore del plugin. La guida Filament descrive gli adapter Edit/Create.
-- **laravel-seo-pro** usa la policy nei controlli di lunghezza e nei prompt AI. L'analisi include segmentazione ICU per cinese, giapponese e thailandese, stemming Snowball, confronto con `CaseFolder`, formule di leggibilità con input stimati per dieci lingue, euristiche CJK, LIX per greco/ucraino/ceco, stop word per sedici lingue, controlli `html lang` e reciprocità hreflang, prompt con lingua esplicita e report Chrome per i sistemi che dompdf non riesce a disegnare. Riferimenti in inglese: [checklist](/pro/on-page-checklist#keyword-matching), [problemi di scansione](/pro/scan-issues), [AI assist](/pro/ai-assist#output-language) e [report](/pro/reports#reports-in-every-script-browsershot-renderer).
+- **laravel-seo-pro** usa la policy nei controlli di lunghezza e nei prompt AI. L'analisi include segmentazione ICU per cinese, giapponese e thailandese, stemming Snowball, confronto con `CaseFolder`, formule di leggibilità con input stimati per dieci lingue, euristiche CJK, LIX per greco/ucraino/ceco, stop word per sedici lingue, controlli `html lang` e reciprocità hreflang, prompt con lingua esplicita e report Chrome per i sistemi che dompdf non riesce a disegnare. Riferimenti: [checklist](/it/pro/on-page-checklist#keyword-matching), [problemi di scansione](/it/pro/scan-issues), [AI assist](/it/pro/ai-assist#output-language) e [report](/it/pro/reports#reports-in-every-script-browsershot-renderer).

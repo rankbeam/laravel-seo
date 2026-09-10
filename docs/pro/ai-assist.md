@@ -13,55 +13,55 @@ Three things define the design:
 
 - **Your key, your provider.** Requests go from *your server* directly
   to the provider *you* configure — Anthropic, OpenAI, Google, or a
-  local / OpenAI-compatible server — billed to your account (or free).
+  local / OpenAI-compatible server — billed to your account where applicable.
   Nothing is proxied, metered, or resold, and the package sends no
   telemetry anywhere.
-- **Suggestions, never silent changes.** The model proposes; you pick.
+- **Interactive suggestions require explicit acceptance.** The model proposes; you pick.
   A picked suggestion or fix is only ever *applied by an explicit action*
   — it fills a form field, or writes one reviewed value when you click
   Apply — and the regular validation (the script-aware length counters,
   evaluator warnings, the schema validator) applies to it like any hand-typed
-  value.
+  value. The bulk-fill command below is an explicitly invoked write operation
+  and does not require reviewing each generated field before saving.
 - **Always non-fatal.** A missing key, an invalid key, an exhausted
   account, a rate limit, or a timeout produces an inline message. It can
   never block saving, rendering, or scanning.
 
 ## Providers at a glance
 
-Pick a provider by what you already have a key for, and how much you want
-to spend. All four run every surface identically — the choice only changes
-cost, speed, and where the request goes.
+Choose by account access, data requirements and cost. All four integrations expose
+the same tasks, but model support, output format, speed and quality can vary.
 
-| Provider | Default model | Structured output | Marginal cost | Best for |
+| Provider | Shipped default model | Structured output | Illustrative cost | Use |
 |---|---|---|---|---|
-| **Local** (Ollama / LM Studio / vLLM) | `llama3.1` (set your own) | Best-effort (`response_format`) | **$0** (self-hosted) | Privacy — nothing leaves your network |
-| **OpenAI** | `gpt-5.5` | Native (Structured Outputs, strict) | ~$0.005 / suggestion | An existing OpenAI account |
-| **Anthropic** | `claude-opus-4-8` | Native (`output_config.format`) | ~$0.015 / suggestion | Highest-quality copy |
-| **Google** | `gemini-2.5-flash` | Native (`responseSchema`) | ~$0.0005 / suggestion (paid) | Lowest paid cost per call — but its free tier is too rate-limited for real use (see below) |
+| **Local** (Ollama / LM Studio / vLLM) | `llama3.1` (set your own) | Best-effort (`response_format`) | **$0 API fee** for self-hosted inference; infrastructure costs remain | Control over the data destination |
+| **OpenAI** | `gpt-5.5` | Structured Outputs where the selected model supports it | ~$0.005 / suggestion at the example assumptions below | An existing OpenAI account |
+| **Anthropic** | `claude-opus-4-8` | `output_config.format` where supported | ~$0.015 / suggestion at those assumptions | An existing Anthropic account |
+| **Google** | `gemini-2.5-flash` | `responseSchema` where supported | ~$0.0005 / suggestion at those assumptions | A Google account; check model quotas and prices |
 
-Notes confirmed against a live run of every provider:
+These names describe shipped configuration, not guaranteed current availability
+on your account. Costs use the package's example assumptions, not verified current
+prices. Integration behavior and observations from the published trials:
 
-- **Structured output** is enforced by the API on OpenAI, Google, and
-  Anthropic — each is constrained to the exact JSON schema, so no surface
-  regex-parses model text on the happy path. A local server is asked for it
-  best-effort (a server that ignores `response_format` still returns usable
-  text, which is tolerantly parsed as the fallback). Either way a caller gets
-  a clean list or a clear failure — never a half-parsed reply.
-- **Google and Anthropic are the two extremes on token spend.** Gemini 2.5
-  and Gemma are *thinking* models: they burn hidden reasoning tokens before
-  any visible output (measured: a three-line description cost Gemini ~500
-  hidden reasoning tokens on top of ~100 visible ones). Those tokens are
-  billed as output — still cheap on Gemini's paid rates, but the reason the
-  reasoning floor below exists. Anthropic used **no** hidden reasoning tokens
-  in the same calls.
-- The default model is a starting point, not a lock-in: any model your key
-  or server can reach works (`SEO_PRO_AI_MODEL`), and a smaller model
-  (`claude-haiku-4-5`, `gpt-5.4-mini`, `gemma-3-12b-it`) cuts cost.
+- **Structured output.** Supported OpenAI, Google and Anthropic paths receive a
+  JSON schema; invalid responses fail cleanly. Local servers receive
+  `response_format` best-effort. If ignored, tolerant parsing returns either a
+  valid list or a failure, without applying partial output.
+- **Reasoning changes token consumption.** The described Gemini trial used about
+  500 hidden reasoning tokens plus about 100 visible tokens for a description;
+  the Anthropic calls tested reported no hidden reasoning tokens. This is not a
+  universal property of those model families. Hidden tokens can be billed as
+  output, which is why the reasoning floor below exists.
+- **Models are configurable.** Set `SEO_PRO_AI_MODEL` to an available model
+  compatible with the adapter's API and parameters. Examples include
+  `claude-haiku-4-5`, `gpt-5.4-mini` and `gemma-3-12b-it`; verify support and
+  output quality before using a model across a collection.
 
 ## Setup
 
 Enable the feature and put your provider key in the environment. Switch
-providers by changing exactly two lines — the provider and the key.
+cloud providers by updating provider and key, checking any model override too.
+The local adapter also needs its server URL.
 
 ::: code-group
 
@@ -121,29 +121,27 @@ config, `.env` is not loaded, so set `SEO_PRO_AI_API_KEY` as a real
 environment variable on the server.
 :::
 
-## Running at $0, and the cheapest paid option
+## Local inference and cloud options {#running-at-0-and-the-cheapest-paid-option}
 
-- **Local / OpenAI-compatible is the true $0 option.** A model you host runs
-  every surface at no marginal cost and nothing leaves your network — see
-  below.
-- **Google is the cheapest *paid* provider, not a free one.** A free **AI
-  Studio** key (`aistudio.google.com/apikey`, format `AIza…`) authenticates
-  and is fine for a quick trial, but its free tier is **heavily rate-limited**
-  — enough to make real or bulk use impractical (you'll hit
-  `quota_exceeded` / `rate_limited` quickly). Enable billing on the key for
-  production; even then `gemini-2.5-flash` is the cheapest cloud option per
-  call. The default model is `gemini-2.5-flash`; the open `gemma-3-*` models
-  work the same way. Both are *thinking* models, so they are listed in
-  `reasoning_models` and get the higher output-token floor automatically.
+- **Self-hosted inference avoids a provider's per-token API fee.** Hardware,
+  electricity and operations still cost money. Content stays in your network
+  only when the configured inference server and its dependencies stay there.
+- **Google has model- and tier-specific quotas and pricing.** An AI Studio key
+  (`aistudio.google.com/apikey`, format `AIza…`) may permit free-tier trials;
+  check whether its limits fit your workload before enabling billing as needed.
+  `gemini-2.5-flash` is the shipped default. Gemini and Gemma models do not all
+  have the same thinking capabilities: `reasoning_models` applies configured
+  name patterns, not a capability test.
 
-For a genuinely free, private setup, use a local server instead:
+To control where inference runs:
 
-- **Local / OpenAI-compatible.** Point `provider=local` at any server
-  speaking the OpenAI Chat Completions API: **Ollama**, **LM Studio**,
-  **vLLM**, **LocalAI** (all local, all free), or a remote gateway like
-  **OpenRouter**. Set `SEO_PRO_AI_LOCAL_BASE_URL` to the server's API root
-  (`/chat/completions` is appended) and `SEO_PRO_AI_MODEL` to a model the
-  server has loaded. Nothing leaves your network.
+- **Local / OpenAI-compatible.** Use `provider=local` with an OpenAI Chat
+  Completions-compatible server such as **Ollama**, **LM Studio**, **vLLM** or
+  **LocalAI**, or a remote gateway such as **OpenRouter**. Set
+  `SEO_PRO_AI_LOCAL_BASE_URL` to its API root (`/chat/completions` is appended)
+  and choose an available `SEO_PRO_AI_MODEL`. A remote gateway receives the data
+  outside your network and may charge you: the adapter name `local` does not
+  imply local inference.
 
 ::: warning Local `base_url` is validated — opt in for localhost
 The `base_url` is a privileged setting, validated through the same
@@ -157,25 +155,23 @@ Leave it off for a public gateway (OpenRouter). The request path is fixed
 and redirects are never followed, so the key can't be bounced to another host.
 :::
 
-::: tip Ollama thinking models are slow by default — turn reasoning off
-A local reasoning model (e.g. Gemma via Ollama) spends seconds on hidden
-reasoning before it answers, which can exceed the short default `timeout`.
-Add `['think' => false]` to `seo-pro.ai.local.extra_body` to skip that
-reasoning on the strict-JSON suggestion calls — it cuts latency sharply. If
-calls still time out, raise `seo-pro.ai.timeout` (see below). No
-`temperature` is ever sent: some reasoning models reject it, so there is
-intentionally no knob for it.
+::: tip Control thinking on supported Ollama models
+A local thinking model can exceed the default timeout. If the model and server
+version support it, `['think' => false]` in `seo-pro.ai.local.extra_body` can
+disable thinking for suggestions. Support varies; check the
+[Ollama documentation](https://docs.ollama.com/capabilities/thinking). Raise
+`seo-pro.ai.timeout` if needed. The package does not send `temperature`, since
+some models reject it.
 :::
 
 ## Cost
 
-There is no package markup — you pay the provider directly, or nothing on a
-local provider. Two numbers matter: the **per-suggestion** cost for
+There is no package markup — you pay the provider directly, with no provider API fee for self-hosted inference (infrastructure costs remain). Two numbers matter: the **per-suggestion** cost for
 interactive use, and the **bulk-fill** cost for a whole collection.
 
 The `seo-pro.ai.pricing` table (USD per 1,000,000 tokens) turns a token
-estimate into the dollar figure the bulk-fill confirm prompt shows. The
-shipped defaults are approximate public prices — **override them with your
+estimate into the dollar figure the bulk-fill confirm prompt shows. These are
+**shipped estimation assumptions**, not verified current public prices — **override them with your
 provider's current published prices** for an accurate estimate:
 
 | Model pattern | Input $/1M | Output $/1M |
@@ -188,47 +184,39 @@ provider's current published prices** for an accurate estimate:
 | `gemini-2.5-pro*` | 1.25 | 10.00 |
 | `gemini-*flash*` | 0.15 | 0.60 |
 
-Measured against a real page (one title + one description suggestion, the
-default models), at those prices. The last column is the same 1,000-record run
-through [`--batch`](#batch-mode-50-cheaper), which bills at **half** the
-per-token rate on the two providers that offer a batch endpoint:
+The published example uses a tested page's token consumption (one title and one
+description) with those assumptions. The final column applies the example 50%
+batch discount to supported adapters. These are not current-price quotations.
 
 | Provider / model | ~ per suggestion pair | ~ per 1,000 records (bulk-fill) | ~ per 1,000 records (`--batch`) |
 |---|---|---|---|
-| Local `gemma`/`llama` (Ollama) | **$0** | **$0** | n/a (no batch endpoint) |
-| Google `gemini-2.5-flash` (paid) | ~$0.001 | ~$0.40 | n/a (no batch endpoint) |
+| Local `gemma`/`llama` (Ollama) | **$0 API fee** | **$0 API fee** | n/a (not implemented by adapter) |
+| Google `gemini-2.5-flash` (paid) | ~$0.001 | ~$0.40 | n/a (not implemented by Rankbeam adapter) |
 | OpenAI `gpt-5.5` | ~$0.008 | ~$5.25 | **~$2.63** (50% off) |
 | Anthropic `claude-opus-4-8` | ~$0.03 | ~$20 | **~$10** (50% off) |
 
-Bulk-fill figures are close to the pre-run estimate the command prints (see
-[Bulk-fill](#bulk-fill-missing-metadata)); it is deliberately honest to about
-±50%, since real input size and output length vary per page. **One caveat for
-thinking models:** the estimate counts only visible output, so a model that
-spends heavy hidden reasoning (Gemini 2.5, Gemma — see above) runs somewhat
-higher than the printed figure. A model with no pricing entry (any local
-model) shows a **token** estimate only, with no invented dollar figure.
+The command labels its estimate approximately ±50%, but **that is not a spending
+cap or a guaranteed error range**. Actual inputs, outputs and prices change the
+total. The estimate models visible output; billed hidden reasoning can increase
+cost beyond it. Models with no pricing entry show only a token estimate.
 
 ### Cheaper bulk generation
 
-Interactive single suggestions want your best model; a **bulk-fill** of
-hundreds–thousands of short title/description gaps rarely does — the quality
-edge of a top model is seldom worth its per-call cost at that volume. Set
-`seo-pro.ai.bulk_model` (`SEO_PRO_AI_BULK_MODEL`) to your provider's cheap
-tier and **only the bulk-fill pass** (`seo-pro:ai-fill` / `SeoPro::aiFill()`)
-uses it — the Filament and `seo-pro:ai-suggest` single-suggestion paths keep
-the quality `model`. Left unset (`null`), bulk-fill uses the same `model` — no
-silent downgrade. The pre-run cost estimate prices whichever model the run
-will actually bill.
+Set `seo-pro.ai.bulk_model` (`SEO_PRO_AI_BULK_MODEL`) to use a different model
+**only for bulk-fill** (`seo-pro:ai-fill` / `SeoPro::aiFill()`). Filament and
+`seo-pro:ai-suggest` keep `model`. When null, bulk-fill uses `model` too. The
+estimate uses the selected model's price pattern. Evaluate representative output
+before increasing volume; a cheaper model is not automatically suitable.
 
 ```dotenv
 SEO_PRO_AI_MODEL=claude-opus-4-8        # interactive: highest quality
 SEO_PRO_AI_BULK_MODEL=claude-haiku-4-5  # bulk-fill: cheap tier
 ```
 
-Recommended cheap tier per provider (each matches the `pricing` table, so the
-estimate stays priced): **anthropic** `claude-haiku-4-5` · **openai**
-`gpt-5.5-mini` · **google** `gemini-2.5-flash` (already the default) ·
-**local** a smaller local model.
+Package examples use **anthropic** `claude-haiku-4-5`, **openai** `gpt-5.5-mini`,
+**google** `gemini-2.5-flash`, or a smaller **local** model. A pricing pattern can
+match a name even if the provider does not offer it: confirm the actual model ID,
+API compatibility and price before configuring it.
 
 A **100-page fill** (each page missing both title and description = 200
 provider calls), priced from the shipped `pricing` defaults and the
@@ -240,12 +228,11 @@ model vs its `bulk_model` cheap tier:
 | **Anthropic** | `claude-opus-4-8` ≈ **$4.05** | `claude-haiku-4-5` ≈ **$0.27** |
 | **OpenAI** | `gpt-5.5` ≈ **$1.05** | `gpt-5.5-mini` ≈ **$0.11** |
 | **Google** | `gemini-2.5-pro` ≈ **$0.45** | `gemini-2.5-flash` ≈ **$0.04** |
-| **Local** (Ollama / vLLM) | any model — **$0** | any model — **$0** |
+| **Local** (Ollama / vLLM) | any model — **$0 API fee** | any model — **$0 API fee** |
 
-Same ±50% honesty caveat as the printed estimate — real input size and output
-length vary per page, and a thinking model's hidden reasoning tokens aren't in
-the visible-output figure. Override `seo-pro.ai.pricing` with your provider's
-current published prices for an accurate number.
+These are illustrative estimates, with no guaranteed ±50% range and no hidden
+reasoning allowance. Update `seo-pro.ai.pricing` with the selected provider's
+published prices before relying on the estimate.
 
 ## Output language
 
@@ -423,8 +410,7 @@ php artisan seo-pro:suggest-schema "App\Models\Post" 42
 
 Output includes the suggestions (or the recommended type, the built JSON-LD,
 and whether it validates), the model used, and the **token usage per
-request** (input / output / reasoning) — so you can see exactly what each
-call cost. The command exits non-zero on any failure, with the error in the
+request** (input / output / reasoning) — to help calculate cost at your provider’s rates; token counts are not an invoice. The command exits non-zero on any failure, with the error in the
 JSON envelope. Like every assist surface, `seo-pro:suggest-schema` is
 **propose-only** — it prints the document and writes nothing.
 
@@ -455,7 +441,8 @@ It is deliberately conservative:
 - **Only gaps are filled.** A record that already has (or can derive) the
   field is skipped; an existing value is **never overwritten**.
 - **`--dry-run`** generates and prints the values without saving, so you can
-  review the spend and the output first.
+  review the output without database writes. **A dry run still calls the
+  provider and can incur charges.**
 - **It writes**, so in production it asks for confirmation unless you pass
   `--force`. `--field` (title | description | all) and `--limit` scope the run.
 - Each filled field is one suggester call billed to your key, and it runs
@@ -485,13 +472,12 @@ the command is built to be safe against a large collection:
   the token estimate with no invented dollar figure. `--force` skips the
   prompt for automation; a dry run confirms too, because it makes the same
   paid calls.
-- **Resumable — an interrupted run never re-pays.** Progress is checkpointed
-  to storage after **every** record, so if the run is killed (a worker
-  timeout, a deploy, Ctrl-C) the next run **resumes**: records already
-  filled are skipped, not billed again. A transient failure (rate limit,
-  timeout) leaves its record un-checkpointed so the resume retries exactly
-  it. A clean run clears its checkpoint; pass `--fresh` to ignore a prior
-  run's checkpoint and start over.
+- **Checkpointed resume.** Progress is stored after **every record**. Completed,
+  recorded fields are skipped on resume; transient failures leave a record open
+  for retry. **This cannot guarantee no duplicate charge:** a request may reach
+  the provider before a timeout or interruption prevents its result being saved.
+  A clean run clears its checkpoint. Reconcile uncertain work before using
+  `--fresh` to ignore the previous checkpoint.
 
 ```php
 use Rankbeam\Seo\Pro\Facades\SeoPro;
@@ -510,8 +496,10 @@ For a large fill where you don't need the results in the next minute, `--batch`
 routes the whole run through the provider's **asynchronous batch endpoint** —
 [Anthropic Message Batches](https://docs.anthropic.com/en/docs/build-with-claude/batch-processing)
 or the [OpenAI Batch API](https://platform.openai.com/docs/guides/batch) — which
-bill at **half** the per-token price. Google and local providers have no batch
-endpoint, so `--batch` prints a notice and runs the sequential fill instead.
+bill at **half** the per-token price. The Rankbeam Google and local **adapters do not implement this batch path**,
+so `--batch` prints a notice and runs sequentially. Google offers its own
+[Batch API](https://ai.google.dev/gemini-api/docs/batch-api); this integration
+does not use it. Check current model support and prices for each provider.
 
 A batch is **submit-now, collect-later**, split across two runs of the same
 command so the process can be closed in between:
@@ -532,10 +520,9 @@ php artisan seo-pro:ai-fill "App\Models\Post" --field=description --batch
 php artisan seo-pro:ai-fill "App\Models\Post" --field=description --batch
 ```
 
-- **Same requests, half the price.** Each batched item is byte-identical to the
-  synchronous call — same prompts, same structured-output schema, same model
-  (the cheap [`bulk_model`](#cheaper-bulk-generation) when set). The only thing
-  that changes is *when* the model runs.
+- **Same requests, half the price.** Each batched item uses the same
+  prompt, structured-output schema and model configuration as the synchronous call
+  (the cheap [`bulk_model`](#cheaper-bulk-generation) when set). The batch envelope and execution timing differ.
 - **The pre-run estimate is the discounted one.** Over the
   `seo-pro.ai.fill.confirm_over` threshold, submit prints the **50%-off** figure
   and asks before sending anything (`--force` skips it for automation).
@@ -606,7 +593,8 @@ same across providers (and across the ones added later):
   `content_too_large`, `bad_request`, `truncated`, `content_filtered`,
   `provider_error`, …) and a `retryable` flag for the transient ones. The
   message is a short, sanitized string — **the raw provider response body is
-  never surfaced or logged**. In Filament a failure renders in the styled
+  not surfaced or logged by the normal application path; the opt-in evaluation
+  harness above does preserve responses as evidence**. In Filament a failure renders in the styled
   modal partial with a tailored next-step hint for the common modes (see
   [Troubleshooting](#troubleshooting)).
 
@@ -617,20 +605,19 @@ message. The common ones and their one real fix:
 
 | Symptom (error code) | What it means | Fix |
 |---|---|---|
-| **`quota_exceeded`** — *"the provider account is out of credit or quota"* | The key is valid but the **API account has no credit / quota**. Not a rate limit — retrying won't help. Distinct per provider: Anthropic returns *"credit balance is too low"*, OpenAI *"exceeded your current quota… check your plan and billing"* (`insufficient_quota`), Google *"prepayment credits are depleted"*. | Add credit / enable billing in the provider's console — or switch to a **local** model for $0. Remember a Claude/ChatGPT **subscription** does not fund the **API**. |
+| **`quota_exceeded`** — *"the provider account is out of credit or quota"* | The key is valid but the **API account has no credit / quota**. Not a rate limit — retrying won't help. Distinct per provider: Anthropic returns *"credit balance is too low"*, OpenAI *"exceeded your current quota… check your plan and billing"* (`insufficient_quota`), Google *"prepayment credits are depleted"*. | Add credit / enable billing in the provider's console — or switch to a **local** model with no provider API fee. Remember a Claude/ChatGPT **subscription** does not fund the **API**. |
 | **`unauthorized`** — *"authentication failed"* | The key is missing, wrong, or not valid for the configured provider. | Check the key in the env var named by `seo-pro.ai.api_key_env` (default `SEO_PRO_AI_API_KEY`) — set, current, and matching `SEO_PRO_AI_PROVIDER`. |
-| **`rate_limited`** — *"the provider rate limit was reached"* | A genuine, **transient** rate limit (retried automatically first). | Wait and retry, or move to a **local** model ($0, no limits) to avoid it. Raise `seo-pro.ai.fill.throttle_ms` for bulk runs on a low tier. |
+| **`rate_limited`** — *"the provider rate limit was reached"* | A genuine, **transient** rate limit (retried automatically first). | Wait and retry, or move to a **local** model (subject to your server’s capacity) to avoid it. Raise `seo-pro.ai.fill.throttle_ms` for bulk runs on a low tier. |
 | **`timeout`** — *"the request timed out"* | The provider didn't respond within `seo-pro.ai.timeout` (default 15s). Common with a **slow local reasoning model**. | Raise it with `SEO_PRO_AI_TIMEOUT`; for Ollama also set `['think' => false]` in `seo-pro.ai.local.extra_body`. |
-| **`truncated`** — *"hit the max_output_tokens limit"* | A **thinking model** spent the budget on hidden reasoning before finishing. | Raise `seo-pro.ai.max_output_tokens` (reasoning models can need 2000+), or confirm the model matches a `reasoning_models` pattern so the floor applies. |
+| **`truncated`** — *"hit the max_output_tokens limit"* | The reply hit its output budget, possibly including hidden reasoning. | Raise `seo-pro.ai.max_output_tokens` (reasoning models can need 2000+), or confirm the model matches a `reasoning_models` pattern so the floor applies. |
 | **`content_too_large`** (HTTP 413) | The page content sent exceeded the provider limit. | Lower `seo-pro.ai.max_input_chars` to send a shorter excerpt. |
 | **`bad_request`** | A malformed request — usually a **model name** the account can't access, or an unsupported parameter. | Check `SEO_PRO_AI_MODEL` is a model your key/server can reach for the configured provider. |
-| **`content_filtered`** | The provider's safety filter declined to answer. | Rare for SEO copy; try a different provider or model. |
+| **`content_filtered`** | The provider's safety filter declined to answer. | Review the content and the provider’s guidance; do not automatically repeat the rejected request. |
 
-::: tip The fastest way out of a paid-provider problem is a local one
-A missing key, an exhausted account, or a rate limit all disappear on
-`SEO_PRO_AI_PROVIDER=local` against Ollama — genuinely $0, no rate limits,
-and the surfaces behave identically. (A billing-enabled Google key is the
-cheapest *cloud* fallback, but its free tier will rate-limit you.)
+::: tip Local inference still needs a working server
+`SEO_PRO_AI_PROVIDER=local` against self-hosted inference avoids cloud-provider
+credit problems. Hardware, model, API compatibility, timeout and capacity still
+matter. A remote gateway configured with this adapter can require a key and payment.
 :::
 
 ## What leaves your server
@@ -650,6 +637,8 @@ clicked action or an invoked command):
   suggestion. The model returns only a type and leaf field values; the
   JSON-LD is assembled locally.
 
-Never: visitor data, IP addresses, request headers, credentials, or full
-HTML. The Pro repository's SECURITY.md carries the authoritative version of
-this list.
+The package does not deliberately collect visitor data, IP addresses, request
+headers or credentials into prompts, and does not send full HTML. **Your content
+fields and excerpts can themselves contain sensitive information**: review what
+your application exposes. The provider credential is used to authenticate the
+request. The Pro repository’s SECURITY.md is the data-handling reference.

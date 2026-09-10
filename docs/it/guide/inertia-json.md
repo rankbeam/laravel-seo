@@ -7,7 +7,7 @@ description: "Usa gli stessi dati SEO risolti con Inertia o un’API JSON. Con S
 Lo stesso `SEOData` risolto usato da `@seo` può produrre array strutturati: i dati hanno un’unica origine, sia che l’head venga costruito da Blade, Vue, React, Svelte o da un frontend separato che consuma l’API.
 
 ::: warning I metadati visibili ai crawler richiedono SSR o prerendering con Inertia
-Un’app Inertia senza SSR inserisce i metadati **lato client**. L’HTML iniziale ricevuto da crawler e strumenti di anteprima social **non** contiene metadati SEO finché non viene eseguito JavaScript. Per includere l’head nella risposta HTTP devi attivare [Inertia SSR](https://inertiajs.com/server-side-rendering) oppure il prerendering. In particolare, il JSON-LD dovrebbe essere generato sul server. Vedi il [contratto di rendering (EN)](/it/contributing/rendering-contract).
+Un’app Inertia senza SSR inserisce i metadati **lato client**. L’HTML iniziale ricevuto da crawler e strumenti di anteprima social **non** contiene metadati SEO finché non viene eseguito JavaScript. Per includere l’head nella risposta HTTP devi attivare [Inertia SSR](https://inertiajs.com/server-side-rendering) oppure il prerendering. In particolare, il JSON-LD dovrebbe essere generato sul server. Vedi il [contratto di rendering](/it/contributing/rendering-contract).
 :::
 
 ## Inertia {#inertia}
@@ -215,4 +215,4 @@ $data->canonical;
 $data->ogImage;       // always an absolute URL
 ```
 
-`SEOData` è un value object immutabile. La [priorità del resolver](/it/concepts/resolver-precedence) spiega come viene scelto ogni valore; il [contratto di rendering (EN)](/it/contributing/rendering-contract) elenca i requisiti che l’`<head>` deve rispettare con ogni stack.
+`SEOData` è un value object immutabile. La [priorità del resolver](/it/concepts/resolver-precedence) spiega come viene scelto ogni valore; il [contratto di rendering](/it/contributing/rendering-contract) elenca i requisiti che l’`<head>` deve rispettare con ogni stack.

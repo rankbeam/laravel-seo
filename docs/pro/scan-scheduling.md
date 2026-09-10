@@ -124,7 +124,8 @@ or set a full cron expression for complete control (it wins over `frequency`):
 ```
 
 That's it — the package registers `seo-pro:scan` with Laravel's scheduler
-(`withoutOverlapping`, so a slow scan never stacks on the next tick). The
+with `withoutOverlapping` to prevent overlapping executions of the scheduled
+**command**. This scheduler lock does not cover the entire lifetime of queued jobs. The
 registration only runs in a scheduler/console context, so it adds **no
 web-request overhead**.
 
@@ -168,8 +169,7 @@ report recipients when you don't set separate ones. `only_on_change` skips the
 e-mail when a scan changed nothing (the first baseline scan is always sent).
 
 The summary is only sent for a run started with `--notify` (which the scheduler
-adds automatically when `notify.enabled` is on) — an ad-hoc `seo-pro:scan` never
-e-mails anyone.
+adds automatically when `notify.enabled` is on) — an ad-hoc `seo-pro:scan` **without `--notify`** does not email anyone.
 
 ::: tip Another channel?
 Want Slack, a webhook, or a custom digest instead of e-mail? Subscribe to the

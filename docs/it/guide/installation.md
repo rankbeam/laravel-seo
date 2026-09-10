@@ -44,4 +44,4 @@ Se usavi `fibonoir/laravel-seo` v1, leggi prima [Aggiornamento dalla v1](/it/gui
 | Pacchetto | Cosa aggiunge | Licenza |
 |---|---|---|
 | [`rankbeam/laravel-seo-filament`](https://github.com/rankbeam/laravel-seo-filament) | Sezione SEO nei form delle risorse Filament 4/5 | MIT |
-| [`rankbeam/laravel-seo-pro` (EN)](/it/pro/installation) | Scansioni del sito in coda, gestione redirect e monitoraggio 404; su qualsiasi app Laravel, con dashboard Filament facoltativa | Commerciale |
+| [`rankbeam/laravel-seo-pro`](/it/pro/installation) | Scansioni del sito in coda, gestione redirect e monitoraggio 404; su qualsiasi app Laravel, con dashboard Filament facoltativa | Commerciale |
