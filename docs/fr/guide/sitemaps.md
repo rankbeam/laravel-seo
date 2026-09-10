@@ -175,7 +175,7 @@ Les [politiques `seo.hreflang`](/fr/guide/multilingual#hreflang) s'appliquent av
 :::
 
 ::: info Coût sur les grands catalogues
-Une extension active résout `seoData()` pour les images et les variantes linguistiques. Le parcours normal des modèles résout aussi les métadonnées dans `shouldInclude()` pour vérifier robots. Avec le cache du résolveur désactivé, comme par défaut, un enregistrement inclus peut donc parcourir deux fois la chaîne de priorité. Chaque résolution peut entraîner des opérations de cache ou de base de données ; les getters `getSEO*()` personnalisés peuvent ajouter des requêtes. Exécutez `seo:sitemap` comme commande planifiée, hors requête web. Mesurez le coût près de la limite de 50 000 URL et laissez les deux extensions désactivées si elles ne servent pas.
+Depuis le **core 3.20.1**, le contrôle d’inclusion et les extensions images/hreflang réutilisent le même `seoData()` résolu pendant la construction de chaque URL de modèle. Cette réutilisation se termine après l’URL, même en cas d’échec ; une construction suivante ou une autre langue résout des données à jour. En 3.20.0, avec le cache du résolveur désactivé par défaut, ce parcours pouvait résoudre les données deux fois. Chaque résolution peut encore accéder au cache ou à la base ; les getters `getSEO*()` personnalisés peuvent ajouter des requêtes. Exécutez `seo:sitemap` comme commande **planifiée**, hors requête web. Mesurez le coût près de 50 000 URL et désactivez les extensions inutiles.
 :::
 
 ::: tip Configuration déjà publiée

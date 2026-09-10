@@ -175,7 +175,7 @@ Antes da escrita, aplicam-se as [políticas `seo.hreflang`](/pt-BR/guide/multili
 :::
 
 ::: info Custo em catálogos grandes
-Uma extensão ativa resolve `seoData()` para imagens e alternativas de idioma. O caminho normal dos modelos também resolve os metadados em `shouldInclude()` para verificar robots. Com o cache do resolvedor desativado, como no padrão, um registro incluído pode percorrer a cadeia de precedência duas vezes. Cada resolução pode fazer operações de cache ou banco, além das consultas dos getters `getSEO*()` próprios. Execute `seo:sitemap` por agendamento, fora de uma requisição web. Meça o custo perto do limite de 50.000 URLs e deixe ambas as extensões desativadas se não precisar delas.
+Desde o **core 3.20.1**, a inclusão do modelo e as extensões de imagens/hreflang reutilizam o mesmo `seoData()` resolvido durante a construção de cada URL de modelo. A reutilização termina após essa URL, inclusive em caso de falha; uma construção posterior ou outro idioma resolve dados atuais. Na 3.20.0, com o cache do resolvedor desativado por padrão, esse caminho podia resolver os dados duas vezes. Cada resolução ainda pode acessar o cache ou o banco; getters `getSEO*()` próprios podem acrescentar consultas. Execute `seo:sitemap` como comando **agendado**, fora de uma requisição web. Meça o custo perto de 50.000 URLs e deixe desativadas as extensões desnecessárias.
 :::
 
 ::: tip Configuração já publicada

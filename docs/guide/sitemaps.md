@@ -224,14 +224,7 @@ The free audit reports `hreflang_invalid_code`, `hreflang_duplicate_code` and
 :::
 
 ::: info Cost at scale
-With either extension on, the builder resolves each record's full `seoData()`
-for its images and alternates. The normal model path also resolves metadata in
-`shouldInclude()` to check robots. With resolver caching disabled (the default),
-an included record can therefore traverse the precedence chain twice. Each
-resolution can issue several cache/database operations, and custom `getSEO*()`
-getters may add queries. Use the **scheduled** `seo:sitemap` command rather than
-a web request. Benchmark before enabling extensions near the 50,000-URL limit,
-and leave both flags off when those entries are unnecessary.
+Since **core 3.20.1**, model inclusion and image/hreflang extensions reuse the same resolved `seoData()` within each model URL build. That reuse ends after the URL, including failures; a later build or locale resolves fresh data. In 3.20.0, with resolver caching disabled (the default), inclusion plus extensions could traverse the precedence chain twice. Each resolution can still perform cache/database operations, and custom `getSEO*()` getters can add queries. Use the **scheduled** `seo:sitemap` command rather than a web request. Benchmark near the 50,000-URL limit and leave extensions off when those entries are unnecessary.
 :::
 
 ::: tip Already publishing a config?

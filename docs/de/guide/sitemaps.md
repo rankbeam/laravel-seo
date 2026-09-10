@@ -175,7 +175,7 @@ Vor der Ausgabe greifen die [`seo.hreflang`-Regeln](/de/guide/multilingual#hrefl
 :::
 
 ::: info Aufwand bei großen Katalogen
-Bei aktiver Erweiterung löst der Builder `seoData()` für Bilder und Sprachalternativen auf. Der normale Modellpfad löst die Metadaten außerdem in `shouldInclude()` auf, um robots zu prüfen. Ist der Resolver-Cache wie standardmäßig deaktiviert, kann ein aufgenommener Datensatz die Vorrangkette daher zweimal durchlaufen. Jede Auflösung kann Cache- oder Datenbankzugriffe auslösen; eigene `getSEO*()`-Getter können weitere Abfragen hinzufügen. Führe `seo:sitemap` als geplanten Befehl aus, nicht innerhalb einer Webanfrage. Miss die Kosten vor dem Einsatz nahe der Grenze von 50.000 URLs und lass beide Erweiterungen aus, wenn du sie nicht brauchst.
+Seit **Core 3.20.1** verwenden Modellaufnahme und Bild-/hreflang-Erweiterungen dieselben aufgelösten `seoData()` innerhalb eines Modell-URL-Aufbaus. Die Wiederverwendung endet nach dieser URL, auch bei Fehlern; ein späterer Aufbau oder eine andere Sprache löst aktuelle Daten auf. In 3.20.0 konnte der Pfad bei standardmäßig deaktiviertem Resolver-Cache die Vorrangkette zweimal durchlaufen. Jede Auflösung kann weiterhin Cache- oder Datenbankzugriffe auslösen; eigene `getSEO*()`-Getter können Abfragen hinzufügen. Führe `seo:sitemap` als **geplanten** Befehl außerhalb einer Webanfrage aus. Miss die Kosten nahe 50.000 URLs und lass unnötige Erweiterungen ausgeschaltet.
 :::
 
 ::: tip Bereits veröffentlichte Konfiguration

@@ -42,6 +42,8 @@ Tudo aqui é **independente do Filament**. O mecanismo, os comandos, as filas e 
 
 5. **Ative os recursos opcionais por último**. O rastreador de links quebrados, a assistência de IA e o Search Console vêm desativados. O rastreador precisa das próprias tabelas migradas — o passo 1 já publicou as migrações — e de um worker dedicado.
 
+**Atualização para o Pro 2.41.0:** pause os workers de varredura, publique as migrações com `php artisan vendor:publish --tag=seo-pro-migrations --force`, execute `php artisan migrate`, reinicie os workers e execute `php artisan seo:doctor`. A tabela `seo_scan_target_completions` e a coluna `seo_scan_runs.target_tracking` são necessárias. Os registros por execução/alvo impedem que resultados terminais duplicados aumentem os contadores; vale o primeiro resultado aceito. Execuções antigas na fila sem alvos processados continuam. As parcialmente processadas antes da atualização preservam o histórico, mas são encerradas na próxima entrega com uma instrução para iniciar outra varredura. Tente os alvos esgotados em uma nova execução. Para reverter, pare os workers e restaure o código antes de desfazer a migração; guarde um backup anterior do banco se também precisar desfazer varreduras posteriores.
+
 ## Filas dedicadas por tipo de trabalho {#dedicated-queues-per-workload}
 
 Uma varredura ou um rastreamento demorado não deve atrasar tarefas voltadas ao usuário, como e-mails e notificações. Use uma fila e um worker próprios para cada tipo de trabalho de SEO.

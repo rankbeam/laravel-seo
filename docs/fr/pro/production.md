@@ -44,6 +44,8 @@ Procédez dans cet ordre ; chaque étape peut être vérifiée avant la suivante
 
 5. **Activer les fonctions facultatives en dernier** : explorateur de liens cassés, assistance IA et Search Console sont désactivés par défaut. L’explorateur nécessite ses tables migrées, publiées à l’étape 1, et un worker dédié.
 
+**Mise à niveau vers Pro 2.41.0 :** suspendez les workers de scan, publiez les migrations avec `php artisan vendor:publish --tag=seo-pro-migrations --force`, exécutez `php artisan migrate`, puis redémarrez les workers et lancez `php artisan seo:doctor`. La table `seo_scan_target_completions` et la colonne `seo_scan_runs.target_tracking` sont requises. Les enregistrements par exécution/cible empêchent les résultats terminaux en double d’augmenter les compteurs ; le premier résultat accepté prévaut. Les anciennes exécutions en attente sans cible traitée continuent. Celles partiellement traitées avant la mise à niveau conservent leur historique, mais se ferment à la livraison suivante avec une demande de nouveau scan. Relancez les cibles ayant épuisé leurs tentatives dans une nouvelle exécution. Pour revenir en arrière, arrêtez les workers et restaurez le code avant d’annuler la migration ; gardez une sauvegarde antérieure pour annuler aussi les scans ultérieurs.
+
 ## Files dédiées par type de travail {#dedicated-queues-per-workload}
 
 Un long scan ou une exploration ne doit pas retarder les jobs destinés aux utilisateurs, e-mails et notifications. Donnez à chaque charge SEO sa propre file et son propre worker.

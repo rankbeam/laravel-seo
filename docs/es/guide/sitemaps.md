@@ -175,7 +175,7 @@ Antes de escribir la lista se aplican las [políticas `seo.hreflang`](/es/guide/
 :::
 
 ::: info Coste en catálogos grandes
-Una extensión activa resuelve `seoData()` para las imágenes y las alternativas de idioma. El recorrido normal de los modelos también resuelve los metadatos en `shouldInclude()` para comprobar robots. Con la caché del resolvedor desactivada, como por defecto, un registro incluido puede recorrer dos veces la cadena de prioridad. Cada resolución puede realizar operaciones de caché o base de datos; los getters `getSEO*()` propios pueden añadir consultas. Ejecuta `seo:sitemap` como comando programado, fuera de una petición web. Mide el coste cerca del límite de 50.000 URL y deja ambas extensiones desactivadas si no las necesitas.
+Desde el **core 3.20.1**, la inclusión del modelo y las extensiones de imágenes/hreflang reutilizan el mismo `seoData()` resuelto al construir cada URL de modelo. La reutilización termina después de esa URL, incluso si falla; una construcción posterior u otro idioma resuelve datos actuales. En 3.20.0, con la caché del resolvedor desactivada por defecto, este recorrido podía resolver los datos dos veces. Cada resolución aún puede acceder a la caché o al base de datos; los getters `getSEO*()` propios pueden añadir consultas. Ejecuta `seo:sitemap` como comando **programado**, fuera de una petición web. Mide el coste cerca de 50.000 URL y deja desactivadas las extensiones innecesarias.
 :::
 
 ::: tip Configuración ya publicada

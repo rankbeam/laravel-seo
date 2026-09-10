@@ -44,6 +44,8 @@ Sigue estos pasos y verifica cada uno antes de pasar al siguiente:
 
 5. **Activa las funciones opcionales al final**. Rastreador, IA y Search Console están desactivados por defecto. El rastreador necesita sus tablas migradas y un worker dedicado.
 
+**Actualización a Pro 2.41.0:** pausa los workers de escaneo, publica las migraciones con `php artisan vendor:publish --tag=seo-pro-migrations --force`, ejecuta `php artisan migrate`, reinicia los workers y ejecuta `php artisan seo:doctor`. Se requieren la tabla `seo_scan_target_completions` y la columna `seo_scan_runs.target_tracking`. Los registros por ejecución/objetivo impiden que resultados terminales duplicados aumenten los contadores; prevalece el primer resultado aceptado. Las ejecuciones antiguas en cola sin objetivos procesados continúan. Las procesadas parcialmente antes de actualizar conservan el historial, pero se cierran en la siguiente entrega pidiendo un nuevo escaneo. Reintenta los objetivos agotados en una nueva ejecución. Para revertir, detén los workers y restaura el código antes de deshacer la migración; conserva una copia previa de la base de datos si también necesitas deshacer escaneos posteriores.
+
 ## Colas dedicadas por tarea {#dedicated-queues-per-workload}
 
 Un scan largo no debe retrasar correo o notificaciones. Asigna a cada tarea SEO una cola y un worker propios.

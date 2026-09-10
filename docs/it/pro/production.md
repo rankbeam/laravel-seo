@@ -44,6 +44,8 @@ Segui questi passaggi, verificando ciascuno prima del successivo:
 
 5. **Attiva per ultime le funzioni facoltative**: crawler dei link, assistenza AI e Search Console sono disattivati per impostazione predefinita. Il crawler richiede le migrazioni del primo passaggio e un worker dedicato.
 
+**Aggiornamento a Pro 2.41.0:** sospendi i worker delle scansioni, pubblica le migrazioni con `php artisan vendor:publish --tag=seo-pro-migrations --force`, esegui `php artisan migrate`, poi riavvia i worker ed esegui `php artisan seo:doctor`. Sono necessari la tabella `seo_scan_target_completions` e il campo `seo_scan_runs.target_tracking`. Le registrazioni per esecuzione e target impediscono ai risultati terminali duplicati di aumentare i contatori; vale il primo risultato accettato. Le vecchie esecuzioni in coda senza target elaborati proseguono. Quelle precedenti all’aggiornamento e già parzialmente elaborate conservano la cronologia, ma alla consegna successiva si chiudono chiedendo una nuova scansione. Riprova i target esauriti in una nuova esecuzione. Per tornare indietro, ferma i worker e ripristina il codice prima di annullare la migrazione; conserva un backup precedente se vuoi annullare anche le scansioni successive.
+
 ## Code dedicate per tipo di lavoro {#dedicated-queues-per-workload}
 
 Una scansione lunga non dovrebbe precedere nella stessa coda email e notifiche per gli utenti. Assegna a ciascun carico SEO una coda e un worker propri.
