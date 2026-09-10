@@ -37,7 +37,7 @@ Le [guide du registre des sitemaps](/fr/guide/sitemaps) décrit les sources et l
 
 ## Mise à niveau depuis la v1 {#upgrading-from-v1}
 
-Si votre application utilisait `fibonoir/laravel-seo` v1, consultez d'abord la [migration depuis la v1 (EN)](/fr/guide/upgrade-from-v1). Le fournisseur, l'espace de noms et l'API ont changé. Les fichiers publiés par la v1 peuvent entrer en conflit avec la configuration v2.
+Si votre application utilisait `fibonoir/laravel-seo` v1, consultez d'abord la [migration depuis la v1](/fr/guide/upgrade-from-v1). Le fournisseur, l'espace de noms et l'API ont changé. Les fichiers publiés par la v1 peuvent entrer en conflit avec la configuration v2.
 
 ## Paquets complémentaires {#companion-packages}
 

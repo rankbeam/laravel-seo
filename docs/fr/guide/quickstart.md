@@ -2,7 +2,7 @@
 description: "Installez Rankbeam, ajoutez HasSEO à un modèle existant, enregistrez ses métadonnées et vérifiez les balises rendues par Blade."
 ---
 
-# Démarrage rapide
+# Démarrage rapide {#quickstart}
 
 Partez d'une application Laravel 11, 12 ou 13 existante, avec une base de données fonctionnelle. PHP 8.2 ou plus est requis, ou 8.3 pour Laravel 13. Le cœur est gratuit sous licence MIT ; aucun compte ni licence Pro n'est nécessaire.
 
@@ -22,7 +22,7 @@ Le fournisseur de services est découvert automatiquement. La migration crée le
 
 L'exemple suppose un modèle `Post`, un article déjà enregistré et une route `posts.show` dont la vue Blade reçoit cet article dans `$post`. Adaptez ces noms à votre application. Ce guide ajoute le SEO à une page existante ; il ne crée pas le blog.
 
-Définissez `APP_URL` dans `.env` avec l'origine publique de votre site. Pour d'autres modes de rendu, consultez [Inertia et JSON (EN)](/fr/guide/inertia-json) ou [Livewire (EN)](/fr/guide/livewire).
+Définissez `APP_URL` dans `.env` avec l'origine publique de votre site. Pour d'autres modes de rendu, consultez [Inertia et JSON](/fr/guide/inertia-json) ou [Livewire](/fr/guide/livewire).
 
 ## 1. Ajouter le trait au modèle {#_1-add-the-trait-to-a-model}
 
@@ -74,7 +74,7 @@ Le `DatabaseSeeder` fourni par Laravel utilise `WithoutModelEvents`, qui désact
 
 Ouvrez la page publique de l'article et choisissez **Afficher le code source de la page**. Dans `<head>`, vérifiez que le titre contient `Custom SEO Title`, que la description vaut `Custom meta description` et que le canonical correspond à l'URL publique de l'article. Le suffixe configuré peut suivre le titre.
 
-N'utilisez `@seo($post)` qu'une fois par page. Remplacez les balises de titre et de métadonnées déjà présentes dans le layout pour éviter les doublons. En cas de valeur inattendue, le [guide d'explication (EN)](/fr/guide/explain) permet d'en retrouver l'origine.
+N'utilisez `@seo($post)` qu'une fois par page. Remplacez les balises de titre et de métadonnées déjà présentes dans le layout pour éviter les doublons. En cas de valeur inattendue, le [guide d'explication](/fr/guide/explain) permet d'en retrouver l'origine.
 
 ## 5. Ajouter un sitemap, si nécessaire {#_5-add-a-sitemap-optional}
 
@@ -96,7 +96,7 @@ php artisan seo:sitemap
 ## Pour aller plus loin {#where-to-go-next}
 
 - [Priorité du résolveur](/fr/concepts/resolver-precedence) : choix des valeurs.
-- [Blade (EN)](/fr/guide/blade) : les sept directives.
-- [Inertia et JSON (EN)](/fr/guide/inertia-json) : rendu sans Blade.
-- [Graphe de schémas (EN)](/fr/guide/schema) : JSON-LD lié.
+- [Blade](/fr/guide/blade) : les sept directives.
+- [Inertia et JSON](/fr/guide/inertia-json) : rendu sans Blade.
+- [Graphe de schémas](/fr/guide/schema) : JSON-LD lié.
 - [Champs Filament](/fr/guide/filament) : interface d'administration.

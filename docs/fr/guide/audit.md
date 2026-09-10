@@ -52,9 +52,9 @@ Un audit local des métadonnées ne couvre pas toute l'analyse Pro. Chaque exéc
 
 - **Les vérifications du HTML servi :** `missing_h1`, `multiple_h1`, `missing_image_alt`, `thin_content` et `mixed_content` demandent le contenu réel de la page.
 - **Les vérifications réseau du canonical :** `canonical_target_broken` / `_redirect` / `_noindex` nécessitent un appel sortant protégé.
-- **Le score numérique de 0 à 100 :** Pro l'enregistre avec une grille versionnée dans le résultat d'analyse ; voir [score SEO (EN)](/pro/scoring).
+- **Le score numérique de 0 à 100 :** Pro l'enregistre avec une grille versionnée dans le résultat d'analyse ; voir [score SEO (EN)](/fr/pro/scoring).
 
-Ces fonctions appartiennent à **Pro**. La [liste complète des problèmes (EN)](/pro/scan-issues) détaille leur couverture.
+Ces fonctions appartiennent à **Pro**. La [liste complète des problèmes (EN)](/fr/pro/scan-issues) détaille leur couverture.
 
 ## Choisir les modèles {#choosing-what-to-audit}
 
@@ -138,7 +138,7 @@ Pro lit la même option. Audit, analyse et éditeur suivent donc la même activa
 
 ## Expliquer une valeur inattendue avec `seo:explain` {#when-a-value-isn-t-what-you-expect-seo-explain}
 
-`seo:audit` montre **le problème**. [`seo:explain` (EN)](/guide/explain) explique **l'origine de la valeur** : configuration, défaut, calcul ou saisie explicite ; valeurs remplacées ; traitements ultérieurs comme le suffixe, le nettoyage du canonical ou la protection contre l'indexation. Utilisez-le lorsqu'un résultat ou une balise vous surprend :
+`seo:audit` montre **le problème**. [`seo:explain`](/fr/guide/explain) explique **l'origine de la valeur** : configuration, défaut, calcul ou saisie explicite ; valeurs remplacées ; traitements ultérieurs comme le suffixe, le nettoyage du canonical ou la protection contre l'indexation. Utilisez-le lorsqu'un résultat ou une balise vous surprend :
 
 ```bash
 php artisan seo:explain "App\Models\Post" 42

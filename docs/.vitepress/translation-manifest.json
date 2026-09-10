@@ -304,12 +304,28 @@
     "fr/guide/installation.md": {
       "source": "guide/installation.md",
       "sha256": "f0ce3e6a0eb5cb8a2a107a96f63c53822716e612fd5ac57e59706474f0ba132c",
-      "native_review": null
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-10",
+        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "d3bfc085195af8470315b25b5f40b6f3edad202e5f79dea9612664fed8d33138"
+      }
     },
     "fr/guide/quickstart.md": {
       "source": "guide/quickstart.md",
       "sha256": "4b29b83b85d525275692a45bc20775c3615e83a5ba954bb7d732b353a95ccd0b",
-      "native_review": null
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-10",
+        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "059c679c2ea9efbe7d95303d4b33e0b6ea0340c9491cfa0c4d6ac175e1a24d75"
+      }
     },
     "fr/concepts/resolver-precedence.md": {
       "source": "concepts/resolver-precedence.md",
@@ -1307,6 +1323,136 @@
         "status": "approved",
         "independent_native": false,
         "translation_sha256": "e92636bbc70538dd5e360f9874100f8660c62ea5c048bbd8567d1e6b721ef948"
+      }
+    },
+    "fr/guide/blade.md": {
+      "source": "guide/blade.md",
+      "sha256": "1545bf859fd72abe90b4e0038527fe901459e1c11c8472a5363aad2ea15cfcb4",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-10",
+        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "091b3c0be82411d1cac4cd3f8e510ed2dbc384da508569b064dc9ed7aa80e21c"
+      }
+    },
+    "fr/guide/inertia-json.md": {
+      "source": "guide/inertia-json.md",
+      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-10",
+        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "b03b379877839de95018b17a6b22a7da93b14d7b42e3a55031cb509155839a53"
+      }
+    },
+    "fr/guide/livewire.md": {
+      "source": "guide/livewire.md",
+      "sha256": "fc9b76e838862d3f562ea7bb08061b95ce4775bb96e7bebf9d00aefeda8d2e4c",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-10",
+        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "a7a3a9a2fb5e7517385b625af7f5ac8e0ab9f61c4a23eb8063fb813b86dd2521"
+      }
+    },
+    "fr/guide/schema.md": {
+      "source": "guide/schema.md",
+      "sha256": "f5896694ebd6fa3df9dc7d393ec392882f431242468a1aababc257bc70c3b02a",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-10",
+        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "ae7f146b35420964eae5226f5313212a868f77fc49a5a2c99c006bfa449ff97c"
+      }
+    },
+    "fr/guide/explain.md": {
+      "source": "guide/explain.md",
+      "sha256": "8dff916dca42b6a22870ce1ea6b7786e5a48790bffb503065bb33ee01139e9d8",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-10",
+        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "ec15bc3b9c488c30185a64b770bcad2a5fadb5711a5d092cb756f3a6bac6c8dd"
+      }
+    },
+    "fr/guide/demo.md": {
+      "source": "guide/demo.md",
+      "sha256": "a0c44dd6e83e3a8549ba7edcf3dbbd1234bdea51dc41ed309a403d89fc89b473",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-10",
+        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "e7ed2a89e22ec2866c042c82a73efd2ab228963f0c4fe20b4bc13e2ef34e5926"
+      }
+    },
+    "fr/guide/indexing-guard.md": {
+      "source": "guide/indexing-guard.md",
+      "sha256": "de3dc22aad4814ef932b11ffa2be244f6c4d764cf98ff3a9f5eb4f5d601c407c",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-10",
+        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "b4409e1b8add337b3aad85422affb2c4d61becc4be202d7843a9681f7dfd3701"
+      }
+    },
+    "fr/guide/markdown-for-bots.md": {
+      "source": "guide/markdown-for-bots.md",
+      "sha256": "0d3375f75e8a303c5c7b12d704482d71633948a685adde037bfdfa5d7d3fbac6",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-10",
+        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "19749310bcf373fb82570dd52c35b150f028b64b91ae3fcd60f1a35992337170"
+      }
+    },
+    "fr/guide/translations.md": {
+      "source": "guide/translations.md",
+      "sha256": "bedcee93831af91605dca0f7ad536e57da078984464c60fd68b4ca52e62662bc",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-10",
+        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "7d28d5c7cbba7c9f8c7b358bec566b227e23d4d8a13650b5435c4c865382b498"
+      }
+    },
+    "fr/guide/upgrade-from-v1.md": {
+      "source": "guide/upgrade-from-v1.md",
+      "sha256": "58fcb833a7313e9a91e41c7fea664a0db5b1a603d8b8bfda75db95f3a59bba15",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-10",
+        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "3aa512aeae3896a313adb2ce45676d5f3faaebaf2f630239ef825a144f0ce612"
       }
     }
   }

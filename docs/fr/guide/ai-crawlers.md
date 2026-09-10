@@ -6,7 +6,7 @@ description: "Générez robots.txt et, si nécessaire, ai.txt depuis une politiq
 
 Les fournisseurs d'IA utilisent des robots nommés pour parcourir le Web. Beaucoup consultent **robots.txt** pour déterminer ce qu'ils peuvent récupérer. Rankbeam fournit un catalogue maintenu et génère une `robots.txt` gérée, ainsi qu'une `ai.txt` facultative, à partir de règles `allow` / `disallow`. Vous pouvez autoriser la recherche et les assistants tout en refusant l'entraînement.
 
-Cette fonction est gratuite dans le Core. Pro ajoute un [journal des visites de robots IA (EN)](/pro/ai-bot-monitor), pour observer les accès réellement reçus.
+Cette fonction est gratuite dans le Core. Pro ajoute un [journal des visites de robots IA (EN)](/fr/pro/ai-bot-monitor), pour observer les accès réellement reçus.
 
 ## Politique par défaut {#the-default-policy}
 
@@ -81,7 +81,7 @@ Le serveur Web sert généralement `public/robots.txt` avant que Laravel ne reç
 
 ## Limites d'application des règles {#honesty-about-enforcement}
 
-robots.txt exprime une demande ; ce n'est pas une barrière technique. De nombreux robots déclarent la respecter, mais certains agents déclenchés par un utilisateur (`ChatGPT-User`, `Perplexity-User`) ou robots d'entraînement (`Bytespider`) n'offrent pas cette garantie. Rankbeam marque ces lignes `advisory`. Pour bloquer réellement un robot non coopératif, utilisez des règles de serveur ou de périphérie : pare-feu, WAF ou règles Cloudflare. Le [journal Pro (EN)](/pro/ai-bot-monitor) aide à identifier les visites observées.
+robots.txt exprime une demande ; ce n'est pas une barrière technique. De nombreux robots déclarent la respecter, mais certains agents déclenchés par un utilisateur (`ChatGPT-User`, `Perplexity-User`) ou robots d'entraînement (`Bytespider`) n'offrent pas cette garantie. Rankbeam marque ces lignes `advisory`. Pour bloquer réellement un robot non coopératif, utilisez des règles de serveur ou de périphérie : pare-feu, WAF ou règles Cloudflare. Le [journal Pro (EN)](/fr/pro/ai-bot-monitor) aide à identifier les visites observées.
 
 ## Content Signals : préférences d'utilisation {#content-signals-usage-preferences}
 
