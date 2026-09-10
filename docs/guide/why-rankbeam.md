@@ -138,7 +138,7 @@ no tests but yours, and no one else's bug reports.
 | Filament SEO fields | Filament-SEO package | **`laravel-seo-filament`** (MIT) |
 | Edit SEO for a **related** model | wrap the field component yourself | first-class `target:` resolver |
 | Live **SERP + social** preview | hand-built Blade/Alpine | built-in tabbed editorial preview |
-| Headless rendering (Inertia / Livewire / JSON) | each package assumes Blade | **one resolver** → Blade, Inertia, Livewire, JSON ([contract-tested](/contributing/rendering-contract)) |
+| Headless rendering (Inertia / Livewire / JSON) | the reference app used Blade; other stacks need integration | **one resolver** → Blade, Inertia, Livewire, JSON ([contract-tested](/contributing/rendering-contract)) |
 | Page scanner + ranked issues | scanner package | **Pro** [scan pipeline](/pro/scan-issues) + `IssueRegistry` |
 | 0–100 score | glue / none | **Pro** transparent, [versioned rubric](/pro/scoring) |
 | Redirects + 404 recovery | another package / bespoke | **Pro** redirect manager + no-IP 404 monitor |
@@ -163,8 +163,7 @@ row per `(model, locale)`, not a serialized blob or a glue table you remembered
 to add. The [resolver precedence](/concepts/resolver-precedence) reads the active
 locale natively.
 
-**3 — Headless rendering from one resolver.** Most SEO packages emit a Blade
-partial. Rankbeam resolves typed `SEOData` and renders the *same* data as HTML,
+**3 — Headless rendering from one resolver.** Rankbeam resolves typed `SEOData` and renders the *same* data as HTML,
 an Inertia `Head` payload, or a JSON array — proven against a shared
 [rendering contract](/contributing/rendering-contract) for
 [Blade](/guide/blade), [Inertia](/guide/inertia-json) (Vue/React/Svelte), and
@@ -213,7 +212,7 @@ the safe path, not the scary one:
 2. **Import (dry-run first).** `seo:import-from yoast` / `rank-math` /
    `wordpress-csv` reads your titles, descriptions, canonicals, robots, focus
    keywords, and social overrides. The importers are **idempotent** and
-   **fill-empty-only** — they can never clobber metadata you've already set, and
+   **fill-empty-only by default** — without `--overwrite`, they preserve metadata you've already set, and
    `--dry-run` writes nothing.
 3. **Hand off redirects.** Core emits a versioned redirect CSV; Pro's
    `seo-pro:redirects-import` validates every row (rejecting loops, unsafe
@@ -272,7 +271,7 @@ One support matrix for the whole family, not three:
 ## So — why glue three packages together?
 
 When the assembled stack costs you a dozen-plus bespoke classes to integrate, a
-release cadence you don't control, Blade-only rendering, and locale handling you
+release cadence you don't control, stack-specific rendering integration, and locale handling you
 bolt on by hand — and a cohesive, headless, locale-native family deletes that
 glue and is proven on a real 900-page / 20k-a-day production app — the assembled
 stack stops being the safe default.

@@ -2,7 +2,7 @@
 description: "Esegui php artisan seo:audit per controllare i metadati dei modelli, senza code, licenza o richieste di rete. Incluso nel core gratuito."
 ---
 
-# Audit SEO gratuito (`seo:audit`)
+# Audit SEO gratuito (`seo:audit`) {#free-seo-audit-seo-audit}
 
 `php artisan seo:audit` controlla i modelli `HasSEO` nello stesso processo, **senza code, licenza o richieste di rete**. Mostra una tabella **pass / warn / fail** per pagina e un riepilogo.
 
@@ -52,9 +52,9 @@ Il comando dichiara i propri limiti a ogni esecuzione. Non esegue:
 
 - **Controlli sull'HTML servito:** `missing_h1`, `multiple_h1`, `missing_image_alt`, `thin_content`, `mixed_content`.
 - **Controlli di rete sul canonical:** `canonical_target_broken`, `canonical_target_redirect`, `canonical_target_noindex`. Richiedono una richiesta esterna protetta dai controlli di rete.
-- **Calcolo del punteggio 0–100:** è una funzione Pro, salvata nel risultato della scansione con una versione della griglia di valutazione. Vedi [punteggio SEO (EN)](/pro/scoring).
+- **Calcolo del punteggio 0–100:** è una funzione Pro, salvata nel risultato della scansione con una versione della griglia di valutazione. Vedi [punteggio SEO](/it/pro/scoring).
 
-Queste funzioni appartengono alla scansione Pro; consulta il [registro completo dei problemi (EN)](/pro/scan-issues).
+Queste funzioni appartengono alla scansione Pro; consulta il [registro completo dei problemi](/it/pro/scan-issues).
 
 ## Scegli cosa controllare {#choosing-what-to-audit}
 

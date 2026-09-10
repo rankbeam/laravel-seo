@@ -7,8 +7,9 @@ description: "Tell search engines the moment a URL is published or updated. Pro 
 Instead of waiting for a crawler to find a changed page, **IndexNow** lets you
 *tell* the search engines the moment a URL is published or updated. Pro submits
 to the shared `api.indexnow.org` endpoint, which **propagates to every
-participating engine** — Bing, Yandex, Naver, Seznam, Yep — in one call (no
-per-engine fan-out).
+participating engine** in one call (no per-engine fan-out). The
+[official FAQ](https://www.indexnow.org/faq) lists Amazon, Bing, Naver, Seznam,
+Yandex and Yep. A notification does not guarantee indexing.
 
 It is **off by default**. Nothing touches the network until you enable it and a
 URL is submitted.
@@ -17,7 +18,7 @@ URL is submitted.
 
 ### 1. Generate a key
 
-IndexNow proves you own the host with a **key** — 8–128 characters of
+IndexNow uses a **key** to verify host control. Pro accepts 8–128 characters of
 `[a-f0-9-]` (a 32-character hex string is ideal). Generate one once and keep it
 stable, then expose it via the environment:
 
@@ -30,9 +31,9 @@ SEO_PRO_INDEXNOW_KEY=0123456789abcdef0123456789abcdef
 Unlike the Search Console credentials, the IndexNow key is **not a secret** — it
 is served publicly at `/{key}.txt` to prove you own the host. So Pro resolves it
 through the config layer (`indexnow.key`, which defaults to
-`env('SEO_PRO_INDEXNOW_KEY')`). That is deliberate: `env()` outside a config file
-returns `null` once `config:cache` has run (the state every normal deploy leaves
-the app in), so a key read at call time would silently vanish on production. Read
+`env('SEO_PRO_INDEXNOW_KEY')`). That is deliberate: values defined **only in `.env`** are unavailable to `env()` after
+`config:cache`, because Laravel no longer loads that file. Real process
+environment variables remain available. Read
 through config, it is captured by `config:cache` and always available. The
 trade-off: **rotating the key means re-running `php artisan config:cache`.** The
 key is never logged. See [Config-cached servers](#config-cached-servers) if the
@@ -48,7 +49,7 @@ ownership. With the `route` toggle on (the default), **Pro serves it for you**:
 GET https://example.com/0123456789abcdef0123456789abcdef.txt  →  the key, text/plain
 ```
 
-Only the one configured key path serves; any other `*.txt` 404s, and the whole
+Only the one configured key path serves; other paths intercepted by this route return 404, and the whole
 route 404s when IndexNow is disabled. Prefer to host the file yourself (or on a
 CDN)? Turn `route` off and point `key_location` at your URL.
 

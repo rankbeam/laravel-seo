@@ -14,8 +14,8 @@ Three things define the design:
 - **Bounded and resumable.** A crawl runs across many small queued jobs, each
   capped at a handful of pages, that re-dispatch a continuation until the run
   finishes or hits its caps. A whole run is bounded too (2000 pages by default —
-  `null` is the explicit opt-in to unlimited, never the default), so a
-  misconfiguration can never crawl forever or hammer a site.
+  `null` is the explicit opt-in to unlimited, never the default), and the remaining batch/time caps still apply. Keep caps and delays appropriate
+  for the site and server capacity.
 - **Safe by default.** The default scope is `internal_only` — it only checks
   links on your own host, no third-party requests. Every fetch (internal or
   external) goes through the shared **SsrfGuard**: scheme allowlist, host scope,
@@ -46,8 +46,9 @@ Unlike the passive rendering and scoring features, the crawler **makes network
 requests** and needs a little infrastructure — so enabling it is a deliberate
 opt-in, not something that should silently start on install:
 
-- Its two tables are **publish-only** (like every Pro migration) — they must be
-  migrated before the UI can query them.
+- Its two main tables are **publish-only** (like every Pro migration) — they must be
+  migrated before the UI can query them. Typed inspections also use
+  `seo_broken_link_inspections`.
 - A crawl is **queued on a dedicated queue** and needs a **worker** to run — a
   crawl with no worker never progresses.
 - Confirmation is **cross-scan** (below), so it's designed to run **scheduled**
@@ -59,7 +60,7 @@ opt-in, not something that should silently start on install:
 SEO_PRO_BROKEN_LINKS_ENABLED=true
 ```
 
-Then migrate its two tables — `seo-pro:install` publishes and runs every Pro
+Then run the migrations — `seo-pro:install` publishes and runs every Pro
 migration (idempotent, safe to re-run):
 
 ```bash
@@ -111,8 +112,8 @@ A link is reported broken only after
 `seo-pro.broken_links.mark_broken_after_failures` **consecutive crawls** fail to
 reach it (the counter resets on any success; the default is **3**). A single
 transient outage never flags a link — which is why the crawl is meant to run
-**scheduled**, not one-shot. At weekly cadence and the default threshold, a
-genuinely dead link is confirmed in ~3 weeks; tighten the cadence or lower the
+**scheduled**, not one-shot. At weekly cadence and the default threshold, three failed crawls confirm the link: about two weeks after the first
+observation, or up to about three weeks after it breaks; tighten the cadence or lower the
 threshold if you want faster confirmation.
 
 ## Typed link inspections
@@ -135,14 +136,14 @@ a CI gate needs.
 | `broken_link` | critical | Target returned HTTP ≥ 400 | any link |
 | `redirect_chain` | notice · warning | Target only resolves through a redirect; `warning` past `redirect_chain_warning_hops` | any link |
 | `link_unreachable` | notice | Unreachable this crawl (network error, timeout, blocked) — may be transient | any link |
-| `insecure_link` | warning | An `http://` link on an `https` site (downgrade / mixed content) | any link |
+| `insecure_link` | warning | An `http://` link on an `https` site (transport downgrade) | any link |
 | `trailing_slash` | notice | Internal path breaks the declared trailing-slash convention (**off unless `trailing_slash` is set**) | internal |
 | `double_slash_url` | warning | Internal path contains a `//` (empty segment) | internal |
 | `duplicate_query_param` | notice | A query key repeats (`?a=1&a=2`); `key[]` array syntax is exempt | internal |
 | `non_ascii_url` | notice | Internal path has un-encoded non-ASCII characters | internal |
-| `uppercase_url` | notice | Internal path has uppercase letters (case-sensitivity → duplicate content) | internal |
+| `uppercase_url` | notice | Internal path has uppercase letters (review separately served case variants) | internal |
 | `underscore_in_url` | notice | Internal path uses underscores (hyphens are the SEO-preferred separator) | internal |
-| `javascript_link` | warning | Anchor uses a `javascript:` href — not crawlable or keyboard-accessible | any anchor |
+| `javascript_link` | warning | Anchor uses a `javascript:` href — not a normal crawlable destination | any anchor |
 | `missing_fragment` | warning | A same-page `#fragment` with no matching `id`/`name` on the page | same-page |
 | `non_descriptive_anchor` | notice | Anchor text is generic ("click here", "read more") or a bare URL | any anchor |
 | `absolute_internal_link` | notice | An internal link written as an absolute URL instead of a root-relative path | internal |

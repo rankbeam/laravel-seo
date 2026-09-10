@@ -156,7 +156,7 @@ Enthalten sind:
 
 ### Validierung {#validation}
 
-Ein ungültiger Block wird beim Speichern mit der Core-Validierungsmeldung abgewiesen, etwa eine FAQ ohne Antwort oder ein Product ohne Bild oder Angebot. Für Product-Rich-Results verlangt Google ein Angebot. Vollständig leere Blöcke werden ignoriert.
+Ein ungültiger Block wird beim Speichern mit der Core-Validierungsmeldung abgewiesen, etwa eine FAQ ohne Antwort oder ein Product ohne Bild oder Angebot. Dies sind Anforderungen des hier verwendeten Builders, keine vollständige Beschreibung der Google-Anforderungen für alle Product-Suchfunktionen. Vollständig leere Blöcke werden ignoriert.
 
 ### Gespeicherte Daten {#what-it-stores}
 

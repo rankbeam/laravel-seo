@@ -2,7 +2,7 @@
 description: "Genera immagini Open Graph 1200×630 da template Blade con un browser headless. Funzione gratuita del core, disattivata per impostazione predefinita."
 ---
 
-# Immagini OG generate
+# Immagini OG generate {#generated-og-images}
 
 Dal core 3.20, il rendering Chrome disabilita JavaScript e blocca le richieste di risorse HTTP(S), FTP e WebSocket. I template personalizzati devono usare HTML/CSS statici e risorse incorporate, come quelli inclusi.
 
@@ -281,13 +281,14 @@ Tre strumenti aiutano a verificarne il funzionamento:
 
 1. **Stack `font-family` nei template.** Dopo `'OGBrand'`, il font incluso, viene `seo.og_image.font_stack`: per default Noto Sans, quattro famiglie Noto Sans CJK, Noto Sans Thai, Arabic, Hebrew, Devanagari, Noto Color Emoji e infine `sans-serif`. La famiglia CJK della lingua viene anticipata: JP per `ja`, SC per `zh-Hans`, TC per `zh-Hant` / `zh-TW` / `zh-HK`, KR per `ko`. Serve a scegliere la forma locale dei caratteri Han condivisi. Anche `<html lang>` riceve la lingua BCP 47. Lo stack partecipa alla chiave di cache.
 2. **Controllo prima della generazione.** `seo:og-images` interroga fontconfig, per esempio `fc-list :lang=ja`, per i sistemi di scrittura presenti in titolo, nome del sito e descrizione, anche se minoritari nel testo. Segnala una volta per sistema il pacchetto di font da installare. Dove fontconfig manca, come su Windows, macOS o container minimi, non tenta di indovinare. Un font assente non fa necessariamente fallire il rendering: Chrome può disegnare riquadri al posto dei caratteri.
+
+   Il messaggio di font mancante indica che le card potrebbero contenere riquadri e suggerisce, per CJK, `apt-get install fonts-noto-cjk`.
+
+   ```
+   No installed font covers cjk text — its cards may render as boxes. Install one: apt-get install fonts-noto-cjk
+   ```
+
 3. **Fixture dei glifi nel test live.** Con `SEO_OG_IMAGE_LIVE_TEST=1`, `tests/Feature/OgImage/BrowsershotSmokeTest.php` confronta titoli in ja, zh-Hans, zh-Hant, ko, el, ru, tr, th, ar, he e hi con un controllo di caratteri non assegnati. PNG identici fanno fallire il test. È un controllo preliminare, non una certificazione di ogni glifo: testo latino misto o a capo diversi possono produrre immagini differenti anche con caratteri mancanti. Ispeziona il rendering e i font usati sul server di deploy. Anche FontProbe è un controllo preliminare. Il core non ha un comando `seo:doctor`: usa `seo:og-images`.
-
-Il messaggio di font mancante indica che le card potrebbero contenere riquadri e suggerisce, per CJK, `apt-get install fonts-noto-cjk`.
-
-```
-No installed font covers cjk text — its cards may render as boxes. Install one: apt-get install fonts-noto-cjk
-```
 
 Su Debian/Ubuntu:
 

@@ -19,9 +19,9 @@ Three things define the design:
 - **Your property, your credentials.** Requests go from *your server* directly
   to Google, authenticated with *your* service-account or OAuth credential.
   Nothing is proxied, metered, or resold, and the package sends no telemetry.
-- **Always non-fatal.** A missing credential, a 403, a quota error, or a
-  timeout produces an inline message — never a blocked page render or a failed
-  command.
+- **Errors stay in context.** Missing credentials, a 403, quota errors or timeouts
+  produce an inline message without interrupting the panel render. The historical
+  sync command reports failures and stops fetching subsequent days, as below.
 
 ## What you get
 
@@ -64,9 +64,11 @@ If `SEO_PRO_GSC_SITE_URL` is omitted, a URL-prefix property is derived from
 
 ### OAuth (offline refresh token)
 
-If you already have an OAuth client and a long-lived **refresh token**
-(ideally minted with the `webmasters.readonly` scope — but even a broader
-token is **down-scoped to read-only** on every refresh):
+If you have an OAuth client and a long-lived **refresh token**, preferably
+authorized with only `webmasters.readonly`, configure it below. Every refresh
+requests that scope. The package rejects a returned token unless the response
+explicitly confirms exactly the read-only scope; it does not assume Google
+always narrows a broader grant.
 
 ```dotenv
 SEO_PRO_GSC_ENABLED=true
@@ -168,15 +170,16 @@ data is ever fetched or written.
 
 ## Data handling & security
 
-- **Read-only scope, by construction.** Only `webmasters.readonly` is ever
-  requested — the service-account JWT pins it, and the OAuth refresh request
-  **narrows** the minted token to it (so even an over-scoped refresh token can't
-  produce a write-capable token). The package contains no call to any mutating
-  Search Console endpoint.
+- **Read-only scope checked.** The service-account JWT requests only
+  `webmasters.readonly`. OAuth refresh requests do too, and the package rejects
+  a response with missing or broader scope. Use a credential authorized only
+  for read access. The package contains no mutating Search Console call.
+
 - **Credentials stay in the environment.** The service-account key / OAuth
   secret + refresh token are read from the **named** environment variables at
   call time, exactly like the AI key — so `php artisan config:cache` never
-  writes them into `bootstrap/cache/config.php`.
+  writes them into `bootstrap/cache/config.php`. Make them available to the
+  process environment when cached configuration prevents `.env` loading.
 - **Tokens are encrypted at rest.** The short-lived access token minted from
   your credential is stored **encrypted** (app-key encryption) in
   `seo_gsc_tokens` and reused until it nears expiry, so the token exchange does

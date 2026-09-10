@@ -2,7 +2,7 @@
 description: "Genera sitemap XML con un file per sorgente e un indice su /sitemap.xml. Registra modelli, closure o elenchi di URL con spatie/laravel-sitemap."
 ---
 
-# Registro delle sitemap
+# Registro delle sitemap {#sitemap-registry}
 
 Il pacchetto genera sitemap XML, una per sorgente più un indice, e le serve su `/sitemap.xml` e `/sitemap-{name}.xml`. Per generarle usa [spatie/laravel-sitemap](https://github.com/spatie/laravel-sitemap):
 

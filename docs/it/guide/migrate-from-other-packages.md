@@ -2,12 +2,12 @@
 description: "Passa a Rankbeam da un altro pacchetto SEO Laravel: mappa API e dati su HasSEO e saveSEO(), con un importatore per i metadati salvati per modello."
 ---
 
-# Migrazione da altri pacchetti SEO Laravel
+# Migrazione da altri pacchetti SEO Laravel {#migrating-from-other-laravel-seo-packages}
 
 Questa guida collega le API e i dati dei pacchetti più comuni al trait [`HasSEO`](/it/guide/quickstart) e a `saveSEO()`. Per i metadati salvati per modello da ralphjsmit è disponibile un importatore da riga di comando.
 
 ::: tip Arrivi da WordPress?
-Per siti con Yoast o Rank Math, consulta la [migrazione da WordPress (EN)](/it/guide/migrate-from-wordpress): include l'importatore CSV e i lettori del database.
+Per siti con Yoast o Rank Math, consulta la [migrazione da WordPress](/it/guide/migrate-from-wordpress): include l'importatore CSV e i lettori del database.
 :::
 
 | Pacchetto di partenza | Dove salva i dati | Percorso |
@@ -17,6 +17,8 @@ Per siti con Yoast o Rank Math, consulta la [migrazione da WordPress (EN)](/it/g
 | [`spatie/*`](#from-spatie-packages) | Nessuna tabella SEO: builder schema-org e sitemap | Mantieni i componenti complementari e migra gli altri |
 
 Tra questi, solo ralphjsmit salva i metadati in una tabella da importare. Gli altri costruiscono tag durante la richiesta: trasferisci le relative chiamate in valori salvati o calcolati.
+
+---
 
 ## Da `ralphjsmit/laravel-seo` {#from-ralphjsmit-laravel-seo}
 
@@ -120,6 +122,8 @@ php artisan seo:audit            # confirm the imported metadata looks right
 
 Dopo aver verificato il risultato, puoi rimuovere `ralphjsmit/laravel-seo` e la sua tabella `seo`.
 
+---
+
 ## Da `artesaos/seotools` {#from-artesaos-seotools}
 
 Questo pacchetto costruisce i tag a runtime tramite `SEOMeta`, `OpenGraph`, `TwitterCard` e `JsonLd`, spesso nel controller, con default in `config/seotools.php`. Non salva dati per modello: non c'è una tabella da importare.
@@ -129,14 +133,16 @@ Questo pacchetto costruisce i tag a runtime tramite `SEOMeta`, `OpenGraph`, `Twi
 | `SEOMeta::setTitle($t)` | `saveSEO(['title' => $t])` oppure `getSEOTitle()` |
 | `SEOMeta::setDescription($d)` | `saveSEO(['description' => $d])` oppure `getSEODescription()` |
 | `SEOMeta::setCanonical($u)` | `saveSEO(['canonical' => $u])` oppure `getUrlForSEO()` |
-| `SEOMeta::addKeyword(...)` | `saveSEO(['focus_keywords' => [...]])`; vedi [audit](/it/guide/audit) |
+| `SEOMeta::addKeyword(...)` | Nessun equivalente del metatag keywords: `saveSEO(['focus_keywords' => [...]])` serve ai controlli editoriali interni; vedi [audit](/it/guide/audit) |
 | `OpenGraph::setTitle / setDescription / addImage` | `saveSEO(['og_title' => …, 'og_description' => …, 'og_image' => …])` |
 | `TwitterCard::setType / setTitle / setImage` | `saveSEO(['twitter_card' => …, 'twitter_title' => …, 'twitter_image' => …])` |
 | `JsonLd::setType(...)` / `JsonLdMulti` | [Grafo JSON-LD](/it/guide/schema) |
 | Default di `config/seotools.php` | Default di `config/seo.php` e [priorità del resolver](/it/concepts/resolver-precedence) |
 | `{!! SEO::generate() !!}` nel layout | `@seo($model)`; vedi [Blade](/it/guide/blade) |
 
-Invece di impostare i tag in ogni controller, salva i dati una volta per modello e lascia che il resolver li emetta. I fallback del sito passano alla [configurazione Rankbeam (EN)](/reference/configuration); per pagine statiche associate a rotte usa `@seoForRoute()`.
+Invece di impostare i tag in ogni controller, salva i dati una volta per modello e lascia che il resolver li emetta. I fallback del sito passano alla [configurazione Rankbeam](/it/reference/configuration); per pagine statiche associate a rotte usa `@seoForRoute()`.
+
+---
 
 ## Da pacchetti Spatie {#from-spatie-packages}
 
@@ -147,9 +153,11 @@ I builder Spatie comunemente usati per SEO non costituiscono una tabella di meta
 
 Per [`romanzipp/laravel-seo`](https://github.com/romanzipp/Laravel-SEO), che costruisce metatag a runtime, segui lo stesso criterio di artesaos: sposta le chiamate `setTitle` e `addMeta` in `saveSEO()` o nei getter calcolati.
 
+---
+
 ## Estendi l'importatore {#extending-the-importer}
 
-`seo:import-from` usa un registro di implementazioni `Rankbeam\Seo\Importing\Contracts\Importer`. Le sorgenti incluse sono `ralphjsmit` e quelle WordPress: `wordpress-csv`, `yoast`, `rank-math`, descritte nella [guida WordPress (EN)](/it/guide/migrate-from-wordpress). Aggiungi una sorgente nel service provider:
+`seo:import-from` usa un registro di implementazioni `Rankbeam\Seo\Importing\Contracts\Importer`. Le sorgenti incluse sono `ralphjsmit` e quelle WordPress: `wordpress-csv`, `yoast`, `rank-math`, descritte nella [guida WordPress](/it/guide/migrate-from-wordpress). Aggiungi una sorgente nel service provider:
 
 ```php
 use Rankbeam\Seo\Importing\ImporterRegistry;

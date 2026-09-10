@@ -2,7 +2,7 @@
 description: "Aggiungi campi SEO ai form delle risorse Filament 4 e 5 con il pacchetto gratuito laravel-seo-filament e il trait HasSEO."
 ---
 
-# Campi SEO per Filament
+# Campi SEO per Filament {#filament-admin-fields}
 
 Il pacchetto gratuito [`rankbeam/laravel-seo-filament`](https://github.com/rankbeam/laravel-seo-filament) aggiunge una sezione SEO ai form delle risorse Filament con due integrazioni per risorsa. Supporta **Filament 4.x e 5.x**, con Livewire 3 e 4. La modifica dei metadati è gratuita; le scansioni e il punteggio visibile nell'esempio richiedono Pro.
 
@@ -49,7 +49,7 @@ Apri un record, inserisci una descrizione SEO, salva e ricarica il form. Il valo
 La sezione comprende:
 
 - **Titolo e descrizione** con contatori aggiornati durante la digitazione. La [policy di lunghezza](/it/guide/multilingual#title-and-description-budgets-per-script) usa il sistema di scrittura: 60/160 per il testo latino, circa 30/80 per CJK, contando i grafemi.
-- **Parole chiave principali:** un campo a tag salva le parole nella struttura `[{keyword, is_primary}]`; la prima è primaria. `getPrimaryKeyword()` e `SEOData` leggono questa struttura. Attiva `seo.keywords.enabled` per far segnalare le pagine senza parole chiave all'[audit gratuito](/it/guide/audit) e alla scansione Pro. L'opzione è inizialmente disattivata; vedi la [configurazione (EN)](/reference/configuration#focus-keywords).
+- **Parole chiave principali:** un campo a tag salva le parole nella struttura `[{keyword, is_primary}]`; la prima è primaria. `getPrimaryKeyword()` e `SEOData` leggono questa struttura. Attiva `seo.keywords.enabled` per far segnalare le pagine senza parole chiave all'[audit gratuito](/it/guide/audit) e alla scansione Pro. L'opzione è inizialmente disattivata; vedi la [configurazione](/it/reference/configuration#focus-keywords).
 - **URL canonical:** vuoto significa automatico, con query rimossa.
 - **Robots:** vuoto usa il default del sito.
 - **Immagine social:** upload per `og:image` e `twitter:image`, nella directory `seo/` del disco predefinito di Filament.
@@ -156,7 +156,7 @@ La sezione offre:
 
 ### Validazione {#validation}
 
-Un blocco con JSON-LD non valido viene rifiutato al salvataggio con il messaggio del validatore: per esempio una FAQ senza risposta o un Product senza immagine o offerta. Per i risultati avanzati Product, Google richiede un'offerta. I blocchi completamente vuoti vengono ignorati.
+Un blocco che non supera la validazione del pacchetto viene rifiutato al salvataggio con il messaggio del validatore: per esempio una FAQ senza risposta o un Product senza immagine o offerta. Sono requisiti del builder usato qui, non una descrizione completa dei requisiti Google per tutte le funzioni Product. I blocchi completamente vuoti vengono ignorati.
 
 ### Dati memorizzati {#what-it-stores}
 

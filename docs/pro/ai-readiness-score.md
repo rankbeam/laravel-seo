@@ -17,7 +17,7 @@ compatibility** — whether the crawl-based signals on a page are present and
 well-formed. It is **not** a prediction of ranking, indexing, inclusion or
 citation in any search or AI system, and no score guarantees those outcomes. The
 `air_llms_txt` check credits an **optional** `llms.txt` compatibility file for
-tools that choose to consume it — Google Search does not use it, and it is not a
+tools that choose to consume it — it is not required by Google Search and is not a
 ranking signal.
 :::
 
@@ -56,8 +56,8 @@ four categories:
 
 Can the AI-search and assistant crawlers actually reach you? Evaluated against the
 site's **served `/robots.txt`**, resolved for the **scanned page's own path**
-(a page under a `Disallow: /section` is genuinely unreachable even when the root
-is open), using the [AI-crawler catalogue](/guide/ai-crawlers)'s purpose
+(a page under `Disallow: /section` is disallowed even when the root is open;
+robots.txt is a directive for compliant crawlers, not a network access block), using the [AI-crawler catalogue](/guide/ai-crawlers)'s purpose
 taxonomy (training / search / assistant).
 
 | Check | Weight | Credit |
@@ -109,11 +109,8 @@ number is a **Pro scan** concern.
 
 ## Honest scope — what this axis excludes
 
-This axis scores only **deterministic, crawl-based signals a content site can
-satisfy**. It deliberately excludes the agent-infrastructure checks that
-general "agent readiness" scanners (e.g. Cloudflare's isitagentready.com)
-include — because those are properties of a running application or of DNS, not
-of served content:
+This axis scores **deterministic content signals**. It excludes agent
+infrastructure checks that concern a running application or DNS:
 
 | Excluded | Why |
 |---|---|
@@ -122,9 +119,9 @@ of served content:
 | **Protocol Discovery** (API Catalog, OAuth/OIDC, MCP Server Card, Agent Skills, WebMCP…) | Require a running app / API / MCP server. |
 | **Commerce** (x402, MPP, UCP, ACP) | Agent-payment rails — a content site has nothing to charge for. |
 
-Conversely, this axis **adds** two checks such scanners do not have — schema
-entity completeness and answer-block structure — the content-SEO signals that
-decide whether an answer engine can actually extract and attribute your page.
+It includes schema entity completeness and answer-block structure: content
+signals that describe organization and attribution without guaranteeing that
+a search or answer engine will use them.
 
 ## Versioning — historical scores never silently change
 

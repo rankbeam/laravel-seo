@@ -20,8 +20,8 @@ There are two paths, both driven by the same `seo:import-from` command:
 
 | Path | Source | Best for |
 |---|---|---|
-| [**CSV**](#1-csv-import) `wordpress-csv` | a spreadsheet you export from WordPress | most agency migrations; you control the exact URLs |
-| [**Database**](#2-database-import-yoast-rank-math) `yoast` / `rank-math` | the live WordPress database | full fidelity, incl. OpenGraph/Twitter overrides and Rank Math redirects |
+| [**CSV**](#_1-csv-import) `wordpress-csv` | a spreadsheet you export from WordPress | most agency migrations; you control the exact URLs |
+| [**Database**](#_2-database-import-yoast-rank-math) `yoast` / `rank-math` | the live WordPress database | full fidelity, incl. OpenGraph/Twitter overrides and Rank Math redirects |
 
 Both are **idempotent** (re-running updates the same rows, never duplicates),
 support **`--dry-run`**, and by default only ever *fill* empty fields — they
@@ -255,7 +255,7 @@ Where redirect candidates come from:
   schema isn't part of the free package. Use the CSV path for Yoast redirects.
 
 The candidates are **advisory** — review the CSV, then import it into Pro with
-[`seo-pro:redirects-import`](/guide/wordpress-migration-runbook#step-3-import-the-redirects-into-pro),
+[`seo-pro:redirects-import`](/guide/wordpress-migration-runbook#step-3-—-import-the-redirects-into-pro),
 which validates every row (rejecting loops, unsafe targets, and duplicates). The
 CSV shape is a stable contract — **redirect CSV format v1**:
 `source_path,target_url,status_code,note`.

@@ -129,7 +129,7 @@ Esse pacote gera tags **em execução** com `SEOMeta`, `OpenGraph`, `TwitterCard
 | `SEOMeta::setTitle($t)` | `saveSEO(['title' => $t])` ou `getSEOTitle()` |
 | `SEOMeta::setDescription($d)` | `saveSEO(['description' => $d])` ou `getSEODescription()` |
 | `SEOMeta::setCanonical($u)` | `saveSEO(['canonical' => $u])` ou `getUrlForSEO()` |
-| `SEOMeta::addKeyword(...)` | `saveSEO(['focus_keywords' => [...]])`, veja [auditoria](/pt-BR/guide/audit) |
+| `SEOMeta::addKeyword(...)` | Não há uma metatag keywords equivalente: as palavras-chave de foco servem para verificações editoriais internas. `saveSEO(['focus_keywords' => [...]])`, veja [auditoria](/pt-BR/guide/audit) |
 | `OpenGraph::setTitle / setDescription / addImage` | `saveSEO(['og_title' => …, 'og_description' => …, 'og_image' => …])` |
 | `TwitterCard::setType / setTitle / setImage` | `saveSEO(['twitter_card' => …, 'twitter_title' => …, 'twitter_image' => …])` |
 | `JsonLd::setType(...)` / `JsonLdMulti` | [Grafo JSON-LD (EN)](/guide/schema) |

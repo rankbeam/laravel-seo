@@ -16,8 +16,7 @@ deliberately **not a number**.
 ::: tip Checklist ≠ score
 The checklist is **pass / warn / fail only** and is completely separate from
 the [Pro SEO score](/pro/scoring). It shares no codes with the score's rubric
-and can never move it — by design, so the editorial hints stay honest and the
-one headline number stays gameable-proof. Keyword density and readability in
+and can never move it — the editorial hints remain separate from the numeric rubric. Keyword density and readability in
 particular are **advisory** (see below).
 :::
 
@@ -141,11 +140,10 @@ when ext-intl is absent and identity matching when stemming is disabled.
 
 ### Keyword density is advisory
 
-There is no keyword density that is a ranking factor — Google has said so for
-years, and over-optimisation is what gets penalised, not a number. So the
-density check is marked **advisory**: it is shown for awareness, it never
-fails, and it **never drives the overall page status**. Treat it as "does this
-read naturally?", not a target to hit.
+The checklist does not define an ideal keyword density for ranking. This check
+is **advisory**: it shows the count for awareness, never fails, and **never
+drives the overall page status**. Review whether repetition reads naturally,
+rather than aiming for a percentage.
 
 ### Readability is advisory
 

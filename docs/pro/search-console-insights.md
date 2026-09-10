@@ -1,14 +1,14 @@
 ---
-description: "Keyword intelligence from the Search Console data you already own: five reports on what's about to rank, what's under-clicked, and where your pages compete with each other."
+description: "Keyword intelligence from the Search Console data you already own: five reports on position ranges, CTR review candidates, and queries shared by several pages."
 ---
 
 # Search Console insights
 
-Moz/Semrush-style **keyword intelligence**, computed entirely on the Search
-Console data you already own — no third-party keyword tool, no per-query API
-bill. Five reports turn your synced history and one live pull into the
-questions those tools charge for: *what's about to rank, what's under-clicked,
-what's competing with itself, what each page ranks for, and what moved.*
+Five reports computed from your own Search Console data: queries in a selected
+position range, CTR review candidates, overlapping query/page results, query
+clusters and period changes. Three use synced history; two share a cached live
+request. They cover these specific analyses, not a third-party keyword platform’s
+full dataset or capabilities.
 
 It builds on the [read-only Search Console integration](/pro/search-console) and
 its history sync. If that page's `seo-pro:gsc-sync` has been running, these
@@ -24,9 +24,9 @@ first. The more days you have synced, the deeper the trend comparison goes.
 
 ### 1. Striking-distance keywords
 
-Queries whose **impression-weighted average position sits in 5–20** — page-one
-adjacent — ranked by impressions. These are the "one push to page one" wins: a
-little more relevance or internal linking often moves them into the clicks.
+Queries whose **impression-weighted average position sits in 5–20**, ranked by
+impressions. Use them to review relevance and internal links; this range does
+not establish that a small change will move a query onto the first page.
 
 ### 2. CTR opportunities
 
@@ -40,10 +40,9 @@ exact queries worth rewriting for.
 
 ### 3. Cannibalization
 
-Queries where **two or more of your URLs compete** for the same term. Splitting
-one query across several pages divides your authority and confuses Google about
-which page to rank — this surfaces the overlaps so you can consolidate or
-differentiate them.
+Queries where **two or more of your URLs appear** for the same term. Overlap is
+not necessarily harmful: review whether the pages serve different intents before
+consolidating or differentiating them.
 
 ### 4. Query clusters
 
@@ -75,11 +74,11 @@ request**.
 | Cannibalization | **Live** (query × page) | the query→page pairing isn't stored, and persisting every pair would multiply your storage |
 | Query clusters | **Live** — *shares surface 3's fetch* | same pair data, grouped by page instead of by query |
 
-So a visit to the Insights page costs **at most one** Search Console request,
+So a visit to the Insights page costs **at most one** Search Analytics request,
 cached for `search_console.cache_ttl` seconds. The pair surfaces are live on
 purpose: cannibalization and clustering are *point-in-time* questions where you
-want the current picture, and Search Console's quota is generous for one cached
-pull per view. The snapshot surfaces never touch the network.
+want the current picture, and the shared cache limits repeated requests. Token refresh can require an
+additional authentication request, and Google’s quotas still apply. The snapshot surfaces never touch the network.
 
 ## In the dashboard
 

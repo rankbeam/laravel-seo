@@ -9,8 +9,9 @@ single registry, `Rankbeam\Seo\Pro\Scanning\IssueRegistry`. The scanners never
 invent a code inline — they build each issue through `IssueRegistry::make()`,
 which stamps the severity and field from the registry and **rejects any code
 that isn't defined**. That makes the catalogue below a contract you can build
-on: dashboards, exports, the free [`seo:audit`](/guide/audit) command, and the
-[Pro score](/pro/scoring) all read these codes rather than parsing messages.
+on: dashboards, exports and the [Pro score](/pro/scoring) read codes rather than
+parsing messages. The free [`seo:audit`](/guide/audit) uses its own core metadata
+registry, with narrower coverage and some different hreflang codes.
 
 Each code carries:
 
@@ -28,7 +29,7 @@ A check falls into exactly one of three classes, by what it needs to run:
 
 | Class | Needs | Who can run it |
 |---|---|---|
-| **metadata** | the model + the core resolver — no page fetch | the model scan (`PageScanner`); the free [`seo:audit`](/guide/audit) command |
+| **metadata** | the model + the core resolver — no page fetch | the model scan (`PageScanner`); the free [`seo:audit`](/guide/audit) covers a subset of metadata checks |
 | **rendered** | the page's served HTML (in-process kernel request, or an external fetch) | the URL scan (`UrlScanner`) |
 | **network** | an **outbound** fetch to validate a _separate_ target (a canonical pointing elsewhere) | the URL scan, **always through the `SsrfGuard`** |
 
@@ -58,11 +59,11 @@ scan, measuring the served `<head>` — same codes, same meaning.)
 | `description_too_short` | notice | description | `length`, `min`, `script` | Resolved description under the script's floor (70 / ~35). |
 | `robots_conflict_indexing` | critical | robots | `robots` | Robots directive has both `index` and `noindex`. |
 | `robots_conflict_following` | warning | robots | `robots` | Robots directive has both `follow` and `nofollow`. |
-| `noindex_warning` | warning | robots | `robots`, `canonical`, `page_url`, `shipping_signal` | A self-canonical (apparently important) page is `noindex`. Emitted on both model and rendered URL scans. |
+| `noindex_warning` | warning | robots | `robots`, `canonical`, `page_url`, `shipping_signal` | A self-canonical page is `noindex`: a heuristic to review, not proof the page must be indexed. Emitted on both model and rendered URL scans. |
 | `invalid_canonical` | critical | canonical | `canonical` | Canonical value is not a valid URL. |
 | `cross_domain_canonical` | warning | canonical | `canonical`, `page_url` | Canonical points to a different host than the page. |
 | `shared_canonical` | notice | canonical | `canonical` | Several pages declare the same canonical. |
-| `insecure_canonical` | warning | canonical | `canonical` | `http://` canonical on an `https` site (mixed content). |
+| `insecure_canonical` | warning | canonical | `canonical` | `http://` canonical on an `https` site. |
 | `hreflang_invalid_code` | warning | alternates | `invalid_codes` | An hreflang alternate uses a value that is not `x-default` nor a valid BCP-47 language code. |
 | `hreflang_missing_self_reference` | warning | alternates | `locale`, `page_url` | Alternates are declared but none references the page's own locale (a self-referencing hreflang). |
 | `hreflang_duplicate_code` | warning | alternates | `duplicate_codes` | The same hreflang code maps to more than one URL (an ambiguous cluster). |
@@ -83,8 +84,8 @@ including any fallback and title suffix.
 The `hreflang_*` codes validate a page's declared hreflang alternates (read from
 the resolver's `alternates`): invalid/duplicate codes, a missing self-reference,
 and a missing `x-default` on a multi-language cluster. They run only when the
-page declares alternates. Cross-page **reciprocity** ("return tags") is not yet
-validated.
+page declares alternates. Cross-page **reciprocity** ("return tags") is not checked by these metadata
+checks; the optional network check below fetches the other page.
 
 The `aeo_*` codes are **answer-readiness (AEO)** signals — is the page's article
 content legible in its structured data? They read the resolved JSON-LD graph and
@@ -120,7 +121,7 @@ guarded fetch.
 | `missing_image_alt` | warning | page | `count`, `total`, `sample` | Content images missing an `alt` attribute (an explicit `alt=""` is treated as decorative, not flagged). |
 | `thin_content` | notice | page | `word_count`, `threshold`, `segmenter` | Body text below the configured word count. Words are counted by the checklist tokenizer: whitespace for spaced scripts, ICU dictionary segmentation (`segmenter: intl`, needs ext-intl) for Chinese, Japanese and Thai — so a 400-word Japanese article is not one "word". |
 | `mixed_content` | warning | page | `count`, `sample` | `http://` sub-resources on an `https` page. |
-| `html_lang_missing` | notice | page | — | No `<html lang>` (or an empty one). Search engines infer the language; screen readers pick the wrong voice. |
+| `html_lang_missing` | notice | page | — | No `<html lang>` (or an empty one). Assistive technology may choose an inappropriate voice. |
 | `html_lang_invalid` | notice | page | `declared` | The `lang` value is not a BCP-47 tag (`english`, `en_US` with an underscore, `jp`). |
 | `html_lang_mismatch` | warning | page | `declared`, `declared_script`, `detected_script` | The visible body text is written in a script the declared language is not — `lang="en"` on a Japanese page, `lang="ru"` on Latin copy. Script-level only (a Latin page claiming the wrong Latin language is a guess, and the scan does not guess); needs ≥ 40 letters of body text. |
 
@@ -141,7 +142,7 @@ alternate is skipped — the page itself was just fetched.
 | `canonical_target_redirect` | warning | canonical | `canonical`, `status`, `location` | Canonical points to a page that redirects; point it at the final URL. |
 | `canonical_target_noindex` | warning | canonical | `canonical` | Canonical points to a page that is itself `noindex`. |
 | `canonical_target_blocked` | notice | canonical | `canonical`, `reason` | Canonical target could not be verified (guard refusal / unresolvable). |
-| `hreflang_not_reciprocal` | warning | alternates | `hreflang`, `href`, `status` | An alternate the page declares does not declare the page back. Search engines drop one-way hreflang pairs, so the translation is invisible in the other market. |
+| `hreflang_not_reciprocal` | warning | alternates | `hreflang`, `href`, `status` | An alternate the page declares does not declare the page back. The hreflang pair may be ignored; this does not itself make the translation unindexable. |
 | `hreflang_target_unverified` | notice | alternates | `hreflang`, `href`, `reason` | The alternate could not be fetched (guard refusal, error status, redirect, over the size cap), so reciprocity was never checked. Absence of evidence, not a defect. |
 
 Reciprocity fetches at most `hreflang_max_alternates` (default 10) targets per
@@ -182,7 +183,7 @@ On each scan, for every target:
 - a finding that **matches an existing open row** refreshes its evidence and
   keeps its original `detected_at` — a stable *first-seen*, no longer reset on
   every scan;
-- an open issue the scan **no longer finds** is marked **`fixed`**
+- an open issue a completed check **no longer finds** is marked **`fixed`**
   (`resolved_at` stamped) — the row is **kept, not deleted**, so a genuine fix
   is recorded;
 - a **`fixed`** issue that **returns** is **reopened** in place (a regression),
