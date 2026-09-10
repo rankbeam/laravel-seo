@@ -6,7 +6,7 @@ description: "Installez rankbeam/laravel-seo avec Composer, publiez la configura
 
 ## Prérequis {#requirements}
 
-- PHP 8.2 ou plus ; PHP 8.3 ou plus pour Laravel 13.
+- Laravel 11: PHP 8.2–8.4; Laravel 12: PHP 8.2–8.5; Laravel 13: PHP 8.3–8.5
 - Laravel 11, 12 ou 13.
 - `spatie/laravel-sitemap` ^7.0 ou ^8.0 : facultatif, nécessaire uniquement pour générer des sitemaps.
 

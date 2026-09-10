@@ -1,5 +1,5 @@
 ---
-description: "A dependency-free stdio MCP server that lets an AI assistant read — and, when allowed, edit — a Laravel site's SEO over the Model Context Protocol. PHP 8.2–8.4 × Laravel 11–13."
+description: "A dependency-free stdio MCP server that lets an AI assistant read — and, when allowed, edit — a Laravel site's SEO over the Model Context Protocol. Laravel 11: PHP 8.2–8.4; Laravel 12: PHP 8.2–8.5; Laravel 13: PHP 8.3–8.5."
 ---
 
 # MCP server
@@ -11,7 +11,7 @@ Laravel app and it can resolve a page's metadata, run an audit, read the Pro
 score, see your AI-crawler policy, and — when you allow it — write SEO back.
 
 It's a **dependency-free**, self-contained stdio server — no SDK, no new
-packages — and runs on PHP 8.2–8.4 × Laravel 11/12/13.
+packages — and runs on PHP 8.2–8.4 (Laravel 11), PHP 8.2–8.5 (Laravel 12), PHP 8.3–8.5 (Laravel 13).
 
 ::: tip Pro feature
 The MCP server ships with `rankbeam/laravel-seo-pro`. It is **read-only by

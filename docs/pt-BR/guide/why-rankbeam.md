@@ -27,7 +27,7 @@ O Rankbeam faz mais sentido quando o SEO é **armazenado, ligado a modelos, mult
 
 Uma matriz para toda a família:
 
-- **PHP** 8.2–8.4.
+- **PHP** 8.2–8.4 (Laravel 11); 8.2–8.5 (Laravel 12); 8.3–8.5 (Laravel 13)
 - **Laravel** 11, 12 e 13; Laravel 13 exige PHP 8.3 ou superior.
 - **Filament** 4 e 5, opcional.
 
@@ -173,7 +173,7 @@ O rastreamento tem limites por execução e orçamento de tempo por tarefa, vali
 
 Uma matriz comum para a família:
 
-- **PHP** 8.2–8.4.
+- **PHP** 8.2–8.4 (Laravel 11); 8.2–8.5 (Laravel 12); 8.3–8.5 (Laravel 13)
 - **Laravel** 11, 12 e 13.
 - **Filament** 4 e 5.
 

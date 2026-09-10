@@ -27,7 +27,7 @@ Rankbeam è pensato per applicazioni Laravel in produzione con contenuti dinamic
 
 La matrice è comune alla famiglia:
 
-- **PHP** 8.2–8.4.
+- **PHP** 8.2–8.4 (Laravel 11); 8.2–8.5 (Laravel 12); 8.3–8.5 (Laravel 13)
 - **Laravel** 11, 12 e 13; Laravel 13 richiede PHP 8.3+.
 - **Filament** 4 e 5, facoltativo.
 
@@ -172,7 +172,7 @@ Limiti finiti per esecuzione e un tempo massimo per job contengono il lavoro. La
 
 La matrice è comune ai pacchetti:
 
-- **PHP** 8.2–8.4.
+- **PHP** 8.2–8.4 (Laravel 11); 8.2–8.5 (Laravel 12); 8.3–8.5 (Laravel 13)
 - **Laravel** 11, 12 e 13.
 - **Filament** 4 e 5.
 

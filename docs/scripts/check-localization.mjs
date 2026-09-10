@@ -49,10 +49,13 @@ for (const url of [...locations, ...advertised]) {
   const html = read(htmlPath(new URL(url).pathname))
   assert(!/<meta[^>]+name="robots"[^>]+content="noindex/.test(html), `Sitemap advertises fallback ${url}`)
 }
-const fallback = read(htmlPath('/it/pro/installation'))
-assert.match(fallback, /noindex,follow/)
-assert(!links(fallback).some(l => l.hreflang), 'Fallback must not advertise a translation')
-assert(!locations.includes('https://docs.rankbeam.dev/it/pro/installation'))
-assert(read(path.join(dist, 'llms.txt')).includes('/it/guide/quickstart.md'))
-assert(!read(path.join(dist, 'llms.txt')).includes('/it/pro/installation.md'))
+const llms = read(path.join(dist, 'llms.txt'))
+for (const target of Object.keys(manifest.pages)) {
+  const url = 'https://docs.rankbeam.dev' + route(target)
+  assert(locations.includes(url), `Completed translation absent from sitemap: ${target}`)
+  const html = read(htmlPath(route(target)))
+  assert(!/<meta[^>]+name="robots"[^>]+content="noindex/.test(html), `Completed translation still marked as fallback: ${target}`)
+  if (!target.endsWith('/index.md')) assert(llms.includes('/' + target), `Missing Markdown entry: ${target}`)
+}
+assert.equal(locations.length, 258)
 console.log(`${Object.keys(manifest.pages).length} localized pages; ${examples} unchanged code blocks; reciprocal head alternatives; ${locations.length} sitemap URLs and all advertised alternatives exclude fallbacks`)

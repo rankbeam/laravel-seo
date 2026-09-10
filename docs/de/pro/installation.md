@@ -10,7 +10,7 @@ description: "laravel-seo-pro installieren: Queue-Scans mit Befundverwaltung, We
 
 | | |
 |---|---|
-| PHP | 8.2+, bei Laravel 13 mindestens 8.3 |
+| PHP | 8.2–8.4 (Laravel 11); 8.2–8.5 (Laravel 12); 8.3–8.5 (Laravel 13) |
 | Laravel | 11, 12 oder 13 |
 | `rankbeam/laravel-seo` | ^3.20, von Pro 2.40+ automatisch installiert |
 | `filament/filament` | **Optional**, 4.x oder 5.x, nur für die Admin-Oberfläche |

@@ -14,7 +14,7 @@ everything with [artisan commands](/pro/headless).
 
 | | |
 |---|---|
-| PHP | 8.2+ (8.3+ on Laravel 13) |
+| PHP | 8.2–8.4 (Laravel 11); 8.2–8.5 (Laravel 12); 8.3–8.5 (Laravel 13) |
 | Laravel | 11, 12, or 13 |
 | `rankbeam/laravel-seo` | ^3.20 (installed automatically by Pro 2.40+) |
 | `filament/filament` | **optional** — 4.x or 5.x, only for the admin UI |

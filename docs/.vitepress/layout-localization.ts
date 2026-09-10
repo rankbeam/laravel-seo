@@ -1,3 +1,4 @@
+import blogArticles from './blog-articles.json' with { type: 'json' }
 import messages from './layout-messages.json' with { type: 'json' }
 import { core, pro, reference } from './navigation.ts'
 
@@ -8,15 +9,6 @@ export function message(locale: string, key: string): string {
   return value
 }
 
-// Published article routes only; editorial review is tracked separately.
-const italianArticles: Record<string, string> = {
-  'laravel-seo-guide': 'guida-seo-laravel',
-  'laravel-meta-tags': 'meta-tag-laravel',
-  'laravel-sitemaps': 'sitemap-laravel',
-  'canonical-urls-in-laravel': 'url-canonical-in-laravel',
-  'json-ld-schema-graphs-in-laravel': 'json-ld-schema-graph-in-laravel',
-  'laravel-seo-audit': 'audit-seo-laravel',
-}
 export function destination(link: string, locale: string, translated: string[]) {
   if (locale === 'en') return { link, english: false }
   if (link.startsWith('/')) return { link: `/${locale}${link}`, english: !translated.includes(link.slice(1)) }
@@ -25,10 +17,12 @@ export function destination(link: string, locale: string, translated: string[]) 
     url.pathname = `/${locale}${url.pathname}`
     return { link: url.href, english: false }
   }
-  if (locale === 'it' && url.hostname === 'blog.rankbeam.dev') {
-    if (url.pathname === '/') return { link: 'https://blog.rankbeam.dev/it', english: false }
+  if (locale in blogArticles && url.hostname === 'blog.rankbeam.dev') {
+    const edition = blogArticles[locale as keyof typeof blogArticles]
+    const articles: Record<string, string> = edition.articles
+    if (url.pathname === '/') return { link: `https://blog.rankbeam.dev/${locale}`, english: false }
     const slug = url.pathname.replace('/posts/', '')
-    if (italianArticles[slug]) return { link: `https://blog.rankbeam.dev/it/articoli/${italianArticles[slug]}${url.hash}`, english: false }
+    if (articles[slug]) return { link: `https://blog.rankbeam.dev/${locale}/${edition.segment}/${articles[slug]}${url.search}${url.hash}`, english: false }
   }
   return { link, english: true }
 }

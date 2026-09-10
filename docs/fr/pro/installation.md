@@ -10,7 +10,7 @@ description: "Installez laravel-seo-pro : scans du site en file d’attente avec
 
 | | |
 |---|---|
-| PHP | 8.2+ ; 8.3+ avec Laravel 13 |
+| PHP | 8.2–8.4 (Laravel 11); 8.2–8.5 (Laravel 12); 8.3–8.5 (Laravel 13) |
 | Laravel | 11, 12 ou 13 |
 | `rankbeam/laravel-seo` | ^3.20, installé automatiquement par Pro 2.40+ |
 | `filament/filament` | **Facultatif** : 4.x ou 5.x, uniquement pour l’interface d’administration |
