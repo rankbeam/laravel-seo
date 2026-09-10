@@ -225,12 +225,13 @@ The free audit reports `hreflang_invalid_code`, `hreflang_duplicate_code` and
 
 ::: info Cost at scale
 With either extension on, the builder resolves each record's full `seoData()`
-(the entire precedence chain — defaults lookups, computed values, the model's
-`getSEO*()` getters) once per URL. On a large catalogue that is a real cost:
-each record can issue several cache/database operations, and custom getters may
-add their own queries. It is built for the **scheduled** `seo:sitemap` command,
-not a request cycle — benchmark before enabling it on a sitemap approaching the
-50,000-URL limit, and keep both flags off if you don't need the entries.
+for its images and alternates. The normal model path also resolves metadata in
+`shouldInclude()` to check robots. With resolver caching disabled (the default),
+an included record can therefore traverse the precedence chain twice. Each
+resolution can issue several cache/database operations, and custom `getSEO*()`
+getters may add queries. Use the **scheduled** `seo:sitemap` command rather than
+a web request. Benchmark before enabling extensions near the 50,000-URL limit,
+and leave both flags off when those entries are unnecessary.
 :::
 
 ::: tip Already publishing a config?

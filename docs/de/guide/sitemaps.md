@@ -175,7 +175,7 @@ Vor der Ausgabe greifen die [`seo.hreflang`-Regeln](/de/guide/multilingual#hrefl
 :::
 
 ::: info Aufwand bei großen Katalogen
-Mit einer aktiven Erweiterung löst der Builder einmal pro URL das gesamte `seoData()` auf: Vorgaben, berechnete Werte und `getSEO*()`-Getter. Pro Datensatz können mehrere Cache- oder Datenbankzugriffe anfallen; eigene Getter können weitere Abfragen auslösen. Plane `seo:sitemap` als Hintergrundbefehl statt innerhalb einer Webanfrage. Miss die Laufzeit, bevor du Erweiterungen bei annähernd 50.000 URLs aktivierst. Lass sie deaktiviert, wenn du sie nicht benötigst.
+Bei aktiver Erweiterung löst der Builder `seoData()` für Bilder und Sprachalternativen auf. Der normale Modellpfad löst die Metadaten außerdem in `shouldInclude()` auf, um robots zu prüfen. Ist der Resolver-Cache wie standardmäßig deaktiviert, kann ein aufgenommener Datensatz die Vorrangkette daher zweimal durchlaufen. Jede Auflösung kann Cache- oder Datenbankzugriffe auslösen; eigene `getSEO*()`-Getter können weitere Abfragen hinzufügen. Führe `seo:sitemap` als geplanten Befehl aus, nicht innerhalb einer Webanfrage. Miss die Kosten vor dem Einsatz nahe der Grenze von 50.000 URLs und lass beide Erweiterungen aus, wenn du sie nicht brauchst.
 :::
 
 ::: tip Bereits veröffentlichte Konfiguration

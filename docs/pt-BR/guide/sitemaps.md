@@ -1,8 +1,8 @@
 ---
-description: "Registre fontes de sitemap a partir de models, funções ou listas de URLs e gere um índice XML servido em /sitemap.xml."
+description: "Registre fontes de sitemap a partir de modelos, funções ou listas de URLs e gere um índice XML servido em /sitemap.xml."
 ---
 
-# Registro de sitemaps
+# Registro de sitemaps {#sitemap-registry}
 
 O pacote gera um XML por fonte e um índice, servidos em `/sitemap.xml` e `/sitemap-{name}.xml`. A geração usa [spatie/laravel-sitemap](https://github.com/spatie/laravel-sitemap):
 
@@ -32,7 +32,7 @@ Cada fonte produz `sitemap-{name}.xml`; `sitemap.xml` lista os arquivos. O regis
 
 ## Fontes pela configuração {#config-driven-sources}
 
-Você também pode definir models e URLs estáticas em `config/seo.php`:
+Você também pode definir modelos e URLs estáticas em `config/seo.php`:
 
 ```php
 'sitemap' => [
@@ -46,7 +46,7 @@ Você também pode definir models e URLs estáticas em `config/seo.php`:
 ```
 
 ::: info O registro tem prioridade
-A descoberta automática ignora models já cobertos por uma fonte nomeada. Registrar `posts` não gera também um `sitemap-post.xml`.
+A descoberta automática ignora modelos já cobertos por uma fonte nomeada. Registrar `posts` não gera também um `sitemap-post.xml`.
 :::
 
 ## Gerar {#generating}
@@ -82,7 +82,7 @@ Se você serve seus próprios arquivos estáticos, desative as rotas:
 
 O Rankbeam associa uma folha XSL ao XML para mostrar uma tabela com URL, `lastmod`, frequência de atualização, prioridade, quantidade de imagens e versões de idioma, além de notas de validação.
 
-![Sitemap do Rankbeam exibido como tabela legível com a identidade visual do produto](/sitemap-styled.png)
+![Captura original em inglês do sitemap do Rankbeam exibido como tabela legível com a identidade visual do produto](/sitemap-styled.png)
 
 Cada sitemap referencia a folha:
 
@@ -139,11 +139,11 @@ Todos os valores, inclusive URLs, passam pelo escape XSLT. Um `<loc>` só vira l
 
 ## O que é incluído {#what-gets-included}
 
-Fontes de models incluem registros resolvidos como indexáveis. Se as diretivas robots contiverem `noindex`, o registro fica fora. As URLs vêm de `getUrlForSEO()`, também usado para o canonical.
+Fontes de modelos incluem registros resolvidos como indexáveis. Se as diretivas robots contiverem `noindex`, o registro fica fora. As URLs vêm de `getUrlForSEO()`, também usado para o canonical.
 
 ## Extensões de imagens e hreflang {#image-hreflang-extensions}
 
-Duas extensões opcionais acrescentam os dados já resolvidos para cada model. Ambas vêm **desativadas por padrão**:
+Duas extensões opcionais acrescentam os dados já resolvidos para cada modelo. Ambas vêm **desativadas por padrão**:
 
 ```php
 'sitemap' => [
@@ -152,7 +152,7 @@ Duas extensões opcionais acrescentam os dados já resolvidos para cada model. A
 ],
 ```
 
-Elas se aplicam a models com `HasSEO`, usando o `seoData()` completo:
+Elas se aplicam a modelos com `HasSEO`, usando o `seoData()` completo:
 
 - **`images`** acrescenta uma entrada de [sitemap de imagens do Google](https://developers.google.com/search/docs/crawling-indexing/sitemaps/image-sitemaps) com a mesma imagem de `og:image`. Sem imagem própria, usa `default_og_image`. Ative apenas se as imagens por URL forem úteis para seu conteúdo.
 - **`alternates`** acrescenta `<xhtml:link rel="alternate" hreflang="…">` a partir de `getSEOAlternates()`, como no `<head>`. Retorne URLs absolutas:
@@ -175,7 +175,7 @@ Antes da escrita, aplicam-se as [políticas `seo.hreflang`](/pt-BR/guide/multili
 :::
 
 ::: info Custo em catálogos grandes
-Ativar qualquer extensão resolve o `seoData()` completo por URL: padrões, valores calculados e getters `getSEO*()`. Cada registro pode causar operações de cache ou banco, além das consultas dos seus getters. O processamento foi pensado para `seo:sitemap` agendado, não para uma requisição web. Meça o custo antes de ativar perto de 50.000 URLs e mantenha as opções desligadas se não precisar desses dados.
+Uma extensão ativa resolve `seoData()` para imagens e alternativas de idioma. O caminho normal dos modelos também resolve os metadados em `shouldInclude()` para verificar robots. Com o cache do resolvedor desativado, como no padrão, um registro incluído pode percorrer a cadeia de precedência duas vezes. Cada resolução pode fazer operações de cache ou banco, além das consultas dos getters `getSEO*()` próprios. Execute `seo:sitemap` por agendamento, fora de uma requisição web. Meça o custo perto do limite de 50.000 URLs e deixe ambas as extensões desativadas se não precisar delas.
 :::
 
 ::: tip Configuração já publicada
@@ -203,4 +203,4 @@ SEO::sitemaps()->register('videos', fn () => Video::query()
     ));
 ```
 
-O mesmo vale por registro: se um model implementa `Sitemapable` e `toSitemapTag()` retorna um `Url`, ele é emitido sem alterações.
+O mesmo vale por registro: se um modelo implementa `Sitemapable` e `toSitemapTag()` retorna um `Url`, ele é emitido sem alterações.

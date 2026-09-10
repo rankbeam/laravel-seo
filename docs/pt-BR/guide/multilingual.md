@@ -2,7 +2,7 @@
 description: "Conteúdo multilíngue no Rankbeam: limites por escrita, grafemas, caixa, hreflang, inLanguage, buscadores regionais, fontes e URLs Unicode."
 ---
 
-# Conteúdo multilíngue
+# Conteúdo multilíngue {#multilingual-content}
 
 As [traduções](/pt-BR/guide/translations) definem o idioma da interface. Esta página trata da **língua do conteúdo**: limites diferentes para japonês, corte de tailandês sem espaços, equivalência turca entre `İstanbul` e `istanbul`, correção de `it_IT` em hreflang e rastreadores como o Naver para a Coreia. Essas regras ficam no núcleo para manter os componentes alinhados.
 
@@ -17,11 +17,11 @@ $italian = $post->seoData('it');
 $japanese = $post->seoData('ja');
 ```
 
-As leituras selecionam a linha de metadados daquele idioma e executam `getSEOTitle()`, `getSEODescription()`, `getUrlForSEO()` e `getSEOSchema()` em um contexto temporário. Os idiomas do model chamador e da aplicação são preservados, inclusive se um hook lançar exceção. Models com `setLocale()` e `getTranslatableAttributes()` do Spatie também recebem um idioma de instância isolado. Os hooks precisam retornar traduções; o Rankbeam não traduz atributos comuns automaticamente.
+As leituras selecionam a linha de metadados daquele idioma e executam `getSEOTitle()`, `getSEODescription()`, `getUrlForSEO()` e `getSEOSchema()` em um contexto temporário. Os idiomas do modelo chamador e da aplicação são preservados, inclusive se um hook lançar exceção. Modelos com `setLocale()` e `getTranslatableAttributes()` do Spatie também recebem um idioma de instância isolado. Os hooks precisam retornar traduções; o Rankbeam não traduz atributos comuns automaticamente.
 
-Métodos de IA baseados em models e preenchimento em lote do Pro aceitam `locale:` explícito. Sem ele, o padrão de `seoData()` sobrescrito por um model traduzível determina a língua, com fallback para a aplicação. Ações Filament recebem o idioma do próprio campo, inclusive em edição monolíngue e modo de acompanhamento. Em jobs próprios, serialize a língua escolhida e informe-a na execução. Não dependa do idioma atual do worker.
+Métodos de IA baseados em modelos e preenchimento em lote do Pro aceitam `locale:` explícito. Sem ele, o padrão de `seoData()` sobrescrito por um modelo traduzível determina a língua, com fallback para a aplicação. Ações Filament recebem o idioma do próprio campo, inclusive em edição monolíngue e modo de acompanhamento. Em jobs próprios, serialize a língua escolhida e informe-a na execução. Não dependa do idioma atual do worker.
 
-Para leitores síncronos próprios, `ModelLocale::run($model, $locale, $callback)` passa um model isolado ao callback e restaura a língua da aplicação em `finally`. Termine as leituras dependentes do idioma dentro do callback. Retornar um iterador lazy ou closure não prolonga o contexto.
+Para leitores síncronos próprios, `ModelLocale::run($model, $locale, $callback)` passa um modelo isolado ao callback e restaura a língua da aplicação em `finally`. Termine as leituras dependentes do idioma dentro do callback. Retornar um iterador lazy ou closure não prolonga o contexto.
 
 ## Orçamentos de título e descrição por escrita {#title-and-description-budgets-per-script}
 
@@ -114,7 +114,7 @@ A auditoria gratuita verifica a lista após as políticas:
 | `hreflang_duplicate_code` | notice | Mesmo código repetido. |
 | `hreflang_missing_self` | warning | URL da página ausente da própria lista. |
 
-A reciprocidade exige rastreamento. Com `check_hreflang_reciprocity`, o Pro busca cada alternativa pelo SsrfGuard e emite `hreflang_not_reciprocal` se o destino não declarar a URL de origem **com o código de idioma correspondente** (Pro 2.38+; [códigos de rede (EN)](/pro/scan-issues#network-codes)). O helper é público:
+A reciprocidade exige rastreamento. Com `check_hreflang_reciprocity`, o Pro busca cada alternativa pelo SsrfGuard e emite `hreflang_not_reciprocal` se o destino não declarar a URL de origem **com o código de idioma correspondente** (Pro 2.38+; [códigos de rede](/pt-BR/pro/scan-issues#network-codes)). O helper é público:
 
 ```php
 use Rankbeam\Seo\I18n\Hreflang;
@@ -242,18 +242,18 @@ Os pacotes oferecem textos e seleção de motores para as 17 locales abaixo. A t
 | Turco | `tr` | 60 / 160 | Espaços | Snowball | Ateşman |
 | Russo | `ru` | 60 / 160 | Espaços | Snowball | Oborneva |
 | Polonês | `pl` | 60 / 160 | Espaços | Snowball | Pisarek |
-| Japonês | `ja` | 30 / 80 | Dicionário ICU | Exata com case folding | Heurística, **sem score** |
-| Chinês simplificado | `zh_CN` | 30 / 80 | Dicionário ICU | Exata com case folding | Heurística, **sem score** |
-| Chinês tradicional | `zh_TW` | 30 / 80 | Dicionário ICU | Exata com case folding | Heurística, **sem score** |
-| Coreano | `ko` | 30 / 80 | Espaços | Exata com case folding | Heurística, **sem score** |
+| Japonês | `ja` | 30 / 80 | Dicionário ICU | Exata com case folding | Heurística, **sem pontuação** |
+| Chinês simplificado | `zh_CN` | 30 / 80 | Dicionário ICU | Exata com case folding | Heurística, **sem pontuação** |
+| Chinês tradicional | `zh_TW` | 30 / 80 | Dicionário ICU | Exata com case folding | Heurística, **sem pontuação** |
+| Coreano | `ko` | 30 / 80 | Espaços | Exata com case folding | Heurística, **sem pontuação** |
 | Grego | `el` | 60 / 160 | Espaços | Snowball | LIX |
 | Ucraniano | `uk` | 60 / 160 | Espaços | Exata com case folding | LIX |
 | Tcheco | `cs` | 60 / 160 | Espaços | Snowball | LIX |
 
 Três limites acompanham a tabela:
 
-- **Snowball é incluído desde Pro 2.37.** Doze línguas usam algoritmos fixados em 3.1.1, sem pacotes opcionais. Ucraniano e CJK usam identidade, sem regras de sufixo inventadas. A identidade pode deixar passar flexões; stemming pode aproximar palavras diferentes. Veja [motores e migração (EN)](/pro/on-page-checklist#upgrading-from-pro-2-36).
-- **“Heurística, sem score” difere de LIX.** Japonês, chinês e coreano recebem um nível orientativo com base no tamanho de frases e proporção de kanji, com score `null`. Grego, ucraniano e tcheco usam LIX porque não há fórmula específica implementada. LIX dispensa sílabas, mas seus limites não são calibrados para toda língua. Todas as fórmulas usam entradas estimadas; veja [limites estatísticos (EN)](/pro/on-page-checklist#text-statistics-and-api-limits).
+- **Snowball é incluído desde Pro 2.37.** Doze línguas usam algoritmos fixados em 3.1.1, sem pacotes opcionais. Ucraniano e CJK usam identidade, sem regras de sufixo inventadas. A identidade pode deixar passar flexões; stemming pode aproximar palavras diferentes. Veja [motores e migração](/pt-BR/pro/on-page-checklist#upgrading-from-pro-2-36).
+- **“Heurística, sem pontuação” difere de LIX.** Japonês, chinês e coreano recebem um nível orientativo com base no tamanho de frases e proporção de kanji, com pontuação `null` e caráter sempre consultivo, independentemente de `readability.advisory`. Grego, ucraniano e tcheco usam LIX porque não há fórmula específica implementada. LIX dispensa sílabas, mas seus limites não são calibrados para toda língua. Todas as fórmulas usam entradas estimadas; veja [limites estatísticos](/pt-BR/pro/on-page-checklist#text-statistics-and-api-limits).
 - **Traduções dos pacotes são primeiras versões**, salvo revisão nativa registrada em `TRANSLATING.md`. Textos italianos têm revisão creditada; os demais aguardam revisor. Isso não aprova as traduções da documentação.
 
 Locales fora da lista podem usar textos ingleses, limites padrão, correspondência por identidade e LIX ou heurísticas. Esse fallback não é suporte linguístico validado. O bloco `analysis` identifica escrita, segmentador, stemmer e legibilidade; examine disponibilidade e julgamentos ignorados também.
@@ -265,4 +265,4 @@ A cobertura técnica inclui robôs e verificação: Naver para a Coreia, Seznam 
 ## O que os outros pacotes acrescentam {#what-the-other-packages-add}
 
 - **laravel-seo-filament** usa a mesma política em contadores e prévia SERP. Desde 1.9, edita [uma linha `seo_meta` por idioma](/pt-BR/guide/filament#several-languages), com abas e indicadores próprios ou seguindo o seletor de um plugin.
-- **laravel-seo-pro** usa a política em `title_length`, `description_length` e prompts de IA. A análise inclui ICU para chinês, japonês e tailandês, Snowball, correspondência com `CaseFolder`, fórmulas publicadas com entradas estimadas para dez línguas, heurísticas CJK identificadas, LIX para grego/ucraniano/tcheco, stop words para 16 línguas, `html lang`, reciprocidade hreflang, prompts com idioma e relatórios Chrome para escritas não renderizadas pelo dompdf. Veja [checklist (EN)](/pro/on-page-checklist#keyword-matching), [problemas (EN)](/pt-BR/pro/scan-issues), [assistência IA (EN)](/pro/ai-assist#output-language) e [relatórios (EN)](/pro/reports#reports-in-every-script-browsershot-renderer).
+- **laravel-seo-pro** usa a política em `title_length`, `description_length` e prompts de IA. A análise inclui ICU para chinês, japonês e tailandês, Snowball, correspondência com `CaseFolder`, fórmulas publicadas com entradas estimadas para dez línguas, heurísticas CJK identificadas, LIX para grego/ucraniano/tcheco, stop words para 16 línguas, `html lang`, reciprocidade hreflang, prompts com idioma e relatórios Chrome para escritas não renderizadas pelo dompdf. Veja [checklist](/pt-BR/pro/on-page-checklist#keyword-matching), [problemas](/pt-BR/pro/scan-issues), [assistência IA](/pt-BR/pro/ai-assist#output-language) e [relatórios](/pt-BR/pro/reports#reports-in-every-script-browsershot-renderer).

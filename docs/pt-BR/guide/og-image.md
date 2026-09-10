@@ -2,7 +2,7 @@
 description: "Gere imagens Open Graph por página com Blade, Browsershot e Chrome: geração antecipada, cache, templates, fontes e limites de operação."
 ---
 
-# Gerar imagens OG
+# Gerar imagens OG {#generated-og-images}
 
 Desde Core 3.20, o renderizador Chrome desativa JavaScript e bloqueia requisições de recursos HTTP(S), FTP e WebSocket. Templates próprios precisam usar HTML/CSS estático e recursos incorporados, como os incluídos.
 
@@ -74,11 +74,11 @@ php artisan seo:og-images --force                 # re-render even existing card
 php artisan seo:og-images --prune                 # + delete orphaned cards
 ```
 
-- `--model=*`: uma ou mais classes; repetível. Sem argumento, usa `seo.og_image.models`, com fallback para os [models do sitemap](/pt-BR/guide/sitemaps) em `seo.sitemap.models`, como `seo:llms-txt`.
+- `--model=*`: uma ou mais classes; repetível. Sem argumento, usa `seo.og_image.models`, com fallback para os [modelos do sitemap](/pt-BR/guide/sitemaps) em `seo.sitemap.models`, como `seo:llms-txt`.
 - `--force`: refaz cartões existentes, por exemplo após editar um template sem aumentar `cache_version`.
-- `--prune`: depois da geração, remove cartões órfãos no caminho configurado. Só apaga nomes no formato dos hashes gerados, nunca outros arquivos. É ignorado com `--model`, pois uma lista parcial não cobriria os cartões de outros models.
+- `--prune`: depois da geração, remove cartões órfãos no caminho configurado. Só apaga nomes no formato dos hashes gerados, nunca outros arquivos. É ignorado com `--model`, pois uma lista parcial não cobriria os cartões de outros modelos.
 
-Os models precisam usar `HasSEO`. Registros sem título são ignorados. A saída conta `generated`, `skipped`, `failed` e, com `--prune`, `pruned`.
+Os modelos precisam usar `HasSEO`. Registros sem título são ignorados. A saída conta `generated`, `skipped`, `failed` e, com `--prune`, `pruned`.
 
 ### Agendamento {#scheduling}
 
@@ -106,7 +106,7 @@ Os três usam o mesmo gradiente e tamanho inicial de 1200×630:
 | `seo::og.article` | Posts e notícias | Seção, título, autor e data |
 | `seo::og.product` | Produtos e anúncios | Marca, categoria, título e descrição |
 
-Escolha um padrão global em `seo.og_image.template` ou mapeie por classe de model:
+Escolha um padrão global em `seo.og_image.template` ou mapeie por classe de modelo:
 
 ```php
 // config/seo.php
@@ -118,7 +118,7 @@ Escolha um padrão global em `seo.og_image.template` ou mapeie por classe de mod
 ],
 ```
 
-Um model pode definir `getOgImageTemplate(): ?string`. Retorne o nome de uma view ou `null` para usar o mapa ou padrão. Prioridade: hook do model, mapa `templates`, `template` global.
+Um modelo pode definir `getOgImageTemplate(): ?string`. Retorne o nome de uma view ou `null` para usar o mapa ou padrão. Prioridade: hook do modelo, mapa `templates`, `template` global.
 
 ## Personalizar o template {#customizing-the-template}
 
