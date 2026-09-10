@@ -212,7 +212,7 @@ The template receives these variables:
 | `$height` | `int` | Output height (default `630`). |
 | `$locale` | `?string` | Resolved page locale, for the `<html lang>` attribute. |
 | `$author` | `?string` | Article author (used by `seo::og.article`). |
-| `$publishedDate` | `?string` | Publish date, pre-formatted `M j, Y` (used by `seo::og.article`). |
+| `$publishedDate` | `?string` | Publication date for `seo::og.article`: ICU medium format in the page locale when available; otherwise Carbon translates the month in `M j, Y` order. Null when no date is provided. |
 | `$section` | `?string` | Content section / category (article eyebrow, product chip). |
 | `$description` | `?string` | The OG description, else the page description (used by `seo::og.product`). |
 

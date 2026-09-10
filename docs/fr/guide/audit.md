@@ -2,7 +2,7 @@
 description: "Vérifiez les métadonnées SEO avec seo:audit : un tableau par page, gratuitement, sans file d'attente, licence ni accès réseau."
 ---
 
-# Audit SEO gratuit (`seo:audit`)
+# Audit SEO gratuit (`seo:audit`) {#free-seo-audit-seo-audit}
 
 `php artisan seo:audit` répond à une question : **quels problèmes SEO mes pages présentent-elles maintenant ?** La commande parcourt les modèles `HasSEO` dans le processus courant, **sans file d'attente, licence ni réseau**, et affiche un état **pass / warn / fail** par page, suivi d'un récapitulatif.
 
@@ -52,9 +52,9 @@ Un audit local des métadonnées ne couvre pas toute l'analyse Pro. Chaque exéc
 
 - **Les vérifications du HTML servi :** `missing_h1`, `multiple_h1`, `missing_image_alt`, `thin_content` et `mixed_content` demandent le contenu réel de la page.
 - **Les vérifications réseau du canonical :** `canonical_target_broken` / `_redirect` / `_noindex` nécessitent un appel sortant protégé.
-- **Le score numérique de 0 à 100 :** Pro l'enregistre avec une grille versionnée dans le résultat d'analyse ; voir [score SEO (EN)](/fr/pro/scoring).
+- **Le score numérique de 0 à 100 :** Pro l'enregistre avec une grille versionnée dans le résultat d'analyse ; voir [score SEO](/fr/pro/scoring).
 
-Ces fonctions appartiennent à **Pro**. La [liste complète des problèmes (EN)](/fr/pro/scan-issues) détaille leur couverture.
+Ces fonctions appartiennent à **Pro**. La [liste complète des problèmes](/fr/pro/scan-issues) détaille leur couverture.
 
 ## Choisir les modèles {#choosing-what-to-audit}
 

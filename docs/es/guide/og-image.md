@@ -154,7 +154,7 @@ Variables disponibles:
 | `$height` | `int` | Alto, por defecto `630`. |
 | `$locale` | `?string` | Idioma resuelto para `<html lang>`. |
 | `$author` | `?string` | Autor para `seo::og.article`. |
-| `$publishedDate` | `?string` | Fecha preformateada como `M j, Y` para `seo::og.article`. |
+| `$publishedDate` | `?string` | Fecha de publicación para `seo::og.article`: formato medio de ICU en la configuración regional de la página, si está disponible; de lo contrario, Carbon traduce el mes con el orden `M j, Y`. Null si no hay fecha. |
 | `$section` | `?string` | Sección o categoría de artículo/producto. |
 | `$description` | `?string` | Descripción OG o de página para `seo::og.product`. |
 

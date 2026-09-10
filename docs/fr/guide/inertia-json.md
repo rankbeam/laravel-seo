@@ -7,7 +7,7 @@ description: "Utilisez les mêmes données SEO résolues avec Inertia ou une API
 Le même `SEOData` résolu qui alimente `@seo` peut produire des tableaux structurés. Blade, Vue, React, Svelte ou un frontend séparé qui consomme votre API utilisent ainsi une même source pour construire le head.
 
 ::: warning Les métadonnées visibles dans la réponse initiale nécessitent le SSR ou le prérendu
-Une application Inertia sans SSR injecte les métadonnées **côté client**. Le HTML initial reçu par un robot ou un outil de partage social ne contient *pas* ces métadonnées avant l'exécution de JavaScript. Pour les inclure dans la réponse HTTP brute, activez le [SSR d'Inertia](https://inertiajs.com/server-side-rendering) ou un prérendu. Le JSON-LD, en particulier, doit être rendu côté serveur. Consultez le [contrat de rendu (EN)](/fr/contributing/rendering-contract).
+Une application Inertia sans SSR injecte les métadonnées **côté client**. Le HTML initial reçu par un robot ou un outil de partage social ne contient *pas* ces métadonnées avant l'exécution de JavaScript. Pour les inclure dans la réponse HTTP brute, activez le [SSR d'Inertia](https://inertiajs.com/server-side-rendering) ou un prérendu. Le JSON-LD, en particulier, doit être rendu côté serveur. Consultez le [contrat de rendu](/fr/contributing/rendering-contract).
 :::
 
 ## Inertia {#inertia}
@@ -215,4 +215,4 @@ $data->canonical;
 $data->ogImage;       // always an absolute URL
 ```
 
-`SEOData` est un objet-valeur immuable. La [priorité du résolveur](/fr/concepts/resolver-precedence) explique l'origine de chaque propriété. Le [contrat de rendu (EN)](/fr/contributing/rendering-contract) décrit les exigences que doit respecter le `<head>` de chaque stack.
+`SEOData` est un objet-valeur immuable. La [priorité du résolveur](/fr/concepts/resolver-precedence) explique l'origine de chaque propriété. Le [contrat de rendu](/fr/contributing/rendering-contract) décrit les exigences que doit respecter le `<head>` de chaque stack.

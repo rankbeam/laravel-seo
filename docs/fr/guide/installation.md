@@ -2,7 +2,7 @@
 description: "Installez rankbeam/laravel-seo avec Composer, publiez la configuration et préparez les tables sous Laravel 11, 12 ou 13."
 ---
 
-# Installation
+# Installation {#installation}
 
 ## Prérequis {#requirements}
 
@@ -44,4 +44,4 @@ Si votre application utilisait `fibonoir/laravel-seo` v1, consultez d'abord la [
 | Paquet | Fonctions ajoutées | Licence |
 |---|---|---|
 | [`rankbeam/laravel-seo-filament`](https://github.com/rankbeam/laravel-seo-filament) | Section SEO dans les formulaires de ressources Filament 4/5 | MIT |
-| [`rankbeam/laravel-seo-pro` (EN)](/fr/pro/installation) | Analyses en file d'attente, redirections et suivi des erreurs 404 dans toute application Laravel ; tableau de bord Filament facultatif | Commerciale |
+| [`rankbeam/laravel-seo-pro`](/fr/pro/installation) | Analyses en file d'attente, redirections et suivi des erreurs 404 dans toute application Laravel ; tableau de bord Filament facultatif | Commerciale |

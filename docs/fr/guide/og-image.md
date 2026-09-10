@@ -2,7 +2,7 @@
 description: "Générez des images Open Graph par page avec Blade, Browsershot et Chrome : pré-génération, cache, modèles, polices et limites d'exploitation."
 ---
 
-# Génération des images OG
+# Génération des images OG {#generated-og-images}
 
 Depuis Core 3.20, le rendu Chrome désactive JavaScript et bloque les requêtes d'assets HTTP(S), FTP et WebSocket. Vos templates doivent utiliser du HTML/CSS statique et des assets intégrés, comme ceux du paquet.
 
@@ -154,7 +154,7 @@ Variables reçues par le template :
 | `$height` | `int` | Hauteur, par défaut `630`. |
 | `$locale` | `?string` | Langue résolue de la page pour `<html lang>`. |
 | `$author` | `?string` | Auteur pour `seo::og.article`. |
-| `$publishedDate` | `?string` | Date préformatée en `M j, Y` pour `seo::og.article`. |
+| `$publishedDate` | `?string` | Date de publication pour `seo::og.article` : format moyen ICU dans la locale de la page si disponible ; sinon Carbon traduit le mois dans l’ordre `M j, Y`. Null sans date. |
 | `$section` | `?string` | Rubrique ou catégorie de l'article/produit. |
 | `$description` | `?string` | Description OG, sinon description de page, pour `seo::og.product`. |
 

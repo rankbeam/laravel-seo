@@ -2,7 +2,7 @@
 description: "Contenus multilingues avec Rankbeam : budgets par écriture, graphèmes, casse, hreflang, inLanguage, moteurs régionaux, polices et URL Unicode."
 ---
 
-# Contenus multilingues
+# Contenus multilingues {#multilingual-content}
 
 Les [traductions](/fr/guide/translations) déterminent la langue de l'interface du paquet. Cette page traite de la **langue de votre contenu** : budgets différents pour le japonais, troncature du thaï sans espaces, équivalence turque entre `İstanbul` et `istanbul`, correction d'un hreflang `it_IT`, ou présence du robot Naver pour un site coréen. Ces règles appartiennent au Core afin que les différents composants partagent les mêmes décisions.
 
@@ -114,7 +114,7 @@ L'audit gratuit vérifie la liste après ces politiques :
 | `hreflang_duplicate_code` | notice | Même code déclaré deux fois. |
 | `hreflang_missing_self` | warning | URL de la page absente de sa liste. |
 
-La réciprocité exige un crawl. Pro, avec `check_hreflang_reciprocity`, récupère chaque alternative via SsrfGuard. Il émet `hreflang_not_reciprocal` si la cible ne déclare pas l'URL source **avec son code de langue** (Pro 2.38+ ; [codes réseau (EN)](/pro/scan-issues#network-codes)). L'outil est public :
+La réciprocité exige un crawl. Pro, avec `check_hreflang_reciprocity`, récupère chaque alternative via SsrfGuard. Il émet `hreflang_not_reciprocal` si la cible ne déclare pas l'URL source **avec son code de langue** (Pro 2.38+ ; [codes réseau](/fr/pro/scan-issues#network-codes)). L'outil est public :
 
 ```php
 use Rankbeam\Seo\I18n\Hreflang;
@@ -252,8 +252,8 @@ Les paquets fournissent les textes et l'orientation des analyses pour les 17 loc
 
 Trois limites accompagnent cette couverture :
 
-- **Snowball est intégré depuis Pro 2.37.** Douze langues utilisent les algorithmes figés en 3.1.1, sans dépendance optionnelle. L'ukrainien et CJK utilisent une correspondance d'identité plutôt que des règles de suffixes inventées. L'identité peut manquer les formes fléchies ; le stemming peut rapprocher des mots distincts. Voir [réglages et migration (EN)](/pro/on-page-checklist#upgrading-from-pro-2-36).
-- **« Heuristique, sans score » et LIX diffèrent.** Japonais, chinois et coréen reçoivent un niveau consultatif issu de la longueur des phrases et de la part de kanji, avec un score `null`. Grec, ukrainien et tchèque utilisent LIX faute de formule dédiée implémentée. LIX ne demande pas de syllabes, mais ses seuils ne sont pas calibrés pour chaque langue. Toutes les formules utilisent des entrées estimées ; voir [limites statistiques (EN)](/pro/on-page-checklist#text-statistics-and-api-limits).
+- **Snowball est intégré depuis Pro 2.37.** Douze langues utilisent les algorithmes figés en 3.1.1, sans dépendance optionnelle. L'ukrainien et CJK utilisent une correspondance d'identité plutôt que des règles de suffixes inventées. L'identité peut manquer les formes fléchies ; le stemming peut rapprocher des mots distincts. Voir [réglages et migration](/fr/pro/on-page-checklist#upgrading-from-pro-2-36).
+- **« Heuristique, sans score » et LIX diffèrent.** Japonais, chinois et coréen reçoivent un niveau consultatif issu de la longueur des phrases et de la part de kanji, avec un score `null`. Grec, ukrainien et tchèque utilisent LIX faute de formule dédiée implémentée. LIX ne demande pas de syllabes, mais ses seuils ne sont pas calibrés pour chaque langue. Toutes les formules utilisent des entrées estimées ; voir [limites statistiques](/fr/pro/on-page-checklist#text-statistics-and-api-limits).
 - **Les traductions des paquets sont des premières versions**, sauf relecture native mentionnée dans `TRANSLATING.md`. Les textes italiens ont une relecture créditée ; les autres attendent un réviseur. Cette mention n'approuve pas les présentes traductions de documentation.
 
 Une locale absente du tableau peut utiliser les textes anglais, les budgets d'écriture ou par défaut, la correspondance d'identité, LIX ou une heuristique. Ce repli n'est pas une prise en charge validée de la langue. Le bloc `analysis` identifie écriture, segmentateur, stemmer et méthode de lisibilité : examinez aussi leur disponibilité et les jugements ignorés.
@@ -265,4 +265,4 @@ La couverture technique inclut les robots et balises de vérification : Naver po
 ## Fonctions des paquets complémentaires {#what-the-other-packages-add}
 
 - **laravel-seo-filament** utilise la même politique pour les compteurs et l'aperçu SERP. Depuis 1.9, il modifie [une ligne `seo_meta` par langue](/fr/guide/filament#several-languages), avec onglets possédant leurs compteurs, aperçus et indicateurs, ou en suivant le sélecteur d'un plugin de traduction.
-- **laravel-seo-pro** utilise cette politique pour `title_length`, `description_length` et les prompts IA. L'analyse linguistique inclut segmentation ICU pour chinois, japonais et thaï, Snowball, correspondance avec `CaseFolder`, formules publiées avec entrées estimées pour dix langues, heuristiques CJK explicites, LIX pour grec/ukrainien/tchèque, mots vides pour 16 langues, vérifications `html lang` et de réciprocité hreflang, prompts indiquant la langue et rapports Chrome pour les écritures que dompdf ne rend pas. Voir [checklist (EN)](/pro/on-page-checklist#keyword-matching), [problèmes détectés (EN)](/fr/pro/scan-issues), [aide IA (EN)](/pro/ai-assist#output-language) et [rapports (EN)](/pro/reports#reports-in-every-script-browsershot-renderer).
+- **laravel-seo-pro** utilise cette politique pour `title_length`, `description_length` et les prompts IA. L'analyse linguistique inclut segmentation ICU pour chinois, japonais et thaï, Snowball, correspondance avec `CaseFolder`, formules publiées avec entrées estimées pour dix langues, heuristiques CJK explicites, LIX pour grec/ukrainien/tchèque, mots vides pour 16 langues, vérifications `html lang` et de réciprocité hreflang, prompts indiquant la langue et rapports Chrome pour les écritures que dompdf ne rend pas. Voir [checklist](/fr/pro/on-page-checklist#keyword-matching), [problèmes détectés](/fr/pro/scan-issues), [aide IA](/fr/pro/ai-assist#output-language) et [rapports](/fr/pro/reports#reports-in-every-script-browsershot-renderer).

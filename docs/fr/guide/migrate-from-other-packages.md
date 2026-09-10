@@ -2,12 +2,12 @@
 description: "Passez d'un autre paquet SEO Laravel à HasSEO et saveSEO(), avec un importateur des données de ralphjsmit/laravel-seo."
 ---
 
-# Migration depuis d'autres paquets SEO Laravel
+# Migration depuis d'autres paquets SEO Laravel {#migrating-from-other-laravel-seo-packages}
 
 Ce guide rapproche les API et modes de stockage courants des deux primitives de Rankbeam : le trait [`HasSEO`](/fr/guide/quickstart) et `saveSEO()`. Une commande importe les données du paquet qui les conserve par modèle. L'effort dépend de vos personnalisations.
 
 ::: tip Vous venez de WordPress ?
-Le guide [Migration depuis WordPress (EN)](/fr/guide/migrate-from-wordpress) décrit l'import CSV et la lecture de bases existantes pour Yoast et Rank Math.
+Le guide [Migration depuis WordPress](/fr/guide/migrate-from-wordpress) décrit l'import CSV et la lecture de bases existantes pour Yoast et Rank Math.
 :::
 
 | Paquet de départ | Stockage | Méthode |
@@ -17,6 +17,8 @@ Le guide [Migration depuis WordPress (EN)](/fr/guide/migrate-from-wordpress) dé
 | [`spatie/*`](#from-spatie-packages) | Builders de schémas et sitemaps, sans table de métadonnées | Conserver les fonctions complémentaires et migrer les autres |
 
 Seul **ralphjsmit** possède ici une table de données SEO à importer en masse. Pour les générateurs de balises à l'exécution, remplacez les appels par requête par des valeurs stockées dans `seo_meta` ou calculées.
+
+---
 
 ## Depuis `ralphjsmit/laravel-seo` {#from-ralphjsmit-laravel-seo}
 
@@ -120,6 +122,8 @@ php artisan seo:audit            # confirm the imported metadata looks right
 
 Après validation du résultat, vous pouvez retirer `ralphjsmit/laravel-seo` et supprimer son ancienne table `seo`.
 
+---
+
 ## Depuis `artesaos/seotools` {#from-artesaos-seotools}
 
 `artesaos/seotools` construit les balises **à l'exécution**. Les valeurs sont définies par requête avec `SEOMeta`, `OpenGraph`, `TwitterCard` et `JsonLd`, souvent dans un contrôleur, avec des défauts dans `config/seotools.php`. Aucune table par modèle n'est à importer : déplacez ces appels vers des valeurs enregistrées ou calculées.
@@ -136,7 +140,9 @@ Après validation du résultat, vous pouvez retirer `ralphjsmit/laravel-seo` et 
 | Défauts de `config/seotools.php` | `config/seo.php` et [priorité du résolveur](/fr/concepts/resolver-precedence) |
 | `{!! SEO::generate() !!}` dans le layout | `@seo($model)`, voir [Blade](/fr/guide/blade) |
 
-Au lieu de définir les balises dans chaque contrôleur, stockez les métadonnées une fois par modèle dans `seo_meta`, puis laissez le résolveur les rendre. Les défauts du site passent dans la [configuration (EN)](/fr/reference/configuration). Les pages statiques par route utilisent `@seoForRoute()`.
+Au lieu de définir les balises dans chaque contrôleur, stockez les métadonnées une fois par modèle dans `seo_meta`, puis laissez le résolveur les rendre. Les défauts du site passent dans la [configuration](/fr/reference/configuration). Les pages statiques par route utilisent `@seoForRoute()`.
+
+---
 
 ## Depuis les paquets Spatie {#from-spatie-packages}
 
@@ -147,9 +153,11 @@ Il n'existe pas de paquet de stockage de métadonnées `spatie/laravel-seo`. Les
 
 Pour [`romanzipp/laravel-seo`](https://github.com/romanzipp/Laravel-SEO), autre générateur à l'exécution, suivez le même principe qu'avec artesaos : les appels `setTitle` et `addMeta` deviennent `saveSEO()` ou des getters calculés.
 
+---
+
 ## Étendre l'importateur {#extending-the-importer}
 
-`seo:import-from` utilise un registre d'implémentations de `Rankbeam\Seo\Importing\Contracts\Importer`. Une nouvelle source n'exige pas de modifier la commande. Les sources intégrées sont `ralphjsmit` et les [importateurs WordPress (EN)](/fr/guide/migrate-from-wordpress) `wordpress-csv`, `yoast` et `rank-math`. Enregistrez les vôtres dans un fournisseur de services :
+`seo:import-from` utilise un registre d'implémentations de `Rankbeam\Seo\Importing\Contracts\Importer`. Une nouvelle source n'exige pas de modifier la commande. Les sources intégrées sont `ralphjsmit` et les [importateurs WordPress](/fr/guide/migrate-from-wordpress) `wordpress-csv`, `yoast` et `rank-math`. Enregistrez les vôtres dans un fournisseur de services :
 
 ```php
 use Rankbeam\Seo\Importing\ImporterRegistry;
