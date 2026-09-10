@@ -33,7 +33,7 @@ test('English cues disappear when a guide gains a translation; published site/bl
     assert.equal(destination('https://rankbeam.dev/#founding',locale,[]).link,`https://rankbeam.dev/${locale}/#founding`)
   }
   assert.equal(destination('https://blog.rankbeam.dev/posts/laravel-meta-tags','it',[]).link,'https://blog.rankbeam.dev/it/articoli/meta-tag-laravel')
-  assert.equal(destination('https://blog.rankbeam.dev/posts/laravel-meta-tags','de',[]).english,true)
+  assert.equal(destination('https://blog.rankbeam.dev/posts/laravel-meta-tags','de',[]).english,false)
   assert.equal(englishPages().length,43)
   for (const locale of locales) assert(translatedPaths(locale).length >= 10)
 })
@@ -54,3 +54,13 @@ test('layout review rejects changed source and incomplete or stale catalogs', ()
     fs.rmSync(root,{recursive:true,force:true})
   }
 })
+
+test('all published blog routes stay in the selected edition, preserving query and fragment',()=>{
+ const map=JSON.parse(fs.readFileSync(new URL('./blog-articles.json',import.meta.url)));
+ for(const locale of locales){
+  assert.equal(Object.keys(map[locale].articles).length,12);
+  assert.deepEqual(destination('https://blog.rankbeam.dev/',locale,[]),{link:`https://blog.rankbeam.dev/${locale}`,english:false});
+  for(const [slug,translation] of Object.entries(map[locale].articles))assert.deepEqual(destination(`https://blog.rankbeam.dev/posts/${slug}?ref=docs#example`,locale,[]),{link:`https://blog.rankbeam.dev/${locale}/${map[locale].segment}/${translation}?ref=docs#example`,english:false});
+  assert.equal(destination('https://blog.rankbeam.dev/posts/not-yet-translated',locale,[]).english,true);
+ }
+});

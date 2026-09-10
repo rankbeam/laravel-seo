@@ -27,7 +27,7 @@ Rankbeam lohnt sich bei **gespeichertem, modellgebundenem, mehrsprachigem und ge
 
 Eine Matrix für die gesamte Familie:
 
-- **PHP** 8.2–8.4
+- **PHP** 8.2–8.4 (Laravel 11); 8.2–8.5 (Laravel 12); 8.3–8.5 (Laravel 13)
 - **Laravel** 11, 12 oder 13; Laravel 13 benötigt PHP 8.3+
 - **Filament** 4 oder 5, optional
 
@@ -172,7 +172,7 @@ Endliche Grenzen pro Lauf und ein Zeitbudget pro Job begrenzen die Arbeit. SSRF-
 
 Eine gemeinsame Kompatibilitätsmatrix für die Familie:
 
-- **PHP** 8.2–8.4
+- **PHP** 8.2–8.4 (Laravel 11); 8.2–8.5 (Laravel 12); 8.3–8.5 (Laravel 13)
 - **Laravel** 11, 12 oder 13
 - **Filament** 4 oder 5
 

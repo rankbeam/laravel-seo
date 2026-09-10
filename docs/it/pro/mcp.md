@@ -1,12 +1,12 @@
 ---
-description: "Server MCP stdio senza dipendenze aggiuntive: un assistente AI può leggere e, se abilitato, modificare i metadati SEO di un sito Laravel. PHP 8.2–8.4 con Laravel 11–13."
+description: "Server MCP stdio senza dipendenze aggiuntive: un assistente AI può leggere e, se abilitato, modificare i metadati SEO di un sito Laravel. Laravel 11: PHP 8.2–8.4; Laravel 12: PHP 8.2–8.5; Laravel 13: PHP 8.3–8.5."
 ---
 
 # Server MCP {#mcp-server}
 
 Il server MCP di Rankbeam permette a un assistente AI di **leggere e, facoltativamente, modificare i metadati SEO del sito** tramite il [Model Context Protocol](https://modelcontextprotocol.io). Collega un client MCP, come Claude Code, Claude Desktop, Cursor o Codex, alla tua app Laravel: potrà risolvere i metadati, eseguire un audit, leggere il punteggio Pro e le regole per i crawler AI e, se lo abiliti, salvare modifiche.
 
-È un server stdio autonomo, **senza SDK o pacchetti aggiuntivi**, compatibile con le combinazioni supportate di PHP 8.2–8.4 e Laravel 11/12/13.
+È un server stdio autonomo, **senza SDK o pacchetti aggiuntivi**, compatibile con le combinazioni supportate di PHP 8.2–8.4 (Laravel 11), PHP 8.2–8.5 (Laravel 12), PHP 8.3–8.5 (Laravel 13).
 
 ::: tip Funzione Pro
 Il server è incluso in `rankbeam/laravel-seo-pro`. Per impostazione predefinita è **in sola lettura**; le modifiche richiedono l'attivazione esplicita e rispettano l'elenco dei modelli consentiti.

@@ -43,28 +43,28 @@
     },
     "it/guide/installation.md": {
       "source": "guide/installation.md",
-      "sha256": "f0ce3e6a0eb5cb8a2a107a96f63c53822716e612fd5ac57e59706474f0ba132c",
+      "sha256": "b6e9dbf70cf7585113bfc4cb6947f2c8c700179843a6bc0c7bb9a6d5c5d3676e",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "fdd11528ead9c36c8adee897ea9a6143475a7364994f63640d6cafbe40443565"
+        "translation_sha256": "c1ca6b235628505a5ffe2e2d8f1be30a54af1502cce4c76f66394d45f8f55e09"
       }
     },
     "it/guide/quickstart.md": {
       "source": "guide/quickstart.md",
-      "sha256": "4b29b83b85d525275692a45bc20775c3615e83a5ba954bb7d732b353a95ccd0b",
+      "sha256": "62172e26a1b071e110a365c15ab81d23c415ff95ac160575142ad10bc507260d",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "6c69ab69aa4985ca526b8acfa2a116a43639221fc77c94e26d35db67caa69ffd"
+        "translation_sha256": "f85bc4e16ecaf0d38b0f26afc054083f0fd14e9328be6899d79259860880717b"
       }
     },
     "it/guide/sitemaps.md": {
@@ -186,28 +186,28 @@
     },
     "de/guide/installation.md": {
       "source": "guide/installation.md",
-      "sha256": "f0ce3e6a0eb5cb8a2a107a96f63c53822716e612fd5ac57e59706474f0ba132c",
+      "sha256": "b6e9dbf70cf7585113bfc4cb6947f2c8c700179843a6bc0c7bb9a6d5c5d3676e",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "aa23b0a95f0b98e20522e7321cba068dd77133c40c895f576fe9be14c4dc6ff2"
+        "translation_sha256": "012140fb41fe05de8d95e138bd74ca3a1f027c4fe5d70ed776a014e08657b05e"
       }
     },
     "de/guide/quickstart.md": {
       "source": "guide/quickstart.md",
-      "sha256": "4b29b83b85d525275692a45bc20775c3615e83a5ba954bb7d732b353a95ccd0b",
+      "sha256": "62172e26a1b071e110a365c15ab81d23c415ff95ac160575142ad10bc507260d",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "bb3406c680c964e6d759886f2802a4993a556c739b647e05e04cf01e3a2f4f2b"
+        "translation_sha256": "513944481377c1e7ba120c3e22eee1468818236aeff71c499f6811cd8627f17d"
       }
     },
     "de/guide/sitemaps.md": {
@@ -303,28 +303,28 @@
     },
     "fr/guide/installation.md": {
       "source": "guide/installation.md",
-      "sha256": "f0ce3e6a0eb5cb8a2a107a96f63c53822716e612fd5ac57e59706474f0ba132c",
+      "sha256": "b6e9dbf70cf7585113bfc4cb6947f2c8c700179843a6bc0c7bb9a6d5c5d3676e",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "a4454f04d0bc4e477195eb985b7f5c410dc54923346990aa21921339c36a53ea"
+        "translation_sha256": "72ace7565006e89dbb2602a8f031b8f9acda2ae7cbe3685d631280a178da8f7b"
       }
     },
     "fr/guide/quickstart.md": {
       "source": "guide/quickstart.md",
-      "sha256": "4b29b83b85d525275692a45bc20775c3615e83a5ba954bb7d732b353a95ccd0b",
+      "sha256": "62172e26a1b071e110a365c15ab81d23c415ff95ac160575142ad10bc507260d",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "059c679c2ea9efbe7d95303d4b33e0b6ea0340c9491cfa0c4d6ac175e1a24d75"
+        "translation_sha256": "d37ea0db837016bfd663f640327f58744dc882a03b5b2427f4efc9d1fd6a075c"
       }
     },
     "fr/concepts/resolver-precedence.md": {
@@ -446,28 +446,28 @@
     },
     "es/guide/installation.md": {
       "source": "guide/installation.md",
-      "sha256": "f0ce3e6a0eb5cb8a2a107a96f63c53822716e612fd5ac57e59706474f0ba132c",
+      "sha256": "b6e9dbf70cf7585113bfc4cb6947f2c8c700179843a6bc0c7bb9a6d5c5d3676e",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "d64425ec4f43796a3e440c538523bd56bc341fa8eff3f29ed8e868a162c252bc"
+        "translation_sha256": "b2174d24090bdc7b6d4dd6dd15727f25de128e8801609eb1d82bac8b82f9c237"
       }
     },
     "es/guide/quickstart.md": {
       "source": "guide/quickstart.md",
-      "sha256": "4b29b83b85d525275692a45bc20775c3615e83a5ba954bb7d732b353a95ccd0b",
+      "sha256": "62172e26a1b071e110a365c15ab81d23c415ff95ac160575142ad10bc507260d",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "6da7540a84e123c5a383061c6577e18838011473a3aa51e39dc8d9b1b5ef22ae"
+        "translation_sha256": "937d1d685648d16ea2db5d3f6c1af7286fa858fb244b5111a9cdbfee01cfc206"
       }
     },
     "es/concepts/resolver-precedence.md": {
@@ -589,28 +589,28 @@
     },
     "pt-BR/guide/installation.md": {
       "source": "guide/installation.md",
-      "sha256": "f0ce3e6a0eb5cb8a2a107a96f63c53822716e612fd5ac57e59706474f0ba132c",
+      "sha256": "b6e9dbf70cf7585113bfc4cb6947f2c8c700179843a6bc0c7bb9a6d5c5d3676e",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "1921ad739dbf0db672b4fb61e03435acd56229efcff8870d3c16c76995f493e0"
+        "translation_sha256": "0e6eca7ed1666fa0bd8743e1b3b048c020263f15e3e86b256d66f46d107f9b6e"
       }
     },
     "pt-BR/guide/quickstart.md": {
       "source": "guide/quickstart.md",
-      "sha256": "4b29b83b85d525275692a45bc20775c3615e83a5ba954bb7d732b353a95ccd0b",
+      "sha256": "62172e26a1b071e110a365c15ab81d23c415ff95ac160575142ad10bc507260d",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "33afefb0f065f215391769e39a442e48f37b3913a5fd1d47ae15b35da8d3b6a1"
+        "translation_sha256": "a1c468e1281a8097453e858e6a6da8d3abc4507051fa8556b60c2d4038e47b33"
       }
     },
     "pt-BR/concepts/resolver-precedence.md": {
@@ -862,15 +862,15 @@
     },
     "it/guide/why-rankbeam.md": {
       "source": "guide/why-rankbeam.md",
-      "sha256": "dd3d6014a57aaa819346f082569dbe9a97253f7e427e0dfba1811f3193f08fe4",
+      "sha256": "fd1aaae1664a3a2cd8b963498bf06fa19e467ef0a07bd0ec965a99095802ff79",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "2ed56e44bb84175cc1a2b6263c98fdb1e41aafad3dc287755067f927ba567b93"
+        "translation_sha256": "c92624e40fe8b6d917ba079dc4bb0bd7a67f257e7ecb81e07dd016c0b51df1a4"
       }
     },
     "it/guide/wordpress-migration-runbook.md": {
@@ -992,28 +992,28 @@
     },
     "it/pro/installation.md": {
       "source": "pro/installation.md",
-      "sha256": "239d6d99e21db62f2ce2cbd6dba7c61c9146986ed206e007ff57f37da456d81d",
+      "sha256": "69986b46d53d0774a5f28de48e969163e56d268180aa754addc770ecc4084beb",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "4f8e6d7d9cf99b51766055f7e61a4efb5699ff2ae6036b303678827ddbff1b20"
+        "translation_sha256": "4a275101be42b986b85b40728c7c83ba59bd5ca5b5eb1b899d386580d137f8c7"
       }
     },
     "it/pro/mcp.md": {
       "source": "pro/mcp.md",
-      "sha256": "ac80007d05a4921d147cce782c09556de1eaccf72ec5375f8d63ae935afc3f53",
+      "sha256": "5e38f0d65552be2664a98e0ce87614d7e14987ad4da3936b8938d8274a6cd874",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "9b491beb6895e93e0628eb7b2e412425f43e980235707fd13588a1151f430996"
+        "translation_sha256": "c22a732a978d6876e4729782dfbbb3215f5ce5a197c385101a26fef77dbf252b"
       }
     },
     "it/pro/on-page-checklist.md": {
@@ -1291,15 +1291,15 @@
     },
     "de/guide/why-rankbeam.md": {
       "source": "guide/why-rankbeam.md",
-      "sha256": "dd3d6014a57aaa819346f082569dbe9a97253f7e427e0dfba1811f3193f08fe4",
+      "sha256": "fd1aaae1664a3a2cd8b963498bf06fa19e467ef0a07bd0ec965a99095802ff79",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "5f9f9f65984fdfa478b9109703395ed44e97dd57c42241d5151cd895e743429b"
+        "translation_sha256": "7698beae9c970c37c5d8733e0af3a0d4b3a83600afd760f1f610e4ae259d3898"
       }
     },
     "de/guide/wordpress-migration-runbook.md": {
@@ -1395,28 +1395,28 @@
     },
     "de/pro/installation.md": {
       "source": "pro/installation.md",
-      "sha256": "239d6d99e21db62f2ce2cbd6dba7c61c9146986ed206e007ff57f37da456d81d",
+      "sha256": "69986b46d53d0774a5f28de48e969163e56d268180aa754addc770ecc4084beb",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "65a3d3412f32d8ddcb71e446935ff0e71d06537bf2b9d6938614e6f8dcb47c9a"
+        "translation_sha256": "e085a413d280f96ac053e3924da15d864722d937174c863db3acab86ae3bfcee"
       }
     },
     "de/pro/mcp.md": {
       "source": "pro/mcp.md",
-      "sha256": "ac80007d05a4921d147cce782c09556de1eaccf72ec5375f8d63ae935afc3f53",
+      "sha256": "5e38f0d65552be2664a98e0ce87614d7e14987ad4da3936b8938d8274a6cd874",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "a09ec78c156443cf385c4ce154c000e200945c486a3b7134d5862e35b7861d76"
+        "translation_sha256": "1e0a617f989e7ad825c9433a880b884db29c96903f52de09556f0e4cd06cd9e0"
       }
     },
     "de/pro/on-page-checklist.md": {
@@ -1707,15 +1707,15 @@
     },
     "fr/guide/why-rankbeam.md": {
       "source": "guide/why-rankbeam.md",
-      "sha256": "dd3d6014a57aaa819346f082569dbe9a97253f7e427e0dfba1811f3193f08fe4",
+      "sha256": "fd1aaae1664a3a2cd8b963498bf06fa19e467ef0a07bd0ec965a99095802ff79",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "f4f2dad5afc0cfb16143d44206aca1b60ee146034618e5489b3c77edb9264cb6"
+        "translation_sha256": "54b64942c8aeecb1d79b65490af89840fca451d655112f77bfb2ad1fdcd20d12"
       }
     },
     "fr/guide/wordpress-migration-runbook.md": {
@@ -1811,28 +1811,28 @@
     },
     "fr/pro/installation.md": {
       "source": "pro/installation.md",
-      "sha256": "239d6d99e21db62f2ce2cbd6dba7c61c9146986ed206e007ff57f37da456d81d",
+      "sha256": "69986b46d53d0774a5f28de48e969163e56d268180aa754addc770ecc4084beb",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "9cb62044a813f295a7bb21be2b8c0ad9cb9411e947edc86b256ad8fab37ec838"
+        "translation_sha256": "875ddb2802f1d5a150ef3a2ec2897cc8be4dbda4074d1f628c128158dbb5dbb2"
       }
     },
     "fr/pro/mcp.md": {
       "source": "pro/mcp.md",
-      "sha256": "ac80007d05a4921d147cce782c09556de1eaccf72ec5375f8d63ae935afc3f53",
+      "sha256": "5e38f0d65552be2664a98e0ce87614d7e14987ad4da3936b8938d8274a6cd874",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "56dc66a4b4ac54e25abcaa79af3416de3b6f83d82c040abedda64ce031218d90"
+        "translation_sha256": "3b42f755b58483503391d47f9db2b1508a7d2f8b800de2aaaaff88c41c5a5f30"
       }
     },
     "fr/pro/on-page-checklist.md": {
@@ -2123,15 +2123,15 @@
     },
     "es/guide/why-rankbeam.md": {
       "source": "guide/why-rankbeam.md",
-      "sha256": "dd3d6014a57aaa819346f082569dbe9a97253f7e427e0dfba1811f3193f08fe4",
+      "sha256": "fd1aaae1664a3a2cd8b963498bf06fa19e467ef0a07bd0ec965a99095802ff79",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "7a5825f4babed2f368fbefc16af41bf66db66d5472787b2dee7b00ebe9d7f993"
+        "translation_sha256": "e1efdbcb629b70d5f63853cb12db0cf4bb16fc8ede498e97e6f900e3bc826db4"
       }
     },
     "es/guide/wordpress-migration-runbook.md": {
@@ -2227,28 +2227,28 @@
     },
     "es/pro/installation.md": {
       "source": "pro/installation.md",
-      "sha256": "239d6d99e21db62f2ce2cbd6dba7c61c9146986ed206e007ff57f37da456d81d",
+      "sha256": "69986b46d53d0774a5f28de48e969163e56d268180aa754addc770ecc4084beb",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "472e67f3d5ceb359f082282182b238a9a3c1129bfec5601884756eeaca453dad"
+        "translation_sha256": "116bde73e661a62c869602e94a4fad5641a2b762be9baf24e3eb3a01ea5b9016"
       }
     },
     "es/pro/mcp.md": {
       "source": "pro/mcp.md",
-      "sha256": "ac80007d05a4921d147cce782c09556de1eaccf72ec5375f8d63ae935afc3f53",
+      "sha256": "5e38f0d65552be2664a98e0ce87614d7e14987ad4da3936b8938d8274a6cd874",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "294c9c47942ebfa65267de8509782fc9c44c2f85cbd9765cea113cc843f07ec3"
+        "translation_sha256": "1be1465a320ec3a7d7c892cda57b351e8912af8064bcbc4a41db9009f865386e"
       }
     },
     "es/pro/on-page-checklist.md": {
@@ -2539,15 +2539,15 @@
     },
     "pt-BR/guide/why-rankbeam.md": {
       "source": "guide/why-rankbeam.md",
-      "sha256": "dd3d6014a57aaa819346f082569dbe9a97253f7e427e0dfba1811f3193f08fe4",
+      "sha256": "fd1aaae1664a3a2cd8b963498bf06fa19e467ef0a07bd0ec965a99095802ff79",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "33c31345b1f1c11986f94bee40384aca64ba11cdeb6593df08ed0c0cfe2e80e3"
+        "translation_sha256": "6f9c0c22a82d68db40cf5e95eff72c385639e21425c427036423507ae14f1c9d"
       }
     },
     "pt-BR/guide/wordpress-migration-runbook.md": {
@@ -2643,28 +2643,28 @@
     },
     "pt-BR/pro/installation.md": {
       "source": "pro/installation.md",
-      "sha256": "239d6d99e21db62f2ce2cbd6dba7c61c9146986ed206e007ff57f37da456d81d",
+      "sha256": "69986b46d53d0774a5f28de48e969163e56d268180aa754addc770ecc4084beb",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "7c352976c86ae6d74519de1339934ccdb5e4650588cdcd37cccdc6ac4e45e534"
+        "translation_sha256": "117e83ad93f2c8c862dbfee1ec0c1e926e0a9e104e01b917345c0dae289f3dea"
       }
     },
     "pt-BR/pro/mcp.md": {
       "source": "pro/mcp.md",
-      "sha256": "ac80007d05a4921d147cce782c09556de1eaccf72ec5375f8d63ae935afc3f53",
+      "sha256": "5e38f0d65552be2664a98e0ce87614d7e14987ad4da3936b8938d8274a6cd874",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "efb6e6a43c622105828a2d7e2bd544b72d63d44b13ea947338d700e09431d9bf"
+        "translation_sha256": "9db9050ba2d4d262ac249490bb0399a8f81aea2fac6919b038ac9556500a29ce"
       }
     },
     "pt-BR/pro/on-page-checklist.md": {

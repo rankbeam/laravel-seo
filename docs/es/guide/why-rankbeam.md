@@ -27,7 +27,7 @@ Rankbeam resulta útil cuando el SEO se **guarda, se vincula a modelos, usa vari
 
 Una matriz para toda la familia:
 
-- **PHP** 8.2–8.4.
+- **PHP** 8.2–8.4 (Laravel 11); 8.2–8.5 (Laravel 12); 8.3–8.5 (Laravel 13)
 - **Laravel** 11 / 12 / 13; Laravel 13 requiere PHP 8.3 o superior.
 - **Filament** 4 / 5, opcional.
 
@@ -172,7 +172,7 @@ Hay límites finitos por ejecución y un presupuesto de tiempo por job. La valid
 
 Una matriz para toda la familia:
 
-- **PHP** 8.2–8.4.
+- **PHP** 8.2–8.4 (Laravel 11); 8.2–8.5 (Laravel 12); 8.3–8.5 (Laravel 13)
 - **Laravel** 11 / 12 / 13.
 - **Filament** 4 / 5.
 

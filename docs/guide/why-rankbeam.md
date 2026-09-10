@@ -39,7 +39,7 @@ says so plainly.
 
 One matrix for the whole family:
 
-- **PHP** 8.2 – 8.4
+- **PHP** 8.2–8.4 (Laravel 11); 8.2–8.5 (Laravel 12); 8.3–8.5 (Laravel 13)
 - **Laravel** 11 / 12 / 13 (Laravel 13 requires PHP 8.3+)
 - **Filament** 4 / 5 (optional)
 
@@ -264,7 +264,7 @@ one run per scope is active. Operations are covered in the
 
 One support matrix for the whole family, not three:
 
-- **PHP** 8.2 – 8.4
+- **PHP** 8.2–8.4 (Laravel 11); 8.2–8.5 (Laravel 12); 8.3–8.5 (Laravel 13)
 - **Laravel** 11 / 12 / 13
 - **Filament** 4 / 5
 

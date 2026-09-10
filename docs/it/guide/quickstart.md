@@ -4,7 +4,7 @@ description: "Installa Rankbeam, aggiungi HasSEO a un modello esistente, salva i
 
 # Guida rapida {#quickstart}
 
-Parti da un'applicazione Laravel 11, 12 o 13 con un database funzionante. Serve PHP 8.2+ (8.3+ per Laravel 13). Il core è gratuito, con licenza MIT: non richiede account né licenza Pro.
+Parti da un'applicazione Laravel 11, 12 o 13 con un database funzionante. Laravel 11: PHP 8.2–8.4; Laravel 12: PHP 8.2–8.5; Laravel 13: PHP 8.3–8.5. Il core è gratuito, con licenza MIT: non richiede account né licenza Pro.
 
 ## Installazione {#install}
 

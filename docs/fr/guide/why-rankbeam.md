@@ -27,7 +27,7 @@ Rankbeam devient utile quand le SEO doit être **enregistré, rattaché à des m
 
 Une matrice commune à toute la famille :
 
-- **PHP** 8.2 à 8.4
+- **PHP** 8.2–8.4 (Laravel 11); 8.2–8.5 (Laravel 12); 8.3–8.5 (Laravel 13)
 - **Laravel** 11 / 12 / 13 ; Laravel 13 nécessite PHP 8.3+
 - **Filament** 4 / 5, facultatif
 
@@ -172,7 +172,7 @@ Des plafonds finis par exécution et un budget de temps strict par job bornent l
 
 Une matrice de compatibilité commune à toute la famille :
 
-- **PHP** 8.2 à 8.4
+- **PHP** 8.2–8.4 (Laravel 11); 8.2–8.5 (Laravel 12); 8.3–8.5 (Laravel 13)
 - **Laravel** 11 / 12 / 13
 - **Filament** 4 / 5
 

@@ -10,7 +10,7 @@ description: "Installa laravel-seo-pro per aggiungere scansioni in coda, problem
 
 | | |
 |---|---|
-| PHP | 8.2+, oppure 8.3+ con Laravel 13 |
+| PHP | 8.2–8.4 (Laravel 11); 8.2–8.5 (Laravel 12); 8.3–8.5 (Laravel 13) |
 | Laravel | 11, 12 o 13 |
 | `rankbeam/laravel-seo` | ^3.20, installato automaticamente da Pro 2.40+ |
 | `filament/filament` | **Facoltativo**, 4.x o 5.x, solo per l’interfaccia amministrativa |

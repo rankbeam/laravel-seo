@@ -1,0 +1,87 @@
+{
+  "it": {
+    "segment": "articoli",
+    "articles": {
+      "laravel-filament-seo": "seo-laravel-filament",
+      "what-is-rankbeam": "che-cose-rankbeam",
+      "hreflang-done-right-in-laravel": "hreflang-in-laravel",
+      "laravel-seo-packages-compared": "pacchetti-seo-laravel-a-confronto",
+      "replaced-rank-math-with-a-laravel-package": "da-rank-math-a-laravel",
+      "answer-engine-optimization-for-laravel": "ottimizzazione-motori-risposta-laravel",
+      "laravel-seo-guide": "guida-seo-laravel",
+      "laravel-meta-tags": "meta-tag-laravel",
+      "laravel-sitemaps": "sitemap-laravel",
+      "canonical-urls-in-laravel": "url-canonical-in-laravel",
+      "json-ld-schema-graphs-in-laravel": "json-ld-schema-graph-in-laravel",
+      "laravel-seo-audit": "audit-seo-laravel"
+    }
+  },
+  "de": {
+    "segment": "artikel",
+    "articles": {
+      "laravel-filament-seo": "laravel-filament-seo",
+      "what-is-rankbeam": "was-ist-rankbeam",
+      "hreflang-done-right-in-laravel": "hreflang-in-laravel",
+      "laravel-seo-packages-compared": "laravel-seo-pakete-im-vergleich",
+      "replaced-rank-math-with-a-laravel-package": "von-rank-math-zu-laravel",
+      "answer-engine-optimization-for-laravel": "answer-engine-optimization-fuer-laravel",
+      "laravel-seo-guide": "laravel-seo-leitfaden",
+      "laravel-meta-tags": "laravel-meta-tags",
+      "laravel-sitemaps": "laravel-sitemaps",
+      "canonical-urls-in-laravel": "canonical-urls-in-laravel",
+      "json-ld-schema-graphs-in-laravel": "json-ld-schema-graphen-in-laravel",
+      "laravel-seo-audit": "laravel-seo-audit"
+    }
+  },
+  "fr": {
+    "segment": "articles",
+    "articles": {
+      "laravel-filament-seo": "seo-filament-laravel",
+      "what-is-rankbeam": "qu-est-ce-que-rankbeam",
+      "hreflang-done-right-in-laravel": "hreflang-laravel",
+      "laravel-seo-packages-compared": "comparatif-paquets-seo-laravel",
+      "replaced-rank-math-with-a-laravel-package": "de-rank-math-a-laravel",
+      "answer-engine-optimization-for-laravel": "answer-engine-optimization-laravel",
+      "laravel-seo-guide": "guide-seo-laravel",
+      "laravel-meta-tags": "meta-tags-laravel",
+      "laravel-sitemaps": "sitemaps-laravel",
+      "canonical-urls-in-laravel": "url-canoniques-laravel",
+      "json-ld-schema-graphs-in-laravel": "graphes-json-ld-laravel",
+      "laravel-seo-audit": "audit-seo-laravel"
+    }
+  },
+  "es": {
+    "segment": "articulos",
+    "articles": {
+      "laravel-filament-seo": "seo-filament-laravel",
+      "what-is-rankbeam": "que-es-rankbeam",
+      "hreflang-done-right-in-laravel": "hreflang-laravel",
+      "laravel-seo-packages-compared": "comparativa-paquetes-seo-laravel",
+      "replaced-rank-math-with-a-laravel-package": "de-rank-math-a-laravel",
+      "answer-engine-optimization-for-laravel": "optimizacion-motores-respuestas-laravel",
+      "laravel-seo-guide": "guia-seo-laravel",
+      "laravel-meta-tags": "metaetiquetas-laravel",
+      "laravel-sitemaps": "sitemaps-laravel",
+      "canonical-urls-in-laravel": "url-canonicas-laravel",
+      "json-ld-schema-graphs-in-laravel": "grafos-json-ld-laravel",
+      "laravel-seo-audit": "auditoria-seo-laravel"
+    }
+  },
+  "pt-BR": {
+    "segment": "artigos",
+    "articles": {
+      "laravel-filament-seo": "seo-filament-laravel",
+      "what-is-rankbeam": "o-que-e-rankbeam",
+      "hreflang-done-right-in-laravel": "hreflang-laravel",
+      "laravel-seo-packages-compared": "comparacao-pacotes-seo-laravel",
+      "replaced-rank-math-with-a-laravel-package": "do-rank-math-ao-laravel",
+      "answer-engine-optimization-for-laravel": "otimizacao-motores-respostas-laravel",
+      "laravel-seo-guide": "guia-seo-laravel",
+      "laravel-meta-tags": "metatags-laravel",
+      "laravel-sitemaps": "sitemaps-laravel",
+      "canonical-urls-in-laravel": "urls-canonicas-laravel",
+      "json-ld-schema-graphs-in-laravel": "grafos-json-ld-laravel",
+      "laravel-seo-audit": "auditoria-seo-laravel"
+    }
+  }
+}

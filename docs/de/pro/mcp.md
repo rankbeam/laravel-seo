@@ -1,12 +1,12 @@
 ---
-description: "Ein eigenständiger stdio-MCP-Server ohne zusätzliche Abhängigkeiten: KI-Assistenten können die SEO-Daten einer Laravel-Website lesen und bei Freigabe bearbeiten. PHP 8.2–8.4 und Laravel 11–13."
+description: "Ein eigenständiger stdio-MCP-Server ohne zusätzliche Abhängigkeiten: KI-Assistenten können die SEO-Daten einer Laravel-Website lesen und bei Freigabe bearbeiten. Laravel 11: PHP 8.2–8.4; Laravel 12: PHP 8.2–8.5; Laravel 13: PHP 8.3–8.5."
 ---
 
 # MCP-Server {#mcp-server}
 
 Mit dem MCP-Server von Rankbeam kann ein KI-Assistent die **SEO-Daten einer Website lesen und optional bearbeiten** – über das [Model Context Protocol](https://modelcontextprotocol.io). Verbinde einen MCP-Client wie Claude Code, Claude Desktop, Cursor oder Codex mit deiner Laravel-Anwendung. Der Assistent kann dann die Metadaten einer Seite auflösen, ein Audit ausführen, den Pro-Score lesen, deine Regeln für KI-Crawler prüfen und bei entsprechender Freigabe SEO-Daten speichern.
 
-Der Server ist eigenständig und verwendet stdio. Er benötigt **keine zusätzlichen Abhängigkeiten**, kein SDK und keine weiteren Pakete. Er läuft mit PHP 8.2–8.4 und Laravel 11/12/13.
+Der Server ist eigenständig und verwendet stdio. Er benötigt **keine zusätzlichen Abhängigkeiten**, kein SDK und keine weiteren Pakete. Er läuft mit PHP 8.2–8.4 (Laravel 11), PHP 8.2–8.5 (Laravel 12), PHP 8.3–8.5 (Laravel 13).
 
 ::: tip Pro-Funktion
 Der MCP-Server ist Teil von `rankbeam/laravel-seo-pro`. Standardmäßig erlaubt er **nur Lesezugriffe**. Bearbeitungen müssen über einen Konfigurationsschalter und eine Modell-Allowlist freigegeben werden.

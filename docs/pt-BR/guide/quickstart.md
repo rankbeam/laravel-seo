@@ -4,7 +4,7 @@ description: "Instale o Rankbeam, adicione HasSEO a um modelo existente, salve m
 
 # Início rápido {#quickstart}
 
-Comece com uma aplicação Laravel 11, 12 ou 13 existente e um banco de dados funcionando. Você precisa de PHP 8.2 ou superior, ou 8.3 para Laravel 13. O núcleo é gratuito sob licença MIT; não exige conta nem licença Pro.
+Comece com uma aplicação Laravel 11, 12 ou 13 existente e um banco de dados funcionando. Laravel 11: PHP 8.2–8.4; Laravel 12: PHP 8.2–8.5; Laravel 13: PHP 8.3–8.5. O núcleo é gratuito sob licença MIT; não exige conta nem licença Pro.
 
 ## Instalar {#install}
 

@@ -5,7 +5,7 @@ description: "Install Rankbeam, add the HasSEO trait to an existing model, save 
 # Quickstart
 
 Start with an existing Laravel 11, 12 or 13 application and a working database.
-You need PHP 8.2+ (8.3+ for Laravel 13). The core is free under the MIT license;
+Laravel 11: PHP 8.2–8.4; Laravel 12: PHP 8.2–8.5; Laravel 13: PHP 8.3–8.5. The core is free under the MIT license;
 no account or Pro license is required.
 
 ## Install
