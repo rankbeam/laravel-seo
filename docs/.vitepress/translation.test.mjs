@@ -13,7 +13,7 @@ test('all translated sources and approved editorial reviews are current', () => 
   assert.equal(editoriallyReviewed('de/guide/quickstart.md'), true)
   assert.equal(editoriallyReviewed('fr/guide/quickstart.md'), true)
   assert.equal(editoriallyReviewed('es/guide/quickstart.md'), true)
-  assert.equal(editoriallyReviewed('pt-BR/guide/quickstart.md'), false)
+  assert.equal(editoriallyReviewed('pt-BR/guide/quickstart.md'), true)
 })
 
 test('approval rejects changed source, changed translation and modified examples', () => {

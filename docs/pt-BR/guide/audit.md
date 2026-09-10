@@ -52,9 +52,9 @@ Uma auditoria local de metadados não cobre toda a análise Pro. Cada execução
 
 - **Verificações do HTML servido:** `missing_h1`, `multiple_h1`, `missing_image_alt`, `thin_content` e `mixed_content` precisam do conteúdo real da página.
 - **Verificações de rede do canonical:** `canonical_target_broken` / `_redirect` / `_noindex` exigem uma requisição de saída protegida.
-- **O score numérico de 0 a 100:** o Pro o salva com uma rubrica versionada no resultado da análise; veja [score SEO (EN)](/pro/scoring).
+- **O score numérico de 0 a 100:** o Pro o salva com uma rubrica versionada no resultado da análise; veja [score SEO (EN)](/pt-BR/pro/scoring).
 
-Essas funções pertencem ao **Pro**. Consulte o [registro completo de problemas (EN)](/pro/scan-issues).
+Essas funções pertencem ao **Pro**. Consulte o [registro completo de problemas (EN)](/pt-BR/pro/scan-issues).
 
 ## Escolher os models {#choosing-what-to-audit}
 
@@ -138,7 +138,7 @@ O Pro lê a mesma opção, de modo que auditoria, análise e editor compartilham
 
 ## Explicar valores inesperados com `seo:explain` {#when-a-value-isn-t-what-you-expect-seo-explain}
 
-`seo:audit` mostra **o problema**. [`seo:explain` (EN)](/guide/explain) explica **a origem do valor**: configuração, padrão, cálculo ou dado explícito; o que foi substituído e quais políticas vieram depois, como sufixo, limpeza do canonical e proteção contra indexação. Use quando uma tag ou resultado for inesperado:
+`seo:audit` mostra **o problema**. [`seo:explain`](/pt-BR/guide/explain) explica **a origem do valor**: configuração, padrão, cálculo ou dado explícito; o que foi substituído e quais políticas vieram depois, como sufixo, limpeza do canonical e proteção contra indexação. Use quando uma tag ou resultado for inesperado:
 
 ```bash
 php artisan seo:explain "App\Models\Post" 42

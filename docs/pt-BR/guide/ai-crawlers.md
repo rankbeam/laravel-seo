@@ -6,7 +6,7 @@ description: "Gere robots.txt e, se necessário, ai.txt a partir de políticas p
 
 Provedores de IA percorrem a Web com robôs identificados por nome. Muitos consultam **robots.txt** para decidir o que podem buscar. O Rankbeam inclui um catálogo mantido e gera uma `robots.txt` gerenciada, mais uma `ai.txt` opcional, a partir de regras `allow` / `disallow`. Você pode permitir busca e assistentes e recusar treinamento.
 
-É uma função gratuita do núcleo. O Pro acrescenta um [registro de visitas de bots de IA (EN)](/pro/ai-bot-monitor), para observar os acessos recebidos.
+É uma função gratuita do núcleo. O Pro acrescenta um [registro de visitas de bots de IA (EN)](/pt-BR/pro/ai-bot-monitor), para observar os acessos recebidos.
 
 ## Política padrão {#the-default-policy}
 
@@ -81,7 +81,7 @@ O servidor normalmente serve `public/robots.txt` antes de o Laravel receber a re
 
 ## Limites de aplicação das regras {#honesty-about-enforcement}
 
-robots.txt expressa um pedido, não uma barreira técnica. Muitos robôs declaram respeitá-lo, mas alguns agentes acionados por usuários (`ChatGPT-User`, `Perplexity-User`) e rastreadores de treinamento (`Bytespider`) não oferecem essa garantia. O Rankbeam marca essas linhas como `advisory`. Para bloquear um bot que não coopera, use regras no servidor ou na borda da rede: firewall, WAF ou regras de bots da Cloudflare. O [registro Pro (EN)](/pro/ai-bot-monitor) ajuda a identificar visitas observadas.
+robots.txt expressa um pedido, não uma barreira técnica. Muitos robôs declaram respeitá-lo, mas alguns agentes acionados por usuários (`ChatGPT-User`, `Perplexity-User`) e rastreadores de treinamento (`Bytespider`) não oferecem essa garantia. O Rankbeam marca essas linhas como `advisory`. Para bloquear um bot que não coopera, use regras no servidor ou na borda da rede: firewall, WAF ou regras de bots da Cloudflare. O [registro Pro (EN)](/pt-BR/pro/ai-bot-monitor) ajuda a identificar visitas observadas.
 
 ## Content Signals: preferências de uso {#content-signals-usage-preferences}
 
