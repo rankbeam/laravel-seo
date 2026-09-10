@@ -145,7 +145,7 @@ public static function form(Schema $schema): Schema
 }
 ```
 
-Ou utilisez directement `SEOSchemaFields::make()` sans trait. La section écrit dans `seo_meta.schema_jsonld`, également lu par le [moteur de schémas (EN)](/fr/guide/schema). Elle ne fait que relier l'interface au Core : ses builders produisent les documents et `SchemaValidator` les valide avant l'enregistrement.
+Ou utilisez directement `SEOSchemaFields::make()` sans trait. La section écrit dans `seo_meta.schema_jsonld`, également lu par le [moteur de schémas](/fr/guide/schema). Elle ne fait que relier l'interface au Core : ses builders produisent les documents et `SchemaValidator` les valide avant l'enregistrement.
 
 Elle propose :
 
