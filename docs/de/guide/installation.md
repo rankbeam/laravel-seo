@@ -37,11 +37,11 @@ Die [Sitemap-Anleitung](/de/guide/sitemaps) beschreibt Quellen und Erzeugung.
 
 ## Upgrade von v1 {#upgrading-from-v1}
 
-Wenn deine Anwendung `fibonoir/laravel-seo` v1 verwendet hat, lies zuerst [Upgrade von v1 (EN)](/de/guide/upgrade-from-v1). Vendor, Namespace und API haben sich geändert. Bereits veröffentlichte v1-Dateien können mit der v2-Konfiguration kollidieren.
+Wenn deine Anwendung `fibonoir/laravel-seo` v1 verwendet hat, lies zuerst [Upgrade von v1](/de/guide/upgrade-from-v1). Vendor, Namespace und API haben sich geändert. Bereits veröffentlichte v1-Dateien können mit der v2-Konfiguration kollidieren.
 
 ## Ergänzende Pakete {#companion-packages}
 
 | Paket | Zusätzliche Funktionen | Lizenz |
 |---|---|---|
 | [`rankbeam/laravel-seo-filament`](https://github.com/rankbeam/laravel-seo-filament) | SEO-Bereich für Ressourcenformulare in Filament 4/5 | MIT |
-| [`rankbeam/laravel-seo-pro`](/de/pro/installation) | Website-Scans über die Queue, Redirect-Verwaltung und 404-Monitor; für Laravel-Anwendungen mit optionalem Filament-Dashboard | Kommerziell |
+| [`rankbeam/laravel-seo-pro` (EN)](/de/pro/installation) | Website-Scans über die Queue, Redirect-Verwaltung und 404-Monitor; für Laravel-Anwendungen mit optionalem Filament-Dashboard | Kommerziell |

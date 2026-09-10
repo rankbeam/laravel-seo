@@ -52,9 +52,9 @@ Ein kostenloser Audit im Anwendungsprozess deckt nicht den gesamten Pro-Scan ab.
 
 - **Prüfungen des ausgelieferten HTML:** `missing_h1`, `multiple_h1`, `missing_image_alt`, `thin_content`, `mixed_content` benötigen den tatsächlichen Seiteninhalt.
 - **Netzwerkprüfungen des Canonical-Ziels:** `canonical_target_broken` / `_redirect` / `_noindex` benötigen einen abgesicherten ausgehenden Abruf.
-- **Den numerischen Score von 0–100:** Pro speichert ihn mit einer versionierten Bewertungsgrundlage im Scan-Ergebnis; siehe [SEO-Score (EN)](/pro/scoring).
+- **Den numerischen Score von 0–100:** Pro speichert ihn mit einer versionierten Bewertungsgrundlage im Scan-Ergebnis; siehe [SEO-Score (EN)](/de/pro/scoring).
 
-Diese Funktionen gehören zum **Pro-Scan**. Die vollständige [Fehlerliste (EN)](/pro/scan-issues) beschreibt ihre Grenzen.
+Diese Funktionen gehören zum **Pro-Scan**. Die vollständige [Fehlerliste (EN)](/de/pro/scan-issues) beschreibt ihre Grenzen.
 
 ## Modelle auswählen {#choosing-what-to-audit}
 
@@ -138,7 +138,7 @@ Der Pro-Scan liest dieselbe Einstellung. Audit, Scan und Editor verwenden damit 
 
 ## Unerwartete Werte mit `seo:explain` erklären {#when-a-value-isn-t-what-you-expect-seo-explain}
 
-`seo:audit` zeigt, **was nicht stimmt**. [`seo:explain` (EN)](/guide/explain) zeigt, **warum ein Feld diesen Wert hat**: welche Ebene (Konfiguration, Standardwert, berechneter oder expliziter Wert) ihn gesetzt und überschrieben hat und welche Nachbearbeitung folgte, etwa Titelsuffix, Canonical-Bereinigung oder Indexierungsschutz. Nutze es bei unerwarteten Befunden oder Tags:
+`seo:audit` zeigt, **was nicht stimmt**. [`seo:explain`](/de/guide/explain) zeigt, **warum ein Feld diesen Wert hat**: welche Ebene (Konfiguration, Standardwert, berechneter oder expliziter Wert) ihn gesetzt und überschrieben hat und welche Nachbearbeitung folgte, etwa Titelsuffix, Canonical-Bereinigung oder Indexierungsschutz. Nutze es bei unerwarteten Befunden oder Tags:
 
 ```bash
 php artisan seo:explain "App\Models\Post" 42

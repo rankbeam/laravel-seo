@@ -6,7 +6,7 @@ description: "Erzeuge robots.txt und optional ai.txt aus einer Richtlinie für K
 
 KI-Anbieter verwenden benannte Webcrawler. Viele lesen **robots.txt**, um zu entscheiden, welche Seiten sie abrufen dürfen. Rankbeam enthält einen gepflegten Katalog und erzeugt aus einer `allow`-/`disallow`-Richtlinie eine verwaltete `robots.txt` und optional `ai.txt`. So kannst du Crawler für KI-Suche und Assistenten zulassen und Trainingscrawler ausschließen.
 
-Diese Funktion gehört zum kostenlosen Core. Pro ergänzt ein [Zugriffsprotokoll für KI-Bots (EN)](/pro/ai-bot-monitor), das tatsächlich beobachtete Besuche zeigt.
+Diese Funktion gehört zum kostenlosen Core. Pro ergänzt ein [Zugriffsprotokoll für KI-Bots (EN)](/de/pro/ai-bot-monitor), das tatsächlich beobachtete Besuche zeigt.
 
 ## Standardrichtlinie {#the-default-policy}
 
@@ -81,7 +81,7 @@ Viele Anwendungen enthalten bereits `public/robots.txt`. Der Webserver liefert s
 
 ## Grenzen der Durchsetzung {#honesty-about-enforcement}
 
-robots.txt ist eine Aufforderung, keine Zugriffssperre. Viele katalogisierte Bots beachten sie laut ihrer Dokumentation. Bei manchen nutzergesteuerten Agenten (`ChatGPT-User`, `Perplexity-User`) und Trainingscrawlern (`Bytespider`) ist das nicht zugesichert. Rankbeam kennzeichnet solche Regeln als `advisory`. Um einen Bot tatsächlich zu sperren, brauchst du Regeln auf Server- oder Edge-Ebene, etwa Firewall, WAF oder Cloudflare-Bot-Regeln. Das [Pro-Zugriffsprotokoll (EN)](/pro/ai-bot-monitor) hilft, beobachtete Crawler zu erkennen.
+robots.txt ist eine Aufforderung, keine Zugriffssperre. Viele katalogisierte Bots beachten sie laut ihrer Dokumentation. Bei manchen nutzergesteuerten Agenten (`ChatGPT-User`, `Perplexity-User`) und Trainingscrawlern (`Bytespider`) ist das nicht zugesichert. Rankbeam kennzeichnet solche Regeln als `advisory`. Um einen Bot tatsächlich zu sperren, brauchst du Regeln auf Server- oder Edge-Ebene, etwa Firewall, WAF oder Cloudflare-Bot-Regeln. Das [Pro-Zugriffsprotokoll (EN)](/de/pro/ai-bot-monitor) hilft, beobachtete Crawler zu erkennen.
 
 ## Content Signals: Nutzungspräferenzen {#content-signals-usage-preferences}
 
