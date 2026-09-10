@@ -35,8 +35,8 @@ When `app()->environment()` is **not** in `seo.indexing_guard.allowed_environmen
 4. **`seo:audit` prints a prominent banner**, so the "everything is noindex"
    state is never a surprise when you read a report.
 
-On production the guard is completely **inert** — zero changed output,
-byte-identical rendering.
+In allowed environments (by default, `production`) the guard is completely
+**inert** — zero changed output, byte-identical rendering.
 
 ## Non-HTML responses (PDFs, feeds, images)
 
@@ -51,7 +51,7 @@ X-Robots-Tag: noindex,nofollow
 
 The header and the meta tag come from the same source, so they can never
 disagree. It's **on by default within the guard** (the guard itself is opt-in and
-inert on production); turn it off to keep meta-only behaviour:
+inert in allowed environments); turn it off to keep meta-only behaviour:
 
 ```php
 'indexing_guard' => [
@@ -92,8 +92,9 @@ it in one line:
 SEO_INDEXING_GUARD=true
 ```
 
-Because the guard is inert on production, it is safe to commit this enabled — it
-only ever acts on the environments you didn't mean to index. It is **strongly
+With the default allow-list, `production` is unaffected, so you can keep the guard
+enabled in shared configuration. Check that the allow-list includes every
+environment you intend to index. It is **strongly
 recommended**, and a candidate to default on in Core 4.
 
 Disable it with the same one line:

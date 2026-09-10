@@ -11,8 +11,8 @@ to clients that ask for it via content negotiation — while every normal visito
 keeps getting your HTML, untouched. It's an opt-in compatibility choice, not a
 promise about how any given client parses or uses the result.
 
-It pairs with [AI crawler control](/guide/ai-crawlers): that decides *whether* a
-bot may fetch you; this decides *what* it gets when it does.
+It pairs with [AI crawler control](/guide/ai-crawlers): that sets the access
+policy; this decides *what* content to serve during the request.
 
 This is a free, core feature, and it's **off by default**.
 
@@ -29,7 +29,7 @@ Otherwise the response passes through unchanged — a browser is never affected,
 and only a successful **HTML** response is ever replaced (never JSON, a
 redirect, or a download).
 
-```bash
+```php
 # config/seo.php
 'markdown_for_bots' => [ 'enabled' => true ],
 ```
@@ -42,12 +42,16 @@ GET /blog/my-post  (Accept: text/markdown) → text/markdown
 
 ## Where the markdown comes from
 
-The middleware resolves a markdown source for the matched route, in this order:
+The sources below can provide Markdown for the matched route. The middleware
+tries a **registered route source first**, then route-bound models. For each model,
+an explicit `toSeoMarkdown()` method takes precedence over the built fallback;
+a null or blank result from that method disables the fallback for that model.
 
 ### 1. A model's own markdown
 
-A route-bound model that implements `toSeoMarkdown()` controls its output
-exactly (implement the `ProvidesSeoMarkdown` contract, or just add the method):
+When no registered route source returns content, a route-bound model that
+implements `toSeoMarkdown()` controls its output (implement the
+`ProvidesSeoMarkdown` contract, or just add the method):
 
 ```php
 use Rankbeam\Seo\Contracts\ProvidesSeoMarkdown;
@@ -65,7 +69,7 @@ class Post extends Model implements ProvidesSeoMarkdown
 
 ### 2. A registered route source
 
-For routes without a model (or to override), register a source by route name:
+For routes without a model, or to override the model's output, register a source by route name:
 
 ```php
 use Rankbeam\Seo\Facades\SEO;

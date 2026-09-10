@@ -37,7 +37,7 @@ export COMPOSER_AUTH='{"http-basic":{"laravel-seo-pro.composer.sh":{"username":"
 WITH_PRO=true docker compose up --build
 ```
 
-On boot the demo runs [`seo:doctor`](/pro/headless#health-check) and a first
+On boot the demo runs [`seo:doctor`](/pro/headless#setup-health-check) and a first
 `seo-pro:scan` over the seeded pages — the health report, scan summary, and
 [0–100 score](/pro/scoring) print in the compose logs.
 

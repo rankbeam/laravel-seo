@@ -11,7 +11,7 @@ follow `app()->getLocale()`: a panel running in Italian shows Italian, with noth
 Issue and warning **codes** (`missing_title`, `title_too_long`, …) never change and are never
 translated. Only the human sentence attached to a code is.
 
-Shipped languages: English, Italian (reviewed), and first passes in German, French, Spanish,
+Shipped languages: English, Italian (earlier strings reviewed; changed strings need re-review), and first passes in German, French, Spanish,
 Brazilian Portuguese, Dutch, Turkish, Russian, Polish (Tier 1) and, since core 3.16 / Filament
 1.10 / Pro 2.35, Japanese, Simplified Chinese (`zh_CN`), Traditional Chinese (`zh_TW`), Korean,
 Greek, Ukrainian and Czech (Tier 2). The exact status per locale is in
@@ -39,9 +39,14 @@ and open a pull request. The full rules and the glossary are in
 
 ## What is not translated on purpose
 
-- CLI chrome (`seo:audit` table headings, `seo:explain` output): English, like Artisan itself.
+CLI presentation defaults to English. Set `seo.cli_locale` / `SEO_CLI_LOCALE`,
+or pass `--display-locale=it`, to translate supported messages and audit summaries.
+Pro has its own `seo-pro.cli_locale` setting. Display language is separate from
+the content locale selected by `--locale`.
+
+- Command help, maintenance diagnostics and `seo:explain` output remain English; PASS/WARN/FAIL labels stay stable.
 - Rendered HTML (`<meta>`, JSON-LD): your content's language, never the package's.
-- Issue codes and the `--json` output of every command: stable identifiers.
+- Issue codes and JSON keys/status codes remain stable identifiers. Human labels in `--json` output may translate; integrations should consume keys and codes.
 
 ## The other half: your content's language
 

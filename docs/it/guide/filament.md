@@ -147,7 +147,7 @@ public static function form(Schema $schema): Schema
 
 Senza il trait, usa direttamente `SEOSchemaFields::make()`.
 
-La sezione scrive in `seo_meta.schema_jsonld`, la stessa colonna usata dal [renderer schema (EN)](/it/guide/schema). È un collegamento tra form e core: ogni documento viene costruito da un builder del core e validato da `SchemaValidator` prima del salvataggio. Non aggiunge una seconda logica schema.
+La sezione scrive in `seo_meta.schema_jsonld`, la stessa colonna usata dal [renderer schema](/it/guide/schema). È un collegamento tra form e core: ogni documento viene costruito da un builder del core e validato da `SchemaValidator` prima del salvataggio. Non aggiunge una seconda logica schema.
 
 La sezione offre:
 

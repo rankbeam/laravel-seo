@@ -1,5 +1,5 @@
 ---
-description: Install rankbeam/laravel-seo with Composer, publish the config, and register the middleware — requirements and setup for Laravel 11, 12, and 13.
+description: Install rankbeam/laravel-seo with Composer, publish the config, and run the migrations — requirements and setup for Laravel 11, 12, and 13.
 ---
 
 # Installation
