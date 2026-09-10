@@ -2,7 +2,7 @@
 description: "Instala Rankbeam, añade HasSEO a un modelo existente, guarda sus metadatos y comprueba las etiquetas generadas con Blade."
 ---
 
-# Inicio rápido
+# Inicio rápido {#quickstart}
 
 Parte de una aplicación Laravel 11, 12 o 13 existente y una base de datos operativa. Necesitas PHP 8.2 o superior, o 8.3 para Laravel 13. El núcleo es gratuito bajo licencia MIT; no requiere cuenta ni licencia Pro.
 
@@ -22,7 +22,7 @@ El proveedor de servicios se descubre automáticamente. La migración crea las t
 
 Los pasos suponen que ya tienes un modelo `Post`, una publicación guardada y una ruta `posts.show` cuya vista Blade recibe esa publicación como `$post`. Adapta los nombres a tu aplicación. Esta guía añade SEO a una página existente, no construye el blog.
 
-Configura `APP_URL` en `.env` con el origen público del sitio. Para otras formas de renderizado, consulta [Inertia y JSON (EN)](/es/guide/inertia-json) o [Livewire (EN)](/es/guide/livewire).
+Configura `APP_URL` en `.env` con el origen público del sitio. Para otras formas de renderizado, consulta [Inertia y JSON](/es/guide/inertia-json) o [Livewire](/es/guide/livewire).
 
 ## 1. Añadir el trait al modelo {#_1-add-the-trait-to-a-model}
 
@@ -74,7 +74,7 @@ El `DatabaseSeeder` predeterminado de Laravel usa `WithoutModelEvents`, que tamb
 
 Abre la página pública y selecciona **Ver código fuente de la página**. En `<head>`, comprueba que el título contiene `Custom SEO Title`, la descripción es `Custom meta description` y el canonical apunta a la URL pública. El sufijo configurado puede aparecer después del título.
 
-Incluye `@seo($post)` una sola vez por página. Sustituye las etiquetas de título y metadatos que ya genere el layout para evitar duplicados. Si un valor no es el esperado, utiliza la [guía de explicación (EN)](/es/guide/explain) para averiguar su origen.
+Incluye `@seo($post)` una sola vez por página. Sustituye las etiquetas de título y metadatos que ya genere el layout para evitar duplicados. Si un valor no es el esperado, utiliza la [guía de explicación](/es/guide/explain) para averiguar su origen.
 
 ## 5. Añadir un sitemap, si lo necesitas {#_5-add-a-sitemap-optional}
 
@@ -96,7 +96,7 @@ php artisan seo:sitemap
 ## Siguientes pasos {#where-to-go-next}
 
 - [Prioridad del resolvedor](/es/concepts/resolver-precedence): cómo se eligen los valores.
-- [Blade (EN)](/es/guide/blade): las siete directivas.
-- [Inertia y JSON (EN)](/es/guide/inertia-json): salida sin Blade.
-- [Grafo de esquemas (EN)](/es/guide/schema): JSON-LD conectado.
+- [Blade](/es/guide/blade): las siete directivas.
+- [Inertia y JSON](/es/guide/inertia-json): salida sin Blade.
+- [Grafo de esquemas](/es/guide/schema): JSON-LD conectado.
 - [Campos Filament](/es/guide/filament): interfaz de administración.
