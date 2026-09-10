@@ -10,12 +10,12 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
-use Spatie\Sitemap\Sitemap;
-use Spatie\Sitemap\SitemapIndex;
-use Spatie\Sitemap\Tags\Url;
 use Rankbeam\Seo\Contracts\Sitemapable;
 use Rankbeam\Seo\I18n\Hreflang;
 use Rankbeam\Seo\Traits\HasSEO;
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\SitemapIndex;
+use Spatie\Sitemap\Tags\Url;
 
 /**
  * Service for generating XML sitemaps.
@@ -61,6 +61,9 @@ use Rankbeam\Seo\Traits\HasSEO;
  */
 class SitemapBuilder
 {
+    /** Metadata reuse is scoped to one URL build, never to a later generation. */
+    private ?object $modelSeoContext = null;
+
     /**
      * Maximum URLs per sitemap file (Google limit is 50,000).
      */
@@ -80,7 +83,7 @@ class SitemapBuilder
      */
     public function __construct(?SitemapRegistry $registry = null)
     {
-        $this->registry = $registry ?? new SitemapRegistry();
+        $this->registry = $registry ?? new SitemapRegistry;
     }
 
     /**
@@ -108,7 +111,7 @@ class SitemapBuilder
     /**
      * Generate sitemap for a single model type.
      *
-     * @param class-string $modelClass
+     * @param  class-string  $modelClass
      */
     public function generateForModel(string $modelClass): Sitemap
     {
@@ -190,7 +193,7 @@ class SitemapBuilder
     /**
      * Build a sitemap from the configured static URLs.
      *
-     * @param array<int, Url> $staticUrls
+     * @param  array<int, Url>  $staticUrls
      */
     protected function buildStaticSitemap(array $staticUrls): Sitemap
     {
@@ -230,7 +233,7 @@ class SitemapBuilder
     /**
      * Normalize models config to associative array.
      *
-     * @param array<int|string, mixed> $models
+     * @param  array<int|string, mixed>  $models
      * @return array<class-string, array<string, mixed>>
      */
     protected function normalizeModelsConfig(array $models): array
@@ -267,7 +270,7 @@ class SitemapBuilder
         $files = File::allFiles($modelPath);
 
         foreach ($files as $file) {
-            $class = 'App\\Models\\' . str_replace(
+            $class = 'App\\Models\\'.str_replace(
                 ['/', '.php'],
                 ['\\', ''],
                 $file->getRelativePathname()
@@ -288,7 +291,7 @@ class SitemapBuilder
     /**
      * Check if a model class is sitemapable.
      *
-     * @param class-string $class
+     * @param  class-string  $class
      */
     protected function isSitemapable(string $class): bool
     {
@@ -309,7 +312,7 @@ class SitemapBuilder
      * configured models) and registeredSourceFilenames() (for registered
      * sources, whose model-class sources are sharded the same way).
      *
-     * @param array<class-string, array<string, mixed>> $modelsConfig
+     * @param  array<class-string, array<string, mixed>>  $modelsConfig
      */
     protected function buildSitemapIndex(array $modelsConfig): SitemapIndex
     {
@@ -387,7 +390,7 @@ class SitemapBuilder
      * parts are sitemap-{name}-N.xml — keeping the historical filename for the
      * single-file case while still sharding overflow.
      *
-     * @param class-string $modelClass
+     * @param  class-string  $modelClass
      * @return array<int, string>
      */
     protected function sitemapPartFilenames(string $modelClass, ?string $slug = null): array
@@ -418,7 +421,7 @@ class SitemapBuilder
      * concurrently — because every one of them reads the snapshot of primary
      * keys captured by that single ordered walk.
      *
-     * @param class-string $modelClass
+     * @param  class-string  $modelClass
      */
     protected function countSitemapParts(string $modelClass): int
     {
@@ -453,14 +456,14 @@ class SitemapBuilder
      * rows still yields a single empty window so it keeps its historical
      * single, un-numbered file.
      *
-     * @param class-string $modelClass
+     * @param  class-string  $modelClass
      * @return array<int, array{first: mixed, last: mixed}>
      */
     protected function sitemapPartBoundaries(string $modelClass): array
     {
         $maxUrls = $this->maxUrlsPerSitemap();
 
-        $instance = new $modelClass();
+        $instance = new $modelClass;
         $keyName = $instance->getKeyName();
         $qualifiedKey = $instance->getQualifiedKeyName();
 
@@ -584,7 +587,7 @@ class SitemapBuilder
      * single pass capped at max_urls_per_sitemap — but if a source exceeds the
      * cap, the dropped count is logged so the omission is never silent.
      *
-     * @param int $part 1-based shard index, used only for model-class sources.
+     * @param  int  $part  1-based shard index, used only for model-class sources.
      *
      * @throws \InvalidArgumentException When the name is not registered
      */
@@ -630,8 +633,8 @@ class SitemapBuilder
         if ($dropped > 0) {
             Log::warning(
                 "Sitemap source [{$name}] exceeded max_urls_per_sitemap ({$maxUrls}); "
-                . "dropped {$dropped} URL(s). Register it as an Eloquent model class to shard "
-                . 'across numbered files, or split it into smaller named sources.'
+                ."dropped {$dropped} URL(s). Register it as an Eloquent model class to shard "
+                .'across numbered files, or split it into smaller named sources.'
             );
         }
 
@@ -652,7 +655,7 @@ class SitemapBuilder
         }
 
         if ($item instanceof Model) {
-            return $this->shouldInclude($item) ? $this->buildUrl($item, []) : null;
+            return $this->buildIncludedModelUrl($item, []);
         }
 
         if (is_string($item) && $item !== '') {
@@ -687,8 +690,8 @@ class SitemapBuilder
      * for any model with <= max_urls_per_sitemap URLs is the whole sitemap. For
      * larger models, callers iterate every part via buildModelSitemapPart().
      *
-     * @param class-string $modelClass
-     * @param array<string, mixed> $config
+     * @param  class-string  $modelClass
+     * @param  array<string, mixed>  $config
      */
     protected function buildModelSitemap(string $modelClass, array $config): Sitemap
     {
@@ -709,8 +712,8 @@ class SitemapBuilder
      * or a fully-deleted window, be empty); that is valid and never drops a
      * URL.
      *
-     * @param class-string $modelClass
-     * @param array<string, mixed> $config
+     * @param  class-string  $modelClass
+     * @param  array<string, mixed>  $config
      */
     protected function buildModelSitemapPart(string $modelClass, array $config, int $part): Sitemap
     {
@@ -725,7 +728,7 @@ class SitemapBuilder
             return $this->applyStylesheet($sitemap);
         }
 
-        $instance = new $modelClass();
+        $instance = new $modelClass;
         $qualifiedKey = $instance->getQualifiedKeyName();
 
         $query = $modelClass::query();
@@ -743,11 +746,7 @@ class SitemapBuilder
             ->orderBy($qualifiedKey);
 
         foreach ($query->cursor() as $model) {
-            if (! $this->shouldInclude($model)) {
-                continue;
-            }
-
-            $url = $this->buildUrl($model, $config);
+            $url = $this->buildIncludedModelUrl($model, $config);
 
             if ($url) {
                 $sitemap->add($url);
@@ -755,6 +754,35 @@ class SitemapBuilder
         }
 
         return $this->applyStylesheet($sitemap);
+    }
+
+    /** Resolve metadata at most once across inclusion and optional extensions. */
+    protected function buildIncludedModelUrl(Model $model, array $config): ?Url
+    {
+        $previous = $this->modelSeoContext;
+        $this->modelSeoContext = (object) ['model' => $model, 'attempted' => false, 'data' => null];
+
+        try {
+            return $this->shouldInclude($model) ? $this->buildUrl($model, $config) : null;
+        } finally {
+            // Also restore nested builds and release the model after a failure.
+            $this->modelSeoContext = $previous;
+        }
+    }
+
+    protected function sitemapSeoData(Model $model): mixed
+    {
+        $context = $this->modelSeoContext;
+        if ($context === null || $context->model !== $model) {
+            return $model->seoData();
+        }
+
+        if (! $context->attempted) {
+            $context->attempted = true;
+            $context->data = $model->seoData();
+        }
+
+        return $context->data;
     }
 
     /**
@@ -782,7 +810,7 @@ class SitemapBuilder
         // "resolved robots control inclusion" contract.
         if (method_exists($model, 'seoData')) {
             try {
-                if (str_contains(strtolower($model->seoData()->robots ?? ''), 'noindex')) {
+                if (str_contains(strtolower($this->sitemapSeoData($model)->robots ?? ''), 'noindex')) {
                     return false;
                 }
             } catch (\Throwable) {
@@ -908,7 +936,7 @@ class SitemapBuilder
         // degrade to the plain URL on any failure (the same graceful-degradation
         // stance the resolver itself takes).
         try {
-            $seo = $model->seoData();
+            $seo = $this->sitemapSeoData($model);
 
             if ($wantImages && ! empty($seo->ogImage) && empty($url->images)) {
                 $url->addImage($seo->ogImage);
@@ -930,8 +958,8 @@ class SitemapBuilder
     /**
      * Create URL from array data.
      *
-     * @param array<string, mixed> $data
-     * @param array<string, mixed> $config
+     * @param  array<string, mixed>  $data
+     * @param  array<string, mixed>  $config
      */
     protected function createUrlFromArray(array $data, array $config): Url
     {
@@ -957,7 +985,7 @@ class SitemapBuilder
     /**
      * Count total URLs across all models.
      *
-     * @param array<class-string, array<string, mixed>> $modelsConfig
+     * @param  array<class-string, array<string, mixed>>  $modelsConfig
      */
     protected function countTotalUrls(array $modelsConfig): int
     {
@@ -979,7 +1007,7 @@ class SitemapBuilder
     /**
      * Get model slug for sitemap filename.
      *
-     * @param class-string $modelClass
+     * @param  class-string  $modelClass
      */
     protected function getModelSlug(string $modelClass): string
     {
@@ -991,7 +1019,7 @@ class SitemapBuilder
     /**
      * Get last modified date for a model type.
      *
-     * @param class-string $modelClass
+     * @param  class-string  $modelClass
      */
     protected function getLastModifiedForModel(string $modelClass): ?\DateTime
     {
@@ -1005,7 +1033,7 @@ class SitemapBuilder
     /**
      * Get model config.
      *
-     * @param class-string $modelClass
+     * @param  class-string  $modelClass
      * @return array<string, mixed>
      */
     protected function getModelConfig(string $modelClass): array
@@ -1134,7 +1162,7 @@ class SitemapBuilder
 
         $timestamp = $storage->lastModified($path);
 
-        return (new \DateTime())->setTimestamp($timestamp);
+        return (new \DateTime)->setTimestamp($timestamp);
     }
 
     /**

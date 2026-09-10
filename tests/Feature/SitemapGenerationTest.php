@@ -5,8 +5,13 @@ declare(strict_types=1);
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Rankbeam\Seo\Contracts\Sitemapable;
+use Rankbeam\Seo\Data\SEOData;
 use Rankbeam\Seo\Services\Sitemap\SitemapBuilder;
+use Rankbeam\Seo\Services\Sitemap\SitemapRegistry;
 use Rankbeam\Seo\Traits\HasSEO;
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\SitemapIndex;
+use Spatie\Sitemap\Tags\Url;
 
 // Create a test model for sitemap testing
 class SitemapTestPost extends Model
@@ -57,6 +62,72 @@ class SitemapExtensionPost extends Model
         ];
     }
 }
+
+class SitemapCountedResolutionPost extends SitemapExtensionPost
+{
+    public static int $resolutions = 0;
+
+    public static bool $failResolution = false;
+
+    public function seoData(?string $locale = null): SEOData
+    {
+        self::$resolutions++;
+        if (self::$failResolution) {
+            throw new RuntimeException('injected sitemap resolution failure');
+        }
+
+        return parent::seoData($locale);
+    }
+}
+
+it('resolves each streamed model once for inclusion and extensions with cache disabled', function () {
+    config(['seo.sitemap.models' => [SitemapCountedResolutionPost::class], 'seo.sitemap.images' => true,
+        'seo.sitemap.alternates' => true, 'seo.cache.resolver.enabled' => false]);
+    SitemapCountedResolutionPost::$resolutions = 0;
+    SitemapCountedResolutionPost::$failResolution = false;
+    SitemapCountedResolutionPost::create(['title' => 'Included', 'slug' => 'included']);
+    $hidden = SitemapCountedResolutionPost::create(['title' => 'Hidden', 'slug' => 'hidden']);
+    $hidden->saveSEO(['robots' => 'noindex,follow']);
+    app(SitemapBuilder::class)->generate();
+    $xml = Storage::disk('public')->get('sitemap.xml');
+    expect(SitemapCountedResolutionPost::$resolutions)->toBe(2)
+        ->and($xml)->toContain('/posts/included', '<image:image>', '<xhtml:link')
+        ->and($xml)->not->toContain('/posts/hidden');
+});
+
+it('does not retain metadata when the same model instance is built again', function () {
+    config(['seo.sitemap.models' => [], 'seo.sitemap.images' => true, 'seo.cache.resolver.enabled' => false]);
+    SitemapCountedResolutionPost::$resolutions = 0;
+    SitemapCountedResolutionPost::$failResolution = false;
+    $post = SitemapCountedResolutionPost::create(['title' => 'Fresh', 'slug' => 'before']);
+    app(SitemapRegistry::class)->register('counted', [$post]);
+    $builder = app(SitemapBuilder::class);
+    $builder->generate();
+    $post->slug = 'after';
+    app()->setLocale('fr');
+    $builder->generate();
+    $xml = Storage::disk('public')->get('sitemap-counted.xml');
+    expect(SitemapCountedResolutionPost::$resolutions)->toBe(2)
+        ->and($xml)->toContain('/images/after.jpg')->not->toContain('/images/before.jpg');
+});
+
+it('attempts a failing resolver once per URL and releases the failed context', function () {
+    config(['seo.sitemap.models' => [SitemapCountedResolutionPost::class], 'seo.sitemap.images' => true]);
+    SitemapCountedResolutionPost::$resolutions = 0;
+    SitemapCountedResolutionPost::$failResolution = true;
+    SitemapCountedResolutionPost::create(['title' => 'Failure', 'slug' => 'failure']);
+    $builder = app(SitemapBuilder::class);
+    try {
+        $builder->generate();
+        expect(SitemapCountedResolutionPost::$resolutions)->toBe(1)
+            ->and(Storage::disk('public')->get('sitemap.xml'))->not->toContain('<image:image>');
+    } finally {
+        SitemapCountedResolutionPost::$failResolution = false;
+    }
+    $builder->generate();
+    expect(SitemapCountedResolutionPost::$resolutions)->toBe(2)
+        ->and(Storage::disk('public')->get('sitemap.xml'))->toContain('<image:image>');
+});
 
 // A model returning a deliberately malformed alternates shape — the builder
 // must skip the bad entries and never throw.
@@ -121,9 +192,9 @@ class SitemapSitemapableExtPost extends Model implements Sitemapable
         return true;
     }
 
-    public function toSitemapTag(): \Spatie\Sitemap\Tags\Url|string|array
+    public function toSitemapTag(): Url|string|array
     {
-        return \Spatie\Sitemap\Tags\Url::create(url("/posts/{$this->slug}"))
+        return Url::create(url("/posts/{$this->slug}"))
             ->addImage(url('/images/hand-built.jpg'));
     }
 }
@@ -353,7 +424,7 @@ describe('SitemapGeneration', function () {
         // The build() method returns SitemapIndex when URLs exceed max or multiple models
         // Single model with limited URLs returns Sitemap or SitemapIndex depending on implementation
 
-        expect($sitemap instanceof Spatie\Sitemap\Sitemap || $sitemap instanceof Spatie\Sitemap\SitemapIndex)->toBeTrue();
+        expect($sitemap instanceof Sitemap || $sitemap instanceof SitemapIndex)->toBeTrue();
     });
 
     it('shards a large model into numbered parts and indexes every part with no URL dropped', function () {
@@ -372,7 +443,7 @@ describe('SitemapGeneration', function () {
         $sitemap = $builder->build();
 
         // Overflow → index, not a single truncated sitemap.
-        expect($sitemap)->toBeInstanceOf(Spatie\Sitemap\SitemapIndex::class);
+        expect($sitemap)->toBeInstanceOf(SitemapIndex::class);
 
         $builder->generate();
 
@@ -438,7 +509,7 @@ describe('SitemapGeneration', function () {
         $builder = app(SitemapBuilder::class);
         $sitemap = $builder->build();
 
-        expect($sitemap)->toBeInstanceOf(Spatie\Sitemap\SitemapIndex::class);
+        expect($sitemap)->toBeInstanceOf(SitemapIndex::class);
 
         $builder->generate();
 
@@ -541,7 +612,7 @@ describe('SitemapGeneration', function () {
         ]);
 
         // Create pages
-        $page = new SitemapTestPage();
+        $page = new SitemapTestPage;
         $page->title = 'About Page';
         $page->slug = 'about';
         $page->is_published = true;
@@ -551,7 +622,7 @@ describe('SitemapGeneration', function () {
         $sitemap = $builder->build();
 
         // With multiple models, should return sitemap index
-        expect($sitemap)->toBeInstanceOf(Spatie\Sitemap\SitemapIndex::class);
+        expect($sitemap)->toBeInstanceOf(SitemapIndex::class);
 
         // Cleanup
         $this->app['db']->connection()->getSchemaBuilder()->dropIfExists('sitemap_test_pages');
@@ -601,7 +672,7 @@ describe('SitemapGeneration', function () {
         $builder = app(SitemapBuilder::class);
         $sitemap = $builder->build();
 
-        expect($sitemap)->toBeInstanceOf(Spatie\Sitemap\Sitemap::class);
+        expect($sitemap)->toBeInstanceOf(Sitemap::class);
     });
 
     it('emits configured static_urls in a single sitemap when no models are set', function () {
@@ -615,7 +686,7 @@ describe('SitemapGeneration', function () {
         $builder = app(SitemapBuilder::class);
 
         // No models + only static URLs → a single Sitemap, not an index.
-        expect($builder->build())->toBeInstanceOf(Spatie\Sitemap\Sitemap::class);
+        expect($builder->build())->toBeInstanceOf(Sitemap::class);
 
         $builder->generate();
 
@@ -638,7 +709,7 @@ describe('SitemapGeneration', function () {
         $builder = app(SitemapBuilder::class);
 
         // Static URLs force the index path even with a single model.
-        expect($builder->build())->toBeInstanceOf(Spatie\Sitemap\SitemapIndex::class);
+        expect($builder->build())->toBeInstanceOf(SitemapIndex::class);
 
         $builder->generate();
 
@@ -781,7 +852,7 @@ describe('SitemapExtensions', function () {
         config(['seo.sitemap.alternates' => true]);
 
         app(SitemapBuilder::class)->sitemaps()->register('manual', fn () => [
-            Spatie\Sitemap\Tags\Url::create(url('/manual-page'))
+            Url::create(url('/manual-page'))
                 ->addImage(url('/images/manual.jpg')),
         ]);
 
