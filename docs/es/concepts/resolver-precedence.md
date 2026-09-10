@@ -2,7 +2,7 @@
 description: "El resolvedor SEO combina seis niveles: los superiores tienen prioridad y null nunca reemplaza un valor de un nivel inferior."
 ---
 
-# Prioridad del resolvedor
+# Prioridad del resolvedor {#resolver-precedence}
 
 Cada valor SEO efectivo —título, descripción, canonical, robots e imágenes— procede de **seis niveles** combinados por `SEOResolver`. Los niveles superiores tienen prioridad. `null` nunca reemplaza un valor de un nivel inferior.
 
@@ -74,14 +74,14 @@ La política de emisión filtra la directiva antes de llegar a `<head>`. La etiq
 - Una página no indexable genera `<meta name="robots" content="noindex, nofollow">`.
 - Las directivas distintas, como `noindex`, `max-snippet:-1` o `unavailable_after`, se emiten literalmente, conservando los espacios.
 
-Activa `seo.robots.emit_default = true` para emitir siempre la etiqueta. Consulta la [política de robots (EN)](/reference/configuration#robots-rendering-policy).
+Activa `seo.robots.emit_default = true` para emitir siempre la etiqueta. Consulta la [política de robots](/es/reference/configuration#robots-rendering-policy).
 
 ## Políticas posteriores a la resolución {#policies-applied-after-resolution}
 
 Se aplican con independencia del nivel que aportó el valor:
 
 - **Sufijo del título:** se añade `title_suffix`, salvo que el título ya termine con él. Si una plantilla de ruta incluye la marca, termínala con el sufijo para evitar repeticiones como «Brand — X | Brand».
-- **Parámetros del canonical:** se eliminan de los canonicals derivados de la URL del modelo o de la petición, salvo los permitidos en [`canonical.query_whitelist` (EN)](/reference/configuration#canonical-urls), como `page`. Los canonicals explícitos se conservan literalmente.
+- **Parámetros del canonical:** se eliminan de los canonicals derivados de la URL del modelo o de la petición, salvo los permitidos en [`canonical.query_whitelist`](/es/reference/configuration#canonical-urls), como `page`. Los canonicals explícitos se conservan literalmente.
 - **Imágenes sociales absolutas:** `og:image` y `twitter:image` se emiten como URL absolutas, aunque el valor guardado sea una ruta relativa.
 
 ## Identificar el nivel seleccionado {#inspecting-which-layer-won}

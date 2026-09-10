@@ -2,7 +2,7 @@
 description: "Añade una sección SEO a los formularios de recursos Filament 4 o 5 con laravel-seo-filament y el trait HasSEO."
 ---
 
-# Campos de administración Filament
+# Campos de administración Filament {#filament-admin-fields}
 
 El paquete gratuito [`rankbeam/laravel-seo-filament`](https://github.com/rankbeam/laravel-seo-filament) añade una sección SEO con **dos líneas por recurso**. Admite Filament **4.x y 5.x**, con Livewire 3 y 4. Editar metadatos es gratuito; los análisis y el score del ejemplo pertenecen a Pro.
 
@@ -44,12 +44,12 @@ Abre un registro existente, introduce una descripción SEO, guarda y recarga. La
 
 <figure class="rb-capture"><a href="/filament-seo-section.png"><img src="/filament-seo-section.png" alt="Campos SEO de Merchant: título, descripción, canonical, imagen social, vista previa de búsqueda y origen de los valores." width="1792" height="2616" loading="lazy" decoding="async"></a></figure>
 
-*Ejemplo de Merchant. Los campos adoptan el tema del panel; los controles y presupuestos dependen de la versión y la configuración instaladas.*
+*Captura original en inglés de Merchant. Los campos adoptan el tema del panel; los controles y presupuestos dependen de la versión y la configuración instaladas.*
 
 La sección incluye:
 
 - **Título y descripción** con contadores. La [política de longitud](/es/guide/multilingual#title-and-description-budgets-per-script) considera la escritura: 60/160 para texto latino, aproximadamente 30/80 para CJK, en grafemas.
-- **Palabras clave objetivo:** se introducen como etiquetas y se guardan en `[{keyword, is_primary}]`. La primera es principal; `getPrimaryKeyword()` y `SEOData` leen esta estructura. Activa `seo.keywords.enabled` para que [`seo:audit`](/es/guide/audit) y Pro señalen las páginas sin palabras clave. Está desactivado por defecto; consulta la [configuración (EN)](/reference/configuration#focus-keywords).
+- **Palabras clave objetivo:** se introducen como etiquetas y se guardan en `[{keyword, is_primary}]`. La primera es principal; `getPrimaryKeyword()` y `SEOData` leen esta estructura. Activa `seo.keywords.enabled` para que [`seo:audit`](/es/guide/audit) y Pro señalen las páginas sin palabras clave. Está desactivado por defecto; consulta la [configuración](/es/reference/configuration#focus-keywords).
 - **URL canónica:** vacía para derivarla automáticamente, sin parámetros de consulta.
 - **Robots:** vacío para usar el valor del sitio.
 - **Imagen social:** subida para `og:image` y `twitter:image`, guardada bajo `seo/` en el disco predeterminado de Filament.
@@ -104,7 +104,7 @@ Con varios idiomas, la ruta es `seo_meta.{locale}.title`. Con uno solo, sigue si
 
 <figure class="rb-capture"><a href="/filament-language-tabs.png"><img src="/filament-language-tabs.png" alt="Pestañas en inglés, italiano y japonés en Merchant, con presupuestos japoneses de 30 y 80 grafemas y una descripción sin definir." width="2112" height="2564" loading="lazy" decoding="async"></a></figure>
 
-*Merchant, 9 de septiembre de 2026, con `locales: ['en', 'it', 'ja']`. La pestaña japonesa vacía usa sus contadores. El título inglés procede del contenido de respaldo del modelo: añadir una pestaña no traduce el contenido. El score Pro corresponde al último análisis del registro, no a cada pestaña.*
+*Captura original en inglés de Merchant, 9 de septiembre de 2026, con `locales: ['en', 'it', 'ja']`. La pestaña japonesa vacía usa sus contadores. El título inglés procede del contenido de respaldo del modelo: añadir una pestaña no traduce el contenido. El score Pro corresponde al último análisis del registro, no a cada pestaña.*
 
 ### Con un plugin de traducción {#with-a-translatable-plugin}
 
@@ -154,7 +154,7 @@ Ofrece:
 
 ### Validación {#validation}
 
-Un bloque que produciría JSON-LD inválido se rechaza al guardar con el mensaje del validador: por ejemplo, una FAQ sin respuesta o un producto sin imagen u oferta requerida por el builder. Los bloques totalmente vacíos se ignoran.
+Un bloque que produciría JSON-LD inválido se rechaza al guardar con el mensaje del validador: por ejemplo, una FAQ sin respuesta o un producto sin imagen u oferta requerida por el builder. Estos requisitos del builder no describen todos los requisitos de Google para cada función de búsqueda de productos. Los bloques totalmente vacíos se ignoran.
 
 ### Qué se guarda {#what-it-stores}
 

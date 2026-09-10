@@ -2,7 +2,7 @@
 description: "Contenido multilingüe en Rankbeam: presupuestos por escritura, grafemas, mayúsculas, hreflang, inLanguage, buscadores regionales, fuentes y URL Unicode."
 ---
 
-# Contenido multilingüe
+# Contenido multilingüe {#multilingual-content}
 
 Las [traducciones](/es/guide/translations) determinan el idioma de la interfaz. Esta página trata de la **lengua del contenido**: presupuestos distintos para japonés, cortes de texto tailandés sin espacios, equivalencia turca entre `İstanbul` e `istanbul`, corrección de `it_IT` en hreflang y rastreadores como Naver para Corea. Estas reglas pertenecen al núcleo para que todos los componentes compartan las mismas decisiones.
 
@@ -114,7 +114,7 @@ La auditoría gratuita comprueba la lista tras aplicar las políticas:
 | `hreflang_duplicate_code` | notice | Código repetido. |
 | `hreflang_missing_self` | warning | La URL de la página no aparece en su lista. |
 
-La reciprocidad requiere rastreo. Con `check_hreflang_reciprocity`, Pro recupera cada alternativa mediante SsrfGuard y emite `hreflang_not_reciprocal` si la página destino no declara la URL de origen **con su código lingüístico** (Pro 2.38+; [códigos de red (EN)](/pro/scan-issues#network-codes)). El helper es público:
+La reciprocidad requiere rastreo. Con `check_hreflang_reciprocity`, Pro recupera cada alternativa mediante SsrfGuard y emite `hreflang_not_reciprocal` si la página destino no declara la URL de origen **con su código lingüístico** (Pro 2.38+; [códigos de red](/es/pro/scan-issues#network-codes)). El helper es público:
 
 ```php
 use Rankbeam\Seo\I18n\Hreflang;
@@ -242,18 +242,18 @@ Los paquetes incluyen textos y selección de motores para las 17 locales siguien
 | Turco | `tr` | 60 / 160 | Espacios | Snowball | Ateşman |
 | Ruso | `ru` | 60 / 160 | Espacios | Snowball | Oborneva |
 | Polaco | `pl` | 60 / 160 | Espacios | Snowball | Pisarek |
-| Japonés | `ja` | 30 / 80 | Diccionario ICU | Exacta con plegado de mayúsculas | Heurística, **sin score** |
-| Chino simplificado | `zh_CN` | 30 / 80 | Diccionario ICU | Exacta con plegado de mayúsculas | Heurística, **sin score** |
-| Chino tradicional | `zh_TW` | 30 / 80 | Diccionario ICU | Exacta con plegado de mayúsculas | Heurística, **sin score** |
-| Coreano | `ko` | 30 / 80 | Espacios | Exacta con plegado de mayúsculas | Heurística, **sin score** |
+| Japonés | `ja` | 30 / 80 | Diccionario ICU | Exacta con plegado de mayúsculas | Heurística, **sin puntuación** |
+| Chino simplificado | `zh_CN` | 30 / 80 | Diccionario ICU | Exacta con plegado de mayúsculas | Heurística, **sin puntuación** |
+| Chino tradicional | `zh_TW` | 30 / 80 | Diccionario ICU | Exacta con plegado de mayúsculas | Heurística, **sin puntuación** |
+| Coreano | `ko` | 30 / 80 | Espacios | Exacta con plegado de mayúsculas | Heurística, **sin puntuación** |
 | Griego | `el` | 60 / 160 | Espacios | Snowball | LIX |
 | Ucraniano | `uk` | 60 / 160 | Espacios | Exacta con plegado de mayúsculas | LIX |
 | Checo | `cs` | 60 / 160 | Espacios | Snowball | LIX |
 
 Tres límites acompañan esta cobertura:
 
-- **Snowball se incluye desde Pro 2.37.** Doce lenguas usan los algoritmos fijados en 3.1.1 sin paquetes opcionales. Ucraniano y CJK usan identidad, sin reglas de sufijos inventadas. La identidad puede no reconocer flexiones; stemming puede confundir palabras distintas. Consulta [motores y migración (EN)](/pro/on-page-checklist#upgrading-from-pro-2-36).
-- **«Heurística, sin score» no equivale a LIX.** Japonés, chino y coreano reciben un nivel orientativo según longitud de frases y proporción de kanji, con score `null`. Griego, ucraniano y checo usan LIX porque no hay fórmula específica implementada. LIX no necesita sílabas, pero sus umbrales no están calibrados para cada lengua. Todas las fórmulas usan entradas estimadas; consulta [límites estadísticos (EN)](/pro/on-page-checklist#text-statistics-and-api-limits).
+- **Snowball se incluye desde Pro 2.37.** Doce lenguas usan los algoritmos fijados en 3.1.1 sin paquetes opcionales. Ucraniano y CJK usan identidad, sin reglas de sufijos inventadas. La identidad puede no reconocer flexiones; stemming puede confundir palabras distintas. Consulta [motores y migración](/es/pro/on-page-checklist#upgrading-from-pro-2-36).
+- **«Heurística, sin puntuación» no equivale a LIX.** Japonés, chino y coreano reciben un nivel orientativo según longitud de frases y proporción de kanji, con puntuación `null` y carácter siempre orientativo, independientemente de la configuración. Griego, ucraniano y checo usan LIX porque no hay fórmula específica implementada. LIX no necesita sílabas, pero sus umbrales no están calibrados para cada lengua. Todas las fórmulas usan entradas estimadas; consulta [límites estadísticos](/es/pro/on-page-checklist#text-statistics-and-api-limits).
 - **Las traducciones de paquetes son primeras versiones**, salvo revisión nativa registrada en `TRANSLATING.md`. Los textos italianos tienen revisión acreditada; los demás esperan revisor. Esto no aprueba las traducciones de documentación.
 
 Las locales no listadas pueden recurrir a textos ingleses, presupuestos predeterminados, coincidencia por identidad y LIX o heurísticas. Ese respaldo no es soporte lingüístico validado. El bloque `analysis` identifica escritura, segmentador, stemmer y legibilidad; examina también disponibilidad y evaluaciones omitidas.
@@ -265,4 +265,4 @@ El soporte técnico incluye bots y verificación: Naver para Corea, Seznam para 
 ## Qué añaden los otros paquetes {#what-the-other-packages-add}
 
 - **laravel-seo-filament** usa la misma política en contadores y vista previa SERP. Desde 1.9 edita [una fila `seo_meta` por idioma](/es/guide/filament#several-languages), en pestañas con contadores, vista previa e indicadores propios, o siguiendo el selector de un plugin.
-- **laravel-seo-pro** la usa en `title_length`, `description_length` y prompts de IA. Su análisis incluye segmentación ICU de chino, japonés y tailandés, Snowball, coincidencia con `CaseFolder`, fórmulas publicadas con entradas estimadas para diez lenguas, heurísticas CJK etiquetadas, LIX para griego/ucraniano/checo, palabras vacías para 16 lenguas, `html lang`, reciprocidad hreflang, prompts con idioma y reportes Chrome para escrituras que dompdf no representa. Consulta [checklist (EN)](/pro/on-page-checklist#keyword-matching), [problemas (EN)](/es/pro/scan-issues), [asistencia IA (EN)](/pro/ai-assist#output-language) y [reportes (EN)](/pro/reports#reports-in-every-script-browsershot-renderer).
+- **laravel-seo-pro** la usa en `title_length`, `description_length` y prompts de IA. Su análisis incluye segmentación ICU de chino, japonés y tailandés, Snowball, coincidencia con `CaseFolder`, fórmulas publicadas con entradas estimadas para diez lenguas, heurísticas CJK etiquetadas, LIX para griego/ucraniano/checo, palabras vacías para 16 lenguas, `html lang`, reciprocidad hreflang, prompts con idioma y reportes Chrome para escrituras que dompdf no representa. Consulta [checklist](/es/pro/on-page-checklist#keyword-matching), [problemas](/es/pro/scan-issues), [asistencia IA](/es/pro/ai-assist#output-language) y [reportes](/es/pro/reports#reports-in-every-script-browsershot-renderer).

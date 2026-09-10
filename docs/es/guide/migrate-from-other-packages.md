@@ -2,12 +2,12 @@
 description: "Migra desde otros paquetes SEO Laravel a HasSEO y saveSEO(), con importación de datos de ralphjsmit/laravel-seo."
 ---
 
-# Migrar desde otros paquetes SEO de Laravel
+# Migrar desde otros paquetes SEO de Laravel {#migrating-from-other-laravel-seo-packages}
 
 Esta guía relaciona las API y formas de almacenamiento habituales con las dos piezas de Rankbeam: el trait [`HasSEO`](/es/guide/quickstart) y `saveSEO()`. Para el paquete que guarda SEO por modelo hay un comando de importación. El esfuerzo concreto depende de tus personalizaciones.
 
 ::: tip ¿Vienes de WordPress?
-La guía [Migrar desde WordPress (EN)](/es/guide/migrate-from-wordpress) describe el importador CSV y los lectores de bases de datos para Yoast y Rank Math.
+La guía [Migrar desde WordPress](/es/guide/migrate-from-wordpress) describe el importador CSV y los lectores de bases de datos para Yoast y Rank Math.
 :::
 
 | Paquete de origen | Almacenamiento | Migración |
@@ -17,6 +17,8 @@ La guía [Migrar desde WordPress (EN)](/es/guide/migrate-from-wordpress) describ
 | [`spatie/*`](#from-spatie-packages) | Builders de esquemas y sitemaps, sin tabla de metadatos | Conservar las funciones complementarias y migrar las demás |
 
 Solo **ralphjsmit** tiene aquí datos SEO en una tabla para importar en lote. Los otros generadores construyen etiquetas durante la petición: reemplaza sus llamadas por valores guardados en `seo_meta` o calculados.
+
+---
 
 ## Desde `ralphjsmit/laravel-seo` {#from-ralphjsmit-laravel-seo}
 
@@ -120,6 +122,8 @@ php artisan seo:audit            # confirm the imported metadata looks right
 
 Una vez revisados los datos, puedes retirar `ralphjsmit/laravel-seo` y eliminar la antigua tabla `seo`.
 
+---
+
 ## Desde `artesaos/seotools` {#from-artesaos-seotools}
 
 Este paquete genera etiquetas **en ejecución** mediante `SEOMeta`, `OpenGraph`, `TwitterCard` y `JsonLd`, normalmente desde un controlador, con valores iniciales en `config/seotools.php`. No hay una tabla por modelo que importar: mueve esas llamadas a valores guardados o calculados.
@@ -136,7 +140,9 @@ Este paquete genera etiquetas **en ejecución** mediante `SEOMeta`, `OpenGraph`,
 | Valores de `config/seotools.php` | `config/seo.php` y [prioridad del resolvedor](/es/concepts/resolver-precedence) |
 | `{!! SEO::generate() !!}` en el layout | `@seo($model)`, consulta [Blade](/es/guide/blade) |
 
-En lugar de fijar etiquetas en cada controlador, guarda los datos una vez por modelo en `seo_meta` y deja que el resolvedor los emita. Los valores globales pasan a la [configuración (EN)](/es/reference/configuration). Las páginas estáticas por ruta usan `@seoForRoute()`.
+En lugar de fijar etiquetas en cada controlador, guarda los datos una vez por modelo en `seo_meta` y deja que el resolvedor los emita. Los valores globales pasan a la [configuración](/es/reference/configuration). Las páginas estáticas por ruta usan `@seoForRoute()`.
+
+---
 
 ## Desde paquetes Spatie {#from-spatie-packages}
 
@@ -147,9 +153,11 @@ No existe un paquete de almacenamiento SEO `spatie/laravel-seo`. Los paquetes Sp
 
 Para [`romanzipp/laravel-seo`](https://github.com/romanzipp/Laravel-SEO), otro generador en ejecución, usa el mismo patrón que con artesaos: reemplaza `setTitle` y `addMeta` por `saveSEO()` o getters calculados.
 
+---
+
 ## Ampliar el importador {#extending-the-importer}
 
-`seo:import-from` utiliza un registro de implementaciones de `Rankbeam\Seo\Importing\Contracts\Importer`. Añadir una fuente no exige modificar el comando. Incluye `ralphjsmit` y los [importadores WordPress (EN)](/es/guide/migrate-from-wordpress) `wordpress-csv`, `yoast` y `rank-math`. Registra uno propio en un proveedor de servicios:
+`seo:import-from` utiliza un registro de implementaciones de `Rankbeam\Seo\Importing\Contracts\Importer`. Añadir una fuente no exige modificar el comando. Incluye `ralphjsmit` y los [importadores WordPress](/es/guide/migrate-from-wordpress) `wordpress-csv`, `yoast` y `rank-math`. Registra uno propio en un proveedor de servicios:
 
 ```php
 use Rankbeam\Seo\Importing\ImporterRegistry;
