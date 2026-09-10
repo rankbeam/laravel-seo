@@ -2,7 +2,7 @@
 description: "Genera imágenes Open Graph por página con Blade, Browsershot y Chrome: generación previa, caché, plantillas, fuentes y límites de operación."
 ---
 
-# Generar imágenes OG
+# Generar imágenes OG {#generated-og-images}
 
 Desde Core 3.20, Chrome desactiva JavaScript y bloquea peticiones de recursos HTTP(S), FTP y WebSocket. Las plantillas propias deben usar HTML/CSS estático y recursos integrados, como las incluidas.
 

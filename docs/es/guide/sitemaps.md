@@ -2,7 +2,7 @@
 description: "Registra fuentes de sitemap con modelos, funciones o listas de URL y genera un índice XML disponible en /sitemap.xml."
 ---
 
-# Registro de sitemaps
+# Registro de sitemaps {#sitemap-registry}
 
 El paquete genera un XML por fuente y un índice, disponibles en `/sitemap.xml` y `/sitemap-{name}.xml`. La generación utiliza [spatie/laravel-sitemap](https://github.com/spatie/laravel-sitemap):
 
@@ -82,7 +82,7 @@ Si sirves tus propios archivos estáticos, desactiva las rutas:
 
 Rankbeam añade una hoja XSL para mostrar el XML como una tabla con URL, `lastmod`, frecuencia, prioridad, número de imágenes y alternativas lingüísticas, además de notas de validación.
 
-![Sitemap de Rankbeam presentado como una tabla legible con la identidad visual del producto](/sitemap-styled.png)
+![Captura original en inglés del sitemap de Rankbeam presentado como una tabla legible con la identidad visual del producto](/sitemap-styled.png)
 
 Cada sitemap incluye una referencia a la hoja:
 

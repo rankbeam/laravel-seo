@@ -2,7 +2,7 @@
 description: "Comprueba metadatos con seo:audit: una tabla por página, gratis, sin cola, licencia ni acceso a la red."
 ---
 
-# Auditoría SEO gratuita (`seo:audit`)
+# Auditoría SEO gratuita (`seo:audit`) {#free-seo-audit-seo-audit}
 
 `php artisan seo:audit` responde a una pregunta: **¿qué problemas tienen ahora los metadatos de mis páginas?** Recorre los modelos `HasSEO` en el proceso actual, **sin cola, licencia ni red**, y muestra un estado **pass / warn / fail** por página y un resumen.
 
@@ -52,9 +52,9 @@ Una auditoría local de metadatos no cubre todo el análisis Pro. Cada ejecució
 
 - **Comprobaciones del HTML servido:** `missing_h1`, `multiple_h1`, `missing_image_alt`, `thin_content` y `mixed_content` requieren el contenido real de la página.
 - **Comprobaciones de red del canonical:** `canonical_target_broken` / `_redirect` / `_noindex` necesitan una petición saliente protegida.
-- **El score numérico de 0 a 100:** Pro lo guarda con una rúbrica versionada en el resultado del análisis; consulta [score SEO (EN)](/es/pro/scoring).
+- **El score numérico de 0 a 100:** Pro lo guarda con una rúbrica versionada en el resultado del análisis; consulta [score SEO](/es/pro/scoring).
 
-Estas funciones pertenecen a **Pro**. Consulta el [registro completo de problemas (EN)](/es/pro/scan-issues).
+Estas funciones pertenecen a **Pro**. Consulta el [registro completo de problemas](/es/pro/scan-issues).
 
 ## Elegir qué modelos auditar {#choosing-what-to-audit}
 

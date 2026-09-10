@@ -7,7 +7,7 @@ description: "Usa los mismos datos SEO resueltos con Inertia o una API JSON y ge
 El mismo `SEOData` resuelto que utiliza `@seo` puede generar arrays estructurados: una única fuente de datos tanto si el head lo construye Blade, Vue, React, Svelte como si lo hace un frontend independiente que consume tu API.
 
 ::: warning Los metadatos visibles para rastreadores requieren SSR de Inertia o prerenderizado
-Una aplicación Inertia predeterminada, sin SSR, inserta los metadatos **en el cliente**. El HTML inicial que recibe un rastreador o un extractor de vistas previas sociales **no** contiene esos metadatos SEO hasta que se ejecuta JavaScript. Para incluir el head en la respuesta HTTP original, activa [Inertia SSR](https://inertiajs.com/server-side-rendering) o el prerenderizado. En particular, JSON-LD debe generarse en el servidor. Consulta el [contrato de renderizado (EN)](/es/contributing/rendering-contract).
+Una aplicación Inertia predeterminada, sin SSR, inserta los metadatos **en el cliente**. El HTML inicial que recibe un rastreador o un extractor de vistas previas sociales **no** contiene esos metadatos SEO hasta que se ejecuta JavaScript. Para incluir el head en la respuesta HTTP original, activa [Inertia SSR](https://inertiajs.com/server-side-rendering) o el prerenderizado. En particular, JSON-LD debe generarse en el servidor. Consulta el [contrato de renderizado](/es/contributing/rendering-contract).
 :::
 
 ## Inertia {#inertia}
@@ -215,4 +215,4 @@ $data->canonical;
 $data->ogImage;       // always an absolute URL
 ```
 
-`SEOData` es un objeto de valor inmutable. Consulta la [precedencia del resolvedor](/es/concepts/resolver-precedence) para saber cómo obtiene cada propiedad y el [contrato de renderizado (EN)](/es/contributing/rendering-contract) para conocer todos los requisitos del `<head>` en cada stack.
+`SEOData` es un objeto de valor inmutable. Consulta la [precedencia del resolvedor](/es/concepts/resolver-precedence) para saber cómo obtiene cada propiedad y el [contrato de renderizado](/es/contributing/rendering-contract) para conocer todos los requisitos del `<head>` en cada stack.

@@ -16,7 +16,7 @@ El paquete incluye siete directivas Blade para aplicaciones que generan el HTML 
 </head>
 ```
 
-`@seo` resuelve el modelo mediante la [cadena de precedencia](/es/concepts/resolver-precedence) y genera el bloque completo del head: `<title>`, meta description, enlace canonical, robots, etiquetas Open Graph y Twitter Card, y el JSON-LD asociado. La etiqueta robots se emite **solo si difiere del valor predeterminado del sitio**: se omite un `index,follow` redundante, pues su ausencia ya significa index,follow. Activa `seo.robots.emit_default` para generarla siempre. Consulta el [contrato de renderizado (EN)](/es/contributing/rendering-contract) completo.
+`@seo` resuelve el modelo mediante la [cadena de precedencia](/es/concepts/resolver-precedence) y genera el bloque completo del head: `<title>`, meta description, enlace canonical, robots, etiquetas Open Graph y Twitter Card, y el JSON-LD asociado. La etiqueta robots se emite **solo si difiere del valor predeterminado del sitio**: se omite un `index,follow` redundante, pues su ausencia ya significa index,follow. Activa `seo.robots.emit_default` para generarla siempre. Consulta el [contrato de renderizado](/es/contributing/rendering-contract) completo.
 
 Firmas:
 
@@ -66,7 +66,7 @@ return view('search.results', [
 Un `SEOData` manual se trata como una **intención explícita**. Se conserva cada valor que establezcas; solo se completan estos campos al renderizar:
 
 - `canonical` / `og:url` se deducen de la URL actual si faltan; un `canonical` explícito se conserva tal cual, incluidos sus parámetros de consulta.
-- `title_suffix` solo se añade si el título no lo contiene. Se omite por completo si el título ya incluye un término de marca; consulta [`title_suffix_skip_when_contains` (EN)](/es/reference/configuration).
+- `title_suffix` solo se añade si el título no lo contiene. Se omite por completo si el título ya incluye un término de marca; consulta [`title_suffix_skip_when_contains`](/es/reference/configuration).
 - Las rutas relativas de `og:image` / `twitter:image` se convierten en absolutas con `url()`, que respeta el esquema actual y **no** fuerza HTTPS.
 - `og:site_name` y `locale` se completan con la configuración y el idioma de la aplicación.
 
