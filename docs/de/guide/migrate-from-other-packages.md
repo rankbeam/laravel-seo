@@ -7,7 +7,7 @@ description: "Wechsle von anderen Laravel-SEO-Paketen zu HasSEO und saveSEO(), e
 Diese Anleitung ordnet die APIs und Speicherformen gängiger SEO-Pakete den beiden Rankbeam-Bausteinen zu: dem Trait [`HasSEO`](/de/guide/quickstart) und `saveSEO()`. Für SEO-Daten, die pro Modell gespeichert sind, gibt es einen Importbefehl. Der konkrete Aufwand hängt von deinen Anpassungen ab.
 
 ::: tip Migration von WordPress
-Für Inhaltsseiten mit Yoast oder Rank Math beschreibt [Migration von WordPress (EN)](/guide/migrate-from-wordpress) den CSV-Import und die Leser für bestehende Datenbanken.
+Für Inhaltsseiten mit Yoast oder Rank Math beschreibt [Migration von WordPress (EN)](/de/guide/migrate-from-wordpress) den CSV-Import und die Leser für bestehende Datenbanken.
 :::
 
 | Ausgangspaket | Speicherung | Migrationsweg |
@@ -132,24 +132,24 @@ Wenn die importierten Daten geprüft sind, kannst du `ralphjsmit/laravel-seo` en
 | `SEOMeta::addKeyword(...)` | Kein gleichwertiges Keywords-Metatag: Fokus-Keywords dienen internen redaktionellen Prüfungen. `saveSEO(['focus_keywords' => [...]])`, siehe [Audit](/de/guide/audit) |
 | `OpenGraph::setTitle / setDescription / addImage` | `saveSEO(['og_title' => …, 'og_description' => …, 'og_image' => …])` |
 | `TwitterCard::setType / setTitle / setImage` | `saveSEO(['twitter_card' => …, 'twitter_title' => …, 'twitter_image' => …])` |
-| `JsonLd::setType(...)` / `JsonLdMulti` | [JSON-LD-Schema-Graph (EN)](/guide/schema) |
+| `JsonLd::setType(...)` / `JsonLdMulti` | [JSON-LD-Schema-Graph](/de/guide/schema) |
 | Standardwerte aus `config/seotools.php` | `config/seo.php` und [Resolver-Priorität](/de/concepts/resolver-precedence) |
-| `{!! SEO::generate() !!}` im Layout | `@seo($model)`, siehe [Blade (EN)](/guide/blade) |
+| `{!! SEO::generate() !!}` im Layout | `@seo($model)`, siehe [Blade](/de/guide/blade) |
 
-Statt in jedem Controller Tags zu setzen, speicherst du SEO-Daten pro Modell in `seo_meta` und lässt den Resolver sie ausgeben. Websiteweite Fallbacks werden zu [Konfigurationswerten (EN)](/reference/configuration). Statische Seiten pro Route verwenden `@seoForRoute()`.
+Statt in jedem Controller Tags zu setzen, speicherst du SEO-Daten pro Modell in `seo_meta` und lässt den Resolver sie ausgeben. Websiteweite Fallbacks werden zu [Konfigurationswerten (EN)](/de/reference/configuration). Statische Seiten pro Route verwenden `@seoForRoute()`.
 
 ## Von Spatie-Paketen {#from-spatie-packages}
 
 Es gibt kein Metadatenspeicherpaket `spatie/laravel-seo`. Die häufig mit SEO kombinierten Spatie-Pakete sind ergänzende Builder, die du einzeln behalten oder ersetzen kannst:
 
-- **`spatie/schema-org`:** Ein Fluent-Builder für JSON-LD. Rankbeam bietet einen eigenen [Schema-Graphen (EN)](/guide/schema) mit typisierten Buildern für `Article`, `FAQPage`, `Product`, `BreadcrumbList`, `LocalBusiness` und `Organization`. Sie speichern in `seo_meta.schema_jsonld` und vermeiden doppelte Ausgabe. Bestehende Objekte kannst du mit `->toArray()` an `saveSEO(['schema_jsonld' => $array])` übergeben oder mit Rankbeams Buildern neu ausdrücken.
+- **`spatie/schema-org`:** Ein Fluent-Builder für JSON-LD. Rankbeam bietet einen eigenen [Schema-Graphen](/de/guide/schema) mit typisierten Buildern für `Article`, `FAQPage`, `Product`, `BreadcrumbList`, `LocalBusiness` und `Organization`. Sie speichern in `seo_meta.schema_jsonld` und vermeiden doppelte Ausgabe. Bestehende Objekte kannst du mit `->toArray()` an `saveSEO(['schema_jsonld' => $array])` übergeben oder mit Rankbeams Buildern neu ausdrücken.
 - **`spatie/laravel-sitemap`:** Rankbeams [Sitemap-Registry](/de/guide/sitemaps) baut darauf auf. Registriere Modelle als Quellen einer gemeinsamen Sitemap oder behalte deine vorhandene Spatie-Sitemap und deaktiviere Rankbeams Route.
 
 Für [`romanzipp/laravel-seo`](https://github.com/romanzipp/Laravel-SEO), einen weiteren Laufzeit-Builder, gilt dasselbe Muster wie bei artesaos: `setTitle`-/`addMeta`-Aufrufe werden zu `saveSEO()` oder berechneten Gettern.
 
 ## Importer erweitern {#extending-the-importer}
 
-Hinter `seo:import-from` steht eine kleine Registry für Implementierungen von `Rankbeam\Seo\Importing\Contracts\Importer`. Neue Quellen benötigen keine Änderung am Befehl. Enthalten sind `ralphjsmit` und die [WordPress-Importer (EN)](/guide/migrate-from-wordpress) `wordpress-csv`, `yoast` und `rank-math`. Eigene Quellen registrierst du in einem Service Provider:
+Hinter `seo:import-from` steht eine kleine Registry für Implementierungen von `Rankbeam\Seo\Importing\Contracts\Importer`. Neue Quellen benötigen keine Änderung am Befehl. Enthalten sind `ralphjsmit` und die [WordPress-Importer (EN)](/de/guide/migrate-from-wordpress) `wordpress-csv`, `yoast` und `rank-math`. Eigene Quellen registrierst du in einem Service Provider:
 
 ```php
 use Rankbeam\Seo\Importing\ImporterRegistry;

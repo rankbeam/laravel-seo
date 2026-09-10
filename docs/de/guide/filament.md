@@ -147,7 +147,7 @@ public static function form(Schema $schema): Schema
 
 Ohne Trait kannst du `SEOSchemaFields::make()` direkt verwenden.
 
-Der Bereich schreibt in `seo_meta.schema_jsonld`, dieselbe Spalte wie der [Schema-Renderer (EN)](/de/guide/schema). Er bindet nur das Formular an den Core: Dokumente werden von dessen Buildern erstellt und vor dem Speichern durch `SchemaValidator` geprüft.
+Der Bereich schreibt in `seo_meta.schema_jsonld`, dieselbe Spalte wie der [Schema-Renderer](/de/guide/schema). Er bindet nur das Formular an den Core: Dokumente werden von dessen Buildern erstellt und vor dem Speichern durch `SchemaValidator` geprüft.
 
 Enthalten sind:
 

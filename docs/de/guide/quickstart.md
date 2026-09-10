@@ -2,7 +2,7 @@
 description: "Installiere Rankbeam, ergänze ein bestehendes Modell um HasSEO, speichere Metadaten und prüfe die in Blade ausgegebenen Tags."
 ---
 
-# Schnellstart
+# Schnellstart {#quickstart}
 
 Du benötigst eine bestehende Laravel-11-, -12- oder -13-Anwendung mit funktionierender Datenbank und PHP 8.2+; Laravel 13 benötigt PHP 8.3+. Der Core ist unter der MIT-Lizenz kostenlos. Ein Konto oder eine Pro-Lizenz ist nicht erforderlich.
 
@@ -22,7 +22,7 @@ Der Service Provider wird automatisch registriert. Die Migration erstellt die SE
 
 Die folgenden Schritte setzen ein `Post`-Modell, einen gespeicherten Beitrag und eine Route `posts.show` voraus. Deren Blade-View erhält den Beitrag als `$post`. Passe die Namen an deine Anwendung an. Diese Anleitung ergänzt eine vorhandene Seite um SEO; sie baut keinen Blog auf.
 
-Setze `APP_URL` in `.env` auf den öffentlichen Ursprung deiner Website. Für andere Rendering-Stacks gibt es die Anleitungen [Inertia und JSON (EN)](/de/guide/inertia-json) und [Livewire (EN)](/de/guide/livewire).
+Setze `APP_URL` in `.env` auf den öffentlichen Ursprung deiner Website. Für andere Rendering-Stacks gibt es die Anleitungen [Inertia und JSON](/de/guide/inertia-json) und [Livewire](/de/guide/livewire).
 
 ## 1. Trait zum Modell hinzufügen {#_1-add-the-trait-to-a-model}
 
@@ -74,7 +74,7 @@ Laravels standardmäßiger `DatabaseSeeder` verwendet `WithoutModelEvents`. Dadu
 
 Öffne die öffentliche Beitragsseite und wähle **Seitenquelltext anzeigen**. Prüfe im `<head>`, ob der Titel `Custom SEO Title` enthält, die Beschreibung `Custom meta description` lautet und der Canonical auf die öffentliche Beitrags-URL zeigt. Der konfigurierte Titelsuffix kann auf den Titel folgen.
 
-Gib `@seo($post)` genau einmal pro Seite aus. Erzeugt dein Layout bereits Titel oder Metatags, ersetze diese, damit keine Duplikate entstehen. Bei unerwarteten Werten hilft die [Anleitung zur Auflösung (EN)](/de/guide/explain).
+Gib `@seo($post)` genau einmal pro Seite aus. Erzeugt dein Layout bereits Titel oder Metatags, ersetze diese, damit keine Duplikate entstehen. Bei unerwarteten Werten hilft die [Anleitung zur Auflösung](/de/guide/explain).
 
 ## 5. Optional eine Sitemap ergänzen {#_5-add-a-sitemap-optional}
 
@@ -96,7 +96,7 @@ php artisan seo:sitemap
 ## Nächste Schritte {#where-to-go-next}
 
 - [Resolver-Priorität](/de/concepts/resolver-precedence) — Auswahl der Werte
-- [Blade (EN)](/de/guide/blade) — alle sieben Direktiven
-- [Inertia und JSON (EN)](/de/guide/inertia-json) — Headless-Ausgabe
-- [Schema-Graph (EN)](/de/guide/schema) — verknüpftes JSON-LD
+- [Blade](/de/guide/blade) — alle sieben Direktiven
+- [Inertia und JSON](/de/guide/inertia-json) — Headless-Ausgabe
+- [Schema-Graph](/de/guide/schema) — verknüpftes JSON-LD
 - [Filament-Felder](/de/guide/filament) — Verwaltungsoberfläche
