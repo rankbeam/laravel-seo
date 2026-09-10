@@ -7,7 +7,7 @@ description: "Dieselben aufgelösten SEO-Daten über Inertia oder eine JSON-API 
 Das aufgelöste `SEOData`, das auch `@seo` verwendet, lässt sich als strukturiertes Array ausgeben. Damit bleibt die Datenquelle dieselbe, unabhängig davon, ob Blade, Vue, React, Svelte oder ein separates API-Frontend den Head aufbaut.
 
 ::: warning Für Crawler sichtbare Meta-Tags benötigen Inertia SSR oder Prerendering
-Eine gewöhnliche Inertia-App ohne SSR fügt Meta-Tags **clientseitig** ein. Das erste HTML, das ein Crawler oder Social-Media-Scraper abruft, enthält **keine** SEO-Meta-Tags, bis JavaScript ausgeführt wird. Damit der Head bereits in der HTTP-Antwort steht, musst du [Inertia SSR](https://inertiajs.com/server-side-rendering) oder Prerendering aktivieren. Insbesondere JSON-LD sollte serverseitig gerendert werden. Siehe den [Rendering-Vertrag (EN)](/de/contributing/rendering-contract).
+Eine gewöhnliche Inertia-App ohne SSR fügt Meta-Tags **clientseitig** ein. Das erste HTML, das ein Crawler oder Social-Media-Scraper abruft, enthält **keine** SEO-Meta-Tags, bis JavaScript ausgeführt wird. Damit der Head bereits in der HTTP-Antwort steht, musst du [Inertia SSR](https://inertiajs.com/server-side-rendering) oder Prerendering aktivieren. Insbesondere JSON-LD sollte serverseitig gerendert werden. Siehe den [Rendering-Vertrag](/de/contributing/rendering-contract).
 :::
 
 ## Inertia {#inertia}
@@ -215,4 +215,4 @@ $data->canonical;
 $data->ogImage;       // always an absolute URL
 ```
 
-`SEOData` ist ein unveränderliches Wertobjekt. Die [Resolver-Priorität](/de/concepts/resolver-precedence) erklärt, woher jede Eigenschaft ihren Wert erhält. Der [Rendering-Vertrag (EN)](/de/contributing/rendering-contract) enthält die vollständigen Anforderungen an den `<head>` jedes Stacks.
+`SEOData` ist ein unveränderliches Wertobjekt. Die [Resolver-Priorität](/de/concepts/resolver-precedence) erklärt, woher jede Eigenschaft ihren Wert erhält. Der [Rendering-Vertrag](/de/contributing/rendering-contract) enthält die vollständigen Anforderungen an den `<head>` jedes Stacks.

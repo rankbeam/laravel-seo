@@ -2,7 +2,7 @@
 description: "Erzeuge XML-Sitemaps je Quelle und einen Index unter /sitemap.xml. Registriere Modelle, Closures oder URL-Listen mit spatie/laravel-sitemap."
 ---
 
-# Sitemap-Registry
+# Sitemap-Registry {#sitemap-registry}
 
 Das Paket erzeugt eine XML-Sitemap je Quelle sowie einen Index. Die Dateien werden unter `/sitemap.xml` und `/sitemap-{name}.xml` ausgeliefert. Die Erzeugung verwendet [spatie/laravel-sitemap](https://github.com/spatie/laravel-sitemap):
 

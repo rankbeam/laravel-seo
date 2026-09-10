@@ -16,7 +16,7 @@ Für klassische serverseitig gerenderte Apps bietet das Paket sieben Blade-Direk
 </head>
 ```
 
-`@seo` löst das Modell anhand der [Prioritätskette](/de/concepts/resolver-precedence) auf und rendert den vollständigen Head-Block: `<title>`, Meta-Beschreibung, Canonical-Link, Robots, Open-Graph-Tags, Twitter-Card-Tags und angehängtes JSON-LD. Das Robots-Tag erscheint **nur, wenn sein Wert vom Website-Standard abweicht**. Ein redundantes `index,follow` entfällt, denn ohne das Tag gilt bereits index,follow. Mit `seo.robots.emit_default` wird es immer ausgegeben. Die Einzelheiten stehen im [Rendering-Vertrag (EN)](/de/contributing/rendering-contract).
+`@seo` löst das Modell anhand der [Prioritätskette](/de/concepts/resolver-precedence) auf und rendert den vollständigen Head-Block: `<title>`, Meta-Beschreibung, Canonical-Link, Robots, Open-Graph-Tags, Twitter-Card-Tags und angehängtes JSON-LD. Das Robots-Tag erscheint **nur, wenn sein Wert vom Website-Standard abweicht**. Ein redundantes `index,follow` entfällt, denn ohne das Tag gilt bereits index,follow. Mit `seo.robots.emit_default` wird es immer ausgegeben. Die Einzelheiten stehen im [Rendering-Vertrag](/de/contributing/rendering-contract).
 
 Signaturen:
 
@@ -66,7 +66,7 @@ return view('search.results', [
 Ein selbst erstelltes `SEOData` gilt als **ausdrückliche Vorgabe**. Alle gesetzten Werte bleiben erhalten; beim Rendern werden nur folgende Lücken ergänzt:
 
 - Fehlende Werte für `canonical` und `og:url` werden aus der aktuellen URL abgeleitet. Ein explizites `canonical` bleibt unverändert, einschließlich Query-String.
-- `title_suffix` wird nur angehängt, wenn der Titel es noch nicht enthält. Enthält der Titel bereits einen Markennamen aus der konfigurierten Liste, entfällt es ganz; siehe [`title_suffix_skip_when_contains` (EN)](/de/reference/configuration).
+- `title_suffix` wird nur angehängt, wenn der Titel es noch nicht enthält. Enthält der Titel bereits einen Markennamen aus der konfigurierten Liste, entfällt es ganz; siehe [`title_suffix_skip_when_contains`](/de/reference/configuration).
 - Relative Pfade für `og:image` und `twitter:image` werden mit `url()` absolut. Dabei gilt das aktuelle URL-Schema; HTTPS wird **nicht** erzwungen.
 - `og:site_name` und `locale` werden aus der Konfiguration beziehungsweise der App-Locale ergänzt.
 

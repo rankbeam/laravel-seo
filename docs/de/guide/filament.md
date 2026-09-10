@@ -2,7 +2,7 @@
 description: "Ergänze Ressourcenformulare in Filament 4 und 5 um SEO-Felder mit dem kostenlosen Paket laravel-seo-filament und dem HasSEO-Trait."
 ---
 
-# SEO-Felder für Filament
+# SEO-Felder für Filament {#filament-admin-fields}
 
 Das kostenlose Paket [`rankbeam/laravel-seo-filament`](https://github.com/rankbeam/laravel-seo-filament) ergänzt Ressourcenformulare um einen SEO-Bereich mit zwei Einbindungen je Ressource. Es unterstützt **Filament 4.x und 5.x**, also Livewire 3 und 4. Metadaten bearbeiten ist kostenlos; Scans und der im Beispiel sichtbare Score gehören zu Pro.
 
@@ -49,7 +49,7 @@ class PostResource extends Resource
 Der Bereich enthält:
 
 - **Titel und Beschreibung** mit Live-Zählern. Die [Längenregel](/de/guide/multilingual#title-and-description-budgets-per-script) berücksichtigt die Schrift: 60/160 für lateinische Texte, ungefähr 30/80 für CJK, gezählt in Graphemen.
-- **Fokus-Keywords:** Das Tag-Feld speichert Wörter in der Struktur `[{keyword, is_primary}]`; das erste Keyword ist primär. `getPrimaryKeyword()` und `SEOData` lesen diese Struktur. Mit `seo.keywords.enabled` melden das [kostenlose Audit](/de/guide/audit) und Pro fehlende Keywords. Standardmäßig ist dies deaktiviert; siehe [Konfiguration (EN)](/reference/configuration#focus-keywords).
+- **Fokus-Keywords:** Das Tag-Feld speichert Wörter in der Struktur `[{keyword, is_primary}]`; das erste Keyword ist primär. `getPrimaryKeyword()` und `SEOData` lesen diese Struktur. Mit `seo.keywords.enabled` melden das [kostenlose Audit](/de/guide/audit) und Pro fehlende Keywords. Standardmäßig ist dies deaktiviert; siehe [Konfiguration](/de/reference/configuration#focus-keywords).
 - **Canonical-URL:** Leer bedeutet automatisch, mit entfernter Query.
 - **Robots-Auswahl:** Leer verwendet die Website-Vorgabe.
 - **Social-Bild:** Upload für `og:image` und `twitter:image` in `seo/` auf Filaments Standard-Disk.

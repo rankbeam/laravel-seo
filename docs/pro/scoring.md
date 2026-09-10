@@ -163,20 +163,19 @@ contract):
 
 ## The shipping signal (`noindex_warning`)
 
-`noindex_warning` fires when a page says `noindex` **and** signals it is meant
-to ship (be indexed). The signal is metadata-resolvable: a **self-canonical**
-page (its canonical names its own URL) declares itself the indexable version,
-so `noindex` contradicts it. A page with a *cross-domain* canonical is
-deliberately delegating indexation elsewhere — not a contradiction, so it does
-not fire. The emitted issue carries `context.shipping_signal` (e.g.
-`self_canonical`), plus the `canonical` and `page_url` it compared.
+`noindex_warning` fires when a page combines `noindex` with a **self-canonical**
+(a canonical naming its own URL). Rankbeam treats this as a shipping signal to
+review. A self-canonical does **not** prove that indexing is intended: the
+combination can be deliberate. A cross-domain canonical does not trigger this
+heuristic. The issue carries `context.shipping_signal` (for example
+`self_canonical`), plus the compared `canonical` and `page_url`.
 
-Both scanners apply this: the model scan (`PageScanner`) compares the stored
-canonical to the model's URL, and the rendered URL scan (`UrlScanner`) escalates
-a self-canonical `noindex` page from the informational `noindex_page` to the
-scored `noindex_warning`. That symmetry is why `noindex_page` itself is excluded
-from the score — the contradiction is always caught by `noindex_warning`, on
-either scan path.
+Both scanners apply the check. The model scan (`PageScanner`) compares the stored
+canonical to the model URL. The rendered URL scan (`UrlScanner`) escalates a
+self-canonical `noindex` page from informational `noindex_page` to scored
+`noindex_warning`. That is why `noindex_page` itself is excluded: the potential
+conflict is handled by `noindex_warning` on either path. Review the page's actual
+intent before changing its indexing directive.
 
 ## Configuration
 

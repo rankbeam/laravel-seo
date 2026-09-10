@@ -2,7 +2,7 @@
 description: "Mehrsprachige Inhalte in Rankbeam: Textlängen je Schriftsystem, Grapheme, Großschreibung, hreflang, inLanguage, Suchcrawler, Schriften und Unicode-URLs."
 ---
 
-# Mehrsprachige Inhalte
+# Mehrsprachige Inhalte {#multilingual-content}
 
 [Übersetzungen](/de/guide/translations) bestimmen die Sprache der Paketoberfläche. Diese Seite beschreibt, wie Rankbeam die **Sprache deiner Inhalte** berücksichtigt. Japanische Titel brauchen andere Längenbudgets als lateinische, Thai lässt sich nicht an Leerzeichen kürzen, `İstanbul` und `istanbul` entsprechen einander im Türkischen, und `it_IT` ist kein gültiger hreflang-Wert. Diese Regeln liegen im Core, damit alle Pakete dieselbe Grundlage verwenden.
 
@@ -114,7 +114,7 @@ Der kostenlose Audit prüft die bereits bearbeitete Liste:
 | `hreflang_duplicate_code` | notice | Derselbe Code steht mehrfach in der Liste. |
 | `hreflang_missing_self` | warning | Die eigene URL fehlt in der Liste. |
 
-Gegenseitige Verweise erfordern einen Crawl. Pro ruft bei aktiviertem `check_hreflang_reciprocity` jede Alternative durch den SsrfGuard ab. Fehlt dort die Quell-URL **mit ihrem Sprachcode**, entsteht `hreflang_not_reciprocal` (Pro 2.38+; [Netzwerkcodes (EN)](/pro/scan-issues#network-codes)). Der Helfer ist öffentlich:
+Gegenseitige Verweise erfordern einen Crawl. Pro ruft bei aktiviertem `check_hreflang_reciprocity` jede Alternative durch den SsrfGuard ab. Fehlt dort die Quell-URL **mit ihrem Sprachcode**, entsteht `hreflang_not_reciprocal` (Pro 2.38+; [Netzwerkcodes](/de/pro/scan-issues#network-codes)). Der Helfer ist öffentlich:
 
 ```php
 use Rankbeam\Seo\I18n\Hreflang;
@@ -252,8 +252,8 @@ Die Pakete enthalten Oberflächentexte und Analysezuordnungen für die folgenden
 
 Drei Einschränkungen gehören zu dieser Tabelle:
 
-- **Snowball wird ab Pro 2.37 mitgeliefert.** Zwölf Sprachen verwenden festgelegte Algorithmen aus 3.1.1, unabhängig von optionalen Paketen. Ukrainisch und CJK verwenden exakte Vergleiche mit Case Folding statt erfundener Suffixregeln. Solche Vergleiche können gebeugte Formen übersehen; Stemming kann unterschiedliche Wörter zusammenführen. Siehe [Verfahren und Migration (EN)](/pro/on-page-checklist#upgrading-from-pro-2-36).
-- **„Heuristik, kein Score“ unterscheidet sich von LIX.** Japanisch, Chinesisch und Koreanisch liefern in diesem Paket eine beratende Stufe aus Satzlänge und Kanji-Anteil mit `null` als Score. Griechisch, Ukrainisch und Tschechisch verwenden LIX, weil kein eigenes Verfahren implementiert ist. LIX benötigt keine Silbenzählung, seine Schwellen sind aber nicht für jede Sprache kalibriert. Alle Formeleingaben enthalten Schätzungen; siehe [Statistikgrenzen (EN)](/pro/on-page-checklist#text-statistics-and-api-limits).
+- **Snowball wird ab Pro 2.37 mitgeliefert.** Zwölf Sprachen verwenden festgelegte Algorithmen aus 3.1.1, unabhängig von optionalen Paketen. Ukrainisch und CJK verwenden exakte Vergleiche mit Case Folding statt erfundener Suffixregeln. Solche Vergleiche können gebeugte Formen übersehen; Stemming kann unterschiedliche Wörter zusammenführen. Siehe [Verfahren und Migration](/de/pro/on-page-checklist#upgrading-from-pro-2-36).
+- **„Heuristik, kein Score“ unterscheidet sich von LIX.** Japanisch, Chinesisch und Koreanisch liefern in diesem Paket eine beratende Stufe aus Satzlänge und Kanji-Anteil mit `null` als Score. Griechisch, Ukrainisch und Tschechisch verwenden LIX, weil kein eigenes Verfahren implementiert ist. LIX benötigt keine Silbenzählung, seine Schwellen sind aber nicht für jede Sprache kalibriert. Alle Formeleingaben enthalten Schätzungen; siehe [Statistikgrenzen](/de/pro/on-page-checklist#text-statistics-and-api-limits).
 - **Paketübersetzungen sind Erstfassungen**, sofern `TRANSLATING.md` keine muttersprachliche Prüfung nennt. Italienische Pakettexte haben eine solche Prüfung; für die übrigen wird sie noch benötigt. Das ist keine Freigabe dieser Dokumentationsübersetzung.
 
 Nicht aufgeführte Locales können auf englische Texte, Standardbudgets, exakten Keyword-Abgleich sowie LIX oder Heuristiken zurückfallen. Dieser Fallback ist keine validierte Sprachunterstützung. Der Block `analysis` der Checkliste nennt Schriftsystem, Segmentierer, Stemmer und Lesbarkeitsverfahren. Prüfe auch Verfügbarkeit und übersprungene Bewertungen.
@@ -265,4 +265,4 @@ Zur technischen Sprachunterstützung gehören auch Crawler und Verifizierungstag
 ## Ergänzungen der anderen Pakete {#what-the-other-packages-add}
 
 - **laravel-seo-filament** verwendet dieselbe Längenrichtlinie für Zähler und SERP-Vorschau. Seit 1.9 bearbeitet es [eine `seo_meta`-Zeile je Sprache](/de/guide/filament#several-languages): über eigene Tabs mit Zählern, Vorschau und Fallback-Hinweisen oder durch Folgen des Sprachwechslers eines Übersetzungsplugins.
-- **laravel-seo-pro** verwendet sie für `title_length`, `description_length` und KI-Prompts. Die sprachbezogene Analyse umfasst ICU-Segmentierung für Chinesisch, Japanisch und Thai, Snowball, Keyword-Abgleich mit `CaseFolder`, veröffentlichte Lesbarkeitsformeln mit geschätzten Eingaben für zehn Sprachen, gekennzeichnete CJK-Heuristiken und LIX für Griechisch, Ukrainisch und Tschechisch, Stoppwörter für 16 Sprachen, `html lang`, gegenseitige hreflang-Verweise, sprachbezogene KI-Prompts und Chrome-Berichte für Schriftsysteme, die dompdf nicht darstellen kann. Siehe [Checkliste (EN)](/pro/on-page-checklist#keyword-matching), [Scan-Befunde (EN)](/de/pro/scan-issues), [KI-Hilfe (EN)](/pro/ai-assist#output-language) und [Berichte (EN)](/pro/reports#reports-in-every-script-browsershot-renderer).
+- **laravel-seo-pro** verwendet sie für `title_length`, `description_length` und KI-Prompts. Die sprachbezogene Analyse umfasst ICU-Segmentierung für Chinesisch, Japanisch und Thai, Snowball, Keyword-Abgleich mit `CaseFolder`, veröffentlichte Lesbarkeitsformeln mit geschätzten Eingaben für zehn Sprachen, gekennzeichnete CJK-Heuristiken und LIX für Griechisch, Ukrainisch und Tschechisch, Stoppwörter für 16 Sprachen, `html lang`, gegenseitige hreflang-Verweise, sprachbezogene KI-Prompts und Chrome-Berichte für Schriftsysteme, die dompdf nicht darstellen kann. Siehe [Checkliste](/de/pro/on-page-checklist#keyword-matching), [Scan-Befunde](/de/pro/scan-issues), [KI-Hilfe](/de/pro/ai-assist#output-language) und [Berichte](/de/pro/reports#reports-in-every-script-browsershot-renderer).

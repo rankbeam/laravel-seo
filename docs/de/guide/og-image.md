@@ -2,7 +2,7 @@
 description: "Erzeuge individuelle OG-Bilder aus Blade-Templates mit Browsershot und Chrome: Vorabgenerierung, Cache, Schriften und Betriebsgrenzen."
 ---
 
-# OG-Bilder erzeugen
+# OG-Bilder erzeugen {#generated-og-images}
 
 Ab Core 3.20 deaktiviert der Chrome-Renderer JavaScript und blockiert Asset-Anfragen über HTTP(S), FTP und WebSocket. Eigene Templates müssen wie die mitgelieferten Vorlagen statisches HTML/CSS und eingebettete Assets verwenden.
 
