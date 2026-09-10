@@ -2,7 +2,7 @@
 description: "Ajoutez une section SEO aux formulaires de ressources Filament 4 ou 5 avec laravel-seo-filament et le trait HasSEO."
 ---
 
-# Champs d'administration Filament
+# Champs d'administration Filament {#filament-admin-fields}
 
 Le paquet gratuit [`rankbeam/laravel-seo-filament`](https://github.com/rankbeam/laravel-seo-filament) ajoute une section SEO aux formulaires de ressources, avec **deux lignes par ressource**. Il prend en charge Filament **4.x et 5.x**, avec Livewire 3 et 4. La modification des métadonnées est gratuite ; les analyses et le score visible dans l'exemple viennent de Pro.
 
@@ -44,12 +44,12 @@ Ouvrez un enregistrement existant, saisissez une description SEO, enregistrez pu
 
 <figure class="rb-capture"><a href="/filament-seo-section.png"><img src="/filament-seo-section.png" alt="Champs SEO de la démo Merchant : titre, description, canonical, image sociale, aperçu de recherche et origine des valeurs." width="1792" height="2616" loading="lazy" decoding="async"></a></figure>
 
-*Exemple de la démo Merchant. Les champs reprennent le thème du panel ; les contrôles et budgets dépendent de la version installée et de sa configuration.*
+*Exemple de la démo Merchant, interface en anglais. Les champs reprennent le thème du panel ; les contrôles et budgets dépendent de la version installée et de sa configuration.*
 
 La section comprend :
 
 - **Titre et description** avec compteurs. La [politique de longueur](/fr/guide/multilingual#title-and-description-budgets-per-script) tient compte de l'écriture : 60/160 pour les textes latins, environ 30/80 pour CJK, en graphèmes.
-- **Mots-clés cibles :** saisie sous forme de tags, enregistrés en `[{keyword, is_primary}]`. Le premier est principal ; `getPrimaryKeyword()` et `SEOData` lisent cette structure. Activez `seo.keywords.enabled` pour que [`seo:audit`](/fr/guide/audit) et Pro signalent les mots-clés manquants. Cette option est désactivée par défaut ; voir [configuration (EN)](/reference/configuration#focus-keywords).
+- **Mots-clés cibles :** saisie sous forme de tags, enregistrés en `[{keyword, is_primary}]`. Le premier est principal ; `getPrimaryKeyword()` et `SEOData` lisent cette structure. Activez `seo.keywords.enabled` pour que [`seo:audit`](/fr/guide/audit) et Pro signalent les mots-clés manquants. Cette option est désactivée par défaut ; voir [configuration](/fr/reference/configuration#focus-keywords).
 - **URL canonique :** vide pour une URL automatique, dont les paramètres de requête sont retirés.
 - **Robots :** vide pour la valeur du site.
 - **Image sociale :** téléversement pour `og:image` et `twitter:image`, stocké sous `seo/` sur le disque par défaut de Filament.

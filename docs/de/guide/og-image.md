@@ -154,7 +154,7 @@ Das Template erhält folgende Variablen:
 | `$height` | `int` | Ausgabehöhe, standardmäßig `630`. |
 | `$locale` | `?string` | Aufgelöste Seitensprache für `<html lang>`. |
 | `$author` | `?string` | Artikelautor für `seo::og.article`. |
-| `$publishedDate` | `?string` | Veröffentlichungsdatum, vorformatiert als `M j, Y`, für `seo::og.article`. |
+| `$publishedDate` | `?string` | Veröffentlichungsdatum für `seo::og.article`: mittleres ICU-Datumsformat im Gebietsschema der Seite, sofern verfügbar; sonst übersetzt Carbon den Monat in der Reihenfolge `M j, Y`. Null, wenn kein Datum vorliegt. |
 | `$section` | `?string` | Inhaltsrubrik oder Kategorie für Artikel und Produkte. |
 | `$description` | `?string` | OG-Beschreibung, andernfalls Seitenbeschreibung, für `seo::og.product`. |
 

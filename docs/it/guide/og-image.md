@@ -152,7 +152,7 @@ Il template riceve queste variabili:
 | `$height` | `int` | Altezza, default `630` |
 | `$locale` | `?string` | Lingua della pagina per `<html lang>` |
 | `$author` | `?string` | Autore dell'articolo, usato da `seo::og.article` |
-| `$publishedDate` | `?string` | Data di pubblicazione formattata `M j, Y`, usata da `seo::og.article` |
+| `$publishedDate` | `?string` | Data di pubblicazione per `seo::og.article`: formato medio ICU nella lingua della pagina, quando disponibile; altrimenti Carbon traduce il mese mantenendo l’ordine `M j, Y`. Null se la data manca. |
 | `$section` | `?string` | Sezione o categoria |
 | `$description` | `?string` | Descrizione OG o della pagina, usata da `seo::og.product` |
 

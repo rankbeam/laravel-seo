@@ -16,7 +16,7 @@ Le package fournit sept directives Blade pour les applications rendues côté se
 </head>
 ```
 
-`@seo` résout le modèle selon la [chaîne de priorité](/fr/concepts/resolver-precedence) et produit l'ensemble du bloc head : `<title>`, meta description, lien canonical, robots, balises Open Graph, Twitter Cards et JSON-LD associé. La balise robots apparaît **uniquement si sa valeur diffère de la valeur par défaut du site**. Un `index,follow` redondant est omis, puisque l'absence de balise correspond déjà à ce comportement. Activez `seo.robots.emit_default` pour toujours l'afficher. Consultez le [contrat de rendu (EN)](/fr/contributing/rendering-contract) complet.
+`@seo` résout le modèle selon la [chaîne de priorité](/fr/concepts/resolver-precedence) et produit l'ensemble du bloc head : `<title>`, meta description, lien canonical, robots, balises Open Graph, Twitter Cards et JSON-LD associé. La balise robots apparaît **uniquement si sa valeur diffère de la valeur par défaut du site**. Un `index,follow` redondant est omis, puisque l'absence de balise correspond déjà à ce comportement. Activez `seo.robots.emit_default` pour toujours l'afficher. Consultez le [contrat de rendu](/fr/contributing/rendering-contract) complet.
 
 Signatures :
 
@@ -66,7 +66,7 @@ return view('search.results', [
 Un `SEOData` construit manuellement est traité comme une **intention explicite**. Les valeurs fournies sont conservées ; seuls les éléments manquants suivants sont complétés au rendu :
 
 - `canonical` et `og:url` sont dérivés de l'URL courante s'ils sont absents. Un `canonical` explicite est conservé tel quel, paramètres de requête compris.
-- `title_suffix` est ajouté seulement si le titre ne le contient pas déjà. Il est entièrement ignoré si le titre contient déjà un terme de marque configuré ; voir [`title_suffix_skip_when_contains` (EN)](/fr/reference/configuration).
+- `title_suffix` est ajouté seulement si le titre ne le contient pas déjà. Il est entièrement ignoré si le titre contient déjà un terme de marque configuré ; voir [`title_suffix_skip_when_contains`](/fr/reference/configuration).
 - Les chemins relatifs de `og:image` et `twitter:image` deviennent absolus avec `url()`, qui respecte le protocole courant et **ne force pas HTTPS**.
 - `og:site_name` et `locale` sont complétés à partir de la configuration et de la langue de l'application.
 

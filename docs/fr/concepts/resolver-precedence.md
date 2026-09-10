@@ -2,7 +2,7 @@
 description: "Le résolveur SEO fusionne six niveaux : les valeurs prioritaires l'emportent et null n'efface jamais une valeur d'un niveau inférieur."
 ---
 
-# Priorité du résolveur
+# Priorité du résolveur {#resolver-precedence}
 
 Chaque valeur SEO effective — titre, description, canonical, robots et images — provient de la fusion de **six niveaux** par `SEOResolver`. Les niveaux supérieurs l'emportent. `null` ne remplace jamais une valeur provenant d'un niveau inférieur.
 
@@ -74,14 +74,14 @@ Une politique d'émission filtre la directive résolue avant `<head>`. La balise
 - Une page non indexable émet `<meta name="robots" content="noindex, nofollow">`.
 - Toute directive différente, comme `noindex`, `max-snippet:-1` ou `unavailable_after`, est rendue telle quelle, espaces compris.
 
-Définissez `seo.robots.emit_default = true` pour toujours émettre la balise. Voir la [politique de rendu robots (EN)](/reference/configuration#robots-rendering-policy).
+Définissez `seo.robots.emit_default = true` pour toujours émettre la balise. Voir la [politique de rendu robots](/fr/reference/configuration#robots-rendering-policy).
 
 ## Politiques après résolution {#policies-applied-after-resolution}
 
 Ces traitements s'appliquent quel que soit le niveau d'origine :
 
 - **Suffixe du titre :** `title_suffix` est ajouté sauf si le titre se termine déjà par ce suffixe. Si un modèle de route contient votre marque, terminez-le par le suffixe pour éviter une répétition comme « Brand — X | Brand ».
-- **Paramètres du canonical :** les paramètres des URL dérivées du modèle ou de la requête sont retirés, sauf ceux de [`canonical.query_whitelist` (EN)](/reference/configuration#canonical-urls), par exemple `page`. Les canonicals explicitement enregistrés restent inchangés.
+- **Paramètres du canonical :** les paramètres des URL dérivées du modèle ou de la requête sont retirés, sauf ceux de [`canonical.query_whitelist`](/fr/reference/configuration#canonical-urls), par exemple `page`. Les canonicals explicitement enregistrés restent inchangés.
 - **Images sociales absolues :** `og:image` et `twitter:image` sont rendus comme URL absolues, même si la valeur enregistrée est un chemin relatif.
 
 ## Identifier le niveau retenu {#inspecting-which-layer-won}

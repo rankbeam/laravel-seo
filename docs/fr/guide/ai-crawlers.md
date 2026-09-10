@@ -2,11 +2,11 @@
 description: "Générez robots.txt et, si nécessaire, ai.txt depuis une politique pour les robots IA de recherche, d'assistance et d'entraînement."
 ---
 
-# Contrôle des robots IA (robots.txt / ai.txt)
+# Contrôle des robots IA (robots.txt / ai.txt) {#ai-crawler-control-robots-txt-ai-txt}
 
-Les fournisseurs d'IA utilisent des robots nommés pour parcourir le Web. Beaucoup consultent **robots.txt** pour déterminer ce qu'ils peuvent récupérer. Rankbeam fournit un catalogue maintenu et génère une `robots.txt` gérée, ainsi qu'une `ai.txt` facultative, à partir de règles `allow` / `disallow`. Vous pouvez autoriser la recherche et les assistants tout en refusant l'entraînement.
+Les fournisseurs d'IA utilisent des robots nommés pour parcourir le Web. Beaucoup consultent **robots.txt** pour déterminer ce qu'ils peuvent récupérer. Rankbeam fournit un catalogue maintenu et génère un fichier `robots.txt` géré, ainsi qu'un `ai.txt` facultatif, à partir de règles `allow` / `disallow`. Vous pouvez autoriser la recherche et les assistants tout en refusant l'entraînement.
 
-Cette fonction est gratuite dans le Core. Pro ajoute un [journal des visites de robots IA (EN)](/fr/pro/ai-bot-monitor), pour observer les accès réellement reçus.
+Cette fonction est gratuite dans le Core. Pro ajoute un [journal des visites de robots IA](/fr/pro/ai-bot-monitor), pour observer les accès réellement reçus.
 
 ## Politique par défaut {#the-default-policy}
 
@@ -34,7 +34,7 @@ php artisan seo:robots-txt --print
 
 Deux méthodes sont disponibles.
 
-### Option A — ajouter le bloc à une robots.txt existante {#option-a-—-paste-the-block-into-your-existing-robots-txt}
+### Option A — ajouter le bloc à un robots.txt existant {#option-a-—-paste-the-block-into-your-existing-robots-txt}
 
 Si vous gérez déjà `public/robots.txt`, récupérez seulement le bloc géré et collez-le dans le fichier :
 
@@ -59,7 +59,7 @@ Disallow: /
 
 ### Option B — confier le fichier complet à Rankbeam {#option-b-—-let-rankbeam-manage-the-whole-file}
 
-Générez une `robots.txt` complète : section générale, directives IA, ligne `Sitemap:` et lien vers [llms.txt](/fr/guide/sitemaps).
+Générez un `robots.txt` complet : section générale, directives IA, ligne `Sitemap:` et lien vers [llms.txt](/fr/guide/sitemaps).
 
 ```bash
 php artisan seo:robots-txt          # writes public/robots.txt
@@ -81,7 +81,7 @@ Le serveur Web sert généralement `public/robots.txt` avant que Laravel ne reç
 
 ## Limites d'application des règles {#honesty-about-enforcement}
 
-robots.txt exprime une demande ; ce n'est pas une barrière technique. De nombreux robots déclarent la respecter, mais certains agents déclenchés par un utilisateur (`ChatGPT-User`, `Perplexity-User`) ou robots d'entraînement (`Bytespider`) n'offrent pas cette garantie. Rankbeam marque ces lignes `advisory`. Pour bloquer réellement un robot non coopératif, utilisez des règles de serveur ou de périphérie : pare-feu, WAF ou règles Cloudflare. Le [journal Pro (EN)](/fr/pro/ai-bot-monitor) aide à identifier les visites observées.
+robots.txt exprime une demande ; ce n'est pas une barrière technique. De nombreux robots déclarent la respecter, mais certains agents déclenchés par un utilisateur (`ChatGPT-User`, `Perplexity-User`) ou robots d'entraînement (`Bytespider`) n'offrent pas cette garantie. Rankbeam marque ces lignes `advisory`. Pour bloquer réellement un robot non coopératif, utilisez des règles de serveur ou de périphérie : pare-feu, WAF ou règles Cloudflare. Le [journal Pro](/fr/pro/ai-bot-monitor) aide à identifier les visites observées.
 
 ## Content Signals : préférences d'utilisation {#content-signals-usage-preferences}
 
