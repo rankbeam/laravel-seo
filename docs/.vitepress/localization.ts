@@ -4,12 +4,12 @@ import { createHash } from 'node:crypto'
 import { fileURLToPath } from 'node:url'
 
 export const docsRoot = fileURLToPath(new URL('..', import.meta.url))
-import { localeUi, scopedPaths } from './locale-ui.ts'
+import { localeUi } from './locale-ui.ts'
 
 export const localeInfo = { it: localeUi.it, de: localeUi.de, fr: localeUi.fr, es: localeUi.es, 'pt-BR': localeUi['pt-BR'] } as const
 
 export function translatedPaths(locale: string): string[] {
-  return scopedPaths.filter(p => fs.existsSync(path.join(docsRoot, locale, p + '.md')))
+  return englishPages().filter(p => p !== 'index.md' && fs.existsSync(path.join(docsRoot, locale, p))).map(p => p.replace(/\.md$/, ''))
 }
 export function translationFiles(locale: string): string[] {
   const walk = (dir: string): string[] => fs.readdirSync(dir, { withFileTypes: true }).flatMap(entry => {
