@@ -25,6 +25,11 @@ unchanged.
 
 ## 3. Delete stale published files
 
+Before removing files or tables, back up the published configuration and export
+the affected data. Verify that you can restore it. This guide does not migrate
+v1 redirect, 404 or scan history into Pro's different schema; the core-table
+compatibility below applies only to `seo_meta` and `seo_defaults`.
+
 ::: warning This bites silently
 v1's `seo:install` published files into your app that will fight the v2
 package without producing a single error message.
@@ -51,7 +56,7 @@ data survives the upgrade.
 | v1 feature | Where it lives now |
 |---|---|
 | Filament SEO form section | [`rankbeam/laravel-seo-filament`](/guide/filament) (free, MIT) |
-| Content analyzer (32 rules) | Not carried forward — the keyword-density/power-word rules aren't on the roadmap. Technical-SEO issue detection lives in `rankbeam/laravel-seo-pro`'s site scanner; the numeric SEO score is a Pro feature (issue-derived). |
+| Content analyzer (32 rules) | The old analyzer is not carried forward by this migration. Technical-SEO issue detection lives in `rankbeam/laravel-seo-pro`'s site scanner; the numeric SEO score is a Pro feature (issue-derived). |
 | Sitewide scanner | `rankbeam/laravel-seo-pro` — queued pipeline + dashboard |
 | Redirect manager | `rankbeam/laravel-seo-pro` — hardened (regex validation, open-redirect guards) |
 | 404 monitor | `rankbeam/laravel-seo-pro` — privacy-first (no IPs stored by default) |

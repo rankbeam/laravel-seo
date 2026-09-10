@@ -37,16 +37,37 @@ export function alternatePaths(relative: string): Array<{ lang: string; path: st
   return [{ lang: 'en', path: source }, ...Object.entries(localeInfo).flatMap(([locale, info]) =>
     fs.existsSync(path.join(docsRoot, locale, source)) ? [{ lang: info.lang, path: locale + '/' + source }] : [])]
 }
+type TranslationRecord = { source: string; sha256: string; editorial_review?: { status: string; translation_sha256?: string } }
+const digest = (file: string) => createHash('sha256').update(fs.readFileSync(file, 'utf8').replaceAll('\r\n', '\n')).digest('hex')
+
+export function editoriallyReviewed(target: string): boolean {
+  const manifest = JSON.parse(fs.readFileSync(path.join(docsRoot, '.vitepress/translation-manifest.json'), 'utf8'))
+  const record: TranslationRecord | undefined = manifest.pages[target]
+  return record?.editorial_review?.status === 'approved'
+    && record.sha256 === digest(path.join(docsRoot, record.source))
+    && record.editorial_review.translation_sha256 === digest(path.join(docsRoot, target))
+}
+
+export function verifyTranslationRecord(root: string, target: string, record: TranslationRecord): void {
+  if (record.source !== sourceFor(target)) throw new Error(`Wrong source binding for translation: ${target}`)
+  if (digest(path.join(root, record.source)) !== record.sha256) throw new Error(`Stale translation: ${target}; review changes to ${record.source} before updating its source hash`)
+  if (record.editorial_review?.status === 'approved') {
+    if (record.editorial_review.translation_sha256 !== digest(path.join(root, target))) throw new Error(`Stale editorial review: ${target}; review the translated content before updating its review hash`)
+    if (record.source !== 'index.md') {
+      const fences = (file: string) => [...fs.readFileSync(path.join(root, file), 'utf8').replaceAll('\r\n', '\n').matchAll(/^([ \t]*)```[^\n]*\n[\s\S]*?^\1```[^\n]*/gm)].map(m => m[0])
+      if (JSON.stringify(fences(record.source)) !== JSON.stringify(fences(target))) throw new Error(`Code example drift: ${target}`)
+    }
+  }
+}
+
 export function verifyTranslationSources(): void {
   const manifestFile = path.join(docsRoot, '.vitepress/translation-manifest.json')
   if (!fs.existsSync(manifestFile)) throw new Error('Translation source manifest is missing')
   const manifest = JSON.parse(fs.readFileSync(manifestFile, 'utf8'))
   const targets = Object.keys(localeInfo).flatMap(translationFiles)
-  for (const [target, record] of Object.entries(manifest.pages) as [string, {source: string; sha256: string}][]) {
+  for (const [target, record] of Object.entries(manifest.pages) as [string, TranslationRecord][]) {
     if (!targets.includes(target)) throw new Error(`Translation manifest target is missing or outside active locales: ${target}`)
-    if (record.source !== sourceFor(target)) throw new Error(`Wrong source binding for translation: ${target}`)
-    const sha = createHash('sha256').update(fs.readFileSync(path.join(docsRoot, record.source), 'utf8').replaceAll('\r\n', '\n')).digest('hex')
-    if (sha !== record.sha256) throw new Error(`Stale translation: ${target}; review changes to ${record.source} before updating its source hash`)
+    verifyTranslationRecord(docsRoot, target, record)
   }
   for (const target of targets) {
     if (!manifest.pages[target]) throw new Error(`Untracked translation: ${target}`)

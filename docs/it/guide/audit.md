@@ -138,7 +138,7 @@ La scansione Pro legge la stessa opzione dell'audit e dell'editor. Imposta le pa
 
 ## Quando un valore sorprende: `seo:explain` {#when-a-value-isn-t-what-you-expect-seo-explain}
 
-`seo:audit` segnala i problemi. [`seo:explain` (EN)](/it/guide/explain) spiega come è stato risolto ogni campo: quale livello ha prevalso, cosa ha sovrascritto e quali trasformazioni successive hanno modificato il risultato, per esempio suffisso, query del canonical o protezione dell'indicizzazione.
+`seo:audit` segnala i problemi. [`seo:explain`](/it/guide/explain) spiega come è stato risolto ogni campo: quale livello ha prevalso, cosa ha sovrascritto e quali trasformazioni successive hanno modificato il risultato, per esempio suffisso, query del canonical o protezione dell'indicizzazione.
 
 ```bash
 php artisan seo:explain "App\Models\Post" 42

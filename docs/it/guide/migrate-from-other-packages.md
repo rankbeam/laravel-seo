@@ -132,9 +132,9 @@ Questo pacchetto costruisce i tag a runtime tramite `SEOMeta`, `OpenGraph`, `Twi
 | `SEOMeta::addKeyword(...)` | `saveSEO(['focus_keywords' => [...]])`; vedi [audit](/it/guide/audit) |
 | `OpenGraph::setTitle / setDescription / addImage` | `saveSEO(['og_title' => …, 'og_description' => …, 'og_image' => …])` |
 | `TwitterCard::setType / setTitle / setImage` | `saveSEO(['twitter_card' => …, 'twitter_title' => …, 'twitter_image' => …])` |
-| `JsonLd::setType(...)` / `JsonLdMulti` | [Grafo JSON-LD (EN)](/it/guide/schema) |
+| `JsonLd::setType(...)` / `JsonLdMulti` | [Grafo JSON-LD](/it/guide/schema) |
 | Default di `config/seotools.php` | Default di `config/seo.php` e [priorità del resolver](/it/concepts/resolver-precedence) |
-| `{!! SEO::generate() !!}` nel layout | `@seo($model)`; vedi [Blade (EN)](/it/guide/blade) |
+| `{!! SEO::generate() !!}` nel layout | `@seo($model)`; vedi [Blade](/it/guide/blade) |
 
 Invece di impostare i tag in ogni controller, salva i dati una volta per modello e lascia che il resolver li emetta. I fallback del sito passano alla [configurazione Rankbeam (EN)](/reference/configuration); per pagine statiche associate a rotte usa `@seoForRoute()`.
 
@@ -142,7 +142,7 @@ Invece di impostare i tag in ogni controller, salva i dati una volta per modello
 
 I builder Spatie comunemente usati per SEO non costituiscono una tabella di metadati da importare. Puoi mantenere o sostituire i singoli componenti:
 
-- **`spatie/schema-org`:** builder JSON-LD fluente. Rankbeam offre un [grafo schema (EN)](/it/guide/schema) con builder `Article`, `FAQPage`, `Product`, `BreadcrumbList`, `LocalBusiness` e `Organization`, salvati in `seo_meta.schema_jsonld` e deduplicati nel rendering. Puoi passare il risultato `->toArray()` degli oggetti Spatie a `saveSEO(['schema_jsonld' => $array])`, oppure ricostruirli con i builder Rankbeam.
+- **`spatie/schema-org`:** builder JSON-LD fluente. Rankbeam offre un [grafo schema](/it/guide/schema) con builder `Article`, `FAQPage`, `Product`, `BreadcrumbList`, `LocalBusiness` e `Organization`, salvati in `seo_meta.schema_jsonld` e deduplicati nel rendering. Puoi passare il risultato `->toArray()` degli oggetti Spatie a `saveSEO(['schema_jsonld' => $array])`, oppure ricostruirli con i builder Rankbeam.
 - **`spatie/laravel-sitemap`:** il [registro Rankbeam](/it/guide/sitemaps) lo usa già. Registra i modelli come sorgenti oppure mantieni la tua sitemap Spatie e disabilita la rotta Rankbeam.
 
 Per [`romanzipp/laravel-seo`](https://github.com/romanzipp/Laravel-SEO), che costruisce metatag a runtime, segui lo stesso criterio di artesaos: sposta le chiamate `setTitle` e `addMeta` in `saveSEO()` o nei getter calcolati.

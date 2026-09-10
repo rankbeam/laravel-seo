@@ -4,7 +4,7 @@ description: "Lingua dei contenuti, limiti per sistema di scrittura, grafemi, hr
 
 # Contenuti multilingua
 
-Le [traduzioni dell'interfaccia (EN)](/it/guide/translations) cambiano i messaggi del pacchetto. Questa pagina riguarda la lingua dei **contenuti**: come influisce su limiti editoriali, confronti del testo, hreflang, font e altre funzioni.
+Le [traduzioni dell'interfaccia](/it/guide/translations) cambiano i messaggi del pacchetto. Questa pagina riguarda la lingua dei **contenuti**: come influisce su limiti editoriali, confronti del testo, hreflang, font e altre funzioni.
 
 Default e opzioni si trovano in `config/seo.php`. Alcune capacità richiedono dipendenze di runtime, tra cui ICU per la segmentazione e font installati. I contenuti tradotti devono essere forniti dall'applicazione.
 

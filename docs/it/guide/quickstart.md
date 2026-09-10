@@ -2,7 +2,7 @@
 description: "Installa Rankbeam, aggiungi HasSEO a un modello esistente, salva i metadati e verifica i tag generati in Blade."
 ---
 
-# Guida rapida
+# Guida rapida {#quickstart}
 
 Parti da un'applicazione Laravel 11, 12 o 13 con un database funzionante. Serve PHP 8.2+ (8.3+ per Laravel 13). Il core è gratuito, con licenza MIT: non richiede account né licenza Pro.
 
@@ -22,7 +22,7 @@ Il service provider viene registrato automaticamente. La migrazione crea le tabe
 
 Gli esempi presuppongono un modello `Post`, un articolo già salvato e una rotta `posts.show` la cui vista Blade riceve l'articolo come `$post`. Adatta i nomi alla tua app. Aggiungeremo i metadati a questa pagina, senza costruire un blog.
 
-Imposta `APP_URL` in `.env` sull'origine pubblica del sito. Per altri sistemi di rendering, consulta le guide [Inertia e JSON (EN)](/it/guide/inertia-json) o [Livewire (EN)](/it/guide/livewire).
+Imposta `APP_URL` in `.env` sull'origine pubblica del sito. Per altri sistemi di rendering, consulta le guide [Inertia e JSON](/it/guide/inertia-json) o [Livewire](/it/guide/livewire).
 
 ## 1. Aggiungi il trait al modello {#_1-add-the-trait-to-a-model}
 
@@ -43,7 +43,7 @@ class Post extends Model
 
 `getUrlForSEO()` indica al resolver l'URL canonico del modello. Lo stesso metodo alimenta canonical, `og:url` e voci della sitemap.
 
-## 2. Genera i tag nel head {#_2-render-the-head}
+## 2. Genera i tag nell’head {#_2-render-the-head}
 
 ```blade
 <!DOCTYPE html>
@@ -74,7 +74,7 @@ Il `DatabaseSeeder` predefinito di Laravel usa `WithoutModelEvents`, che disabil
 
 Apri la pagina pubblica dell'articolo e scegli **Visualizza sorgente pagina**. Nel `<head>`, verifica che il titolo contenga `Custom SEO Title`, la descrizione sia `Custom meta description` e il canonical punti all'URL pubblico dell'articolo. Al titolo può seguire il suffisso configurato.
 
-Inserisci `@seo($post)` una sola volta per pagina. Se il layout genera già titolo o metatag, sostituiscili per evitare duplicati. Se un valore non è quello previsto, usa la [guida alla risoluzione (EN)](/it/guide/explain) per identificarne la sorgente.
+Inserisci `@seo($post)` una sola volta per pagina. Se il layout genera già titolo o metatag, sostituiscili per evitare duplicati. Se un valore non è quello previsto, usa la [guida alla risoluzione](/it/guide/explain) per identificarne la sorgente.
 
 ## 5. Aggiungi una sitemap, se serve {#_5-add-a-sitemap-optional}
 
@@ -96,7 +96,7 @@ php artisan seo:sitemap
 ## Prossimi passi {#where-to-go-next}
 
 - [Priorità del resolver](/it/concepts/resolver-precedence) — come vengono scelti i valori
-- [Blade (EN)](/it/guide/blade) — tutte e sette le direttive
-- [Inertia e JSON (EN)](/it/guide/inertia-json) — rendering headless
-- [Grafo schema (EN)](/it/guide/schema) — JSON-LD collegato
+- [Blade](/it/guide/blade) — tutte e sette le direttive
+- [Inertia e JSON](/it/guide/inertia-json) — rendering headless
+- [Grafo schema](/it/guide/schema) — JSON-LD collegato
 - [Campi Filament](/it/guide/filament) — interfaccia di amministrazione

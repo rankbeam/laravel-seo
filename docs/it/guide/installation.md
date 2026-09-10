@@ -2,7 +2,7 @@
 description: "Installa rankbeam/laravel-seo con Composer, pubblica la configurazione ed esegui le migrazioni. Requisiti per Laravel 11, 12 e 13."
 ---
 
-# Installazione
+# Installazione {#installation}
 
 ## Requisiti {#requirements}
 
@@ -37,11 +37,11 @@ La [guida al registro delle sitemap](/it/guide/sitemaps) spiega come registrare 
 
 ## Aggiornamento dalla v1 {#upgrading-from-v1}
 
-Se usavi `fibonoir/laravel-seo` v1, leggi prima [Aggiornamento dalla v1 (EN)](/it/guide/upgrade-from-v1). Sono cambiati vendor, namespace e API; i file pubblicati dalla v1 possono interferire con la configurazione della v2.
+Se usavi `fibonoir/laravel-seo` v1, leggi prima [Aggiornamento dalla v1](/it/guide/upgrade-from-v1). Sono cambiati vendor, namespace e API; i file pubblicati dalla v1 possono interferire con la configurazione della v2.
 
 ## Pacchetti aggiuntivi {#companion-packages}
 
 | Pacchetto | Cosa aggiunge | Licenza |
 |---|---|---|
 | [`rankbeam/laravel-seo-filament`](https://github.com/rankbeam/laravel-seo-filament) | Sezione SEO nei form delle risorse Filament 4/5 | MIT |
-| [`rankbeam/laravel-seo-pro`](/it/pro/installation) | Scansioni del sito in coda, gestione redirect e monitoraggio 404; su qualsiasi app Laravel, con dashboard Filament facoltativa | Commerciale |
+| [`rankbeam/laravel-seo-pro` (EN)](/it/pro/installation) | Scansioni del sito in coda, gestione redirect e monitoraggio 404; su qualsiasi app Laravel, con dashboard Filament facoltativa | Commerciale |

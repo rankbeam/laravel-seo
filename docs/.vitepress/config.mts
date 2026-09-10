@@ -4,7 +4,7 @@ import { localizeNavigation, sidebarFor } from './layout-localization'
 import { verifyLayoutSources } from './layout-validation'
 verifyLayoutSources()
 import { generateLlmsArtifacts, SITE_ORIGIN } from './llms'
-import { alternatePaths, localeInfo, translatedPaths, translationFiles, verifyTranslationSources } from './localization'
+import { alternatePaths, editoriallyReviewed, localeInfo, translatedPaths, translationFiles, verifyTranslationSources } from './localization'
 
 verifyTranslationSources()
 
@@ -91,7 +91,7 @@ export default defineConfig({
     }
     const locale = pageData.relativePath.split('/')[0] as keyof typeof localeInfo
     if (locale in localeInfo) {
-      pageData.frontmatter.translationNotice = localeInfo[locale].review
+      pageData.frontmatter.translationNotice = editoriallyReviewed(pageData.relativePath) ? undefined : localeInfo[locale].review
       pageData.frontmatter.sourceLabel = localeInfo[locale].source
     }
     if (pageData.relativePath.endsWith('index.md')) {
