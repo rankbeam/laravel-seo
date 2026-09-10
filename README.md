@@ -41,7 +41,7 @@ Production auditing and monitoring (Pro) and the Filament admin UI ship as separ
 ## Requirements
 
 - PHP 8.2+
-- Laravel 11, 12, or 13 (CI runs the full matrix; Laravel 13 requires PHP 8.3+)
+- Laravel 11, 12, or 13 (CI runs the full matrix; Laravel 13 requires PHP 8.3+; PHP 8.5 requires Laravel 12 or 13)
 - `spatie/laravel-sitemap` ^7.0 or ^8.0 (suggested, required for sitemap generation)
 
 ## Installation
@@ -189,8 +189,8 @@ Recorded full suite for core 3.20.0: **1036 passed (4363 assertions), 0 failed**
 under PHP 8.4 / Laravel 13, with 17 default skips (16 opt-in Chrome image
 checks and one ext-xsl check). Real OG/PDF rendering and runtime-consumer
 checks run separately; default skips are not evidence that those paths ran.
-Public CI covers the supported PHP 8.2–8.4 / Laravel 11–13 combinations;
-Laravel 13 requires PHP 8.3 or newer.
+Public CI covers the supported PHP 8.2–8.5 / Laravel 11–13 combinations;
+Laravel 13 requires PHP 8.3 or newer, and PHP 8.5 is tested with Laravel 12 and 13.
 
 ```bash
 git clone https://github.com/rankbeam/laravel-seo.git

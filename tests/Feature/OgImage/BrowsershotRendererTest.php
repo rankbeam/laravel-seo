@@ -41,7 +41,6 @@ function ogRenderer(): BrowsershotRenderer
 function chromeFlags(Browsershot $shot): array
 {
     $method = new ReflectionMethod(Browsershot::class, 'getOptionArgs');
-    $method->setAccessible(true);
 
     return $method->invoke($shot);
 }
