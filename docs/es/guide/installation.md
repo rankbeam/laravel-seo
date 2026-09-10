@@ -2,7 +2,7 @@
 description: "Instala rankbeam/laravel-seo con Composer, publica la configuración y prepara las tablas en Laravel 11, 12 o 13."
 ---
 
-# Instalación
+# Instalación {#installation}
 
 ## Requisitos {#requirements}
 
@@ -37,7 +37,7 @@ Consulta las fuentes y opciones en la [guía del registro de sitemaps](/es/guide
 
 ## Actualizar desde la versión 1 {#upgrading-from-v1}
 
-Si usabas `fibonoir/laravel-seo` v1, lee primero [Actualizar desde v1 (EN)](/es/guide/upgrade-from-v1). Han cambiado el proveedor, el espacio de nombres y la API. Los archivos publicados por v1 pueden entrar en conflicto con la configuración v2.
+Si usabas `fibonoir/laravel-seo` v1, lee primero [Actualizar desde v1](/es/guide/upgrade-from-v1). Han cambiado el proveedor, el espacio de nombres y la API. Los archivos publicados por v1 pueden entrar en conflicto con la configuración v2.
 
 ## Paquetes complementarios {#companion-packages}
 

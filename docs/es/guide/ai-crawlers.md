@@ -6,7 +6,7 @@ description: "Genera robots.txt y, si lo necesitas, ai.txt con una política par
 
 Los proveedores de IA recorren la Web con robots identificados por nombre. Muchos consultan **robots.txt** para decidir qué pueden recuperar. Rankbeam incluye un catálogo mantenido y genera una `robots.txt` gestionada, más una `ai.txt` opcional, desde una política `allow` / `disallow`. Puedes permitir búsqueda y asistentes y rechazar entrenamiento.
 
-Es una función gratuita del núcleo. Pro añade un [registro de visitas de bots de IA (EN)](/pro/ai-bot-monitor) para observar los accesos recibidos.
+Es una función gratuita del núcleo. Pro añade un [registro de visitas de bots de IA (EN)](/es/pro/ai-bot-monitor) para observar los accesos recibidos.
 
 ## Política predeterminada {#the-default-policy}
 
@@ -81,7 +81,7 @@ El servidor suele servir `public/robots.txt` antes de que Laravel reciba la peti
 
 ## Límites de aplicación de las reglas {#honesty-about-enforcement}
 
-robots.txt expresa una petición; no es una barrera técnica. Muchos robots declaran respetarlo, pero algunos agentes activados por el usuario (`ChatGPT-User`, `Perplexity-User`) y rastreadores de entrenamiento (`Bytespider`) no ofrecen esa garantía. Rankbeam marca esas líneas como `advisory`. Para detener a un bot que no coopera, necesitas reglas del servidor o de red: firewall, WAF o reglas de bots de Cloudflare. El [registro Pro (EN)](/pro/ai-bot-monitor) ayuda a identificar visitas observadas.
+robots.txt expresa una petición; no es una barrera técnica. Muchos robots declaran respetarlo, pero algunos agentes activados por el usuario (`ChatGPT-User`, `Perplexity-User`) y rastreadores de entrenamiento (`Bytespider`) no ofrecen esa garantía. Rankbeam marca esas líneas como `advisory`. Para detener a un bot que no coopera, necesitas reglas del servidor o de red: firewall, WAF o reglas de bots de Cloudflare. El [registro Pro (EN)](/es/pro/ai-bot-monitor) ayuda a identificar visitas observadas.
 
 ## Content Signals: preferencias de uso {#content-signals-usage-preferences}
 
