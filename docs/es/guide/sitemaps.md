@@ -175,7 +175,7 @@ Antes de escribir la lista se aplican las [políticas `seo.hreflang`](/es/guide/
 :::
 
 ::: info Coste en catálogos grandes
-Cada extensión activa obliga a resolver el `seoData()` completo por URL: valores predeterminados, calculados y getters `getSEO*()`. Esto puede provocar varias operaciones de caché o base de datos, además de las consultas de tus getters. Está pensado para el comando programado `seo:sitemap`. Mide el coste antes de activarlo cerca de 50 000 URL y deja ambas opciones desactivadas si no necesitas esos datos.
+Una extensión activa resuelve `seoData()` para las imágenes y las alternativas de idioma. El recorrido normal de los modelos también resuelve los metadatos en `shouldInclude()` para comprobar robots. Con la caché del resolvedor desactivada, como por defecto, un registro incluido puede recorrer dos veces la cadena de prioridad. Cada resolución puede realizar operaciones de caché o base de datos; los getters `getSEO*()` propios pueden añadir consultas. Ejecuta `seo:sitemap` como comando programado, fuera de una petición web. Mide el coste cerca del límite de 50.000 URL y deja ambas extensiones desactivadas si no las necesitas.
 :::
 
 ::: tip Configuración ya publicada

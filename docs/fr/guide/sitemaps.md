@@ -175,7 +175,7 @@ Les [politiques `seo.hreflang`](/fr/guide/multilingual#hreflang) s'appliquent av
 :::
 
 ::: info Coût sur les grands catalogues
-Activer une extension entraîne la résolution complète de `seoData()` pour chaque URL : valeurs par défaut, valeurs calculées et getters `getSEO*()`. Chaque enregistrement peut provoquer plusieurs opérations de cache ou de base de données ; vos getters peuvent ajouter des requêtes. Ce traitement est prévu pour la commande planifiée `seo:sitemap`. Mesurez son coût avant de l'activer près de la limite de 50 000 URL et laissez les deux options désactivées si elles ne vous servent pas.
+Une extension active résout `seoData()` pour les images et les variantes linguistiques. Le parcours normal des modèles résout aussi les métadonnées dans `shouldInclude()` pour vérifier robots. Avec le cache du résolveur désactivé, comme par défaut, un enregistrement inclus peut donc parcourir deux fois la chaîne de priorité. Chaque résolution peut entraîner des opérations de cache ou de base de données ; les getters `getSEO*()` personnalisés peuvent ajouter des requêtes. Exécutez `seo:sitemap` comme commande planifiée, hors requête web. Mesurez le coût près de la limite de 50 000 URL et laissez les deux extensions désactivées si elles ne servent pas.
 :::
 
 ::: tip Configuration déjà publiée

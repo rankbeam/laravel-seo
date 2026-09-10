@@ -1,14 +1,14 @@
 ---
-description: "Adicione uma seção SEO a formulários de resources do Filament 4 ou 5 com laravel-seo-filament e HasSEO."
+description: "Adicione uma seção SEO a formulários de recursos do Filament 4 ou 5 com laravel-seo-filament e HasSEO."
 ---
 
-# Campos administrativos do Filament
+# Campos administrativos do Filament {#filament-admin-fields}
 
-O pacote gratuito [`rankbeam/laravel-seo-filament`](https://github.com/rankbeam/laravel-seo-filament) acrescenta uma seção SEO com **duas linhas por resource**. Ele suporta Filament **4.x e 5.x**, com Livewire 3 e 4. Editar metadados é gratuito; as análises e o score do exemplo são funções do Pro.
+O pacote gratuito [`rankbeam/laravel-seo-filament`](https://github.com/rankbeam/laravel-seo-filament) acrescenta uma seção SEO com **duas linhas por recurso**. Ele suporta Filament **4.x e 5.x**, com Livewire 3 e 4. Editar metadados é gratuito; as análises e a pontuação do exemplo são funções do Pro.
 
 ## Pré-requisitos {#prerequisites}
 
-Use um painel Filament 4 ou 5 existente e um model com `HasSEO`. Conclua o [início rápido do núcleo](/pt-BR/guide/quickstart), incluindo migrations e renderização, antes de adicionar o editor.
+Use um painel Filament 4 ou 5 existente e um modelo com `HasSEO`. Conclua o [início rápido do núcleo](/pt-BR/guide/quickstart), incluindo migrações e renderização, antes de adicionar o editor.
 
 ## Instalar {#install}
 
@@ -16,9 +16,9 @@ Use um painel Filament 4 ou 5 existente e um model com `HasSEO`. Conclua o [iní
 composer require rankbeam/laravel-seo-filament
 ```
 
-O model do resource precisa usar `HasSEO`.
+O modelo do recurso precisa usar `HasSEO`.
 
-## Adicionar a seção ao resource {#add-the-section-to-a-resource}
+## Adicionar a seção ao recurso {#add-the-section-to-a-resource}
 
 ```php
 use Rankbeam\Seo\Filament\Concerns\HasSEOFields;
@@ -44,17 +44,17 @@ Abra um registro existente, preencha a descrição SEO, salve e recarregue. A de
 
 <figure class="rb-capture"><a href="/filament-seo-section.png"><img src="/filament-seo-section.png" alt="Campos SEO do Merchant: título, descrição, canonical, imagem social, prévia de busca e origem dos valores." width="1792" height="2616" loading="lazy" decoding="async"></a></figure>
 
-*Exemplo do Merchant. Os campos seguem o tema do painel; controles e limites dependem da versão e configuração instaladas.*
+*Captura original em inglês do Merchant. Os campos seguem o tema do painel; controles e limites dependem da versão e configuração instaladas.*
 
 A seção inclui:
 
 - **Título e descrição** com contadores. A [política de tamanho](/pt-BR/guide/multilingual#title-and-description-budgets-per-script) considera a escrita: 60/160 para texto latino, aproximadamente 30/80 para CJK, em grafemas.
-- **Palavras-chave de foco:** entrada de tags salva em `[{keyword, is_primary}]`. A primeira é principal; `getPrimaryKeyword()` e `SEOData` leem essa estrutura. Ative `seo.keywords.enabled` para que [`seo:audit`](/pt-BR/guide/audit) e Pro sinalizem páginas sem palavras-chave. Desativado por padrão; veja [configuração (EN)](/reference/configuration#focus-keywords).
+- **Palavras-chave de foco:** entrada de tags salva em `[{keyword, is_primary}]`. A primeira é principal; `getPrimaryKeyword()` e `SEOData` leem essa estrutura. Ative `seo.keywords.enabled` para que [`seo:audit`](/pt-BR/guide/audit) e Pro sinalizem páginas sem palavras-chave. Desativado por padrão; veja [configuração](/pt-BR/reference/configuration#focus-keywords).
 - **URL canônica:** vazia para derivação automática, sem parâmetros de consulta.
 - **Robots:** vazio para o padrão do site.
 - **Imagem social:** upload para `og:image` e `twitter:image`, salvo em `seo/` no disco padrão do Filament.
 - **Prévia de busca:** acompanha a cadeia de fallback do resolvedor enquanto você digita.
-- **Indicadores de origem:** manual, conteúdo, tipo de model, padrão global, configuração ou URL.
+- **Indicadores de origem:** manual, conteúdo, tipo de modelo, padrão global, configuração ou URL.
 
 ## Limitar os campos {#limiting-fields}
 
@@ -70,7 +70,7 @@ A seção usa o grupo de estado `seo_meta` e salva pela relação `seoMeta()` do
 
 ## Vários idiomas {#several-languages}
 
-O núcleo mantém [uma linha `seo_meta` por model e idioma](/pt-BR/guide/multilingual). Desde Filament 1.9, informe os idiomas publicados para gerar uma aba por idioma:
+O núcleo mantém [uma linha `seo_meta` por modelo e idioma](/pt-BR/guide/multilingual). Desde Filament 1.9, informe os idiomas publicados para gerar uma aba por idioma:
 
 ```php
 static::seoSection(locales: ['en', 'it', 'ja']);
@@ -78,7 +78,7 @@ static::seoSection(locales: ['en', 'it', 'ja']);
 SEOFields::make(locales: ['en', 'it', 'ja']);
 ```
 
-Ou configure uma vez para todos os resources:
+Ou configure uma vez para todos os recursos:
 
 ```bash
 php artisan vendor:publish --tag=seo-filament-config
@@ -104,11 +104,11 @@ Com vários idiomas, o caminho é `seo_meta.{locale}.title`. Com um só, continu
 
 <figure class="rb-capture"><a href="/filament-language-tabs.png"><img src="/filament-language-tabs.png" alt="Abas em inglês, italiano e japonês no Merchant, com limites japoneses de 30 e 80 grafemas e descrição não preenchida." width="2112" height="2564" loading="lazy" decoding="async"></a></figure>
 
-*Merchant, 9 de setembro de 2026, com `locales: ['en', 'it', 'ja']`. A aba japonesa vazia usa seus próprios contadores. O título inglês vem do fallback de conteúdo do model: adicionar uma aba não traduz o conteúdo. O score Pro é o último resultado do registro, não um score por aba.*
+*Captura original em inglês do Merchant, 9 de setembro de 2026, com `locales: ['en', 'it', 'ja']`. A aba japonesa vazia usa seus próprios contadores. O título inglês vem do fallback de conteúdo do modelo: adicionar uma aba não traduz o conteúdo. A pontuação Pro é o último resultado do registro, não uma pontuação por aba.*
 
 ### Com um plugin de tradução {#with-a-translatable-plugin}
 
-Com `lara-zeus/spatie-translatable` **1.x no Filament 4** ou **2.x no Filament 5**, use os adaptadores Rankbeam para Edit e Create. Substitua apenas os imports das traits de página. Mantenha as traits de resource e listagem do plugin, sua integração ao painel e a ação `LocaleSwitcher`:
+Com `lara-zeus/spatie-translatable` **1.x no Filament 4** ou **2.x no Filament 5**, use os adaptadores Rankbeam para Edit e Create. Substitua apenas os imports das traits de página. Mantenha as traits de recurso e listagem do plugin, sua integração ao painel e a ação `LocaleSwitcher`:
 
 ```php
 // In your EditPost page:
@@ -149,12 +149,12 @@ Você também pode usar `SEOSchemaFields::make()` sem trait. A seção grava em 
 
 Opções disponíveis:
 
-- **Breadcrumb automático:** um interruptor gera `BreadcrumbList` pela cadeia de ancestrais do model, com `BreadcrumbSchema::fromModelAncestors()`, sem campos adicionais.
+- **Breadcrumb automático:** um interruptor gera `BreadcrumbList` pela cadeia de ancestrais do modelo, com `BreadcrumbSchema::fromModelAncestors()`, sem campos adicionais.
 - **Blocos de schema:** um repeater para FAQ com perguntas e respostas e Product com nome, descrição, imagem, marca, SKU, preço, moeda e disponibilidade. Usa `FAQSchema` e `ProductSchema` do núcleo.
 
 ### Validação {#validation}
 
-Um bloco que produziria JSON-LD inválido é rejeitado ao salvar com a mensagem do validador, como uma FAQ sem resposta ou um produto sem imagem ou oferta exigida pelo builder. Blocos totalmente vazios são ignorados.
+Um bloco que produziria JSON-LD inválido é rejeitado ao salvar com a mensagem do validador, como uma FAQ sem resposta ou um produto sem imagem ou oferta exigida pelo builder. Esses requisitos do builder não descrevem todos os requisitos do Google para cada recurso de busca de produtos. Blocos totalmente vazios são ignorados.
 
 ### O que é armazenado {#what-it-stores}
 

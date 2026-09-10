@@ -2,7 +2,7 @@
 description: "O resolvedor SEO combina seis camadas: as superiores têm prioridade e null nunca substitui um valor de uma camada inferior."
 ---
 
-# Prioridade do resolvedor
+# Prioridade do resolvedor {#resolver-precedence}
 
 Cada valor SEO efetivo — título, descrição, canonical, robots e imagens — vem da combinação de **seis camadas** pelo `SEOResolver`. As superiores têm prioridade. `null` nunca substitui um valor de uma camada inferior.
 
@@ -13,11 +13,11 @@ Da menor para a maior prioridade:
 | Nº | Camada | Fonte | Uso comum |
 |---|---|---|---|
 | 1 | **Configuração do site** | `config/seo.php`: `site_name`, `title_suffix`, `default_og_image`, `default_robots`, … | Padrões da marca |
-| 2 | **Padrões globais no banco** | Linhas de `seo_defaults` sem tipo de model | Alterar padrões do site sem deploy |
-| 3 | **Padrões por tipo de model** | Linhas de `seo_defaults` vinculadas a uma classe | Imagem OG comum a todos os produtos |
-| 4 | **Padrões por rota** | Linhas de `seo_defaults` vinculadas ao nome da rota | Páginas estáticas como `home` ou `contact`, sem model |
-| 5 | **Valores calculados** | Atributos do próprio model | Título de `title`, descrição de `excerpt` ou `body` |
-| 6 | **Valores explícitos** | Linha `seo_meta` do model, via `saveSEO()` | Valores preenchidos pelo editor |
+| 2 | **Padrões globais no banco** | Linhas de `seo_defaults` sem tipo de modelo | Alterar padrões do site sem deploy |
+| 3 | **Padrões por tipo de modelo** | Linhas de `seo_defaults` vinculadas a uma classe | Imagem OG comum a todos os produtos |
+| 4 | **Padrões por rota** | Linhas de `seo_defaults` vinculadas ao nome da rota | Páginas estáticas como `home` ou `contact`, sem modelo |
+| 5 | **Valores calculados** | Atributos do próprio modelo | Título de `title`, descrição de `excerpt` ou `body` |
+| 6 | **Valores explícitos** | Linha `seo_meta` do modelo, via `saveSEO()` | Valores preenchidos pelo editor |
 
 ```php
 use Rankbeam\Seo\Facades\SEO;
@@ -30,7 +30,7 @@ O resultado é um objeto de valor imutável `SEOData`, usado pelo Blade, pela sa
 
 ## Fallbacks calculados, camada 5 {#computed-fallbacks-layer-5}
 
-Sem valor explícito, o resolvedor deriva os dados do model:
+Sem valor explícito, o resolvedor deriva os dados do modelo:
 
 - **Título:** atributo `title` ou `name`.
 - **Descrição:** primeiro atributo com texto útil em `seo.computed.description_fields`. A ordem padrão é `excerpt`, `summary`, `description`, `intro`, `lead`, `teaser`, `content`, `body`, `text`, `article`. O HTML é removido, entidades são decodificadas e o texto é cortado em um limite de palavra segundo `seo.computed.description_max_length`, por padrão 160, sem reticências.
@@ -39,12 +39,12 @@ Sem valor explícito, o resolvedor deriva os dados do model:
 
 ## Controlar robots e indexabilidade {#controlling-robots-and-indexability}
 
-O núcleo oferece `noindex` por model. `HasSEO` não declara um método robots porque ele é opcional, mas o resolvedor reconhece estas fontes, nesta ordem:
+O núcleo oferece `noindex` por modelo. `HasSEO` não declara um método robots porque ele é opcional, mas o resolvedor reconhece estas fontes, nesta ordem:
 
 | Prioridade | Fonte | Exemplo |
 |---|---|---|
 | 1 | **`seo_meta.robots` explícito** | `$page->saveSEO(['robots' => 'noindex,follow'])` |
-| 2 | **Hook `getSEORobots(): ?string`** do model | Retornar `'noindex, nofollow'` ou `null` para seguir à próxima fonte |
+| 2 | **Hook `getSEORobots(): ?string`** do modelo | Retornar `'noindex, nofollow'` ou `null` para seguir à próxima fonte |
 | 3 | **Atributo `is_indexable`**, coluna ou accessor | Falso ⇒ `noindex, nofollow`; verdadeiro ⇒ `index, follow` |
 
 ```php
@@ -74,16 +74,16 @@ A política de emissão filtra a diretiva antes de chegar ao `<head>`. A tag `<m
 - Uma página não indexável gera `<meta name="robots" content="noindex, nofollow">`.
 - Diretivas diferentes, como `noindex`, `max-snippet:-1` ou `unavailable_after`, são emitidas literalmente, preservando espaços.
 
-Defina `seo.robots.emit_default = true` para sempre emitir a tag. Veja a [política de robots (EN)](/reference/configuration#robots-rendering-policy).
+Defina `seo.robots.emit_default = true` para sempre emitir a tag. Veja a [política de robots](/pt-BR/reference/configuration#robots-rendering-policy).
 
 ## Políticas após a resolução {#policies-applied-after-resolution}
 
 Aplicam-se independentemente da camada que forneceu o valor:
 
 - **Sufixo do título:** `title_suffix` é acrescentado, exceto quando o título já termina com ele. Se um template de rota contém a marca, termine-o com o sufixo para evitar repetições como “Brand — X | Brand”.
-- **Parâmetros do canonical:** são retirados de URLs derivadas do model ou da requisição, exceto os permitidos em [`canonical.query_whitelist` (EN)](/reference/configuration#canonical-urls), como `page`. Canonicals explícitos são preservados literalmente.
+- **Parâmetros do canonical:** são retirados de URLs derivadas do modelo ou da requisição, exceto os permitidos em [`canonical.query_whitelist`](/pt-BR/reference/configuration#canonical-urls), como `page`. Canonicals explícitos são preservados literalmente.
 - **Imagens sociais absolutas:** `og:image` e `twitter:image` são emitidas como URLs absolutas, mesmo quando o valor salvo é um caminho relativo.
 
 ## Identificar a camada escolhida {#inspecting-which-layer-won}
 
-O [pacote Filament](/pt-BR/guide/filament) mostra a origem por campo: manual, conteúdo, tipo de model, padrão global, configuração ou URL. `SEOWarningEvaluator` também expõe a distinção entre valores manuais e fallbacks para indicadores administrativos próprios.
+O [pacote Filament](/pt-BR/guide/filament) mostra a origem por campo: manual, conteúdo, tipo de modelo, padrão global, configuração ou URL. `SEOWarningEvaluator` também expõe a distinção entre valores manuais e fallbacks para indicadores administrativos próprios.

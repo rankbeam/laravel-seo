@@ -16,7 +16,7 @@ Para aplicações renderizadas no servidor, o pacote oferece sete diretivas Blad
 </head>
 ```
 
-`@seo` resolve o modelo pela [ordem de prioridade](/pt-BR/concepts/resolver-precedence) e gera o bloco completo do head: `<title>`, metadescrição, link canônico, robots, Open Graph, Twitter Cards e o JSON-LD associado. A tag robots só é emitida **quando difere do padrão do site**; o valor redundante `index,follow` é omitido, pois a ausência da tag já tem esse significado. Ative `seo.robots.emit_default` para sempre emiti-la. Consulte o [contrato de renderização (EN)](/pt-BR/contributing/rendering-contract).
+`@seo` resolve o modelo pela [ordem de prioridade](/pt-BR/concepts/resolver-precedence) e gera o bloco completo do head: `<title>`, metadescrição, link canônico, robots, Open Graph, Twitter Cards e o JSON-LD associado. A tag robots só é emitida **quando difere do padrão do site**; o valor redundante `index,follow` é omitido, pois a ausência da tag já tem esse significado. Ative `seo.robots.emit_default` para sempre emiti-la. Consulte o [contrato de renderização](/pt-BR/contributing/rendering-contract).
 
 Assinaturas:
 
@@ -66,7 +66,7 @@ return view('search.results', [
 Um `SEOData` manual representa **valores definidos explicitamente**. Tudo o que você configura é preservado; apenas as lacunas da renderização são preenchidas:
 
 - `canonical` e `og:url` são derivados da URL atual quando ausentes; um `canonical` explícito é preservado literalmente, incluindo os parâmetros de consulta;
-- `title_suffix` só é adicionado quando ainda não está no título e é totalmente ignorado se o título já contém um termo da marca; consulte [`title_suffix_skip_when_contains` (EN)](/pt-BR/reference/configuration);
+- `title_suffix` só é adicionado quando ainda não está no título e é totalmente ignorado se o título já contém um termo da marca; consulte [`title_suffix_skip_when_contains`](/pt-BR/reference/configuration);
 - caminhos relativos de `og:image` e `twitter:image` tornam-se absolutos com `url()`, que respeita o esquema atual e **não** força HTTPS;
 - `og:site_name` e `locale` são preenchidos pela configuração e pelo idioma da aplicação.
 

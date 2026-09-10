@@ -2,9 +2,9 @@
 description: "Verifique metadados com seo:audit: uma tabela por página, gratuitamente, sem fila, licença ou acesso à rede."
 ---
 
-# Auditoria SEO gratuita (`seo:audit`)
+# Auditoria SEO gratuita (`seo:audit`) {#free-seo-audit-seo-audit}
 
-`php artisan seo:audit` responde: **quais problemas existem agora nos metadados das minhas páginas?** O comando percorre os models `HasSEO` no processo atual, **sem fila, licença ou rede**, e mostra **pass / warn / fail** por página, seguido de um resumo.
+`php artisan seo:audit` responde: **quais problemas existem agora nos metadados das minhas páginas?** O comando percorre os modelos `HasSEO` no processo atual, **sem fila, licença ou rede**, e mostra **pass / warn / fail** por página, seguido de um resumo.
 
 ```bash
 php artisan seo:audit
@@ -26,7 +26,7 @@ php artisan seo:audit
 
 ## O que é verificado {#what-it-checks}
 
-A auditoria executa apenas a classe **metadata**: verificações derivadas do model e do [resolvedor](/pt-BR/concepts/resolver-precedence), sem buscar a página.
+A auditoria executa apenas a classe **metadata**: verificações derivadas do modelo e do [resolvedor](/pt-BR/concepts/resolver-precedence), sem buscar a página.
 
 | Verificação | Códigos |
 |---|---|
@@ -44,7 +44,7 @@ Muitos códigos também aparecem no Pro, mas os registros são separados. O núc
 
 As verificações hreflang usam a lista após as políticas de `seo.hreflang`, como as tags e o sitemap. A reciprocidade exige rastreamento e fica no Pro.
 
-As verificações **AEO** só se aplicam a artigos JSON-LD (`Article`, `BlogPosting`, `NewsArticle`, …) sem entidade `author` ou sem `datePublished` / `dateModified`. Elas examinam autoria e cronologia explícitas nos dados estruturados. Páginas sem artigo declarado não recebem esses avisos. São recomendações de nível `notice`, excluídas do score Pro de 0 a 100.
+As verificações **AEO** só se aplicam a artigos JSON-LD (`Article`, `BlogPosting`, `NewsArticle`, …) sem entidade `author` ou sem `datePublished` / `dateModified`. Elas examinam autoria e cronologia explícitas nos dados estruturados. Páginas sem artigo declarado não recebem esses avisos. São recomendações de nível `notice`, excluídas da pontuação Pro de 0 a 100.
 
 ## O que não é verificado — limites do comando {#what-it-does-not-check-—-the-capability-boundary}
 
@@ -52,11 +52,11 @@ Uma auditoria local de metadados não cobre toda a análise Pro. Cada execução
 
 - **Verificações do HTML servido:** `missing_h1`, `multiple_h1`, `missing_image_alt`, `thin_content` e `mixed_content` precisam do conteúdo real da página.
 - **Verificações de rede do canonical:** `canonical_target_broken` / `_redirect` / `_noindex` exigem uma requisição de saída protegida.
-- **O score numérico de 0 a 100:** o Pro o salva com uma rubrica versionada no resultado da análise; veja [score SEO (EN)](/pt-BR/pro/scoring).
+- **A pontuação numérica de 0 a 100:** o Pro a salva com uma rubrica versionada no resultado da análise; veja [pontuação SEO](/pt-BR/pro/scoring).
 
-Essas funções pertencem ao **Pro**. Consulte o [registro completo de problemas (EN)](/pt-BR/pro/scan-issues).
+Essas funções pertencem ao **Pro**. Consulte o [registro completo de problemas](/pt-BR/pro/scan-issues).
 
-## Escolher os models {#choosing-what-to-audit}
+## Escolher os modelos {#choosing-what-to-audit}
 
 O comando usa `seo.audit.models`, com fallback para `seo.sitemap.models`:
 
@@ -82,7 +82,7 @@ php artisan seo:audit --model="App\Models\Post" --model="App\Models\Page"
 |---|---|
 | `--model=` | Classe com `HasSEO`; repetível, substitui a configuração. |
 | `--locale=` | Idioma para resolver os dados; padrão da aplicação se omitido. |
-| `--limit=` | Máximo de registros por model; `0` significa todos. |
+| `--limit=` | Máximo de registros por modelo; `0` significa todos. |
 | `--issues-only` | Mostrar apenas páginas com pelo menos um problema. |
 | `--strict` | Retornar código de saída diferente de zero se houver qualquer problema, para CI. |
 | `--json` | Produzir JSON com páginas, resumo e cobertura, em vez da tabela. |

@@ -44,4 +44,4 @@ Se a aplicação usava `fibonoir/laravel-seo` v1, leia primeiro [Atualizar a par
 | Pacote | O que acrescenta | Licença |
 |---|---|---|
 | [`rankbeam/laravel-seo-filament`](https://github.com/rankbeam/laravel-seo-filament) | Seção SEO em formulários de recursos do Filament 4/5 | MIT |
-| [`rankbeam/laravel-seo-pro` (EN)](/pt-BR/pro/installation) | Análises em fila, redirecionamentos e monitor de erros 404 em qualquer aplicação Laravel; painel Filament opcional | Comercial |
+| [`rankbeam/laravel-seo-pro`](/pt-BR/pro/installation) | Análises em fila, redirecionamentos e monitor de erros 404 em qualquer aplicação Laravel; painel Filament opcional | Comercial |
