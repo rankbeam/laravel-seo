@@ -174,6 +174,7 @@ function emitLlmsTxt(cfg: SiteConfigLike): { entries: number; missing: string[] 
   for (const locale of Object.values(cfg.site.locales ?? {})) {
     const localized = locale.themeConfig?.sidebar
     if (Array.isArray(localized)) sidebar.push(...localized)
+    else if (localized && typeof localized === 'object') sidebar.push(...Object.values(localized).flat() as SidebarGroup[])
   }
   const title = cfg.site.title || 'Rankbeam'
   const summary = strip(cfg.site.description || '')

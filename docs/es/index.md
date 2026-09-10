@@ -1,22 +1,8 @@
 ---
-description: "Documentación de Rankbeam para Laravel en español: instalación, metadatos, sitemaps y Filament."
+layout: page
+pageClass: rb-home-page
+title: "Paquete SEO para Laravel"
+description: "Empieza con el core gratuito con licencia MIT para metadatos, URL canónicas, JSON-LD y sitemaps. Pro añade seguimiento y herramientas operativas cuando las necesitas."
 ---
 
-# Rankbeam para Laravel
-
-El núcleo gratuito gestiona los metadatos de tu aplicación. Empieza con la guía de inicio rápido y añade las funciones que necesites.
-
-- [Instalación](/es/guide/installation)
-- [Inicio rápido](/es/guide/quickstart)
-- [Prioridad del resolvedor](/es/concepts/resolver-precedence)
-- [Registro de sitemaps](/es/guide/sitemaps)
-- [Campos SEO para Filament](/es/guide/filament)
-- [Auditoría SEO gratuita](/es/guide/audit)
-- [Control de rastreadores de IA](/es/guide/ai-crawlers)
-- [Contenido multilingüe y hreflang](/es/guide/multilingual)
-- [Generar imágenes OG](/es/guide/og-image)
-- [Migrar desde otros paquetes](/es/guide/migrate-from-other-packages)
-
-Las demás páginas están disponibles en inglés. El selector de idioma conserva la página actual. Si falta una traducción, muestra un enlace explícito a la versión inglesa.
-
-[Toda la documentación en inglés](/) · [Instalar Pro (EN)](/es/pro/installation)
+<Home />

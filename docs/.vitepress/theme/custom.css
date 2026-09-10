@@ -522,6 +522,14 @@ html {
    Mobile
    -------------------------------------------------------------------------- */
 
+/* Translated navigation labels need the existing compact menu at tablet widths. */
+@media (min-width: 768px) and (max-width: 959px) {
+  html:not([lang="en-US"]) .VPNavBarMenu,
+  html:not([lang="en-US"]) .VPNavBarExtra { display: none; }
+  html:not([lang="en-US"]) .VPNavBarHamburger { display: flex; }
+  html:not([lang="en-US"]) .VPNavScreen { display: block; }
+}
+
 @media (max-width: 959px) {
   .VPDoc.has-aside .container .content .content-container {
     max-width: 100%;

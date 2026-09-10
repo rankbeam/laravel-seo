@@ -5,7 +5,14 @@
     "it/index.md": {
       "source": "index.md",
       "sha256": "1fe0fb5e64039c222519c36e499eb8dcbf9b775cf38241862971bb607089c522",
-      "native_review": null
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-10",
+        "scope": "Homepage copy and shared navigation",
+        "status": "approved",
+        "independent_native": false
+      }
     },
     "it/concepts/resolver-precedence.md": {
       "source": "concepts/resolver-precedence.md",
@@ -60,7 +67,14 @@
     "de/index.md": {
       "source": "index.md",
       "sha256": "1fe0fb5e64039c222519c36e499eb8dcbf9b775cf38241862971bb607089c522",
-      "native_review": null
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-10",
+        "scope": "Homepage copy and shared navigation",
+        "status": "approved",
+        "independent_native": false
+      }
     },
     "de/concepts/resolver-precedence.md": {
       "source": "concepts/resolver-precedence.md",
@@ -115,7 +129,14 @@
     "fr/index.md": {
       "source": "index.md",
       "sha256": "1fe0fb5e64039c222519c36e499eb8dcbf9b775cf38241862971bb607089c522",
-      "native_review": null
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-10",
+        "scope": "Homepage copy and shared navigation",
+        "status": "approved",
+        "independent_native": false
+      }
     },
     "fr/guide/installation.md": {
       "source": "guide/installation.md",
@@ -170,7 +191,14 @@
     "es/index.md": {
       "source": "index.md",
       "sha256": "1fe0fb5e64039c222519c36e499eb8dcbf9b775cf38241862971bb607089c522",
-      "native_review": null
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-10",
+        "scope": "Homepage copy and shared navigation",
+        "status": "approved",
+        "independent_native": false
+      }
     },
     "es/guide/installation.md": {
       "source": "guide/installation.md",
@@ -225,7 +253,14 @@
     "pt-BR/index.md": {
       "source": "index.md",
       "sha256": "1fe0fb5e64039c222519c36e499eb8dcbf9b775cf38241862971bb607089c522",
-      "native_review": null
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-10",
+        "scope": "Homepage copy and shared navigation",
+        "status": "approved",
+        "independent_native": false
+      }
     },
     "pt-BR/guide/installation.md": {
       "source": "guide/installation.md",

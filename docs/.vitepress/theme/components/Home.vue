@@ -1,51 +1,37 @@
 <script setup lang="ts">
-import { withBase } from 'vitepress'
-
-const groups = [
-  { title: 'Render your pages', links: [
-    ['Blade templates', '/guide/blade', 'Render the head from a model.'],
-    ['Inertia & JSON APIs', '/guide/inertia-json', 'Pass resolved metadata to your frontend.'],
-    ['Livewire', '/guide/livewire', 'Keep metadata in sync with navigation.'],
-    ['Filament fields', '/guide/filament', 'Give editors SEO fields and previews.'],
-  ]},
-  { title: 'Configure the output', links: [
-    ['Resolver precedence', '/concepts/resolver-precedence', 'Understand which value wins.'],
-    ['JSON-LD schema', '/guide/schema', 'Build a linked schema graph.'],
-    ['Sitemaps', '/guide/sitemaps', 'Register models and generate XML.'],
-    ['Multilingual content', '/guide/multilingual', 'Resolve metadata for each language.'],
-  ]},
-  { title: 'Check and maintain', links: [
-    ['Free SEO audit', '/guide/audit', 'Check your rendered pages from Artisan.'],
-    ['AI crawler controls', '/guide/ai-crawlers', 'Choose and publish a robots policy.'],
-    ['Install Pro', '/pro/installation', 'Add scans, redirects and 404 monitoring.'],
-    ['Production setup', '/pro/production', 'Configure queues, scheduling and retention.'],
-  ]},
-]
+import { computed } from 'vue'
+import { useData, withBase } from 'vitepress'
+import { homeGroups } from '../../home-content'
+import { message, destination } from '../../layout-localization'
+const { lang, frontmatter } = useData()
+const locale = computed(() => lang.value === 'en-US' ? 'en' : lang.value)
+const t = (key: string) => message(locale.value, key)
+const target = (url: string) => destination(url, locale.value, frontmatter.value.translatedPages ?? [])
 </script>
 
 <template>
   <div class="docs-start">
     <header class="start-intro">
-      <p class="start-label">Rankbeam documentation</p>
-      <h1>Add SEO to your Laravel app.</h1>
-      <p>Start with the free MIT core for metadata, canonical URLs, JSON-LD and sitemaps. Pro adds monitoring and operations when you need them.</p>
-      <a class="start-button" :href="withBase('/guide/quickstart')">Install and render your first tags →</a>
-      <p class="start-requirements">Laravel 11–13 · PHP 8.2+ (8.3+ on Laravel 13)</p>
+      <p class="start-label">{{ t('Rankbeam documentation') }}</p>
+      <h1>{{ t('Add SEO to your Laravel app.') }}</h1>
+      <p>{{ t('Start with the free MIT core for metadata, canonical URLs, JSON-LD and sitemaps. Pro adds monitoring and operations when you need them.') }}</p>
+      <a class="start-button" :href="withBase(target('/guide/quickstart').link)">{{ t('Install and render your first tags →') }}</a>
+      <p class="start-requirements">{{ t('Laravel 11–13 · PHP 8.2+ (8.3+ on Laravel 13)') }}</p>
     </header>
     <div class="start-groups">
-      <section v-for="group in groups" :key="group.title">
-        <h2>{{ group.title }}</h2>
+      <section v-for="group in homeGroups" :key="group.title">
+        <h2>{{ t(group.title) }}</h2>
         <ul>
           <li v-for="[title, url, description] in group.links" :key="url">
-            <a :href="withBase(url)">{{ title }} <span aria-hidden="true">→</span></a>
-            <p>{{ description }}</p>
+            <a :href="withBase(target(url).link)">{{ t(title) }}{{ target(url).english ? ` (${t('English')})` : '' }} <span aria-hidden="true">→</span></a>
+            <p>{{ t(description) }}</p>
           </li>
         </ul>
       </section>
     </div>
     <aside class="start-migration">
-      <h2>Moving an existing site?</h2>
-      <p>Keep your metadata when moving from <a :href="withBase('/guide/migrate-from-wordpress')">WordPress</a> or <a :href="withBase('/guide/migrate-from-other-packages')">another Laravel SEO package</a>. Start with a dry run.</p>
+      <h2>{{ t('Moving an existing site?') }}</h2>
+      <p>{{ t('Keep your metadata when moving from') }} <a :href="withBase(target('/guide/migrate-from-wordpress').link)">{{ t('WordPress') }}{{ target('/guide/migrate-from-wordpress').english ? ` (${t('English')})` : '' }}</a> {{ t('or') }} <a :href="withBase(target('/guide/migrate-from-other-packages').link)">{{ t('another Laravel SEO package') }}{{ target('/guide/migrate-from-other-packages').english ? ` (${t('English')})` : '' }}</a>{{ t('. Start with a dry run.') }}</p>
     </aside>
   </div>
 </template>
