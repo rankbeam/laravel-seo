@@ -38,9 +38,9 @@ A auditoria executa apenas a classe **metadata**: verificações derivadas do mo
 | Canonical: formato, outro domínio, URL compartilhada ou insegura | `invalid_canonical`, `cross_domain_canonical`, `shared_canonical`, `insecure_canonical` |
 | Preparação para respostas (AEO): dados estruturados de artigos | `aeo_missing_author`, `aeo_article_missing_date` |
 | Palavra-chave de foco definida, após ativação | `missing_focus_keyword` |
-| Alternativas hreflang, só no núcleo e quando declaradas | `hreflang_invalid_code`, `hreflang_duplicate_code`, `hreflang_missing_self` |
+| Alternativas hreflang do registro do núcleo, quando declaradas | `hreflang_invalid_code`, `hreflang_duplicate_code`, `hreflang_missing_self` |
 
-Os códigos têm o mesmo significado na análise Pro. Os códigos hreflang desta tabela e `blank_explicit_override` são exclusivos do núcleo. Os tamanhos seguem o [orçamento por escrita](/pt-BR/guide/multilingual#title-and-description-budgets-per-script): 60/160 grafemas para texto latino e cerca de 30/80 para CJK. A medida usa o **valor resolvido, incluindo o sufixo do título**. O [editor Filament](/pt-BR/guide/filament) lê a mesma política, embora também possa mostrar texto ainda não salvo.
+Muitos códigos também aparecem no Pro, mas os registros são separados. O núcleo usa `hreflang_missing_self`, enquanto o Pro usa `hreflang_missing_self_reference`. `hreflang_duplicate_code` tem nível `notice` no núcleo e `warning` no Pro. Um nome compartilhado não garante a mesma cobertura ou gravidade. `blank_explicit_override` pertence ao registro do núcleo. Os tamanhos seguem o [orçamento por escrita](/pt-BR/guide/multilingual#title-and-description-budgets-per-script): 60/160 grafemas para texto latino e cerca de 30/80 para CJK. A medida usa o **valor resolvido, incluindo o sufixo do título**. O [editor Filament](/pt-BR/guide/filament) lê a mesma política, embora também possa mostrar texto ainda não salvo.
 
 As verificações hreflang usam a lista após as políticas de `seo.hreflang`, como as tags e o sitemap. A reciprocidade exige rastreamento e fica no Pro.
 

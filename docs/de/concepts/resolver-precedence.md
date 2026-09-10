@@ -2,7 +2,7 @@
 description: "So löst Rankbeam SEO-Werte aus sechs Ebenen auf: Höhere Ebenen haben Vorrang, null überschreibt keine niedrigeren Werte."
 ---
 
-# Priorität des Resolvers
+# Priorität des Resolvers {#resolver-precedence}
 
 `SEOResolver` führt **sechs Ebenen** zusammen, um Titel, Beschreibung, Canonical, Robots und Bilder zu bestimmen. Höhere Ebenen gewinnen. `null` überschreibt keinen Wert einer niedrigeren Ebene.
 
@@ -74,14 +74,14 @@ Vor der Ausgabe im `<head>` greift die Emissionsregel: `<meta name="robots">` wi
 - Eine **nicht indexierbare** Seite erhält `<meta name="robots" content="noindex, nofollow">`.
 - Andere abweichende Direktiven wie `noindex`, `max-snippet:-1` oder `unavailable_after` werden unverändert ausgegeben, einschließlich eingegebener Leerzeichen.
 
-Mit `seo.robots.emit_default = true` wird der Tag immer ausgegeben. Details: [Robots-Ausgaberegeln (EN)](/reference/configuration#robots-rendering-policy).
+Mit `seo.robots.emit_default = true` wird der Tag immer ausgegeben. Details: [Robots-Ausgaberegeln](/de/reference/configuration#robots-rendering-policy).
 
 ## Regeln nach der Auflösung {#policies-applied-after-resolution}
 
 Diese Schritte gelten unabhängig von der Quelle:
 
 - **Titelsuffix:** `title_suffix` wird angehängt, sofern der Titel nicht bereits damit endet. Enthält eine Routenvorlage schon die Marke, sollte sie mit diesem Suffix enden, um Ergebnisse wie „Brand — X | Brand“ zu vermeiden.
-- **Canonical-Query:** Bei abgeleiteten Canonicals aus Modell- oder aktueller URL werden Query-Parameter entfernt, außer den Einträgen in [`canonical.query_whitelist` (EN)](/reference/configuration#canonical-urls), etwa `page` für paginierte Archive. Explizit gesetzte Canonicals bleiben unverändert.
+- **Canonical-Query:** Bei abgeleiteten Canonicals aus Modell- oder aktueller URL werden Query-Parameter entfernt, außer den Einträgen in [`canonical.query_whitelist`](/de/reference/configuration#canonical-urls), etwa `page` für paginierte Archive. Explizit gesetzte Canonicals bleiben unverändert.
 - **Absolute Social-Bilder:** `og:image` und `twitter:image` werden als absolute URLs ausgegeben, auch wenn ein relativer Pfad gespeichert wurde.
 
 ## Die maßgebliche Ebene erkennen {#inspecting-which-layer-won}

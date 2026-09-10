@@ -38,9 +38,9 @@ Solo ejecuta la clase **metadata**: comprobaciones derivadas del modelo y del [r
 | Canonical: formato, otro dominio, URL compartida o insegura | `invalid_canonical`, `cross_domain_canonical`, `shared_canonical`, `insecure_canonical` |
 | Preparación para respuestas (AEO): datos estructurados de artículos | `aeo_missing_author`, `aeo_article_missing_date` |
 | Palabra clave objetivo definida, tras activación | `missing_focus_keyword` |
-| Alternativas hreflang, solo en el núcleo y si la página declara alguna | `hreflang_invalid_code`, `hreflang_duplicate_code`, `hreflang_missing_self` |
+| Alternativas hreflang del registro del núcleo, si la página declara alguna | `hreflang_invalid_code`, `hreflang_duplicate_code`, `hreflang_missing_self` |
 
-Los códigos tienen el mismo significado que en Pro. Los códigos hreflang de esta tabla y `blank_explicit_override` son exclusivos del núcleo. Las longitudes siguen el [presupuesto por escritura](/es/guide/multilingual#title-and-description-budgets-per-script): 60/160 grafemas para texto latino y aproximadamente 30/80 para CJK. Se mide el **valor resuelto con el sufijo del título incluido**. El [editor Filament](/es/guide/filament) usa la misma política, aunque también puede mostrar texto aún sin guardar.
+Muchos códigos también aparecen en Pro, pero los registros son independientes. El núcleo usa `hreflang_missing_self` y Pro usa `hreflang_missing_self_reference`. `hreflang_duplicate_code` tiene nivel `notice` en el núcleo y `warning` en Pro. Un nombre compartido no garantiza la misma cobertura ni gravedad. `blank_explicit_override` pertenece al registro del núcleo. Las longitudes siguen el [presupuesto por escritura](/es/guide/multilingual#title-and-description-budgets-per-script): 60/160 grafemas para texto latino y aproximadamente 30/80 para CJK. Se mide el **valor resuelto con el sufijo del título incluido**. El [editor Filament](/es/guide/filament) usa la misma política, aunque también puede mostrar texto aún sin guardar.
 
 Las comprobaciones hreflang usan la lista después de aplicar `seo.hreflang`, como las etiquetas y el sitemap. La reciprocidad requiere rastreo y se comprueba en Pro.
 

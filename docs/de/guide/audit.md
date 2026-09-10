@@ -2,7 +2,7 @@
 description: "Prüfe SEO-Metadaten mit seo:audit: eine kostenlose Tabelle pro Seite, ohne Queue, Lizenz oder Netzwerkzugriff."
 ---
 
-# Kostenloser SEO-Audit (`seo:audit`)
+# Kostenloser SEO-Audit (`seo:audit`) {#free-seo-audit-seo-audit}
 
 `php artisan seo:audit` beantwortet mit einem kostenlosen Befehl: **Was stimmt gerade mit meinen SEO-Metadaten nicht?** Der Befehl durchläuft deine `HasSEO`-Modelle im laufenden Prozess, **ohne Queue, Lizenz oder Netzwerkzugriff**, und zeigt pro Seite **pass / warn / fail** sowie eine Zusammenfassung.
 
@@ -38,9 +38,9 @@ Der Audit führt ausschließlich Prüfungen der Ausführungsklasse **metadata** 
 | Canonical: Format, andere Domain, gemeinsame oder unsichere URL | `invalid_canonical`, `cross_domain_canonical`, `shared_canonical`, `insecure_canonical` |
 | Antwortbereitschaft (AEO): strukturierte Artikeldaten | `aeo_missing_author`, `aeo_article_missing_date` |
 | Fokus-Keyword gesetzt, nach Aktivierung | `missing_focus_keyword` |
-| hreflang-Alternativen, nur im Core und nur bei vorhandener Liste | `hreflang_invalid_code`, `hreflang_duplicate_code`, `hreflang_missing_self` |
+| hreflang-Alternativen aus der Core-Registry, nur bei vorhandener Liste | `hreflang_invalid_code`, `hreflang_duplicate_code`, `hreflang_missing_self` |
 
-Das sind dieselben Fehlercodes wie im Pro-Scan; ein Befund hat daher dieselbe Bedeutung. Die hreflang-Codes und `blank_explicit_override` gibt es nur im Core. Für Längen gilt das [Budget je Schriftsystem](/de/guide/multilingual#title-and-description-budgets-per-script): 60/160 Grapheme für lateinische Texte, etwa 30/80 für CJK. Geprüft wird der **aufgelöste Wert einschließlich Titelsuffix**. Der [Filament-Editor](/de/guide/filament) verwendet dieselbe Richtlinie; noch nicht gespeicherte Eingaben können vom aufgelösten Wert abweichen.
+Viele Codes erscheinen auch im Pro-Scan, doch die Registries sind getrennt. Der Core verwendet `hreflang_missing_self`, Pro dagegen `hreflang_missing_self_reference`. `hreflang_duplicate_code` ist im Core ein Hinweis (`notice`), in Pro eine Warnung (`warning`). Gleiche Namen garantieren weder denselben Prüfumfang noch denselben Schweregrad. `blank_explicit_override` gehört zur Core-Registry. Für Längen gilt das [Budget je Schriftsystem](/de/guide/multilingual#title-and-description-budgets-per-script): 60/160 Grapheme für lateinische Texte, etwa 30/80 für CJK. Geprüft wird der **aufgelöste Wert einschließlich Titelsuffix**. Der [Filament-Editor](/de/guide/filament) verwendet dieselbe Richtlinie; noch nicht gespeicherte Eingaben können vom aufgelösten Wert abweichen.
 
 Die hreflang-Prüfung verwendet die Liste nach Anwendung der Richtlinien aus `seo.hreflang`, also dieselbe Liste wie Tags und Sitemap. Gegenseitige Verweise erfordern einen Crawl und werden in Pro geprüft.
 
@@ -52,9 +52,9 @@ Ein kostenloser Audit im Anwendungsprozess deckt nicht den gesamten Pro-Scan ab.
 
 - **Prüfungen des ausgelieferten HTML:** `missing_h1`, `multiple_h1`, `missing_image_alt`, `thin_content`, `mixed_content` benötigen den tatsächlichen Seiteninhalt.
 - **Netzwerkprüfungen des Canonical-Ziels:** `canonical_target_broken` / `_redirect` / `_noindex` benötigen einen abgesicherten ausgehenden Abruf.
-- **Den numerischen Score von 0–100:** Pro speichert ihn mit einer versionierten Bewertungsgrundlage im Scan-Ergebnis; siehe [SEO-Score (EN)](/de/pro/scoring).
+- **Den numerischen Score von 0–100:** Pro speichert ihn mit einer versionierten Bewertungsgrundlage im Scan-Ergebnis; siehe [SEO-Score](/de/pro/scoring).
 
-Diese Funktionen gehören zum **Pro-Scan**. Die vollständige [Fehlerliste (EN)](/de/pro/scan-issues) beschreibt ihre Grenzen.
+Diese Funktionen gehören zum **Pro-Scan**. Die vollständige [Fehlerliste](/de/pro/scan-issues) beschreibt ihre Grenzen.
 
 ## Modelle auswählen {#choosing-what-to-audit}
 

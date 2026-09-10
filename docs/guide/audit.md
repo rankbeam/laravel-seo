@@ -43,11 +43,13 @@ alone, with no page fetch:
 | Canonical format / cross-domain / shared / insecure | `invalid_canonical`, `cross_domain_canonical`, `shared_canonical`, `insecure_canonical` |
 | Answer-readiness (AEO) — article structured data | `aeo_missing_author`, `aeo_article_missing_date` |
 | Focus keyword set (opt-in) | `missing_focus_keyword` |
-| hreflang alternates (core-only, when a page has any) | `hreflang_invalid_code`, `hreflang_duplicate_code`, `hreflang_missing_self` |
+| hreflang alternates (core registry, when a page has any) | `hreflang_invalid_code`, `hreflang_duplicate_code`, `hreflang_missing_self` |
 
-These are the **same issue codes** the Pro scan emits, so a finding means the
-same thing here as it does there (the hreflang codes and `blank_explicit_override`
-are core-only). Length uses the editor's [per-script budget](/guide/multilingual#title-and-description-budgets-per-script)
+Most codes also appear in the Pro scan, but the registries are separate.
+In particular, core uses `hreflang_missing_self`, while Pro uses
+`hreflang_missing_self_reference`; `hreflang_duplicate_code` is a core notice
+and a Pro warning. Do not assume identical coverage or severity from a shared
+name. `blank_explicit_override` belongs to the core registry. Length uses the editor's [per-script budget](/guide/multilingual#title-and-description-budgets-per-script)
 — 60/160 characters for Latin text, ~30/80 for CJK, counted in graphemes and
 measured against the **resolved** value, suffix included — so the audit never
 contradicts the character counters in the [Filament editor](/guide/filament).

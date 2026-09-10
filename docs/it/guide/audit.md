@@ -38,9 +38,9 @@ L'audit esegue solo i controlli della classe **metadata**, ricavabili dal modell
 | Canonical malformati, tra domini, condivisi o non sicuri | `invalid_canonical`, `cross_domain_canonical`, `shared_canonical`, `insecure_canonical` |
 | Dati strutturati degli articoli per AEO | `aeo_missing_author`, `aeo_article_missing_date` |
 | Parola chiave principale impostata, se attivato | `missing_focus_keyword` |
-| Elenco hreflang, quando presente; controlli solo core | `hreflang_invalid_code`, `hreflang_duplicate_code`, `hreflang_missing_self` |
+| Elenco hreflang, quando presente; registro del core | `hreflang_invalid_code`, `hreflang_duplicate_code`, `hreflang_missing_self` |
 
-I codici comuni hanno lo stesso significato nella scansione Pro. I codici hreflang qui elencati e `blank_explicit_override` sono specifici del core. La lunghezza segue i [limiti per sistema di scrittura](/it/guide/multilingual#title-and-description-budgets-per-script): 60/160 per il testo latino, circa 30/80 per CJK, contando i grafemi del valore **risolto**, suffisso incluso. La policy è la stessa dei contatori nell'[editor Filament](/it/guide/filament).
+Molti codici compaiono anche nella scansione Pro, ma i registri sono separati. Il core usa `hreflang_missing_self`, Pro `hreflang_missing_self_reference`. `hreflang_duplicate_code` è un avviso di livello `notice` nel core e `warning` in Pro. Un nome condiviso non garantisce la stessa copertura o gravità. `blank_explicit_override` appartiene al registro del core. La lunghezza segue i [limiti per sistema di scrittura](/it/guide/multilingual#title-and-description-budgets-per-script): 60/160 per il testo latino, circa 30/80 per CJK, contando i grafemi del valore **risolto**, suffisso incluso. La policy è la stessa dei contatori nell'[editor Filament](/it/guide/filament).
 
 I controlli hreflang usano l'elenco dopo l'applicazione delle policy `seo.hreflang`, come i tag e la sitemap. La reciprocità richiede un crawl e resta una funzione Pro.
 

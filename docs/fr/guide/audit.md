@@ -38,9 +38,9 @@ L'audit exécute seulement la classe **metadata** : les vérifications qui dépe
 | Canonical : format, autre domaine, URL partagée ou non sécurisée | `invalid_canonical`, `cross_domain_canonical`, `shared_canonical`, `insecure_canonical` |
 | Préparation aux réponses (AEO) : données structurées d'article | `aeo_missing_author`, `aeo_article_missing_date` |
 | Mot-clé cible présent, après activation | `missing_focus_keyword` |
-| Variantes hreflang, dans le Core et si la page en déclare | `hreflang_invalid_code`, `hreflang_duplicate_code`, `hreflang_missing_self` |
+| Variantes hreflang du registre Core, si la page en déclare | `hreflang_invalid_code`, `hreflang_duplicate_code`, `hreflang_missing_self` |
 
-Les codes ont le même sens que dans l'analyse Pro. Les codes hreflang de ce tableau et `blank_explicit_override` sont propres au Core. Les longueurs suivent le [budget par écriture](/fr/guide/multilingual#title-and-description-budgets-per-script) : 60/160 graphèmes pour les textes latins, environ 30/80 pour CJK. L'audit mesure la **valeur résolue, suffixe compris**. L'[éditeur Filament](/fr/guide/filament) lit la même politique, même s'il peut aussi afficher un texte pas encore enregistré.
+De nombreux codes existent aussi dans Pro, mais les registres sont distincts. Le Core utilise `hreflang_missing_self`, et Pro `hreflang_missing_self_reference`. `hreflang_duplicate_code` a le niveau `notice` dans le Core et `warning` dans Pro. Un nom commun ne garantit ni la même couverture ni la même gravité. `blank_explicit_override` appartient au registre Core. Les longueurs suivent le [budget par écriture](/fr/guide/multilingual#title-and-description-budgets-per-script) : 60/160 graphèmes pour les textes latins, environ 30/80 pour CJK. L'audit mesure la **valeur résolue, suffixe compris**. L'[éditeur Filament](/fr/guide/filament) lit la même politique, même s'il peut aussi afficher un texte pas encore enregistré.
 
 Les vérifications hreflang utilisent la liste après application de `seo.hreflang`, comme les balises et le sitemap. Les références réciproques nécessitent un crawl, effectué par Pro.
 

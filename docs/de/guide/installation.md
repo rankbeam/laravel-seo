@@ -2,7 +2,7 @@
 description: "Installiere rankbeam/laravel-seo mit Composer, veröffentliche die Konfiguration und führe die Migrationen aus. Voraussetzungen für Laravel 11, 12 und 13."
 ---
 
-# Installation
+# Installation {#installation}
 
 ## Voraussetzungen {#requirements}
 
@@ -44,4 +44,4 @@ Wenn deine Anwendung `fibonoir/laravel-seo` v1 verwendet hat, lies zuerst [Upgra
 | Paket | Zusätzliche Funktionen | Lizenz |
 |---|---|---|
 | [`rankbeam/laravel-seo-filament`](https://github.com/rankbeam/laravel-seo-filament) | SEO-Bereich für Ressourcenformulare in Filament 4/5 | MIT |
-| [`rankbeam/laravel-seo-pro` (EN)](/de/pro/installation) | Website-Scans über die Queue, Redirect-Verwaltung und 404-Monitor; für Laravel-Anwendungen mit optionalem Filament-Dashboard | Kommerziell |
+| [`rankbeam/laravel-seo-pro`](/de/pro/installation) | Website-Scans über die Queue, Redirect-Verwaltung und 404-Monitor; für Laravel-Anwendungen mit optionalem Filament-Dashboard | Kommerziell |

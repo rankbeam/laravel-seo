@@ -2,12 +2,12 @@
 description: "Wechsle von anderen Laravel-SEO-Paketen zu HasSEO und saveSEO(), einschließlich Import vorhandener SEO-Daten aus ralphjsmit/laravel-seo."
 ---
 
-# Migration von anderen Laravel-SEO-Paketen
+# Migration von anderen Laravel-SEO-Paketen {#migrating-from-other-laravel-seo-packages}
 
 Diese Anleitung ordnet die APIs und Speicherformen gängiger SEO-Pakete den beiden Rankbeam-Bausteinen zu: dem Trait [`HasSEO`](/de/guide/quickstart) und `saveSEO()`. Für SEO-Daten, die pro Modell gespeichert sind, gibt es einen Importbefehl. Der konkrete Aufwand hängt von deinen Anpassungen ab.
 
 ::: tip Migration von WordPress
-Für Inhaltsseiten mit Yoast oder Rank Math beschreibt [Migration von WordPress (EN)](/de/guide/migrate-from-wordpress) den CSV-Import und die Leser für bestehende Datenbanken.
+Für Inhaltsseiten mit Yoast oder Rank Math beschreibt [Migration von WordPress](/de/guide/migrate-from-wordpress) den CSV-Import und die Leser für bestehende Datenbanken.
 :::
 
 | Ausgangspaket | Speicherung | Migrationsweg |
@@ -17,6 +17,8 @@ Für Inhaltsseiten mit Yoast oder Rank Math beschreibt [Migration von WordPress 
 | [`spatie/*`](#from-spatie-packages) | Keine Metadatentabelle; Schema- und Sitemap-Builder | Ergänzende Teile behalten, andere zu Rankbeam übertragen |
 
 Nur **ralphjsmit** speichert hier SEO-Daten in einer eigenen Datenbanktabelle und bietet damit Daten für einen Massenimport. Bei Laufzeit-Tag-Buildern gibt es keine solche Tabelle. Deren Aufrufe ersetzt du durch gespeicherte `seo_meta`-Werte oder berechnete Felder.
+
+---
 
 ## Von `ralphjsmit/laravel-seo` {#from-ralphjsmit-laravel-seo}
 
@@ -120,6 +122,8 @@ php artisan seo:audit            # confirm the imported metadata looks right
 
 Wenn die importierten Daten geprüft sind, kannst du `ralphjsmit/laravel-seo` entfernen und seine Tabelle `seo` löschen.
 
+---
+
 ## Von `artesaos/seotools` {#from-artesaos-seotools}
 
 `artesaos/seotools` erzeugt Tags zur **Laufzeit**. Meist setzt ein Controller Werte über `SEOMeta`, `OpenGraph`, `TwitterCard` und `JsonLd`; Standardwerte kommen aus `config/seotools.php`. Da nichts pro Modell gespeichert wird, gibt es keine Tabelle zu importieren. Übertrage die Aufrufe in gespeicherte oder berechnete Werte.
@@ -136,7 +140,9 @@ Wenn die importierten Daten geprüft sind, kannst du `ralphjsmit/laravel-seo` en
 | Standardwerte aus `config/seotools.php` | `config/seo.php` und [Resolver-Priorität](/de/concepts/resolver-precedence) |
 | `{!! SEO::generate() !!}` im Layout | `@seo($model)`, siehe [Blade](/de/guide/blade) |
 
-Statt in jedem Controller Tags zu setzen, speicherst du SEO-Daten pro Modell in `seo_meta` und lässt den Resolver sie ausgeben. Websiteweite Fallbacks werden zu [Konfigurationswerten (EN)](/de/reference/configuration). Statische Seiten pro Route verwenden `@seoForRoute()`.
+Statt in jedem Controller Tags zu setzen, speicherst du SEO-Daten pro Modell in `seo_meta` und lässt den Resolver sie ausgeben. Websiteweite Fallbacks werden zu [Konfigurationswerten](/de/reference/configuration). Statische Seiten pro Route verwenden `@seoForRoute()`.
+
+---
 
 ## Von Spatie-Paketen {#from-spatie-packages}
 
@@ -147,9 +153,11 @@ Es gibt kein Metadatenspeicherpaket `spatie/laravel-seo`. Die häufig mit SEO ko
 
 Für [`romanzipp/laravel-seo`](https://github.com/romanzipp/Laravel-SEO), einen weiteren Laufzeit-Builder, gilt dasselbe Muster wie bei artesaos: `setTitle`-/`addMeta`-Aufrufe werden zu `saveSEO()` oder berechneten Gettern.
 
+---
+
 ## Importer erweitern {#extending-the-importer}
 
-Hinter `seo:import-from` steht eine kleine Registry für Implementierungen von `Rankbeam\Seo\Importing\Contracts\Importer`. Neue Quellen benötigen keine Änderung am Befehl. Enthalten sind `ralphjsmit` und die [WordPress-Importer (EN)](/de/guide/migrate-from-wordpress) `wordpress-csv`, `yoast` und `rank-math`. Eigene Quellen registrierst du in einem Service Provider:
+Hinter `seo:import-from` steht eine kleine Registry für Implementierungen von `Rankbeam\Seo\Importing\Contracts\Importer`. Neue Quellen benötigen keine Änderung am Befehl. Enthalten sind `ralphjsmit` und die [WordPress-Importer](/de/guide/migrate-from-wordpress) `wordpress-csv`, `yoast` und `rank-math`. Eigene Quellen registrierst du in einem Service Provider:
 
 ```php
 use Rankbeam\Seo\Importing\ImporterRegistry;
