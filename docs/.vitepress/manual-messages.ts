@@ -11,6 +11,7 @@ export const manualMessages = {
     noScriptHelp: 'JavaScript staat uit. Gebruik deze links om te navigeren; selecteer code om die handmatig te kopiëren.',
     language: 'Taal',
     mobileNavigation: 'Mobiele navigatie',
+    extraNavigation: 'Extra navigatie',
     mainNavigation: 'Hoofdnavigatie',
     sidebarNavigation: 'Navigatie in de zijbalk',
     pager: 'Paginanavigatie',
@@ -21,6 +22,28 @@ export const manualMessages = {
       linkLabel: 'naar de homepage',
       linkText: 'Naar de homepage',
     },
+  },
+  "tr": {
+    "imageAlt": "Rankbeam — Laravel için open-core SEO altyapısı",
+    "copyTitle": "Kodu kopyala",
+    "copied": "Kopyalandı",
+    "copyFailed": "Kopyalanamadı. Kodu seçip elle kopyalayın.",
+    "noScript": "JavaScript olmadan kodu seçip elle kopyalayabilirsiniz.",
+    "noScriptMenu": "Menü",
+    "noScriptHelp": "JavaScript devre dışı. Gezinmek için bu bağlantıları kullanın; kodu elle kopyalamak için seçin.",
+    "language": "Dil",
+    "mobileNavigation": "Mobil gezinme",
+    "extraNavigation": "Ek gezinme",
+    "mainNavigation": "Ana gezinme",
+    "sidebarNavigation": "Kenar çubuğu gezinmesi",
+    "pager": "Sayfalar arasında gezinme",
+    "permalink": "Kalıcı bağlantı:",
+    "notFound": {
+      "title": "SAYFA BULUNAMADI",
+      "quote": "Ama yönünüzü değiştirmeden aramaya devam ederseniz, sonunda gitmekte olduğunuz yere varabilirsiniz.",
+      "linkLabel": "ana sayfaya git",
+      "linkText": "Ana sayfaya dön"
+    }
   },
 } as const
 

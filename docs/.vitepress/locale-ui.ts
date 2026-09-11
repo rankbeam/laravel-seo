@@ -377,6 +377,69 @@ export const localeUi = {
         }
       }
     }
+  },
+  "tr": {
+    "label": "Türkçe",
+    "lang": "tr",
+    "guide": "Kılavuz",
+    "english": "İngilizce dokümantasyon",
+    "fallback": "Bu sayfa henüz Türkçe olarak sunulmuyor.",
+    "open": "İngilizce sayfayı okuyun",
+    "review": "Bu çeviri Codex'in editoryal incelemesini bekliyor.",
+    "source": "İngilizce sürüm",
+    "outline": "Bu sayfada",
+    "next": "Sonraki sayfa",
+    "prev": "Önceki sayfa",
+    "description": "Laravel için Rankbeam dokümantasyonu: meta veriler, site haritaları, tarayıcı botlar ve Filament SEO alanları.",
+    "reference": "Referans (EN)",
+    "table": "Veri tablosu",
+    "titles": {
+      "guide/installation": "Kurulum",
+      "guide/quickstart": "Hızlı başlangıç",
+      "concepts/resolver-precedence": "Çözümleyici önceliği",
+      "guide/sitemaps": "Site haritası kaynakları",
+      "guide/filament": "Filament yönetim alanları",
+      "guide/audit": "Ücretsiz SEO denetimi",
+      "guide/ai-crawlers": "AI tarayıcı botlarını yönetme",
+      "guide/multilingual": "Çok dilli içerik ve hreflang",
+      "guide/og-image": "Üretilen OG görselleri",
+      "guide/migrate-from-other-packages": "Diğer paketlerden geçiş"
+    },
+    "theme": {
+      "returnToTopLabel": "Başa dön",
+      "sidebarMenuLabel": "Menü",
+      "darkModeSwitchLabel": "Koyu tema",
+      "lightModeSwitchTitle": "Açık temaya geç",
+      "darkModeSwitchTitle": "Koyu temaya geç",
+      "langMenuLabel": "Dili değiştir",
+      "skipToContentLabel": "İçeriğe geç",
+      "lastUpdated": {
+        "text": "Son güncelleme"
+      }
+    },
+    "edit": "Bu sayfayı GitHub'da düzenleyin",
+    "license": "rankbeam/laravel-seo MIT lisansı altında dağıtılır.",
+    "search": {
+      "button": {
+        "buttonText": "Ara",
+        "buttonAriaLabel": "Dokümantasyonda ara"
+      },
+      "modal": {
+        "displayDetails": "Ayrıntıları göster",
+        "resetButtonTitle": "Aramayı temizle",
+        "backButtonTitle": "Aramayı kapat",
+        "noResultsText": "Sonuç bulunamadı:",
+        "footer": {
+          "selectText": "seç",
+          "navigateText": "gezin",
+          "closeText": "kapat",
+          "selectKeyAriaLabel": "Enter tuşu",
+          "navigateUpKeyAriaLabel": "Yukarı ok tuşu",
+          "navigateDownKeyAriaLabel": "Aşağı ok tuşu",
+          "closeKeyAriaLabel": "Esc tuşu"
+        }
+      }
+    }
   }
 } as const
 

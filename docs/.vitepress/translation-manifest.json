@@ -3380,6 +3380,565 @@
         "independent_native": false,
         "translation_sha256": "ff1a6afcec84d1182ca7a9f2fb5edc3039b4f7090812ccd0b275a9bdf4a1cb64"
       }
+    },
+    "tr/concepts/resolver-precedence.md": {
+      "source": "concepts/resolver-precedence.md",
+      "sha256": "4391a29a1d25253802f2ad598b3eea68908906df8816260ae8dc912944417512",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "725aa46d5914348486f554ab5ec2a0bd1d65498d847a447de5228e23ddca6ca1"
+      }
+    },
+    "tr/guide/blade.md": {
+      "source": "guide/blade.md",
+      "sha256": "1545bf859fd72abe90b4e0038527fe901459e1c11c8472a5363aad2ea15cfcb4",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "0e102f6259fa3795834cc9fb3bba35f716ee3785264f8dd9847341f4da169599"
+      }
+    },
+    "tr/guide/explain.md": {
+      "source": "guide/explain.md",
+      "sha256": "8dff916dca42b6a22870ce1ea6b7786e5a48790bffb503065bb33ee01139e9d8",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "63be47f004225ec5e9c77182247b49643de61629b241e652164189f999970e6e"
+      }
+    },
+    "tr/guide/indexing-guard.md": {
+      "source": "guide/indexing-guard.md",
+      "sha256": "de3dc22aad4814ef932b11ffa2be244f6c4d764cf98ff3a9f5eb4f5d601c407c",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "7dfe18651d934b2b6df8337c6e6a08ccb0e5b8ded99c567bbf699f92231d65e9"
+      }
+    },
+    "tr/guide/inertia-json.md": {
+      "source": "guide/inertia-json.md",
+      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "0cea6c96931427557d8b6e0bf955330660f30fa04dde41a0679b4817ebbb5bc2"
+      }
+    },
+    "tr/guide/installation.md": {
+      "source": "guide/installation.md",
+      "sha256": "b6e9dbf70cf7585113bfc4cb6947f2c8c700179843a6bc0c7bb9a6d5c5d3676e",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "041f53e25870a70bad235a43d7ea2c2ed46b00f0f89533b904588b63b5cc4bea"
+      }
+    },
+    "tr/guide/livewire.md": {
+      "source": "guide/livewire.md",
+      "sha256": "fc9b76e838862d3f562ea7bb08061b95ce4775bb96e7bebf9d00aefeda8d2e4c",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "d5295abbf0e1f0a6e33c2e1b3b2361621aa30ee494041337f83f2f8a7c2b1616"
+      }
+    },
+    "tr/guide/quickstart.md": {
+      "source": "guide/quickstart.md",
+      "sha256": "62172e26a1b071e110a365c15ab81d23c415ff95ac160575142ad10bc507260d",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "9d1ae89665b381db2d0859815f849d3026153b45e58aa6763b3360c474b7ad86"
+      }
+    },
+    "tr/guide/schema.md": {
+      "source": "guide/schema.md",
+      "sha256": "f5896694ebd6fa3df9dc7d393ec392882f431242468a1aababc257bc70c3b02a",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "a0b3c870daaafd7ddb3ad03eb1c379829395164e6626b98ac2faa55950cd5267"
+      }
+    },
+    "tr/guide/translations.md": {
+      "source": "guide/translations.md",
+      "sha256": "bedcee93831af91605dca0f7ad536e57da078984464c60fd68b4ca52e62662bc",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "e9126cb0057124a6b8ddb9311d2f61cb499f7ec5884956987a3de1fae1a2562c"
+      }
+    },
+    "tr/contributing/rendering-contract.md": {
+      "source": "contributing/rendering-contract.md",
+      "sha256": "b4b18340855cfc8bcc45c3c33f9523942927105af01c9c11ac36f01afc5fd520",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "3eb3f61b4956983cdc4797f95fbc6d50600531b07e30442db6e6a2e716bf1eac"
+      }
+    },
+    "tr/guide/ai-crawlers.md": {
+      "source": "guide/ai-crawlers.md",
+      "sha256": "30895f227130c9e06315b53c7c7cac342dc9755f7ed1813c3d560633dfff8c4b",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "35e2f826a332a808dfe2f45f410020c32f78e85b3feeef5765d0ec336f2dd5dd"
+      }
+    },
+    "tr/guide/audit.md": {
+      "source": "guide/audit.md",
+      "sha256": "fdd1f134b1988c0ae6aeb529b233ed16750ef42a091c970b807406f05a2e939a",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "f95ef0ec0cd0b25e6a04386d63b4a6569bd536691a21e54ce0cc45a86f700d3b"
+      }
+    },
+    "tr/guide/demo.md": {
+      "source": "guide/demo.md",
+      "sha256": "a83060a0a93389f35bbfa86ed8f0ca25fa0558c7852ec930d29394e59802c8d7",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "67b46328b5c871949323f679a9fb88dbb68a1dae40e73849af2fe78e470dd458"
+      }
+    },
+    "tr/guide/filament.md": {
+      "source": "guide/filament.md",
+      "sha256": "7c7d8a78510a50a0f0c11f8a4952f6fcc40e2063ce8d457ffc1d3dfadb534aa4",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "b2a1ee8514a1ea715e1a619c3ed6377a0c52592a8c52d17f898150a251106853"
+      }
+    },
+    "tr/guide/markdown-for-bots.md": {
+      "source": "guide/markdown-for-bots.md",
+      "sha256": "0d3375f75e8a303c5c7b12d704482d71633948a685adde037bfdfa5d7d3fbac6",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "ad1a15a90a060ee83445775cbca828bc1bf6a37cf7ba1598baeccbe80c06d7f3"
+      }
+    },
+    "tr/guide/multilingual.md": {
+      "source": "guide/multilingual.md",
+      "sha256": "3ae9687568846476d3c5f972f34b14124409eb67e401569e1eec5a11305945af",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "60f97548936025f6c48f77bfc10b633333e079e2ef877dd16557e18d332f547c"
+      }
+    },
+    "tr/guide/og-image.md": {
+      "source": "guide/og-image.md",
+      "sha256": "dc7c00ce446dc5e1fd02f05130387e1bdbcf1443f6a00419e2a34934247b693d",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "544f74c27d70a912f849a0beb552bca62c808246d1c9418b68307c3f08b255ea"
+      }
+    },
+    "tr/guide/sitemaps.md": {
+      "source": "guide/sitemaps.md",
+      "sha256": "16bbe750af66c65ce687536f4b92bfe27c6c11b05f59c2030a6c9ea17d080a0e",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "df6f7c3b1b0aa77832141f6dfde68280b30f3554046a23fd0e10c30932a1be87"
+      }
+    },
+    "tr/guide/upgrade-from-v1.md": {
+      "source": "guide/upgrade-from-v1.md",
+      "sha256": "58fcb833a7313e9a91e41c7fea664a0db5b1a603d8b8bfda75db95f3a59bba15",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "44a6fa6cbcb5d1d70348f77e897ed360ccfdd02556457cd68ffd14ceff1a6577"
+      }
+    },
+    "tr/index.md": {
+      "source": "index.md",
+      "sha256": "1fe0fb5e64039c222519c36e499eb8dcbf9b775cf38241862971bb607089c522",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "45f8725fe4a6e0c3bcc9dc9e254d4e5fa7ff2403c66ced56b8dbf8ec17bdc6b7"
+      }
+    },
+    "tr/pro/ai-bot-monitor.md": {
+      "source": "pro/ai-bot-monitor.md",
+      "sha256": "45c33da9dbadd4d323f11be2260db72f21b32c0f47f95ceed60dd2d0927f08ab",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "0a6aac51c05fbd37d9cfabebe095a73ff01c12636360cb82f184db0f70119199"
+      }
+    },
+    "tr/pro/ai-readiness-score.md": {
+      "source": "pro/ai-readiness-score.md",
+      "sha256": "4a5d3936be605aa199975d2b4a4e15297627395c71394fd8dd2e2d666fba00a1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "5946f404a9dc2a673e11f8fc68c9953220d5bc2b7828c16555f65fe9aa8f7bc9"
+      }
+    },
+    "tr/pro/indexnow.md": {
+      "source": "pro/indexnow.md",
+      "sha256": "6358680ec026bd8281c17272ffbebb43a126ffa84a8b87564cbafc52338163eb",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "61359113be89921a03fa4fa424baa10a34e4d73fae391cc5eb89feaf10b8aeaf"
+      }
+    },
+    "tr/pro/mcp.md": {
+      "source": "pro/mcp.md",
+      "sha256": "5e38f0d65552be2664a98e0ce87614d7e14987ad4da3936b8938d8274a6cd874",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "40447b7a0b946dd1f830109835e3a32be1473a0638944baf6c4dd297c7c1b2cb"
+      }
+    },
+    "tr/pro/search-console-insights.md": {
+      "source": "pro/search-console-insights.md",
+      "sha256": "eb89ebecfbe846bc07f534918d5f19569911e8762d1e7441b4743181ec5ceec6",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "962e2aabf03c5b06c9bc9da37e5b67b498b74b68ad97708ef6e1631974a362fb"
+      }
+    },
+    "tr/pro/search-console.md": {
+      "source": "pro/search-console.md",
+      "sha256": "0fe33f55e9dc24a0f78a5bf34d00c93892fb04667fbd10c16ef214961f84d6da",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "4eeae0a04489a368e2d49bf54de4121eedcfac7cc3849200d93f6131a06a9e3e"
+      }
+    },
+    "tr/pro/ai-assist.md": {
+      "source": "pro/ai-assist.md",
+      "sha256": "49729166bb1045e61b7b1d43d824ae7031212ac0e4cd858b332f23c53c707108",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "1a1879f29232010ad2ea6c279c1d08817199fa8fcba10b590f4e3715599d70e5"
+      }
+    },
+    "tr/pro/installation.md": {
+      "source": "pro/installation.md",
+      "sha256": "a092e59eff8699016b9d17b63c117afbbdcb64ecac27e38954e73972db8366cd",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "dbac3adb23b2f6b05b89f2ec67469350fccf9628e033872bea84096de3f2f3fe"
+      }
+    },
+    "tr/pro/production.md": {
+      "source": "pro/production.md",
+      "sha256": "7a5bc5882b7d9bcddfa1028e52e73fb1c18f460cde9cf13ef3c1322f95db04a2",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "208d8077a468431ce97c6ebabb3e744628e6137c05a1459ccab074a11b3947bd"
+      }
+    },
+    "tr/pro/walkthrough.md": {
+      "source": "pro/walkthrough.md",
+      "sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "dbc708c082179f0109790f34bc2b5ff4c3fffd58b589c9695d1b6c2e7d893628"
+      }
+    },
+    "tr/pro/scan-issues.md": {
+      "source": "pro/scan-issues.md",
+      "sha256": "ddfb77bc5ce73aca006c7713aa819db26254e7c68bb1a9fd556a7d2580b6e2d1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "d34c7506f9b524cdc16d58adc51cf20a30dbfc65d78134e6ab3c55ec36c44e77"
+      }
+    },
+    "tr/pro/scan-scheduling.md": {
+      "source": "pro/scan-scheduling.md",
+      "sha256": "0c96d2a7db7d8717fab21a5c0bff169a6641751d4871673606c17b3d5550b1b3",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "e5e596a73889cdfd4ff7f6651f6ae28e418f879004aeb1af2c0db296b70efcdf"
+      }
+    },
+    "tr/pro/scoring.md": {
+      "source": "pro/scoring.md",
+      "sha256": "8c4fd3f83632f472dd3ebb75fe7b1fa6d87d6bda125bb51d94ae733a2e0e5032",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "8140c90d121971f7a125a4765460d953329aad52ec758889fc36b0cde030647c"
+      }
+    },
+    "tr/pro/broken-links.md": {
+      "source": "pro/broken-links.md",
+      "sha256": "536f024b3551aca7810605ddb6cb37ad77bce9dfaa64f697f1dd4f5d9b73a4f1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "ed695cfb4b8236473d3a044ee3c66628603bd9b956149b265da74432f808f686"
+      }
+    },
+    "tr/pro/reports.md": {
+      "source": "pro/reports.md",
+      "sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "83dbf5a873d0e4b809b12dcecd4a2c16675f699dd4aec1c7133a594d7f0d3c0e"
+      }
+    },
+    "tr/pro/headless.md": {
+      "source": "pro/headless.md",
+      "sha256": "6a392b623c3d912ae7db09674646e1bb9dd1fa5677adb3d0de228b3eaabcb5d9",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "b34eae4953eb28c52c7cf8d0391152543b7e06a002a7a0ecc6bf33fc65d5bf19"
+      }
+    },
+    "tr/pro/on-page-checklist.md": {
+      "source": "pro/on-page-checklist.md",
+      "sha256": "cb94ef8f19db646db0e214abb379d0abf490218a2d265efebcdfd986c34ea8c1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "45ff9f7bfdd226865eb448b94f322c821826a6bb14c125e3ab609d9fccced67e"
+      }
+    },
+    "tr/guide/migrate-from-other-packages.md": {
+      "source": "guide/migrate-from-other-packages.md",
+      "sha256": "8ac395702e898881af586ec86627c866f34955a76ca079880ce03dd7bc87eb1f",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "b4c175f221148e9308ea892fd89ab63fb67f19e72c72f78a5fb18b2f946927c7"
+      }
+    },
+    "tr/guide/migrate-from-wordpress.md": {
+      "source": "guide/migrate-from-wordpress.md",
+      "sha256": "7da4845d115d9fcc481bad48262275938286c8558579f6e375d964593b9c5668",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "d379f572bd4bd34fc4c4297967b6c3ecbf41eb3661193df839cbeede7e7811e4"
+      }
+    },
+    "tr/guide/why-rankbeam.md": {
+      "source": "guide/why-rankbeam.md",
+      "sha256": "d9ef64d4a335daa263460c434bc684876ec75c06a221abffe2ce994651deccf2",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "47fffa4160c7e434e86238e35bb5c642e6ec5565a85cf91bf2c85661df6dc569"
+      }
+    },
+    "tr/guide/wordpress-migration-runbook.md": {
+      "source": "guide/wordpress-migration-runbook.md",
+      "sha256": "f2daaf7eac2bd7a8e180d401e8c8c71bec38a306b6bbe5b2751202947cd82ff8",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "df6a88af2102264a775a241567290dea20ee5a3fca730e0e1bb679fdad58cc8f"
+      }
+    },
+    "tr/reference/configuration.md": {
+      "source": "reference/configuration.md",
+      "sha256": "6885c0770b86f6a3615d301a326f1b77d894a09f708cbb93cbe81b183fce6590",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "4972273c041420008a8de79bb477925228053aabfc8479e2ef719a6c5ebf7f56"
+      }
     }
   }
 }

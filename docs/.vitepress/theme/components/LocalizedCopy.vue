@@ -74,6 +74,9 @@ onUnmounted(() => {
 html[lang='nl'] {
   --vp-code-copy-copied-text-content: 'Gekopieerd';
 }
+html[lang='tr'] {
+  --vp-code-copy-copied-text-content: 'Kopyalandı';
+}
 .rb-copy-status {
   position: absolute;
   width: 1px;
@@ -85,7 +88,7 @@ html[lang='nl'] {
 }
 .vp-doc .rb-copy-error {
   padding: 0 24px 16px;
-  color: var(--vp-code-color);
+  color: var(--rb-console-ink);
   font-family: var(--vp-font-family-base);
   font-size: 14px;
 }
