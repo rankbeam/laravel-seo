@@ -217,3 +217,9 @@ See [Production setup](/pro/production) for worker recovery and ongoing operatio
 ## License and refunds {#license}
 
 The founding license costs €179 once and covers up to five production projects, including client projects, with lifetime updates. Development and staging copies for those projects do not count separately. Installation/migration help, a 60-minute installation call and the advertised launch kit are included. You can request an unconditional full refund within 30 days through your receipt or by emailing valentinogoxhaj@gmail.com. After a full refund, stop using Pro. You may modify Pro for your licensed projects, but may not publish its source or resell it as a standalone package or starter kit. The package includes the full license terms.
+
+Use Pro on up to five production projects, including client projects. Development, staging and test copies of those projects do not count separately. Lifetime updates include future Pro releases; they do not include ongoing personal implementation work.
+
+One 60-minute installation and configuration call and metadata migration for one initial project are included. Migration covers supported sources; we confirm the scope before starting, and custom application changes are quoted separately. The launch setup covers reviewing and configuring llms.txt, AI-crawler rules in robots.txt and markdown responses for bots on that same project, using features available in the free Core. Email hello@rankbeam.dev to arrange the included help.
+
+The offer shown when you purchased applies to your order.

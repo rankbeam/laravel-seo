@@ -992,15 +992,15 @@
     },
     "it/pro/installation.md": {
       "source": "pro/installation.md",
-      "sha256": "1888329527406030314b3c89fbde3e462a601fd5711e7032e1b2af43680daca3",
+      "sha256": "a092e59eff8699016b9d17b63c117afbbdcb64ecac27e38954e73972db8366cd",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-11",
-        "scope": "Reviewed self-hosted Composer origin, purchase receipt, founding license and refund wording; existing technical content retained",
+        "scope": "Reviewed agreed founding onboarding scope, lifetime updates and concrete launch setup; existing installation instructions retained",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "f7d63bfab7bc847a46e1f02457e336267641140e93d9f734d9c39f5402f98fc7"
+        "translation_sha256": "6feeb8dad5582ee8e25a75ee2a6f3424129fd1d71ad0b7c9044379545b3dae7a"
       }
     },
     "it/pro/mcp.md": {
@@ -1395,15 +1395,15 @@
     },
     "de/pro/installation.md": {
       "source": "pro/installation.md",
-      "sha256": "1888329527406030314b3c89fbde3e462a601fd5711e7032e1b2af43680daca3",
+      "sha256": "a092e59eff8699016b9d17b63c117afbbdcb64ecac27e38954e73972db8366cd",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-11",
-        "scope": "Reviewed self-hosted Composer origin, purchase receipt, founding license and refund wording; existing technical content retained",
+        "scope": "Reviewed agreed founding onboarding scope, lifetime updates and concrete launch setup; existing installation instructions retained",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "f1e4202d4595134c129a763fb7e055771217bad8cbe44e77b811a7c24d45947e"
+        "translation_sha256": "8216d6a6801a9dbc5fc6473fd3c5a9a5ac42e67fb94a050e6dcb97b4dae57cab"
       }
     },
     "de/pro/mcp.md": {
@@ -1811,15 +1811,15 @@
     },
     "fr/pro/installation.md": {
       "source": "pro/installation.md",
-      "sha256": "1888329527406030314b3c89fbde3e462a601fd5711e7032e1b2af43680daca3",
+      "sha256": "a092e59eff8699016b9d17b63c117afbbdcb64ecac27e38954e73972db8366cd",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-11",
-        "scope": "Reviewed self-hosted Composer origin, purchase receipt, founding license and refund wording; existing technical content retained",
+        "scope": "Reviewed agreed founding onboarding scope, lifetime updates and concrete launch setup; existing installation instructions retained",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "ad6c5f626b22b23f7a2680892a80a982a52822055f67f595f3a2d1b79ba1ff9d"
+        "translation_sha256": "be7a25dccc84955a608aa162192e1ae9f11f51ae7d2d5cb29460b2b611a85cc0"
       }
     },
     "fr/pro/mcp.md": {
@@ -2227,15 +2227,15 @@
     },
     "es/pro/installation.md": {
       "source": "pro/installation.md",
-      "sha256": "1888329527406030314b3c89fbde3e462a601fd5711e7032e1b2af43680daca3",
+      "sha256": "a092e59eff8699016b9d17b63c117afbbdcb64ecac27e38954e73972db8366cd",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-11",
-        "scope": "Reviewed self-hosted Composer origin, purchase receipt, founding license and refund wording; existing technical content retained",
+        "scope": "Reviewed agreed founding onboarding scope, lifetime updates and concrete launch setup; existing installation instructions retained",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "1ec4d6850ba26c60cd322d2cc938938636c9ebaa4d507f26e6c2ea37bd70c811"
+        "translation_sha256": "d8876c1dca72516150f06dc78bc704af339b4fd628afa7a267b7bb846c5f7976"
       }
     },
     "es/pro/mcp.md": {
@@ -2643,15 +2643,15 @@
     },
     "pt-BR/pro/installation.md": {
       "source": "pro/installation.md",
-      "sha256": "1888329527406030314b3c89fbde3e462a601fd5711e7032e1b2af43680daca3",
+      "sha256": "a092e59eff8699016b9d17b63c117afbbdcb64ecac27e38954e73972db8366cd",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-11",
-        "scope": "Reviewed self-hosted Composer origin, purchase receipt, founding license and refund wording; existing technical content retained",
+        "scope": "Reviewed agreed founding onboarding scope, lifetime updates and concrete launch setup; existing installation instructions retained",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "95bbedeed359bad8617e82c20e9ad4bb4627b6d803c86fa79b0c4dc09669b454"
+        "translation_sha256": "63f503d91c779234114e796016c81b383fe528ae554ba066e3c08c857065c749"
       }
     },
     "pt-BR/pro/mcp.md": {
