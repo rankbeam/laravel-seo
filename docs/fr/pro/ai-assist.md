@@ -9,7 +9,7 @@ Une assistance IA facultative **avec votre propre clé** : suggestions de titres
 Trois principes guident la conception :
 
 - **Votre clé, votre fournisseur.** Les requêtes partent de *votre serveur* directement vers le fournisseur *que vous configurez* : Anthropic, OpenAI, Google ou serveur local / compatible OpenAI. Elles sont facturées à votre compte lorsque cela s’applique. Le package ne sert pas d’intermédiaire, ne mesure ni ne revend cette consommation et n’envoie aucune télémétrie.
-- **Acceptation explicite des suggestions interactives.** Le modèle propose, vous choisissez. Une suggestion ou correction n’est *appliquée que par une action explicite* : remplir un champ ou enregistrer une valeur relue en cliquant sur Apply. Les validations habituelles, compteurs de longueur par écriture, avertissements de l’évaluateur et validateur de schéma, s’appliquent comme pour une saisie manuelle. La commande de remplissage en masse décrite plus bas est une écriture explicitement lancée ; elle n’exige pas la relecture de chaque champ généré avant enregistrement.
+- **Les suggestions interactives nécessitent une acceptation explicite.** Le choix remplit le formulaire ; les corrections du tableau de bord nécessitent Apply. Depuis Pro 2.42, la commande en masse enregistre des brouillons privés. `--auto-apply` active explicitement l’écriture immédiate.
 - **Erreurs non bloquantes.** Clé absente ou invalide, compte sans crédit, limitation de débit ou délai dépassé produisent un message dans l’interface. Ils ne doivent jamais empêcher d’enregistrer, de rendre une page ou de scanner.
 
 ## Les fournisseurs {#providers-at-a-glance}
@@ -233,88 +233,79 @@ La sortie comprend les suggestions, ou le type recommandé avec JSON-LD construi
 
 ## Remplir les métadonnées manquantes en masse {#bulk-fill-missing-metadata}
 
-Les fonctions ci-dessus proposent des valeurs. La fonction de lot qui **écrit** est `seo-pro:ai-fill`, ainsi que `SeoPro::aiFill()`, pour remplir les champs absents d’une collection de modèles.
+**Pro 2.42 change le comportement CLI par défaut :** `seo-pro:ai-fill` enregistre un brouillon privé par champ généré. Les métadonnées publiées restent inchangées jusqu’à approbation. Les valeurs existantes et les valeurs de repli calculables sont ignorées ; un brouillon en attente encore valide évite une nouvelle génération.
 
 ```bash
-# preview what would be written (no changes saved)
-php artisan seo-pro:ai-fill "App\Models\Post" --dry-run
-
-# fill missing descriptions across all configured models
-php artisan seo-pro:ai-fill --field=description
-
-# all configured (seo.audit.models / seo.sitemap.models) models, all fields
-php artisan seo-pro:ai-fill --force
+php artisan seo-pro:ai-fill "App\Models\Post" --field=description
+php artisan seo-pro:ai-review
+php artisan seo-pro:ai-review DRAFT_ID
+php artisan seo-pro:ai-review DRAFT_ID --approve --reviewer="editor@example.com"
+php artisan seo-pro:ai-review DRAFT_ID --reject --reviewer="editor@example.com"
 ```
 
-Elle parcourt les enregistrements, repère les **titres ou descriptions manquants**, sans valeur explicite *ni* repli calculé, selon **la même définition que [l’audit](/fr/guide/audit)**, les génère avec le service de suggestions et les enregistre.
+`seo-pro:ai-review` liste les 100 premiers brouillons en attente en JSON. Indiquez un ID pour lire la valeur et les preuves privées. Approbation et rejet fonctionnent avec l’IA désactivée, sans appel au fournisseur. L’approbation exige un identifiant d’opérateur et refuse les brouillons dont la source ou les métadonnées ont changé, ou dont l’enregistrement a été supprimé. Cet identifiant est déclaré par l’opérateur ; il ne prouve pas une relecture humaine substantielle. `--connection=NAME` sélectionne une connexion configurée.
 
-Son périmètre est volontairement restreint :
-
-- **Seules les lacunes sont remplies.** Si un champ existe ou peut être déduit, l’enregistrement est ignoré. Une valeur existante n’est **jamais écrasée**.
-- **`--dry-run`** génère et affiche les valeurs sans les enregistrer, pour permettre leur examen sans écriture en base. **La simulation appelle quand même le fournisseur et peut être facturée.**
-- **La commande écrit** : en production, elle demande confirmation sauf avec `--force`. `--field`, title | description | all, et `--limit` bornent l’exécution.
-- Chaque champ rempli correspond à un appel au service de suggestions facturé à votre clé. L’exécution nécessite l’assistance IA activée.
+`--auto-apply` rétablit explicitement la publication immédiate des champs encore absents. `--force` saute la confirmation, **pas la relecture**. `--dry-run` génère et affiche sans enregistrer de brouillons ni de métadonnées, mais appelle le fournisseur et peut coûter. `--field`, `--limit` et `--locale` limitent le travail. Vérifiez les commandes planifiées après la mise à jour.
 
 ### À grande échelle : rythme, estimation et reprise après interruption {#at-scale-pacing-a-cost-estimate-and-crash-resume}
 
-Remplir des centaines ou milliers de modèles est une opération longue et potentiellement **payante**. La commande prévoit plusieurs contrôles :
-
-- **Appels espacés.** `seo-pro.ai.fill.throttle_ms`, 200 par défaut, ajoute un délai entre appels pour éviter une rafale contre les limites du fournisseur. Définissez 0 pour un service local ou gratuit capable de suivre, ou augmentez le délai sur une offre limitée.
-- **Estimation confirmée avant le premier appel.** À partir de `seo-pro.ai.fill.confirm_over` enregistrements, 100 par défaut, la commande affiche une estimation et demande confirmation avant tout appel :
-
-  ```text
-  About to fill ~890 missing fields via anthropic (claude-opus-4-8) across 948 records.
-  Estimated ~667,500 tokens ≈ $18.02 (rough, ±50%).
-  Continue? (yes/no) [no]
-  ```
-
-  Le montant provient de `seo-pro.ai.pricing` ; voir [Coût](#cost). Un modèle sans tarif, par exemple local, affiche seulement les tokens estimés, sans montant inventé. `--force` évite la demande pour l’automatisation. Une simulation demande aussi confirmation, car elle effectue les mêmes appels payants.
-- **Reprise avec point de contrôle.** La progression est enregistrée après **chaque enregistrement**. Les champs terminés et enregistrés sont ignorés à la reprise ; les échecs transitoires restent ouverts pour réessai. **Cela ne garantit pas l’absence de double facturation** : une requête peut atteindre le fournisseur avant qu’un délai dépassé ou une interruption empêche d’enregistrer son résultat. Une exécution propre supprime son point de contrôle. Réconciliez le travail incertain avant d’utiliser `--fresh` pour l’ignorer.
+`seo-pro.ai.fill.throttle_ms` vaut 200 millisecondes. À partir de `confirm_over`, soit 100 enregistrements par défaut, la commande affiche l’estimation issue de `seo-pro.ai.pricing` et demande confirmation. Les points de reprise conservent les champs terminés après interruption. Un délai dépassé après acceptation peut encore provoquer une double facturation ; réconciliez le travail incertain avant `--fresh`. Un seul travail correspondant doit tourner à la fois.
 
 ```php
 use Rankbeam\Seo\Pro\Facades\SeoPro;
 
-$summary = SeoPro::aiFill()->fill([\App\Models\Post::class], 'all', limit: 50, apply: true);
-// ['processed' => 120, 'filled' => 18, 'skipped' => 102, 'failed' => 0, 'resumed' => 0, 'errors' => [], 'records' => [...]]
-// On a provider failure, 'errors' maps each distinct error code to its human
-// message (e.g. 'quota_exceeded' => 'OpenAI: the provider account is out of
-// credit or quota…'), and the seo-pro:ai-fill command prints those reasons —
-// so a run never fails silently.
+$summary = SeoPro::aiFill()->fill([\App\Models\Post::class], 'all', limit: 50, review: true);
 ```
+
+Les intégrations personnalisées utilisent `review: true` pour créer des brouillons. L’API PHP conserve `apply: true, review: false` pour compatibilité : les appels existants écrivent immédiatement. `apply: false` affiche sans persistance. `filled` compte les enregistrements traités, y compris les brouillons en mode relecture ; la CLI les nomme `staged`.
 
 ### Mode batch : réduction de 50 % {#batch-mode-50-cheaper}
 
-Pour un remplissage volumineux sans besoin de résultat immédiat, `--batch` utilise le **point d’accès asynchrone de lots** du fournisseur : [Anthropic Message Batches](https://docs.anthropic.com/en/docs/build-with-claude/batch-processing) ou [OpenAI Batch API](https://platform.openai.com/docs/guides/batch), avec tarif par token réduit de **moitié**. Les adaptateurs Rankbeam Google et local **n’implémentent pas ce chemin** ; `--batch` affiche une remarque puis exécute séquentiellement. Google propose sa propre [Batch API](https://ai.google.dev/gemini-api/docs/batch-api), que cette intégration n’utilise pas. Vérifiez les modèles pris en charge et les tarifs actuels chez chaque fournisseur.
-
-Le lot fonctionne en **soumission puis collecte ultérieure**, lors de deux exécutions de la même commande. Le processus peut être fermé entre les deux :
+`--batch` utilise l’endpoint asynchrone pris en charge d’Anthropic ou OpenAI. L’estimation inclut la réduction documentée ; vérifiez les prix actuels du modèle. Les adaptateurs Google et local passent en mode séquentiel. Envoyez, puis relancez la même commande pour récupérer les brouillons :
 
 ```bash
-# 1) Submit: builds one request per missing field, sends the whole batch in a
-#    single call, prints the discounted estimate, and exits. Nothing is written yet.
 php artisan seo-pro:ai-fill "App\Models\Post" --field=description --batch
-
-#    → Batch submitted: msgbatch_01Hkc… — 890 requests across 890 records via anthropic.
-#      Most batches finish within an hour (max 24h, then they expire).
-#      Re-run the SAME command to poll and apply the results:
-#        php artisan seo-pro:ai-fill "App\Models\Post" --field=description --batch
-
-# 2) Collect: re-run the same command. While the batch is still processing it
-#    just says so and exits; once results are ready it writes them and prints
-#    the usual summary.
+# Re-run the same command to collect drafts.
 php artisan seo-pro:ai-fill "App\Models\Post" --field=description --batch
 ```
 
-- **Mêmes prompts, prix réduit de moitié.** Chaque élément utilise le même prompt, schéma de sortie structurée et modèle que l’appel synchrone, ou le [`bulk_model`](#cheaper-bulk-generation) économique s’il est défini. L’enveloppe du lot et le moment d’exécution diffèrent.
-- **Estimation déjà réduite.** Au-delà de `seo-pro.ai.fill.confirm_over`, la soumission affiche le montant **réduit de 50 %** et demande confirmation avant tout envoi ; `--force` évite cette demande pour l’automatisation.
-- **Reprise après fermeture.** L’identifiant de lot fournisseur et la correspondance requête→enregistrement sont conservés avec les mêmes mécanismes de reprise que l’exécution séquentielle. Un nouveau processus, cron ultérieur ou après déploiement, peut collecter. Si le processus s’arrête entre l’acceptation du lot par le fournisseur et l’écriture de son identifiant, l’exécution suivante **s’arrête par prudence**. Elle indique qu’un lot peut être en cours et demande de vérifier le tableau de bord fournisseur, au lieu de soumettre silencieusement le même lot payant.
-- **Jamais d’écrasement.** La règle s’applique pendant *toute* la durée du lot. À la collecte, chaque enregistrement est revérifié et seuls les champs **encore absents** sont écrits. Un titre ou une description ajouté manuellement entre-temps est conservé.
-- **Résultats partiels gérés.** Les résultats sont rattachés aux enregistrements par identifiant, dans n’importe quel ordre. Un champ réussi est écrit et marqué terminé. Un échec **transitoire**, limitation, délai, erreur fournisseur ou élément expiré, reste ouvert. Une nouvelle exécution `--batch` soumet un lot réduit à ces éléments. Un enregistrement **refusé définitivement**, filtre de contenu ou requête invalide, est enregistré comme tel et *non* réessayé, pour éviter une boucle facturée.
-- **Changement de fournisseur refusé pendant un lot.** Si `SEO_PRO_AI_PROVIDER` change entre soumission et collecte, celle-ci s’arrête avec un message explicite : rétablir le fournisseur pour collecter ou utiliser `--fresh` pour abandonner après réconciliation. Elle n’interroge pas la mauvaise API. N’exécutez qu’une soumission `--batch` à la fois pour les mêmes modèles/champs.
-- **Un réglage dédié** : `seo-pro.ai.fill.batch.request_timeout`, 120 secondes par défaut, `SEO_PRO_AI_FILL_BATCH_TIMEOUT`, limite les appels de soumission, interrogation et collecte. Il est distinct du court `timeout` synchrone, car la soumission envoie toutes les requêtes et la collecte lit tout le fichier de résultats. Augmentez-le pour de très gros lots.
+Conservez fournisseur, langue et mode de publication entre envoi et récupération. Relecture et `--auto-apply` ont des points de reprise distincts ; la CLI refuse l’autre mode si un lot correspondant est en cours. Un envoi incertain nécessite une réconciliation. Les succès partiels restent conservés ; les erreurs transitoires peuvent être réessayées. La récupération revérifie les champs absents ; l’approbation vérifie aussi l’état source avant l’envoi. `seo-pro.ai.fill.batch.request_timeout` vaut 120 secondes. Une récupération planifiée enregistre des brouillons par défaut.
 
-::: tip Planifier la collecte
-Soumission et collecte étant indépendantes, vous pouvez soumettre depuis un hook de déploiement ou une commande ponctuelle, puis planifier `seo-pro:ai-fill … --batch` toutes les 15 à 30 minutes pour interroger et appliquer les résultats à la fin du lot. Aucun processus permanent de surveillance n’est nécessaire.
-:::
+## Provenance, migrations et filtrage des données {#origin-review-and-filtering}
+
+Nécessite **Core 3.21 et Pro 2.42**. Core charge sa migration automatiquement ; publiez les migrations Pro et migrez chaque base des modèles SEO avant de générer des suggestions à enregistrer :
+
+```bash
+php artisan vendor:publish --tag=seo-pro-migrations
+php artisan migrate
+```
+
+`seo_ai_proposals` conserve valeurs générées et preuves fournisseur/modèle/requête avec les casts chiffrés Laravel. Protégez `APP_KEY` et sa sauvegarde : sans la clé, les valeurs sont illisibles. Identifiants, états et décisions restent des colonnes ordinaires. Les alternatives de formulaires abandonnés peuvent rester `offered` ou `selected`. Aucune purge automatique : définissez une politique de conservation, préservez les brouillons en attente et preuves référencées par `seo_meta.ai_provenance`, et limitez l’accès aux exports et sorties de commande.
+
+Suggestions acceptées, corrections du tableau de bord et valeurs en masse conservent leur origine par champ. Les modifications Eloquent ultérieures gardent `origin: ai` et ajoutent `edited: true` ; cela indique une modification, pas une vérification humaine. Vider le champ retire le marqueur. HTML, tableaux, JSON et Inertia de Core exposent uniquement champ, origine et état de modification, avec la balise personnalisée `rankbeam:ai-origin` le cas échéant. Les ID de génération et détails du fournisseur restent privés. N’exposez pas les modèles `SEOMeta` bruts dans une API publique.
+
+Cela couvre les futurs enregistrements pris en charge, pas les contenus historiques ni toutes les révisions. SQL direct, query builder et moteurs de rendu personnalisés peuvent contourner ces contrôles. Réinitialisez explicitement la provenance lorsqu’un remplacement rédigé indépendamment le justifie ; les modifications ordinaires la conservent. Le marqueur n’est ni un filigrane standardisé, ni une attribution inviolable, ni une déclaration de conformité à l’article 50. La qualité des sorties et les marquages natifs nécessitent une évaluation distincte.
+
+Vous pouvez implémenter `AiPromptFilter` et configurer `seo-pro.ai.context_filter`. Il filtre le prompt utilisateur assemblé avant tout envoi synchrone ou batch ; un échec bloque l’envoi avec une erreur nettoyée. Les instructions système restent inchangées. La valeur par défaut est `null`, **sans suppression automatique des données sensibles**. Cet exemple remplace une seule valeur connue ; implémentez et testez les règles adaptées à votre application :
+
+```php
+namespace App\Support;
+
+use Rankbeam\Seo\Pro\Ai\AiPromptFilter;
+
+final class RedactAiContext implements AiPromptFilter
+{
+    public function filter(string $prompt): string
+    {
+        return str_replace('internal@example.com', '[redacted]', $prompt);
+    }
+}
+
+// Configure seo-pro.ai.context_filter with this class in config/seo-pro.php.
+// Runtime equivalent:
+config(['seo-pro.ai.context_filter' => RedactAiContext::class]);
+```
+
 
 ## Traitement des réponses {#how-replies-are-handled}
 
@@ -349,7 +340,7 @@ Chaque échec est non bloquant, avec code typé et message nettoyé. Cas courant
 Uniquement les éléments suivants, vers votre fournisseur configuré et sur action explicite, clic ou commande :
 
 - *Suggestions* : nom court de classe et clé du modèle, par exemple « Post #3 », titre et description résolus, URL canonique et extrait de texte sans HTML, limité par `max_input_chars`, 6 000 caractères par défaut.
-- *Explications de problèmes* : type, gravité, champ, message et URL cible, avec titre/description résolus du modèle concerné.
+- *Explications de problèmes* : type, gravité, champ, message et URL cible ; si le modèle existe, classe/clé, titre et description résolus, URL canonique et extrait textuel limité.
 - *Réécriture de description* : même contexte minimal que les suggestions, avec type et message du problème de scan lorsqu’il est fourni.
 - *Suggestion de données structurées* : même contexte minimal. Le modèle ne renvoie qu’un type et des valeurs de champs terminaux ; le JSON-LD est assemblé localement.
 

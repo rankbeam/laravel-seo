@@ -914,15 +914,15 @@
     },
     "it/pro/ai-assist.md": {
       "source": "pro/ai-assist.md",
-      "sha256": "06539b20fa756e83b517c773c9b7014488b50934e9d310b5e26d852351fb6dfe",
+      "sha256": "9efa9bd63246145a1a54bbea635f23e7c268109fca01606c86e8b8f55c063a4a",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
-        "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "date": "2026-09-11",
+        "scope": "Review-first CLI, offline decisions, migrations, private evidence, custom origin marker, data-egress correction and optional prompt filtering; code-example parity",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "ea1f8989649e01b497da9a1cbaf43289de0d78f993af9a58bce6684ae3dec6ba"
+        "translation_sha256": "a7cdc62770b4eab72d895df753f4b4f464fc9c37e6fc11879b7b4cf220863b27"
       }
     },
     "it/pro/ai-bot-monitor.md": {
@@ -1317,15 +1317,15 @@
     },
     "de/pro/ai-assist.md": {
       "source": "pro/ai-assist.md",
-      "sha256": "06539b20fa756e83b517c773c9b7014488b50934e9d310b5e26d852351fb6dfe",
+      "sha256": "9efa9bd63246145a1a54bbea635f23e7c268109fca01606c86e8b8f55c063a4a",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
-        "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "date": "2026-09-11",
+        "scope": "Review-first CLI, offline decisions, migrations, private evidence, custom origin marker, data-egress correction and optional prompt filtering; code-example parity",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "994de28756e21fe90c7f05a59392726c7597de3bd5aff341e23f6d4b906f5d24"
+        "translation_sha256": "8599b87ae5177f146b8d915594d8f5011db57526eecbaf852614234c56e3af31"
       }
     },
     "de/pro/ai-bot-monitor.md": {
@@ -1733,15 +1733,15 @@
     },
     "fr/pro/ai-assist.md": {
       "source": "pro/ai-assist.md",
-      "sha256": "06539b20fa756e83b517c773c9b7014488b50934e9d310b5e26d852351fb6dfe",
+      "sha256": "9efa9bd63246145a1a54bbea635f23e7c268109fca01606c86e8b8f55c063a4a",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
-        "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "date": "2026-09-11",
+        "scope": "Review-first CLI, offline decisions, migrations, private evidence, custom origin marker, data-egress correction and optional prompt filtering; code-example parity",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "07300ee1c2e9272187c87ee017e07c5d2de835c5d7b8b04b2d6c5694275a00ff"
+        "translation_sha256": "0e9865ae9ebd66476d882bcfd266fb92e75c55412909a40443973e06213a2df9"
       }
     },
     "fr/pro/ai-bot-monitor.md": {
@@ -2149,15 +2149,15 @@
     },
     "es/pro/ai-assist.md": {
       "source": "pro/ai-assist.md",
-      "sha256": "06539b20fa756e83b517c773c9b7014488b50934e9d310b5e26d852351fb6dfe",
+      "sha256": "9efa9bd63246145a1a54bbea635f23e7c268109fca01606c86e8b8f55c063a4a",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
-        "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "date": "2026-09-11",
+        "scope": "Review-first CLI, offline decisions, migrations, private evidence, custom origin marker, data-egress correction and optional prompt filtering; code-example parity",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "ac72dc820712ae77021e6addbad8096d9498f28ada4647039d0aba900e115157"
+        "translation_sha256": "09755ca40bf579a2b05700264e1991f37b1a4e82575a1bfee4ac32208b0701cc"
       }
     },
     "es/pro/ai-bot-monitor.md": {
@@ -2565,15 +2565,15 @@
     },
     "pt-BR/pro/ai-assist.md": {
       "source": "pro/ai-assist.md",
-      "sha256": "06539b20fa756e83b517c773c9b7014488b50934e9d310b5e26d852351fb6dfe",
+      "sha256": "9efa9bd63246145a1a54bbea635f23e7c268109fca01606c86e8b8f55c063a4a",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
-        "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "date": "2026-09-11",
+        "scope": "Review-first CLI, offline decisions, migrations, private evidence, custom origin marker, data-egress correction and optional prompt filtering; code-example parity",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "44db31601ccbef74566396f11c54c4762f02b1ac3395af4831d989881984a416"
+        "translation_sha256": "13bb2657c6f03823d38c87ef34a4f980ef01e55d22515a63db4bd609208d9503"
       }
     },
     "pt-BR/pro/ai-bot-monitor.md": {

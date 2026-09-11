@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.21.0] - 2026-09-11
+
+### Added
+
+- Nullable `seo_meta.ai_provenance` migration and per-field AI origin in `SEOData`. Eloquent edits preserve origin and mark changed values; clearing a field removes its marker.
+- Minimal custom `rankbeam:ai-origin` metadata in HTML, arrays, JSON and Inertia. Private generation identifiers and provider evidence are excluded. Independent resolver overrides do not inherit a displaced field's origin.
+- Six-language Pro 2.42 guide for draft-first CLI generation, offline decisions, migration, encrypted evidence and optional prompt filtering. The marker is not a standardized watermark or compliance certification.
+
 ### Changed
 
 - Add PHP 8.5 compatibility coverage. PHP 8.5 is supported with Laravel 12 and 13; the PHP 8.2 minimum remains unchanged.

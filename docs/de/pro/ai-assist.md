@@ -9,7 +9,7 @@ Optionale KI-Unterstützung mit **deinem eigenen API-Schlüssel**: Vorschläge f
 Drei Grundsätze bestimmen die Umsetzung:
 
 - **Dein Schlüssel, dein Anbieter.** Anfragen gehen von *deinem Server* direkt an den von *dir* konfigurierten Anbieter: Anthropic, OpenAI, Google oder einen lokalen beziehungsweise OpenAI-kompatiblen Server. Anfallende Gebühren werden deinem Konto berechnet. Das Paket vermittelt oder verkauft keine API-Nutzung weiter, rechnet sie nicht selbst ab und versendet keine Telemetrie.
-- **Interaktive Vorschläge brauchen eine ausdrückliche Übernahme.** Das Modell schlägt vor, du wählst aus. Ein Vorschlag oder eine Korrektur wird nur durch eine *ausdrückliche Aktion* übernommen: Ein Formularfeld wird ausgefüllt oder ein geprüfter Wert beim Klick auf Apply gespeichert. Die übliche Validierung – schriftabhängige Längenzähler, Prüfwarnungen und Schema-Validator – gilt wie bei manuell eingegebenen Werten. Der unten beschriebene Befehl zum massenhaften Ausfüllen ist ein ausdrücklich gestarteter Schreibvorgang. Er verlangt keine Prüfung jedes generierten Feldes vor dem Speichern.
+- **Interaktive Vorschläge erfordern eine ausdrückliche Übernahme.** Die Auswahl füllt das Formular; Dashboard-Korrekturen benötigen Apply. Seit Pro 2.42 speichert der Massenbefehl private Entwürfe. `--auto-apply` aktiviert ausdrücklich das sofortige Schreiben.
 - **Fehler blockieren keine anderen Abläufe.** Ein fehlender oder ungültiger Schlüssel, ein aufgebrauchtes Guthaben, ein Rate-Limit oder ein Timeout erzeugt eine Meldung an der jeweiligen Stelle. Speichern, Rendering und Scans werden dadurch nicht verhindert.
 
 ## Anbieter im Überblick {#providers-at-a-glance}
@@ -233,88 +233,79 @@ Die Ausgabe enthält die Vorschläge beziehungsweise empfohlenen Typ, aufgebaute
 
 ## Fehlende Metadaten massenhaft ausfüllen {#bulk-fill-missing-metadata}
 
-Die bisher beschriebenen Generierungsfunktionen schlagen Werte zur Übernahme vor. Die Funktion, die eine ganze Sammlung direkt **beschreibt**, ist `seo-pro:ai-fill` beziehungsweise `SeoPro::aiFill()`.
+**Pro 2.42 ändert den CLI-Standard:** `seo-pro:ai-fill` speichert einen privaten Entwurf pro generiertem Feld. Veröffentlichte Metadaten bleiben bis zur Freigabe unverändert. Vorhandene Werte und berechenbare Ersatzwerte werden übersprungen; ein aktueller offener Entwurf verhindert erneute Generierung.
 
 ```bash
-# preview what would be written (no changes saved)
-php artisan seo-pro:ai-fill "App\Models\Post" --dry-run
-
-# fill missing descriptions across all configured models
-php artisan seo-pro:ai-fill --field=description
-
-# all configured (seo.audit.models / seo.sitemap.models) models, all fields
-php artisan seo-pro:ai-fill --force
+php artisan seo-pro:ai-fill "App\Models\Post" --field=description
+php artisan seo-pro:ai-review
+php artisan seo-pro:ai-review DRAFT_ID
+php artisan seo-pro:ai-review DRAFT_ID --approve --reviewer="editor@example.com"
+php artisan seo-pro:ai-review DRAFT_ID --reject --reviewer="editor@example.com"
 ```
 
-Sie durchläuft die Datensätze und sucht nach **fehlendem Titel oder fehlender Beschreibung**. Fehlend bedeutet: weder ausdrücklicher Wert *noch* berechneter Fallback – dieselbe Definition wie im [Audit](/de/guide/audit). Für solche Felder generiert sie einen Vorschlag und speichert ihn.
+`seo-pro:ai-review` listet die ersten 100 offenen Entwürfe als JSON. Mit einer ID liest du Wert und private Nachweise. Freigabe und Ablehnung funktionieren bei deaktivierter KI ohne Anbieteraufrufe. Die Freigabe verlangt eine Bedienerkennung und lehnt Entwürfe ab, wenn Quelle oder Zielmetadaten geändert oder der Datensatz gelöscht wurden. Die Kennung ist eine Angabe des Bedieners, kein Nachweis einer inhaltlichen menschlichen Prüfung. `--connection=NAME` wählt eine konfigurierte Datenbankverbindung.
 
-Dabei gelten folgende Grenzen:
-
-- **Nur Lücken werden gefüllt.** Ist ein Feld vorhanden oder ableitbar, wird es übersprungen. Bestehende Werte werden **niemals überschrieben**.
-- **`--dry-run`** generiert und zeigt Werte, ohne sie zu speichern. Du kannst die Ausgabe damit ohne Datenbankschreibvorgänge prüfen. **Auch ein Dry-Run ruft den Anbieter auf und kann Gebühren verursachen.**
-- **Der Befehl schreibt Daten.** Deshalb fragt er in Produktion nach Bestätigung, sofern du nicht `--force` übergibst. `--field` mit title, description oder all und `--limit` begrenzen den Lauf.
-- Jedes ausgefüllte Feld benötigt einen Vorschlagsaufruf, der über deinen Schlüssel abgerechnet wird. Die Funktion läuft nur bei aktivierter KI-Unterstützung.
+`--auto-apply` veröffentlicht noch fehlende Felder sofort. `--force` überspringt die Bestätigung, **nicht die Prüfung**. `--dry-run` generiert und zeigt Werte ohne Entwürfe oder Metadaten zu speichern, ruft aber den Anbieter auf und kann Kosten verursachen. `--field`, `--limit` und `--locale` begrenzen den Lauf. Prüfe geplante Befehle nach dem Upgrade.
 
 ### Große Sammlungen: Taktung, Kostenschätzung und Fortsetzung nach Abbruch {#at-scale-pacing-a-cost-estimate-and-crash-resume}
 
-Hunderte oder Tausende Modelle auszufüllen ist ein langer, möglicherweise **kostenpflichtiger** Vorgang. Der Befehl bietet dafür folgende Vorkehrungen:
-
-- **Getaktete Aufrufe.** `seo-pro.ai.fill.throttle_ms`, standardmäßig `200`, fügt zwischen Anbieteraufrufen eine Pause ein. Ein großer Lauf soll dadurch nicht schlagartig das Rate-Limit erreichen. Setze den Wert für einen entsprechend leistungsfähigen lokalen oder kostenlosen Anbieter auf `0` oder erhöhe ihn bei einem niedrigen Kontingent.
-- **Kostenschätzung vor dem ersten Aufruf.** Soll ein Lauf mindestens `seo-pro.ai.fill.confirm_over` Datensätze bearbeiten, standardmäßig `100`, zeigt er eine Schätzung und fragt vor dem ersten Anbieteraufruf nach Bestätigung:
-
-  ```text
-  About to fill ~890 missing fields via anthropic (claude-opus-4-8) across 948 records.
-  Estimated ~667,500 tokens ≈ $18.02 (rough, ±50%).
-  Continue? (yes/no) [no]
-  ```
-
-  Der Dollarbetrag stammt aus `seo-pro.ai.pricing`; siehe [Kosten](#cost). Bei einem Modell ohne Preiseintrag, etwa einem lokalen Modell, erscheint eine Token-Schätzung ohne erfundenen Dollarbetrag. `--force` überspringt die Abfrage für automatisierte Abläufe. Auch ein Dry-Run fragt nach, weil er dieselben möglicherweise kostenpflichtigen Aufrufe ausführt.
-- **Fortsetzung mit Checkpoints.** Nach **jedem Datensatz** wird der Fortschritt gespeichert. Abgeschlossene, erfasste Felder werden beim Fortsetzen übersprungen; vorübergehende Fehler lassen einen Datensatz für einen weiteren Versuch offen. **Doppelte Gebühren sind damit nicht ausgeschlossen:** Eine Anfrage kann den Anbieter erreichen, bevor ein Timeout oder Abbruch das Speichern des Ergebnisses verhindert. Ein sauber abgeschlossener Lauf entfernt seinen Checkpoint. Gleiche unklare Vorgänge ab, bevor du mit `--fresh` den vorherigen Checkpoint ignorierst.
+`seo-pro.ai.fill.throttle_ms` beträgt standardmäßig 200 Millisekunden. Ab `confirm_over`, standardmäßig 100 Datensätzen, zeigt der Befehl die Schätzung aus `seo-pro.ai.pricing` und fragt vor der Generierung. Checkpoints erhalten abgeschlossene Felder bei Unterbrechungen. Ein Timeout nach Annahme durch den Anbieter kann trotzdem doppelte Kosten verursachen; kläre ungewisse Arbeit vor `--fresh`. Starte nur einen passenden Lauf gleichzeitig.
 
 ```php
 use Rankbeam\Seo\Pro\Facades\SeoPro;
 
-$summary = SeoPro::aiFill()->fill([\App\Models\Post::class], 'all', limit: 50, apply: true);
-// ['processed' => 120, 'filled' => 18, 'skipped' => 102, 'failed' => 0, 'resumed' => 0, 'errors' => [], 'records' => [...]]
-// On a provider failure, 'errors' maps each distinct error code to its human
-// message (e.g. 'quota_exceeded' => 'OpenAI: the provider account is out of
-// credit or quota…'), and the seo-pro:ai-fill command prints those reasons —
-// so a run never fails silently.
+$summary = SeoPro::aiFill()->fill([\App\Models\Post::class], 'all', limit: 50, review: true);
 ```
+
+Eigene Integrationen verwenden `review: true` für Entwürfe. Die PHP-API behält aus Kompatibilitätsgründen `apply: true, review: false`: bestehende Aufrufe schreiben weiterhin sofort. `apply: false` zeigt nur eine Vorschau. `filled` zählt bearbeitete Datensätze einschließlich Entwürfen im Prüfmodus; die CLI nennt diese `staged`.
 
 ### Batch-Modus (50 % günstiger) {#batch-mode-50-cheaper}
 
-Wenn die Ergebnisse einer großen Ausfüllung nicht sofort benötigt werden, leitet `--batch` den Lauf über den **asynchronen Batch-Endpunkt** des Anbieters: [Anthropic Message Batches](https://docs.anthropic.com/en/docs/build-with-claude/batch-processing) oder die [OpenAI Batch API](https://platform.openai.com/docs/guides/batch). Diese rechnen mit **halbierten** Tokenpreisen ab. Die Rankbeam-Adapter für Google und Local **implementieren diesen Batch-Pfad nicht**. Dort gibt `--batch` einen Hinweis aus und arbeitet sequenziell. Google bietet eine eigene [Batch API](https://ai.google.dev/gemini-api/docs/batch-api), die diese Integration nicht nutzt. Prüfe jeweils die aktuelle Modellunterstützung und die Preise des Anbieters.
-
-Ein Batch wird **jetzt eingereicht und später abgeholt**. Dafür führst du denselben Befehl zweimal aus; dazwischen kann der Prozess beendet werden:
+`--batch` verwendet den unterstützten asynchronen Endpunkt von Anthropic oder OpenAI. Die Schätzung berücksichtigt den dokumentierten Rabatt; prüfe aktuelle Modellpreise. Google- und lokale Adapter arbeiten sequenziell. Sende zuerst und führe denselben Befehl später erneut aus, um Entwürfe abzuholen:
 
 ```bash
-# 1) Submit: builds one request per missing field, sends the whole batch in a
-#    single call, prints the discounted estimate, and exits. Nothing is written yet.
 php artisan seo-pro:ai-fill "App\Models\Post" --field=description --batch
-
-#    → Batch submitted: msgbatch_01Hkc… — 890 requests across 890 records via anthropic.
-#      Most batches finish within an hour (max 24h, then they expire).
-#      Re-run the SAME command to poll and apply the results:
-#        php artisan seo-pro:ai-fill "App\Models\Post" --field=description --batch
-
-# 2) Collect: re-run the same command. While the batch is still processing it
-#    just says so and exits; once results are ready it writes them and prints
-#    the usual summary.
+# Re-run the same command to collect drafts.
 php artisan seo-pro:ai-fill "App\Models\Post" --field=description --batch
 ```
 
-- **Gleiche Aufgabe zum halben Tokenpreis.** Jedes Batch-Element verwendet denselben Prompt, dasselbe Schema für strukturierte Ausgabe und dieselbe Modellkonfiguration wie der synchrone Aufruf, einschließlich eines gesetzten günstigeren [`bulk_model`](#cheaper-bulk-generation). Anfragehülle und Ausführungszeitpunkt unterscheiden sich.
-- **Die Schätzung berücksichtigt den Rabatt.** Ab dem Schwellenwert `seo-pro.ai.fill.confirm_over` zeigt die Einreichung den um **50 % reduzierten** Betrag und fragt vor dem Senden nach. `--force` überspringt die Abfrage für Automatisierung.
-- **Der Prozess darf beendet werden.** Anbieter-Batch-ID und Zuordnung von Anfragen zu Datensätzen werden mit derselben Fortschrittsverwaltung gespeichert wie beim sequenziellen Lauf. Das Abholen funktioniert deshalb in einem neuen Prozess, etwa bei einem späteren Cron-Aufruf oder nach einem Deployment. Wird die Einreichung genau zwischen Annahme durch den Anbieter und Speicherung der ID beendet, **stoppt der nächste Lauf vorsorglich**. Er weist auf einen möglicherweise laufenden Batch und die Prüfung im Anbieter-Dashboard hin, statt den gesamten kostenpflichtigen Batch stillschweigend erneut einzureichen.
-- **Kein Überschreiben.** Die Regel gilt über die *gesamte* Batch-Laufzeit. Beim Abholen wird jeder Datensatz erneut geprüft. Nur **weiterhin fehlende** Felder werden geschrieben. Ein inzwischen manuell ergänzter Titel oder eine Beschreibung bleibt erhalten.
-- **Teilergebnisse werden zugeordnet verarbeitet.** Ergebnisse werden unabhängig von ihrer Reihenfolge anhand der ID dem Datensatz zugeordnet. Ein erfolgreich generiertes Feld wird gespeichert und als erledigt markiert. Ein **vorübergehend** fehlgeschlagener Datensatz, etwa bei Rate-Limit, Timeout, Anbieterfehler oder abgelaufenem Batch-Element, bleibt offen. Ein erneutes `--batch` reicht dafür einen kleineren Batch ein. Eine **endgültige Ablehnung** wie Inhaltsfilter oder ungültige Anfrage wird erfasst und nicht wiederholt, damit aussichtslose Datensätze keine kostenpflichtige Schleife erzeugen.
-- **Ein Anbieterwechsel während des Batches wird abgelehnt.** Änderst du zwischen Einreichung und Abholung `SEO_PRO_AI_PROVIDER`, stoppt das Abholen mit einer verständlichen Meldung. Wechsle zum Abholen zurück oder verwirf den Zustand nach Abgleich mit `--fresh`. Der Befehl fragt nicht versehentlich die falsche API ab. Führe immer nur eine `--batch`-Einreichung gleichzeitig aus; starte keine konkurrierenden Einreichungen für dieselben Modelle und Felder.
-- **Eine zusätzliche Einstellung:** `seo-pro.ai.fill.batch.request_timeout`, standardmäßig `120` Sekunden, Umgebungsvariable `SEO_PRO_AI_FILL_BATCH_TIMEOUT`. Das ist der HTTP-Timeout für Einreichen, Statusabfrage und Abholen. Er ist länger als der synchrone `timeout`, weil die Einreichung alle Anfragen hochlädt und das Abholen die gesamte Ergebnisdatei streamt. Erhöhe ihn für sehr große Läufe.
+Anbieter, Sprache und Veröffentlichungsmodus müssen beim Senden und Abholen gleich bleiben. Prüfung und `--auto-apply` haben getrennte Checkpoints; die CLI verhindert den anderen Modus bei einem passenden laufenden Batch. Ungewisse Übermittlung verlangt Klärung. Teilerfolge bleiben erhalten, vorübergehende Fehler können wiederholt werden. Abholen prüft fehlende Felder erneut; Freigabe prüft auch den Quellzustand vor dem Senden. `seo-pro.ai.fill.batch.request_timeout` beträgt 120 Sekunden. Geplantes Abholen speichert standardmäßig Entwürfe.
 
-::: tip Abholung einplanen
-Da Einreichen und Abholen getrennt sind, kannst du einen Batch über einen Deployment-Hook oder einmaligen Befehl einreichen. Ein geplanter Aufruf von `seo-pro:ai-fill … --batch` alle 15–30 Minuten fragt den Status ab und übernimmt die Ergebnisse nach Abschluss. Ein dauerhaft laufender Prozess ist dafür nicht erforderlich.
-:::
+## Herkunft, Migrationen und Datenfilter {#origin-review-and-filtering}
+
+Benötigt **Core 3.21 und Pro 2.42**. Core lädt seine Migration automatisch; veröffentliche Pro-Migrationen und migriere jede Datenbank der SEO-Modelle vor der Generierung gespeicherter Vorschläge:
+
+```bash
+php artisan vendor:publish --tag=seo-pro-migrations
+php artisan migrate
+```
+
+`seo_ai_proposals` speichert generierte Werte und Anbieter-/Modell-/Anfragenachweise mit verschlüsselten Laravel-Casts. Sichere `APP_KEY` und dessen Backup: ohne Schlüssel sind die Werte unlesbar. Datensatzkennungen, Status und Entscheidungen bleiben normale Spalten. Alternativen aus verlassenen Formularen können `offered` oder `selected` bleiben. Es gibt keine automatische Löschung: definiere Aufbewahrungsregeln, erhalte offene Entwürfe und durch `seo_meta.ai_provenance` referenzierte Nachweise und beschränke Datenbankexporte sowie Befehlsausgaben.
+
+Übernommene Formularvorschläge, Dashboard-Korrekturen und Massenwerte behalten ihre Feldherkunft. Spätere Eloquent-Änderungen erhalten `origin: ai` und setzen `edited: true`; das bedeutet Änderung, nicht menschliche Prüfung. Leeren entfernt die Markierung. Core-HTML, Arrays, JSON und Inertia geben nur Feld, Herkunft und Änderungsstatus aus, gegebenenfalls im eigenen Meta-Tag `rankbeam:ai-origin`. Generierungs-IDs und Anbieterdetails bleiben privat. Veröffentliche keine rohen `SEOMeta`-Modelle über APIs.
+
+Erfasst werden künftige unterstützte Speicherwege, keine historischen Inhalte oder vollständigen Änderungsversionen. Direktes SQL, Query-Builder-Updates und eigene Renderer können die Kontrollen umgehen. Setze die Herkunft bei einer unabhängig verfassten Neufassung ausdrücklich zurück, wenn gerechtfertigt; normale Änderungen behalten sie. Die Markierung ist weder standardisiertes Wasserzeichen noch manipulationssicherer Nachweis oder Aussage zur Konformität mit Artikel 50. Ausgabequalität und native Anbietermarkierungen benötigen eine gesonderte Bewertung.
+
+Optional kannst du `AiPromptFilter` implementieren und `seo-pro.ai.context_filter` konfigurieren. Der Filter verarbeitet den zusammengesetzten Benutzerprompt vor synchroner oder Batch-Übermittlung; ein Fehler verhindert das Senden mit bereinigter Meldung. Systemanweisungen bleiben unverändert. Standard ist `null`, **ohne automatische Bereinigung sensibler Daten**. Das Beispiel ersetzt nur einen bekannten Wert; implementiere und teste anwendungsspezifische Regeln:
+
+```php
+namespace App\Support;
+
+use Rankbeam\Seo\Pro\Ai\AiPromptFilter;
+
+final class RedactAiContext implements AiPromptFilter
+{
+    public function filter(string $prompt): string
+    {
+        return str_replace('internal@example.com', '[redacted]', $prompt);
+    }
+}
+
+// Configure seo-pro.ai.context_filter with this class in config/seo-pro.php.
+// Runtime equivalent:
+config(['seo-pro.ai.context_filter' => RedactAiContext::class]);
+```
+
 
 ## Verarbeitung von Antworten {#how-replies-are-handled}
 
@@ -349,7 +340,7 @@ Jeder Fehler erscheint an der jeweiligen Stelle, mit typisiertem Code und berein
 Nur folgende Daten werden an deinen konfigurierten Anbieter gesendet, und nur nach einer ausdrücklichen Aktion wie einem Klick oder einem gestarteten Befehl:
 
 - *Vorschläge*: der Klassenbasisname und Schlüssel des Modells, etwa „Post #3“, aktuell aufgelöster Titel und Beschreibung, die Canonical-URL sowie ein Klartextausschnitt ohne HTML, begrenzt durch `max_input_chars`, standardmäßig 6000 Zeichen.
-- *Erklärungen von Befunden*: Typ, Schweregrad, Feld, Meldung und Ziel-URL des Befunds sowie aufgelöster Titel und Beschreibung des betroffenen Modells.
+- *Erklärungen von Befunden*: Typ, Schweregrad, Feld, Meldung und Ziel-URL; bei verfügbarem Modell auch Klasse/Schlüssel, aufgelöster Titel und Beschreibung, kanonische URL sowie begrenzter Klartextauszug.
 - *Überarbeitung der Beschreibung*: derselbe Seitenkontext wie bei Vorschlägen, ergänzt um Typ und Meldung eines gegebenenfalls übergebenen Scan-Befunds.
 - *Vorschlag strukturierter Daten*: derselbe Seitenkontext wie bei Vorschlägen. Das Modell gibt nur einen Typ und einzelne Feldwerte zurück; das JSON-LD wird lokal zusammengesetzt.
 
