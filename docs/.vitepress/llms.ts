@@ -146,6 +146,7 @@ function linkToMdUrl(link: string): string {
 function emitPageMarkdown(cfg: SiteConfigLike): number {
   let count = 0
   for (const page of cfg.pages) {
+    if (/(^|\/)404\.md$/.test(page)) continue
     // Language fallback notices are navigation helpers, not translated docs.
     if (cfg.dynamicRoutes?.routes.some(route => route.path === page && route.route === '[fallback].md')) continue
     const src = path.join(cfg.srcDir, page)

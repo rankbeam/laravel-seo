@@ -35,7 +35,7 @@ Eine Matrix für die gesamte Familie:
 
 Rankbeam koordiniert die eigene SEO-Ausgabe einer Laravel-App. Es ist kein gehosteter Rank-Tracker, keine Keyword-Recherche-Suite und kein Analytics-Produkt. Rankings, Indexierung oder KI-Zitate werden nicht versprochen. Für XML-Sitemaps verwendet es [`spatie/laravel-sitemap`](https://packagist.org/packages/spatie/laravel-sitemap). Inhalte, Routing und Analytics bleiben in deiner Anwendung.
 
-Zum Einstieg kannst du den [kostenlosen Core installieren](/de/guide/installation) oder den folgenden Bericht über einen Wechsel in einer produktiven Anwendung lesen. Pro und die Warteliste für das Gründerangebot findest du auf [rankbeam.dev](https://rankbeam.dev/de/).
+Zum Einstieg kannst du den [kostenlosen Core installieren](/de/guide/installation) oder den folgenden Bericht über einen Wechsel in einer produktiven Anwendung lesen. Pro und das Gründerangebot findest du auf [rankbeam.dev](https://rankbeam.dev/de/).
 
 ## Warum nicht drei Pakete mit eigener Integration? {#why-not-three-packages-glue}
 

@@ -35,7 +35,7 @@ Una matriz para toda la familia:
 
 Rankbeam coordina la salida SEO de tu aplicación Laravel. No es un servicio alojado de seguimiento de posiciones, investigación de palabras clave ni analítica, y no promete posicionamiento, indexación o citas de IA. Para generar sitemaps XML utiliza [`spatie/laravel-sitemap`](https://packagist.org/packages/spatie/laravel-sitemap), y deja el contenido, las rutas y la analítica en tu aplicación.
 
-Puedes [instalar el núcleo gratuito](/es/guide/installation) o seguir leyendo el caso de sustitución real en producción. Pro y la lista de espera de la oferta inicial están en [rankbeam.dev](https://rankbeam.dev/es/).
+Puedes [instalar el núcleo gratuito](/es/guide/installation) o seguir leyendo el caso de sustitución real en producción. Pro y la oferta inicial están en [rankbeam.dev](https://rankbeam.dev/es/).
 
 ## Por qué no combinar tres paquetes con código propio {#why-not-three-packages-glue}
 
@@ -145,7 +145,7 @@ La referencia fue una migración WordPress de unas 900 páginas, con años de tr
 3. **Trasladar redirecciones.** El núcleo genera un CSV versionado; `seo-pro:redirects-import` valida cada fila, rechazando bucles, destinos inseguros y duplicados antes de escribir.
 4. **Verificar antes de eliminar.** `seo:audit --strict` devuelve un código distinto de cero si detecta cualquier problema y sirve como condición de CI o del cambio. La base WordPress permanece intacta hasta que decidas retirarla.
 
-Consulta el [procedimiento de migración](/es/guide/wordpress-migration-runbook) y la [referencia de campos y variables](/es/guide/migrate-from-wordpress). Para cambiar desde un paquete SEO **Laravel** como ralphjsmit, artesaos o Spatie, [también hay un comando](/es/guide/migrate-from-other-packages).
+Consulta el [procedimiento de migración](/es/guide/wordpress-migration-runbook) y la [referencia de campos y variables](/es/guide/migrate-from-wordpress). Para cambiar desde un paquete SEO **Laravel** como ralphjsmit, artesaos o Spatie, [consulta la guía de migración entre paquetes](/es/guide/migrate-from-other-packages).
 
 ## ¿Cómo se comporta con más tráfico y páginas? {#does-it-hold-up-at-scale}
 

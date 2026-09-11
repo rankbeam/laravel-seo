@@ -1,6 +1,8 @@
 import { defineConfig } from 'vitepress'
 import { core, pro, reference, nav } from './navigation'
 import { localizeNavigation, sidebarFor } from './layout-localization'
+import { manualFor } from './manual-messages'
+import { localizedThemeAccessibility } from './theme-a11y'
 import { verifyLayoutSources } from './layout-validation'
 verifyLayoutSources()
 import { generateLlmsArtifacts, SITE_ORIGIN } from './llms'
@@ -29,6 +31,7 @@ function canonicalFor(relativePath: string): string {
 // Tokens are mapped onto VitePress's own variables in theme/custom.css.
 
 export default defineConfig({
+  vite: { plugins: [localizedThemeAccessibility()] },
   title: 'Rankbeam',
   description:
     'Laravel SEO package for layered metadata, canonical URLs, Open Graph, linked JSON-LD, XML sitemaps and crawler controls.',
@@ -43,6 +46,7 @@ export default defineConfig({
         sidebar: sidebarFor(locale, translatedPaths(locale)),
         outline: { label: info.outline }, docFooter: { prev: info.prev, next: info.next },
         ...info.theme,
+        ...(manualFor(locale) ? { notFound: manualFor(locale).notFound } : {}),
         editLink: { pattern: 'https://github.com/rankbeam/laravel-seo/edit/master/docs/:path', text: info.edit },
         footer: { message: info.license, copyright: 'Copyright © 2026 Valentin Goxhaj — P.IVA 04936270612' },
       },
@@ -61,6 +65,7 @@ export default defineConfig({
   // pages, so they never enter the sitemap.
   sitemap: { hostname: SITE_ORIGIN, transformItems: items => items.filter(item => {
     const p = item.url.replace(/^\//, '').replace(/\.html$/, '')
+    if (/(^|\/)404$/.test(p)) return false
     const [locale, ...rest] = p.split('/')
     const target = (!p || p.endsWith('/') ? p + 'index' : p) + '.md'
     return !(locale in localeInfo) || translationFiles(locale).includes(target)
@@ -78,6 +83,11 @@ export default defineConfig({
   // page's own head. VitePress already emits <meta name="description"> from the
   // resolved page description (frontmatter first), so we don't repeat it here.
   transformPageData(pageData, { siteConfig }) {
+    if (pageData.relativePath === 'nl/404.md') {
+      pageData.isNotFound = true
+      ;(pageData.frontmatter.head ??= []).push(['meta', { name: 'robots', content: 'noindex,follow' }])
+      return
+    }
     // Skip virtual pages: the 404 sets isNotFound, and VitePress leaves
     // filePath empty for virtual pages. relativePath also feeds the canonical
     // below, so an empty one would wrongly resolve to the homepage — guard on
@@ -121,7 +131,7 @@ export default defineConfig({
       ['meta', { property: 'og:image', content: OG_IMAGE }],
       ['meta', { property: 'og:image:width', content: '1200' }],
       ['meta', { property: 'og:image:height', content: '630' }],
-      ['meta', { property: 'og:image:alt', content: 'Rankbeam — open-core SEO infrastructure for Laravel' }],
+      ['meta', { property: 'og:image:alt', content: manualFor(locale)?.imageAlt ?? 'Rankbeam — open-core SEO infrastructure for Laravel' }],
       ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
       ['meta', { name: 'twitter:title', content: title }],
       ['meta', { name: 'twitter:description', content: description }],
@@ -151,6 +161,21 @@ export default defineConfig({
     // table already fits and would only be forced into a needless scroll. CSS
     // turns the count into a per-table floor.
     config(md) {
+      const renderLink = md.renderer.rules.link_open
+      md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
+        const copy = manualFor(env.relativePath?.split('/')[0])
+        const label = tokens[idx].attrGet('aria-label')
+        if (copy && label?.startsWith('Permalink to "')) {
+          tokens[idx].attrSet('aria-label', label.replace('Permalink to', copy.permalink).replace(/\s*\{#[^}]+\}/g, ''))
+        }
+        return renderLink ? renderLink(tokens, idx, options, env, self) : self.renderToken(tokens, idx, options)
+      }
+      const renderFence = md.renderer.rules.fence!
+      md.renderer.rules.fence = (tokens, idx, options, env, self) => {
+        const html = renderFence(tokens, idx, options, env, self)
+        const copy = manualFor(env.relativePath?.split('/')[0])
+        return copy ? html.replace('title="Copy Code" class="copy"', `title="${copy.copyTitle}" aria-label="${copy.copyTitle}" class="copy"`) : html
+      }
       md.renderer.rules.table_open = (tokens, idx, options, _env, self) => {
         let columns = 0
         for (let i = idx + 1; i < tokens.length; i++) {

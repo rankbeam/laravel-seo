@@ -1,10 +1,11 @@
 import fs from 'node:fs'
+import { localeInfo } from './localization.ts'
 import { createHash } from 'node:crypto'
 import { fileURLToPath } from 'node:url'
 
 export function verifyLayoutSources(root = fileURLToPath(new URL('.', import.meta.url))) {
   const messages = JSON.parse(fs.readFileSync(root + 'layout-messages.json', 'utf8'))
-  if (JSON.stringify(Object.keys(messages).sort()) !== JSON.stringify(['de', 'en', 'es', 'fr', 'it', 'pt-BR'])) throw new Error('Incomplete layout locale set')
+  if (JSON.stringify(Object.keys(messages).sort()) !== JSON.stringify(['en', ...Object.keys(localeInfo)].sort())) throw new Error('Incomplete layout locale set')
   const review = JSON.parse(fs.readFileSync(root + 'layout-review.json', 'utf8'))
   const sources = ['navigation.ts', 'home-content.ts', 'theme/components/Home.vue']
   const digest = createHash('sha256')

@@ -7,8 +7,8 @@ import { fileURLToPath } from 'node:url'
 import { verifyLayoutSources } from './layout-validation.ts'
 import { localizeNavigation, destination, sidebarFor } from './layout-localization.ts'
 import { core, pro, reference, nav } from './navigation.ts'
-import { translatedPaths, englishPages } from './localization.ts'
-const locales = ['it', 'de', 'fr', 'es', 'pt-BR']
+import { translatedPaths, englishPages, localeInfo } from './localization.ts'
+const locales = Object.keys(localeInfo)
 
 test('all locales retain the English navigation groups, destinations and order', () => {
   function compare(source, result, locale) {

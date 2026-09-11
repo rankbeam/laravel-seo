@@ -33,5 +33,13 @@
     "reviewed_at": "2026-09-10",
     "status": "approved",
     "independent_native": false
+  },
+  "nl": {
+    "source_sha256": "0ffd33be174c3cf5ba0c8a472b0fd047f6b588439ef5ae49ff16b23f4ecbcd4f",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-09-11",
+    "status": "approved",
+    "independent_native": false,
+    "scope": "109 complete copy-reviewed workflow messages. Rendered/journey QA pending."
   }
 }
