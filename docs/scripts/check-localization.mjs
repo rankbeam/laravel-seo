@@ -3,6 +3,7 @@ import path from 'node:path'
 import assert from 'node:assert/strict'
 import { fileURLToPath } from 'node:url'
 import { createMarkdownRenderer } from 'vitepress'
+import { englishPages } from '../.vitepress/localization.ts'
 
 const root = fileURLToPath(new URL('..', import.meta.url))
 const dist = path.join(root, '.vitepress/dist')
@@ -57,5 +58,5 @@ for (const target of Object.keys(manifest.pages)) {
   assert(!/<meta[^>]+name="robots"[^>]+content="noindex/.test(html), `Completed translation still marked as fallback: ${target}`)
   if (!target.endsWith('/index.md')) assert(llms.includes('/' + target), `Missing Markdown entry: ${target}`)
 }
-assert.equal(locations.length, 258)
+assert.equal(locations.length, englishPages().length + Object.keys(manifest.pages).length)
 console.log(`${Object.keys(manifest.pages).length} localized pages; ${examples} unchanged code blocks; reciprocal head alternatives; ${locations.length} sitemap URLs and all advertised alternatives exclude fallbacks`)
