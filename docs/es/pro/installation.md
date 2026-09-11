@@ -24,8 +24,10 @@ Puedes ver el resultado en el [recorrido scan → corrección → informe](/es/p
 
 Pro se distribuye mediante un repositorio Composer privado vinculado a la licencia. Añade el repositorio una vez y solicita el paquete. Composer pedirá el correo de la licencia como usuario y la clave de licencia como contraseña:
 
+Lemon Squeezy procesa el pago como merchant of record. Después del pago, la página privada del recibo muestra la clave de descarga y las instrucciones de Composer. Usa el correo de la compra como nombre de usuario. Rankbeam aloja el repositorio; no necesitas una cuenta de Anystack. Mantén privados el enlace del recibo y `auth.json`. Un reembolso completo revoca las descargas y actualizaciones futuras sin interrumpir una aplicación instalada.
+
 ```bash
-composer config repositories.rankbeam-pro composer https://laravel-seo-pro.composer.sh
+composer config repositories.rankbeam-pro composer https://blog.rankbeam.dev/composer
 composer require rankbeam/laravel-seo-pro
 ```
 
@@ -33,7 +35,7 @@ composer require rankbeam/laravel-seo-pro
 En CI u otros entornos no interactivos, guarda las credenciales previamente:
 
 ```bash
-composer config http-basic.laravel-seo-pro.composer.sh you@example.com YOUR-LICENSE-KEY
+composer config http-basic.blog.rankbeam.dev you@example.com YOUR-LICENSE-KEY
 ```
 
 :::
@@ -166,7 +168,7 @@ Esto añade el **panel SEO** con acción de scan completo, progreso en directo y
 
 | Resultado | Siguiente paso |
 |---|---|
-| Composer rechaza las credenciales | Comprueba el correo y la clave de licencia para `laravel-seo-pro.composer.sh`. No guardes credenciales en el control de versiones. |
+| Composer rechaza las credenciales | Comprueba el correo y la clave de licencia para `blog.rankbeam.dev`. No guardes credenciales en el control de versiones. |
 | Doctor informa de tablas ausentes | Completa el inicio rápido del núcleo y ejecuta `seo-pro:install` y `migrate` en la misma base que usa la aplicación. |
 | El scan no procesa objetivos | Revisa el registro del proveedor y que el modelo contenga filas. |
 | El scan en cola permanece pendiente | Arranca el worker configurado o usa `--sync` para una comprobación en el propio proceso. |
@@ -174,3 +176,7 @@ Esto añade el **panel SEO** con acción de scan completo, progreso en directo y
 | No aparece el panel SEO | Registra `SeoProPlugin` en el panel que utilizas y revisa las reglas de acceso. |
 
 Consulta [Configuración de producción](/es/pro/production) para recuperación de workers y operación continua.
+
+## Licencia y reembolsos {#license}
+
+La licencia de fundador cuesta 179 € en un único pago y cubre hasta cinco proyectos en producción, incluidos proyectos de clientes, con actualizaciones de por vida. Las copias de desarrollo y staging de esos proyectos no cuentan por separado. Incluye ayuda con la instalación y migración, una llamada de instalación de 60 minutos y el kit de lanzamiento anunciado. Puedes pedir un reembolso completo sin condiciones durante los primeros 30 días desde el recibo o escribiendo a valentinogoxhaj@gmail.com. Después del reembolso debes dejar de usar Pro. Puedes modificarlo para los proyectos cubiertos, pero no publicar su código fuente ni revenderlo como paquete independiente o starter kit. El paquete incluye los términos completos de la licencia.

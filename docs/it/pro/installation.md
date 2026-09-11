@@ -24,8 +24,10 @@ Per vedere il risultato, consulta [scansione → correzione → report](/it/pro/
 
 Pro viene distribuito tramite un repository Composer privato associato alla licenza. Aggiungi il repository una volta e richiedi il pacchetto: Composer chiederà l’email della licenza come nome utente e la chiave come password.
 
+Lemon Squeezy gestisce il pagamento come merchant of record. Dopo il pagamento, la pagina privata della ricevuta mostra la chiave di download e le istruzioni Composer. Usa come nome utente l’email dell’acquisto. Il repository è ospitato da Rankbeam; non serve un account Anystack. Mantieni privati il link della ricevuta e `auth.json`. Un rimborso totale revoca i download e gli aggiornamenti futuri, senza interrompere un’applicazione già installata.
+
 ```bash
-composer config repositories.rankbeam-pro composer https://laravel-seo-pro.composer.sh
+composer config repositories.rankbeam-pro composer https://blog.rankbeam.dev/composer
 composer require rankbeam/laravel-seo-pro
 ```
 
@@ -33,7 +35,7 @@ composer require rankbeam/laravel-seo-pro
 Per CI o ambienti non interattivi, configura prima le credenziali:
 
 ```bash
-composer config http-basic.laravel-seo-pro.composer.sh you@example.com YOUR-LICENSE-KEY
+composer config http-basic.blog.rankbeam.dev you@example.com YOUR-LICENSE-KEY
 ```
 
 :::
@@ -166,7 +168,7 @@ Il plugin aggiunge la **dashboard SEO**, con scansione globale, avanzamento dal 
 
 | Risultato | Passaggio successivo |
 |---|---|
-| Composer rifiuta le credenziali | Controlla email e chiave della licenza per `laravel-seo-pro.composer.sh`. Non inserire le credenziali nel controllo versione. |
+| Composer rifiuta le credenziali | Controlla email e chiave della licenza per `blog.rankbeam.dev`. Non inserire le credenziali nel controllo versione. |
 | Doctor segnala tabelle mancanti | Completa la guida rapida del core, poi esegui `seo-pro:install` e `migrate` sullo stesso database dell’applicazione. |
 | La scansione non elabora destinazioni | Controlla la registrazione nel provider e la presenza di record nel modello. |
 | La scansione resta in attesa nella coda | Avvia il worker configurato oppure usa `--sync` per una verifica nello stesso processo. |
@@ -174,3 +176,7 @@ Il plugin aggiunge la **dashboard SEO**, con scansione globale, avanzamento dal 
 | La dashboard non compare | Registra `SeoProPlugin` sul pannello effettivamente usato e controlla i gate di accesso. |
 
 Per recupero dei worker e gestione continuativa, consulta [Configurazione in produzione](/it/pro/production).
+
+## Licenza e rimborsi {#license}
+
+La licenza fondatori costa 179 € una tantum e copre fino a cinque progetti in produzione, anche per clienti, con aggiornamenti a vita. Le copie di sviluppo e staging di quei progetti non si contano separatamente. Sono inclusi l’aiuto per installazione e migrazione, una chiamata di installazione di 60 minuti e il kit di lancio descritto nell’offerta. Puoi chiedere un rimborso totale incondizionato entro 30 giorni tramite la ricevuta o scrivendo a valentinogoxhaj@gmail.com. Dopo il rimborso totale devi smettere di usare Pro. Puoi modificarlo per i progetti coperti dalla licenza, ma non pubblicarne il sorgente né rivenderlo come pacchetto o starter kit. Il pacchetto contiene i termini completi della licenza.

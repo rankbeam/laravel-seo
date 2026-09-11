@@ -784,15 +784,15 @@
     },
     "it/guide/demo.md": {
       "source": "guide/demo.md",
-      "sha256": "a0c44dd6e83e3a8549ba7edcf3dbbd1234bdea51dc41ed309a403d89fc89b473",
+      "sha256": "a83060a0a93389f35bbfa86ed8f0ca25fa0558c7852ec930d29394e59802c8d7",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
-        "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "date": "2026-09-11",
+        "scope": "Reviewed self-hosted Composer origin, purchase receipt, founding license and refund wording; existing technical content retained",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "d0a4d51543408840866f84441d3932164b4b59f58205fffbf70c0c1a18ea5aa1"
+        "translation_sha256": "0e225da1593d5172207e0cc368c957f5e635f08e05bd4eb23292b9061c51dcf9"
       }
     },
     "it/guide/indexing-guard.md": {
@@ -992,15 +992,15 @@
     },
     "it/pro/installation.md": {
       "source": "pro/installation.md",
-      "sha256": "69986b46d53d0774a5f28de48e969163e56d268180aa754addc770ecc4084beb",
+      "sha256": "1888329527406030314b3c89fbde3e462a601fd5711e7032e1b2af43680daca3",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
-        "date": "2026-09-10",
-        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
+        "date": "2026-09-11",
+        "scope": "Reviewed self-hosted Composer origin, purchase receipt, founding license and refund wording; existing technical content retained",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "4a275101be42b986b85b40728c7c83ba59bd5ca5b5eb1b899d386580d137f8c7"
+        "translation_sha256": "f7d63bfab7bc847a46e1f02457e336267641140e93d9f734d9c39f5402f98fc7"
       }
     },
     "it/pro/mcp.md": {
@@ -1200,15 +1200,15 @@
     },
     "de/guide/demo.md": {
       "source": "guide/demo.md",
-      "sha256": "a0c44dd6e83e3a8549ba7edcf3dbbd1234bdea51dc41ed309a403d89fc89b473",
+      "sha256": "a83060a0a93389f35bbfa86ed8f0ca25fa0558c7852ec930d29394e59802c8d7",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
-        "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "date": "2026-09-11",
+        "scope": "Reviewed self-hosted Composer origin, purchase receipt, founding license and refund wording; existing technical content retained",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "f3140862a3503fa7abb8ae852f7156d2615491893566c7e3bd4ad2b7462c92a1"
+        "translation_sha256": "b83bd220793a6b8e84eb7daf8d3b70aa38c47c1043de7e63475463759ca55026"
       }
     },
     "de/guide/indexing-guard.md": {
@@ -1395,15 +1395,15 @@
     },
     "de/pro/installation.md": {
       "source": "pro/installation.md",
-      "sha256": "69986b46d53d0774a5f28de48e969163e56d268180aa754addc770ecc4084beb",
+      "sha256": "1888329527406030314b3c89fbde3e462a601fd5711e7032e1b2af43680daca3",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
-        "date": "2026-09-10",
-        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
+        "date": "2026-09-11",
+        "scope": "Reviewed self-hosted Composer origin, purchase receipt, founding license and refund wording; existing technical content retained",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "e085a413d280f96ac053e3924da15d864722d937174c863db3acab86ae3bfcee"
+        "translation_sha256": "f1e4202d4595134c129a763fb7e055771217bad8cbe44e77b811a7c24d45947e"
       }
     },
     "de/pro/mcp.md": {
@@ -1616,15 +1616,15 @@
     },
     "fr/guide/demo.md": {
       "source": "guide/demo.md",
-      "sha256": "a0c44dd6e83e3a8549ba7edcf3dbbd1234bdea51dc41ed309a403d89fc89b473",
+      "sha256": "a83060a0a93389f35bbfa86ed8f0ca25fa0558c7852ec930d29394e59802c8d7",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
-        "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "date": "2026-09-11",
+        "scope": "Reviewed self-hosted Composer origin, purchase receipt, founding license and refund wording; existing technical content retained",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "60b568a384b1be459677df4764c1d7bd5ec14a1b5bd136821dee883b0aa71c58"
+        "translation_sha256": "0e2887fbc706b44baa17ab4dc8374b81a4360712535ea03ff8cf1c507d6a9cf5"
       }
     },
     "fr/guide/indexing-guard.md": {
@@ -1811,15 +1811,15 @@
     },
     "fr/pro/installation.md": {
       "source": "pro/installation.md",
-      "sha256": "69986b46d53d0774a5f28de48e969163e56d268180aa754addc770ecc4084beb",
+      "sha256": "1888329527406030314b3c89fbde3e462a601fd5711e7032e1b2af43680daca3",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
-        "date": "2026-09-10",
-        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
+        "date": "2026-09-11",
+        "scope": "Reviewed self-hosted Composer origin, purchase receipt, founding license and refund wording; existing technical content retained",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "875ddb2802f1d5a150ef3a2ec2897cc8be4dbda4074d1f628c128158dbb5dbb2"
+        "translation_sha256": "ad6c5f626b22b23f7a2680892a80a982a52822055f67f595f3a2d1b79ba1ff9d"
       }
     },
     "fr/pro/mcp.md": {
@@ -2032,15 +2032,15 @@
     },
     "es/guide/demo.md": {
       "source": "guide/demo.md",
-      "sha256": "a0c44dd6e83e3a8549ba7edcf3dbbd1234bdea51dc41ed309a403d89fc89b473",
+      "sha256": "a83060a0a93389f35bbfa86ed8f0ca25fa0558c7852ec930d29394e59802c8d7",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
-        "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "date": "2026-09-11",
+        "scope": "Reviewed self-hosted Composer origin, purchase receipt, founding license and refund wording; existing technical content retained",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "68266f37afe5e0ed955c7a4687281908b9923648da4e564c1e97ab642ee6002f"
+        "translation_sha256": "4f6a28ce041d023d5421cde6a95a889a9f4beef52f7b9aa537c5f4f23d76804b"
       }
     },
     "es/guide/indexing-guard.md": {
@@ -2227,15 +2227,15 @@
     },
     "es/pro/installation.md": {
       "source": "pro/installation.md",
-      "sha256": "69986b46d53d0774a5f28de48e969163e56d268180aa754addc770ecc4084beb",
+      "sha256": "1888329527406030314b3c89fbde3e462a601fd5711e7032e1b2af43680daca3",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
-        "date": "2026-09-10",
-        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
+        "date": "2026-09-11",
+        "scope": "Reviewed self-hosted Composer origin, purchase receipt, founding license and refund wording; existing technical content retained",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "116bde73e661a62c869602e94a4fad5641a2b762be9baf24e3eb3a01ea5b9016"
+        "translation_sha256": "1ec4d6850ba26c60cd322d2cc938938636c9ebaa4d507f26e6c2ea37bd70c811"
       }
     },
     "es/pro/mcp.md": {
@@ -2448,15 +2448,15 @@
     },
     "pt-BR/guide/demo.md": {
       "source": "guide/demo.md",
-      "sha256": "a0c44dd6e83e3a8549ba7edcf3dbbd1234bdea51dc41ed309a403d89fc89b473",
+      "sha256": "a83060a0a93389f35bbfa86ed8f0ca25fa0558c7852ec930d29394e59802c8d7",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
-        "date": "2026-09-10",
-        "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
+        "date": "2026-09-11",
+        "scope": "Reviewed self-hosted Composer origin, purchase receipt, founding license and refund wording; existing technical content retained",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "f2fb008558d473adcde87e9bb82af3fad5511b754b7888b433b9f1774832a685"
+        "translation_sha256": "bb9b9437f9d19cc13611b3299a7fe880a3f805a807807a27702ec4128f90e0e9"
       }
     },
     "pt-BR/guide/indexing-guard.md": {
@@ -2643,15 +2643,15 @@
     },
     "pt-BR/pro/installation.md": {
       "source": "pro/installation.md",
-      "sha256": "69986b46d53d0774a5f28de48e969163e56d268180aa754addc770ecc4084beb",
+      "sha256": "1888329527406030314b3c89fbde3e462a601fd5711e7032e1b2af43680daca3",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
-        "date": "2026-09-10",
-        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
+        "date": "2026-09-11",
+        "scope": "Reviewed self-hosted Composer origin, purchase receipt, founding license and refund wording; existing technical content retained",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "117e83ad93f2c8c862dbfee1ec0c1e926e0a9e104e01b917345c0dae289f3dea"
+        "translation_sha256": "95bbedeed359bad8617e82c20e9ad4bb4627b6d803c86fa79b0c4dc09669b454"
       }
     },
     "pt-BR/pro/mcp.md": {

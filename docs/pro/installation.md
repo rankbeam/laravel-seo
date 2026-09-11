@@ -32,8 +32,10 @@ Pro is distributed through a private Composer repository tied to your
 license. Add the repository once, then require the package — Composer will
 ask for your license e-mail (username) and license key (password):
 
+Lemon Squeezy handles payment as merchant of record. After payment, the private receipt page provides your download key and Composer instructions. Use the purchase email as the username. Rankbeam hosts the package repository; no Anystack account is needed. Keep the receipt link and `auth.json` private. A full refund revokes future downloads and updates without interrupting an installed application.
+
 ```bash
-composer config repositories.rankbeam-pro composer https://laravel-seo-pro.composer.sh
+composer config repositories.rankbeam-pro composer https://blog.rankbeam.dev/composer
 composer require rankbeam/laravel-seo-pro
 ```
 
@@ -41,7 +43,7 @@ composer require rankbeam/laravel-seo-pro
 For CI or non-interactive environments, store the credentials up front:
 
 ```bash
-composer config http-basic.laravel-seo-pro.composer.sh you@example.com YOUR-LICENSE-KEY
+composer config http-basic.blog.rankbeam.dev you@example.com YOUR-LICENSE-KEY
 ```
 
 :::
@@ -203,7 +205,7 @@ and the **404 monitor** with its one-click *Create redirect* action.
 
 | Result | Next step |
 |---|---|
-| Composer rejects the credentials | Check the license email and key for `laravel-seo-pro.composer.sh`. Keep credentials out of version control. |
+| Composer rejects the credentials | Check the license email and key for `blog.rankbeam.dev`. Keep credentials out of version control. |
 | Doctor reports missing tables | Complete the core Quickstart, then run `seo-pro:install` and `migrate` against the same database as the app. |
 | A scan processes no targets | Check your provider registration and that the model contains records. |
 | A queued scan stays pending | Start the configured queue worker, or use `--sync` for an inline check. |
@@ -211,3 +213,7 @@ and the **404 monitor** with its one-click *Create redirect* action.
 | The dashboard is missing | Register `SeoProPlugin` on the panel you actually use and check access gates. |
 
 See [Production setup](/pro/production) for worker recovery and ongoing operations.
+
+## License and refunds {#license}
+
+The founding license costs €179 once and covers up to five production projects, including client projects, with lifetime updates. Development and staging copies for those projects do not count separately. Installation/migration help, a 60-minute installation call and the advertised launch kit are included. You can request an unconditional full refund within 30 days through your receipt or by emailing valentinogoxhaj@gmail.com. After a full refund, stop using Pro. You may modify Pro for your licensed projects, but may not publish its source or resell it as a standalone package or starter kit. The package includes the full license terms.

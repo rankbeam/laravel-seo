@@ -24,8 +24,10 @@ Para ver o resultado, consulte o [passo a passo de varredura, correção e relat
 
 Pro é distribuído por um repositório Composer privado vinculado à licença. Adicione o repositório uma vez e instale o pacote. O Composer solicitará o e-mail da licença como usuário e a chave como senha:
 
+O Lemon Squeezy processa o pagamento como merchant of record. Após o pagamento, a página privada do recibo fornece a chave de download e as instruções do Composer. Use o e-mail da compra como nome de usuário. A Rankbeam hospeda o repositório; você não precisa de uma conta no Anystack. Mantenha privados o link do recibo e o `auth.json`. Um reembolso integral revoga downloads e atualizações futuros sem interromper um aplicativo instalado.
+
 ```bash
-composer config repositories.rankbeam-pro composer https://laravel-seo-pro.composer.sh
+composer config repositories.rankbeam-pro composer https://blog.rankbeam.dev/composer
 composer require rankbeam/laravel-seo-pro
 ```
 
@@ -33,7 +35,7 @@ composer require rankbeam/laravel-seo-pro
 Para CI ou ambientes não interativos, configure as credenciais antecipadamente:
 
 ```bash
-composer config http-basic.laravel-seo-pro.composer.sh you@example.com YOUR-LICENSE-KEY
+composer config http-basic.blog.rankbeam.dev you@example.com YOUR-LICENSE-KEY
 ```
 
 :::
@@ -166,7 +168,7 @@ Isso adiciona o **painel SEO**, com ação para verificar tudo, progresso em tem
 
 | Resultado | Próximo passo |
 |---|---|
-| Composer rejeita as credenciais | Confira o e-mail e a chave da licença para `laravel-seo-pro.composer.sh`. Mantenha credenciais fora do controle de versão. |
+| Composer rejeita as credenciais | Confira o e-mail e a chave da licença para `blog.rankbeam.dev`. Mantenha credenciais fora do controle de versão. |
 | Doctor aponta tabelas ausentes | Complete o início rápido do núcleo e execute `seo-pro:install` e `migrate` no mesmo banco da aplicação. |
 | A varredura não processa alvos | Confira o registro no provider e se o modelo contém registros. |
 | Uma varredura em fila permanece pendente | Inicie o worker configurado ou use `--sync` para verificar no processo atual. |
@@ -174,3 +176,7 @@ Isso adiciona o **painel SEO**, com ação para verificar tudo, progresso em tem
 | O painel não aparece | Registre `SeoProPlugin` no painel utilizado e confira as regras de acesso. |
 
 Consulte a [configuração de produção](/pt-BR/pro/production) para recuperação de workers e operação contínua.
+
+## Licença e reembolsos {#license}
+
+A licença de fundador custa 179 € em pagamento único e cobre até cinco projetos em produção, incluindo projetos de clientes, com atualizações vitalícias. As cópias de desenvolvimento e staging desses projetos não contam separadamente. Estão incluídos ajuda com instalação e migração, uma chamada de instalação de 60 minutos e o kit de lançamento anunciado. Você pode pedir um reembolso integral incondicional em até 30 dias pelo recibo ou pelo e-mail valentinogoxhaj@gmail.com. Após o reembolso, deve parar de usar o Pro. Pode modificá-lo para os projetos licenciados, mas não publicar o código-fonte nem revendê-lo como pacote independente ou starter kit. O pacote contém os termos completos da licença.

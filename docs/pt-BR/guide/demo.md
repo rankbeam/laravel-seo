@@ -23,7 +23,7 @@ Abra `http://localhost:8080`. Veja o código-fonte de qualquer página para conf
 Pro é licenciado por projeto e instalado pelo repositório Composer privado. Passe a licença por `COMPOSER_AUTH`, um segredo de build que não é gravado em uma camada da imagem, e construa com a opção Pro:
 
 ```bash
-export COMPOSER_AUTH='{"http-basic":{"laravel-seo-pro.composer.sh":{"username":"you@example.com","password":"YOUR-LICENSE-KEY"}}}'
+export COMPOSER_AUTH='{"http-basic":{"blog.rankbeam.dev":{"username":"you@example.com","password":"YOUR-LICENSE-KEY"}}}'
 WITH_PRO=true docker compose up --build
 ```
 
