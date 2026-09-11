@@ -180,3 +180,9 @@ Consulte a [configuração de produção](/pt-BR/pro/production) para recuperaç
 ## Licença e reembolsos {#license}
 
 A licença de fundador custa 179 € em pagamento único e cobre até cinco projetos em produção, incluindo projetos de clientes, com atualizações vitalícias. As cópias de desenvolvimento e staging desses projetos não contam separadamente. Estão incluídos ajuda com instalação e migração, uma chamada de instalação de 60 minutos e o kit de lançamento anunciado. Você pode pedir um reembolso integral incondicional em até 30 dias pelo recibo ou pelo e-mail valentinogoxhaj@gmail.com. Após o reembolso, deve parar de usar o Pro. Pode modificá-lo para os projetos licenciados, mas não publicar o código-fonte nem revendê-lo como pacote independente ou starter kit. O pacote contém os termos completos da licença.
+
+Você pode usar o Pro em até cinco projetos em produção, incluindo projetos de clientes. As cópias de desenvolvimento, staging e teste desses projetos não contam separadamente. As atualizações vitalícias incluem futuras versões do Pro, mas não trabalho pessoal contínuo na aplicação.
+
+Estão incluídas uma chamada de instalação e configuração de 60 minutos e a migração de metadados para um único projeto inicial. A migração cobre as fontes compatíveis; combinamos o escopo antes de começar. Alterações personalizadas na aplicação recebem um orçamento separado. Para o mesmo projeto, revisamos e configuramos llms.txt, as regras de rastreadores de IA em robots.txt e as respostas markdown para bots, usando funções do Core gratuito. Escreva para hello@rankbeam.dev para organizar a ajuda incluída.
+
+Ao seu pedido se aplica a oferta apresentada no momento da compra.

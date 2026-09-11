@@ -180,3 +180,9 @@ Per recupero dei worker e gestione continuativa, consulta [Configurazione in pro
 ## Licenza e rimborsi {#license}
 
 La licenza fondatori costa 179 € una tantum e copre fino a cinque progetti in produzione, anche per clienti, con aggiornamenti a vita. Le copie di sviluppo e staging di quei progetti non si contano separatamente. Sono inclusi l’aiuto per installazione e migrazione, una chiamata di installazione di 60 minuti e il kit di lancio descritto nell’offerta. Puoi chiedere un rimborso totale incondizionato entro 30 giorni tramite la ricevuta o scrivendo a valentinogoxhaj@gmail.com. Dopo il rimborso totale devi smettere di usare Pro. Puoi modificarlo per i progetti coperti dalla licenza, ma non pubblicarne il sorgente né rivenderlo come pacchetto o starter kit. Il pacchetto contiene i termini completi della licenza.
+
+Puoi usare Pro su un massimo di cinque progetti in produzione, inclusi quelli dei clienti. Le copie di sviluppo, staging e test di questi progetti non si contano separatamente. Gli aggiornamenti a vita includono le future versioni di Pro, ma non interventi personali continuativi sull’applicazione.
+
+Sono incluse una chiamata di installazione e configurazione di 60 minuti e la migrazione dei metadati per un solo progetto iniziale. La migrazione copre le sorgenti supportate: concordiamo l’ambito prima di iniziare, mentre le modifiche personalizzate all’applicazione hanno un preventivo separato. Per lo stesso progetto, la configurazione iniziale comprende la verifica e l’impostazione di llms.txt, delle regole per i crawler AI in robots.txt e delle risposte markdown per i bot, usando funzionalità del Core gratuito. Scrivi a hello@rankbeam.dev per organizzare l’assistenza inclusa.
+
+Al tuo ordine si applica l’offerta mostrata al momento dell’acquisto.

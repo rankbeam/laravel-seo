@@ -180,3 +180,9 @@ Worker-Wiederherstellung und laufenden Betrieb beschreibt [Produktion einrichten
 ## Lizenz und Erstattungen {#license}
 
 Die Gründungslizenz kostet einmalig 179 € und gilt für bis zu fünf produktive Projekte, einschließlich Kundenprojekten, mit lebenslangen Updates. Entwicklungs- und Staging-Kopien dieser Projekte zählen nicht zusätzlich. Hilfe bei Installation und Migration, ein 60-minütiger Installationstermin und das angekündigte Launch-Kit sind enthalten. Innerhalb von 30 Tagen kannst du über den Beleg oder per E-Mail an valentinogoxhaj@gmail.com ohne Angabe von Gründen eine vollständige Erstattung verlangen. Danach musst du die Nutzung von Pro beenden. Änderungen für lizenzierte Projekte sind erlaubt; die Veröffentlichung des Quellcodes oder der Weiterverkauf als eigenständiges Paket oder Starter-Kit ist untersagt. Die vollständigen Lizenzbedingungen liegen dem Paket bei.
+
+Du darfst Pro in bis zu fünf Produktionsprojekten einsetzen, einschließlich Kundenprojekten. Entwicklungs-, Staging- und Testkopien dieser Projekte zählen nicht zusätzlich. Lebenslange Updates umfassen künftige Pro-Versionen, jedoch keine fortlaufenden persönlichen Implementierungsarbeiten.
+
+Enthalten sind ein 60-minütiges Gespräch zur Installation und Konfiguration sowie die Metadaten-Migration für ein erstes Projekt. Die Migration gilt für unterstützte Quellen; den Umfang stimmen wir vor Beginn ab. Individuelle Anwendungsänderungen werden separat angeboten. Für dasselbe Projekt prüfen und konfigurieren wir llms.txt, die Regeln für KI-Crawler in robots.txt und Markdown-Antworten für Bots mit Funktionen des kostenlosen Core. Schreibe an hello@rankbeam.dev, um die enthaltene Hilfe zu vereinbaren.
+
+Für deine Bestellung gilt das beim Kauf angezeigte Angebot.

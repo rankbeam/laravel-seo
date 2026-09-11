@@ -180,3 +180,9 @@ Consultez la [configuration en production](/fr/pro/production) pour la reprise d
 ## Licence et remboursements {#license}
 
 La licence fondateur coûte 179 € en paiement unique et couvre jusqu’à cinq projets en production, y compris des projets clients, avec des mises à jour à vie. Les copies de développement et de staging de ces projets ne comptent pas séparément. L’aide à l’installation et à la migration, un appel d’installation de 60 minutes et le kit de lancement annoncé sont inclus. Tu peux demander un remboursement intégral sans condition sous 30 jours via le reçu ou à valentinogoxhaj@gmail.com. Après ce remboursement, tu dois cesser d’utiliser Pro. Tu peux le modifier pour les projets couverts, mais pas publier son code source ni le revendre comme paquet autonome ou starter kit. Le paquet contient les conditions complètes de la licence.
+
+Vous pouvez utiliser Pro sur cinq projets en production au maximum, y compris des projets clients. Leurs copies de développement, de staging et de test ne sont pas comptées séparément. Les mises à jour à vie comprennent les futures versions de Pro, mais pas des interventions personnelles continues sur l’application.
+
+Un appel d’installation et de configuration de 60 minutes et la migration des métadonnées pour un seul premier projet sont inclus. La migration concerne les sources prises en charge ; nous convenons du périmètre avant de commencer. Les modifications spécifiques de l’application font l’objet d’un devis séparé. Pour ce même projet, la configuration initiale comprend la vérification et le paramétrage de llms.txt, des règles des robots IA dans robots.txt et des réponses markdown destinées aux robots, avec les fonctions du Core gratuit. Écrivez à hello@rankbeam.dev pour organiser l’accompagnement inclus.
+
+L’offre affichée au moment de l’achat s’applique à votre commande.
