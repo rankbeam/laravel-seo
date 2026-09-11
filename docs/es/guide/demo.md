@@ -23,7 +23,7 @@ Abre `http://localhost:8080`. Consulta el código fuente de cualquier página pa
 Pro tiene licencia por proyecto y se instala desde su repositorio Composer privado. Pasa la licencia mediante `COMPOSER_AUTH`, un secreto de compilación que nunca se escribe en una capa de la imagen, y construye la imagen con la opción de Pro:
 
 ```bash
-export COMPOSER_AUTH='{"http-basic":{"laravel-seo-pro.composer.sh":{"username":"you@example.com","password":"YOUR-LICENSE-KEY"}}}'
+export COMPOSER_AUTH='{"http-basic":{"blog.rankbeam.dev":{"username":"you@example.com","password":"YOUR-LICENSE-KEY"}}}'
 WITH_PRO=true docker compose up --build
 ```
 

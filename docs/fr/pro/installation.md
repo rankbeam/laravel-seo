@@ -24,8 +24,10 @@ Pour voir le résultat, consultez [scanner → corriger → générer un rapport
 
 Pro est distribué via un dépôt Composer privé lié à votre licence. Ajoutez le dépôt une fois, puis installez le package. Composer demande l’adresse e-mail de la licence comme nom d’utilisateur et la clé de licence comme mot de passe :
 
+Lemon Squeezy traite le paiement en tant que merchant of record. Après le paiement, la page privée du reçu fournit la clé de téléchargement et les instructions Composer. Utilise l’adresse e-mail de l’achat comme identifiant. Rankbeam héberge le dépôt ; aucun compte Anystack n’est nécessaire. Garde le lien du reçu et `auth.json` privés. Un remboursement intégral révoque les téléchargements et mises à jour futurs sans interrompre une application installée.
+
 ```bash
-composer config repositories.rankbeam-pro composer https://laravel-seo-pro.composer.sh
+composer config repositories.rankbeam-pro composer https://blog.rankbeam.dev/composer
 composer require rankbeam/laravel-seo-pro
 ```
 
@@ -33,7 +35,7 @@ composer require rankbeam/laravel-seo-pro
 Pour la CI ou les environnements non interactifs, enregistrez les identifiants au préalable :
 
 ```bash
-composer config http-basic.laravel-seo-pro.composer.sh you@example.com YOUR-LICENSE-KEY
+composer config http-basic.blog.rankbeam.dev you@example.com YOUR-LICENSE-KEY
 ```
 
 :::
@@ -166,7 +168,7 @@ Cela ajoute le **tableau de bord SEO**, avec action de scan global, progression 
 
 | Résultat | Étape suivante |
 |---|---|
-| Composer refuse les identifiants | Vérifiez l’e-mail et la clé de licence pour `laravel-seo-pro.composer.sh`. Ne placez pas les identifiants dans le contrôle de version. |
+| Composer refuse les identifiants | Vérifiez l’e-mail et la clé de licence pour `blog.rankbeam.dev`. Ne placez pas les identifiants dans le contrôle de version. |
 | Doctor signale des tables manquantes | Terminez le démarrage rapide du cœur, puis lancez `seo-pro:install` et `migrate` sur la même base que l’application. |
 | Le scan ne traite aucune cible | Vérifiez l’enregistrement du provider et la présence d’enregistrements dans le modèle. |
 | Un scan en file d’attente reste en attente | Démarrez le worker configuré ou utilisez `--sync` pour un contrôle direct. |
@@ -175,3 +177,6 @@ Cela ajoute le **tableau de bord SEO**, avec action de scan global, progression 
 
 Consultez la [configuration en production](/fr/pro/production) pour la reprise des workers et l’exploitation courante.
 
+## Licence et remboursements {#license}
+
+La licence fondateur coûte 179 € en paiement unique et couvre jusqu’à cinq projets en production, y compris des projets clients, avec des mises à jour à vie. Les copies de développement et de staging de ces projets ne comptent pas séparément. L’aide à l’installation et à la migration, un appel d’installation de 60 minutes et le kit de lancement annoncé sont inclus. Tu peux demander un remboursement intégral sans condition sous 30 jours via le reçu ou à valentinogoxhaj@gmail.com. Après ce remboursement, tu dois cesser d’utiliser Pro. Tu peux le modifier pour les projets couverts, mais pas publier son code source ni le revendre comme paquet autonome ou starter kit. Le paquet contient les conditions complètes de la licence.

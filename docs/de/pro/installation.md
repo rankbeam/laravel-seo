@@ -24,8 +24,10 @@ Ein visuelles Beispiel des Ergebnisses zeigt die Anleitung [Scan → Korrektur �
 
 Pro wird über ein privates, an deine Lizenz gebundenes Composer-Repository verteilt. Füge das Repository einmal hinzu und installiere das Paket. Composer fragt nach der Lizenz-E-Mail als Benutzername und dem Lizenzschlüssel als Passwort:
 
+Lemon Squeezy wickelt die Zahlung als Merchant of Record ab. Nach der Zahlung zeigt die private Belegseite deinen Download-Schlüssel und die Composer-Anleitung. Verwende die E-Mail-Adresse des Kaufs als Benutzernamen. Rankbeam betreibt das Paket-Repository; ein Anystack-Konto ist nicht erforderlich. Halte den Beleglink und `auth.json` geheim. Eine vollständige Erstattung sperrt künftige Downloads und Updates, ohne eine installierte Anwendung zu unterbrechen.
+
 ```bash
-composer config repositories.rankbeam-pro composer https://laravel-seo-pro.composer.sh
+composer config repositories.rankbeam-pro composer https://blog.rankbeam.dev/composer
 composer require rankbeam/laravel-seo-pro
 ```
 
@@ -33,7 +35,7 @@ composer require rankbeam/laravel-seo-pro
 Hinterlege in CI oder anderen nicht interaktiven Umgebungen die Zugangsdaten vorab:
 
 ```bash
-composer config http-basic.laravel-seo-pro.composer.sh you@example.com YOUR-LICENSE-KEY
+composer config http-basic.blog.rankbeam.dev you@example.com YOUR-LICENSE-KEY
 ```
 
 :::
@@ -166,7 +168,7 @@ Damit erhältst du das **SEO-Dashboard** mit vollständigem Scan, Live-Fortschri
 
 | Ergebnis | Nächster Schritt |
 |---|---|
-| Composer lehnt Zugangsdaten ab | Prüfe Lizenz-E-Mail und Schlüssel für `laravel-seo-pro.composer.sh`. Zugangsdaten gehören nicht in die Versionsverwaltung. |
+| Composer lehnt Zugangsdaten ab | Prüfe Lizenz-E-Mail und Schlüssel für `blog.rankbeam.dev`. Zugangsdaten gehören nicht in die Versionsverwaltung. |
 | Doctor meldet fehlende Tabellen | Schließe den Core-Schnellstart ab und führe `seo-pro:install` sowie `migrate` gegen dieselbe Datenbank wie die App aus. |
 | Ein Scan verarbeitet keine Ziele | Prüfe die Provider-Registrierung und vorhandene Datensätze des Modells. |
 | Ein Queue-Scan bleibt ausstehend | Starte den konfigurierten Worker oder prüfe mit `--sync` direkt im Prozess. |
@@ -174,3 +176,7 @@ Damit erhältst du das **SEO-Dashboard** mit vollständigem Scan, Live-Fortschri
 | Das Dashboard fehlt | Registriere `SeoProPlugin` im tatsächlich verwendeten Panel und prüfe die Zugriffsregeln. |
 
 Worker-Wiederherstellung und laufenden Betrieb beschreibt [Produktion einrichten](/de/pro/production).
+
+## Lizenz und Erstattungen {#license}
+
+Die Gründungslizenz kostet einmalig 179 € und gilt für bis zu fünf produktive Projekte, einschließlich Kundenprojekten, mit lebenslangen Updates. Entwicklungs- und Staging-Kopien dieser Projekte zählen nicht zusätzlich. Hilfe bei Installation und Migration, ein 60-minütiger Installationstermin und das angekündigte Launch-Kit sind enthalten. Innerhalb von 30 Tagen kannst du über den Beleg oder per E-Mail an valentinogoxhaj@gmail.com ohne Angabe von Gründen eine vollständige Erstattung verlangen. Danach musst du die Nutzung von Pro beenden. Änderungen für lizenzierte Projekte sind erlaubt; die Veröffentlichung des Quellcodes oder der Weiterverkauf als eigenständiges Paket oder Starter-Kit ist untersagt. Die vollständigen Lizenzbedingungen liegen dem Paket bei.

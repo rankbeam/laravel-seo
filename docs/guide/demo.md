@@ -33,7 +33,7 @@ Pass your license through `COMPOSER_AUTH` (a build secret — never written to a
 image layer) and build with the Pro flag:
 
 ```bash
-export COMPOSER_AUTH='{"http-basic":{"laravel-seo-pro.composer.sh":{"username":"you@example.com","password":"YOUR-LICENSE-KEY"}}}'
+export COMPOSER_AUTH='{"http-basic":{"blog.rankbeam.dev":{"username":"you@example.com","password":"YOUR-LICENSE-KEY"}}}'
 WITH_PRO=true docker compose up --build
 ```
 

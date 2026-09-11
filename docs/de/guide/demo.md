@@ -23,7 +23,7 @@ docker compose up --build
 Pro wird pro Projekt lizenziert und aus seinem privaten Composer-Repository installiert. Übergib deine Lizenz über `COMPOSER_AUTH` als Build-Secret, das niemals in eine Image-Schicht geschrieben wird, und baue mit dem Pro-Schalter:
 
 ```bash
-export COMPOSER_AUTH='{"http-basic":{"laravel-seo-pro.composer.sh":{"username":"you@example.com","password":"YOUR-LICENSE-KEY"}}}'
+export COMPOSER_AUTH='{"http-basic":{"blog.rankbeam.dev":{"username":"you@example.com","password":"YOUR-LICENSE-KEY"}}}'
 WITH_PRO=true docker compose up --build
 ```
 
