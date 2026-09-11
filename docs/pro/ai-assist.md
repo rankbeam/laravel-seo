@@ -16,13 +16,7 @@ Three things define the design:
   local / OpenAI-compatible server — billed to your account where applicable.
   Nothing is proxied, metered, or resold, and the package sends no
   telemetry anywhere.
-- **Interactive suggestions require explicit acceptance.** The model proposes; you pick.
-  A picked suggestion or fix is only ever *applied by an explicit action*
-  — it fills a form field, or writes one reviewed value when you click
-  Apply — and the regular validation (the script-aware length counters,
-  evaluator warnings, the schema validator) applies to it like any hand-typed
-  value. The bulk-fill command below is an explicitly invoked write operation
-  and does not require reviewing each generated field before saving.
+- **Interactive suggestions require explicit acceptance.** Picking a suggestion fills the form; dashboard fixes require Apply. Since Pro 2.42, the bulk CLI saves private drafts by default. Use `--auto-apply` only when you deliberately want immediate writes.
 - **Always non-fatal.** A missing key, an invalid key, an exhausted
   account, a rate limit, or a timeout produces an inline message. It can
   never block saving, rendering, or scanning.
@@ -414,153 +408,80 @@ request** (input / output / reasoning) — to help calculate cost at your provid
 JSON envelope. Like every assist surface, `seo-pro:suggest-schema` is
 **propose-only** — it prints the document and writes nothing.
 
-## Bulk-fill missing metadata
+## Bulk-fill missing metadata {#bulk-fill-missing-metadata}
 
-Everything above is propose-only. The one batch surface that **writes** is
-`seo-pro:ai-fill` (and `SeoPro::aiFill()`): the "fill everything" pass for a
-whole model collection.
+**Pro 2.42 changes the CLI default:** `seo-pro:ai-fill` saves one private draft per generated field. Published SEO metadata stays unchanged until approval. Existing values and computed fallbacks are skipped. A current pending draft is reused instead of generating it again.
 
 ```bash
-# preview what would be written (no changes saved)
-php artisan seo-pro:ai-fill "App\Models\Post" --dry-run
-
-# fill missing descriptions across all configured models
-php artisan seo-pro:ai-fill --field=description
-
-# all configured (seo.audit.models / seo.sitemap.models) models, all fields
-php artisan seo-pro:ai-fill --force
+php artisan seo-pro:ai-fill "App\Models\Post" --field=description
+php artisan seo-pro:ai-review
+php artisan seo-pro:ai-review DRAFT_ID
+php artisan seo-pro:ai-review DRAFT_ID --approve --reviewer="editor@example.com"
+php artisan seo-pro:ai-review DRAFT_ID --reject --reviewer="editor@example.com"
 ```
 
-It iterates the records, finds the ones whose **title or description is
-missing** — no explicit value *and* no computed fallback, the **same
-definition the [audit](/guide/audit) uses** — generates one with the
-suggester, and saves it.
+`seo-pro:ai-review` lists the first 100 pending drafts as JSON; inspect an ID to read its value and private evidence. Approval and rejection work with AI disabled and make no provider calls. Approval requires an operator label and refuses drafts whose source record or target metadata changed, or whose record was deleted. The label records who the operator says they are; it does not prove substantive human review. Use `--connection=NAME` for a configured non-default database.
 
-It is deliberately conservative:
+`--auto-apply` explicitly restores immediate publication of still-missing fields. `--force` skips confirmation, **not review**. `--dry-run` generates and prints values without saving drafts or metadata; it still calls the provider and may cost money. `--field`, `--limit` and `--locale` scope generation. Update scheduled commands deliberately after upgrading.
 
-- **Only gaps are filled.** A record that already has (or can derive) the
-  field is skipped; an existing value is **never overwritten**.
-- **`--dry-run`** generates and prints the values without saving, so you can
-  review the output without database writes. **A dry run still calls the
-  provider and can incur charges.**
-- **It writes**, so in production it asks for confirmation unless you pass
-  `--force`. `--field` (title | description | all) and `--limit` scope the run.
-- Each filled field is one suggester call billed to your key, and it runs
-  only when AI assist is enabled.
+### At scale: pacing, a cost estimate, and crash-resume {#at-scale-pacing-a-cost-estimate-and-crash-resume}
 
-### At scale: pacing, a cost estimate, and crash-resume
-
-Filling hundreds or thousands of models is a long, **paid** operation, so
-the command is built to be safe against a large collection:
-
-- **Paced calls.** `seo-pro.ai.fill.throttle_ms` (default `200`) inserts a
-  delay between provider calls so a big run doesn't burst into the
-  provider's rate limit. Set it to `0` for a local or free provider that
-  wants maximum speed, or raise it on a low tier.
-- **A cost estimate you confirm first.** A run that will touch at least
-  `seo-pro.ai.fill.confirm_over` records (default `100`) prints an estimate
-  and asks before making a single call:
-
-  ```text
-  About to fill ~890 missing fields via anthropic (claude-opus-4-8) across 948 records.
-  Estimated ~667,500 tokens ≈ $18.02 (rough, ±50%).
-  Continue? (yes/no) [no]
-  ```
-
-  The dollar figure comes from the `seo-pro.ai.pricing` table (see
-  [Cost](#cost)). A model with no pricing entry (e.g. a local model) shows
-  the token estimate with no invented dollar figure. `--force` skips the
-  prompt for automation; a dry run confirms too, because it makes the same
-  paid calls.
-- **Checkpointed resume.** Progress is stored after **every record**. Completed,
-  recorded fields are skipped on resume; transient failures leave a record open
-  for retry. **This cannot guarantee no duplicate charge:** a request may reach
-  the provider before a timeout or interruption prevents its result being saved.
-  A clean run clears its checkpoint. Reconcile uncertain work before using
-  `--fresh` to ignore the previous checkpoint.
+`seo-pro.ai.fill.throttle_ms` defaults to 200 milliseconds. At `confirm_over` (100 records by default), the command shows the estimate from `seo-pro.ai.pricing` and asks before generation. Checkpoints keep completed fields across interruptions. A timeout after provider acceptance can still cause a duplicate charge; reconcile uncertain work before `--fresh`. Run only one matching bulk job at a time.
 
 ```php
 use Rankbeam\Seo\Pro\Facades\SeoPro;
 
-$summary = SeoPro::aiFill()->fill([\App\Models\Post::class], 'all', limit: 50, apply: true);
-// ['processed' => 120, 'filled' => 18, 'skipped' => 102, 'failed' => 0, 'resumed' => 0, 'errors' => [], 'records' => [...]]
-// On a provider failure, 'errors' maps each distinct error code to its human
-// message (e.g. 'quota_exceeded' => 'OpenAI: the provider account is out of
-// credit or quota…'), and the seo-pro:ai-fill command prints those reasons —
-// so a run never fails silently.
+$summary = SeoPro::aiFill()->fill([\App\Models\Post::class], 'all', limit: 50, review: true);
 ```
 
-### Batch mode (50% cheaper)
+For custom integrations, pass `review: true` to stage drafts. The lower-level PHP API retains `apply: true, review: false` for compatibility, so existing calls still write immediately. `apply: false` previews without persistence. The summary key `filled` counts handled records, including staged records in review mode; the CLI labels them `staged`.
 
-For a large fill where you don't need the results in the next minute, `--batch`
-routes the whole run through the provider's **asynchronous batch endpoint** —
-[Anthropic Message Batches](https://docs.anthropic.com/en/docs/build-with-claude/batch-processing)
-or the [OpenAI Batch API](https://platform.openai.com/docs/guides/batch) — which
-bill at **half** the per-token price. The Rankbeam Google and local **adapters do not implement this batch path**,
-so `--batch` prints a notice and runs sequentially. Google offers its own
-[Batch API](https://ai.google.dev/gemini-api/docs/batch-api); this integration
-does not use it. Check current model support and prices for each provider.
+### Batch mode (50% cheaper) {#batch-mode-50-cheaper}
 
-A batch is **submit-now, collect-later**, split across two runs of the same
-command so the process can be closed in between:
+`--batch` uses the supported Anthropic or OpenAI asynchronous endpoint; their documented discount is reflected in the estimate, but check current model prices. Google and local adapters fall back to sequential generation. Submit now, then run the same command later to collect drafts:
 
 ```bash
-# 1) Submit: builds one request per missing field, sends the whole batch in a
-#    single call, prints the discounted estimate, and exits. Nothing is written yet.
 php artisan seo-pro:ai-fill "App\Models\Post" --field=description --batch
-
-#    → Batch submitted: msgbatch_01Hkc… — 890 requests across 890 records via anthropic.
-#      Most batches finish within an hour (max 24h, then they expire).
-#      Re-run the SAME command to poll and apply the results:
-#        php artisan seo-pro:ai-fill "App\Models\Post" --field=description --batch
-
-# 2) Collect: re-run the same command. While the batch is still processing it
-#    just says so and exits; once results are ready it writes them and prints
-#    the usual summary.
+# Re-run the same command to collect drafts.
 php artisan seo-pro:ai-fill "App\Models\Post" --field=description --batch
 ```
 
-- **Same requests, half the price.** Each batched item uses the same
-  prompt, structured-output schema and model configuration as the synchronous call
-  (the cheap [`bulk_model`](#cheaper-bulk-generation) when set). The batch envelope and execution timing differ.
-- **The pre-run estimate is the discounted one.** Over the
-  `seo-pro.ai.fill.confirm_over` threshold, submit prints the **50%-off** figure
-  and asks before sending anything (`--force` skips it for automation).
-- **Survives being closed.** The provider batch id and the request→record map
-  are persisted with the same crash-resume bookkeeping as a sequential run, so
-  the collect step works from a fresh process (a later cron tick, a redeploy).
-  If the submitting run is killed in the split second between the provider
-  accepting the batch and its id being written, the next run **fails closed** —
-  it tells you a batch may be in flight and to check the provider dashboard,
-  rather than silently re-submitting the whole (paid) batch.
-- **Never overwrites.** The no-overwrite rule holds across the *entire* batch
-  window: at collect time each record is re-checked, and only fields **still
-  missing** are written — a title or description you added by hand while the
-  batch was running is never clobbered.
-- **Partial results are safe.** Results are matched back to records by id, in any
-  order. A record whose field succeeded is written and marked done. A record that
-  failed **transiently** (rate limit, timeout, provider error, or an expired
-  item) is left open, so running `--batch` again submits a fresh, smaller batch
-  for exactly those. A record the provider **rejected outright** (content filter,
-  invalid request) is recorded and *not* retried — a doomed record can't loop and
-  re-bill.
-- **Switching provider mid-batch is refused, not silently mis-handled.** If you
-  change `SEO_PRO_AI_PROVIDER` between submit and collect, the collect step stops
-  with a clear message (switch back to collect, or `--fresh` to discard) instead
-  of polling the wrong API. Run a single `--batch` submit at a time (don't fire
-  two concurrent submits for the same models/field).
-- **One knob:** `seo-pro.ai.fill.batch.request_timeout` (default `120`s,
-  env `SEO_PRO_AI_FILL_BATCH_TIMEOUT`) — the HTTP timeout for the submit /
-  poll / collect calls (its own, longer value than the short synchronous
-  `timeout`, because a submit uploads every request and a collect streams the
-  whole result file). Raise it for very large runs.
+Keep the provider, locale and publishing mode unchanged between submit and collect. Review and `--auto-apply` use separate checkpoints; the CLI refuses to start the other mode while a matching batch is outstanding. An uncertain submission stops for reconciliation. Partial successes are retained; transient failures can be retried. Collect rechecks missing fields; approval also checks the source snapshot taken before submission. `seo-pro.ai.fill.batch.request_timeout` defaults to 120 seconds. A scheduled collect saves drafts by default.
 
-::: tip Schedule the collect
-Because submit and collect are independent, a natural pattern is to submit from
-a deploy hook or a one-off command and let a scheduled `seo-pro:ai-fill … --batch`
-(every 15–30 min) poll and apply the moment the batch finishes — no long-running
-process babysitting the run.
-:::
+## Origin records, migrations and data filtering {#origin-review-and-filtering}
+
+Requires **Core 3.21 and Pro 2.42**. Core loads its migration automatically; publish Pro migrations and migrate each database used by SEO models before generating saved suggestions:
+
+```bash
+php artisan vendor:publish --tag=seo-pro-migrations
+php artisan migrate
+```
+
+The private `seo_ai_proposals` table stores generated values and provider/model/request evidence with Laravel encrypted casts. Keep `APP_KEY` and its backup secure: losing it makes these values unreadable. Record identifiers, status and decision metadata remain ordinary database columns. Form alternatives can remain `offered` or `selected` when a form is abandoned. There is no automatic purge: set an application retention policy, preserve pending drafts and evidence still referenced by `seo_meta.ai_provenance`, and restrict access to database exports and review-command output.
+
+Accepted form suggestions, dashboard fixes and bulk values carry field origin. Later Eloquent edits retain `origin: ai` and set `edited: true`; this means the value changed, not that a human verified it. Clearing the field removes its marker. Core HTML, array, JSON and Inertia output expose only field name, origin and edited state, using the custom `rankbeam:ai-origin` meta tag where applicable. Generation IDs and provider details stay private. Do not expose raw `SEOMeta` models in a public API.
+
+This records future supported save paths, not historical content or every edit revision. Direct SQL, query-builder updates and custom renderers can bypass these controls. Explicitly reset provenance when an independently authored replacement warrants it; ordinary edits retain it. The custom marker is not a standardized watermark, tamper-proof attribution or a claim of Article 50 compliance. Actual provider output quality and provider-native markings require separate evaluation.
+
+Optionally implement `AiPromptFilter` and configure `seo-pro.ai.context_filter`. It filters the assembled user prompt before synchronous or batch submission; a failure prevents submission and returns a sanitized error. System instructions are unchanged. The default is `null`, with **no automatic sensitive-data redaction**. This example replaces one known value only; implement and test rules suited to your application:
+
+```php
+namespace App\Support;
+
+use Rankbeam\Seo\Pro\Ai\AiPromptFilter;
+
+final class RedactAiContext implements AiPromptFilter
+{
+    public function filter(string $prompt): string
+    {
+        return str_replace('internal@example.com', '[redacted]', $prompt);
+    }
+}
+
+// Configure seo-pro.ai.context_filter with this class in config/seo-pro.php.
+// Runtime equivalent:
+config(['seo-pro.ai.context_filter' => RedactAiContext::class]);
+```
 
 ## How replies are handled
 
@@ -629,8 +550,7 @@ clicked action or an invoked command):
   currently resolved title and description, the canonical URL, and a
   plain-text content excerpt (HTML stripped) capped at `max_input_chars`
   (default 6000 characters).
-- *Issue explanations*: the issue's type, severity, field, message, and
-  target URL, plus the affected model's resolved title/description.
+- *Issue explanations*: the issue type, severity, field, message and target URL, plus the affected model’s class/key, resolved title/description, canonical URL and bounded plain-text content excerpt when a model is available.
 - *Description rewrite*: the same minimal page context as a suggestion, plus
   — when given — the scan issue's type and message.
 - *Structured-data suggestion*: the same minimal page context as a

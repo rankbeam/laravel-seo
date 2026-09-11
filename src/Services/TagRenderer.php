@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rankbeam\Seo\Services;
 
+use Rankbeam\Seo\Data\AiProvenance;
 use Rankbeam\Seo\Data\SEOData;
 use Rankbeam\Seo\I18n\Hreflang;
 
@@ -47,8 +48,8 @@ use Rankbeam\Seo\I18n\Hreflang;
  * ]);
  * ```
  *
- * @see \Rankbeam\Seo\Data\SEOData For the input data structure
- * @see \Rankbeam\Seo\Services\SEOResolver For resolving SEO data
+ * @see SEOData For the input data structure
+ * @see SEOResolver For resolving SEO data
  */
 class TagRenderer
 {
@@ -75,7 +76,7 @@ class TagRenderer
      * Returns a string containing all SEO-related HTML tags ready to be
      * inserted into the `<head>` section of your page.
      *
-     * @param SEOData $seo The resolved SEO data
+     * @param  SEOData  $seo  The resolved SEO data
      * @return string HTML string with all meta tags
      *
      * @example
@@ -84,7 +85,6 @@ class TagRenderer
      *     {!! $tagRenderer->render($seoData) !!}
      * </head>
      * ```
-     *
      * @example Output:
      * ```html
      * <title>My Page Title | Site Name</title>
@@ -98,10 +98,14 @@ class TagRenderer
     public function render(SEOData $seo): string
     {
         $tags = [];
+        $origin = AiProvenance::publicFields($seo->aiProvenance);
+        if ($origin !== []) {
+            $tags[] = $this->metaName('rankbeam:ai-origin', json_encode($origin, JSON_THROW_ON_ERROR));
+        }
 
         // Title tag
         if ($seo->title) {
-            $tags[] = '<title>' . $this->escape($seo->title) . '</title>';
+            $tags[] = '<title>'.$this->escape($seo->title).'</title>';
         }
 
         // Meta description
@@ -119,7 +123,7 @@ class TagRenderer
         // Canonical URL — never emit an empty tag.
         $canonical = $seo->canonical ?? $this->getCurrentUrl();
         if ($canonical !== '') {
-            $tags[] = '<link rel="canonical" href="' . $this->escape($canonical) . '">';
+            $tags[] = '<link rel="canonical" href="'.$this->escape($canonical).'">';
         }
 
         // Open Graph meta tags
@@ -151,7 +155,7 @@ class TagRenderer
      * Returns an array structure that can be easily consumed by frontend
      * frameworks to build their own head management.
      *
-     * @param SEOData $seo The resolved SEO data
+     * @param  SEOData  $seo  The resolved SEO data
      * @return array{
      *     title: string|null,
      *     meta: array<int, array{name?: string, property?: string, content: string}>,
@@ -257,6 +261,11 @@ class TagRenderer
             $meta[] = ['name' => $tag['name'], 'content' => $tag['content']];
         }
 
+        $origin = AiProvenance::publicFields($seo->aiProvenance);
+        if ($origin !== []) {
+            $meta[] = ['name' => 'rankbeam:ai-origin', 'content' => json_encode($origin, JSON_THROW_ON_ERROR)];
+        }
+
         // Filter out entries with empty content — the contract forbids
         // null/empty tags.
         $meta = array_filter($meta, fn ($item) => $item['content'] !== null && $item['content'] !== '');
@@ -311,7 +320,7 @@ class TagRenderer
      * hreflang `alternate`) are disambiguated so each stays uniquely keyed.
      * Bind it as `:head-key` (NOT Vue's `:key`, which is unrelated).
      *
-     * @param SEOData $seo The resolved SEO data
+     * @param  SEOData  $seo  The resolved SEO data
      * @return array{title: string|null, meta: array<int, array<string, string>>, link: array<int, array<string, string>>}
      *
      * @example
@@ -345,7 +354,7 @@ class TagRenderer
                 $data['link'],
                 static function (array $l): string {
                     if (($l['rel'] ?? null) === 'alternate' && isset($l['hreflang'])) {
-                        return 'alternate:' . $l['hreflang'];
+                        return 'alternate:'.$l['hreflang'];
                     }
 
                     return $l['rel'] ?? 'link';
@@ -361,8 +370,8 @@ class TagRenderer
      * tags such as `article:tag`) are disambiguated with an incrementing
      * suffix so every entry stays uniquely keyed for Inertia's head dedup.
      *
-     * @param array<int, array<string, string>> $items
-     * @param callable(array<string, string>): string $keyFor
+     * @param  array<int, array<string, string>>  $items
+     * @param  callable(array<string, string>): string  $keyFor
      * @return array<int, array<string, string>>
      */
     protected function withHeadKeys(array $items, callable $keyFor): array
@@ -374,7 +383,7 @@ class TagRenderer
 
             if (isset($seen[$base])) {
                 $seen[$base]++;
-                $items[$i]['head-key'] = $base . ':' . $seen[$base];
+                $items[$i]['head-key'] = $base.':'.$seen[$base];
             } else {
                 $seen[$base] = 0;
                 $items[$i]['head-key'] = $base;
@@ -390,7 +399,7 @@ class TagRenderer
      * Useful when you want to output the schema separately from
      * other meta tags, or when using partial rendering.
      *
-     * @param SEOData $seo The resolved SEO data
+     * @param  SEOData  $seo  The resolved SEO data
      * @return string|null The script tag or null if no schema
      *
      * @example
@@ -419,10 +428,10 @@ class TagRenderer
 
         $url = $seo->canonical ?? $this->getCurrentUrl();
         if ($url !== '') {
-            $attributes .= ' data-seo-url="' . $this->escape($url) . '"';
+            $attributes .= ' data-seo-url="'.$this->escape($url).'"';
         }
 
-        return '<script ' . $attributes . '>' . $json . '</script>';
+        return '<script '.$attributes.'>'.$json.'</script>';
     }
 
     /**
@@ -440,7 +449,7 @@ class TagRenderer
      * unavailable_after) are supported as resolved string values; their
      * precedence (global → route → model → explicit) is the resolver chain.
      *
-     * @param SEOData $seo The resolved SEO data
+     * @param  SEOData  $seo  The resolved SEO data
      * @return string|null The directive to emit, or null to suppress it
      */
     protected function robotsContent(SEOData $seo): ?string
@@ -473,7 +482,7 @@ class TagRenderer
      * equal. Order and case are preserved — only the comparison is
      * normalized; the emitted value is always the original verbatim string.
      *
-     * @param string $robots The robots directive
+     * @param  string  $robots  The robots directive
      * @return string Normalized form for equality comparison
      */
     protected function normalizeRobots(string $robots): string
@@ -489,7 +498,7 @@ class TagRenderer
     /**
      * Render Open Graph meta tags.
      *
-     * @param SEOData $seo The resolved SEO data
+     * @param  SEOData  $seo  The resolved SEO data
      * @return array<int, string> Array of HTML meta tag strings
      */
     protected function renderOpenGraph(SEOData $seo): array
@@ -544,7 +553,7 @@ class TagRenderer
     /**
      * Render Twitter Card meta tags.
      *
-     * @param SEOData $seo The resolved SEO data
+     * @param  SEOData  $seo  The resolved SEO data
      * @return array<int, string> Array of HTML meta tag strings
      */
     protected function renderTwitterCard(SEOData $seo): array
@@ -572,8 +581,8 @@ class TagRenderer
     /**
      * Render hreflang alternate link tags.
      *
-     * @param SEOData $seo The resolved SEO data
-     * @param string $canonical The page's canonical URL, for the self-reference policy
+     * @param  SEOData  $seo  The resolved SEO data
+     * @param  string  $canonical  The page's canonical URL, for the self-reference policy
      * @return array<int, string> Array of HTML link tag strings
      */
     protected function renderAlternates(SEOData $seo, string $canonical): array
@@ -583,7 +592,7 @@ class TagRenderer
         foreach ($this->resolvedAlternates($seo, $canonical) as $alternate) {
             $hreflang = $this->escape($alternate['hreflang']);
             $href = $this->escape($alternate['href']);
-            $tags[] = '<link rel="alternate" hreflang="' . $hreflang . '" href="' . $href . '">';
+            $tags[] = '<link rel="alternate" hreflang="'.$hreflang.'" href="'.$href.'">';
         }
 
         return $tags;
@@ -655,31 +664,31 @@ class TagRenderer
     /**
      * Create a meta tag with name attribute.
      *
-     * @param string $name The meta name
-     * @param string $content The meta content
+     * @param  string  $name  The meta name
+     * @param  string  $content  The meta content
      * @return string HTML meta tag
      */
     protected function metaName(string $name, string $content): string
     {
-        return '<meta name="' . $name . '" content="' . $this->escape($content) . '">';
+        return '<meta name="'.$name.'" content="'.$this->escape($content).'">';
     }
 
     /**
      * Create a meta tag with property attribute.
      *
-     * @param string $property The meta property (og:*, article:*, etc.)
-     * @param string $content The meta content
+     * @param  string  $property  The meta property (og:*, article:*, etc.)
+     * @param  string  $content  The meta content
      * @return string HTML meta tag
      */
     protected function metaProperty(string $property, string $content): string
     {
-        return '<meta property="' . $property . '" content="' . $this->escape($content) . '">';
+        return '<meta property="'.$property.'" content="'.$this->escape($content).'">';
     }
 
     /**
      * Escape HTML entities for safe output.
      *
-     * @param string $value The value to escape
+     * @param  string  $value  The value to escape
      * @return string Escaped value
      */
     protected function escape(string $value): string

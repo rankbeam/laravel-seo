@@ -7,6 +7,7 @@ namespace Rankbeam\Seo\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Rankbeam\Seo\Data\AiProvenance;
 use Rankbeam\Seo\Services\SEOResolutionCache;
 
 /**
@@ -57,11 +58,13 @@ class SEOMeta extends Model
         'focus_keywords',
         'schema_jsonld',
         'schema_type',
+        'ai_provenance',
     ];
 
     protected $casts = [
         'focus_keywords' => 'array',
         'schema_jsonld' => 'array',
+        'ai_provenance' => 'array',
     ];
 
     protected $attributes = [
@@ -81,6 +84,32 @@ class SEOMeta extends Model
      */
     protected static function booted(): void
     {
+        static::saving(function (self $meta): void {
+            $origins = $meta->ai_provenance ?? [];
+            foreach ($origins as $field => &$origin) {
+                if (! in_array($field, ['title', 'description', 'schema_jsonld'], true)
+                    || ! is_array($origin) || ($origin['origin'] ?? null) !== 'ai') {
+                    unset($origins[$field]);
+
+                    continue;
+                }
+                $value = $meta->getAttribute($field);
+                if ($value === null || $value === '') {
+                    unset($origins[$field]);
+
+                    continue;
+                }
+                $hash = AiProvenance::hash($value);
+                if (($origin['current_hash'] ?? null) !== $hash) {
+                    $origin['edited'] = true;
+                    $origin['current_hash'] = $hash;
+                }
+            }
+            unset($origin);
+            if ($origins !== [] || array_key_exists('ai_provenance', $meta->getAttributes())) {
+                $meta->ai_provenance = $origins;
+            }
+        });
         static::saved(fn (self $meta) => static::forgetResolution($meta));
         static::deleted(fn (self $meta) => static::forgetResolution($meta));
     }

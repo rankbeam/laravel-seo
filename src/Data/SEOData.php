@@ -118,6 +118,7 @@ final class SEOData implements Arrayable, JsonSerializable
         public readonly ?string $locale = null,
         /** @var array<int, array{hreflang: string, href: string}>|null */
         public readonly ?array $alternates = null,
+        public readonly ?array $aiProvenance = null,
     ) {}
 
     /**
@@ -187,6 +188,7 @@ final class SEOData implements Arrayable, JsonSerializable
             focusKeywords: $meta->focus_keywords,
             schemaJsonld: $meta->schema_jsonld,
             locale: $meta->locale,
+            aiProvenance: AiProvenance::publicFields($meta->ai_provenance ?? null),
         );
     }
 
@@ -249,6 +251,7 @@ final class SEOData implements Arrayable, JsonSerializable
             schemaJsonld: $data['schema_jsonld'] ?? $data['schemaJsonld'] ?? null,
             locale: $data['locale'] ?? null,
             alternates: $data['alternates'] ?? null,
+            aiProvenance: AiProvenance::publicFields($data['ai_provenance'] ?? $data['aiProvenance'] ?? null),
         );
     }
 
@@ -307,6 +310,14 @@ final class SEOData implements Arrayable, JsonSerializable
      */
     public function merge(self $other): self
     {
+        $origins = AiProvenance::publicFields($this->aiProvenance);
+        foreach (['title' => 'title', 'description' => 'description', 'schema_jsonld' => 'schemaJsonld'] as $field => $property) {
+            if ($other->$property !== null) {
+                unset($origins[$field]);
+            }
+        }
+        $origins = array_replace($origins, AiProvenance::publicFields($other->aiProvenance));
+
         return new self(
             title: $other->title ?? $this->title,
             description: $other->description ?? $this->description,
@@ -333,6 +344,7 @@ final class SEOData implements Arrayable, JsonSerializable
             schemaJsonld: $other->schemaJsonld ?? $this->schemaJsonld,
             locale: $other->locale ?? $this->locale,
             alternates: $other->alternates ?? $this->alternates,
+            aiProvenance: $origins,
         );
     }
 
@@ -454,6 +466,7 @@ final class SEOData implements Arrayable, JsonSerializable
             'focus_keywords' => $this->focusKeywords,
             'schema' => $this->schemaJsonld,
             'alternates' => $this->alternates,
+            'ai_provenance' => AiProvenance::publicFields($this->aiProvenance),
         ], fn ($v) => $v !== null && $v !== []);
     }
 
@@ -510,6 +523,7 @@ final class SEOData implements Arrayable, JsonSerializable
             'schema_jsonld' => $this->schemaJsonld,
             'locale' => $this->locale,
             'alternates' => $this->alternates,
+            'ai_provenance' => AiProvenance::publicFields($this->aiProvenance),
         ];
     }
 
@@ -566,6 +580,14 @@ final class SEOData implements Arrayable, JsonSerializable
         } else {
             // Direct property access for camelCase fields
             $data[$snakeField] = $value;
+        }
+
+        if (isset($data['ai_provenance'][$snakeField])) {
+            if ($value === null || $value === '') {
+                unset($data['ai_provenance'][$snakeField]);
+            } elseif (($this->toFlatArray()[$snakeField] ?? null) !== $value) {
+                $data['ai_provenance'][$snakeField]['edited'] = true;
+            }
         }
 
         return self::fromArray($data);
