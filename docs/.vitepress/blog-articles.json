@@ -100,5 +100,22 @@
       "json-ld-schema-graphs-in-laravel": "json-ld-schemagrafen-in-laravel",
       "laravel-seo-audit": "laravel-seo-audit"
     }
+  },
+  "tr": {
+    "segment": "yazilar",
+    "articles": {
+      "laravel-seo-guide": "laravel-seo-rehberi",
+      "laravel-seo-audit": "laravel-seo-denetimi",
+      "laravel-filament-seo": "laravel-filament-seo",
+      "laravel-meta-tags": "laravel-meta-etiketleri",
+      "laravel-sitemaps": "laravel-site-haritalari",
+      "laravel-seo-packages-compared": "laravel-seo-paketleri-karsilastirmasi",
+      "what-is-rankbeam": "rankbeam-nedir",
+      "answer-engine-optimization-for-laravel": "laravel-yanit-motoru-optimizasyonu",
+      "hreflang-done-right-in-laravel": "laravel-hreflang",
+      "replaced-rank-math-with-a-laravel-package": "rank-math-yerine-laravel-paketi",
+      "canonical-urls-in-laravel": "laravel-kanonik-url",
+      "json-ld-schema-graphs-in-laravel": "laravel-json-ld-sema-graflari"
+    }
   }
 }

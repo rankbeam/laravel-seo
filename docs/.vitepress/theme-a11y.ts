@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url'
 const messagesPath = fileURLToPath(new URL('./manual-messages.ts', import.meta.url)).replaceAll('\\', '/')
 const substitutions = {
   'VPNavBarHamburger.vue': ['aria-label="mobile navigation"', ':aria-label="rankbeamManual(rankbeamLang)?.mobileNavigation ?? \'mobile navigation\'"'],
+  'VPNavBarExtra.vue': ['label="extra navigation"', ':label="rankbeamManual(rankbeamLang)?.extraNavigation ?? \'extra navigation\'"'],
   'VPSidebar.vue': ['Sidebar Navigation', "{{ rankbeamManual(rankbeamLang)?.sidebarNavigation ?? 'Sidebar Navigation' }}"],
   'VPDocFooter.vue': ['>Pager</span>', ">{{ rankbeamManual(rankbeamLang)?.pager ?? 'Pager' }}</span>"],
   'VPNavBarMenu.vue': ['Main Navigation', "{{ rankbeamManual(rankbeamLang)?.mainNavigation ?? 'Main Navigation' }}"],

@@ -4,11 +4,17 @@ import { localizeNavigation, sidebarFor } from './layout-localization'
 import { manualFor } from './manual-messages'
 import { localizedThemeAccessibility } from './theme-a11y'
 import { verifyLayoutSources } from './layout-validation'
+import { localSearchMiniSearch, turkishSearchMiniSearch } from './local-search'
 verifyLayoutSources()
 import { generateLlmsArtifacts, SITE_ORIGIN } from './llms'
 import { alternatePaths, editoriallyReviewed, localeInfo, translatedPaths, translationFiles, verifyTranslationSources } from './localization'
 
 verifyTranslationSources()
+
+const localSearchOptions = {
+  miniSearch: localSearchMiniSearch,
+  locales: Object.fromEntries(Object.entries(localeInfo).map(([locale, info]) => [locale, { translations: info.search }])),
+}
 
 // Default social-share image: the brand OG card, self-hosted in docs/public so
 // every card resolves to an absolute docs URL that returns 200 (1200×630 PNG).
@@ -46,6 +52,7 @@ export default defineConfig({
         sidebar: sidebarFor(locale, translatedPaths(locale)),
         outline: { label: info.outline }, docFooter: { prev: info.prev, next: info.next },
         ...info.theme,
+        ...(locale === 'tr' ? { search: { provider: 'local' as const, options: { ...localSearchOptions, miniSearch: turkishSearchMiniSearch } } } : {}),
         ...(manualFor(locale) ? { notFound: manualFor(locale).notFound } : {}),
         editLink: { pattern: 'https://github.com/rankbeam/laravel-seo/edit/master/docs/:path', text: info.edit },
         footer: { message: info.license, copyright: 'Copyright © 2026 Valentin Goxhaj — P.IVA 04936270612' },
@@ -83,7 +90,7 @@ export default defineConfig({
   // page's own head. VitePress already emits <meta name="description"> from the
   // resolved page description (frontmatter first), so we don't repeat it here.
   transformPageData(pageData, { siteConfig }) {
-    if (pageData.relativePath === 'nl/404.md') {
+    if (pageData.relativePath === 'nl/404.md' || pageData.relativePath === 'tr/404.md') {
       pageData.isNotFound = true
       ;(pageData.frontmatter.head ??= []).push(['meta', { name: 'robots', content: 'noindex,follow' }])
       return
@@ -220,7 +227,7 @@ export default defineConfig({
 
     search: {
       provider: 'local',
-      options: { locales: Object.fromEntries(Object.entries(localeInfo).map(([locale, info]) => [locale, { translations: info.search }])) },
+      options: localSearchOptions,
     },
 
     outline: { level: [2, 3], label: 'On this page' },

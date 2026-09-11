@@ -1,0 +1,107 @@
+{
+  "audit-description-2026-09-11": {
+    "it": {
+      "previousApproval": {
+        "source_sha256": "0ffd33be174c3cf5ba0c8a472b0fd047f6b588439ef5ae49ff16b23f4ecbcd4f",
+        "reviewer": "Codex",
+        "reviewed_at": "2026-09-10",
+        "status": "approved",
+        "independent_native": false
+      },
+      "changedKey": "Check your rendered pages from Artisan.",
+      "before": "Controlla da Artisan le pagine generate.",
+      "after": "Controlla con Artisan i metadati risolti.",
+      "unchangedCatalogSha256": "06987f4c3410a3b853358916c24783928c6e5301a39539c4759fe765a8ecb4ad",
+      "scope": "Read the complete source and target UI sentence in the actual homepage card context. Core AuditCommand explicitly checks resolved model metadata without fetching served HTML; changed rendered-pages wording to resolved metadata. No layout, navigation, sections or technical behavior changed. This is a scoped corrective Codex copy review; prior exact unchanged catalog review remains separate, not a new whole-catalog or native/human certification.",
+      "reviewer": "Codex",
+      "independentNative": false,
+      "packet": "audit-layout-it.json"
+    },
+    "de": {
+      "previousApproval": {
+        "source_sha256": "0ffd33be174c3cf5ba0c8a472b0fd047f6b588439ef5ae49ff16b23f4ecbcd4f",
+        "reviewer": "Codex",
+        "reviewed_at": "2026-09-10",
+        "status": "approved",
+        "independent_native": false
+      },
+      "changedKey": "Check your rendered pages from Artisan.",
+      "before": "Gerenderte Seiten über Artisan prüfen.",
+      "after": "Aufgelöste Metadaten mit Artisan prüfen.",
+      "unchangedCatalogSha256": "856721546ebe182198ae95c019a61fc30f8e501109c7e48e9dbd6c87bb34534a",
+      "scope": "Read the complete source and target UI sentence in the actual homepage card context. Core AuditCommand explicitly checks resolved model metadata without fetching served HTML; changed rendered-pages wording to resolved metadata. No layout, navigation, sections or technical behavior changed. This is a scoped corrective Codex copy review; prior exact unchanged catalog review remains separate, not a new whole-catalog or native/human certification.",
+      "reviewer": "Codex",
+      "independentNative": false,
+      "packet": "audit-layout-de.json"
+    },
+    "fr": {
+      "previousApproval": {
+        "source_sha256": "0ffd33be174c3cf5ba0c8a472b0fd047f6b588439ef5ae49ff16b23f4ecbcd4f",
+        "reviewer": "Codex",
+        "reviewed_at": "2026-09-10",
+        "status": "approved",
+        "independent_native": false
+      },
+      "changedKey": "Check your rendered pages from Artisan.",
+      "before": "Vérifiez le rendu des pages depuis Artisan.",
+      "after": "Vérifiez les métadonnées résolues avec Artisan.",
+      "unchangedCatalogSha256": "4e73dc78d1c113dec0b2d5344cccf322c02091d4465d48731254a658005a280e",
+      "scope": "Read the complete source and target UI sentence in the actual homepage card context. Core AuditCommand explicitly checks resolved model metadata without fetching served HTML; changed rendered-pages wording to resolved metadata. No layout, navigation, sections or technical behavior changed. This is a scoped corrective Codex copy review; prior exact unchanged catalog review remains separate, not a new whole-catalog or native/human certification.",
+      "reviewer": "Codex",
+      "independentNative": false,
+      "packet": "audit-layout-fr.json"
+    },
+    "es": {
+      "previousApproval": {
+        "source_sha256": "0ffd33be174c3cf5ba0c8a472b0fd047f6b588439ef5ae49ff16b23f4ecbcd4f",
+        "reviewer": "Codex",
+        "reviewed_at": "2026-09-10",
+        "status": "approved",
+        "independent_native": false
+      },
+      "changedKey": "Check your rendered pages from Artisan.",
+      "before": "Comprueba las páginas renderizadas desde Artisan.",
+      "after": "Comprueba los metadatos resueltos con Artisan.",
+      "unchangedCatalogSha256": "eff1bce20a56f180cac2c10fd43b546b4d10595838d69fd1298ad2b7361cc0a0",
+      "scope": "Read the complete source and target UI sentence in the actual homepage card context. Core AuditCommand explicitly checks resolved model metadata without fetching served HTML; changed rendered-pages wording to resolved metadata. No layout, navigation, sections or technical behavior changed. This is a scoped corrective Codex copy review; prior exact unchanged catalog review remains separate, not a new whole-catalog or native/human certification.",
+      "reviewer": "Codex",
+      "independentNative": false,
+      "packet": "audit-layout-es.json"
+    },
+    "pt-BR": {
+      "previousApproval": {
+        "source_sha256": "0ffd33be174c3cf5ba0c8a472b0fd047f6b588439ef5ae49ff16b23f4ecbcd4f",
+        "reviewer": "Codex",
+        "reviewed_at": "2026-09-10",
+        "status": "approved",
+        "independent_native": false
+      },
+      "changedKey": "Check your rendered pages from Artisan.",
+      "before": "Verifique as páginas renderizadas pelo Artisan.",
+      "after": "Verifique os metadados resolvidos com o Artisan.",
+      "unchangedCatalogSha256": "548f4460f542bf2b80317dfaf5cd9208e19a789f11a7d2335e4154e04e17c381",
+      "scope": "Read the complete source and target UI sentence in the actual homepage card context. Core AuditCommand explicitly checks resolved model metadata without fetching served HTML; changed rendered-pages wording to resolved metadata. No layout, navigation, sections or technical behavior changed. This is a scoped corrective Codex copy review; prior exact unchanged catalog review remains separate, not a new whole-catalog or native/human certification.",
+      "reviewer": "Codex",
+      "independentNative": false,
+      "packet": "audit-layout-pt-BR.json"
+    },
+    "nl": {
+      "previousApproval": {
+        "source_sha256": "0ffd33be174c3cf5ba0c8a472b0fd047f6b588439ef5ae49ff16b23f4ecbcd4f",
+        "reviewer": "Codex",
+        "reviewed_at": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "scope": "109 complete copy-reviewed workflow messages. Rendered/journey QA pending."
+      },
+      "changedKey": "Check your rendered pages from Artisan.",
+      "before": "Controleer je gerenderde pagina's vanuit Artisan.",
+      "after": "Controleer de uiteindelijke metadata met Artisan.",
+      "unchangedCatalogSha256": "fde5496d0cf9ccd3d2ce0e5c53f8da0f401ea08421177cd594213d7b648388ef",
+      "scope": "Read the complete source and target UI sentence in the actual homepage card context. Core AuditCommand explicitly checks resolved model metadata without fetching served HTML; changed rendered-pages wording to resolved metadata. No layout, navigation, sections or technical behavior changed. This is a scoped corrective Codex copy review; prior exact unchanged catalog review remains separate, not a new whole-catalog or native/human certification.",
+      "reviewer": "Codex",
+      "independentNative": false,
+      "packet": "audit-layout-nl.json"
+    }
+  }
+}
