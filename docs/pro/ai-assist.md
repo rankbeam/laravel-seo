@@ -101,8 +101,8 @@ return an **out of credit / quota** error — see [Troubleshooting](#troubleshoo
 :::
 
 The config file (`config/seo-pro.php`, `ai` block) exposes `timeout`,
-`max_input_chars`, `max_output_tokens`, `token_budgets`, `reasoning_models`
-+ `reasoning_min_output_tokens`, `suggestion_count`, `bulk_model` (the cheap
+`max_input_chars`, `max_output_tokens`, `token_budgets`, `reasoning_models` +
+`reasoning_min_output_tokens`, `suggestion_count`, `bulk_model` (the cheap
 tier for bulk-fill — see [Cost](#cheaper-bulk-generation)), `retry`,
 the `pricing` table, and the `local` sub-block — all covered under
 [Limits and tuning](#limits-and-tuning).

@@ -914,7 +914,7 @@
     },
     "it/pro/ai-assist.md": {
       "source": "pro/ai-assist.md",
-      "sha256": "9efa9bd63246145a1a54bbea635f23e7c268109fca01606c86e8b8f55c063a4a",
+      "sha256": "49729166bb1045e61b7b1d43d824ae7031212ac0e4cd858b332f23c53c707108",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -922,7 +922,12 @@
         "scope": "Review-first CLI, offline decisions, migrations, private evidence, custom origin marker, data-egress correction and optional prompt filtering; code-example parity",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "a7cdc62770b4eab72d895df753f4b4f464fc9c37e6fc11879b7b4cf220863b27"
+        "translation_sha256": "a7cdc62770b4eab72d895df753f4b4f464fc9c37e6fc11879b7b4cf220863b27",
+        "source_format_review": {
+          "reviewer": "Codex",
+          "date": "2026-09-11",
+          "scope": "Moved the literal plus between configuration identifiers onto the preceding line so Markdown does not create an accidental list. No prose, values or code changes; existing translated text and review digest preserved."
+        }
       }
     },
     "it/pro/ai-bot-monitor.md": {
@@ -1317,7 +1322,7 @@
     },
     "de/pro/ai-assist.md": {
       "source": "pro/ai-assist.md",
-      "sha256": "9efa9bd63246145a1a54bbea635f23e7c268109fca01606c86e8b8f55c063a4a",
+      "sha256": "49729166bb1045e61b7b1d43d824ae7031212ac0e4cd858b332f23c53c707108",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -1325,7 +1330,12 @@
         "scope": "Review-first CLI, offline decisions, migrations, private evidence, custom origin marker, data-egress correction and optional prompt filtering; code-example parity",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "8599b87ae5177f146b8d915594d8f5011db57526eecbaf852614234c56e3af31"
+        "translation_sha256": "8599b87ae5177f146b8d915594d8f5011db57526eecbaf852614234c56e3af31",
+        "source_format_review": {
+          "reviewer": "Codex",
+          "date": "2026-09-11",
+          "scope": "Moved the literal plus between configuration identifiers onto the preceding line so Markdown does not create an accidental list. No prose, values or code changes; existing translated text and review digest preserved."
+        }
       }
     },
     "de/pro/ai-bot-monitor.md": {
@@ -1733,7 +1743,7 @@
     },
     "fr/pro/ai-assist.md": {
       "source": "pro/ai-assist.md",
-      "sha256": "9efa9bd63246145a1a54bbea635f23e7c268109fca01606c86e8b8f55c063a4a",
+      "sha256": "49729166bb1045e61b7b1d43d824ae7031212ac0e4cd858b332f23c53c707108",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -1741,7 +1751,12 @@
         "scope": "Review-first CLI, offline decisions, migrations, private evidence, custom origin marker, data-egress correction and optional prompt filtering; code-example parity",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "0e9865ae9ebd66476d882bcfd266fb92e75c55412909a40443973e06213a2df9"
+        "translation_sha256": "0e9865ae9ebd66476d882bcfd266fb92e75c55412909a40443973e06213a2df9",
+        "source_format_review": {
+          "reviewer": "Codex",
+          "date": "2026-09-11",
+          "scope": "Moved the literal plus between configuration identifiers onto the preceding line so Markdown does not create an accidental list. No prose, values or code changes; existing translated text and review digest preserved."
+        }
       }
     },
     "fr/pro/ai-bot-monitor.md": {
@@ -2149,7 +2164,7 @@
     },
     "es/pro/ai-assist.md": {
       "source": "pro/ai-assist.md",
-      "sha256": "9efa9bd63246145a1a54bbea635f23e7c268109fca01606c86e8b8f55c063a4a",
+      "sha256": "49729166bb1045e61b7b1d43d824ae7031212ac0e4cd858b332f23c53c707108",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -2157,7 +2172,12 @@
         "scope": "Review-first CLI, offline decisions, migrations, private evidence, custom origin marker, data-egress correction and optional prompt filtering; code-example parity",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "09755ca40bf579a2b05700264e1991f37b1a4e82575a1bfee4ac32208b0701cc"
+        "translation_sha256": "09755ca40bf579a2b05700264e1991f37b1a4e82575a1bfee4ac32208b0701cc",
+        "source_format_review": {
+          "reviewer": "Codex",
+          "date": "2026-09-11",
+          "scope": "Moved the literal plus between configuration identifiers onto the preceding line so Markdown does not create an accidental list. No prose, values or code changes; existing translated text and review digest preserved."
+        }
       }
     },
     "es/pro/ai-bot-monitor.md": {
@@ -2565,7 +2585,7 @@
     },
     "pt-BR/pro/ai-assist.md": {
       "source": "pro/ai-assist.md",
-      "sha256": "9efa9bd63246145a1a54bbea635f23e7c268109fca01606c86e8b8f55c063a4a",
+      "sha256": "49729166bb1045e61b7b1d43d824ae7031212ac0e4cd858b332f23c53c707108",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -2573,7 +2593,12 @@
         "scope": "Review-first CLI, offline decisions, migrations, private evidence, custom origin marker, data-egress correction and optional prompt filtering; code-example parity",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "13bb2657c6f03823d38c87ef34a4f980ef01e55d22515a63db4bd609208d9503"
+        "translation_sha256": "13bb2657c6f03823d38c87ef34a4f980ef01e55d22515a63db4bd609208d9503",
+        "source_format_review": {
+          "reviewer": "Codex",
+          "date": "2026-09-11",
+          "scope": "Moved the literal plus between configuration identifiers onto the preceding line so Markdown does not create an accidental list. No prose, values or code changes; existing translated text and review digest preserved."
+        }
       }
     },
     "pt-BR/pro/ai-bot-monitor.md": {
