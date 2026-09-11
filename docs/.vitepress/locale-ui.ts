@@ -440,6 +440,69 @@ export const localeUi = {
         }
       }
     }
+  },
+  "pl": {
+    "label": "Polski",
+    "lang": "pl",
+    "guide": "Przewodnik",
+    "english": "Dokumentacja w języku angielskim",
+    "fallback": "Ta strona nie jest jeszcze dostępna po polsku.",
+    "open": "Przeczytaj stronę po angielsku",
+    "review": "To tłumaczenie oczekuje na redakcyjną weryfikację przez Codex.",
+    "source": "Wersja angielska",
+    "outline": "Na tej stronie",
+    "next": "Następna strona",
+    "prev": "Poprzednia strona",
+    "description": "Pakiet SEO Laravel do warstwowych metadanych, kanonicznych URL-i, Open Graph, powiązanego JSON-LD, map witryny XML i sterowania robotami.",
+    "reference": "Dokumentacja szczegółowa (EN)",
+    "table": "Tabela danych",
+    "titles": {
+      "guide/installation": "Instalacja",
+      "guide/quickstart": "Szybki start",
+      "concepts/resolver-precedence": "Priorytety resolvera",
+      "guide/sitemaps": "Rejestr map witryny",
+      "guide/filament": "Pola panelu Filament",
+      "guide/audit": "Bezpłatny audyt SEO",
+      "guide/ai-crawlers": "Sterowanie robotami AI",
+      "guide/multilingual": "Treści wielojęzyczne i hreflang",
+      "guide/og-image": "Generowane obrazy OG",
+      "guide/migrate-from-other-packages": "Migracja z innych pakietów"
+    },
+    "theme": {
+      "returnToTopLabel": "Wróć na górę",
+      "sidebarMenuLabel": "Menu",
+      "darkModeSwitchLabel": "Ciemny motyw",
+      "lightModeSwitchTitle": "Włącz jasny motyw",
+      "darkModeSwitchTitle": "Włącz ciemny motyw",
+      "langMenuLabel": "Zmień język",
+      "skipToContentLabel": "Przejdź do treści",
+      "lastUpdated": {
+        "text": "Ostatnia aktualizacja"
+      }
+    },
+    "edit": "Edytuj tę stronę na GitHubie",
+    "license": "rankbeam/laravel-seo jest udostępniany na licencji MIT.",
+    "search": {
+      "button": {
+        "buttonText": "Szukaj",
+        "buttonAriaLabel": "Szukaj w dokumentacji"
+      },
+      "modal": {
+        "displayDetails": "Pokaż szczegóły",
+        "resetButtonTitle": "Wyczyść wyszukiwanie",
+        "backButtonTitle": "Zamknij wyszukiwanie",
+        "noResultsText": "Brak wyników dla",
+        "footer": {
+          "selectText": "wybierz",
+          "navigateText": "nawiguj",
+          "closeText": "zamknij",
+          "selectKeyAriaLabel": "Enter",
+          "navigateUpKeyAriaLabel": "Strzałka w górę",
+          "navigateDownKeyAriaLabel": "Strzałka w dół",
+          "closeKeyAriaLabel": "Escape"
+        }
+      }
+    }
   }
 } as const
 

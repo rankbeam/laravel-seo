@@ -62,6 +62,7 @@ test('all previous editions retain MiniSearch results, ranking, scores and store
     es: ['Instalación y canónica', 'Metadatos', 'Configuración de metadatos'],
     'pt-BR': ['Instalação e canônica', 'Metadados', 'Configuração de metadados'],
     nl: ['Installatie en ideeën', 'Metadata', 'Wijzigingen en ideeën'],
+    pl: ['Źródło i właściwości', 'Błędy żądania', 'Indeksowanie i przekierowania'],
   }
   const normalize = results => results.map(result => ({ ...result, match: Object.fromEntries(Object.entries(result.match).map(([term, fields]) => [term, fields.map(f => ({ searchTitle: 'title', searchTitles: 'titles', searchText: 'text' })[f] ?? f)])) }))
   for (const [locale, [title, parent, text]] of Object.entries(texts)) {
@@ -86,11 +87,26 @@ test('extractor has no mutable locale state and does not change stored fields', 
   const en = { ...tr, id: '/guide#anchor' }
   assert.equal(extract(tr, 'searchTitle'), 'ı i')
   assert.equal(extract(en, 'searchTitle'), 'I İ')
+  assert.equal(extract({ ...tr, id: '/pl/guide#anchor' }, 'searchTitle'), 'I İ')
   assert.equal(extract(tr, 'searchTitle'), 'ı i')
   assert.equal(extract({ ...tr, id: '/tricky/guide' }, 'searchTitle'), 'I İ')
   assert.equal(extract(tr, 'title'), 'I İ')
   assert.deepEqual(extract(tr, 'titles'), ['ÇALIŞMA'])
   assert.equal(extract(tr, 'id'), tr.id)
+})
+
+test('Polish default search matches uppercase diacritics without stripping accents', () => {
+  const documents = [
+    { id: '/pl/a', title: 'Źródło i właściwości', titles: ['Błędy żądania'], text: 'źródło właściwości żądania błędy' },
+    { id: '/pl/b', title: 'WŁAŚCIWOŚCI', titles: ['ŹRÓDŁO'], text: 'ŻĄDANIA BŁĘDY' },
+  ]
+  const index = client(documents)
+  for (const term of ['źródło', 'właściwości', 'żądania', 'błędy']) {
+    assert(index.search(term).length > 0)
+    assert.deepEqual(index.search(term.toUpperCase()), index.search(term))
+  }
+  assert.equal(index.search('zrodlo', { fuzzy: false, prefix: false }).length, 0)
+  assert.equal(index.search('źródło').find(r => r.id === '/pl/a').title, documents[0].title)
 })
 
 test('installed VitePress retains the global-index and locale-client option contract', () => {

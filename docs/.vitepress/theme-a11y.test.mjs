@@ -29,6 +29,7 @@ test('tablet extra-navigation label uses reviewed locale copy and unchanged Engl
   assert(output.includes(':label="rankbeamManual(rankbeamLang)?.extraNavigation ?? \'extra navigation\'"'))
   assert.equal(manualFor('nl')?.extraNavigation, 'Extra navigatie')
   assert.equal(manualFor('tr')?.extraNavigation, 'Ek gezinme')
+  assert.equal(manualFor('pl')?.extraNavigation, 'Dodatkowa nawigacja')
   assert.equal(manualFor('en-US')?.extraNavigation ?? 'extra navigation', 'extra navigation')
 })
 

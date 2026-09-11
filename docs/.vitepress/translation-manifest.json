@@ -3939,6 +3939,995 @@
         "independent_native": false,
         "translation_sha256": "4972273c041420008a8de79bb477925228053aabfc8479e2ef719a6c5ebf7f56"
       }
+    },
+    "pl/concepts/resolver-precedence.md": {
+      "source": "concepts/resolver-precedence.md",
+      "sha256": "4391a29a1d25253802f2ad598b3eea68908906df8816260ae8dc912944417512",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "55c8e0a1f40e0bbca711c1fafcad20b08ac5490c0b2d51edc8ebb531420c79fe",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read full English and Polish resolver page: all six layers, null precedence, computed fallback chain and160 boundary, three robots sources, emit policy, canonical query exceptions and source badges retain meaning. Refined noindex wording to describe directive without guaranteeing actual deindexing. Codex editorial review, not native or human certification.",
+          "warningsDisposition": "English section IDs and planned Polish local destinations inspected; numbers, code, directive literals and source table parity retained. Rendered destinations remain private integration acceptance.",
+          "at": "2026-09-11T22:12:33.878Z",
+          "independentNative": false,
+          "digest": "27b1fca50869f18d1826911ca9534b0514ac1b10d7f68a0d40b1b10662d9dca2"
+        },
+        "packet": "pl-docs-core-reviewed.json",
+        "packet_sha256": "fc283b6c6637bd5a21ae4a6b4cf96516e6b9d5540fafdbfd31c90593b51de1d9"
+      }
+    },
+    "pl/contributing/rendering-contract.md": {
+      "source": "contributing/rendering-contract.md",
+      "sha256": "b4b18340855cfc8bcc45c3c33f9523942927105af01c9c11ac36f01afc5fd520",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "27780c6f59e5e165ec63c524ae21e62702764b9962198c26a568d85a79592ada",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex fully compared English and Polish rendering contract, AI crawler control, Filament, both migration references and multilingual guide, including all tables, examples, callouts and metadata. Preserved seven contract sections and planned versus tested distinctions; advisory access/content signals; Filament actual six source labels, tabs/save transactions/debounce and filesystem rollback caveat; every importer flag/mapping/token/canonical limitation; all17 language rows and language-code contracts, ICU/font/casing/identity limits. Clarified scheduled test matrix, source hashes, package UI translation-review scope and lower-risk migration wording. No independent native/human certification; inherited independent design-review statement refers to source spec, not this translation. Integration context acceptance remains separate.",
+          "warningsDisposition": "Reviewed all localized own-property routes and English section IDs for future full-build checking; external references and literal code retained. Numeric budgets, versions, dates, tables and offers unchanged, with Polish spacing only. Focus-keyword wording aligned with other reviewed PL pages. Private site runtime registry divergence reflects incomplete integration, not publication acceptance.",
+          "at": "2026-09-11T22:53:05.135Z",
+          "independentNative": false,
+          "digest": "e5afe3f249dfe283d73579bf2f4933314c8c3d3a0c258e2c6133a714e5e1dff9"
+        },
+        "packet": "pl-docs-next-six-parent-reviewed.json",
+        "packet_sha256": "c6c95b7ee1fc86ee3c5994f79849d5a68591c50bb4b2da811efb7d511d873d5b"
+      }
+    },
+    "pl/guide/ai-crawlers.md": {
+      "source": "guide/ai-crawlers.md",
+      "sha256": "30895f227130c9e06315b53c7c7cac342dc9755f7ed1813c3d560633dfff8c4b",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "a8c9ef086e0ac8535226f7ea18f5c4e6aab65b4798d026a3db33a64aee70619b",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex fully compared English and Polish rendering contract, AI crawler control, Filament, both migration references and multilingual guide, including all tables, examples, callouts and metadata. Preserved seven contract sections and planned versus tested distinctions; advisory access/content signals; Filament actual six source labels, tabs/save transactions/debounce and filesystem rollback caveat; every importer flag/mapping/token/canonical limitation; all17 language rows and language-code contracts, ICU/font/casing/identity limits. Clarified scheduled test matrix, source hashes, package UI translation-review scope and lower-risk migration wording. No independent native/human certification; inherited independent design-review statement refers to source spec, not this translation. Integration context acceptance remains separate.",
+          "warningsDisposition": "Reviewed all localized own-property routes and English section IDs for future full-build checking; external references and literal code retained. Numeric budgets, versions, dates, tables and offers unchanged, with Polish spacing only. Focus-keyword wording aligned with other reviewed PL pages. Private site runtime registry divergence reflects incomplete integration, not publication acceptance.",
+          "at": "2026-09-11T22:53:05.135Z",
+          "independentNative": false,
+          "digest": "c5003e4b52342175596811df14c01922dae793ada7b5dee0d066f40e60b3bb82"
+        },
+        "packet": "pl-docs-next-six-parent-reviewed.json",
+        "packet_sha256": "c6c95b7ee1fc86ee3c5994f79849d5a68591c50bb4b2da811efb7d511d873d5b"
+      }
+    },
+    "pl/guide/audit.md": {
+      "source": "guide/audit.md",
+      "sha256": "fdd1f134b1988c0ae6aeb529b233ed16750ef42a091c970b807406f05a2e939a",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "f2ea04650b72aa86248057ef71b4ccf74cb462b181df4d6d8f4eb7dd779bdd28",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent fully read English/Polish free audit guide including all code tables/options/examples, core versus Pro registry differences, metadata-only coverage, AEO article-only notices, resolved suffix length, opt-in keyword gate, strict0/1 and explain provenance. Harmonized Polish focus-keyword/notice terminology and clarified recommended budgets and derived-query removal. No example commands executed. Codex review not native/human certification.",
+          "warningsDisposition": "All identifiers, length values,0/1 and JSON/example placeholders intact; own /pl routes retain source fragments. Existing example output is literal source evidence, not newly measured output.",
+          "at": "2026-09-11T22:44:57.290Z",
+          "independentNative": false,
+          "digest": "66677e7745cdd8bea7bad1a1e376dd62634b75b91f0e21410e17443fd5b2a530"
+        },
+        "packet": "pl-docs-next-ten-reviewed.json",
+        "packet_sha256": "b4c3ca7f9d0ab5bb65764669cdb217769ec38f59303e44d6cee7d6675c86a658"
+      }
+    },
+    "pl/guide/blade.md": {
+      "source": "guide/blade.md",
+      "sha256": "1545bf859fd72abe90b4e0038527fe901459e1c11c8472a5363aad2ea15cfcb4",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "38836054b697f323be2501c460a4e6873aa9fae8d3ef12adbb5c4289924510f5",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent compared complete English and Polish Blade guide: seven directives, explicit SEOData intent and no database merge, four render gap rules, scheme preservation, robots distinction, hreflang policies and escaping retained. Refined resolver wording to SEO data. Codex editorial review, not native or human certification.",
+          "warningsDisposition": "English heading IDs, all literal code and protected signatures checked. Polish destinations are planned complete-edition routes; rendered validation pending integration.",
+          "at": "2026-09-11T22:12:34.868Z",
+          "independentNative": false,
+          "digest": "58da38f1113dcee88c294bf3a8145c059012d99aa52a71b6a00e82330ae084f8"
+        },
+        "packet": "pl-docs-core-reviewed.json",
+        "packet_sha256": "fc283b6c6637bd5a21ae4a6b4cf96516e6b9d5540fafdbfd31c90593b51de1d9"
+      }
+    },
+    "pl/guide/demo.md": {
+      "source": "guide/demo.md",
+      "sha256": "a83060a0a93389f35bbfa86ed8f0ca25fa0558c7852ec930d29394e59802c8d7",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "46ea351a224b052faed20ac9597b2e0b68bac80ea06d687ab64b7479da19e885",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent fully read English/Polish demo page, all four sections and literal commands: released-package setup, build-secret handling, free/Pro split, sample provenance and no hosted interactive demo preserved. Refined Docker grammar and rendered-head wording. No Docker/install/provider commands executed. Codex review not native/human certification.",
+          "warningsDisposition": "Own docs routes and source anchors localized; shared PDF/README/external repo URLs and all literal examples unchanged.",
+          "at": "2026-09-11T22:43:45.653Z",
+          "independentNative": false,
+          "digest": "4c4db41f32cdba2ecd89adf13b71fea842ae26d2f0ab5aac6d6aad372f3b52e7"
+        },
+        "packet": "pl-docs-next-ten-reviewed.json",
+        "packet_sha256": "b4c3ca7f9d0ab5bb65764669cdb217769ec38f59303e44d6cee7d6675c86a658"
+      }
+    },
+    "pl/guide/explain.md": {
+      "source": "guide/explain.md",
+      "sha256": "8dff916dca42b6a22870ce1ea6b7786e5a48790bffb503065bb33ee01139e9d8",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "885fd4765edda04d9016c86d5fb67c7fe4d6c849726403b5a4682a715b481f6e",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read whole English and Polish explain page: read-only no-network/license operation, actual resolver attribution, winning and losing layers, post-processing and indexing guard, non-null defaults, site-level ledger, JSON and audit comparison retain source meaning. Codex review, not native or human certification.",
+          "warningsDisposition": "Source heading IDs, code/output snippets and planned Polish cross-links preserved. Existing source reference to an amendment remains a source wording follow-up, not expanded into a new claim.",
+          "at": "2026-09-11T22:13:02.938Z",
+          "independentNative": false,
+          "digest": "87d74ac7cae1560ba04bc597b6ad24aa02e1102c6181c529a59e40f33cc83f5a"
+        },
+        "packet": "pl-docs-core-reviewed.json",
+        "packet_sha256": "fc283b6c6637bd5a21ae4a6b4cf96516e6b9d5540fafdbfd31c90593b51de1d9"
+      }
+    },
+    "pl/guide/filament.md": {
+      "source": "guide/filament.md",
+      "sha256": "7c7d8a78510a50a0f0c11f8a4952f6fcc40e2063ce8d457ffc1d3dfadb534aa4",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "98af7ff76d96a9996fcaf7fe74e566091e817f08a43c78db71a9cb6c94d3390e",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex fully compared English and Polish rendering contract, AI crawler control, Filament, both migration references and multilingual guide, including all tables, examples, callouts and metadata. Preserved seven contract sections and planned versus tested distinctions; advisory access/content signals; Filament actual six source labels, tabs/save transactions/debounce and filesystem rollback caveat; every importer flag/mapping/token/canonical limitation; all17 language rows and language-code contracts, ICU/font/casing/identity limits. Clarified scheduled test matrix, source hashes, package UI translation-review scope and lower-risk migration wording. No independent native/human certification; inherited independent design-review statement refers to source spec, not this translation. Integration context acceptance remains separate.",
+          "warningsDisposition": "Reviewed all localized own-property routes and English section IDs for future full-build checking; external references and literal code retained. Numeric budgets, versions, dates, tables and offers unchanged, with Polish spacing only. Focus-keyword wording aligned with other reviewed PL pages. Private site runtime registry divergence reflects incomplete integration, not publication acceptance.",
+          "at": "2026-09-11T22:53:05.135Z",
+          "independentNative": false,
+          "digest": "b634e9f0d272cf507c53a26a7e34cddf7b1e029afa96e1f61ac882826c951a5e"
+        },
+        "packet": "pl-docs-next-six-parent-reviewed.json",
+        "packet_sha256": "c6c95b7ee1fc86ee3c5994f79849d5a68591c50bb4b2da811efb7d511d873d5b"
+      }
+    },
+    "pl/guide/indexing-guard.md": {
+      "source": "guide/indexing-guard.md",
+      "sha256": "de3dc22aad4814ef932b11ffa2be244f6c4d764cf98ff3a9f5eb4f5d601c407c",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "8eb46a3ad5d4dced56f79f78a15182a7bf4d507e4dcd78d55c3280d1a885d2f0",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent fully compared English/Polish indexing guard guide: all four effects, explicit-value override, opt-in and allowed-env inert behavior, static-file bypass, wildcard and empty-env versus explicit-empty-array distinction, verification and scope retained. Refined robots prohibition wording and scoped empty-entry safety statement to actual described case. No claim of authentication or proven crawler compliance. Codex review not native/human certification.",
+          "warningsDisposition": "All protected env/header/code examples unchanged; planned /pl routes and section fragments retained; Core4 is considered future default, not current release.",
+          "at": "2026-09-11T22:44:29.651Z",
+          "independentNative": false,
+          "digest": "f796de128bea3c3372c1e77138ca7f11b57f4dfa744308f1019668bb00d423ad"
+        },
+        "packet": "pl-docs-next-ten-reviewed.json",
+        "packet_sha256": "b4c3ca7f9d0ab5bb65764669cdb217769ec38f59303e44d6cee7d6675c86a658"
+      }
+    },
+    "pl/guide/inertia-json.md": {
+      "source": "guide/inertia-json.md",
+      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "cc79fecf5ce661096cc25a2ffc9f13137706458e2d2014d355ef0fa85197103b",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read complete English and Polish Inertia/JSON guide including all Vue React Svelte and root-view/navigation examples: SSR prerequisite, head-key versus key, Svelte difference, JSON-LD safe rendering and client replacement lifecycle, plain-array shape and immutable resolver values retain meaning. Codex review, not native or human certification.",
+          "warningsDisposition": "All protected examples and technical keys retained; English anchors, external Inertia reference and planned Polish internal destinations inspected. Extra blank spacing has no semantic or section change.",
+          "at": "2026-09-11T22:13:03.891Z",
+          "independentNative": false,
+          "digest": "3efe75f2be699d366cde05dd3660a0e3878dd55339d2688daf96e615b21b4fdc"
+        },
+        "packet": "pl-docs-core-reviewed.json",
+        "packet_sha256": "fc283b6c6637bd5a21ae4a6b4cf96516e6b9d5540fafdbfd31c90593b51de1d9"
+      }
+    },
+    "pl/guide/installation.md": {
+      "source": "guide/installation.md",
+      "sha256": "b6e9dbf70cf7585113bfc4cb6947f2c8c700179843a6bc0c7bb9a6d5c5d3676e",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "62a34ea84674d7a65f23ebaccb1f6916b87deba763608f60cc946445c4cdf8db",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read complete English and Polish page including every example and metadata. Preserved PHP/Laravel bounds, two core tables, optional sitemap dependency, traits/seeder caveat, single head render, locale and routing behavior. Homepage keeps original Home component and complete metadata; vendor name means Composer prefix. No independent native or human certification; rendered destination checks remain integration gates.",
+          "warningsDisposition": "Numeric differences are unchanged numbered English heading anchors; versions and values are preserved. Own-property paths correctly target planned Polish counterparts with stable English fragments; every code block remains literal.",
+          "at": "2026-09-11T22:08:02.547Z",
+          "independentNative": false,
+          "digest": "35bca29bb7e95926739309c8fb6b370b3d8e47dc9beeb7e436929a9b5580bfd1"
+        },
+        "packet": "pl-docs-core-reviewed.json",
+        "packet_sha256": "fc283b6c6637bd5a21ae4a6b4cf96516e6b9d5540fafdbfd31c90593b51de1d9"
+      }
+    },
+    "pl/guide/livewire.md": {
+      "source": "guide/livewire.md",
+      "sha256": "fc9b76e838862d3f562ea7bb08061b95ce4775bb96e7bebf9d00aefeda8d2e4c",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "d6ae5032869fd5a30de6b53baf49d0c68b9b97a8c006eab154d750ab8ebc9475",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent compared full English/Polish Livewire guide: initial HTTP head, wire:navigate head merge and accumulated JSON-LD, reverse last-match cleanup including same-URL duplicates and no-schema destination, version caveat and Filament authoring scope all preserved. Codex review, not native/human certification.",
+          "warningsDisposition": "All literal cleanup code and marker attributes preserved. English section IDs and external reference unchanged; planned Polish internal links await build.",
+          "at": "2026-09-11T22:13:27.084Z",
+          "independentNative": false,
+          "digest": "99efab40b4d905e9863e68000a60127d029eb13ef7d57de7b8d4c5c0771c1580"
+        },
+        "packet": "pl-docs-core-reviewed.json",
+        "packet_sha256": "fc283b6c6637bd5a21ae4a6b4cf96516e6b9d5540fafdbfd31c90593b51de1d9"
+      }
+    },
+    "pl/guide/markdown-for-bots.md": {
+      "source": "guide/markdown-for-bots.md",
+      "sha256": "0d3375f75e8a303c5c7b12d704482d71633948a685adde037bfdfa5d7d3fbac6",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "3e4cbb002dbed9159d06f7f3b18c73bfbf9324662cdf072fec2c9e8ee79993a3",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read complete English/Polish Markdown guide: opt-in compatibility/no retrieval promise, two simultaneous conditions, only successful HTML replacement, registered route priority, explicit model null/blank suppressing fallback, literal content fallback and bot opt-in all preserved. Refined answer-engine, successful-response and returned-content wording. Codex review not native/human certification.",
+          "warningsDisposition": "Code examples/config and explicit Accept/query/user-agent identifiers preserved. Own /pl links and all English heading anchors retained; no requests executed.",
+          "at": "2026-09-11T22:43:46.599Z",
+          "independentNative": false,
+          "digest": "4a36d2f982c7d8ca3194049cc2c3eef8971e2239f9ac5dd2adf71678216015ad"
+        },
+        "packet": "pl-docs-next-ten-reviewed.json",
+        "packet_sha256": "b4c3ca7f9d0ab5bb65764669cdb217769ec38f59303e44d6cee7d6675c86a658"
+      }
+    },
+    "pl/guide/migrate-from-other-packages.md": {
+      "source": "guide/migrate-from-other-packages.md",
+      "sha256": "8ac395702e898881af586ec86627c866f34955a76ca079880ce03dd7bc87eb1f",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "84c7dc15f6680d64943549284885d9e3045d0198724709191c129a7ffdcab7f9",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex fully compared English and Polish rendering contract, AI crawler control, Filament, both migration references and multilingual guide, including all tables, examples, callouts and metadata. Preserved seven contract sections and planned versus tested distinctions; advisory access/content signals; Filament actual six source labels, tabs/save transactions/debounce and filesystem rollback caveat; every importer flag/mapping/token/canonical limitation; all17 language rows and language-code contracts, ICU/font/casing/identity limits. Clarified scheduled test matrix, source hashes, package UI translation-review scope and lower-risk migration wording. No independent native/human certification; inherited independent design-review statement refers to source spec, not this translation. Integration context acceptance remains separate.",
+          "warningsDisposition": "Reviewed all localized own-property routes and English section IDs for future full-build checking; external references and literal code retained. Numeric budgets, versions, dates, tables and offers unchanged, with Polish spacing only. Focus-keyword wording aligned with other reviewed PL pages. Private site runtime registry divergence reflects incomplete integration, not publication acceptance.",
+          "at": "2026-09-11T22:53:05.135Z",
+          "independentNative": false,
+          "digest": "9ac1669a52a789e37b4df650bb9086f78d15476160aae5b8b513d689d2c2b2cd"
+        },
+        "packet": "pl-docs-next-six-parent-reviewed.json",
+        "packet_sha256": "c6c95b7ee1fc86ee3c5994f79849d5a68591c50bb4b2da811efb7d511d873d5b"
+      }
+    },
+    "pl/guide/migrate-from-wordpress.md": {
+      "source": "guide/migrate-from-wordpress.md",
+      "sha256": "7da4845d115d9fcc481bad48262275938286c8558579f6e375d964593b9c5668",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "9a6ee1b5a79937ae8c4c1c8dae75d817523cbc80f235431d338f3cd683b26c93",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex fully compared English and Polish rendering contract, AI crawler control, Filament, both migration references and multilingual guide, including all tables, examples, callouts and metadata. Preserved seven contract sections and planned versus tested distinctions; advisory access/content signals; Filament actual six source labels, tabs/save transactions/debounce and filesystem rollback caveat; every importer flag/mapping/token/canonical limitation; all17 language rows and language-code contracts, ICU/font/casing/identity limits. Clarified scheduled test matrix, source hashes, package UI translation-review scope and lower-risk migration wording. No independent native/human certification; inherited independent design-review statement refers to source spec, not this translation. Integration context acceptance remains separate.",
+          "warningsDisposition": "Reviewed all localized own-property routes and English section IDs for future full-build checking; external references and literal code retained. Numeric budgets, versions, dates, tables and offers unchanged, with Polish spacing only. Focus-keyword wording aligned with other reviewed PL pages. Private site runtime registry divergence reflects incomplete integration, not publication acceptance.",
+          "at": "2026-09-11T22:53:05.135Z",
+          "independentNative": false,
+          "digest": "6972e6f2f34c4df846abe7f2cd72ff1b9b5aef195f5014297a9b4c10c9b0edaf"
+        },
+        "packet": "pl-docs-next-six-parent-reviewed.json",
+        "packet_sha256": "c6c95b7ee1fc86ee3c5994f79849d5a68591c50bb4b2da811efb7d511d873d5b"
+      }
+    },
+    "pl/guide/multilingual.md": {
+      "source": "guide/multilingual.md",
+      "sha256": "3ae9687568846476d3c5f972f34b14124409eb67e401569e1eec5a11305945af",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "01f35e07a5edf6715880858f0ed56cd45de43a5c4f3aff1ec2b0a8cbe7cf193b",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex fully compared English and Polish rendering contract, AI crawler control, Filament, both migration references and multilingual guide, including all tables, examples, callouts and metadata. Preserved seven contract sections and planned versus tested distinctions; advisory access/content signals; Filament actual six source labels, tabs/save transactions/debounce and filesystem rollback caveat; every importer flag/mapping/token/canonical limitation; all17 language rows and language-code contracts, ICU/font/casing/identity limits. Clarified scheduled test matrix, source hashes, package UI translation-review scope and lower-risk migration wording. No independent native/human certification; inherited independent design-review statement refers to source spec, not this translation. Integration context acceptance remains separate.",
+          "warningsDisposition": "Reviewed all localized own-property routes and English section IDs for future full-build checking; external references and literal code retained. Numeric budgets, versions, dates, tables and offers unchanged, with Polish spacing only. Focus-keyword wording aligned with other reviewed PL pages. Private site runtime registry divergence reflects incomplete integration, not publication acceptance.",
+          "at": "2026-09-11T22:53:05.135Z",
+          "independentNative": false,
+          "digest": "4db398e39ab590dd6814252d7686ab8860882df9a14c24b7f810ac24dab2e435"
+        },
+        "packet": "pl-docs-next-six-parent-reviewed.json",
+        "packet_sha256": "c6c95b7ee1fc86ee3c5994f79849d5a68591c50bb4b2da811efb7d511d873d5b"
+      }
+    },
+    "pl/guide/og-image.md": {
+      "source": "guide/og-image.md",
+      "sha256": "dc7c00ce446dc5e1fd02f05130387e1bdbcf1443f6a00419e2a34934247b693d",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "acaa84450d00aa15552ae70865ad900438d6da52d128981d97bf9602c137a3ab",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex compared complete English and Polish OG-image and sitemap guides, including every template variable, config/example, prerequisites, disabled defaults, explicit-image precedence, disk existence gates, hash invalidation, prune scoping, no-JavaScript/network render policy, sandbox and font smoke-test limits, ICU date versus Carbon fallback. Sitemap review includes XSL same-origin/output escaping, actual absent-lastmod behavior, non-HTTP/relative loc rejection, source registration/auto-discovery, image and hreflang opt-ins, 3.20.1 resolution lifetime and shallow config merge. Refined renderer contract, non-absolute URL meaning and scheduled-command wording. No independent native/human certification or actual example execution; integrated functional acceptance pending.",
+          "warningsDisposition": "Localized sitemap/docs destinations and English section anchors reviewed; 50000 URL count retains its value with Polish grouping. All literal code, options, dimensions, versions, source links and font package names preserved. Registry mismatch currently reflects private partial integration only.",
+          "at": "2026-09-11T22:54:06.943Z",
+          "independentNative": false,
+          "digest": "2465a7df7a2a4cb9469582482a9fc1d56a7326279ea4eea77e66b7c67c167d1b"
+        },
+        "packet": "pl-docs-media-parent-reviewed.json",
+        "packet_sha256": "12a662eb6d5607aef6023ea1cf45d97b9c68ae3c11969e8818d8c15d2571b03b"
+      }
+    },
+    "pl/guide/quickstart.md": {
+      "source": "guide/quickstart.md",
+      "sha256": "62172e26a1b071e110a365c15ab81d23c415ff95ac160575142ad10bc507260d",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "ef08a059ee6c7e2faa514d468e8ccfc41c4bebe85b78d4776440c6227149073b",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read complete English and Polish page including every example and metadata. Preserved PHP/Laravel bounds, two core tables, optional sitemap dependency, traits/seeder caveat, single head render, locale and routing behavior. Homepage keeps original Home component and complete metadata; vendor name means Composer prefix. No independent native or human certification; rendered destination checks remain integration gates.",
+          "warningsDisposition": "Numeric differences are unchanged numbered English heading anchors; versions and values are preserved. Own-property paths correctly target planned Polish counterparts with stable English fragments; every code block remains literal.",
+          "at": "2026-09-11T22:08:04.311Z",
+          "independentNative": false,
+          "digest": "90e7c31e6f238ba1ce0859d6b6f6f8802d28e754e43e556f3569d55aea4b0bbd"
+        },
+        "packet": "pl-docs-core-reviewed.json",
+        "packet_sha256": "fc283b6c6637bd5a21ae4a6b4cf96516e6b9d5540fafdbfd31c90593b51de1d9"
+      }
+    },
+    "pl/guide/schema.md": {
+      "source": "guide/schema.md",
+      "sha256": "f5896694ebd6fa3df9dc7d393ec392882f431242468a1aababc257bc70c3b02a",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "93f5f8cbf142edb539651d7370d912e629e8d9b1c36df85b2c11e2c6fab3b3c2",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent compared entire English/Polish schema guide: stable ID graph relations, all three inLanguage sources and disable flag, seven builders, attached schema and optional Filament validation, JSON_HEX escaping and bypass caveat preserved. Codex review, not native/human certification.",
+          "warningsDisposition": "Code and multiline inline escaping flags exact; source IDs and planned Polish routes inspected. Metadata conveys graph identity and consistency without added claims.",
+          "at": "2026-09-11T22:13:28.036Z",
+          "independentNative": false,
+          "digest": "9c820cc0d88677fc2d434a3d3eb54ee4b386a35ea9ab11adf7f91ddcd7e2e8d6"
+        },
+        "packet": "pl-docs-core-reviewed.json",
+        "packet_sha256": "fc283b6c6637bd5a21ae4a6b4cf96516e6b9d5540fafdbfd31c90593b51de1d9"
+      }
+    },
+    "pl/guide/sitemaps.md": {
+      "source": "guide/sitemaps.md",
+      "sha256": "16bbe750af66c65ce687536f4b92bfe27c6c11b05f59c2030a6c9ea17d080a0e",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "e20fcf63da5a7b87eadecfae0cac52f098bc5ae703e03f4a18e47422fa3041a7",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex compared complete English and Polish OG-image and sitemap guides, including every template variable, config/example, prerequisites, disabled defaults, explicit-image precedence, disk existence gates, hash invalidation, prune scoping, no-JavaScript/network render policy, sandbox and font smoke-test limits, ICU date versus Carbon fallback. Sitemap review includes XSL same-origin/output escaping, actual absent-lastmod behavior, non-HTTP/relative loc rejection, source registration/auto-discovery, image and hreflang opt-ins, 3.20.1 resolution lifetime and shallow config merge. Refined renderer contract, non-absolute URL meaning and scheduled-command wording. No independent native/human certification or actual example execution; integrated functional acceptance pending.",
+          "warningsDisposition": "Localized sitemap/docs destinations and English section anchors reviewed; 50000 URL count retains its value with Polish grouping. All literal code, options, dimensions, versions, source links and font package names preserved. Registry mismatch currently reflects private partial integration only.",
+          "at": "2026-09-11T22:54:06.943Z",
+          "independentNative": false,
+          "digest": "a1a3dd806b3a34ab5ba989ea38901fc01a8da4a9787787b8a0c2f4e3d7f84584"
+        },
+        "packet": "pl-docs-media-parent-reviewed.json",
+        "packet_sha256": "12a662eb6d5607aef6023ea1cf45d97b9c68ae3c11969e8818d8c15d2571b03b"
+      }
+    },
+    "pl/guide/translations.md": {
+      "source": "guide/translations.md",
+      "sha256": "bedcee93831af91605dca0f7ad536e57da078984464c60fd68b4ca52e62662bc",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "2c5f02f6c81eeee852c817131cbdb38850df2f9a20f96bbae66473c855b1343a",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex authored and read both complete Polish pages after assembly against complete English. Retained package-language versus public-edition distinction, source native-review policy without claiming certification, CLI display/content locale distinction, exact identifiers, all six upgrade steps, backup/restore requirement, destructive-table warning and limited schema compatibility. No commands from the examples were executed.",
+          "warningsDisposition": "Own docs links use planned /pl routes with unchanged English section IDs; final built destinations remain a release gate. Package versions, Tier labels, rule counts and protected code identifiers preserved.",
+          "at": "2026-09-11T22:32:10.584Z",
+          "independentNative": false,
+          "digest": "832affbaefa0d5cf8946dcd99514bbbf040c14461e1d7c6cac6273dbeb119113"
+        },
+        "packet": "pl-docs-parent-small-reviewed.json",
+        "packet_sha256": "7b1b8721258757a250bbb5b61948f75cf3721b2143122fc33bd192fef0b2f622"
+      }
+    },
+    "pl/guide/upgrade-from-v1.md": {
+      "source": "guide/upgrade-from-v1.md",
+      "sha256": "58fcb833a7313e9a91e41c7fea664a0db5b1a603d8b8bfda75db95f3a59bba15",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "518d850a3d2ad5472c6e384a15ba2d0590246080f2f5eba19f9b333580f61026",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex authored and read both complete Polish pages after assembly against complete English. Retained package-language versus public-edition distinction, source native-review policy without claiming certification, CLI display/content locale distinction, exact identifiers, all six upgrade steps, backup/restore requirement, destructive-table warning and limited schema compatibility. No commands from the examples were executed.",
+          "warningsDisposition": "Own docs links use planned /pl routes with unchanged English section IDs; final built destinations remain a release gate. Package versions, Tier labels, rule counts and protected code identifiers preserved.",
+          "at": "2026-09-11T22:32:10.584Z",
+          "independentNative": false,
+          "digest": "b20e680122b01cf68a4bb50541c90d3b22d5434f69ec46708cd9208e06fc5e1e"
+        },
+        "packet": "pl-docs-parent-small-reviewed.json",
+        "packet_sha256": "7b1b8721258757a250bbb5b61948f75cf3721b2143122fc33bd192fef0b2f622"
+      }
+    },
+    "pl/guide/why-rankbeam.md": {
+      "source": "guide/why-rankbeam.md",
+      "sha256": "d9ef64d4a335daa263460c434bc684876ec75c06a221abffe2ce994651deccf2",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "1c5120d6c91b9eef70b3d509e6f65dd8696f14e5eed94b63791c8574cb0dacc7",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read complete English then Polish why-Rankbeam page: all tables and reference-app accounting,12 deleted versus22 retained classes, version bounds, open-core boundaries, no ranking promises, optional AI/license behavior, four migration stages and overwrite caveat, query-count and bounded-crawl benchmarks retain source meaning. Refined runtime helper, explicit headless terminology and broad crawler controls (not only indexers). Codex review not native/human certification; source case-study assertions translated rather than newly benchmarked.",
+          "warningsDisposition": "Localized thousands20 000/20 tys./1800 retain source values. English IDs, external citations and planned Polish own-property routes inspected. All protected code/identifiers,12-class and14-row comparison tables preserved; browser/link gates pending integration.",
+          "at": "2026-09-11T22:14:06.779Z",
+          "independentNative": false,
+          "digest": "7dca12e551d5fee0204cf2032e4a8ce8c11c3bce5196cc614ea5915cace48d28"
+        },
+        "packet": "pl-docs-core-reviewed.json",
+        "packet_sha256": "fc283b6c6637bd5a21ae4a6b4cf96516e6b9d5540fafdbfd31c90593b51de1d9"
+      }
+    },
+    "pl/guide/wordpress-migration-runbook.md": {
+      "source": "guide/wordpress-migration-runbook.md",
+      "sha256": "f2daaf7eac2bd7a8e180d401e8c8c71bec38a306b6bbe5b2751202947cd82ff8",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "ee4ad6602de85631f2fe3f3daee728380ff17985e8ed21109f0eb48837f2b80a",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read complete English and full assembled Polish runbook/configuration pages after authoring. Preserved all sections, examples, checklist and configuration defaults, environment guard, derived/explicit canonicals, optional features, local-image-only selection, cache scope/invalidation/TTL caveats. Runbook explicitly scopes additive/idempotent assurances to default fill-empty mode and explains restoring overwritten values/rules from backup, consistent with source introduction and reviewed Turkish clarification. No example commands executed; package performance claims remain attributed historical benchmarks, not new measurements. Codex review is not native/human certification.",
+          "warningsDisposition": "Verified exact protected code, preserved English anchors and planned /pl docs destinations. 20k req/day is correctly localized to 20 tys. requests daily; all other counts/defaults unchanged. Browser/build links remain integration acceptance.",
+          "at": "2026-09-11T22:36:51.184Z",
+          "independentNative": false,
+          "digest": "7211828f726fa466b432b4a43ad571268abe0f55c57db08d973e5ce9c992796e"
+        },
+        "packet": "pl-docs-parent-operations-reviewed.json",
+        "packet_sha256": "6e36c231adddb719c5fe429ec9e3d48e94b7cb0143f0a2de6b4dc310711c89e0"
+      }
+    },
+    "pl/index.md": {
+      "source": "index.md",
+      "sha256": "1fe0fb5e64039c222519c36e499eb8dcbf9b775cf38241862971bb607089c522",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "d65a05354a8e73643adb23fbf36c828cd5c318b7b7c9317817ff05c5a5ce3bc4",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read complete English and Polish page including every example and metadata. Preserved PHP/Laravel bounds, two core tables, optional sitemap dependency, traits/seeder caveat, single head render, locale and routing behavior. Homepage keeps original Home component and complete metadata; vendor name means Composer prefix. No independent native or human certification; rendered destination checks remain integration gates.",
+          "warningsDisposition": "Numeric differences are unchanged numbered English heading anchors; versions and values are preserved. Own-property paths correctly target planned Polish counterparts with stable English fragments; every code block remains literal.",
+          "at": "2026-09-11T22:08:05.788Z",
+          "independentNative": false,
+          "digest": "6422520fa4eaa2ac969d838c2c23b5962f506c43a6cbb9a1bcce8f548d237fe1"
+        },
+        "packet": "pl-docs-core-reviewed.json",
+        "packet_sha256": "fc283b6c6637bd5a21ae4a6b4cf96516e6b9d5540fafdbfd31c90593b51de1d9"
+      }
+    },
+    "pl/pro/broken-links.md": {
+      "source": "pro/broken-links.md",
+      "sha256": "536f024b3551aca7810605ddb6cb37ad77bce9dfaa64f697f1dd4f5d9b73a4f1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "9b80ff06a5f2a5ee22243610e82a57a1c344866bab672129107cf46d3ea18fa7",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read full English then full Polish broken-link guide: all setup/worker/CI/scheduling examples,14 inspection rows, caps, SSRF and default scope, consecutive-crawl confirmation versus immediate inspection, authored URL versus identity normalization, alias/fragment collapsing and taxonomy exceptions retained. Refined headless and anchor terminology without changing flags. No crawler/CI commands executed. Codex editorial review not native/human certification.",
+          "warningsDisposition": "All2000/3-crawl/two-to-three-week thresholds,14types,HTTP>=400,queue timings and literal examples preserved. Own /pl links point to planned complete docs routes. English generic-anchor examples match literal configuration; code preserved.",
+          "at": "2026-09-11T22:41:17.449Z",
+          "independentNative": false,
+          "digest": "0b8978eebc6f72af5889463f7c0c9b1864da3ec9bf5bb216b9653c773489409b"
+        },
+        "packet": "pl-docs-pro-reviewed.json",
+        "packet_sha256": "a9397eb51e91c6b69b77a4cdee7722b9ec6dca101415e6b2505f008514238714"
+      }
+    },
+    "pl/pro/headless.md": {
+      "source": "pro/headless.md",
+      "sha256": "6a392b623c3d912ae7db09674646e1bb9dd1fa5677adb3d0de228b3eaabcb5d9",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "8dcccaa73586c363fbd9d130d19cf1753427d4b0d900779d8365eb8c385ec0f3",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent fully read English/Polish complete command reference, tables, flags and scheduler example. Refined headless terminology to without panel, retained no-network doctor limit, optional crawler/worker scope, CI sync requirement, validators and no dedicated ignore/reopen command caveat. No example commands executed. Codex review not native/human certification.",
+          "warningsDisposition": "All flags/placeholders/code preserved; planned own /pl routes and typed inspection anchor checked against content map, built validation pending.",
+          "at": "2026-09-11T22:37:46.248Z",
+          "independentNative": false,
+          "digest": "9d3db47d5a4ef0596f8818c419d8c32d6b04d2b964d17e2fe4cf87c0e04c29e6"
+        },
+        "packet": "pl-docs-pro-reviewed.json",
+        "packet_sha256": "a9397eb51e91c6b69b77a4cdee7722b9ec6dca101415e6b2505f008514238714"
+      }
+    },
+    "pl/pro/installation.md": {
+      "source": "pro/installation.md",
+      "sha256": "a092e59eff8699016b9d17b63c117afbbdcb64ecac27e38954e73972db8366cd",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "7bbdfbd3b282bc3392d2b23f3211559f98989e3d803105ff2b1c1e69b06b8f3d",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent fully compared English and Polish installation page: prerequisites, private Composer/receipt handling, publish-only migrations, force warning, inline/queued distinction, doctor limitations, optional Filament and all license/refund/help boundaries preserved. Refined headless to without panel and included-help wording. No credentials/provider/checkout requests exercised; Codex review not native/human certification.",
+          "warningsDisposition": "Planned /pl links preserve source anchors. All PHP/Laravel/package versions, five-project scope, one initial migration, 179 EUR, 30 days and 60-minute call unchanged; source examples remain literal.",
+          "at": "2026-09-11T22:37:45.241Z",
+          "independentNative": false,
+          "digest": "248215f664c36fa4a684aa877da97cb28de591f2b6e46fae13a0f2f1f0df6ace"
+        },
+        "packet": "pl-docs-pro-reviewed.json",
+        "packet_sha256": "a9397eb51e91c6b69b77a4cdee7722b9ec6dca101415e6b2505f008514238714"
+      }
+    },
+    "pl/pro/on-page-checklist.md": {
+      "source": "pro/on-page-checklist.md",
+      "sha256": "cb94ef8f19db646db0e214abb379d0abf490218a2d265efebcdfd986c34ea8c1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "24c24864416cba8b6af7af9cf6b2dfd34eaa5c9771fad51ce16553ab7463a294",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read full English and full Polish checklist including all11checks,stemmer/formula tables, token/ICU failure behavior,600395 conformance caveat, all formula/heuristic limits, letters/syllable/sentence estimates, null-score semantics, native-review distinction, advisory gates and complete custom-check example. Refined headless wording and Polish transliteration of Oborneva. Actual shipped PL action label retained. No example/runtime commands executed. Codex review not native/human certification.",
+          "warningsDisposition": "Verified600,395→600395 grouping and all script thresholds/versions/10formula/12Snowball language sets. Protected foreign-language matching examples/code unchanged; all own /pl links and English section IDs retained.",
+          "at": "2026-09-11T22:42:51.865Z",
+          "independentNative": false,
+          "digest": "8b9342ed1e7f163e5c6b28c12cf1f950582310f80ea2d80597a6a71e8c5c0231"
+        },
+        "packet": "pl-docs-pro-reviewed.json",
+        "packet_sha256": "a9397eb51e91c6b69b77a4cdee7722b9ec6dca101415e6b2505f008514238714"
+      }
+    },
+    "pl/pro/production.md": {
+      "source": "pro/production.md",
+      "sha256": "7a5bc5882b7d9bcddfa1028e52e73fb1c18f460cde9cf13ef3c1322f95db04a2",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "89b9311f19a3426f4cf6dee6d297139c87c482ceb8b2445ad20788617943ef6b",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read complete English then full assembled Polish production guide, all tables/code and upgrade paragraph. Refined redirect-hit counters and headless wording. Preserved publish-only migration/force behavior,2.41 target receipts and rollback order, queue isolation, worker/job time limits, scheduled confirmation, bounded HTTP/seeding, recovery, retention and telemetry privacy/best-effort. No operational commands executed; historical production scale not new benchmark. Codex review not native/human certification.",
+          "warningsDisposition": "20k is20tys and~900page scale retained; all worker/queue values,12batch caps,3/30/300 retry values,90/30 retention,10000rows and168hours literal. Own /pl links and English anchors preserve route map.",
+          "at": "2026-09-11T22:42:06.091Z",
+          "independentNative": false,
+          "digest": "88d17ac0f0bcde36e95887bf3b5815720994f726fc0c783f66b836e5a7608c3a"
+        },
+        "packet": "pl-docs-pro-reviewed.json",
+        "packet_sha256": "a9397eb51e91c6b69b77a4cdee7722b9ec6dca101415e6b2505f008514238714"
+      }
+    },
+    "pl/pro/reports.md": {
+      "source": "pro/reports.md",
+      "sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "09b938e8e34c764da2e24ada6fc403b9a30f47fb600d0477bb5751e516d7994d",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent compared complete English/Polish report page: all sections/options/branding, actual versus fallback history, baseline and no-store, recovered versus redirected404, user-agent attribution uncertainty, one site per install, renderer sandbox/asset/font constraints, ICU locale and queued language capture retained. Refined multi-site model and Chromium wording. Original English sample explicitly labelled; no email/provider/renderer installation commands executed. Codex review is not native/human certification.",
+          "warningsDisposition": "All source command/code assets,98KB/19open/sample numbers,90 grade threshold and versions retained. Planned /pl docs links and shared sample asset paths preserved; locale identifiers and formatting examples literal.",
+          "at": "2026-09-11T22:40:52.768Z",
+          "independentNative": false,
+          "digest": "cb1594f0d3fd166c88a0b411bbbabee12eaed090deb1c01387952c830863a538"
+        },
+        "packet": "pl-docs-pro-reviewed.json",
+        "packet_sha256": "a9397eb51e91c6b69b77a4cdee7722b9ec6dca101415e6b2505f008514238714"
+      }
+    },
+    "pl/pro/scan-issues.md": {
+      "source": "pro/scan-issues.md",
+      "sha256": "ddfb77bc5ce73aca006c7713aa819db26254e7c68bb1a9fd556a7d2580b6e2d1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "30d5709ffc1dd926aa81f62f05243c691ad99e77c1556c4d8b579fa217355043",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read full English and full Polish issue registry: every metadata/rendered/network row, fields/evidence, execution boundaries, length rules, optional reciprocity/SSRF checks, ignored/fixed/reopened lifecycle, score exclusions and legacy rename retained. Source limitations about whitespace tokenizer and omitted segmentation_unavailable remain recorded for shared-source maintenance, not silently claimed fixed. No runtime/network actions executed. Codex review not native/human certification.",
+          "warningsDisposition": "Preserved all identifiers, example bad locale tags,40-letter threshold,10alternates,2MB,200/5limits and length thresholds. Local own links retain English anchor IDs; external security source unchanged.",
+          "at": "2026-09-11T22:42:25.345Z",
+          "independentNative": false,
+          "digest": "736e670add3484524fb66aec6a0239b14418cbe4c9f63571276956b7e6848695"
+        },
+        "packet": "pl-docs-pro-reviewed.json",
+        "packet_sha256": "a9397eb51e91c6b69b77a4cdee7722b9ec6dca101415e6b2505f008514238714"
+      }
+    },
+    "pl/pro/scan-scheduling.md": {
+      "source": "pro/scan-scheduling.md",
+      "sha256": "0c96d2a7db7d8717fab21a5c0bff169a6641751d4871673606c17b3d5550b1b3",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "2f41888e0be21bf98f50cb39f049268c686adde56a1b87d8967244da3bd13f24",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read complete English/Polish scan scheduling and delta page. Retained snapshot identity, all three delta definitions/edge cases, product-severity versus observed GSC weighting/formulas, baseline behavior, command-lock versus job-lifetime limit, required scheduler, opt-in email and no-notify behavior, event and retention caveats. No scheduling/email commands executed. Codex review not native/human certification.",
+          "warningsDisposition": "Source examples, formulas,40/15/5 weights and10x comparison unchanged. Planned /pl page links and English fragment IDs preserve destinations; wrapped inline command literal kept.",
+          "at": "2026-09-11T22:40:17.235Z",
+          "independentNative": false,
+          "digest": "d93e89ed64c918d580d9ef171e453b9d6571804ebf69d4ed455c79b6c5964348"
+        },
+        "packet": "pl-docs-pro-reviewed.json",
+        "packet_sha256": "a9397eb51e91c6b69b77a4cdee7722b9ec6dca101415e6b2505f008514238714"
+      }
+    },
+    "pl/pro/scoring.md": {
+      "source": "pro/scoring.md",
+      "sha256": "8c4fd3f83632f472dd3ebb75fe7b1fa6d87d6bda125bb51d94ae733a2e0e5032",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "9b2e924461293780d3e8e1f45aec018cf36582a98d55b004470384f6f361b4f9",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read complete English/Polish scoring page including every rubric/exclusion/storage/grade table. Restored explicit black-box comparison and refined version/headless grammar. Preserved deterministic penalties, model versus URL evidence, exclusions, stored versioned scores and self-canonical noindex intent caveat; no search-performance promise. Codex review, not native/human certification.",
+          "warningsDisposition": "All26 scored codes/penalties, excluded codes,0-100 floor,40/15/5,grade bands and protected examples unchanged. Localized actual PL dashboard label matches package catalogue; planned docs links retain source anchors.",
+          "at": "2026-09-11T22:40:16.283Z",
+          "independentNative": false,
+          "digest": "5af4a499dc640d13028986f9ee6d0b7074088ce670616c5f6a661de7a1dde676"
+        },
+        "packet": "pl-docs-pro-reviewed.json",
+        "packet_sha256": "a9397eb51e91c6b69b77a4cdee7722b9ec6dca101415e6b2505f008514238714"
+      }
+    },
+    "pl/pro/walkthrough.md": {
+      "source": "pro/walkthrough.md",
+      "sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "dd720748e222c4595e93d366b1434f4637c782e4919b837c02292dc5319d5659",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent fully read English/Polish walkthrough. All six sections, sample-only provenance/date, before/after figures, original English labels matching demo screenshots, five localized HTML alts and Markdown alt, baseline/no-store behavior and diagnostic-not-ranking caveats retained. This translates existing evidence, not a newly executed demo or native/human certification.",
+          "warningsDisposition": "Source assets remain at shared /pro-walkthrough paths, own docs routes localized; 21 targets,20 to19 issues,6 to5 warnings,14 notices,92 to93 score,142 characters,98KB and date preserved.",
+          "at": "2026-09-11T22:37:47.244Z",
+          "independentNative": false,
+          "digest": "745333e10332049050e4f7ad68145f31914f4e807b5101864d73edec0a9dee9e"
+        },
+        "packet": "pl-docs-pro-reviewed.json",
+        "packet_sha256": "a9397eb51e91c6b69b77a4cdee7722b9ec6dca101415e6b2505f008514238714"
+      }
+    },
+    "pl/reference/configuration.md": {
+      "source": "reference/configuration.md",
+      "sha256": "6885c0770b86f6a3615d301a326f1b77d894a09f708cbb93cbe81b183fce6590",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "dc7edea3d2b79301c060c83b6a1153b66ee8946ff249019f900a7f3c33a60798",
+        "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read complete English and full assembled Polish runbook/configuration pages after authoring. Preserved all sections, examples, checklist and configuration defaults, environment guard, derived/explicit canonicals, optional features, local-image-only selection, cache scope/invalidation/TTL caveats. Runbook explicitly scopes additive/idempotent assurances to default fill-empty mode and explains restoring overwritten values/rules from backup, consistent with source introduction and reviewed Turkish clarification. No example commands executed; package performance claims remain attributed historical benchmarks, not new measurements. Codex review is not native/human certification.",
+          "warningsDisposition": "Verified exact protected code, preserved English anchors and planned /pl docs destinations. 20k req/day is correctly localized to 20 tys. requests daily; all other counts/defaults unchanged. Browser/build links remain integration acceptance.",
+          "at": "2026-09-11T22:36:51.184Z",
+          "independentNative": false,
+          "digest": "9fc21f1584fd1795b6de64ec90d71dc952380e0b2168d8e90cb6136d00b5ef5d"
+        },
+        "packet": "pl-docs-parent-operations-reviewed.json",
+        "packet_sha256": "6e36c231adddb719c5fe429ec9e3d48e94b7cb0143f0a2de6b4dc310711c89e0"
+      }
+    },
+    "pl/pro/ai-assist.md": {
+      "source": "pro/ai-assist.md",
+      "sha256": "49729166bb1045e61b7b1d43d824ae7031212ac0e4cd858b332f23c53c707108",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "01f3ec3b895242a352f83d77f266cc01c36eaff6946062db9cd66eb3c38c802d",
+        "scope": "Exact existing parent full English/Polish copy review; integration and journey review separate. No native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex compared all seven complete English and Polish pages, including every AI Assist section in bounded full-text chunks. Reviewed optional/provider-cost and quota boundaries, private drafts versus direct writes, provenance and reviewer-label limits, egress and retry behavior; observed crawler identity and period counters; all AI rubric weights/version/catalog caveats; IndexNow key registration/cached-route defense and submission bounds; all MCP tools/security layers and historical demo; GSC scopes, credentials, cache, durable sync and heuristic insights. Refined Polish semantics and grammar explicitly. No independent human/native certification or new provider evaluation. Private integration/build and full journey remain separate gates.",
+          "warningsDisposition": "Reviewed numeric values in context: four AI provider cost tables preserve source USD/example uncertainty; token/timeout/batch defaults and17locale170fixtures unchanged; AI readiness30/20/22/28 weights and scores unchanged; IndexNow8–128/10000/retry response codes unchanged; MCP10+3 tools and historical demo counts unchanged; GSC five analyses/CTR/position5–20/90day16month3day2day bounds unchanged. Localized links use pl and stable English anchors; rendered build remains required. Three registry differences reflect private nine-locale runtimes against inactivePL workflow, not public readiness.",
+          "at": "2026-09-11T23:08:20.506Z",
+          "independentNative": false,
+          "digest": "df374e028cdb7e18aa71fb774c395b37c97bf3bca8bcf95ccb3215c050139ab1"
+        },
+        "packet": "pl-docs-pro-final-parent-reviewed.json",
+        "packet_sha256": "995004f6caab89cb9535b76651751d1e41d2e25fb409d17e127ae8e476821297"
+      }
+    },
+    "pl/pro/ai-bot-monitor.md": {
+      "source": "pro/ai-bot-monitor.md",
+      "sha256": "45c33da9dbadd4d323f11be2260db72f21b32c0f47f95ceed60dd2d0927f08ab",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "14b9540317aaf75204dee6fbc621b047a22b03d104978bd881be0f6f523801b8",
+        "scope": "Exact existing parent full English/Polish copy review; integration and journey review separate. No native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex compared all seven complete English and Polish pages, including every AI Assist section in bounded full-text chunks. Reviewed optional/provider-cost and quota boundaries, private drafts versus direct writes, provenance and reviewer-label limits, egress and retry behavior; observed crawler identity and period counters; all AI rubric weights/version/catalog caveats; IndexNow key registration/cached-route defense and submission bounds; all MCP tools/security layers and historical demo; GSC scopes, credentials, cache, durable sync and heuristic insights. Refined Polish semantics and grammar explicitly. No independent human/native certification or new provider evaluation. Private integration/build and full journey remain separate gates.",
+          "warningsDisposition": "Reviewed numeric values in context: four AI provider cost tables preserve source USD/example uncertainty; token/timeout/batch defaults and17locale170fixtures unchanged; AI readiness30/20/22/28 weights and scores unchanged; IndexNow8–128/10000/retry response codes unchanged; MCP10+3 tools and historical demo counts unchanged; GSC five analyses/CTR/position5–20/90day16month3day2day bounds unchanged. Localized links use pl and stable English anchors; rendered build remains required. Three registry differences reflect private nine-locale runtimes against inactivePL workflow, not public readiness.",
+          "at": "2026-09-11T23:08:20.506Z",
+          "independentNative": false,
+          "digest": "9680c2cc7b6cf6b64b3b0a8cfa601bcc4a37b1caed39513e29986f245c545e19"
+        },
+        "packet": "pl-docs-pro-final-parent-reviewed.json",
+        "packet_sha256": "995004f6caab89cb9535b76651751d1e41d2e25fb409d17e127ae8e476821297"
+      }
+    },
+    "pl/pro/ai-readiness-score.md": {
+      "source": "pro/ai-readiness-score.md",
+      "sha256": "4a5d3936be605aa199975d2b4a4e15297627395c71394fd8dd2e2d666fba00a1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "6bb9561f0ffa5579d5d2f73b2e0b28ed17b3bec325dd4bb3e2b37776e83b481b",
+        "scope": "Exact existing parent full English/Polish copy review; integration and journey review separate. No native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex compared all seven complete English and Polish pages, including every AI Assist section in bounded full-text chunks. Reviewed optional/provider-cost and quota boundaries, private drafts versus direct writes, provenance and reviewer-label limits, egress and retry behavior; observed crawler identity and period counters; all AI rubric weights/version/catalog caveats; IndexNow key registration/cached-route defense and submission bounds; all MCP tools/security layers and historical demo; GSC scopes, credentials, cache, durable sync and heuristic insights. Refined Polish semantics and grammar explicitly. No independent human/native certification or new provider evaluation. Private integration/build and full journey remain separate gates.",
+          "warningsDisposition": "Reviewed numeric values in context: four AI provider cost tables preserve source USD/example uncertainty; token/timeout/batch defaults and17locale170fixtures unchanged; AI readiness30/20/22/28 weights and scores unchanged; IndexNow8–128/10000/retry response codes unchanged; MCP10+3 tools and historical demo counts unchanged; GSC five analyses/CTR/position5–20/90day16month3day2day bounds unchanged. Localized links use pl and stable English anchors; rendered build remains required. Three registry differences reflect private nine-locale runtimes against inactivePL workflow, not public readiness.",
+          "at": "2026-09-11T23:08:20.506Z",
+          "independentNative": false,
+          "digest": "7d07c7deb8f635d8484e8787e3c066a31e9d412a99e46d047ab2f35d2df1d8e9"
+        },
+        "packet": "pl-docs-pro-final-parent-reviewed.json",
+        "packet_sha256": "995004f6caab89cb9535b76651751d1e41d2e25fb409d17e127ae8e476821297"
+      }
+    },
+    "pl/pro/indexnow.md": {
+      "source": "pro/indexnow.md",
+      "sha256": "6358680ec026bd8281c17272ffbebb43a126ffa84a8b87564cbafc52338163eb",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "42042bc9d898a838e79b2ddb7e387a895c73c6f314e71717b94bdc7698de247b",
+        "scope": "Exact existing parent full English/Polish copy review; integration and journey review separate. No native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex compared all seven complete English and Polish pages, including every AI Assist section in bounded full-text chunks. Reviewed optional/provider-cost and quota boundaries, private drafts versus direct writes, provenance and reviewer-label limits, egress and retry behavior; observed crawler identity and period counters; all AI rubric weights/version/catalog caveats; IndexNow key registration/cached-route defense and submission bounds; all MCP tools/security layers and historical demo; GSC scopes, credentials, cache, durable sync and heuristic insights. Refined Polish semantics and grammar explicitly. No independent human/native certification or new provider evaluation. Private integration/build and full journey remain separate gates.",
+          "warningsDisposition": "Reviewed numeric values in context: four AI provider cost tables preserve source USD/example uncertainty; token/timeout/batch defaults and17locale170fixtures unchanged; AI readiness30/20/22/28 weights and scores unchanged; IndexNow8–128/10000/retry response codes unchanged; MCP10+3 tools and historical demo counts unchanged; GSC five analyses/CTR/position5–20/90day16month3day2day bounds unchanged. Localized links use pl and stable English anchors; rendered build remains required. Three registry differences reflect private nine-locale runtimes against inactivePL workflow, not public readiness.",
+          "at": "2026-09-11T23:08:20.506Z",
+          "independentNative": false,
+          "digest": "7a08ab23c0b45dfa8d354a4fa2c8e589ec52a4945dc0b4b04107ac570c48f45b"
+        },
+        "packet": "pl-docs-pro-final-parent-reviewed.json",
+        "packet_sha256": "995004f6caab89cb9535b76651751d1e41d2e25fb409d17e127ae8e476821297"
+      }
+    },
+    "pl/pro/mcp.md": {
+      "source": "pro/mcp.md",
+      "sha256": "5e38f0d65552be2664a98e0ce87614d7e14987ad4da3936b8938d8274a6cd874",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "30f81a16a5969553b8a154fdedee44268e71c60459cfbbfbd5d8e49f82ad1e50",
+        "scope": "Exact existing parent full English/Polish copy review; integration and journey review separate. No native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex compared all seven complete English and Polish pages, including every AI Assist section in bounded full-text chunks. Reviewed optional/provider-cost and quota boundaries, private drafts versus direct writes, provenance and reviewer-label limits, egress and retry behavior; observed crawler identity and period counters; all AI rubric weights/version/catalog caveats; IndexNow key registration/cached-route defense and submission bounds; all MCP tools/security layers and historical demo; GSC scopes, credentials, cache, durable sync and heuristic insights. Refined Polish semantics and grammar explicitly. No independent human/native certification or new provider evaluation. Private integration/build and full journey remain separate gates.",
+          "warningsDisposition": "Reviewed numeric values in context: four AI provider cost tables preserve source USD/example uncertainty; token/timeout/batch defaults and17locale170fixtures unchanged; AI readiness30/20/22/28 weights and scores unchanged; IndexNow8–128/10000/retry response codes unchanged; MCP10+3 tools and historical demo counts unchanged; GSC five analyses/CTR/position5–20/90day16month3day2day bounds unchanged. Localized links use pl and stable English anchors; rendered build remains required. Three registry differences reflect private nine-locale runtimes against inactivePL workflow, not public readiness.",
+          "at": "2026-09-11T23:08:20.506Z",
+          "independentNative": false,
+          "digest": "98560085109ad48a85ce912e845fb42088a5d7ee7822a37397ce3a1b29991b66"
+        },
+        "packet": "pl-docs-pro-final-parent-reviewed.json",
+        "packet_sha256": "995004f6caab89cb9535b76651751d1e41d2e25fb409d17e127ae8e476821297"
+      }
+    },
+    "pl/pro/search-console-insights.md": {
+      "source": "pro/search-console-insights.md",
+      "sha256": "eb89ebecfbe846bc07f534918d5f19569911e8762d1e7441b4743181ec5ceec6",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "a644b0ee3231c077e5b2fe40a3405464451da5ff519dbc9c429023aff0cb4015",
+        "scope": "Exact existing parent full English/Polish copy review; integration and journey review separate. No native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex compared all seven complete English and Polish pages, including every AI Assist section in bounded full-text chunks. Reviewed optional/provider-cost and quota boundaries, private drafts versus direct writes, provenance and reviewer-label limits, egress and retry behavior; observed crawler identity and period counters; all AI rubric weights/version/catalog caveats; IndexNow key registration/cached-route defense and submission bounds; all MCP tools/security layers and historical demo; GSC scopes, credentials, cache, durable sync and heuristic insights. Refined Polish semantics and grammar explicitly. No independent human/native certification or new provider evaluation. Private integration/build and full journey remain separate gates.",
+          "warningsDisposition": "Reviewed numeric values in context: four AI provider cost tables preserve source USD/example uncertainty; token/timeout/batch defaults and17locale170fixtures unchanged; AI readiness30/20/22/28 weights and scores unchanged; IndexNow8–128/10000/retry response codes unchanged; MCP10+3 tools and historical demo counts unchanged; GSC five analyses/CTR/position5–20/90day16month3day2day bounds unchanged. Localized links use pl and stable English anchors; rendered build remains required. Three registry differences reflect private nine-locale runtimes against inactivePL workflow, not public readiness.",
+          "at": "2026-09-11T23:08:20.507Z",
+          "independentNative": false,
+          "digest": "a334e6f71f435cdefac2379cdc803f761e5c8d3c3bc713a7955d6cdc66bae04b"
+        },
+        "packet": "pl-docs-pro-final-parent-reviewed.json",
+        "packet_sha256": "995004f6caab89cb9535b76651751d1e41d2e25fb409d17e127ae8e476821297"
+      }
+    },
+    "pl/pro/search-console.md": {
+      "source": "pro/search-console.md",
+      "sha256": "0fe33f55e9dc24a0f78a5bf34d00c93892fb04667fbd10c16ef214961f84d6da",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "368521dce86be059f3aca3f3449e959a25a0549107147a928b7b79c813ecdcac",
+        "scope": "Exact existing parent full English/Polish copy review; integration and journey review separate. No native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex compared all seven complete English and Polish pages, including every AI Assist section in bounded full-text chunks. Reviewed optional/provider-cost and quota boundaries, private drafts versus direct writes, provenance and reviewer-label limits, egress and retry behavior; observed crawler identity and period counters; all AI rubric weights/version/catalog caveats; IndexNow key registration/cached-route defense and submission bounds; all MCP tools/security layers and historical demo; GSC scopes, credentials, cache, durable sync and heuristic insights. Refined Polish semantics and grammar explicitly. No independent human/native certification or new provider evaluation. Private integration/build and full journey remain separate gates.",
+          "warningsDisposition": "Reviewed numeric values in context: four AI provider cost tables preserve source USD/example uncertainty; token/timeout/batch defaults and17locale170fixtures unchanged; AI readiness30/20/22/28 weights and scores unchanged; IndexNow8–128/10000/retry response codes unchanged; MCP10+3 tools and historical demo counts unchanged; GSC five analyses/CTR/position5–20/90day16month3day2day bounds unchanged. Localized links use pl and stable English anchors; rendered build remains required. Three registry differences reflect private nine-locale runtimes against inactivePL workflow, not public readiness.",
+          "at": "2026-09-11T23:08:20.507Z",
+          "independentNative": false,
+          "digest": "4748f83d2bead8dd5e5e22942b1635fb17e8eabddbe13b531f6085484798ab60"
+        },
+        "packet": "pl-docs-pro-final-parent-reviewed.json",
+        "packet_sha256": "995004f6caab89cb9535b76651751d1e41d2e25fb409d17e127ae8e476821297"
+      }
     }
   }
 }

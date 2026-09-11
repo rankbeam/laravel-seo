@@ -1,0 +1,123 @@
+{
+  "locale": "pl",
+  "reviewer": "Codex",
+  "independent_native": false,
+  "native_review": null,
+  "published": false,
+  "scope": "Exact parent-reviewed 47 locale UI leaves and18 manual leaves. Source context records precede adapter integration; no renewed full-file/other-locale approval. Parent separately approved both404 metadata values on2026-09-12. Rendered journey pending.",
+  "original_review": {
+    "reviewer": "Codex",
+    "reviewedAt": "2026-09-11T22:23:50.577171+00:00",
+    "candidateSha256": "410077114d8e1c71786cee54d5da4ecd2fc862688ae5b40252833b19c7bf541e",
+    "sourceContext": {
+      "docs/.vitepress/locale-ui.ts": "1feeba3f7d7cabebd03e98d4d2894427451cc355466ca89999721be0b67a1c03",
+      "docs/.vitepress/manual-messages.ts": "8ed290657a862919d9bc62fc1e12b730c0140720034f5d2e131bee4a7eacf3f4",
+      "docs/.vitepress/config.mts": "c4596686cb9198c5b3b7e3779d4fd8816f20411dfbd9131e36d1a53609d3d092",
+      "docs/.vitepress/theme-a11y.ts": "587ae681e7efec3b16e36cb51b51a6250bc660de5ae59d017cd8b9aa7bb2ac4e",
+      "docs/.vitepress/no-script-navigation.ts": "422c2eea44f97b3fc81a5d6fae026344405e2989361f79ce03cce23efdbd9660",
+      "docs/.vitepress/theme/components/LocalizedCopy.vue": "0117683f2df58796889726d4b37c1dd079076ca14c9fa1474a51ae9f98255d66"
+    },
+    "scope": "Parent authored then read every Polish manual UI value against the named UI roles, existing locale interface contract, English root description and installed VitePress NotFound wording. Includes all search/modal/key names, navigation/headings, dates label, fallback/review wording, copy failure/no-JS guidance, permalink, brand alt and404. Review says Codex explicitly, never native/human. Existing fallback keys remain complete but publication requires zero fallback pages. Image/404 style and complete UI journey still require rendered acceptance. Separate from1005 workflow unit count.",
+    "independentNative": false,
+    "humanCertification": false,
+    "published": false
+  },
+  "candidate": {
+    "localeUi": {
+      "label": "Polski",
+      "lang": "pl",
+      "guide": "Przewodnik",
+      "english": "Dokumentacja w języku angielskim",
+      "fallback": "Ta strona nie jest jeszcze dostępna po polsku.",
+      "open": "Przeczytaj stronę po angielsku",
+      "review": "To tłumaczenie oczekuje na redakcyjną weryfikację przez Codex.",
+      "source": "Wersja angielska",
+      "outline": "Na tej stronie",
+      "next": "Następna strona",
+      "prev": "Poprzednia strona",
+      "description": "Pakiet SEO Laravel do warstwowych metadanych, kanonicznych URL-i, Open Graph, powiązanego JSON-LD, map witryny XML i sterowania robotami.",
+      "reference": "Dokumentacja szczegółowa (EN)",
+      "table": "Tabela danych",
+      "titles": {
+        "guide/installation": "Instalacja",
+        "guide/quickstart": "Szybki start",
+        "concepts/resolver-precedence": "Priorytety resolvera",
+        "guide/sitemaps": "Rejestr map witryny",
+        "guide/filament": "Pola panelu Filament",
+        "guide/audit": "Bezpłatny audyt SEO",
+        "guide/ai-crawlers": "Sterowanie robotami AI",
+        "guide/multilingual": "Treści wielojęzyczne i hreflang",
+        "guide/og-image": "Generowane obrazy OG",
+        "guide/migrate-from-other-packages": "Migracja z innych pakietów"
+      },
+      "theme": {
+        "returnToTopLabel": "Wróć na górę",
+        "sidebarMenuLabel": "Menu",
+        "darkModeSwitchLabel": "Ciemny motyw",
+        "lightModeSwitchTitle": "Włącz jasny motyw",
+        "darkModeSwitchTitle": "Włącz ciemny motyw",
+        "langMenuLabel": "Zmień język",
+        "skipToContentLabel": "Przejdź do treści",
+        "lastUpdated": {
+          "text": "Ostatnia aktualizacja"
+        }
+      },
+      "edit": "Edytuj tę stronę na GitHubie",
+      "license": "rankbeam/laravel-seo jest udostępniany na licencji MIT.",
+      "search": {
+        "button": {
+          "buttonText": "Szukaj",
+          "buttonAriaLabel": "Szukaj w dokumentacji"
+        },
+        "modal": {
+          "displayDetails": "Pokaż szczegóły",
+          "resetButtonTitle": "Wyczyść wyszukiwanie",
+          "backButtonTitle": "Zamknij wyszukiwanie",
+          "noResultsText": "Brak wyników dla",
+          "footer": {
+            "selectText": "wybierz",
+            "navigateText": "nawiguj",
+            "closeText": "zamknij",
+            "selectKeyAriaLabel": "Enter",
+            "navigateUpKeyAriaLabel": "Strzałka w górę",
+            "navigateDownKeyAriaLabel": "Strzałka w dół",
+            "closeKeyAriaLabel": "Escape"
+          }
+        }
+      }
+    },
+    "manualMessages": {
+      "imageAlt": "Rankbeam — infrastruktura SEO open-core dla Laravel",
+      "copyTitle": "Kopiuj kod",
+      "copied": "Skopiowano",
+      "copyFailed": "Kopiowanie nie powiodło się. Zaznacz kod i skopiuj go ręcznie.",
+      "noScript": "Bez JavaScript możesz zaznaczyć kod i skopiować go ręcznie.",
+      "noScriptMenu": "Menu",
+      "noScriptHelp": "JavaScript jest wyłączony. Użyj tych linków do nawigacji; zaznacz kod, aby skopiować go ręcznie.",
+      "language": "Język",
+      "mobileNavigation": "Nawigacja mobilna",
+      "extraNavigation": "Dodatkowa nawigacja",
+      "mainNavigation": "Nawigacja główna",
+      "sidebarNavigation": "Nawigacja w panelu bocznym",
+      "pager": "Nawigacja między stronami",
+      "permalink": "Stały link do",
+      "notFound": {
+        "title": "NIE ZNALEZIONO STRONY",
+        "quote": "Jeśli jednak nie zmienisz kierunku i będziesz dalej szukać, możesz dotrzeć tam, dokąd zmierzasz.",
+        "linkLabel": "przejdź do strony głównej",
+        "linkText": "Wróć do strony głównej"
+      }
+    }
+  },
+  "not_found_metadata": {
+    "source": "Page not found\nThe requested documentation page was not found.",
+    "source_sha256": "9317ab9c2637da7a0e51ad891d2e51d7eba15cbe4291562ac8cb25312ae23311",
+    "title": "Nie znaleziono strony",
+    "description": "Nie znaleziono żądanej strony dokumentacji.",
+    "target_sha256": "7d0dd573f443b5f896054f1e231636d65ad7faccd16203f9fae5e0ce3956737d"
+  },
+  "target_scope_sha256": {
+    "localeUi": "6db6e88d0131563fff18c6bfe52fa224b1b6fc5bd10edfbd47f93cad60a63d63",
+    "manualMessages": "07ea5ed1d72be6130f46ac8bc4a6610786509c029ae6077a3c4b88b072d3dc00"
+  }
+}
