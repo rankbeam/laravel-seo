@@ -77,6 +77,9 @@ html[lang='nl'] {
 html[lang='tr'] {
   --vp-code-copy-copied-text-content: 'Kopyalandı';
 }
+html[lang='pl'] {
+  --vp-code-copy-copied-text-content: 'Skopiowano';
+}
 .rb-copy-status {
   position: absolute;
   width: 1px;

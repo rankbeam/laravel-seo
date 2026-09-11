@@ -55,5 +55,887 @@
     "status": "approved",
     "independent_native": false,
     "scope": "109 exact complete copy-reviewed messages; final rendered/journey acceptance pending."
+  },
+  "pl": {
+    "source_sha256": "5bc248b9e0247c2d01a66dd7424523fa9e1644180a264253d357f0861391333d",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-09-12",
+    "status": "approved",
+    "independent_native": false,
+    "scope": "109 exact parent-reviewed layout values; prior eight locale records untouched. Rendered/journey review pending.",
+    "workflow_reviews": {
+      "Getting started": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "75b8187a32c61ea31e77987713f2bc8b516ec699649a740c32b3402b2d90fda9"
+      },
+      "What is Rankbeam?": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "528ed696a1a10ad5501ae795481dd4cafc6b8fc75f25400bf13d72fa8cb9bed3"
+      },
+      "Installation": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "8d44f13d954701e84cec1f33d500507b59c35adae1f95d5c406c3bb7f19eeb1f"
+      },
+      "Quickstart": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "9dc0281c0da2ad8c19d14e3f5aefd4a7bed13fab38ed14a09e7da7495431d754"
+      },
+      "Run the demo": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "c6175f634489ef89d4250d32403fb48eb3411889c1e4fe78084009ad72525e74"
+      },
+      "Core concepts": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "d1ee53613268b9d6c6281534ab165b3478af46ee6918caa1f9c6e9a1b02a3320"
+      },
+      "Resolver precedence": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "9f1e42a637347d5b2bfb487efbbdab7368f9ef89dfe956ec0217704906b8e724"
+      },
+      "Explain resolution": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "9ceb1483bf4704faaf42a0e412b90cc0322c2b6ba97448fca892c0bb6a9f8868"
+      },
+      "Rendering": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "2dab0e6986a218177d27a89bc9a9f847bfaea52358c48bcd384b490706bc309d"
+      },
+      "Blade": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "163dfaa88ae052c08daf82a7e798e0315443c3a024521b71a16f3a8c9993e647"
+      },
+      "Inertia & JSON APIs": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "91e451833e35679e229932085cd49bb7aa5e7a533cd9165e2c083193ba7e2beb"
+      },
+      "Livewire": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "8e2403ab0552fae92877c384c4bef36ba183105421342c7bf32219ec7b513d9c"
+      },
+      "Filament admin fields": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "7bb0c40f1a0c89859d6b1c5ea5fc2c53828ad96454b934137b73142b0ac8f5ba"
+      },
+      "Metadata & schema": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "2a88a6a9b3a46bc3f46fee0d7d073ae0d25b89e03a7c8c6a689d9fca00dddff2"
+      },
+      "Schema graph (JSON-LD)": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "d012820e158560e55cbd502bafafad1e0bd1b172237bb40aedb34f91a1dff636"
+      },
+      "Generated OG images": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "c46d00fe89941665c5c3dbeaf720dba098a3913cb325a405459b2ce27bad1b11"
+      },
+      "Sitemap registry": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "352f19d8014fe578e6e5411372d537c7f5bb82c92aec568704f6bfd4caf040e2"
+      },
+      "Crawlers & indexing": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "5b6908179173478f6b15df97723df90d23e38089c8c8953d8f8ea9e62f6e4a46"
+      },
+      "AI crawler control": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "8cac98ce1959f087c2627a47350198fe119fcd04dded433d6b6d1cee2e499a6f"
+      },
+      "Indexing guard": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "a1922e54d2eea8a496b234cde714e431a7f545399f70cf2a5374900671feb121"
+      },
+      "Markdown for bots": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "68d8a0ebfeaccd5c8a742ae9a6858b82e7561315280080a324d04781f0cbd51b"
+      },
+      "Free SEO audit": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "1b6adfc9d5fdb7cccc014f46e65ae57b44b66ce5e9b4fce511421819ada5526f"
+      },
+      "Translations": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "99fc544cb54ae59c7d01a82ab6237d48d16882db1fbf48ec6f1d02053bda06b4"
+      },
+      "Multilingual content": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "bac2ec85ca56ddf3b7787d80d6f988e1d301a330993975ef5d0626f051da3f39"
+      },
+      "Migrating": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "21fab1cdaa59196f17efe5323e43a99f3f2b0ee070d3b98bbb7835c12f2c12a2"
+      },
+      "From WordPress": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "a2f65fca9e3a17ec74a1cb3e4e43965b1dbc6d432f0feae2f620b06caa1c3e18"
+      },
+      "WordPress runbook": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "650ea6d84b08932e83642cabd60fcf9a339f9285d98f8b5d28eb0ec7e821d324"
+      },
+      "From other packages": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "ddc19bfdad1934f5ff6457f468eb4e01da8bc0522ddc658aec9d63ac8800da68"
+      },
+      "Upgrading from v1": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "74e356d4dc92c4150ecfe38fe98fae83e6d7192323bccab08ed43767531c3a4e"
+      },
+      "Guides": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "53c7b62fece56eb7df1fcc6e200f43a6a4cee428ee280796f1e1a1f4a5e33ae0"
+      },
+      "Laravel SEO: the complete guide ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "cab6e8a5e1ee59d1fb8b6a3f2ab0da552d5561c4559cf938101a58af685e1d64"
+      },
+      "Best Laravel SEO packages compared ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "d9a6ba25687f3bb673a11ca8650bedf18fd2f17aafe150a05e68053f20fb8f4c"
+      },
+      "Laravel meta tags ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "2d7cc861e288bfd4f49b9f58803059595c3b57ebb6c3f3cbcaf1cf0397ad06de"
+      },
+      "Canonical URLs in Laravel ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "341275522a82ccaf3a2e92271912c2af821b59a86e5c0df37743e70a7fadafa7"
+      },
+      "JSON-LD schema graphs ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "022b6f918efd7181baf3975925ebe034d6498be741a9f257571fcf0058d09465"
+      },
+      "Laravel sitemaps ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "3742426962c97c1ccd1188256a7f46100743a7c86d23f613253480f06bda7b70"
+      },
+      "Laravel SEO audit in CI ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "a5bc11c01693dae786e06c9672c0271b06a0c7d01f2a226f67cfa5f8dfbb6e65"
+      },
+      "hreflang done right ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "c0786904a4ce88ded8009e62491637018fe9cd292c026643d71f864e7df799a8"
+      },
+      "Answer engine optimization ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "b81408b148cd95aab92a00fab9311c742dc5d218fc069032756bc79d1414bb2c"
+      },
+      "Filament SEO fields ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "c343abdce97d1da0568b0bf7a1eb252164b9e3c2a93bcd86401eaa1652f36f3a"
+      },
+      "Pro setup": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "bd3e2d7700d2abedaab197e1afed4a638fcee9164f5cda0bbb0a279f75fafa09"
+      },
+      "Installing Pro": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "d42d3f8df8546e5cdbac8e7eca09c7bba51648533432c3b59eb27f50f14817b2"
+      },
+      "Scan → fix → report": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "26673be51861be1eb2aa7ee2bf860436006eba93b272718c2adc6036d5eff645"
+      },
+      "Production setup": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "c67e35c56321786319fdc464d3bea9d76ecefb9df1f9805f216e792c53a1503c"
+      },
+      "Headless usage": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "2c207325960faf22303a62b06b6407ba99d0fd7b0a59c4a97820568211d0d138"
+      },
+      "Scanning & scoring": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "2b6dd536c1acdba9085c9a1b06a8be317a42185bd8c4feae661fab0a9c142a43"
+      },
+      "Scan issues": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "42ff7782eba372cb057eec4b297e3bd74026ce7e391cbb18f6f636b3a65f028e"
+      },
+      "Scan scheduling & delta": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "e3889e64d2f367c89cf40513e70f0c2a21014a1892039f8a77d9e392df881fd8"
+      },
+      "SEO score": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "1e68c5c513211d89e4ad7fd8274db156a4bf13f32ba8295621796ea321acd2b1"
+      },
+      "AI-readiness score": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "d6ddd19c20c2a97d102197345528b8c3f6566d3208002f1778c471deeb2a160e"
+      },
+      "On-page checklist": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "a0fca940cc84bbc42e1d287aed669b3c2a3b77b297385c183e20d38434529426"
+      },
+      "Broken-link crawler": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "cddde2a39cb53a51c5d0dc256f08b2a994a3c7beda75e5c04999d46c555100a2"
+      },
+      "Search Console": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "77543f92f816b00db4eaf9f7762790f77046310c7e1219f970cb05f5709339f6"
+      },
+      "Connecting Search Console": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "bc6ac856bc19413922d26493178d51a95392e33f16b76516122879e35197395c"
+      },
+      "Search Console insights": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "b85ab6b4ef68fb75a690a94c29d6b65721a9aacc14ba4631e423d256d83dd57c"
+      },
+      "Reporting & automation": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "ef308f33ad5998edf316f067d1606e3538ebd7bc826e2e27a4ba08c123139ab5"
+      },
+      "White-label reports": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "2048268a256e6f50de8d6402501a5dda0ba49886ebf8164859921bd578fa23a9"
+      },
+      "IndexNow": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "9b2e15208e888a07f68fcfba77379ab9a7912b28cfabd6199242733d2301fb6f"
+      },
+      "AI-bot monitor": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "38b4ed2eca5d3e8b5abe7b1fe89a33e9597ef79d9305bbd565fff7be33e8ddfb"
+      },
+      "MCP server": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "807d5fb558116500380782c4fb2550a4d413f04b7b1c476e4e4ae5bca0937c29"
+      },
+      "AI assist": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "3c1cc098af99a4a1db4b2070a6791322204a2b3f49ddaf2e0256300e7513e278"
+      },
+      "Reference": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "afa0fb7491b76b584f7317d031e436cee5463fec682a7d0911cd8c63b958c219"
+      },
+      "Configuration": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "62d36d53d9c561bc393552658add7490feb8d36352700e5c02ca596825535fcd"
+      },
+      "Contributing": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "2c6f29e37c6a1b7511ccc8d27833b411f128c6f4900b30ee6e129e3a652cf9ae"
+      },
+      "Rendering contract": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "0989d4e90a73f25797ce8565190918842c33561414840e6150c1b9fa3cebf04e"
+      },
+      "Guide": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "39e08b60a1926cfdc77528fb4010e5c05cd2f6b9f1e73c081a9b582fa8814d9e"
+      },
+      "Pro": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "d0fcd7df56d5b42f5503754d4eef6aed6990fd9df4abc029245c5a1f5c5046fc"
+      },
+      "Releases": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "530e89846b89cd224bd5010eb5b227767833f6638856eb2171c6459842c86d1e"
+      },
+      "Changelog": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "00442660bc57a6517259f6a98cea08de3c7221074b54b51b4b62b208ba6bc54b"
+      },
+      "Product": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "c8c8b1178298081aba6daade738ec694fd4e4fa0fe03eb532052c40d38733945"
+      },
+      "Free core ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "902960ecebcbc53716f011db91339b44e4fb7591147bc68de140a7dd8348ab49"
+      },
+      "Free Filament editor ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "932cabfba4f6a88572c7e747b95a4525d27aae70405de271f101ae6bb3a96463"
+      },
+      "Pro and pricing ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "1ebf78eaa0170856dbebdcb1f4fda1c9997ebf23a9298a46aae61b6d3e80918f"
+      },
+      "AI access checker ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "eaca90941c3b437237e3acd0d07029bbd4bf796f8a4f869005240385d83e6597"
+      },
+      "Blog ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "21cdb2e578b9c39132d32f6e44bc2c76eaa20db5585f40c0a51ef6020ad978b1"
+      },
+      "Render your pages": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "411fb291480fce95743b45fabf3994ddd527c194eb4cbd080b5573876b8817b7"
+      },
+      "Configure the output": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "82198ea39835f5cff7c886ac3f76700058a3e34d0195cb0c263beabb14623eb1"
+      },
+      "Check and maintain": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "7ba0531bfac2085b2dc697b3e0a2de4c014492f1d2c2843e042a560852fb6181"
+      },
+      "Blade templates": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "8ff0d151415bd2c1aa2ad47dd3d566365d6c29958f1cd1438daa24bee9de8418"
+      },
+      "Render the head from a model.": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "7a657862b04d4aa2872550d525f81a45f715c98da7baa54d7a57289154c5b23c"
+      },
+      "Pass resolved metadata to your frontend.": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "ba333c27d762e081dccab02c060e810d288e3edee42a24b2ef9900c20eaae9eb"
+      },
+      "Keep metadata in sync with navigation.": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "7ff87e8d301de1d0e71903670cb1da26fed906e14fd6ae69fbb1cc3568c9e28d"
+      },
+      "Filament fields": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "a4ef5c42eeeff6256c540fc946d5d86c602b565e37493d378007d9c3675d73c4"
+      },
+      "Give editors SEO fields and previews.": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "32ef7340a31a4e160188c9779fc6d8abf76bcb82995778e49e5326d10057c14f"
+      },
+      "Understand which value wins.": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "857c706b3d1b7e8e19a1ffd8311d5aa8ccb0949165080f8e7f293a2ca1417cd7"
+      },
+      "JSON-LD schema": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "17fbff6547f7879028c7fd2791fe5e0ab767e9133125b675897fa190793b3eae"
+      },
+      "Build a linked schema graph.": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "67d5d87baf2aa6267f4009ebc9ce50806b12e7f9d879988935e460896beeaa51"
+      },
+      "Sitemaps": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "106b56e04c7bd4a8d762ce0ea1be54ff38d6d4569a435fa4ca4e1de88673dab3"
+      },
+      "Register models and generate XML.": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "0ee555f53d8bf4767b7f40519ab80cbe2c63747944fc63ad8d63d20b85ab2275"
+      },
+      "Resolve metadata for each language.": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "6dc7c2a7c7275f197923e263713a01d18b4c367d32eb93d6222c2cd903009ae9"
+      },
+      "Check your rendered pages from Artisan.": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "b677f6d97a4220d096d7ae79119e57d48a2f976f0ede8c175a7d87e251d84a0d"
+      },
+      "AI crawler controls": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "c57e7de154b2c1610d2645d7e9bbccdc30ebc9f95282303cbb70e06768c45e2c"
+      },
+      "Choose and publish a robots policy.": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "a449cb5f4e6d76e78992541ad977d8c4424f57fc9d5eacf2ea9de046f0ba1fcf"
+      },
+      "Install Pro": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "7707bf9d95a9534b72caecf8f4db8e16c85e96aa00b685a6592c9151c2592d69"
+      },
+      "Add scans, redirects and 404 monitoring.": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "c67a083109ef7d4974175b59a6d98e214fc4936b4352e0d1e7f4b2f372fb68b6"
+      },
+      "Configure queues, scheduling and retention.": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "26a89c0a4c7dcc3323c4c9395c7c6fb37840788d59c700d5a6d1d12788bc32d8"
+      },
+      "Rankbeam documentation": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "9f3530319a03e3bb530bb77744bcbdc14d5145231dd62976689e628da016394e"
+      },
+      "Add SEO to your Laravel app.": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "88b64895a5688d07c68cd0ab0f18d068680cc9f566738d1947ff696e485234a7"
+      },
+      "Start with the free MIT core for metadata, canonical URLs, JSON-LD and sitemaps. Pro adds monitoring and operations when you need them.": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "bba1930f1925f014ffc668272b1b71ed01ab975e35226cff8bc0eab9fefe9b99"
+      },
+      "Install and render your first tags →": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "b65cf12c09aa98250616688d2bce6a0814bc1e0dc76845187e63feff8b35e9ff"
+      },
+      "Laravel 11–13 · PHP 8.2+ (8.3+ on Laravel 13)": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "4b047bf59a0142359b26d43cdc136ecd660c3d20515c3e285a9328bf0483e446"
+      },
+      "Moving an existing site?": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "70c4ad5f8652335fdca9cd5d38f9eb0d92e236c3b581bf366e3f1dea437dd38a"
+      },
+      "Keep your metadata when moving from": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "bd6bb04a843f50a3f9da8638dbf1afefbb61053e6f56a42f8d09ce40b9e4c1a4"
+      },
+      "WordPress": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "807bccf5384f5633a31b05e698e86adffabf4c4178741db26cbdbc3168cb267c"
+      },
+      "or": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "6cedce75198db033cd5983268975cd972bd1d5548002229113cc1b9b198d16c4"
+      },
+      "another Laravel SEO package": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "fd89a72973963b7e182378949b608e1b87275e30052972caa40c0bd1df0bb6c2"
+      },
+      ". Start with a dry run.": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "66fffd73719a38fd3a7b5b65c256f79924d5318adbac1312f0e76cc5c5fcf74c"
+      },
+      "English": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "5677fa6896850aefce5fe2ea64dae4882d4656608be9348ae1aa80210b669a71"
+      },
+      "Laravel SEO package": {
+        "reviewer": "Codex",
+        "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
+        "at": "2026-09-11T22:22:30.131Z",
+        "independentNative": false,
+        "digest": "f73bbe828d6a13abdce7b938f022cc52df55e24d164754a6b310666a49969e00"
+      }
+    }
   }
 }

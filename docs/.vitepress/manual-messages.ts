@@ -45,6 +45,28 @@ export const manualMessages = {
       "linkText": "Ana sayfaya dön"
     }
   },
+  "pl": {
+    "imageAlt": "Rankbeam — infrastruktura SEO open-core dla Laravel",
+    "copyTitle": "Kopiuj kod",
+    "copied": "Skopiowano",
+    "copyFailed": "Kopiowanie nie powiodło się. Zaznacz kod i skopiuj go ręcznie.",
+    "noScript": "Bez JavaScript możesz zaznaczyć kod i skopiować go ręcznie.",
+    "noScriptMenu": "Menu",
+    "noScriptHelp": "JavaScript jest wyłączony. Użyj tych linków do nawigacji; zaznacz kod, aby skopiować go ręcznie.",
+    "language": "Język",
+    "mobileNavigation": "Nawigacja mobilna",
+    "extraNavigation": "Dodatkowa nawigacja",
+    "mainNavigation": "Nawigacja główna",
+    "sidebarNavigation": "Nawigacja w panelu bocznym",
+    "pager": "Nawigacja między stronami",
+    "permalink": "Stały link do",
+    "notFound": {
+      "title": "NIE ZNALEZIONO STRONY",
+      "quote": "Jeśli jednak nie zmienisz kierunku i będziesz dalej szukać, możesz dotrzeć tam, dokąd zmierzasz.",
+      "linkLabel": "przejdź do strony głównej",
+      "linkText": "Wróć do strony głównej"
+    }
+  },
 } as const
 
 export function manualFor(locale: string) {
