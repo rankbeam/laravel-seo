@@ -1,0 +1,15 @@
+{
+  "locale": "nl",
+  "reviewer": "Codex",
+  "date": "2026-09-11",
+  "scope": "Direct Codex review of Dutch metadata, 404, accessibility, copy recovery and complete native no-script navigation vocabulary. Read all manual strings and their English UI meaning; reviewed theme/source adapters and component behavior. Verified copy success/failure, navigation and fragment switching in private browser. No independent native/human certification. No-script modeled fixture and publication limits recorded in execution evidence.",
+  "independent_native": false,
+  "published": false,
+  "files": {
+    "manual-messages.ts": "6f2ffcffa428d323b8561604bd6d642b7eab622d49b3ffd758f9c1f26a87f45b",
+    "theme-a11y.ts": "0d123dcb5d390e9a1a59f3fb0ffe4685c5324d98c20943592e7ce190adc49985",
+    "theme/components/LocalizedCopy.vue": "f4fb126cbe682fc624ede21661880ede25b792cb5acc33586ded76a29394aab9",
+    "no-script-navigation.ts": "422c2eea44f97b3fc81a5d6fae026344405e2989361f79ce03cce23efdbd9660",
+    "theme/components/NoScriptNavigation.vue": "e8ba3f2a09ef2a4be2f9e2832484e8bdec9f4e36a5bf7f05130b02ca8c651fd9"
+  }
+}

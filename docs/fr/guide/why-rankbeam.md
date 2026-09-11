@@ -35,7 +35,7 @@ Une matrice commune à toute la famille :
 
 Rankbeam coordonne les données SEO émises par votre application Laravel. Ce n’est ni un outil hébergé de suivi de positions, ni une suite de recherche de mots-clés, ni un produit d’analytics. Il ne promet ni classement, ni indexation, ni citation par une IA. Pour générer les sitemaps XML, il s’appuie sur [`spatie/laravel-sitemap`](https://packagist.org/packages/spatie/laravel-sitemap). Votre contenu, vos routes et vos outils d’analytics restent en place.
 
-Vous découvrez le projet ? [Installez le cœur gratuit](/fr/guide/installation) ou poursuivez pour consulter les résultats d’un remplacement réel en production. Pro et la liste d’attente de l’offre de lancement se trouvent sur [rankbeam.dev](https://rankbeam.dev/fr/).
+Vous découvrez le projet ? [Installez le cœur gratuit](/fr/guide/installation) ou poursuivez pour consulter les résultats d’un remplacement réel en production. Pro et l’offre de lancement se trouvent sur [rankbeam.dev](https://rankbeam.dev/fr/).
 
 ## Pourquoi ne pas assembler trois packages et du code d’intégration ? {#why-not-three-packages-glue}
 
@@ -145,7 +145,7 @@ L’application de référence provenait d’une migration WordPress d’environ
 3. **Transfert des redirections.** Core produit un CSV versionné ; `seo-pro:redirects-import` dans Pro valide chaque ligne avant écriture et rejette boucles, cibles dangereuses et doublons.
 4. **Vérification avant toute suppression.** `seo:audit --strict` sert de contrôle bloquant en CI ou avant bascule et renvoie un code non nul en présence d’un problème. La base WordPress reste intacte jusqu’à votre décision de la supprimer.
 
-La procédure complète est dans le [guide opérationnel de migration WordPress](/fr/guide/wordpress-migration-runbook). La correspondance des champs et le traitement des variables sont détaillés dans [Migrer depuis WordPress](/fr/guide/migrate-from-wordpress). Vous quittez plutôt un package SEO **Laravel**, ralphjsmit, artesaos ou Spatie ? [Cette migration dispose aussi d’une commande](/fr/guide/migrate-from-other-packages).
+La procédure complète est dans le [guide opérationnel de migration WordPress](/fr/guide/wordpress-migration-runbook). La correspondance des champs et le traitement des variables sont détaillés dans [Migrer depuis WordPress](/fr/guide/migrate-from-wordpress). Vous quittez plutôt un package SEO **Laravel**, ralphjsmit, artesaos ou Spatie ? [Consultez le guide de migration entre packages](/fr/guide/migrate-from-other-packages).
 
 ## Comportement à plus grande échelle {#does-it-hold-up-at-scale}
 

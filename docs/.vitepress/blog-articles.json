@@ -83,5 +83,22 @@
       "json-ld-schema-graphs-in-laravel": "grafos-json-ld-laravel",
       "laravel-seo-audit": "auditoria-seo-laravel"
     }
+  },
+  "nl": {
+    "segment": "artikelen",
+    "articles": {
+      "laravel-filament-seo": "laravel-filament-seo",
+      "what-is-rankbeam": "wat-is-rankbeam",
+      "hreflang-done-right-in-laravel": "hreflang-in-laravel",
+      "laravel-seo-packages-compared": "laravel-seo-pakketten-vergeleken",
+      "replaced-rank-math-with-a-laravel-package": "van-rank-math-naar-laravel",
+      "answer-engine-optimization-for-laravel": "optimalisatie-voor-antwoordmachines-in-laravel",
+      "laravel-seo-guide": "laravel-seo-gids",
+      "laravel-meta-tags": "laravel-metatags",
+      "laravel-sitemaps": "laravel-sitemaps",
+      "canonical-urls-in-laravel": "canonieke-urls-in-laravel",
+      "json-ld-schema-graphs-in-laravel": "json-ld-schemagrafen-in-laravel",
+      "laravel-seo-audit": "laravel-seo-audit"
+    }
   }
 }

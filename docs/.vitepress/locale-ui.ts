@@ -314,6 +314,69 @@ export const localeUi = {
         }
       }
     }
+  },
+  "nl": {
+    "label": "Nederlands",
+    "lang": "nl",
+    "guide": "Gids",
+    "english": "Engelse documentatie",
+    "fallback": "Deze pagina is nog niet beschikbaar in het Nederlands.",
+    "open": "Lees de Engelse pagina",
+    "review": "Deze vertaling wacht op redactionele beoordeling door Codex.",
+    "source": "Engelse versie",
+    "outline": "Op deze pagina",
+    "next": "Volgende pagina",
+    "prev": "Vorige pagina",
+    "description": "Rankbeam-documentatie voor Laravel: metadata, sitemaps, crawlers en SEO-velden voor Filament.",
+    "reference": "Referentie (EN)",
+    "table": "Gegevenstabel",
+    "titles": {
+      "guide/installation": "Installatie",
+      "guide/quickstart": "Snelstart",
+      "concepts/resolver-precedence": "Voorrangsvolgorde van de resolver",
+      "guide/sitemaps": "Sitemapregister",
+      "guide/filament": "Filament-beheervelden",
+      "guide/audit": "Gratis SEO-audit",
+      "guide/ai-crawlers": "AI-crawlers beheren",
+      "guide/multilingual": "Meertalige content en hreflang",
+      "guide/og-image": "Gegenereerde OG-afbeeldingen",
+      "guide/migrate-from-other-packages": "Migreren vanaf andere pakketten"
+    },
+    "theme": {
+      "returnToTopLabel": "Terug naar boven",
+      "sidebarMenuLabel": "Menu",
+      "darkModeSwitchLabel": "Donker thema",
+      "lightModeSwitchTitle": "Licht thema inschakelen",
+      "darkModeSwitchTitle": "Donker thema inschakelen",
+      "langMenuLabel": "Taal wijzigen",
+      "skipToContentLabel": "Naar de inhoud",
+      "lastUpdated": {
+        "text": "Laatst bijgewerkt"
+      }
+    },
+    "edit": "Bewerk deze pagina op GitHub",
+    "license": "rankbeam/laravel-seo is uitgebracht onder de MIT-licentie.",
+    "search": {
+      "button": {
+        "buttonText": "Zoeken",
+        "buttonAriaLabel": "Zoeken in de documentatie"
+      },
+      "modal": {
+        "displayDetails": "Details tonen",
+        "resetButtonTitle": "Zoekopdracht wissen",
+        "backButtonTitle": "Zoeken sluiten",
+        "noResultsText": "Geen resultaten voor",
+        "footer": {
+          "selectText": "selecteren",
+          "navigateText": "navigeren",
+          "closeText": "sluiten",
+          "selectKeyAriaLabel": "Enter",
+          "navigateUpKeyAriaLabel": "Pijl omhoog",
+          "navigateDownKeyAriaLabel": "Pijl omlaag",
+          "closeKeyAriaLabel": "Escape"
+        }
+      }
+    }
   }
 } as const
 

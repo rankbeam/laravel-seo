@@ -862,15 +862,15 @@
     },
     "it/guide/why-rankbeam.md": {
       "source": "guide/why-rankbeam.md",
-      "sha256": "fd1aaae1664a3a2cd8b963498bf06fa19e467ef0a07bd0ec965a99095802ff79",
+      "sha256": "d9ef64d4a335daa263460c434bc684876ec75c06a221abffe2ce994651deccf2",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
-        "date": "2026-09-10",
-        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
+        "date": "2026-09-11",
+        "scope": "Existing complete-guide approval retained; complete page reread and targeted founding-offer/package-migration corrections reviewed by Codex on 2026-09-11. No independent native or human certification.",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "c92624e40fe8b6d917ba079dc4bb0bd7a67f257e7ecb81e07dd016c0b51df1a4"
+        "translation_sha256": "123be9fe4177c0b21c552e1b12648ec931e032de705eb4fc81fe073c71e1cbef"
       }
     },
     "it/guide/wordpress-migration-runbook.md": {
@@ -1296,15 +1296,15 @@
     },
     "de/guide/why-rankbeam.md": {
       "source": "guide/why-rankbeam.md",
-      "sha256": "fd1aaae1664a3a2cd8b963498bf06fa19e467ef0a07bd0ec965a99095802ff79",
+      "sha256": "d9ef64d4a335daa263460c434bc684876ec75c06a221abffe2ce994651deccf2",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
-        "date": "2026-09-10",
-        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
+        "date": "2026-09-11",
+        "scope": "Existing complete-guide approval retained; complete page reread and targeted founding-offer/package-migration corrections reviewed by Codex on 2026-09-11. No independent native or human certification.",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "7698beae9c970c37c5d8733e0af3a0d4b3a83600afd760f1f610e4ae259d3898"
+        "translation_sha256": "fda4c72bff50b0d4464997c6b414677fe1f3f87b7fff1e486316ffc0dc220096"
       }
     },
     "de/guide/wordpress-migration-runbook.md": {
@@ -1717,15 +1717,15 @@
     },
     "fr/guide/why-rankbeam.md": {
       "source": "guide/why-rankbeam.md",
-      "sha256": "fd1aaae1664a3a2cd8b963498bf06fa19e467ef0a07bd0ec965a99095802ff79",
+      "sha256": "d9ef64d4a335daa263460c434bc684876ec75c06a221abffe2ce994651deccf2",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
-        "date": "2026-09-10",
-        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
+        "date": "2026-09-11",
+        "scope": "Existing complete-guide approval retained; complete page reread and targeted founding-offer/package-migration corrections reviewed by Codex on 2026-09-11. No independent native or human certification.",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "54b64942c8aeecb1d79b65490af89840fca451d655112f77bfb2ad1fdcd20d12"
+        "translation_sha256": "850e63c7ce6b9299ab7aed5f8dc6b17fb36dc01ed39cb73a49eb7de56c23b370"
       }
     },
     "fr/guide/wordpress-migration-runbook.md": {
@@ -2138,15 +2138,15 @@
     },
     "es/guide/why-rankbeam.md": {
       "source": "guide/why-rankbeam.md",
-      "sha256": "fd1aaae1664a3a2cd8b963498bf06fa19e467ef0a07bd0ec965a99095802ff79",
+      "sha256": "d9ef64d4a335daa263460c434bc684876ec75c06a221abffe2ce994651deccf2",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
-        "date": "2026-09-10",
-        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
+        "date": "2026-09-11",
+        "scope": "Existing complete-guide approval retained; complete page reread and targeted founding-offer/package-migration corrections reviewed by Codex on 2026-09-11. No independent native or human certification.",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "e1efdbcb629b70d5f63853cb12db0cf4bb16fc8ede498e97e6f900e3bc826db4"
+        "translation_sha256": "1c852abc9c41e5ec75eebdef0a6dd2908ab84287d73ba4acbea1684fd2ca1a0d"
       }
     },
     "es/guide/wordpress-migration-runbook.md": {
@@ -2559,15 +2559,15 @@
     },
     "pt-BR/guide/why-rankbeam.md": {
       "source": "guide/why-rankbeam.md",
-      "sha256": "fd1aaae1664a3a2cd8b963498bf06fa19e467ef0a07bd0ec965a99095802ff79",
+      "sha256": "d9ef64d4a335daa263460c434bc684876ec75c06a221abffe2ce994651deccf2",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
-        "date": "2026-09-10",
-        "scope": "Complete guide approval retained; precise supported PHP/Laravel combinations reviewed on 2026-09-11",
+        "date": "2026-09-11",
+        "scope": "Existing complete-guide approval retained; complete page reread and targeted founding-offer/package-migration corrections reviewed by Codex on 2026-09-11. No independent native or human certification.",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "6f9c0c22a82d68db40cf5e95eff72c385639e21425c427036423507ae14f1c9d"
+        "translation_sha256": "89f76cd41068cb711d1b8a61015cd7af0b30c55d0e1b03dbf34b0578f6b39357"
       }
     },
     "pt-BR/guide/wordpress-migration-runbook.md": {
@@ -2820,6 +2820,565 @@
         "status": "approved",
         "independent_native": false,
         "translation_sha256": "502873382a65bd9ecb166e07b4bbfc912935b0a85980682e76b0e09f186a5f1a"
+      }
+    },
+    "nl/concepts/resolver-precedence.md": {
+      "source": "concepts/resolver-precedence.md",
+      "sha256": "4391a29a1d25253802f2ad598b3eea68908906df8816260ae8dc912944417512",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "8a3d37d693f95f894b8adaac7164a2e0b32f22b1be2d061ced923f81d518a5ed"
+      }
+    },
+    "nl/contributing/rendering-contract.md": {
+      "source": "contributing/rendering-contract.md",
+      "sha256": "b4b18340855cfc8bcc45c3c33f9523942927105af01c9c11ac36f01afc5fd520",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "cc0f8ed64cf9ad46dea16c037c9e3dc83687474a382c9d36bd794a75ccdc60a2"
+      }
+    },
+    "nl/guide/ai-crawlers.md": {
+      "source": "guide/ai-crawlers.md",
+      "sha256": "30895f227130c9e06315b53c7c7cac342dc9755f7ed1813c3d560633dfff8c4b",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "ad742d1ea28a8ef44ebfd398e41b7546e3fce084c444acd927a07c4acb318a6b"
+      }
+    },
+    "nl/guide/audit.md": {
+      "source": "guide/audit.md",
+      "sha256": "fdd1f134b1988c0ae6aeb529b233ed16750ef42a091c970b807406f05a2e939a",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "ef40e46078531763cf592dbcf82340fefc8da9d46ba6c056341ce673a7774054"
+      }
+    },
+    "nl/guide/blade.md": {
+      "source": "guide/blade.md",
+      "sha256": "1545bf859fd72abe90b4e0038527fe901459e1c11c8472a5363aad2ea15cfcb4",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "4c7eadd8729e4d3e0537ba730ba1fb2632a58798939c4e9806c30c649c5f3d53"
+      }
+    },
+    "nl/guide/demo.md": {
+      "source": "guide/demo.md",
+      "sha256": "a83060a0a93389f35bbfa86ed8f0ca25fa0558c7852ec930d29394e59802c8d7",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "b1f42165ef0a5a4b823fbc684e278b9c03f34143b45d2241d19a288e661fbf7a"
+      }
+    },
+    "nl/guide/explain.md": {
+      "source": "guide/explain.md",
+      "sha256": "8dff916dca42b6a22870ce1ea6b7786e5a48790bffb503065bb33ee01139e9d8",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete English/Dutch copy reread; heading aligned with navigation for findability. Source anchors, examples, metadata and full body retained. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "ca68321719ce3a91e0b46aafe6a02605c6ce23e949d0c5792e8e8d38eb3ac9fe"
+      }
+    },
+    "nl/guide/filament.md": {
+      "source": "guide/filament.md",
+      "sha256": "7c7d8a78510a50a0f0c11f8a4952f6fcc40e2063ce8d457ffc1d3dfadb534aa4",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "c199ee26ace9bd976d5e214ce216fb7cbb37b43be9661fabc4659a31418bcb8f"
+      }
+    },
+    "nl/guide/indexing-guard.md": {
+      "source": "guide/indexing-guard.md",
+      "sha256": "de3dc22aad4814ef932b11ffa2be244f6c4d764cf98ff3a9f5eb4f5d601c407c",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "d8eea32adeb6bff20bf56953114ce1bd3a2d753e5e3b4fec3ab16d687ec97895"
+      }
+    },
+    "nl/guide/inertia-json.md": {
+      "source": "guide/inertia-json.md",
+      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "8663edd8b5ae1dd1495c11f590c898c0bb0b9b0ee25055604b6a406b0b6be869"
+      }
+    },
+    "nl/guide/installation.md": {
+      "source": "guide/installation.md",
+      "sha256": "b6e9dbf70cf7585113bfc4cb6947f2c8c700179843a6bc0c7bb9a6d5c5d3676e",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "54f30cb8a5912ef43a21964465da71b1d8de4196bef319069dd2f00837800f8a"
+      }
+    },
+    "nl/guide/livewire.md": {
+      "source": "guide/livewire.md",
+      "sha256": "fc9b76e838862d3f562ea7bb08061b95ce4775bb96e7bebf9d00aefeda8d2e4c",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "ceb436c1fb6da2ebfb1db7270da0d65eaf2d048d7cf7ff20d4f54a1826c7dd6d"
+      }
+    },
+    "nl/guide/markdown-for-bots.md": {
+      "source": "guide/markdown-for-bots.md",
+      "sha256": "0d3375f75e8a303c5c7b12d704482d71633948a685adde037bfdfa5d7d3fbac6",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "914cf89f1bdbe8a2b032aa7f8c573f639006e68574dcc0028850cb527997b395"
+      }
+    },
+    "nl/guide/migrate-from-other-packages.md": {
+      "source": "guide/migrate-from-other-packages.md",
+      "sha256": "8ac395702e898881af586ec86627c866f34955a76ca079880ce03dd7bc87eb1f",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "57a5ba18cfc93a13b08b18c52483cc445079e248304d1b9b65a918f098aeec60"
+      }
+    },
+    "nl/guide/migrate-from-wordpress.md": {
+      "source": "guide/migrate-from-wordpress.md",
+      "sha256": "7da4845d115d9fcc481bad48262275938286c8558579f6e375d964593b9c5668",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "ed3e4d0e11621914254662326f62861755c45a8ff9df34d15324d9fed65f063a"
+      }
+    },
+    "nl/guide/multilingual.md": {
+      "source": "guide/multilingual.md",
+      "sha256": "3ae9687568846476d3c5f972f34b14124409eb67e401569e1eec5a11305945af",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "0e641e3e5418a8760a4fe14ebe2541a0c86675c4421b311c4861fde12757c7ae"
+      }
+    },
+    "nl/guide/og-image.md": {
+      "source": "guide/og-image.md",
+      "sha256": "dc7c00ce446dc5e1fd02f05130387e1bdbcf1443f6a00419e2a34934247b693d",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "b5d3cee3a5f888ae13c95333c404af320e9da85c3874cc426673526e8eb55271"
+      }
+    },
+    "nl/guide/quickstart.md": {
+      "source": "guide/quickstart.md",
+      "sha256": "62172e26a1b071e110a365c15ab81d23c415ff95ac160575142ad10bc507260d",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "21b8df550e7cc2098cf67bad6125464fac795efc0141d6c9ab686dee49b298dd"
+      }
+    },
+    "nl/guide/schema.md": {
+      "source": "guide/schema.md",
+      "sha256": "f5896694ebd6fa3df9dc7d393ec392882f431242468a1aababc257bc70c3b02a",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "c25fe0a853269da04958b1e33e5c0185e5730ed44fa4cb39362e11ca3176610e"
+      }
+    },
+    "nl/guide/sitemaps.md": {
+      "source": "guide/sitemaps.md",
+      "sha256": "16bbe750af66c65ce687536f4b92bfe27c6c11b05f59c2030a6c9ea17d080a0e",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "82003d309fac105212c790da0c10c5638b9668a245ae37f03890246ea35e6093"
+      }
+    },
+    "nl/guide/translations.md": {
+      "source": "guide/translations.md",
+      "sha256": "bedcee93831af91605dca0f7ad536e57da078984464c60fd68b4ca52e62662bc",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "fa9e16368e7d2ca0a605793391df84e99c35250caf99e63d6ffedb48d41bc106"
+      }
+    },
+    "nl/guide/upgrade-from-v1.md": {
+      "source": "guide/upgrade-from-v1.md",
+      "sha256": "58fcb833a7313e9a91e41c7fea664a0db5b1a603d8b8bfda75db95f3a59bba15",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "3d6001bd6f78f83c81ca04077c3d140e539b4fd34993cc6c5c929d78631baa6f"
+      }
+    },
+    "nl/guide/why-rankbeam.md": {
+      "source": "guide/why-rankbeam.md",
+      "sha256": "d9ef64d4a335daa263460c434bc684876ec75c06a221abffe2ce994651deccf2",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "c5eae97b8a5462b9d698eb312db22a3a2c9a12e632213be9ffede3cfadda17ec"
+      }
+    },
+    "nl/guide/wordpress-migration-runbook.md": {
+      "source": "guide/wordpress-migration-runbook.md",
+      "sha256": "f2daaf7eac2bd7a8e180d401e8c8c71bec38a306b6bbe5b2751202947cd82ff8",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "5d544385bcf8d42bdd5fa3609a15120fb90a2cb3956fe8883c91a0a688334382"
+      }
+    },
+    "nl/index.md": {
+      "source": "index.md",
+      "sha256": "1fe0fb5e64039c222519c36e499eb8dcbf9b775cf38241862971bb607089c522",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "8f49f5d6cfe3f23bbf9bf40d413266f4dd790e1581dac5bd0b037471c0c2122e"
+      }
+    },
+    "nl/pro/ai-assist.md": {
+      "source": "pro/ai-assist.md",
+      "sha256": "49729166bb1045e61b7b1d43d824ae7031212ac0e4cd858b332f23c53c707108",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "ae2ea472d839ba9e8c1d6eaf9aac7cb15cc1da0a0384d973b40784375f9854a5"
+      }
+    },
+    "nl/pro/ai-bot-monitor.md": {
+      "source": "pro/ai-bot-monitor.md",
+      "sha256": "45c33da9dbadd4d323f11be2260db72f21b32c0f47f95ceed60dd2d0927f08ab",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "154375a3ccc686491663b5708e79aa45f78a087ef6eb4c3b4f1c34c9bf16a597"
+      }
+    },
+    "nl/pro/ai-readiness-score.md": {
+      "source": "pro/ai-readiness-score.md",
+      "sha256": "4a5d3936be605aa199975d2b4a4e15297627395c71394fd8dd2e2d666fba00a1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "e80760070cd4102363c3aceacb68cda4da19ce3db0720b9d41a474536c04bccf"
+      }
+    },
+    "nl/pro/broken-links.md": {
+      "source": "pro/broken-links.md",
+      "sha256": "536f024b3551aca7810605ddb6cb37ad77bce9dfaa64f697f1dd4f5d9b73a4f1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "04ca0e8a289ec887a031e05f6ce9400e20bacf3b89b75acc13b9ccbef3bb1153"
+      }
+    },
+    "nl/pro/headless.md": {
+      "source": "pro/headless.md",
+      "sha256": "6a392b623c3d912ae7db09674646e1bb9dd1fa5677adb3d0de228b3eaabcb5d9",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "fdb2b079dcdce6a43f062784b56a6d9cccf98c268db486862701ba46d9db7150"
+      }
+    },
+    "nl/pro/indexnow.md": {
+      "source": "pro/indexnow.md",
+      "sha256": "6358680ec026bd8281c17272ffbebb43a126ffa84a8b87564cbafc52338163eb",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "ffe7f6462303b8d585cd9d600485aec09bb408f296b99ba0f325cf0acefcf1d7"
+      }
+    },
+    "nl/pro/installation.md": {
+      "source": "pro/installation.md",
+      "sha256": "a092e59eff8699016b9d17b63c117afbbdcb64ecac27e38954e73972db8366cd",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "4ed5df495c6136995c2257ba08028d892c7afaae5cb1e6f3bca48e132321af19"
+      }
+    },
+    "nl/pro/mcp.md": {
+      "source": "pro/mcp.md",
+      "sha256": "5e38f0d65552be2664a98e0ce87614d7e14987ad4da3936b8938d8274a6cd874",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "0716479dd95ee2775dd2616535da73cf889f27d904d456a54e3d4ac2dcc72382"
+      }
+    },
+    "nl/pro/on-page-checklist.md": {
+      "source": "pro/on-page-checklist.md",
+      "sha256": "cb94ef8f19db646db0e214abb379d0abf490218a2d265efebcdfd986c34ea8c1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "8ac31dcbe981aaabf6dc11d1af2f33a313cb77424316bf7bda0607815a877b5d"
+      }
+    },
+    "nl/pro/production.md": {
+      "source": "pro/production.md",
+      "sha256": "7a5bc5882b7d9bcddfa1028e52e73fb1c18f460cde9cf13ef3c1322f95db04a2",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "10a1acc245dea2cf3792a9b56517595f485efd2d6304e7bcb6fa9b7fe17adceb"
+      }
+    },
+    "nl/pro/reports.md": {
+      "source": "pro/reports.md",
+      "sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "76241a4c9e9375b0c840c573d1b13211881df9c29f5a90f5b1b81d268a40f431"
+      }
+    },
+    "nl/pro/scan-issues.md": {
+      "source": "pro/scan-issues.md",
+      "sha256": "ddfb77bc5ce73aca006c7713aa819db26254e7c68bb1a9fd556a7d2580b6e2d1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "7b60cac08cb671d0cf21fd4c2194249de4a405084ae444d2a5f983125d936281"
+      }
+    },
+    "nl/pro/scan-scheduling.md": {
+      "source": "pro/scan-scheduling.md",
+      "sha256": "0c96d2a7db7d8717fab21a5c0bff169a6641751d4871673606c17b3d5550b1b3",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "d6115a7481dd0853610f8a6afbbbe4f8bdfb7cbce6845f2dc9a640a050183e5c"
+      }
+    },
+    "nl/pro/scoring.md": {
+      "source": "pro/scoring.md",
+      "sha256": "8c4fd3f83632f472dd3ebb75fe7b1fa6d87d6bda125bb51d94ae733a2e0e5032",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "8a05a86dc3b9fd10f6920897e388eec01f3ddfdb9060421eb057109f1aed624e"
+      }
+    },
+    "nl/pro/search-console-insights.md": {
+      "source": "pro/search-console-insights.md",
+      "sha256": "eb89ebecfbe846bc07f534918d5f19569911e8762d1e7441b4743181ec5ceec6",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "cd9ef340366aa9e423a946a2ad2955e4b28b758c06bb5feaf23524717f31f6de"
+      }
+    },
+    "nl/pro/search-console.md": {
+      "source": "pro/search-console.md",
+      "sha256": "0fe33f55e9dc24a0f78a5bf34d00c93892fb04667fbd10c16ef214961f84d6da",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "df5165a677c5661759f80dd597a239197a8b1e936cbc71fe10fdf70c5c1b5e32"
+      }
+    },
+    "nl/pro/walkthrough.md": {
+      "source": "pro/walkthrough.md",
+      "sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "cd218ad7891bfeab7a5fcaf94f0ab158a30e2bc1a220e6dccaf70c1b3f2ee44a"
+      }
+    },
+    "nl/reference/configuration.md": {
+      "source": "reference/configuration.md",
+      "sha256": "6885c0770b86f6a3615d301a326f1b77d894a09f708cbb93cbe81b183fce6590",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-11",
+        "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "ff1a6afcec84d1182ca7a9f2fb5edc3039b4f7090812ccd0b275a9bdf4a1cb64"
       }
     }
   }

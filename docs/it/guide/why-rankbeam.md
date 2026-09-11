@@ -35,7 +35,7 @@ La matrice è comune alla famiglia:
 
 Rankbeam coordina l’output SEO dell’applicazione Laravel. Non è un servizio di monitoraggio delle posizioni, una suite di ricerca delle parole chiave o un prodotto di analytics, e non promette posizionamenti, indicizzazione o citazioni AI. Per generare sitemap XML usa [`spatie/laravel-sitemap`](https://packagist.org/packages/spatie/laravel-sitemap), lasciando contenuti, routing e analytics nell’applicazione.
 
-Per iniziare, [installa il core gratuito](/it/guide/installation). Le sezioni seguenti descrivono una sostituzione reale in produzione. Pro e la lista d’attesa per il lancio sono su [rankbeam.dev](https://rankbeam.dev/it/).
+Per iniziare, [installa il core gratuito](/it/guide/installation). Le sezioni seguenti descrivono una sostituzione reale in produzione. Pro e l’offerta di lancio sono su [rankbeam.dev](https://rankbeam.dev/it/).
 
 ## Perché evitare tre pacchetti con codice di collegamento {#why-not-three-packages-glue}
 

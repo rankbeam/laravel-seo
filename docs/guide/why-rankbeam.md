@@ -53,7 +53,7 @@ rather than reinventing it, and it leaves your content, routing, and analytics
 where they are.
 
 New here? [Install the free core](/guide/installation), or read on for the
-receipts from a real production swap. Pro and the founding waitlist live at
+receipts from a real production swap. Pro and the founding offer are available at
 [rankbeam.dev](https://rankbeam.dev/).
 
 ## Why not three packages + glue
@@ -225,7 +225,7 @@ The full procedure is the [WordPress migration runbook](/guide/wordpress-migrati
 the field-by-field mapping and token handling are in
 [Migrating from WordPress](/guide/migrate-from-wordpress). Switching from a
 **Laravel** SEO package instead (ralphjsmit, artesaos, Spatie)?
-[That path is one command too](/guide/migrate-from-other-packages).
+[See the package migration guide](/guide/migrate-from-other-packages).
 
 ## Does it hold up at scale?
 
