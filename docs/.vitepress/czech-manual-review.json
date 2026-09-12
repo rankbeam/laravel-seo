@@ -1,0 +1,118 @@
+{
+  "locale": "cs",
+  "reviewer": "Codex",
+  "native_review": null,
+  "independent_native": false,
+  "published": false,
+  "scope": "65 manual UI leaves and2 metadata values retain exact original parent review. Integrated behavior pending.",
+  "original_review": {
+    "reviewer": "Codex",
+    "at": "2026-09-12T02:24:59.233920+00:00",
+    "candidateSha256": "b89a9b135446d6812e372b26f768ee73b286b648178fc5ffbb4782fea2ac3295",
+    "sourceContext": {
+      "docs/.vitepress/locale-ui.ts": "0fbdc81c5c304331a98ac1e5bd900a800f4bf128a35bc17b81f94b9fc8fead59",
+      "docs/.vitepress/manual-messages.ts": "94685eab16bc6e4ea9999e9f7002976cc4bce234459b88ac98d928ba56546cd1",
+      "docs/.vitepress/config.mts": "c274ab4bb2af97449b9d91eaf9b0cc860dd9e0aabb0fd1ef1f9e9ddb4b239384",
+      "docs/.vitepress/theme-a11y.ts": "587ae681e7efec3b16e36cb51b51a6250bc660de5ae59d017cd8b9aa7bb2ac4e",
+      "docs/.vitepress/no-script-navigation.ts": "422c2eea44f97b3fc81a5d6fae026344405e2989361f79ce03cce23efdbd9660",
+      "docs/.vitepress/theme/components/LocalizedCopy.vue": "3cab90f6a612fcabb7d07fe632dbcf362e80bee03294cddb3688d159598176bd",
+      "node_modules/vitepress/dist/client/theme-default/NotFound.vue": "8cf049995aee8882d705293b4964771cf161567251181acc049e11b3a5b27ffb",
+      "node_modules/vitepress/dist/client/theme-default/components/VPLocalSearchBox.vue": "c283e098ce625c7e3543cabad9ea97c5f1659b2817f07d90ad87940dddbbf522"
+    },
+    "scope": "Parent authored and read all65 Czech manual UI values against existing contract, English root metadata and installed VitePress NotFound/search defaults, plus actual copy/no-JS/nav behavior. All search keys, state labels, title vocabulary, source/fallback/Codex-review wording, copy failure/selection guidance, branding and complete404 quote retained. Enter/Escape deliberately retain key names. Two separate404 metadata values also read and reviewed. Same English structure and no public activation; actual final rendered context remains required.",
+    "manualUiLeaves": 65,
+    "metadata404Values": 2,
+    "metadata404Sha256": "86092d0338479942ba7e22e674452ba20c127bc4587296bef5950c88ebcabfb9",
+    "independentNative": false,
+    "humanCertification": false,
+    "published": false
+  },
+  "candidate": {
+    "localeUi": {
+      "label": "Čeština",
+      "lang": "cs",
+      "guide": "Průvodce",
+      "english": "Dokumentace v angličtině",
+      "fallback": "Tato stránka zatím není dostupná v češtině.",
+      "open": "Otevřít stránku v angličtině",
+      "review": "Tento překlad čeká na redakční kontrolu Codexem.",
+      "source": "Anglická verze",
+      "outline": "Na této stránce",
+      "next": "Další stránka",
+      "prev": "Předchozí stránka",
+      "description": "SEO balíček pro Laravel: metadata z více vrstev, kanonické URL, Open Graph, propojené JSON-LD, mapy webu XML a pravidla pro roboty.",
+      "reference": "Referenční dokumentace (EN)",
+      "table": "Datová tabulka",
+      "titles": {
+        "guide/installation": "Instalace",
+        "guide/quickstart": "Rychlý start",
+        "concepts/resolver-precedence": "Priority resolveru",
+        "guide/sitemaps": "Registr map webu",
+        "guide/filament": "SEO pole ve Filamentu",
+        "guide/audit": "Bezplatný SEO audit",
+        "guide/ai-crawlers": "Řízení přístupu robotů AI",
+        "guide/multilingual": "Vícejazyčný obsah a hreflang",
+        "guide/og-image": "Generované obrázky OG",
+        "guide/migrate-from-other-packages": "Migrace z jiných balíčků"
+      },
+      "theme": {
+        "returnToTopLabel": "Zpět nahoru",
+        "sidebarMenuLabel": "Menu",
+        "darkModeSwitchLabel": "Tmavý režim",
+        "lightModeSwitchTitle": "Přepnout na světlý režim",
+        "darkModeSwitchTitle": "Přepnout na tmavý režim",
+        "langMenuLabel": "Změnit jazyk",
+        "skipToContentLabel": "Přejít na obsah",
+        "lastUpdated": {
+          "text": "Poslední aktualizace"
+        }
+      },
+      "edit": "Upravit tuto stránku na GitHubu",
+      "license": "rankbeam/laravel-seo je distribuován pod licencí MIT.",
+      "search": {
+        "button": {
+          "buttonText": "Hledat",
+          "buttonAriaLabel": "Hledat v dokumentaci"
+        },
+        "modal": {
+          "displayDetails": "Zobrazit podrobný seznam",
+          "resetButtonTitle": "Vymazat hledání",
+          "backButtonTitle": "Zavřít vyhledávání",
+          "noResultsText": "Žádné výsledky pro",
+          "footer": {
+            "selectText": "vybrat",
+            "navigateText": "procházet",
+            "closeText": "zavřít",
+            "selectKeyAriaLabel": "Enter",
+            "navigateUpKeyAriaLabel": "Šipka nahoru",
+            "navigateDownKeyAriaLabel": "Šipka dolů",
+            "closeKeyAriaLabel": "Escape"
+          }
+        }
+      }
+    },
+    "manualMessages": {
+      "imageAlt": "Rankbeam — SEO infrastruktura pro Laravel s otevřeným jádrem",
+      "copyTitle": "Kopírovat kód",
+      "copied": "Zkopírováno",
+      "copyFailed": "Kopírování se nezdařilo. Označte kód a zkopírujte ho ručně.",
+      "noScript": "Bez JavaScriptu můžete kód označit a zkopírovat ručně.",
+      "noScriptMenu": "Menu",
+      "noScriptHelp": "JavaScript je vypnutý. K navigaci použijte tyto odkazy; kód označte a zkopírujte ručně.",
+      "language": "Jazyk",
+      "mobileNavigation": "Mobilní navigace",
+      "extraNavigation": "Další navigace",
+      "mainNavigation": "Hlavní navigace",
+      "sidebarNavigation": "Navigace v postranním panelu",
+      "pager": "Navigace mezi stránkami",
+      "permalink": "Trvalý odkaz na",
+      "notFound": {
+        "title": "STRÁNKA NENALEZENA",
+        "quote": "Pokud ale nezměníte směr a budete dál hledat, můžete dojít tam, kam směřujete.",
+        "linkLabel": "přejít na úvodní stránku",
+        "linkText": "Zpět na úvodní stránku"
+      }
+    }
+  },
+  "not_found_metadata_sha256": "86092d0338479942ba7e22e674452ba20c127bc4587296bef5950c88ebcabfb9"
+}

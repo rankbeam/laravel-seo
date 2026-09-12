@@ -5960,6 +5960,995 @@
         "packet_sha256": "3530ecef1c8e11b7765996838c7bb9d3dbc1f741a8b00859c09a28cbcb0d8c5c",
         "packet_raw_sha256": "3530ecef1c8e11b7765996838c7bb9d3dbc1f741a8b00859c09a28cbcb0d8c5c"
       }
+    },
+    "cs/concepts/resolver-precedence.md": {
+      "source": "concepts/resolver-precedence.md",
+      "sha256": "4391a29a1d25253802f2ad598b3eea68908906df8816260ae8dc912944417512",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "73d6ec86cd2dfd3a0eeffefe41c099aa1b171eb0cc697ad16e1b759ae438d4ef",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read eight complete English protected sources and every complete restored Czech page, including all literal code, tables, callouts and metadata. Preserved six-layer/null precedence, explicit SEOData versus database resolution, renderer escape policy, Livewire stale/duplicate schema cleanup and full quickstart prerequisites. Refined missing-data and date terminology before approval. Stable source heading IDs added by asserted section mapping. Codex editorial judgment, not independent native/human certification.",
+          "warningsDisposition": "All7 warnings are localized destination/stable-anchor review reminders; Czech links and source anchors were inspected, and actual built destination checks remain a publication gate. No code examples or entire sections abbreviated.",
+          "at": "2026-09-12T03:19:49.654Z",
+          "independentNative": false,
+          "digest": "8c75d976c4fb8c903656d8d8e7caf827143b4045cc48e71fdaa6e52984737ce9"
+        },
+        "packet": "cs-docs-core-reviewed.json",
+        "packet_sha256": "d3b8ab4d077cbee1944e91261f8a04194fae90ba81f1b92e186b1943a567feb8"
+      }
+    },
+    "cs/contributing/rendering-contract.md": {
+      "source": "contributing/rendering-contract.md",
+      "sha256": "b4b18340855cfc8bcc45c3c33f9523942927105af01c9c11ac36f01afc5fd520",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "0cdf314d61f6279684515f0811d74f9dc7babf794dba28a01650c4612c2344fd",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read both complete English sources and restored Czech candidates, including every contract/status row and editor example. Preserved planned versus proven renderer clauses, HTML/JSON encoding, semantic parity, tag ownership, SSR/CSR visibility and limits. Historical source quote refers to design-spec review, not certification of this translation. Editor preserves free/Pro distinction, exact Czech source-indicator labels, per-locale drafts/counters, plugin adapter versions/save transaction and filesystem limitations, debounce warning and unsupported schema preservation. Both screenshot alts translated; English demo Manual explained against Czech Rucne/Ručně. Clarified editor-package1.9 versus framework and refined grammar. Parent Codex judgment only.",
+          "warningsDisposition": "Own-property links map planned Czech routes and source anchors; actual rendered verification pending integration. Numeric warnings from two/sixth written in words,September9 date and explicit section4; original budgets60/160/30/80,framework/plugin versions,2line example and test status remain. Complete code/HTML retained except approved accessible alt prose. No new browser/package test or independent native/human review claimed.",
+          "at": "2026-09-12T04:03:24.817Z",
+          "independentNative": false,
+          "digest": "1eab0d3c7dbba424a8876f8ba75707482290f421e44bbe397df4cae8532ab1a3"
+        },
+        "packet": "cs-docs-rendering-editor-reviewed.json",
+        "packet_sha256": "a9539b2a0190a5dddeeac3542dbf4adfd81bf2b2ce354b15bea7031b0fb76477"
+      }
+    },
+    "cs/guide/ai-crawlers.md": {
+      "source": "guide/ai-crawlers.md",
+      "sha256": "30895f227130c9e06315b53c7c7cac342dc9755f7ed1813c3d560633dfff8c4b",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "4fe02de2a73b0cd9a775a1bafb36fa22a149fdbe5539269eae5de6edd26c1538",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Compared all three complete protected English sources and restored Czech guides including code, tables, callouts and screenshot alt text. Preserved advisory crawler policy versus enforcement/citation, regional catalog distinction including Seznam, opt-in content negotiation and source precedence, sitemap same-origin XSL security, reciprocal hreflang and Core3.20.1 per-URL reuse/cost boundary. Refined policy grammar and closure metadata. Parent Codex review only; no native/human certification.",
+          "warningsDisposition": "Localized own-property links target planned Czech routes and stable English source anchors; rendered verification pending integration. External references and code retained. Numeric differences are 50,000 to Czech50 000; version8.1,3.15,3.20.0,3.20.1 and numbered source order retained.",
+          "at": "2026-09-12T03:35:40.031Z",
+          "independentNative": false,
+          "digest": "15e019d294155214f13b0212aa89234996e801530a3fe162704c2a035704a462"
+        },
+        "packet": "cs-docs-crawler-sitemap-reviewed.json",
+        "packet_sha256": "5ce5cf90e78b8d438224f1927a2abb53ea3fb9a1cb244d7070d6d273360f7d98"
+      }
+    },
+    "cs/guide/audit.md": {
+      "source": "guide/audit.md",
+      "sha256": "fdd1f134b1988c0ae6aeb529b233ed16750ef42a091c970b807406f05a2e939a",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "bbaa3dd836d1586d7b1f96f320ec024dd1404b6c506a88489d6fad13c596350e",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read all six complete English sources and restored Czech guides including examples. Reviewed audit Core/Pro scope and severity, resolver provenance, opt-in environment protection and static-file limit, Inertia SSR and JSON-LD lifecycle, package UI review-status distinction, and v1 backup/restore/migration limits. Refined upgrade wording and localized own-property links. Parent Codex editorial judgment; no independent native or human certification.",
+          "warningsDisposition": "All own-property links map to planned complete Czech routes with preserved source anchors; actual rendered destinations remain an integration gate. Numeric warning in v1 guide reflects two core tables written as Dve/Dvě; versions, step numbers, tables and technical values retain source meaning. Protected source itself uses the literal less-than escape example; unchanged.",
+          "at": "2026-09-12T03:29:48.428Z",
+          "independentNative": false,
+          "digest": "16d30f05bc56314bfe66728fb7cae86c1dea0b02a5099b824ea0799112676130"
+        },
+        "packet": "cs-docs-audit-platform-reviewed.json",
+        "packet_sha256": "af0bb5d9db2551fe9330723bf88be7246e1f78088571fcc4463259c112f07207"
+      }
+    },
+    "cs/guide/blade.md": {
+      "source": "guide/blade.md",
+      "sha256": "1545bf859fd72abe90b4e0038527fe901459e1c11c8472a5363aad2ea15cfcb4",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "353628a0813297aa5cb11cf2a1b635c3ba91519dd335a4650eedefd343e2febd",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read eight complete English protected sources and every complete restored Czech page, including all literal code, tables, callouts and metadata. Preserved six-layer/null precedence, explicit SEOData versus database resolution, renderer escape policy, Livewire stale/duplicate schema cleanup and full quickstart prerequisites. Refined missing-data and date terminology before approval. Stable source heading IDs added by asserted section mapping. Codex editorial judgment, not independent native/human certification.",
+          "warningsDisposition": "All7 warnings are localized destination/stable-anchor review reminders; Czech links and source anchors were inspected, and actual built destination checks remain a publication gate. No code examples or entire sections abbreviated.",
+          "at": "2026-09-12T03:19:49.654Z",
+          "independentNative": false,
+          "digest": "feca534aa213492ae7090324d532304845e68d2d5367741ae9cf4f479c6a1e41"
+        },
+        "packet": "cs-docs-core-reviewed.json",
+        "packet_sha256": "d3b8ab4d077cbee1944e91261f8a04194fae90ba81f1b92e186b1943a567feb8"
+      }
+    },
+    "cs/guide/demo.md": {
+      "source": "guide/demo.md",
+      "sha256": "a83060a0a93389f35bbfa86ed8f0ca25fa0558c7852ec930d29394e59802c8d7",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "56d49104b8e33fd9c91040378147ae16e53863c0568aa8bc836d6593cf532157",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read eight complete English protected sources and every complete restored Czech page, including all literal code, tables, callouts and metadata. Preserved six-layer/null precedence, explicit SEOData versus database resolution, renderer escape policy, Livewire stale/duplicate schema cleanup and full quickstart prerequisites. Refined missing-data and date terminology before approval. Stable source heading IDs added by asserted section mapping. Codex editorial judgment, not independent native/human certification.",
+          "warningsDisposition": "All7 warnings are localized destination/stable-anchor review reminders; Czech links and source anchors were inspected, and actual built destination checks remain a publication gate. No code examples or entire sections abbreviated.",
+          "at": "2026-09-12T03:19:49.654Z",
+          "independentNative": false,
+          "digest": "6ffb1d556816d1965e4b466e199efb92ca68640a923e9facdc1fe465dd5a47a0"
+        },
+        "packet": "cs-docs-core-reviewed.json",
+        "packet_sha256": "d3b8ab4d077cbee1944e91261f8a04194fae90ba81f1b92e186b1943a567feb8"
+      }
+    },
+    "cs/guide/explain.md": {
+      "source": "guide/explain.md",
+      "sha256": "8dff916dca42b6a22870ce1ea6b7786e5a48790bffb503065bb33ee01139e9d8",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "44924018dcf445ee38847b79441bddb0de0fd2ef4e4e98fb674b078eab5c1f1d",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read all six complete English sources and restored Czech guides including examples. Reviewed audit Core/Pro scope and severity, resolver provenance, opt-in environment protection and static-file limit, Inertia SSR and JSON-LD lifecycle, package UI review-status distinction, and v1 backup/restore/migration limits. Refined upgrade wording and localized own-property links. Parent Codex editorial judgment; no independent native or human certification.",
+          "warningsDisposition": "All own-property links map to planned complete Czech routes with preserved source anchors; actual rendered destinations remain an integration gate. Numeric warning in v1 guide reflects two core tables written as Dve/Dvě; versions, step numbers, tables and technical values retain source meaning. Protected source itself uses the literal less-than escape example; unchanged.",
+          "at": "2026-09-12T03:29:48.428Z",
+          "independentNative": false,
+          "digest": "499760a7dd1a77fed5a92f2fb290c814f55fb0cd3942f8ba5f41fbbf474a2820"
+        },
+        "packet": "cs-docs-audit-platform-reviewed.json",
+        "packet_sha256": "af0bb5d9db2551fe9330723bf88be7246e1f78088571fcc4463259c112f07207"
+      }
+    },
+    "cs/guide/filament.md": {
+      "source": "guide/filament.md",
+      "sha256": "7c7d8a78510a50a0f0c11f8a4952f6fcc40e2063ce8d457ffc1d3dfadb534aa4",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "56e9cf9d6873202b9f01900fc2a94e3c4191f8f595c672f12eb9900536bda172",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read both complete English sources and restored Czech candidates, including every contract/status row and editor example. Preserved planned versus proven renderer clauses, HTML/JSON encoding, semantic parity, tag ownership, SSR/CSR visibility and limits. Historical source quote refers to design-spec review, not certification of this translation. Editor preserves free/Pro distinction, exact Czech source-indicator labels, per-locale drafts/counters, plugin adapter versions/save transaction and filesystem limitations, debounce warning and unsupported schema preservation. Both screenshot alts translated; English demo Manual explained against Czech Rucne/Ručně. Clarified editor-package1.9 versus framework and refined grammar. Parent Codex judgment only.",
+          "warningsDisposition": "Own-property links map planned Czech routes and source anchors; actual rendered verification pending integration. Numeric warnings from two/sixth written in words,September9 date and explicit section4; original budgets60/160/30/80,framework/plugin versions,2line example and test status remain. Complete code/HTML retained except approved accessible alt prose. No new browser/package test or independent native/human review claimed.",
+          "at": "2026-09-12T04:03:24.817Z",
+          "independentNative": false,
+          "digest": "05be80c6fbe10c03bc47279a6c26830ff80c1380ad31d9a639f499ff86e48794"
+        },
+        "packet": "cs-docs-rendering-editor-reviewed.json",
+        "packet_sha256": "a9539b2a0190a5dddeeac3542dbf4adfd81bf2b2ce354b15bea7031b0fb76477"
+      }
+    },
+    "cs/guide/indexing-guard.md": {
+      "source": "guide/indexing-guard.md",
+      "sha256": "de3dc22aad4814ef932b11ffa2be244f6c4d764cf98ff3a9f5eb4f5d601c407c",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "37e1ba1a2aabad87d9009ccbc558111b54b6f773102680d15ff7947afb844a15",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read all six complete English sources and restored Czech guides including examples. Reviewed audit Core/Pro scope and severity, resolver provenance, opt-in environment protection and static-file limit, Inertia SSR and JSON-LD lifecycle, package UI review-status distinction, and v1 backup/restore/migration limits. Refined upgrade wording and localized own-property links. Parent Codex editorial judgment; no independent native or human certification.",
+          "warningsDisposition": "All own-property links map to planned complete Czech routes with preserved source anchors; actual rendered destinations remain an integration gate. Numeric warning in v1 guide reflects two core tables written as Dve/Dvě; versions, step numbers, tables and technical values retain source meaning. Protected source itself uses the literal less-than escape example; unchanged.",
+          "at": "2026-09-12T03:29:48.428Z",
+          "independentNative": false,
+          "digest": "a9c803d457fb899a0aa11cda54b82857d9c9f2389bcf387a5f8bddd6e9ad64a8"
+        },
+        "packet": "cs-docs-audit-platform-reviewed.json",
+        "packet_sha256": "af0bb5d9db2551fe9330723bf88be7246e1f78088571fcc4463259c112f07207"
+      }
+    },
+    "cs/guide/inertia-json.md": {
+      "source": "guide/inertia-json.md",
+      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "10e8fe6b0064f77ec7d8473637e7ad6b07709905c47a9c3fbbc37c7ef49419d9",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read all six complete English sources and restored Czech guides including examples. Reviewed audit Core/Pro scope and severity, resolver provenance, opt-in environment protection and static-file limit, Inertia SSR and JSON-LD lifecycle, package UI review-status distinction, and v1 backup/restore/migration limits. Refined upgrade wording and localized own-property links. Parent Codex editorial judgment; no independent native or human certification.",
+          "warningsDisposition": "All own-property links map to planned complete Czech routes with preserved source anchors; actual rendered destinations remain an integration gate. Numeric warning in v1 guide reflects two core tables written as Dve/Dvě; versions, step numbers, tables and technical values retain source meaning. Protected source itself uses the literal less-than escape example; unchanged.",
+          "at": "2026-09-12T03:29:48.429Z",
+          "independentNative": false,
+          "digest": "79a1ebb9dae30ff7a0027a8f58b690cc8e26f41624fe9f243eb0de159d4a6624"
+        },
+        "packet": "cs-docs-audit-platform-reviewed.json",
+        "packet_sha256": "af0bb5d9db2551fe9330723bf88be7246e1f78088571fcc4463259c112f07207"
+      }
+    },
+    "cs/guide/installation.md": {
+      "source": "guide/installation.md",
+      "sha256": "b6e9dbf70cf7585113bfc4cb6947f2c8c700179843a6bc0c7bb9a6d5c5d3676e",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "e6df06a518312a83d03f79dfb2f035750b7547554d4824b1cff2c597cc9b9e26",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read eight complete English protected sources and every complete restored Czech page, including all literal code, tables, callouts and metadata. Preserved six-layer/null precedence, explicit SEOData versus database resolution, renderer escape policy, Livewire stale/duplicate schema cleanup and full quickstart prerequisites. Refined missing-data and date terminology before approval. Stable source heading IDs added by asserted section mapping. Codex editorial judgment, not independent native/human certification.",
+          "warningsDisposition": "All7 warnings are localized destination/stable-anchor review reminders; Czech links and source anchors were inspected, and actual built destination checks remain a publication gate. No code examples or entire sections abbreviated.",
+          "at": "2026-09-12T03:19:49.654Z",
+          "independentNative": false,
+          "digest": "b3e3182b219128e7cf1d0346c09a16344913e3808b21792a1af089b4a2e9596d"
+        },
+        "packet": "cs-docs-core-reviewed.json",
+        "packet_sha256": "d3b8ab4d077cbee1944e91261f8a04194fae90ba81f1b92e186b1943a567feb8"
+      }
+    },
+    "cs/guide/livewire.md": {
+      "source": "guide/livewire.md",
+      "sha256": "fc9b76e838862d3f562ea7bb08061b95ce4775bb96e7bebf9d00aefeda8d2e4c",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "a3488716f9673f1411eccfb6283d26b3076133b422272f494e1dc816bff392ea",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read eight complete English protected sources and every complete restored Czech page, including all literal code, tables, callouts and metadata. Preserved six-layer/null precedence, explicit SEOData versus database resolution, renderer escape policy, Livewire stale/duplicate schema cleanup and full quickstart prerequisites. Refined missing-data and date terminology before approval. Stable source heading IDs added by asserted section mapping. Codex editorial judgment, not independent native/human certification.",
+          "warningsDisposition": "All7 warnings are localized destination/stable-anchor review reminders; Czech links and source anchors were inspected, and actual built destination checks remain a publication gate. No code examples or entire sections abbreviated.",
+          "at": "2026-09-12T03:19:49.654Z",
+          "independentNative": false,
+          "digest": "db9128deeb5c915c8efb001b04391a716989b02e868d67eb8a9e8c44f1f30864"
+        },
+        "packet": "cs-docs-core-reviewed.json",
+        "packet_sha256": "d3b8ab4d077cbee1944e91261f8a04194fae90ba81f1b92e186b1943a567feb8"
+      }
+    },
+    "cs/guide/markdown-for-bots.md": {
+      "source": "guide/markdown-for-bots.md",
+      "sha256": "0d3375f75e8a303c5c7b12d704482d71633948a685adde037bfdfa5d7d3fbac6",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "22c1cbfcbb8983cbae64d18765c466cd25c5ec570b4b319036c83d7c04933863",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Compared all three complete protected English sources and restored Czech guides including code, tables, callouts and screenshot alt text. Preserved advisory crawler policy versus enforcement/citation, regional catalog distinction including Seznam, opt-in content negotiation and source precedence, sitemap same-origin XSL security, reciprocal hreflang and Core3.20.1 per-URL reuse/cost boundary. Refined policy grammar and closure metadata. Parent Codex review only; no native/human certification.",
+          "warningsDisposition": "Localized own-property links target planned Czech routes and stable English source anchors; rendered verification pending integration. External references and code retained. Numeric differences are 50,000 to Czech50 000; version8.1,3.15,3.20.0,3.20.1 and numbered source order retained.",
+          "at": "2026-09-12T03:35:40.031Z",
+          "independentNative": false,
+          "digest": "ad0c35ba5a153a0e56694a4aaeba19a8811bff887168966ea0bfa420349f1e41"
+        },
+        "packet": "cs-docs-crawler-sitemap-reviewed.json",
+        "packet_sha256": "5ce5cf90e78b8d438224f1927a2abb53ea3fb9a1cb244d7070d6d273360f7d98"
+      }
+    },
+    "cs/guide/migrate-from-other-packages.md": {
+      "source": "guide/migrate-from-other-packages.md",
+      "sha256": "8ac395702e898881af586ec86627c866f34955a76ca079880ce03dd7bc87eb1f",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "fe68902f0c6fd6531f6c3e6529bf7c0a2856e18f5ef838058cec9377dbd28c72",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete English sources and all three restored Czech guides, including CLI examples, mapping tables and cutover checklist. Verified per-model storage versus runtime builders, morph re-resolution, truncation/author reporting, WordPress matching and template-token behavior, unchanged canonical hosts, exact-only redirect candidates, Core/Pro boundaries and dry-run semantics. Corrected self-canonical wording to say no redirect emitted, not no canonical. Runbook explicitly repeats source default-only overwrite qualification in rerun and rollback paragraphs; overwrite recovery requires destination backup. No real import executed. Parent Codex editorial review, not independent native/human certification.",
+          "warningsDisposition": "Own-property links target planned complete Czech docs with preserved source anchors; rendered checks pending integration. Read all numeric values and steps:70/160/50 field lengths,Core3,MySQL8+,301,CSVv1,0-100 and steps0-6 preserved. Additional repeated default-mode qualification does not change code or section order. English technical CLI report labels intentionally retained with Czech explanations.",
+          "at": "2026-09-12T03:42:59.641Z",
+          "independentNative": false,
+          "digest": "b4435e920df8b68e9b9848e7501e635cb90754c92e1317b59b28a6a9d861d75d"
+        },
+        "packet": "cs-docs-migration-reviewed.json",
+        "packet_sha256": "9844c515883c339ba1f149fdbbe6834b4d745236cd66d8d2155f38d1cf2c582a"
+      }
+    },
+    "cs/guide/migrate-from-wordpress.md": {
+      "source": "guide/migrate-from-wordpress.md",
+      "sha256": "7da4845d115d9fcc481bad48262275938286c8558579f6e375d964593b9c5668",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "ec571fb753ca2f76911af785b390458cab8e6ae12f9694cc1ffd57da1d2f0c57",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete English sources and all three restored Czech guides, including CLI examples, mapping tables and cutover checklist. Verified per-model storage versus runtime builders, morph re-resolution, truncation/author reporting, WordPress matching and template-token behavior, unchanged canonical hosts, exact-only redirect candidates, Core/Pro boundaries and dry-run semantics. Corrected self-canonical wording to say no redirect emitted, not no canonical. Runbook explicitly repeats source default-only overwrite qualification in rerun and rollback paragraphs; overwrite recovery requires destination backup. No real import executed. Parent Codex editorial review, not independent native/human certification.",
+          "warningsDisposition": "Own-property links target planned complete Czech docs with preserved source anchors; rendered checks pending integration. Read all numeric values and steps:70/160/50 field lengths,Core3,MySQL8+,301,CSVv1,0-100 and steps0-6 preserved. Additional repeated default-mode qualification does not change code or section order. English technical CLI report labels intentionally retained with Czech explanations.",
+          "at": "2026-09-12T03:42:59.642Z",
+          "independentNative": false,
+          "digest": "f1da8bd5e494dc7ef3a9014a83845be45bdef5aedc55d1ddb4f109444a347bf6"
+        },
+        "packet": "cs-docs-migration-reviewed.json",
+        "packet_sha256": "9844c515883c339ba1f149fdbbe6834b4d745236cd66d8d2155f38d1cf2c582a"
+      }
+    },
+    "cs/guide/multilingual.md": {
+      "source": "guide/multilingual.md",
+      "sha256": "3ae9687568846476d3c5f972f34b14124409eb67e401569e1eec5a11305945af",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "90ec145a5b8d0a9e7d4608bad1fc72e50c48d8be2fa32669c605bdd3733d2e3a",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read full English protected and restored Czech multilingual guide including17-locale engineering table, three code-contract table and all examples. Preserved isolated content versus interface locale including queue/callback scope, grapheme budgets versus pixels, weighted scripts, accent-preserving casing versus stemming, strict served HTML/Google contracts and explicit IANA aliases, reciprocal code/URL validation and unverified outcomes. Retained regional crawler/verification and CJK font dependencies. Package translation/native-review status explicitly separated from public editions; current capabilities distinguished from initial2.34 introduction. Parent Codex judgment, not independent native or human certification.",
+          "warningsDisposition": "Verified60/160/30/80 and60percent thresholds, versions,17locales/12Snowball/16stopword sets, numericregion419, IANA snapshot2026-08-08 localized8August2026 and all protected multilingual examples. Full docs routes localized; stable source anchors retained; built-link/render tests pending. Table tests remain source assertions, not newly run language validation.",
+          "at": "2026-09-12T04:47:21.084Z",
+          "independentNative": false,
+          "digest": "6f9bae6fd1fd91e77f95861737160a4324194cc69244516557720c8236bf456a"
+        },
+        "packet": "cs-docs-multilingual-reviewed.json",
+        "packet_sha256": "4c3a2d40f17afddd94f2834aeb3ed5b08ffca094f3901b8810d66470a18e74b9"
+      }
+    },
+    "cs/guide/og-image.md": {
+      "source": "guide/og-image.md",
+      "sha256": "dc7c00ce446dc5e1fd02f05130387e1bdbcf1443f6a00419e2a34934247b693d",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "889ccae6238b63ffdb62af04212bf9bbeba960fa89e2971cc145ed2a9a06f506",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read full English protected source and restored Czech OG guide including all code, list nesting, template variable/config tables and font mapping. Preserved static pre-generation/existence-only resolver and explicit image priority, content-hash invalidation/prune scope, Windows module path behavior, browser blocking versus sandbox distinction, ICU date versus Carbon fallback, CJK regional font precedence, missing-font preflight/smoke-test limits. Clarified stack change invalidates for next generation rather than rendering during request. Parent Codex editorial judgment, not independent native or human certification.",
+          "warningsDisposition": "Localized own sitemap guide destination and retained source anchor. All literal code/examples/external links,1200x630 dimensions, versions, font sizes and config values retained. Browser/font/install commands documented only; no new installs or renderer tests claimed by this review.",
+          "at": "2026-09-12T04:42:30.943Z",
+          "independentNative": false,
+          "digest": "49559a99a13e778a43415b7ef7c554fb96f04b2c6a3d36ae1691dbafa7a05dd5"
+        },
+        "packet": "cs-docs-og-reviewed.json",
+        "packet_sha256": "6d54f8536505dc4ee666d6fb421d6b7151eac56191ec3f477983492b3a4792e2"
+      }
+    },
+    "cs/guide/quickstart.md": {
+      "source": "guide/quickstart.md",
+      "sha256": "62172e26a1b071e110a365c15ab81d23c415ff95ac160575142ad10bc507260d",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "34728a757a9c380520291f5b5ca400cdb63e3241fd7f1984d22583b2e91f23d7",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read eight complete English protected sources and every complete restored Czech page, including all literal code, tables, callouts and metadata. Preserved six-layer/null precedence, explicit SEOData versus database resolution, renderer escape policy, Livewire stale/duplicate schema cleanup and full quickstart prerequisites. Refined missing-data and date terminology before approval. Stable source heading IDs added by asserted section mapping. Codex editorial judgment, not independent native/human certification.",
+          "warningsDisposition": "All7 warnings are localized destination/stable-anchor review reminders; Czech links and source anchors were inspected, and actual built destination checks remain a publication gate. No code examples or entire sections abbreviated.",
+          "at": "2026-09-12T03:19:49.654Z",
+          "independentNative": false,
+          "digest": "2c5e0b0fba9bce51308ac9b35e040b3c634831f0cb11318990d07edf604b46cb"
+        },
+        "packet": "cs-docs-core-reviewed.json",
+        "packet_sha256": "d3b8ab4d077cbee1944e91261f8a04194fae90ba81f1b92e186b1943a567feb8"
+      }
+    },
+    "cs/guide/schema.md": {
+      "source": "guide/schema.md",
+      "sha256": "f5896694ebd6fa3df9dc7d393ec392882f431242468a1aababc257bc70c3b02a",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "1407fdfee61d98587eada63fb196fc5bf7bf7de31a6c26d647288634fb1950ea",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read eight complete English protected sources and every complete restored Czech page, including all literal code, tables, callouts and metadata. Preserved six-layer/null precedence, explicit SEOData versus database resolution, renderer escape policy, Livewire stale/duplicate schema cleanup and full quickstart prerequisites. Refined missing-data and date terminology before approval. Stable source heading IDs added by asserted section mapping. Codex editorial judgment, not independent native/human certification.",
+          "warningsDisposition": "All7 warnings are localized destination/stable-anchor review reminders; Czech links and source anchors were inspected, and actual built destination checks remain a publication gate. No code examples or entire sections abbreviated.",
+          "at": "2026-09-12T03:19:49.654Z",
+          "independentNative": false,
+          "digest": "37ede7f72c79193f4b60370451bfe28f1202f239614c2c4e14ddb2cc8cdf98d8"
+        },
+        "packet": "cs-docs-core-reviewed.json",
+        "packet_sha256": "d3b8ab4d077cbee1944e91261f8a04194fae90ba81f1b92e186b1943a567feb8"
+      }
+    },
+    "cs/guide/sitemaps.md": {
+      "source": "guide/sitemaps.md",
+      "sha256": "16bbe750af66c65ce687536f4b92bfe27c6c11b05f59c2030a6c9ea17d080a0e",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "08a8b513e407c10f6ce7927c6ef6552e16a32e2a7f1525dde89a797fb75f7a08",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Compared all three complete protected English sources and restored Czech guides including code, tables, callouts and screenshot alt text. Preserved advisory crawler policy versus enforcement/citation, regional catalog distinction including Seznam, opt-in content negotiation and source precedence, sitemap same-origin XSL security, reciprocal hreflang and Core3.20.1 per-URL reuse/cost boundary. Refined policy grammar and closure metadata. Parent Codex review only; no native/human certification.",
+          "warningsDisposition": "Localized own-property links target planned Czech routes and stable English source anchors; rendered verification pending integration. External references and code retained. Numeric differences are 50,000 to Czech50 000; version8.1,3.15,3.20.0,3.20.1 and numbered source order retained.",
+          "at": "2026-09-12T03:35:40.031Z",
+          "independentNative": false,
+          "digest": "94ec87e45feb6c7d25bca469530d94eab54aaed344510af8d208ae98634c3a37"
+        },
+        "packet": "cs-docs-crawler-sitemap-reviewed.json",
+        "packet_sha256": "5ce5cf90e78b8d438224f1927a2abb53ea3fb9a1cb244d7070d6d273360f7d98"
+      }
+    },
+    "cs/guide/translations.md": {
+      "source": "guide/translations.md",
+      "sha256": "bedcee93831af91605dca0f7ad536e57da078984464c60fd68b4ca52e62662bc",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "9f582f1ae44654e9a1b0f0d0c2ad5523f97978fd2a349bb1b8b0ee28744f55d0",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read all six complete English sources and restored Czech guides including examples. Reviewed audit Core/Pro scope and severity, resolver provenance, opt-in environment protection and static-file limit, Inertia SSR and JSON-LD lifecycle, package UI review-status distinction, and v1 backup/restore/migration limits. Refined upgrade wording and localized own-property links. Parent Codex editorial judgment; no independent native or human certification.",
+          "warningsDisposition": "All own-property links map to planned complete Czech routes with preserved source anchors; actual rendered destinations remain an integration gate. Numeric warning in v1 guide reflects two core tables written as Dve/Dvě; versions, step numbers, tables and technical values retain source meaning. Protected source itself uses the literal less-than escape example; unchanged.",
+          "at": "2026-09-12T03:29:48.429Z",
+          "independentNative": false,
+          "digest": "051832c5adb3a3ee7ae7f2dafbd95e34aa9d6b3ea43de3bed54333a27a62b5a6"
+        },
+        "packet": "cs-docs-audit-platform-reviewed.json",
+        "packet_sha256": "af0bb5d9db2551fe9330723bf88be7246e1f78088571fcc4463259c112f07207"
+      }
+    },
+    "cs/guide/upgrade-from-v1.md": {
+      "source": "guide/upgrade-from-v1.md",
+      "sha256": "58fcb833a7313e9a91e41c7fea664a0db5b1a603d8b8bfda75db95f3a59bba15",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "783f17349180362fa0d66946ae5a52b9746a65ca28ee772c5fe009af837681ba",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read all six complete English sources and restored Czech guides including examples. Reviewed audit Core/Pro scope and severity, resolver provenance, opt-in environment protection and static-file limit, Inertia SSR and JSON-LD lifecycle, package UI review-status distinction, and v1 backup/restore/migration limits. Refined upgrade wording and localized own-property links. Parent Codex editorial judgment; no independent native or human certification.",
+          "warningsDisposition": "All own-property links map to planned complete Czech routes with preserved source anchors; actual rendered destinations remain an integration gate. Numeric warning in v1 guide reflects two core tables written as Dve/Dvě; versions, step numbers, tables and technical values retain source meaning. Protected source itself uses the literal less-than escape example; unchanged.",
+          "at": "2026-09-12T03:29:48.429Z",
+          "independentNative": false,
+          "digest": "bd197731a2d80296bca44b30ccc8825d84835afc157e905a4ce267ee39127926"
+        },
+        "packet": "cs-docs-audit-platform-reviewed.json",
+        "packet_sha256": "af0bb5d9db2551fe9330723bf88be7246e1f78088571fcc4463259c112f07207"
+      }
+    },
+    "cs/guide/why-rankbeam.md": {
+      "source": "guide/why-rankbeam.md",
+      "sha256": "d9ef64d4a335daa263460c434bc684876ec75c06a221abffe2ce994651deccf2",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "f990b2d87f55ef79ee5fef02fb3e6a9ea14f678b8476470270881438782b2266",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete English protected source and restored Czech product overview including all comparison/deleted-class tables, historical case study and benchmark quantities. Preserved freeMIT versus commercial operations boundary, static-site fit, BYOK/no runtime license checks, supported PHP/Laravel/Filament matrix, dry-run/default-only importer behavior. Distinguished12 actually removed classes from17 crawler plus5 helpers retained and later roughly3dozen potential replacement; zero regressions explicitly scoped to described test suite. Historical case evidence not a newly executed benchmark or deployment. Parent Codex judgment, not independent native or human certification.",
+          "warningsDisposition": "Checked12/17/22/about30 and three-dozen accounting,900pages/20000visits,25resolves/zero warm queries,18jobs/50pagecap/1800links and localized formatting; PHP ranges unchanged. Localized own docs and website destinations and kept external package references/source anchors. All English sections/order preserved; integrated rendered link validation remains pending.",
+          "at": "2026-09-12T04:38:41.614Z",
+          "independentNative": false,
+          "digest": "4c22aefd7a5d48bc8e79cecfbb5b6644e3c4a1a6bbe89b9d43e4ff9b87477525"
+        },
+        "packet": "cs-docs-why-reviewed.json",
+        "packet_sha256": "c996a18c641f3174ee9e44fbeddf4d627fc95ab34da4185fda9fd6f62abe1d51"
+      }
+    },
+    "cs/guide/wordpress-migration-runbook.md": {
+      "source": "guide/wordpress-migration-runbook.md",
+      "sha256": "f2daaf7eac2bd7a8e180d401e8c8c71bec38a306b6bbe5b2751202947cd82ff8",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "03b0da3cd284fb91b71a37c8c0b8a7fa3557abed58bbfc8dcbe533b8878e1303",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete English sources and all three restored Czech guides, including CLI examples, mapping tables and cutover checklist. Verified per-model storage versus runtime builders, morph re-resolution, truncation/author reporting, WordPress matching and template-token behavior, unchanged canonical hosts, exact-only redirect candidates, Core/Pro boundaries and dry-run semantics. Corrected self-canonical wording to say no redirect emitted, not no canonical. Runbook explicitly repeats source default-only overwrite qualification in rerun and rollback paragraphs; overwrite recovery requires destination backup. No real import executed. Parent Codex editorial review, not independent native/human certification.",
+          "warningsDisposition": "Own-property links target planned complete Czech docs with preserved source anchors; rendered checks pending integration. Read all numeric values and steps:70/160/50 field lengths,Core3,MySQL8+,301,CSVv1,0-100 and steps0-6 preserved. Additional repeated default-mode qualification does not change code or section order. English technical CLI report labels intentionally retained with Czech explanations.",
+          "at": "2026-09-12T03:42:59.642Z",
+          "independentNative": false,
+          "digest": "57c2dc483297df3edbf32ffcbd3ab7b25a346f1ca64f0bf4dce4847b13014b12"
+        },
+        "packet": "cs-docs-migration-reviewed.json",
+        "packet_sha256": "9844c515883c339ba1f149fdbbe6834b4d745236cd66d8d2155f38d1cf2c582a"
+      }
+    },
+    "cs/index.md": {
+      "source": "index.md",
+      "sha256": "1fe0fb5e64039c222519c36e499eb8dcbf9b775cf38241862971bb607089c522",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "dee531ebb82fdd6326229f03233f8cb9db619eb2a6f8a5660f4aabc91e97733a",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read eight complete English protected sources and every complete restored Czech page, including all literal code, tables, callouts and metadata. Preserved six-layer/null precedence, explicit SEOData versus database resolution, renderer escape policy, Livewire stale/duplicate schema cleanup and full quickstart prerequisites. Refined missing-data and date terminology before approval. Stable source heading IDs added by asserted section mapping. Codex editorial judgment, not independent native/human certification.",
+          "warningsDisposition": "All7 warnings are localized destination/stable-anchor review reminders; Czech links and source anchors were inspected, and actual built destination checks remain a publication gate. No code examples or entire sections abbreviated.",
+          "at": "2026-09-12T03:19:49.654Z",
+          "independentNative": false,
+          "digest": "d2f5a8125708888af72e8c1c582f4cceb62986d8fdd31a78ecad94d6a8c7f323"
+        },
+        "packet": "cs-docs-core-reviewed.json",
+        "packet_sha256": "d3b8ab4d077cbee1944e91261f8a04194fae90ba81f1b92e186b1943a567feb8"
+      }
+    },
+    "cs/pro/ai-assist.md": {
+      "source": "pro/ai-assist.md",
+      "sha256": "49729166bb1045e61b7b1d43d824ae7031212ac0e4cd858b332f23c53c707108",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "e521897e7045fc58e7f39146ca2b1d64f77f5784bd26727f148edd14ec137644",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read the full protected English source and complete restored Czech page including literal examples. Verified optional BYOK/provider costs as shipped illustrative assumptions, API/subscription separation, local gateway data scope, private-address opt-in, locale checkpoints, per-language evaluation limitations, Pro2.42 draft versus auto-apply and PHP compatibility, encrypted evidence and non-human origin markers, filtering default, no timeout retries, complete troubleshooting and data disclosures. Matched six Czech Filament actions to package catalog; refined privacy wording and conditional native review. This is Codex editorial judgment, not independent native/human certification.",
+          "warningsDisposition": "Compared every amount, token budget, version, count and percentage to source; localized USD amounts and decimal separators without changing values or code. Own docs routes use /cs and retain English section anchors; relative Filament link stays in Czech. Full built destination checks remain an integration gate.",
+          "at": "2026-09-12T04:58:38.640Z",
+          "independentNative": false,
+          "digest": "9524a0bc9a4c0bd884aeb2745e017db587f757e2943245eedccd41caf9520f2b"
+        },
+        "packet": "cs-docs-ai-reviewed.json",
+        "packet_sha256": "cb786195bd02df9b61c697aa0c7d08eae785db0f16bee4425ba3113669317ad4"
+      }
+    },
+    "cs/pro/ai-bot-monitor.md": {
+      "source": "pro/ai-bot-monitor.md",
+      "sha256": "45c33da9dbadd4d323f11be2260db72f21b32c0f47f95ceed60dd2d0927f08ab",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "abd42751b93b4e234775574b2e92d7d6b12906cc11e2ab529e278db7c68e928b",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete English sources and all four restored Czech guides including code, numeric rubrics and every table. Preserved spoofable user-agent attribution and daily bucket limits, headless command/CI/SSRF boundaries, snapshot edge cases and scheduler-only lock, notification opt-in, deterministic versioned scoring versus search outcomes, model-versus-URL scope and all exclusions. Matched actual Czech Pro labels AI boti and Prum/Prům. SEO score; explains UI Zhorske/Zhoršené as returned issues, not increased severity. Refined metadata and flag grammar. Parent Codex editorial judgment only; no independent native/human certification.",
+          "warningsDisposition": "Localized links target planned complete Czech routes and stable English IDs; rendered journey pending integration. Numeric differences are spelled-out one-to-one and Czech0–100 typography; all26 scored rows and penalties40/15/5,grade bands,version3.3,daily bucket values and command literals preserved. General package UI labels verified from actual cs/seo-pro.php, while technical report/status codes remain literal. No bot identity, citation, scheduler execution or provider-call proof claimed.",
+          "at": "2026-09-12T03:56:33.145Z",
+          "independentNative": false,
+          "digest": "fc0767ceb46c68cb2fc7f7d24c73476547ff7e943ea0ad994db8c995af93197b"
+        },
+        "packet": "cs-docs-scan-operations-reviewed.json",
+        "packet_sha256": "7c890f859f5dc75027e4b6f6063ac7e50a2a52e0c813b92588621c5975944c69"
+      }
+    },
+    "cs/pro/ai-readiness-score.md": {
+      "source": "pro/ai-readiness-score.md",
+      "sha256": "4a5d3936be605aa199975d2b4a4e15297627395c71394fd8dd2e2d666fba00a1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "187e5be8481da385e2bc7e967246007614ed135cc5cd5acf76ed475e031e630f",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read both complete English protected sources and restored Czech pages with all code/tables. Retained ten additive checks with30/20/22/28 categories, skipped-zero not absent, bot-catalog version input caveat, in-process static-file limitation and no ranking/citation guarantee. Checklist preserves distinct non-scoring advisory states, tokenizer/whole-token/stemming behavior, ICU unavailability and unchanged score timestamps, formula limits and CJK null-score heuristics. Actual package On-page checklist action remains English and is explained honestly. Codex editorial judgment, not independent native or human certification.",
+          "warningsDisposition": "Verified all score/category weights, grade bands, thresholds, named formula dates, versions and600395 official vocabulary pairs (localized600 395). Literal multilingual examples/code retained. Own docs routes localized; stable source section IDs retained; rendered destinations pending integration. Algorithm/formula test claims remain source evidence, not newly run tests or native validation.",
+          "at": "2026-09-12T04:23:46.461Z",
+          "independentNative": false,
+          "digest": "fcd72f00b45eb01351de80338a7adb29c010a930971410a7468b4490fec2fa52"
+        },
+        "packet": "cs-docs-readiness-checklist-reviewed.json",
+        "packet_sha256": "b6cb74a565de49a7edfd8144443c3edee07028714144415ba76aa2a4eeecfa53"
+      }
+    },
+    "cs/pro/broken-links.md": {
+      "source": "pro/broken-links.md",
+      "sha256": "536f024b3551aca7810605ddb6cb37ad77bce9dfaa64f697f1dd4f5d9b73a4f1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "54fa40b5d82c03c59b4d8f89aeda998ad8baa9948e202e32aa8a32c9aa2a8a42",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read both complete English protected sources and restored Czech guides including14 inspection rows and all metadata/rendered/network code tables and examples. Preserved bounded resumable queue,3 consecutive crawl confirmation versus immediate inspections, authored URL versus finding identity, CI severity gates and guarded optional network checks. Reviewed fixed/open/ignored identity and history, metadata versus cross-page hreflang reciprocity, advisory/unverified score exclusions and code renames. Corrected queue wording and actual Czech Skenovat nyni/Ignorovat labels. Parent Codex judgment, not independent native or human certification.",
+          "warningsDisposition": "Verified localized2000 page default,3 observations/two-to-three week timing, all severity/field/evidence tuples, thresholds, HTTP and version values, fixed code snippets and CI example retained. Localized own docs destinations and preserved stable source IDs; rendered links and CI example execution not claimed.",
+          "at": "2026-09-12T04:30:02.635Z",
+          "independentNative": false,
+          "digest": "098e7b6b0eb9fc6f4ea29cb2cc48d0489e349d2c82371352b95975d319b31fe0"
+        },
+        "packet": "cs-docs-broken-scan-reviewed.json",
+        "packet_sha256": "a4bb7937340057d7bd4ccaeb5413ab20d54fb16509107e5b56f6e98d97782f88"
+      }
+    },
+    "cs/pro/headless.md": {
+      "source": "pro/headless.md",
+      "sha256": "6a392b623c3d912ae7db09674646e1bb9dd1fa5677adb3d0de228b3eaabcb5d9",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "c80024c4b4400366e69cffa8e03c94c8baaf6a55d8c3ce20b65d77dce21dc9e9",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete English sources and all four restored Czech guides including code, numeric rubrics and every table. Preserved spoofable user-agent attribution and daily bucket limits, headless command/CI/SSRF boundaries, snapshot edge cases and scheduler-only lock, notification opt-in, deterministic versioned scoring versus search outcomes, model-versus-URL scope and all exclusions. Matched actual Czech Pro labels AI boti and Prum/Prům. SEO score; explains UI Zhorske/Zhoršené as returned issues, not increased severity. Refined metadata and flag grammar. Parent Codex editorial judgment only; no independent native/human certification.",
+          "warningsDisposition": "Localized links target planned complete Czech routes and stable English IDs; rendered journey pending integration. Numeric differences are spelled-out one-to-one and Czech0–100 typography; all26 scored rows and penalties40/15/5,grade bands,version3.3,daily bucket values and command literals preserved. General package UI labels verified from actual cs/seo-pro.php, while technical report/status codes remain literal. No bot identity, citation, scheduler execution or provider-call proof claimed.",
+          "at": "2026-09-12T03:56:33.145Z",
+          "independentNative": false,
+          "digest": "90cf8e0ace94a649c08adc1967ca73e431ac6da2af8063e1addaf28b704669af"
+        },
+        "packet": "cs-docs-scan-operations-reviewed.json",
+        "packet_sha256": "7c890f859f5dc75027e4b6f6063ac7e50a2a52e0c813b92588621c5975944c69"
+      }
+    },
+    "cs/pro/indexnow.md": {
+      "source": "pro/indexnow.md",
+      "sha256": "6358680ec026bd8281c17272ffbebb43a126ffa84a8b87564cbafc52338163eb",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "ebbc80a09a6b64efaed2ae9eb259cb6d444a7f1a4b4bed11ce530312c3347ed0",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read all three complete English protected sources and restored Czech guides including all literal code. Preserved IndexNow public key and config-cache behavior, host limits, retry/status distinctions and no indexing guarantee; read-only GSC exact OAuth scope and secret storage, sync lag/overlap and retention; five insights with three snapshots and one shared live pair fetch, CTR heuristic and non-causal overlap. Corrected retry grammar and matched Czech navigation labels to package catalog. Codex editorial judgment, not independent native or human certification.",
+          "warningsDisposition": "Verified 8-128 key length, 32 hex characters, 10000 and 25000 localized thousands, HTTP status values, all configuration numbers and 3-day lag/90-day backfill/16-month horizon against source. Localized own-property links and preserved source anchors; rendered destinations remain an integration gate.",
+          "at": "2026-09-12T04:11:45.112Z",
+          "independentNative": false,
+          "digest": "2302bb05281af3cc46c91544f5e81cd5a1f8367fc203c92ba826c27244720115"
+        },
+        "packet": "cs-docs-search-services-reviewed.json",
+        "packet_sha256": "062c262e5983b9ca1fe63f64eb63c908d6b7a28ca2d05078ef9a0f8f1ac418e4"
+      }
+    },
+    "cs/pro/installation.md": {
+      "source": "pro/installation.md",
+      "sha256": "a092e59eff8699016b9d17b63c117afbbdcb64ecac27e38954e73972db8366cd",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "09ed82a8978dee83fe7d7f2b91898247137effb6b4db6e2e2ddc245348865e58",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read three complete English sources and restored Czech candidates including code and all operating tables. Preserved PHP/Laravel compatibility, optional Filament, private receipt/Composer terms, exact179EUR/five-project/60minute/30day service scope, scan accounting upgrade and rollback, queue timeout/recovery/retention and telemetry limitations. Walkthrough retains dated seeded demo and exact two-scan evidence, English pictured UI labels explained in Czech, all five image alts localized. Corrected duplicate source-protected section IDs caused by local assembly helper; checked previously approved docs for the same defect (none). Clarified lease heartbeat and hours units. Parent Codex review only, no native/human certification.",
+          "warningsDisposition": "Own-property routes localized and English section IDs preserved once; full rendered anchor checks pending integration. Numeric changes are Czech price/date/20thousand formatting and explicit2hours, not changed values. Demo21targets,20to19issues,6to5warnings,14notices,92to93score,142chars,98KB,September9 preserved. Protected commands and assets unchanged; no installation, payment or external telemetry configured.",
+          "at": "2026-09-12T03:49:52.849Z",
+          "independentNative": false,
+          "digest": "6e8b3d15d8c4e58a160dc4d882181f6ea78b89ad4aab02dd2742f1a2ef364bc6"
+        },
+        "packet": "cs-docs-production-start-reviewed.json",
+        "packet_sha256": "35943a9ded4b1f70b02c022af65456d4976c93964f3d53b22592d18ddfdb3ad1"
+      }
+    },
+    "cs/pro/mcp.md": {
+      "source": "pro/mcp.md",
+      "sha256": "5e38f0d65552be2664a98e0ce87614d7e14987ad4da3936b8938d8274a6cd874",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "128779c166d8c81ddc3e87b24ada363dbc42d4013fc1e0371c0dd26f7b4cd1ec",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Compared complete English protected source and restored Czech MCP guide including all tables, client commands, full original demo exchanges and JSON examples. Preserved read-only default versus ops/edit gate, allowlist fallback and trait boundary, stdio transport versus provider data handling, no Filament validation and no editorial certification from clean audit. Server Card remains optional dated draft discovery, not remote transport. Exact Laravel/PHP ranges and JSON-RPC behavior retained. Parent Codex editorial judgment, not independent native or human certification.",
+          "warningsDisposition": "Verified900-page/17/11/5-character demo quantities, protocol versions/error codes, redirect statuses, source datedSeptember10 proposal statement localized, and all literal example paths/code. Own docs routes localized and source anchors retained; rendered destinations remain pending. Historical demo outputs preserved, not newly performed provider or database actions.",
+          "at": "2026-09-12T04:34:40.274Z",
+          "independentNative": false,
+          "digest": "5c61d075b7d8a123d3078a8c540a98bc6b9f0f8a533b9490a7360d00db29a4e1"
+        },
+        "packet": "cs-docs-mcp-reviewed.json",
+        "packet_sha256": "4334400acc71f3faa761781ba0b8083e781a01d1f6b0b6eaba66fa3881cec04e"
+      }
+    },
+    "cs/pro/on-page-checklist.md": {
+      "source": "pro/on-page-checklist.md",
+      "sha256": "cb94ef8f19db646db0e214abb379d0abf490218a2d265efebcdfd986c34ea8c1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "96f907be638b39012a8d00a02956e81c77974a9c211cc688695756d4f9b8ca2c",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read both complete English protected sources and restored Czech pages with all code/tables. Retained ten additive checks with30/20/22/28 categories, skipped-zero not absent, bot-catalog version input caveat, in-process static-file limitation and no ranking/citation guarantee. Checklist preserves distinct non-scoring advisory states, tokenizer/whole-token/stemming behavior, ICU unavailability and unchanged score timestamps, formula limits and CJK null-score heuristics. Actual package On-page checklist action remains English and is explained honestly. Codex editorial judgment, not independent native or human certification.",
+          "warningsDisposition": "Verified all score/category weights, grade bands, thresholds, named formula dates, versions and600395 official vocabulary pairs (localized600 395). Literal multilingual examples/code retained. Own docs routes localized; stable source section IDs retained; rendered destinations pending integration. Algorithm/formula test claims remain source evidence, not newly run tests or native validation.",
+          "at": "2026-09-12T04:23:46.461Z",
+          "independentNative": false,
+          "digest": "1e3b5f55d35f7d5f7466a720c48178ca22b9284f5a7603c7a72ed77898ec5dae"
+        },
+        "packet": "cs-docs-readiness-checklist-reviewed.json",
+        "packet_sha256": "b6cb74a565de49a7edfd8144443c3edee07028714144415ba76aa2a4eeecfa53"
+      }
+    },
+    "cs/pro/production.md": {
+      "source": "pro/production.md",
+      "sha256": "7a5bc5882b7d9bcddfa1028e52e73fb1c18f460cde9cf13ef3c1322f95db04a2",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "7d4006507a2e54f0bd98c70d0ec2472d0ca05689a0ba76079b4e66b79e6dbe5b",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read three complete English sources and restored Czech candidates including code and all operating tables. Preserved PHP/Laravel compatibility, optional Filament, private receipt/Composer terms, exact179EUR/five-project/60minute/30day service scope, scan accounting upgrade and rollback, queue timeout/recovery/retention and telemetry limitations. Walkthrough retains dated seeded demo and exact two-scan evidence, English pictured UI labels explained in Czech, all five image alts localized. Corrected duplicate source-protected section IDs caused by local assembly helper; checked previously approved docs for the same defect (none). Clarified lease heartbeat and hours units. Parent Codex review only, no native/human certification.",
+          "warningsDisposition": "Own-property routes localized and English section IDs preserved once; full rendered anchor checks pending integration. Numeric changes are Czech price/date/20thousand formatting and explicit2hours, not changed values. Demo21targets,20to19issues,6to5warnings,14notices,92to93score,142chars,98KB,September9 preserved. Protected commands and assets unchanged; no installation, payment or external telemetry configured.",
+          "at": "2026-09-12T03:49:52.849Z",
+          "independentNative": false,
+          "digest": "28fc159080adc928728ffed74eb24acb862b5aeb43d090d09b4687dbfc8f5eba"
+        },
+        "packet": "cs-docs-production-start-reviewed.json",
+        "packet_sha256": "35943a9ded4b1f70b02c022af65456d4976c93964f3d53b22592d18ddfdb3ad1"
+      }
+    },
+    "cs/pro/reports.md": {
+      "source": "pro/reports.md",
+      "sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "4ebc24f670990ddb877c7b2afd5ff691d91763a50a9640522c4521b2dda1d28d",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete English protected sources and restored Czech reports/configuration including all code. Preserved report baseline versus actual history, first-report and no-store behavior, recovered versus redirected404s, unverified bot attribution, renderer/font/sandbox limits, requested versus resolved locale and captured queued-mail formatting. Configuration retains canonical fallback precedence, opt-in keyword/indexing gates, local image scoring and resolver cache invalidation/TTL caveats. Clarified empty env versus explicit config list consistently with shipped config. Parent Codex judgment, not independent native or human certification.",
+          "warningsDisposition": "Reviewed numerical values and formatting: sample98KB/19open, grades90, versions3.20/2.40/2.34/2.39 and source approximate20k requests expressed as20thousand. All code literal. Localized docs routes and retained stable English section IDs; rendered links remain pending integration.",
+          "at": "2026-09-12T04:17:42.058Z",
+          "independentNative": false,
+          "digest": "732c3f059caae949e7fde71535ef89e41591d83c82a5906f40e33ec18e279a8e"
+        },
+        "packet": "cs-docs-config-reports-reviewed.json",
+        "packet_sha256": "f74ea1592410a153409c24235d43f64304816dd74f87708df0ad475083d13f84"
+      }
+    },
+    "cs/pro/scan-issues.md": {
+      "source": "pro/scan-issues.md",
+      "sha256": "ddfb77bc5ce73aca006c7713aa819db26254e7c68bb1a9fd556a7d2580b6e2d1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "a1c3f9a59aa4854dd4c4ad5b23ec3115d8eba92fa49fcfe8fded19ee83f5e4e4",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read both complete English protected sources and restored Czech guides including14 inspection rows and all metadata/rendered/network code tables and examples. Preserved bounded resumable queue,3 consecutive crawl confirmation versus immediate inspections, authored URL versus finding identity, CI severity gates and guarded optional network checks. Reviewed fixed/open/ignored identity and history, metadata versus cross-page hreflang reciprocity, advisory/unverified score exclusions and code renames. Corrected queue wording and actual Czech Skenovat nyni/Ignorovat labels. Parent Codex judgment, not independent native or human certification.",
+          "warningsDisposition": "Verified localized2000 page default,3 observations/two-to-three week timing, all severity/field/evidence tuples, thresholds, HTTP and version values, fixed code snippets and CI example retained. Localized own docs destinations and preserved stable source IDs; rendered links and CI example execution not claimed.",
+          "at": "2026-09-12T04:30:02.635Z",
+          "independentNative": false,
+          "digest": "bdf1a6735f3bef469d9ee8418e9b93eda0f38be75345d868917b64b9de4a3b43"
+        },
+        "packet": "cs-docs-broken-scan-reviewed.json",
+        "packet_sha256": "a4bb7937340057d7bd4ccaeb5413ab20d54fb16509107e5b56f6e98d97782f88"
+      }
+    },
+    "cs/pro/scan-scheduling.md": {
+      "source": "pro/scan-scheduling.md",
+      "sha256": "0c96d2a7db7d8717fab21a5c0bff169a6641751d4871673606c17b3d5550b1b3",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "d60d7de5daa98efae5acc20ef19273eef11b587506aacadcf0344ed1c908d872",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete English sources and all four restored Czech guides including code, numeric rubrics and every table. Preserved spoofable user-agent attribution and daily bucket limits, headless command/CI/SSRF boundaries, snapshot edge cases and scheduler-only lock, notification opt-in, deterministic versioned scoring versus search outcomes, model-versus-URL scope and all exclusions. Matched actual Czech Pro labels AI boti and Prum/Prům. SEO score; explains UI Zhorske/Zhoršené as returned issues, not increased severity. Refined metadata and flag grammar. Parent Codex editorial judgment only; no independent native/human certification.",
+          "warningsDisposition": "Localized links target planned complete Czech routes and stable English IDs; rendered journey pending integration. Numeric differences are spelled-out one-to-one and Czech0–100 typography; all26 scored rows and penalties40/15/5,grade bands,version3.3,daily bucket values and command literals preserved. General package UI labels verified from actual cs/seo-pro.php, while technical report/status codes remain literal. No bot identity, citation, scheduler execution or provider-call proof claimed.",
+          "at": "2026-09-12T03:56:33.145Z",
+          "independentNative": false,
+          "digest": "83a148fd3dfe50fce68bff8007d10fbc77c7087bc8ae64094a855da9ea6623bc"
+        },
+        "packet": "cs-docs-scan-operations-reviewed.json",
+        "packet_sha256": "7c890f859f5dc75027e4b6f6063ac7e50a2a52e0c813b92588621c5975944c69"
+      }
+    },
+    "cs/pro/scoring.md": {
+      "source": "pro/scoring.md",
+      "sha256": "8c4fd3f83632f472dd3ebb75fe7b1fa6d87d6bda125bb51d94ae733a2e0e5032",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "37106c6260d104d7b0c866d5cce524aa0c4f506e21f8ce29642f86fb4ac85723",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete English sources and all four restored Czech guides including code, numeric rubrics and every table. Preserved spoofable user-agent attribution and daily bucket limits, headless command/CI/SSRF boundaries, snapshot edge cases and scheduler-only lock, notification opt-in, deterministic versioned scoring versus search outcomes, model-versus-URL scope and all exclusions. Matched actual Czech Pro labels AI boti and Prum/Prům. SEO score; explains UI Zhorske/Zhoršené as returned issues, not increased severity. Refined metadata and flag grammar. Parent Codex editorial judgment only; no independent native/human certification.",
+          "warningsDisposition": "Localized links target planned complete Czech routes and stable English IDs; rendered journey pending integration. Numeric differences are spelled-out one-to-one and Czech0–100 typography; all26 scored rows and penalties40/15/5,grade bands,version3.3,daily bucket values and command literals preserved. General package UI labels verified from actual cs/seo-pro.php, while technical report/status codes remain literal. No bot identity, citation, scheduler execution or provider-call proof claimed.",
+          "at": "2026-09-12T03:56:33.145Z",
+          "independentNative": false,
+          "digest": "1d33f7ac7e48d4a7e49dcc860b4beadca991c6993abb932191796e1db11443ad"
+        },
+        "packet": "cs-docs-scan-operations-reviewed.json",
+        "packet_sha256": "7c890f859f5dc75027e4b6f6063ac7e50a2a52e0c813b92588621c5975944c69"
+      }
+    },
+    "cs/pro/search-console-insights.md": {
+      "source": "pro/search-console-insights.md",
+      "sha256": "eb89ebecfbe846bc07f534918d5f19569911e8762d1e7441b4743181ec5ceec6",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "6c7a136be742b4a81781c6dcee5a35f1992a3a912211ce45368844ffaaba3731",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read all three complete English protected sources and restored Czech guides including all literal code. Preserved IndexNow public key and config-cache behavior, host limits, retry/status distinctions and no indexing guarantee; read-only GSC exact OAuth scope and secret storage, sync lag/overlap and retention; five insights with three snapshots and one shared live pair fetch, CTR heuristic and non-causal overlap. Corrected retry grammar and matched Czech navigation labels to package catalog. Codex editorial judgment, not independent native or human certification.",
+          "warningsDisposition": "Verified 8-128 key length, 32 hex characters, 10000 and 25000 localized thousands, HTTP status values, all configuration numbers and 3-day lag/90-day backfill/16-month horizon against source. Localized own-property links and preserved source anchors; rendered destinations remain an integration gate.",
+          "at": "2026-09-12T04:11:45.112Z",
+          "independentNative": false,
+          "digest": "c418fae904b3105d927301e8e0674ba06d0029d4fab136acf08ed2e0f7dfadfa"
+        },
+        "packet": "cs-docs-search-services-reviewed.json",
+        "packet_sha256": "062c262e5983b9ca1fe63f64eb63c908d6b7a28ca2d05078ef9a0f8f1ac418e4"
+      }
+    },
+    "cs/pro/search-console.md": {
+      "source": "pro/search-console.md",
+      "sha256": "0fe33f55e9dc24a0f78a5bf34d00c93892fb04667fbd10c16ef214961f84d6da",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "c3c5b57c25ecaaf72efba04df6cd8d5345393237d73c2b59450e03b61984f1c6",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read all three complete English protected sources and restored Czech guides including all literal code. Preserved IndexNow public key and config-cache behavior, host limits, retry/status distinctions and no indexing guarantee; read-only GSC exact OAuth scope and secret storage, sync lag/overlap and retention; five insights with three snapshots and one shared live pair fetch, CTR heuristic and non-causal overlap. Corrected retry grammar and matched Czech navigation labels to package catalog. Codex editorial judgment, not independent native or human certification.",
+          "warningsDisposition": "Verified 8-128 key length, 32 hex characters, 10000 and 25000 localized thousands, HTTP status values, all configuration numbers and 3-day lag/90-day backfill/16-month horizon against source. Localized own-property links and preserved source anchors; rendered destinations remain an integration gate.",
+          "at": "2026-09-12T04:11:45.112Z",
+          "independentNative": false,
+          "digest": "32b4bb007d601cdfc9385df5d6c72db4467cba7268e3ad4205af155537f40c38"
+        },
+        "packet": "cs-docs-search-services-reviewed.json",
+        "packet_sha256": "062c262e5983b9ca1fe63f64eb63c908d6b7a28ca2d05078ef9a0f8f1ac418e4"
+      }
+    },
+    "cs/pro/walkthrough.md": {
+      "source": "pro/walkthrough.md",
+      "sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "79284ef5769005647d61b0f520a81992ecf3bb04e4efb7c523deff24c9ad2138",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read three complete English sources and restored Czech candidates including code and all operating tables. Preserved PHP/Laravel compatibility, optional Filament, private receipt/Composer terms, exact179EUR/five-project/60minute/30day service scope, scan accounting upgrade and rollback, queue timeout/recovery/retention and telemetry limitations. Walkthrough retains dated seeded demo and exact two-scan evidence, English pictured UI labels explained in Czech, all five image alts localized. Corrected duplicate source-protected section IDs caused by local assembly helper; checked previously approved docs for the same defect (none). Clarified lease heartbeat and hours units. Parent Codex review only, no native/human certification.",
+          "warningsDisposition": "Own-property routes localized and English section IDs preserved once; full rendered anchor checks pending integration. Numeric changes are Czech price/date/20thousand formatting and explicit2hours, not changed values. Demo21targets,20to19issues,6to5warnings,14notices,92to93score,142chars,98KB,September9 preserved. Protected commands and assets unchanged; no installation, payment or external telemetry configured.",
+          "at": "2026-09-12T03:49:52.849Z",
+          "independentNative": false,
+          "digest": "6fe60a613a2494fc5fcab4b8bd57b6f0ee30f51af678964292f401f6f4eae1de"
+        },
+        "packet": "cs-docs-production-start-reviewed.json",
+        "packet_sha256": "35943a9ded4b1f70b02c022af65456d4976c93964f3d53b22592d18ddfdb3ad1"
+      }
+    },
+    "cs/reference/configuration.md": {
+      "source": "reference/configuration.md",
+      "sha256": "6885c0770b86f6a3615d301a326f1b77d894a09f708cbb93cbe81b183fce6590",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "571b23b83118f6ab320927f819010c72916a2dee182f0d4f55ae4e5a5027d4ac",
+        "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete English protected sources and restored Czech reports/configuration including all code. Preserved report baseline versus actual history, first-report and no-store behavior, recovered versus redirected404s, unverified bot attribution, renderer/font/sandbox limits, requested versus resolved locale and captured queued-mail formatting. Configuration retains canonical fallback precedence, opt-in keyword/indexing gates, local image scoring and resolver cache invalidation/TTL caveats. Clarified empty env versus explicit config list consistently with shipped config. Parent Codex judgment, not independent native or human certification.",
+          "warningsDisposition": "Reviewed numerical values and formatting: sample98KB/19open, grades90, versions3.20/2.40/2.34/2.39 and source approximate20k requests expressed as20thousand. All code literal. Localized docs routes and retained stable English section IDs; rendered links remain pending integration.",
+          "at": "2026-09-12T04:17:42.058Z",
+          "independentNative": false,
+          "digest": "27ae5845633b9ab93799b8efa42db76190265d220ad46cd8b0459b6bd8750c81"
+        },
+        "packet": "cs-docs-config-reports-reviewed.json",
+        "packet_sha256": "f74ea1592410a153409c24235d43f64304816dd74f87708df0ad475083d13f84"
+      }
     }
   }
 }

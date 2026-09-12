@@ -534,9 +534,9 @@ html {
    existing compact menu; em follows the reader's default font size. The
    separate language/appearance menu remains available at tablet widths. */
 @media (max-width: 79.999em) {
-  html:is([lang="pl"], [lang="ru"]) .VPNavBarMenu { display: none; }
-  html:is([lang="pl"], [lang="ru"]) .VPNavBarHamburger { display: flex; }
-  html:is([lang="pl"], [lang="ru"]) .VPNavScreen { display: block; }
+  html:is([lang="pl"], [lang="ru"], [lang="cs"]) .VPNavBarMenu { display: none; }
+  html:is([lang="pl"], [lang="ru"], [lang="cs"]) .VPNavBarHamburger { display: flex; }
+  html:is([lang="pl"], [lang="ru"], [lang="cs"]) .VPNavScreen { display: block; }
 }
 
 @media (max-width: 959px) {
