@@ -2701,5 +2701,887 @@
         "digest": "2d2e38ac1d5f45e7889b155980bf3f8b7a9b14878d94ee1fd6da4eb089154008"
       }
     }
+  },
+  "el": {
+    "source_sha256": "5bc248b9e0247c2d01a66dd7424523fa9e1644180a264253d357f0861391333d",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-09-12",
+    "status": "approved",
+    "independent_native": false,
+    "scope": "All109 exact original parent-reviewed Greek values. Previous locale records unchanged; integrated rendering remains pending.",
+    "workflow_reviews": {
+      "Getting started": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "95bdfa884fe115d6241fa9c33d7a92db1909f52f6818664592ff7c1f110a15da"
+      },
+      "What is Rankbeam?": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "388033fa1b20c0320e411f92b046c3085c8b0ab779280940cbabd93b9d97c4a0"
+      },
+      "Installation": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "6faba3e06e71cd8b43bce499de839426c1610537ca90ee61c4e0aff5af5348ae"
+      },
+      "Quickstart": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "4a7658c4377d6ad91665aca25051dc5ad51cf534c9276862ded6820b09818cf1"
+      },
+      "Run the demo": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "2371883e9931b389672646e7cf3bb20e09082b87bdd98ad30946d8d3847b480e"
+      },
+      "Core concepts": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "75c169519b2341758b591773c218bb53fbcbbbc64b14486f9f1e1266c103d908"
+      },
+      "Resolver precedence": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "9045893acc1e7497bd6c312d662e965778a6a270d93c68e966fb1f27e2f70990"
+      },
+      "Explain resolution": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "074078eaa239b04d547a41f7f8db695471debcd518696eeed1d00ca2b388e7b8"
+      },
+      "Rendering": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "a9d9fd696cda9bcc8f6da51391b4c35b71960c40198344d07f61a3e038b9b651"
+      },
+      "Blade": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "70a3cc5cb44cf5ad4746d0ef9c3658a13dea6b35f8f808e876f270eca5a3306d"
+      },
+      "Inertia & JSON APIs": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "f019824ccb0e838a12fd09ec401528f6ae1e2db294533c5a4cd7b8771da2d87d"
+      },
+      "Livewire": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "99d9d58b61b1feece6e3739a3c63163838ef3323a2cc825ab0c429b92b25a4d1"
+      },
+      "Filament admin fields": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "cc88b1371e1c35a556d68696cef8c167d894de033c69ab5228bdcd2dbc59eb60"
+      },
+      "Metadata & schema": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "e17d95dcf3bbd7c607136b33e61cfb3a6df83c0e3f4a402ae57a29455b738fad"
+      },
+      "Schema graph (JSON-LD)": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "b744c260917ec96b778eb855a1c265a0aa0b36179a0de4b8b64682e69a933cb1"
+      },
+      "Generated OG images": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "d5873c677534333faf357ceed06150dbc4855c953f9986b05bf4ead7b1deb948"
+      },
+      "Sitemap registry": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "8e6ce91e35c75239dbbd5a28fec4e2e944d9c936b09eda843b18ec9e8d3f4c27"
+      },
+      "Crawlers & indexing": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "7d97aa8b61aa34908413ecc2732c247a0eb32d5586fb65aa75bf058ce6d853c6"
+      },
+      "AI crawler control": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "4b4219413fbb34695440393ae4f7917c05267a41a6bd3ff9593c0286ad146ae3"
+      },
+      "Indexing guard": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "bcd383ecfca26048a8282f65a1a90147a3e288e871d3c11663e3878aece2ec6f"
+      },
+      "Markdown for bots": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "74524ff3f2caa715419e190b10a2c00a3f17ec24aa9bf0c1d3472015a9981bd2"
+      },
+      "Free SEO audit": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "fba420567b4c22149bd28446b95f362f4dcc0212426c5e02c0706a925f11f086"
+      },
+      "Translations": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "dcdaed8509408027e54f3c8a4b8c77113050c247f8b102d14c3fff0bb0a2804e"
+      },
+      "Multilingual content": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "a069e7d79b043d6fa3a758fa2e72052164d7e52f9325af472e2c18fa92f3b2f0"
+      },
+      "Migrating": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "0ab2feb6314e1be20f94e4b7682c188afb14e229f7a996f7c15629825434eaa9"
+      },
+      "From WordPress": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "15b08964caa97d90725b9b0b546be7ae3344e1ca898545995797b6a358662b4d"
+      },
+      "WordPress runbook": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "cea822c58ebd16b96ffb2b4bd02a51ce710acff6e9606c9ba349a3a232df5a40"
+      },
+      "From other packages": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "580a1a6558bf0e2b5c068e3363e51efa25673dadb33aaee7d4b3c9b78ac8fcbd"
+      },
+      "Upgrading from v1": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "6a7bedc04ca84d681c3858a69deb6f31c2b38e1bec76c56571d568de3e9e92ab"
+      },
+      "Guides": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "7bdb248b609da127ec47ec37310d66fcb914168e5eeaf6a5a98ea03b74d89c68"
+      },
+      "Laravel SEO: the complete guide ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "9f25d5092d2fa28f3ee6b5c4cb6c343b8e1554d09146ccd889e4135a64880edd"
+      },
+      "Best Laravel SEO packages compared ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "e3282ba31c0ed82e18aadd49b1a004635390a16cc54da7ccc7cf29e1c96b4dde"
+      },
+      "Laravel meta tags ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "3dd8a889a7267bd02b08c09ef8eeed68687eb131ee2b9f0d6ce8adb69ff9b342"
+      },
+      "Canonical URLs in Laravel ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "11536399ea7bd6386812faddb6d3d74cea0a9134513a7e52bd56d93dc5feb6ec"
+      },
+      "JSON-LD schema graphs ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "1244bce02fdf7255d762d96bf99b9cf084bd2faccff47ac054dcdb14b0334b54"
+      },
+      "Laravel sitemaps ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "7bcd9010245de8e9ab6f99bf1912d915944e75285747520e80b6fe6989bf55fc"
+      },
+      "Laravel SEO audit in CI ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "153b8d39db2c2ce46618ac75cab69bc7fe5556c36f49c8dae1294e9d5d213172"
+      },
+      "hreflang done right ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "e770c7f961c062fb1b803349bf79f4010f5b1544ce9de42cd2bbe3ea1d723b86"
+      },
+      "Answer engine optimization ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "263e7832b7dddc120752c2fe4ffc1676221c51b753c4c9125191d820faf52fee"
+      },
+      "Filament SEO fields ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "33538fcc2a90891ab6f752df78056ab825df533777233bf5bcafe41953011842"
+      },
+      "Pro setup": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "f09c27c8d457fb679d496aaa82d26fb28c76bd55d5ac6976a0c32acf5c93a181"
+      },
+      "Installing Pro": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "3f729503293679b71e2b82ac29fa270192cdb3d53fa8ea3cc06a981462f36039"
+      },
+      "Scan → fix → report": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "ce1cfb919b0b435697bfe78f2ce71603cbf208654229a8351a502de2155a1fcf"
+      },
+      "Production setup": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "de3051e365bdfa100f39de0607a3511b3301610df2ea1aefd13134288e89f6be"
+      },
+      "Headless usage": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "b353c35eecaab7cd43f52c106a27332637512213ae42552a41ff77f335eab050"
+      },
+      "Scanning & scoring": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "32f0a6a52a0b7cbcb1b5e408a4d428293c1f5d4d0667070044b0e14432c3aec3"
+      },
+      "Scan issues": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "69abd667e311b8a69c3a9a92f00ddd8c03c8a360eb553f4ee7210e85547ca4e7"
+      },
+      "Scan scheduling & delta": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "1605255462665812bd4e4aa0fabf599e40a5f81923488295d0af9a2d3cca6fcc"
+      },
+      "SEO score": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "f5116952483c43ddff83e3607f86bc3d832c2c5567f72b25c5e2acc9b69966bc"
+      },
+      "AI-readiness score": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "cf1fa7633c30ca249858a285634b9fa732e3032fddea330fc6398a9f505c429d"
+      },
+      "On-page checklist": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "764e0ab9d314add9b88621f6813c23466432996f70530537c8a8afd3ba69f923"
+      },
+      "Broken-link crawler": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "4335edff72c36dd94543e8a7ffc619f9762ed7be149837df7308ae77736aa4e0"
+      },
+      "Search Console": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "eea130fb3f5b67106cfb382c1b78842c745cb4b4dca665667ebcfe53c7050bb4"
+      },
+      "Connecting Search Console": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "75fbf0c972c39bfbf2e2d545b005c7d8296a550b73fa2647f92fa0bd940b6a75"
+      },
+      "Search Console insights": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "76f5db0cff2ee588402a8fd3220b70582c61cf5c3cea4ac1ac38f0de6bf644f3"
+      },
+      "Reporting & automation": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "d555885c294612acd6fc9beacc952e959127e89d478b69fb35a0d8512f3ad08b"
+      },
+      "White-label reports": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "68189fed9b2f803a97dc89c01b01641271122bd246e4883b10fe62864c08a7c2"
+      },
+      "IndexNow": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "b66484d4722fbff44a59979e7af3ebd843585f25afd34336cb8e38353260c7af"
+      },
+      "AI-bot monitor": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "afdbd1d67c4b83a705937b1d95ff8808b90af899836df4233d25c71417c6d77e"
+      },
+      "MCP server": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "ce19a584c84bbea799f915e93e83e61e2f4c3aea7642bff822e3b3698976c57a"
+      },
+      "AI assist": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "e24967dec146da75cf509b65feac987f7942e893a3e9709527d7c76f9f6a3073"
+      },
+      "Reference": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "f7f0ba87ae276b731056bb8820e5342a6076bf6408e743e8dda6031a1a84b772"
+      },
+      "Configuration": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "526e38089813074af2b5184d1a9dea6fb35f0390d96fbdba3e1da6995b8bea57"
+      },
+      "Contributing": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "3499b73fbc0b5370a15847d5fc9eef271b450699845783433819f6bbfc026828"
+      },
+      "Rendering contract": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "d3842d6fb5f549c4b782c0c103f5861e66ce0a81c2b1521a12a8a7a6f89a8951"
+      },
+      "Guide": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "6923bc24c5655d25defd6951a46ca8c951881446cbf1f8fd2358af3a83aa44c3"
+      },
+      "Pro": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "1609f2959dd0d565a51f2ec275b3da5793151bda2a7ffcd510f713caa14dd77c"
+      },
+      "Releases": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "e412f11f14de7fc153aa8be6c6bb6305619213cf63668e6eb120282a51f4755c"
+      },
+      "Changelog": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "04c27d691584e0b8e8aa006f5d0859e0b6c00595b91400aab937ac0866663365"
+      },
+      "Product": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "30c965c41069327b56e792c637402fa00e91522ba68e7b62a3c14bb023e63d9d"
+      },
+      "Free core ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "da5c0005de34a7da841ab6eed77be5ce7c3e47fe9ee75509b3674768a7dc11c2"
+      },
+      "Free Filament editor ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "639273310fbc8b127238dce4cf724424d1e670a8023c8da9e9353d87d71c4edc"
+      },
+      "Pro and pricing ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "9650ec196a9f6f25c4fece5367e13b9572fc55fc756747927d93cbd72216b40b"
+      },
+      "AI access checker ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "4a4dd44e7e0365af97f371eacf76f7f49b6b011840bc3fb5bea0ca8382bb97a6"
+      },
+      "Blog ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "1e55f50663771236a785097e7156e657ae151c273203f4b011d52a5805ef9e92"
+      },
+      "Render your pages": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "dfb2a0f77f1e444555aa4eba305fab27e3017196344faf752baf99db74467a25"
+      },
+      "Configure the output": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "fcae6560d22adb1bf15a7d280cd8a45d6264984a8fe8af782172cc86f8062afa"
+      },
+      "Check and maintain": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "e7c861c48b6064255a8d894b5eb26cc170f12d5420b9298f36d37251a9c5d13f"
+      },
+      "Blade templates": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "83234ca902a45273b62318d0c7d8346d85a83c2ea5b5cbb4e62df65a581a996c"
+      },
+      "Render the head from a model.": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "f10c966110647691ef0193fb80ee8b31d90f8f5b72eb7c0a1901d1aefa3bc145"
+      },
+      "Pass resolved metadata to your frontend.": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "2284e13dacbbe7f764232033f6d5ce3738b5a83a3f72ad22acfdeece83e3cfab"
+      },
+      "Keep metadata in sync with navigation.": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "640215e4a69d1fc5352a571465a115e24716a380d7c299c69cfbf8f371f5ca69"
+      },
+      "Filament fields": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "9e2e23ef6e32fa0ca652cb9c94bccecdf06f30f8babb10df1f2a803f0f8c7454"
+      },
+      "Give editors SEO fields and previews.": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "dd85b21583a3b2f05dc3070f602f3ee19dadc9a0ccda6dce61ad2febf0d64ea7"
+      },
+      "Understand which value wins.": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "f1f72cde8a0080556baa47e409a19abb84a5b9f3def00ebafb43a23640e75b5a"
+      },
+      "JSON-LD schema": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "9a5a8fa8cf71af38d0355de82db12cd475af853be9ae55e51f773bc204ba8a5b"
+      },
+      "Build a linked schema graph.": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "3e958f393c6234b1bc5c2e9a52584d2277fd0d51f1eb8d73fda23f240fd43bce"
+      },
+      "Sitemaps": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.293Z",
+        "independentNative": false,
+        "digest": "9c9f97c1fbab9e162b38ceb637db722e9bc806002b766df82f55430d27b0f499"
+      },
+      "Register models and generate XML.": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.294Z",
+        "independentNative": false,
+        "digest": "71fe948f5b3a42a2594257477c6bb3483696bb1a441bd8cc7f84a77d25feedd6"
+      },
+      "Resolve metadata for each language.": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.294Z",
+        "independentNative": false,
+        "digest": "71b61caaf057d6a2c832251d0afff165ac388552adb0ec46a011e1283086e925"
+      },
+      "Check your rendered pages from Artisan.": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.294Z",
+        "independentNative": false,
+        "digest": "c86d055e96ff5475b8c8dc5e20aa4bd0249f46e18f8dd7d4279d008e6e70ed57"
+      },
+      "AI crawler controls": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.294Z",
+        "independentNative": false,
+        "digest": "9f0b7edf38563878e8aaccef4827d793297fa2690b2851161f995647fbc06db0"
+      },
+      "Choose and publish a robots policy.": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.294Z",
+        "independentNative": false,
+        "digest": "babd7a9418219dabff7f3229acf3dd5d5394eee611643b52bfbb84af08c3d454"
+      },
+      "Install Pro": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.294Z",
+        "independentNative": false,
+        "digest": "d15fd28d577447dab5a6584b169717504bd0af5fd882ff7d3cf1f310dcc26b5a"
+      },
+      "Add scans, redirects and 404 monitoring.": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.294Z",
+        "independentNative": false,
+        "digest": "f37b21545dca903056f4a2cc19adeb1bcc28c6bb3babdce4ee4ff06aa3c27a1b"
+      },
+      "Configure queues, scheduling and retention.": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.294Z",
+        "independentNative": false,
+        "digest": "a8df3614bfee06bca996a211c5ea9885d08d06f7e2e287467822f91d48a486b7"
+      },
+      "Rankbeam documentation": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.294Z",
+        "independentNative": false,
+        "digest": "0161ccf12e7d20d7df1c0df9c3d0e29a6c4009de58aba77ca1af80b62b522bd1"
+      },
+      "Add SEO to your Laravel app.": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.294Z",
+        "independentNative": false,
+        "digest": "7900b41704a2c59088e75eb3062e22dd2c454a8b21c549aaa81705bd6d3de83c"
+      },
+      "Start with the free MIT core for metadata, canonical URLs, JSON-LD and sitemaps. Pro adds monitoring and operations when you need them.": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.294Z",
+        "independentNative": false,
+        "digest": "e2096235cb072d85d76eec413dffbf4bfd133d6e1e31289c1e6bb8ef399fac3d"
+      },
+      "Install and render your first tags →": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.294Z",
+        "independentNative": false,
+        "digest": "55743deb5797e5ec225f3b0ac77ab89cd9d51c4c4e364a21293d28361ff7d62d"
+      },
+      "Laravel 11–13 · PHP 8.2+ (8.3+ on Laravel 13)": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.294Z",
+        "independentNative": false,
+        "digest": "05c1bedfd65b7cdf0af4da4e8aee3df249b2279d4edb3a8f39ab93fed35a6af0"
+      },
+      "Moving an existing site?": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.294Z",
+        "independentNative": false,
+        "digest": "9fb6792674848402b8e5eec95c8c49d738d939eff55e03bea27d6ee4f66c545d"
+      },
+      "Keep your metadata when moving from": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.294Z",
+        "independentNative": false,
+        "digest": "a5fdae628de8447d4091082cc26613e3ddfb9d98d33a0c17a6ee838fa3457f55"
+      },
+      "WordPress": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.294Z",
+        "independentNative": false,
+        "digest": "2b810fb177e5c56c545b2a977b7df40171b36a1497de636f108b808b4c9c9071"
+      },
+      "or": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.294Z",
+        "independentNative": false,
+        "digest": "c0a7c430eb13286f9a35afdd64ef8ba8e175444df01fab56e40be9a5c317b96f"
+      },
+      "another Laravel SEO package": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.294Z",
+        "independentNative": false,
+        "digest": "fea4088d28529d1aa03e2c4cde37e4425b6ff8a80bbe8dd80b7d07c1af243c35"
+      },
+      ". Start with a dry run.": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.294Z",
+        "independentNative": false,
+        "digest": "6da47af0b664d6df74feb3dcc2afe46bd335941861bb4a90103e25f8ba6c637d"
+      },
+      "English": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.294Z",
+        "independentNative": false,
+        "digest": "6cedbd161c5b013c973c158873866566756a0bf67c1a239829d97d8ab7ba0dcf"
+      },
+      "Laravel SEO package": {
+        "reviewer": "Codex",
+        "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
+        "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
+        "at": "2026-09-12T05:54:53.294Z",
+        "independentNative": false,
+        "digest": "802733d8b0642cfd7821b1f172ce04fd41bf545122ec7ec00e4c307453982826"
+      }
+    }
   }
 }

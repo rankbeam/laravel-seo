@@ -1,0 +1,118 @@
+{
+  "locale": "el",
+  "reviewer": "Codex",
+  "native_review": null,
+  "independent_native": false,
+  "published": false,
+  "scope": "65 manual UI leaves and2 metadata values retain exact original parent review. Integrated behavior pending.",
+  "original_review": {
+    "reviewer": "Codex",
+    "at": "2026-09-12T08:50:48.675261+00:00",
+    "candidateSha256": "7268b07e5ee60e7baf2c150656087c2ec58f58bc0951ffb55ff2866643348acb",
+    "sourceContext": {
+      "docs/.vitepress/locale-ui.ts": "57dbb9400cdf62c339a7415a3af63099d0b86903986236c2d0acf648637f0039",
+      "docs/.vitepress/manual-messages.ts": "e2f8abe6eb07adc3bcb687b58c0b01b5aef877577397d874172715dfad6209d7",
+      "docs/.vitepress/config.mts": "55a5eb903d18b5341a60e8a01dfd93a395c8305e80555c9a72c906ae95665542",
+      "docs/.vitepress/theme-a11y.ts": "587ae681e7efec3b16e36cb51b51a6250bc660de5ae59d017cd8b9aa7bb2ac4e",
+      "docs/.vitepress/no-script-navigation.ts": "422c2eea44f97b3fc81a5d6fae026344405e2989361f79ce03cce23efdbd9660",
+      "docs/.vitepress/theme/components/LocalizedCopy.vue": "12f6d96223b728203d6f3136d559e30941deef53d62cbda1acdd5f3bbbca7caa",
+      "node_modules/vitepress/dist/client/theme-default/NotFound.vue": "8cf049995aee8882d705293b4964771cf161567251181acc049e11b3a5b27ffb",
+      "node_modules/vitepress/dist/client/theme-default/components/VPLocalSearchBox.vue": "c283e098ce625c7e3543cabad9ea97c5f1659b2817f07d90ad87940dddbbf522"
+    },
+    "scope": "Parent Codex authored then read all65 Greek manual interface leaves against their roles and existing contract, English root metadata and installed VitePress search and NotFound defaults. Complete quote, fallback/source/review labels, search/keyboard/modal/empty states, copy/no-JS failure guidance, headings, navigation, brand alt and two404 metadata values reviewed. Enter/Escape are deliberate key names. Full integrated browser review remains pending; no native/human certification.",
+    "manualUiLeaves": 65,
+    "metadata404Values": 2,
+    "metadata404Sha256": "208f38b040c4a757555ea306d5d4ea07a4b881b257aa42708658d8d7a99e6ff9",
+    "independentNative": false,
+    "humanCertification": false,
+    "published": false
+  },
+  "candidate": {
+    "localeUi": {
+      "label": "Ελληνικά",
+      "lang": "el",
+      "guide": "Οδηγός",
+      "english": "Τεκμηρίωση στα αγγλικά",
+      "fallback": "Αυτή η σελίδα δεν είναι ακόμη διαθέσιμη στα ελληνικά.",
+      "open": "Ανοίξτε την αγγλική σελίδα",
+      "review": "Αυτή η μετάφραση αναμένει συντακτικό έλεγχο από το Codex.",
+      "source": "Αγγλική έκδοση",
+      "outline": "Σε αυτή τη σελίδα",
+      "next": "Επόμενη σελίδα",
+      "prev": "Προηγούμενη σελίδα",
+      "description": "Πακέτο SEO για Laravel: μεταδεδομένα σε επίπεδα, κανονικές URL, Open Graph, συνδεδεμένο JSON-LD, χάρτες XML και κανόνες ανιχνευτών.",
+      "reference": "Τεκμηρίωση αναφοράς (EN)",
+      "table": "Πίνακας δεδομένων",
+      "titles": {
+        "guide/installation": "Εγκατάσταση",
+        "guide/quickstart": "Γρήγορη εκκίνηση",
+        "concepts/resolver-precedence": "Σειρά προτεραιότητας του επιλυτή",
+        "guide/sitemaps": "Μητρώο χαρτών ιστοτόπου",
+        "guide/filament": "Πεδία SEO για Filament",
+        "guide/audit": "Δωρεάν έλεγχος SEO",
+        "guide/ai-crawlers": "Έλεγχος πρόσβασης ανιχνευτών AI",
+        "guide/multilingual": "Πολύγλωσσο περιεχόμενο και hreflang",
+        "guide/og-image": "Παραγόμενες εικόνες OG",
+        "guide/migrate-from-other-packages": "Μεταφορά από άλλα πακέτα"
+      },
+      "theme": {
+        "returnToTopLabel": "Επιστροφή στην κορυφή",
+        "sidebarMenuLabel": "Μενού",
+        "darkModeSwitchLabel": "Σκούρο θέμα",
+        "lightModeSwitchTitle": "Εναλλαγή σε φωτεινό θέμα",
+        "darkModeSwitchTitle": "Εναλλαγή σε σκούρο θέμα",
+        "langMenuLabel": "Αλλαγή γλώσσας",
+        "skipToContentLabel": "Μετάβαση στο περιεχόμενο",
+        "lastUpdated": {
+          "text": "Τελευταία ενημέρωση"
+        }
+      },
+      "edit": "Επεξεργασία αυτής της σελίδας στο GitHub",
+      "license": "Το rankbeam/laravel-seo διανέμεται με άδεια MIT.",
+      "search": {
+        "button": {
+          "buttonText": "Αναζήτηση",
+          "buttonAriaLabel": "Αναζήτηση στην τεκμηρίωση"
+        },
+        "modal": {
+          "displayDetails": "Εμφάνιση αναλυτικής λίστας",
+          "resetButtonTitle": "Εκκαθάριση αναζήτησης",
+          "backButtonTitle": "Κλείσιμο αναζήτησης",
+          "noResultsText": "Δεν υπάρχουν αποτελέσματα για",
+          "footer": {
+            "selectText": "επιλογή",
+            "navigateText": "πλοήγηση",
+            "closeText": "κλείσιμο",
+            "selectKeyAriaLabel": "Enter",
+            "navigateUpKeyAriaLabel": "Βέλος πάνω",
+            "navigateDownKeyAriaLabel": "Βέλος κάτω",
+            "closeKeyAriaLabel": "Escape"
+          }
+        }
+      }
+    },
+    "manualMessages": {
+      "imageAlt": "Rankbeam — υποδομή SEO με ανοιχτό πυρήνα για Laravel",
+      "copyTitle": "Αντιγραφή κώδικα",
+      "copied": "Αντιγράφηκε",
+      "copyFailed": "Η αντιγραφή απέτυχε. Επιλέξτε τον κώδικα και αντιγράψτε τον χειροκίνητα.",
+      "noScript": "Χωρίς JavaScript μπορείτε να επιλέξετε τον κώδικα και να τον αντιγράψετε χειροκίνητα.",
+      "noScriptMenu": "Μενού",
+      "noScriptHelp": "Η JavaScript είναι απενεργοποιημένη. Χρησιμοποιήστε αυτούς τους συνδέσμους για πλοήγηση· επιλέξτε τον κώδικα για χειροκίνητη αντιγραφή.",
+      "language": "Γλώσσα",
+      "mobileNavigation": "Πλοήγηση κινητού",
+      "extraNavigation": "Πρόσθετη πλοήγηση",
+      "mainNavigation": "Κύρια πλοήγηση",
+      "sidebarNavigation": "Πλοήγηση πλαϊνής στήλης",
+      "pager": "Πλοήγηση μεταξύ σελίδων",
+      "permalink": "Μόνιμος σύνδεσμος προς",
+      "notFound": {
+        "title": "Η ΣΕΛΙΔΑ ΔΕΝ ΒΡΕΘΗΚΕ",
+        "quote": "Αλλά αν δεν αλλάξετε κατεύθυνση και συνεχίσετε να ψάχνετε, ίσως καταλήξετε εκεί όπου κατευθύνεστε.",
+        "linkLabel": "μετάβαση στην αρχική σελίδα",
+        "linkText": "Επιστροφή στην αρχική σελίδα"
+      }
+    }
+  },
+  "not_found_metadata_sha256": "208f38b040c4a757555ea306d5d4ea07a4b881b257aa42708658d8d7a99e6ff9"
+}

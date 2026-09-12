@@ -168,5 +168,22 @@
       "canonical-urls-in-laravel": "kanonicke-url-laravel",
       "json-ld-schema-graphs-in-laravel": "grafy-json-ld-laravel"
     }
+  },
+  "el": {
+    "segment": "arthra",
+    "articles": {
+      "laravel-seo-guide": "odigos-laravel-seo",
+      "laravel-seo-audit": "elegchos-seo-laravel",
+      "laravel-filament-seo": "seo-laravel-filament",
+      "laravel-meta-tags": "meta-etiketes-laravel",
+      "laravel-sitemaps": "chartes-istotopou-laravel",
+      "laravel-seo-packages-compared": "sygkrisi-paketon-seo-laravel",
+      "what-is-rankbeam": "ti-einai-to-rankbeam",
+      "answer-engine-optimization-for-laravel": "veltistopoiisi-michanon-apantiseon-laravel",
+      "hreflang-done-right-in-laravel": "sosto-hreflang-laravel",
+      "replaced-rank-math-with-a-laravel-package": "apo-rank-math-se-paketo-laravel",
+      "canonical-urls-in-laravel": "kanonikes-url-laravel",
+      "json-ld-schema-graphs-in-laravel": "grafoi-json-ld-laravel"
+    }
   }
 }

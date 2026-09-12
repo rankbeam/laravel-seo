@@ -6949,6 +6949,995 @@
         "packet": "cs-docs-config-reports-reviewed.json",
         "packet_sha256": "f74ea1592410a153409c24235d43f64304816dd74f87708df0ad475083d13f84"
       }
+    },
+    "el/concepts/resolver-precedence.md": {
+      "source": "concepts/resolver-precedence.md",
+      "sha256": "4391a29a1d25253802f2ad598b3eea68908906df8816260ae8dc912944417512",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "3e974305d1374753bed9d1f486bbf1d3acae39a5f8d5e13ecd47403e339e6efc",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read all three full restored Greek resolver/explain/schema guides against English. Preserved six layers and null precedence, robots hook priority and emission policy, canonical query whitelist versus explicit values, all code and CLI output, read-only network/license-free explain, immutable SEOData, linked schema IDs and escaping. Matched six visible source labels to actual Greek Filament catalog, including content/config/URL labels; Structured data title matches. Greek editorial judgment, not native/human certification.",
+          "warningsDisposition": "Only planned el internal destinations and stable English anchors change. External references, numeric values and code stay literal. Final rendered discovery/link/UI tests remain publication gates.",
+          "at": "2026-09-12T05:50:25.319Z",
+          "independentNative": false,
+          "digest": "9ba434a07061640c41d03c9db727639aeb6aeb2c4484889e3425398b564ec38a"
+        },
+        "packet": "el-docs-resolution-reviewed.json",
+        "packet_sha256": "a27441f381af55a63f2a200286a2883036b86656080f6f9cb3d8c2416f5b1b08"
+      }
+    },
+    "el/contributing/rendering-contract.md": {
+      "source": "contributing/rendering-contract.md",
+      "sha256": "b4b18340855cfc8bcc45c3c33f9523942927105af01c9c11ac36f01afc5fd520",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "0b030acb3a61382a00f6ffd5780be837f444e3795868d3ffe0b6d6a54cf8d0b5",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read all four complete English sources and restored Greek candidates including tables, code, captions and limitations. Localized both Filament screenshot alt descriptions; preserved screenshot assets, dimensions and actual example data. Verified schema UI labels, clarified explicit debounce behavior. Rendering-contract independent design-review statement is inherited source history, not a new claim about this translation. Product case-study numbers and limitations retained. No native or human certification.",
+          "warningsDisposition": "Verified Greek 20000 and 1800 thousands formatting, 20k as 20 thousand, date and every support matrix. Protected literals, complete section order, English anchors and localized own-property destinations retained. Final rendered links, home component copy and complete journey validation still required.",
+          "at": "2026-09-12T07:26:20.432Z",
+          "independentNative": false,
+          "digest": "022b96f0c054e63e233f6818df002339b616dfa7e0c2cf8be0ab9df04d4d91e5"
+        },
+        "packet": "el-docs-foundation-final-reviewed.json",
+        "packet_sha256": "447681689d1b9c187c1428fe2e38590adbdd78e0fe30c988f90b26ae67dbbb84"
+      }
+    },
+    "el/guide/ai-crawlers.md": {
+      "source": "guide/ai-crawlers.md",
+      "sha256": "30895f227130c9e06315b53c7c7cac342dc9755f7ed1813c3d560633dfff8c4b",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "f75af95040eb3cc3e06936a6bc1917ec983ec293cf9c060c69059171d8383bbf",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read the complete restored Greek AI-crawlers, indexing-guard and Markdown-for-bots guides against English. Retained access versus citation, advisory enforcement and Content Signals limits, default policy and regional catalog exclusion, opt-in guard and static-file bypass, allowed-environment wildcard/empty-env distinction, and route-first Markdown source/null suppression plus successful-HTML-only replacement. Literal technical examples and complete sections preserved. Greek editorial judgment, not independent native/human certification.",
+          "warningsDisposition": "All own links target the planned el routes with source English IDs, external citations and technical code remain unchanged. Final rendered link/discovery tests still gate activation; no provider/crawler effectiveness test is implied.",
+          "at": "2026-09-12T06:00:01.577Z",
+          "independentNative": false,
+          "digest": "4d1b3d5f6fa116974b97453444088e30b64e526d8fc7e4fac9808aed494f1c0c"
+        },
+        "packet": "el-docs-crawler-reviewed.json",
+        "packet_sha256": "b8776bb46efd882fe3c58e7203ee12341a1753230d31277477d50c07c003ea80"
+      }
+    },
+    "el/guide/audit.md": {
+      "source": "guide/audit.md",
+      "sha256": "fdd1f134b1988c0ae6aeb529b233ed16750ef42a091c970b807406f05a2e939a",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "a9bdd19858a0db4647bf09985e49be28d14ce9cd46f3bdc85a74256e40b5346e",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read all three complete restored Greek audit/demo/headless guides against English. Preserved free metadata-only/no-network boundary versus Pro rendered/network/score, separate core/Pro issue severity and hreflang codes, grapheme budgets, AEO advisory exclusions, exact options/examples, Docker build secret and sample-data qualification, idempotent installer/doctor limits and operational queues/retention. Clarified vague worst-opportunity wording using actual SearchConsoleService sorting by impressions among pages with issues; matched ignore/reopen/create-redirect labels to Greek Pro catalog. Greek editorial judgment, not native/human certification.",
+          "warningsDisposition": "Planned el internal routes and stable anchors checked against inventory; external references, literal code, numbers and command output preserved. Final build/functional/visual checks remain required before public activation.",
+          "at": "2026-09-12T06:06:33.072Z",
+          "independentNative": false,
+          "digest": "9415f796d234fd78a2d06d9944ed32b646e2400e400060a8930cd219e65904f4"
+        },
+        "packet": "el-docs-operations-reviewed.json",
+        "packet_sha256": "a251c2a273c762daf689abe60e5f3bd9e75b604b7b9237ba1cc7add3814611db"
+      }
+    },
+    "el/guide/blade.md": {
+      "source": "guide/blade.md",
+      "sha256": "1545bf859fd72abe90b4e0038527fe901459e1c11c8472a5363aad2ea15cfcb4",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "296fb27af194d5225c59011f516d295b1cac029309394281d1600559979c2ca7",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read all three complete restored Greek rendering guides against English. Confirmed hand-built SEOData explicit values and no database merge, route/locale signature limits, conditional robots emission versus explicit directive, unchanged JSON escaping, Inertia SSR/prerender requirement and head-key versus Vue key, Svelte limitations, root-view JSON-LD and client lifecycle, and Livewire stale/same-URL cleanup including navigation to no-schema pages. Preserved complete literal examples and section order. Greek editorial judgment, not native/human certification.",
+          "warningsDisposition": "Greek own-property links consistently target the planned el routes and stable source section anchors. External references are unchanged; rendered link/journey verification is still required before activation.",
+          "at": "2026-09-12T05:46:40.875Z",
+          "independentNative": false,
+          "digest": "a6d248064aa9d65b66c5a2e00a169b4b22fa9a1021b01257d4145c1013bf9157"
+        },
+        "packet": "el-docs-rendering-reviewed.json",
+        "packet_sha256": "15b99b48b7360d75b872c94a65fcd7a9fb755d657303e610089e75d43dc467fe"
+      }
+    },
+    "el/guide/demo.md": {
+      "source": "guide/demo.md",
+      "sha256": "a83060a0a93389f35bbfa86ed8f0ca25fa0558c7852ec930d29394e59802c8d7",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "230e4c4bd0d30112d743b1a366f6add7610181d0e16c72fe37e0074cb3f4b839",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read all three complete restored Greek audit/demo/headless guides against English. Preserved free metadata-only/no-network boundary versus Pro rendered/network/score, separate core/Pro issue severity and hreflang codes, grapheme budgets, AEO advisory exclusions, exact options/examples, Docker build secret and sample-data qualification, idempotent installer/doctor limits and operational queues/retention. Clarified vague worst-opportunity wording using actual SearchConsoleService sorting by impressions among pages with issues; matched ignore/reopen/create-redirect labels to Greek Pro catalog. Greek editorial judgment, not native/human certification.",
+          "warningsDisposition": "Planned el internal routes and stable anchors checked against inventory; external references, literal code, numbers and command output preserved. Final build/functional/visual checks remain required before public activation.",
+          "at": "2026-09-12T06:06:33.072Z",
+          "independentNative": false,
+          "digest": "87018d1fd9749f846a2900f4d5e357c9d3cb3e891d70d3346107e9324ef8276d"
+        },
+        "packet": "el-docs-operations-reviewed.json",
+        "packet_sha256": "a251c2a273c762daf689abe60e5f3bd9e75b604b7b9237ba1cc7add3814611db"
+      }
+    },
+    "el/guide/explain.md": {
+      "source": "guide/explain.md",
+      "sha256": "8dff916dca42b6a22870ce1ea6b7786e5a48790bffb503065bb33ee01139e9d8",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "3207fcde8b0ab2496e8507bca20cc3439750d70ecdc5d135f2a32440e10b3b84",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read all three full restored Greek resolver/explain/schema guides against English. Preserved six layers and null precedence, robots hook priority and emission policy, canonical query whitelist versus explicit values, all code and CLI output, read-only network/license-free explain, immutable SEOData, linked schema IDs and escaping. Matched six visible source labels to actual Greek Filament catalog, including content/config/URL labels; Structured data title matches. Greek editorial judgment, not native/human certification.",
+          "warningsDisposition": "Only planned el internal destinations and stable English anchors change. External references, numeric values and code stay literal. Final rendered discovery/link/UI tests remain publication gates.",
+          "at": "2026-09-12T05:50:25.319Z",
+          "independentNative": false,
+          "digest": "e4a5d81077469a2138c1d8ab85d3a2d7582fdafbbf843b739b97a8a85d708ef3"
+        },
+        "packet": "el-docs-resolution-reviewed.json",
+        "packet_sha256": "a27441f381af55a63f2a200286a2883036b86656080f6f9cb3d8c2416f5b1b08"
+      }
+    },
+    "el/guide/filament.md": {
+      "source": "guide/filament.md",
+      "sha256": "7c7d8a78510a50a0f0c11f8a4952f6fcc40e2063ce8d457ffc1d3dfadb534aa4",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "5c3ebdb2f74369df07f4653af28fa7c68f324fb5ef970de016c7a2ac35b353ec",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read all four complete English sources and restored Greek candidates including tables, code, captions and limitations. Localized both Filament screenshot alt descriptions; preserved screenshot assets, dimensions and actual example data. Verified schema UI labels, clarified explicit debounce behavior. Rendering-contract independent design-review statement is inherited source history, not a new claim about this translation. Product case-study numbers and limitations retained. No native or human certification.",
+          "warningsDisposition": "Verified Greek 20000 and 1800 thousands formatting, 20k as 20 thousand, date and every support matrix. Protected literals, complete section order, English anchors and localized own-property destinations retained. Final rendered links, home component copy and complete journey validation still required.",
+          "at": "2026-09-12T07:26:20.432Z",
+          "independentNative": false,
+          "digest": "fca9cc4be21f4dd4ae3bc6cb5799b072b6ddc39dc4b2da1dbf1b0b01eb5fb01e"
+        },
+        "packet": "el-docs-foundation-final-reviewed.json",
+        "packet_sha256": "447681689d1b9c187c1428fe2e38590adbdd78e0fe30c988f90b26ae67dbbb84"
+      }
+    },
+    "el/guide/indexing-guard.md": {
+      "source": "guide/indexing-guard.md",
+      "sha256": "de3dc22aad4814ef932b11ffa2be244f6c4d764cf98ff3a9f5eb4f5d601c407c",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "188b912f379a37bc17a9ae7da79e66b14105b94cfda8dc05354f5fc9a8f96d23",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read the complete restored Greek AI-crawlers, indexing-guard and Markdown-for-bots guides against English. Retained access versus citation, advisory enforcement and Content Signals limits, default policy and regional catalog exclusion, opt-in guard and static-file bypass, allowed-environment wildcard/empty-env distinction, and route-first Markdown source/null suppression plus successful-HTML-only replacement. Literal technical examples and complete sections preserved. Greek editorial judgment, not independent native/human certification.",
+          "warningsDisposition": "All own links target the planned el routes with source English IDs, external citations and technical code remain unchanged. Final rendered link/discovery tests still gate activation; no provider/crawler effectiveness test is implied.",
+          "at": "2026-09-12T06:00:01.577Z",
+          "independentNative": false,
+          "digest": "bf87aa41b79af77930154664e404da61e165dc232df71f9b3f1d951b8e0eb07a"
+        },
+        "packet": "el-docs-crawler-reviewed.json",
+        "packet_sha256": "b8776bb46efd882fe3c58e7203ee12341a1753230d31277477d50c07c003ea80"
+      }
+    },
+    "el/guide/inertia-json.md": {
+      "source": "guide/inertia-json.md",
+      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "18c731c54cd43e9939919d442440a7d2b0ac63f28e9267a1adb27aac001cdf17",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read all three complete restored Greek rendering guides against English. Confirmed hand-built SEOData explicit values and no database merge, route/locale signature limits, conditional robots emission versus explicit directive, unchanged JSON escaping, Inertia SSR/prerender requirement and head-key versus Vue key, Svelte limitations, root-view JSON-LD and client lifecycle, and Livewire stale/same-URL cleanup including navigation to no-schema pages. Preserved complete literal examples and section order. Greek editorial judgment, not native/human certification.",
+          "warningsDisposition": "Greek own-property links consistently target the planned el routes and stable source section anchors. External references are unchanged; rendered link/journey verification is still required before activation.",
+          "at": "2026-09-12T05:46:40.875Z",
+          "independentNative": false,
+          "digest": "96a535c62534b4fe00ff985b2b0aa100bbacfaa5cd2adb06ea11e6577e78ac5e"
+        },
+        "packet": "el-docs-rendering-reviewed.json",
+        "packet_sha256": "15b99b48b7360d75b872c94a65fcd7a9fb755d657303e610089e75d43dc467fe"
+      }
+    },
+    "el/guide/installation.md": {
+      "source": "guide/installation.md",
+      "sha256": "b6e9dbf70cf7585113bfc4cb6947f2c8c700179843a6bc0c7bb9a6d5c5d3676e",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "0914c0cfb2548db6d32d39411335fd1b4d4387394fdc84a96b4a10b0a988f15d",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex compared both complete Greek installation and quickstart pages against English and read restored code/prose. PHP/Laravel compatibility, optional sitemap dependency, two-table ownership, v1 migration warning, free MIT scope, existing Post/route assumptions, resolver fallbacks, seeder events, explicit locale example and single head rendering preserved. Kept headless as technical term. Greek editorial judgment, not independent native or human certification.",
+          "warningsDisposition": "All version ranges, numbered steps and counts match English; Greek middle-dot punctuation accounts for numeric-token changes. Own links use planned el routes and stable English IDs; final built link/browser verification remains a publication gate.",
+          "at": "2026-09-12T05:42:50.719Z",
+          "independentNative": false,
+          "digest": "59f4c4dc5d42a7408d25a3efd1a0ec4f0e80d4fb0e3e077bbd4b860b8ec93930"
+        },
+        "packet": "el-docs-core-reviewed.json",
+        "packet_sha256": "a134998019114eb080293ea7a5573cd08d31c42b8d7db1fb9f8fc4f3c1fc04f2"
+      }
+    },
+    "el/guide/livewire.md": {
+      "source": "guide/livewire.md",
+      "sha256": "fc9b76e838862d3f562ea7bb08061b95ce4775bb96e7bebf9d00aefeda8d2e4c",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "88177f87faee46352fcafd88e03c12f154b1fe8fb7d7b57db5c04889e94ce570",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read all three complete restored Greek rendering guides against English. Confirmed hand-built SEOData explicit values and no database merge, route/locale signature limits, conditional robots emission versus explicit directive, unchanged JSON escaping, Inertia SSR/prerender requirement and head-key versus Vue key, Svelte limitations, root-view JSON-LD and client lifecycle, and Livewire stale/same-URL cleanup including navigation to no-schema pages. Preserved complete literal examples and section order. Greek editorial judgment, not native/human certification.",
+          "warningsDisposition": "Greek own-property links consistently target the planned el routes and stable source section anchors. External references are unchanged; rendered link/journey verification is still required before activation.",
+          "at": "2026-09-12T05:46:40.875Z",
+          "independentNative": false,
+          "digest": "7cc544298c7fd3e85a9475559db6b856fdbc0b64d01a8f57ebb93c706acb9b5c"
+        },
+        "packet": "el-docs-rendering-reviewed.json",
+        "packet_sha256": "15b99b48b7360d75b872c94a65fcd7a9fb755d657303e610089e75d43dc467fe"
+      }
+    },
+    "el/guide/markdown-for-bots.md": {
+      "source": "guide/markdown-for-bots.md",
+      "sha256": "0d3375f75e8a303c5c7b12d704482d71633948a685adde037bfdfa5d7d3fbac6",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "687d70f5d173f2d306af592f5b0a1b925c070619da1d1655a276e335403259b2",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read the complete restored Greek AI-crawlers, indexing-guard and Markdown-for-bots guides against English. Retained access versus citation, advisory enforcement and Content Signals limits, default policy and regional catalog exclusion, opt-in guard and static-file bypass, allowed-environment wildcard/empty-env distinction, and route-first Markdown source/null suppression plus successful-HTML-only replacement. Literal technical examples and complete sections preserved. Greek editorial judgment, not independent native/human certification.",
+          "warningsDisposition": "All own links target the planned el routes with source English IDs, external citations and technical code remain unchanged. Final rendered link/discovery tests still gate activation; no provider/crawler effectiveness test is implied.",
+          "at": "2026-09-12T06:00:01.577Z",
+          "independentNative": false,
+          "digest": "7151d7c9c19561a98d5595e9a6e3574aa16fa663419257968205bf01cca3b657"
+        },
+        "packet": "el-docs-crawler-reviewed.json",
+        "packet_sha256": "b8776bb46efd882fe3c58e7203ee12341a1753230d31277477d50c07c003ea80"
+      }
+    },
+    "el/guide/migrate-from-other-packages.md": {
+      "source": "guide/migrate-from-other-packages.md",
+      "sha256": "8ac395702e898881af586ec86627c866f34955a76ca079880ce03dd7bc87eb1f",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "a2c4576f37fb9da35796e0659375d007a32888a2b3b53845ca121be2127213ef",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read three complete restored migration guides against English. Reviewed explicit importer field mapping, overwrite/idempotence semantics, model versus URL-only matching, author reporting, tokens, canonical host caveat, advisory redirect CSV, backups/restoration and v1 table boundaries. Refined WordPress connection heading and metadata wording. Parent Codex review, no native or human certification.",
+          "warningsDisposition": "All numeric versions, field limits and examples retained; numeric warnings come from stable English heading IDs. Own docs links use el and original English anchors; final rendered destination validation pending integration.",
+          "at": "2026-09-12T06:22:36.884Z",
+          "independentNative": false,
+          "digest": "28b46a50ef1ba2d09f57b1ffdebb2f5c73b368fd1ccec5eefc451e4e9c1cc872"
+        },
+        "packet": "el-docs-migrations-reviewed.json",
+        "packet_sha256": "ffed4717de46ddd23727d06a17c9553fc8043c0e9e85317b872cdde0ccc18e33"
+      }
+    },
+    "el/guide/migrate-from-wordpress.md": {
+      "source": "guide/migrate-from-wordpress.md",
+      "sha256": "7da4845d115d9fcc481bad48262275938286c8558579f6e375d964593b9c5668",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "45478bf81414a1c9b679ce684a79ac134f5c9c06ff591d2d8fe4023172a13cfe",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read three complete restored migration guides against English. Reviewed explicit importer field mapping, overwrite/idempotence semantics, model versus URL-only matching, author reporting, tokens, canonical host caveat, advisory redirect CSV, backups/restoration and v1 table boundaries. Refined WordPress connection heading and metadata wording. Parent Codex review, no native or human certification.",
+          "warningsDisposition": "All numeric versions, field limits and examples retained; numeric warnings come from stable English heading IDs. Own docs links use el and original English anchors; final rendered destination validation pending integration.",
+          "at": "2026-09-12T06:22:36.884Z",
+          "independentNative": false,
+          "digest": "9472b9ab6b37627a9705594e6acc33171c07191b9b258f8c289a32427b004432"
+        },
+        "packet": "el-docs-migrations-reviewed.json",
+        "packet_sha256": "ffed4717de46ddd23727d06a17c9553fc8043c0e9e85317b872cdde0ccc18e33"
+      }
+    },
+    "el/guide/multilingual.md": {
+      "source": "guide/multilingual.md",
+      "sha256": "3ae9687568846476d3c5f972f34b14124409eb67e401569e1eec5a11305945af",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "c4cc509bedc83e3b95f66a00649161d165bf266d5d162179ff1812be3572cc94",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read all four complete restored guides against English including code, tables, metadata and image alt text. Verified content/UI locale isolation, graphemes and accent-preserving casing, three language-tag contracts, full seventeen-package-locale coverage and editorial caveats, ICU/fonts limitations, OG generation/cache/prune/sandbox boundaries, sitemap inclusion/extensions and shallow-config caveat. Parent Codex editorial judgment, not native or human certification.",
+          "warningsDisposition": "Localized only own docs destinations with stable English section IDs; rendered links still require integration verification. Sitemap 50,000 became Greek 50.000 with unchanged value. Examples and numeric versions retained; code specimens intentionally retain original language.",
+          "at": "2026-09-12T06:35:21.391Z",
+          "independentNative": false,
+          "digest": "d3a6579b5289240e4881928070a6f6685a196e631d771950906af1240221a075"
+        },
+        "packet": "el-docs-locale-sharing-reviewed.json",
+        "packet_sha256": "317d0d6a1f8f43bce0d3c6eae05b7f112bdc73ed009ecd7afc84ade4ec3eab01"
+      }
+    },
+    "el/guide/og-image.md": {
+      "source": "guide/og-image.md",
+      "sha256": "dc7c00ce446dc5e1fd02f05130387e1bdbcf1443f6a00419e2a34934247b693d",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "cd5f492e50690645543726f7727e6a1c748703e25230a364f5cccc3d5dda7de5",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read all four complete restored guides against English including code, tables, metadata and image alt text. Verified content/UI locale isolation, graphemes and accent-preserving casing, three language-tag contracts, full seventeen-package-locale coverage and editorial caveats, ICU/fonts limitations, OG generation/cache/prune/sandbox boundaries, sitemap inclusion/extensions and shallow-config caveat. Parent Codex editorial judgment, not native or human certification.",
+          "warningsDisposition": "Localized only own docs destinations with stable English section IDs; rendered links still require integration verification. Sitemap 50,000 became Greek 50.000 with unchanged value. Examples and numeric versions retained; code specimens intentionally retain original language.",
+          "at": "2026-09-12T06:35:21.391Z",
+          "independentNative": false,
+          "digest": "25950a5d3fa28ac6746e4ca030323f668cdee2b6e440b28b162d1d403f03fcd4"
+        },
+        "packet": "el-docs-locale-sharing-reviewed.json",
+        "packet_sha256": "317d0d6a1f8f43bce0d3c6eae05b7f112bdc73ed009ecd7afc84ade4ec3eab01"
+      }
+    },
+    "el/guide/quickstart.md": {
+      "source": "guide/quickstart.md",
+      "sha256": "62172e26a1b071e110a365c15ab81d23c415ff95ac160575142ad10bc507260d",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "1e422475a6e732c0e02a7749194fa92ace75f5f5e3435b0623509723238b3173",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex compared both complete Greek installation and quickstart pages against English and read restored code/prose. PHP/Laravel compatibility, optional sitemap dependency, two-table ownership, v1 migration warning, free MIT scope, existing Post/route assumptions, resolver fallbacks, seeder events, explicit locale example and single head rendering preserved. Kept headless as technical term. Greek editorial judgment, not independent native or human certification.",
+          "warningsDisposition": "All version ranges, numbered steps and counts match English; Greek middle-dot punctuation accounts for numeric-token changes. Own links use planned el routes and stable English IDs; final built link/browser verification remains a publication gate.",
+          "at": "2026-09-12T05:42:50.719Z",
+          "independentNative": false,
+          "digest": "3d2af5bdcc46f0129b6d7b26bbfada7e4a0384b35b842c1c32be995e058e06a6"
+        },
+        "packet": "el-docs-core-reviewed.json",
+        "packet_sha256": "a134998019114eb080293ea7a5573cd08d31c42b8d7db1fb9f8fc4f3c1fc04f2"
+      }
+    },
+    "el/guide/schema.md": {
+      "source": "guide/schema.md",
+      "sha256": "f5896694ebd6fa3df9dc7d393ec392882f431242468a1aababc257bc70c3b02a",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "f2a0053eec6d608000bdb52b775e98ad322327c5b9ec969fda0092bd59b6eb93",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read all three full restored Greek resolver/explain/schema guides against English. Preserved six layers and null precedence, robots hook priority and emission policy, canonical query whitelist versus explicit values, all code and CLI output, read-only network/license-free explain, immutable SEOData, linked schema IDs and escaping. Matched six visible source labels to actual Greek Filament catalog, including content/config/URL labels; Structured data title matches. Greek editorial judgment, not native/human certification.",
+          "warningsDisposition": "Only planned el internal destinations and stable English anchors change. External references, numeric values and code stay literal. Final rendered discovery/link/UI tests remain publication gates.",
+          "at": "2026-09-12T05:50:25.319Z",
+          "independentNative": false,
+          "digest": "760a7c31358e4a94c9d706a2a64d014ad7bd06876fea81d51ac65a084d9d8695"
+        },
+        "packet": "el-docs-resolution-reviewed.json",
+        "packet_sha256": "a27441f381af55a63f2a200286a2883036b86656080f6f9cb3d8c2416f5b1b08"
+      }
+    },
+    "el/guide/sitemaps.md": {
+      "source": "guide/sitemaps.md",
+      "sha256": "16bbe750af66c65ce687536f4b92bfe27c6c11b05f59c2030a6c9ea17d080a0e",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "44032f53166d6f9bc0bc97f123a05e0a8a380c0aa52021d389017839d1419dcd",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read all four complete restored guides against English including code, tables, metadata and image alt text. Verified content/UI locale isolation, graphemes and accent-preserving casing, three language-tag contracts, full seventeen-package-locale coverage and editorial caveats, ICU/fonts limitations, OG generation/cache/prune/sandbox boundaries, sitemap inclusion/extensions and shallow-config caveat. Parent Codex editorial judgment, not native or human certification.",
+          "warningsDisposition": "Localized only own docs destinations with stable English section IDs; rendered links still require integration verification. Sitemap 50,000 became Greek 50.000 with unchanged value. Examples and numeric versions retained; code specimens intentionally retain original language.",
+          "at": "2026-09-12T06:35:21.391Z",
+          "independentNative": false,
+          "digest": "5d4cb1c48846e73dfebbdb8db373dfd56e37adfb9e083aabaae7b5694a5b3795"
+        },
+        "packet": "el-docs-locale-sharing-reviewed.json",
+        "packet_sha256": "317d0d6a1f8f43bce0d3c6eae05b7f112bdc73ed009ecd7afc84ade4ec3eab01"
+      }
+    },
+    "el/guide/translations.md": {
+      "source": "guide/translations.md",
+      "sha256": "bedcee93831af91605dca0f7ad536e57da078984464c60fd68b4ca52e62662bc",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "b6e1f17d83a3fcce472e63ea9ba2fe62fe349d618aaccf318a4d7c800b8a7778",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read all four complete restored guides against English including code, tables, metadata and image alt text. Verified content/UI locale isolation, graphemes and accent-preserving casing, three language-tag contracts, full seventeen-package-locale coverage and editorial caveats, ICU/fonts limitations, OG generation/cache/prune/sandbox boundaries, sitemap inclusion/extensions and shallow-config caveat. Parent Codex editorial judgment, not native or human certification.",
+          "warningsDisposition": "Localized only own docs destinations with stable English section IDs; rendered links still require integration verification. Sitemap 50,000 became Greek 50.000 with unchanged value. Examples and numeric versions retained; code specimens intentionally retain original language.",
+          "at": "2026-09-12T06:35:21.392Z",
+          "independentNative": false,
+          "digest": "d2c43abb489c7bfe196f3784c99674f4bd097dafc9c508901a4766a0324fb8ae"
+        },
+        "packet": "el-docs-locale-sharing-reviewed.json",
+        "packet_sha256": "317d0d6a1f8f43bce0d3c6eae05b7f112bdc73ed009ecd7afc84ade4ec3eab01"
+      }
+    },
+    "el/guide/upgrade-from-v1.md": {
+      "source": "guide/upgrade-from-v1.md",
+      "sha256": "58fcb833a7313e9a91e41c7fea664a0db5b1a603d8b8bfda75db95f3a59bba15",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "9c09d7a6757b8b11750425fb7e57560827f8c3a5fb4f14fde04a0afce4bd1abe",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read three complete restored migration guides against English. Reviewed explicit importer field mapping, overwrite/idempotence semantics, model versus URL-only matching, author reporting, tokens, canonical host caveat, advisory redirect CSV, backups/restoration and v1 table boundaries. Refined WordPress connection heading and metadata wording. Parent Codex review, no native or human certification.",
+          "warningsDisposition": "All numeric versions, field limits and examples retained; numeric warnings come from stable English heading IDs. Own docs links use el and original English anchors; final rendered destination validation pending integration.",
+          "at": "2026-09-12T06:22:36.884Z",
+          "independentNative": false,
+          "digest": "af4203c846efccd909f65958c72da61af36df13e56e4a20ed11d3cfb1508c951"
+        },
+        "packet": "el-docs-migrations-reviewed.json",
+        "packet_sha256": "ffed4717de46ddd23727d06a17c9553fc8043c0e9e85317b872cdde0ccc18e33"
+      }
+    },
+    "el/guide/why-rankbeam.md": {
+      "source": "guide/why-rankbeam.md",
+      "sha256": "d9ef64d4a335daa263460c434bc684876ec75c06a221abffe2ce994651deccf2",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "18c7b11044a7959ff20f844cbd6a935e648e1062746aa6b1f3c0773246364285",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read all four complete English sources and restored Greek candidates including tables, code, captions and limitations. Localized both Filament screenshot alt descriptions; preserved screenshot assets, dimensions and actual example data. Verified schema UI labels, clarified explicit debounce behavior. Rendering-contract independent design-review statement is inherited source history, not a new claim about this translation. Product case-study numbers and limitations retained. No native or human certification.",
+          "warningsDisposition": "Verified Greek 20000 and 1800 thousands formatting, 20k as 20 thousand, date and every support matrix. Protected literals, complete section order, English anchors and localized own-property destinations retained. Final rendered links, home component copy and complete journey validation still required.",
+          "at": "2026-09-12T07:26:20.432Z",
+          "independentNative": false,
+          "digest": "086e7195831c59d188c2bb88b226edde860a9bef989a835d60f98ed994b769a4"
+        },
+        "packet": "el-docs-foundation-final-reviewed.json",
+        "packet_sha256": "447681689d1b9c187c1428fe2e38590adbdd78e0fe30c988f90b26ae67dbbb84"
+      }
+    },
+    "el/guide/wordpress-migration-runbook.md": {
+      "source": "guide/wordpress-migration-runbook.md",
+      "sha256": "f2daaf7eac2bd7a8e180d401e8c8c71bec38a306b6bbe5b2751202947cd82ff8",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "388e6d1cc120a55e09b7e83b35ce6f501e1892a2a591fad1ca6931bdd4260564",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read the five complete English protected sources and all restored Greek candidates. Preserved commands, every registry code/severity/evidence key, scan lifecycle and non-scored distinctions, report period history and first-baseline behavior, renderer/locale/queued payload limits, configuration precedence and cache invalidation limits. WordPress safety prose repeats source default-only semantics and clarifies explicit overwrite rollback; no commands were executed. Walkthrough keeps labels actually visible in the English demo, explicitly identifies English screenshots/PDF and translates all five HTML alt descriptions. Codex editorial judgment, not independent native or human certification.",
+          "warningsDisposition": "All numeric examples retain values: 20k becomes 20 χιλ.; WordPress repeated Step 1-4 safety qualification is intentional, not a missing step. Greek links use planned full documentation destinations with stable original English heading IDs; static example assets and literal external/code references remain unchanged. Full rendered links/journey gate remains pending before publication.",
+          "at": "2026-09-12T07:54:42.917Z",
+          "independentNative": false,
+          "digest": "a4dbfa58d9cfd9e6e44eeb4b7ad8ee91b1109822446b16040592c4a712089ed1"
+        },
+        "packet": "el-docs-last-guides-final-reviewed.json",
+        "packet_sha256": "c49d172a832cd36ce7a55c57b290807dc9e79d1cbb66f4ad1fea2f38ee9489b1"
+      }
+    },
+    "el/index.md": {
+      "source": "index.md",
+      "sha256": "1fe0fb5e64039c222519c36e499eb8dcbf9b775cf38241862971bb607089c522",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "44cd05c7ab35186b318f960796df747adbbfe44543bde40fb419b93ab588f62f",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read all four complete English sources and restored Greek candidates including tables, code, captions and limitations. Localized both Filament screenshot alt descriptions; preserved screenshot assets, dimensions and actual example data. Verified schema UI labels, clarified explicit debounce behavior. Rendering-contract independent design-review statement is inherited source history, not a new claim about this translation. Product case-study numbers and limitations retained. No native or human certification.",
+          "warningsDisposition": "Verified Greek 20000 and 1800 thousands formatting, 20k as 20 thousand, date and every support matrix. Protected literals, complete section order, English anchors and localized own-property destinations retained. Final rendered links, home component copy and complete journey validation still required.",
+          "at": "2026-09-12T07:26:20.433Z",
+          "independentNative": false,
+          "digest": "c90783baa50cfd701fdc5200edbe09474f05713331783e6ca2a3207e5e5ac568"
+        },
+        "packet": "el-docs-foundation-final-reviewed.json",
+        "packet_sha256": "447681689d1b9c187c1428fe2e38590adbdd78e0fe30c988f90b26ae67dbbb84"
+      }
+    },
+    "el/pro/ai-assist.md": {
+      "source": "pro/ai-assist.md",
+      "sha256": "49729166bb1045e61b7b1d43d824ae7031212ac0e4cd858b332f23c53c707108",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "666aee247bf5fa37b944782b7814febc936b689c220a61627f110c203db27fae",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read complete English sources and both full restored Greek candidates, every table and code example. Preserved cost assumptions versus caps, local adapter versus remote gateway, explicit content locale, draft/review versus immediate-write defaults, crash-resume and duplicate-charge caveats, encrypted evidence and public field-origin limits, filtering and sanitized errors, user-agent attribution not verified bot identity, bounded daily counts and date boundaries. Verified actual Greek AI action names. Refined code-mixed language, floor budget and reconciliation wording. No provider execution or native/human certification.",
+          "warningsDisposition": "Every monetary amount and count preserved with Greek decimal/thousands separators; no currency conversion. Literal provider error specimens, keys, code and stable anchors retained. Relative editor link resolves within el; rendered destinations and full journey remain release gates.",
+          "at": "2026-09-12T07:36:44.182Z",
+          "independentNative": false,
+          "digest": "acca73584101400068e2a8a80a75f0d210703a8986f07d96de0e491d10818c3f"
+        },
+        "packet": "el-docs-ai-tools-final-reviewed.json",
+        "packet_sha256": "c27313f57faee2f70466bba4541540340a36e5705255bd524f5443e527964735"
+      }
+    },
+    "el/pro/ai-bot-monitor.md": {
+      "source": "pro/ai-bot-monitor.md",
+      "sha256": "45c33da9dbadd4d323f11be2260db72f21b32c0f47f95ceed60dd2d0927f08ab",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "bf63c2a2330ed2d64aa0e36f8a16a0260fcea7b21de465337df478038341c474",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read complete English sources and both full restored Greek candidates, every table and code example. Preserved cost assumptions versus caps, local adapter versus remote gateway, explicit content locale, draft/review versus immediate-write defaults, crash-resume and duplicate-charge caveats, encrypted evidence and public field-origin limits, filtering and sanitized errors, user-agent attribution not verified bot identity, bounded daily counts and date boundaries. Verified actual Greek AI action names. Refined code-mixed language, floor budget and reconciliation wording. No provider execution or native/human certification.",
+          "warningsDisposition": "Every monetary amount and count preserved with Greek decimal/thousands separators; no currency conversion. Literal provider error specimens, keys, code and stable anchors retained. Relative editor link resolves within el; rendered destinations and full journey remain release gates.",
+          "at": "2026-09-12T07:36:44.183Z",
+          "independentNative": false,
+          "digest": "32b1fe88d22f1db77069aa9b747c59c7c304b445144ecca59a3d5bdca3b8bdb6"
+        },
+        "packet": "el-docs-ai-tools-final-reviewed.json",
+        "packet_sha256": "c27313f57faee2f70466bba4541540340a36e5705255bd524f5443e527964735"
+      }
+    },
+    "el/pro/ai-readiness-score.md": {
+      "source": "pro/ai-readiness-score.md",
+      "sha256": "4a5d3936be605aa199975d2b4a4e15297627395c71394fd8dd2e2d666fba00a1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "861728ce0e4cd3496d8b58a944221ecf48ef91d06598a8579af5171ebb7a73f3",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read three complete restored scan guides against English: every SEO penalty/exclusion and grade, separate additive AI axis and non-guarantees, skipped evidence and current-catalog caveat, snapshot recurrence semantics, disabled-check ambiguity, scheduling lock lifetime, notification opt-in and retention. Actual Greek delta heading and average-score UI labels verified. Existing package regressed mistranslation recorded separately; docs preserve correct recurrence meaning. Parent Codex editorial judgment; no native or human certification.",
+          "warningsDisposition": "All numeric weights and grades retained, AI category weights total 100, stable source heading IDs account for numeric warning. Technical formulas/code literal and local destinations mapped to el; built route/anchor checks remain pending full integration.",
+          "at": "2026-09-12T06:53:40.212Z",
+          "independentNative": false,
+          "digest": "e94d3a9d7d6a4e2f9f7861e4a4a2d00f08ca37865bdf81e98215397785cbf5c0"
+        },
+        "packet": "el-docs-scan-evidence-reviewed.json",
+        "packet_sha256": "f2ae8a5c63b78054bcb009db263b10613054d1d0f405c20f568b411d45dcf253"
+      }
+    },
+    "el/pro/broken-links.md": {
+      "source": "pro/broken-links.md",
+      "sha256": "536f024b3551aca7810605ddb6cb37ad77bce9dfaa64f697f1dd4f5d9b73a4f1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "da0c7d9723f4004f031b2adbdd1a804fca19a60ef5e3f0d200a0176e78184843",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read every English source and entire restored Greek candidate. Preserved bounded crawl thresholds and immediate inspection versus durable finding semantics, literal code and configured anchor specimens, exact URLs, MCP edit and allowlist boundaries and provider-data caveat, draft-spec date, formula and tokenizer limitations, unscored CJK and uncalibrated Greek LIX. Actual Greek checklist and scan action labels verified. Final refinements correct action label, configured English specimens and Greek grammar. No native or human certification.",
+          "warningsDisposition": "All numbers, versions, response codes and formulas retained; 600395 uses Greek thousands punctuation, date rendered 10 September 2026 and lexicalized counts preserve meaning. Localized links and stable anchors preserved; final rendered destination/journey gates remain.",
+          "at": "2026-09-12T07:14:49.343Z",
+          "independentNative": false,
+          "digest": "baf77f7edccd0a7937486104e42aeefaf245d6d9df3c940e5d67c27f05919eec"
+        },
+        "packet": "el-docs-pro-tools-final-reviewed.json",
+        "packet_sha256": "f8c92995ea9f0f8c212adec46806f2497f7c17bf3eec8a2eb6d9129158b8a84b"
+      }
+    },
+    "el/pro/headless.md": {
+      "source": "pro/headless.md",
+      "sha256": "6a392b623c3d912ae7db09674646e1bb9dd1fa5677adb3d0de228b3eaabcb5d9",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "56ba9ad063a7ffb2149e437222943efb4e7997694adea5a9b29d5ae6f449295e",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read all three complete restored Greek audit/demo/headless guides against English. Preserved free metadata-only/no-network boundary versus Pro rendered/network/score, separate core/Pro issue severity and hreflang codes, grapheme budgets, AEO advisory exclusions, exact options/examples, Docker build secret and sample-data qualification, idempotent installer/doctor limits and operational queues/retention. Clarified vague worst-opportunity wording using actual SearchConsoleService sorting by impressions among pages with issues; matched ignore/reopen/create-redirect labels to Greek Pro catalog. Greek editorial judgment, not native/human certification.",
+          "warningsDisposition": "Planned el internal routes and stable anchors checked against inventory; external references, literal code, numbers and command output preserved. Final build/functional/visual checks remain required before public activation.",
+          "at": "2026-09-12T06:06:33.073Z",
+          "independentNative": false,
+          "digest": "70da73fc8ec513cf2808ba87b148f4193d606aa1e2779ef5c8bb32624933c0aa"
+        },
+        "packet": "el-docs-operations-reviewed.json",
+        "packet_sha256": "a251c2a273c762daf689abe60e5f3bd9e75b604b7b9237ba1cc7add3814611db"
+      }
+    },
+    "el/pro/indexnow.md": {
+      "source": "pro/indexnow.md",
+      "sha256": "6358680ec026bd8281c17272ffbebb43a126ffa84a8b87564cbafc52338163eb",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "ae64d8bdbefece3122f2cbe786b731bca1bba2f323fb580adb348f96c17b2260",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read all three complete restored Pro setup guides against English. Preserved compatibility, private Composer/receipt flow, license and refund terms, installer flags, full worker/scheduler/recovery/retention examples, upgrade rollback and IndexNow off-by-default/network boundary. Clarified publishing versus executing migrations and paraphrased English maintenance diagnostic rather than presenting it as literal Greek CLI output. Parent Codex editorial judgment; no native or human certification.",
+          "warningsDisposition": "All prices, project counts, times, attempts, capacities and versions checked in context. Production ~20k is Greek ~20 χιλ.; metadata and headings retain full meaning. Own docs links use planned el routes and stable source anchors; final rendered links remain pending integration.",
+          "at": "2026-09-12T06:45:49.950Z",
+          "independentNative": false,
+          "digest": "8668edd207027c7ff700334189591833ee0db3a2a1c267f427cfde8a44c8460c"
+        },
+        "packet": "el-docs-pro-setup-reviewed.json",
+        "packet_sha256": "3f555e2471c2ef3a4408966c64412861eac7cfe7c03b6a5e65ee03dcc7e00ddb"
+      }
+    },
+    "el/pro/installation.md": {
+      "source": "pro/installation.md",
+      "sha256": "a092e59eff8699016b9d17b63c117afbbdcb64ecac27e38954e73972db8366cd",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "f33b109ed703a472d3868efa9fadbf029bc0574a0ba64c5a23bc0d9bfec8a45f",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read all three complete restored Pro setup guides against English. Preserved compatibility, private Composer/receipt flow, license and refund terms, installer flags, full worker/scheduler/recovery/retention examples, upgrade rollback and IndexNow off-by-default/network boundary. Clarified publishing versus executing migrations and paraphrased English maintenance diagnostic rather than presenting it as literal Greek CLI output. Parent Codex editorial judgment; no native or human certification.",
+          "warningsDisposition": "All prices, project counts, times, attempts, capacities and versions checked in context. Production ~20k is Greek ~20 χιλ.; metadata and headings retain full meaning. Own docs links use planned el routes and stable source anchors; final rendered links remain pending integration.",
+          "at": "2026-09-12T06:45:49.950Z",
+          "independentNative": false,
+          "digest": "f46b7efd8bca58aa5e0b4b8c1a07bd484527bc151ea483bf7fd0f7a0da2ada0c"
+        },
+        "packet": "el-docs-pro-setup-reviewed.json",
+        "packet_sha256": "3f555e2471c2ef3a4408966c64412861eac7cfe7c03b6a5e65ee03dcc7e00ddb"
+      }
+    },
+    "el/pro/mcp.md": {
+      "source": "pro/mcp.md",
+      "sha256": "5e38f0d65552be2664a98e0ce87614d7e14987ad4da3936b8938d8274a6cd874",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "1c240e5a726bd9815d70fa79528f4c28c20d21fbf1c556302e60a524e692cc67",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read every English source and entire restored Greek candidate. Preserved bounded crawl thresholds and immediate inspection versus durable finding semantics, literal code and configured anchor specimens, exact URLs, MCP edit and allowlist boundaries and provider-data caveat, draft-spec date, formula and tokenizer limitations, unscored CJK and uncalibrated Greek LIX. Actual Greek checklist and scan action labels verified. Final refinements correct action label, configured English specimens and Greek grammar. No native or human certification.",
+          "warningsDisposition": "All numbers, versions, response codes and formulas retained; 600395 uses Greek thousands punctuation, date rendered 10 September 2026 and lexicalized counts preserve meaning. Localized links and stable anchors preserved; final rendered destination/journey gates remain.",
+          "at": "2026-09-12T07:14:49.343Z",
+          "independentNative": false,
+          "digest": "a03af83cdaedcd2c38f475e8c739dd447a5564c8552952d9520d90ad092ceef9"
+        },
+        "packet": "el-docs-pro-tools-final-reviewed.json",
+        "packet_sha256": "f8c92995ea9f0f8c212adec46806f2497f7c17bf3eec8a2eb6d9129158b8a84b"
+      }
+    },
+    "el/pro/on-page-checklist.md": {
+      "source": "pro/on-page-checklist.md",
+      "sha256": "cb94ef8f19db646db0e214abb379d0abf490218a2d265efebcdfd986c34ea8c1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "43764a7f3a11040e49a7c8a866ecae84bb7d49db251a15b9e8f7b8bc06aca4f9",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read every English source and entire restored Greek candidate. Preserved bounded crawl thresholds and immediate inspection versus durable finding semantics, literal code and configured anchor specimens, exact URLs, MCP edit and allowlist boundaries and provider-data caveat, draft-spec date, formula and tokenizer limitations, unscored CJK and uncalibrated Greek LIX. Actual Greek checklist and scan action labels verified. Final refinements correct action label, configured English specimens and Greek grammar. No native or human certification.",
+          "warningsDisposition": "All numbers, versions, response codes and formulas retained; 600395 uses Greek thousands punctuation, date rendered 10 September 2026 and lexicalized counts preserve meaning. Localized links and stable anchors preserved; final rendered destination/journey gates remain.",
+          "at": "2026-09-12T07:14:49.343Z",
+          "independentNative": false,
+          "digest": "302a32c6b46b1ece85c96e1759e70b0ae43e6410ba97d47f00239bd437d94004"
+        },
+        "packet": "el-docs-pro-tools-final-reviewed.json",
+        "packet_sha256": "f8c92995ea9f0f8c212adec46806f2497f7c17bf3eec8a2eb6d9129158b8a84b"
+      }
+    },
+    "el/pro/production.md": {
+      "source": "pro/production.md",
+      "sha256": "7a5bc5882b7d9bcddfa1028e52e73fb1c18f460cde9cf13ef3c1322f95db04a2",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "703b8493bb3bda9e84847133b076fc3a965782b0ab120fa5463e0a2ba82ae4cf",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read all three complete restored Pro setup guides against English. Preserved compatibility, private Composer/receipt flow, license and refund terms, installer flags, full worker/scheduler/recovery/retention examples, upgrade rollback and IndexNow off-by-default/network boundary. Clarified publishing versus executing migrations and paraphrased English maintenance diagnostic rather than presenting it as literal Greek CLI output. Parent Codex editorial judgment; no native or human certification.",
+          "warningsDisposition": "All prices, project counts, times, attempts, capacities and versions checked in context. Production ~20k is Greek ~20 χιλ.; metadata and headings retain full meaning. Own docs links use planned el routes and stable source anchors; final rendered links remain pending integration.",
+          "at": "2026-09-12T06:45:49.950Z",
+          "independentNative": false,
+          "digest": "66eec105bc35ed47a1779c84e937802285c7979600e90c34b6f271394afc35ac"
+        },
+        "packet": "el-docs-pro-setup-reviewed.json",
+        "packet_sha256": "3f555e2471c2ef3a4408966c64412861eac7cfe7c03b6a5e65ee03dcc7e00ddb"
+      }
+    },
+    "el/pro/reports.md": {
+      "source": "pro/reports.md",
+      "sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "f7c39f1a8fcadf558064a919282151bfb4d324a3206475184e5d86d00cb8fd78",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read the five complete English protected sources and all restored Greek candidates. Preserved commands, every registry code/severity/evidence key, scan lifecycle and non-scored distinctions, report period history and first-baseline behavior, renderer/locale/queued payload limits, configuration precedence and cache invalidation limits. WordPress safety prose repeats source default-only semantics and clarifies explicit overwrite rollback; no commands were executed. Walkthrough keeps labels actually visible in the English demo, explicitly identifies English screenshots/PDF and translates all five HTML alt descriptions. Codex editorial judgment, not independent native or human certification.",
+          "warningsDisposition": "All numeric examples retain values: 20k becomes 20 χιλ.; WordPress repeated Step 1-4 safety qualification is intentional, not a missing step. Greek links use planned full documentation destinations with stable original English heading IDs; static example assets and literal external/code references remain unchanged. Full rendered links/journey gate remains pending before publication.",
+          "at": "2026-09-12T07:54:42.917Z",
+          "independentNative": false,
+          "digest": "4574065cbc5ae180250418b449d1f824c081b747972bb1131833ee65033b77da"
+        },
+        "packet": "el-docs-last-guides-final-reviewed.json",
+        "packet_sha256": "c49d172a832cd36ce7a55c57b290807dc9e79d1cbb66f4ad1fea2f38ee9489b1"
+      }
+    },
+    "el/pro/scan-issues.md": {
+      "source": "pro/scan-issues.md",
+      "sha256": "ddfb77bc5ce73aca006c7713aa819db26254e7c68bb1a9fd556a7d2580b6e2d1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "c6760273cd76bb442f464c0a6b3c99ef35982950fa8582146fdc982b0aabbce8",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read the five complete English protected sources and all restored Greek candidates. Preserved commands, every registry code/severity/evidence key, scan lifecycle and non-scored distinctions, report period history and first-baseline behavior, renderer/locale/queued payload limits, configuration precedence and cache invalidation limits. WordPress safety prose repeats source default-only semantics and clarifies explicit overwrite rollback; no commands were executed. Walkthrough keeps labels actually visible in the English demo, explicitly identifies English screenshots/PDF and translates all five HTML alt descriptions. Codex editorial judgment, not independent native or human certification.",
+          "warningsDisposition": "All numeric examples retain values: 20k becomes 20 χιλ.; WordPress repeated Step 1-4 safety qualification is intentional, not a missing step. Greek links use planned full documentation destinations with stable original English heading IDs; static example assets and literal external/code references remain unchanged. Full rendered links/journey gate remains pending before publication.",
+          "at": "2026-09-12T07:54:42.917Z",
+          "independentNative": false,
+          "digest": "c580fe04c1341ec2e8bf71bd582e5769f31fc0e2a7a03097d7f15d4dd8b04b40"
+        },
+        "packet": "el-docs-last-guides-final-reviewed.json",
+        "packet_sha256": "c49d172a832cd36ce7a55c57b290807dc9e79d1cbb66f4ad1fea2f38ee9489b1"
+      }
+    },
+    "el/pro/scan-scheduling.md": {
+      "source": "pro/scan-scheduling.md",
+      "sha256": "0c96d2a7db7d8717fab21a5c0bff169a6641751d4871673606c17b3d5550b1b3",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "4619f5ecef22ca2cceb6be3c4574d8b75ca0baa1e7bb98a264e912dabaf79d00",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read three complete restored scan guides against English: every SEO penalty/exclusion and grade, separate additive AI axis and non-guarantees, skipped evidence and current-catalog caveat, snapshot recurrence semantics, disabled-check ambiguity, scheduling lock lifetime, notification opt-in and retention. Actual Greek delta heading and average-score UI labels verified. Existing package regressed mistranslation recorded separately; docs preserve correct recurrence meaning. Parent Codex editorial judgment; no native or human certification.",
+          "warningsDisposition": "All numeric weights and grades retained, AI category weights total 100, stable source heading IDs account for numeric warning. Technical formulas/code literal and local destinations mapped to el; built route/anchor checks remain pending full integration.",
+          "at": "2026-09-12T06:53:40.212Z",
+          "independentNative": false,
+          "digest": "b9cf250b523abb4e90374a2d99e10338d282f2540bff13ad2d4c6b90a2a2856a"
+        },
+        "packet": "el-docs-scan-evidence-reviewed.json",
+        "packet_sha256": "f2ae8a5c63b78054bcb009db263b10613054d1d0f405c20f568b411d45dcf253"
+      }
+    },
+    "el/pro/scoring.md": {
+      "source": "pro/scoring.md",
+      "sha256": "8c4fd3f83632f472dd3ebb75fe7b1fa6d87d6bda125bb51d94ae733a2e0e5032",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "58bcf86afe667ab9c27aab4d53133c8c6b5bae4fbf1f4875bcea17b8746786ff",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read three complete restored scan guides against English: every SEO penalty/exclusion and grade, separate additive AI axis and non-guarantees, skipped evidence and current-catalog caveat, snapshot recurrence semantics, disabled-check ambiguity, scheduling lock lifetime, notification opt-in and retention. Actual Greek delta heading and average-score UI labels verified. Existing package regressed mistranslation recorded separately; docs preserve correct recurrence meaning. Parent Codex editorial judgment; no native or human certification.",
+          "warningsDisposition": "All numeric weights and grades retained, AI category weights total 100, stable source heading IDs account for numeric warning. Technical formulas/code literal and local destinations mapped to el; built route/anchor checks remain pending full integration.",
+          "at": "2026-09-12T06:53:40.212Z",
+          "independentNative": false,
+          "digest": "3ae37e1da852a2e41bd8c87ca7e2799ddd5b916bdaa42301bfd641d0cd7f210c"
+        },
+        "packet": "el-docs-scan-evidence-reviewed.json",
+        "packet_sha256": "f2ae8a5c63b78054bcb009db263b10613054d1d0f405c20f568b411d45dcf253"
+      }
+    },
+    "el/pro/search-console-insights.md": {
+      "source": "pro/search-console-insights.md",
+      "sha256": "eb89ebecfbe846bc07f534918d5f19569911e8762d1e7441b4743181ec5ceec6",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "8650033194ed7dac58fa998e66f4b94c5e7f052526d3fcd6afa7b7b73f4e2d29",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read both full English sources and restored Greek candidates. Preserved read-only scope rejection, runtime credentials, SSRF and encryption, backfill/resume/idempotency, aggregate-only retention, heuristic limitations, local versus live quota and authentication distinctions. Verified Greek package Insights title. No native or human certification.",
+          "warningsDisposition": "All values and five ordered surfaces checked; lexicalized numerals preserve meaning. English stable anchors and localized destinations preserved; rendered build and journey validation remain publication gates.",
+          "at": "2026-09-12T07:01:21.847Z",
+          "independentNative": false,
+          "digest": "f12d44f858117fc93abddc63d456422af009a311cf89a1ae4cd16e2359319648"
+        },
+        "packet": "el-docs-search-console-reviewed.json",
+        "packet_sha256": "3e1ca123daf4ce842ea8419fb5ae55b40968d30f2a9a1ca6e3bae851bc73c392"
+      }
+    },
+    "el/pro/search-console.md": {
+      "source": "pro/search-console.md",
+      "sha256": "0fe33f55e9dc24a0f78a5bf34d00c93892fb04667fbd10c16ef214961f84d6da",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "1aff75639703beb2529f952724ad187e85e085ad152f1d0abee80a18eb2a36b2",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read both full English sources and restored Greek candidates. Preserved read-only scope rejection, runtime credentials, SSRF and encryption, backfill/resume/idempotency, aggregate-only retention, heuristic limitations, local versus live quota and authentication distinctions. Verified Greek package Insights title. No native or human certification.",
+          "warningsDisposition": "All values and five ordered surfaces checked; lexicalized numerals preserve meaning. English stable anchors and localized destinations preserved; rendered build and journey validation remain publication gates.",
+          "at": "2026-09-12T07:01:21.847Z",
+          "independentNative": false,
+          "digest": "99267415915d0210d6b8c84bba902a5fe10d7c8c7442df477ec713f8b9c851b3"
+        },
+        "packet": "el-docs-search-console-reviewed.json",
+        "packet_sha256": "3e1ca123daf4ce842ea8419fb5ae55b40968d30f2a9a1ca6e3bae851bc73c392"
+      }
+    },
+    "el/pro/walkthrough.md": {
+      "source": "pro/walkthrough.md",
+      "sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "c9858ab7f3bd5794d72048ff013bf2fea87b98468feaa36af7aa83feb48a7107",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read the five complete English protected sources and all restored Greek candidates. Preserved commands, every registry code/severity/evidence key, scan lifecycle and non-scored distinctions, report period history and first-baseline behavior, renderer/locale/queued payload limits, configuration precedence and cache invalidation limits. WordPress safety prose repeats source default-only semantics and clarifies explicit overwrite rollback; no commands were executed. Walkthrough keeps labels actually visible in the English demo, explicitly identifies English screenshots/PDF and translates all five HTML alt descriptions. Codex editorial judgment, not independent native or human certification.",
+          "warningsDisposition": "All numeric examples retain values: 20k becomes 20 χιλ.; WordPress repeated Step 1-4 safety qualification is intentional, not a missing step. Greek links use planned full documentation destinations with stable original English heading IDs; static example assets and literal external/code references remain unchanged. Full rendered links/journey gate remains pending before publication.",
+          "at": "2026-09-12T07:54:42.917Z",
+          "independentNative": false,
+          "digest": "0f6ca10e73b48485f031ae4fdf2d4fb6775ab0652c22cc76ed77eeafca2bf04b"
+        },
+        "packet": "el-docs-last-guides-final-reviewed.json",
+        "packet_sha256": "c49d172a832cd36ce7a55c57b290807dc9e79d1cbb66f4ad1fea2f38ee9489b1"
+      }
+    },
+    "el/reference/configuration.md": {
+      "source": "reference/configuration.md",
+      "sha256": "6885c0770b86f6a3615d301a326f1b77d894a09f708cbb93cbe81b183fce6590",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "e9c94ff9e462c05382d1ae7df69a285da603abed3787efbd2f81bcc2de0f055b",
+        "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read the five complete English protected sources and all restored Greek candidates. Preserved commands, every registry code/severity/evidence key, scan lifecycle and non-scored distinctions, report period history and first-baseline behavior, renderer/locale/queued payload limits, configuration precedence and cache invalidation limits. WordPress safety prose repeats source default-only semantics and clarifies explicit overwrite rollback; no commands were executed. Walkthrough keeps labels actually visible in the English demo, explicitly identifies English screenshots/PDF and translates all five HTML alt descriptions. Codex editorial judgment, not independent native or human certification.",
+          "warningsDisposition": "All numeric examples retain values: 20k becomes 20 χιλ.; WordPress repeated Step 1-4 safety qualification is intentional, not a missing step. Greek links use planned full documentation destinations with stable original English heading IDs; static example assets and literal external/code references remain unchanged. Full rendered links/journey gate remains pending before publication.",
+          "at": "2026-09-12T07:54:42.917Z",
+          "independentNative": false,
+          "digest": "0187d7ba63bf1e1c23fbd15c4c76d0316fb44cee4dc38c597493e8ff6158af63"
+        },
+        "packet": "el-docs-last-guides-final-reviewed.json",
+        "packet_sha256": "c49d172a832cd36ce7a55c57b290807dc9e79d1cbb66f4ad1fea2f38ee9489b1"
+      }
     }
   }
 }
