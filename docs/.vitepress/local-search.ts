@@ -9,12 +9,12 @@ export const localSearchMiniSearch = {
       const source = ({ searchTitle: 'title', searchTitles: 'titles', searchText: 'text' } as Record<string, string>)[field]
       const value = document[source ?? field]
       if (!source) return value
-      const locale = String(document.id).match(/^\/(tr|el|ja)(?:\/|#|$)/)?.[1]
+      const locale = String(document.id).match(/^\/(tr|el|ja|zh-CN)(?:\/|#|$)/)?.[1]
       if (!locale) return value
-      if (locale === 'ja') {
+      if (locale === 'ja' || locale === 'zh-CN') {
         // The global builder still uses MiniSearch's punctuation tokenizer.
         // Insert word boundaries only in search fields, leaving display intact.
-        const segmenter = new Intl.Segmenter('ja', { granularity: 'word' })
+        const segmenter = new Intl.Segmenter(locale, { granularity: 'word' })
         const words = (part: string) => [...segmenter.segment(part.normalize('NFKC'))]
           .filter(segment => segment.isWordLike).map(segment => segment.segment).join(' ')
         if (Array.isArray(value)) return value.map(part => words(String(part)))
@@ -59,6 +59,19 @@ export const japaneseSearchMiniSearch = {
     // Match both Japanese word boundaries and the global builder's default
     // punctuation split (notably snake_case and hyphenated ASCII identifiers).
     tokenize: (text: string) => [...new Intl.Segmenter('ja', { granularity: 'word' }).segment(text.normalize('NFKC'))]
+      .filter(segment => segment.isWordLike)
+      .flatMap(segment => segment.segment.split(/[\n\r\p{Z}\p{P}]+/u)).filter(Boolean),
+  },
+}
+
+
+export const simplifiedChineseSearchMiniSearch = {
+  ...localSearchMiniSearch,
+  options: {
+    ...localSearchMiniSearch.options,
+    // Self-contained for VitePress serialization. Match the global builder's
+    // Chinese word boundaries, width normalization and punctuation split.
+    tokenize: (text: string) => [...new Intl.Segmenter('zh-CN', { granularity: 'word' }).segment(text.normalize('NFKC'))]
       .filter(segment => segment.isWordLike)
       .flatMap(segment => segment.segment.split(/[\n\r\p{Z}\p{P}]+/u)).filter(Boolean),
   },

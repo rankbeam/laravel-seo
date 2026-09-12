@@ -1,0 +1,347 @@
+{
+  "status": "copy_reviewed",
+  "independentNative": false,
+  "scope": "67 docs theme/UI/accessibility/404 values only; no website shared values. Source semantic labels retained, structural locale code intentionally zh-CN. No native or human certification.",
+  "entries": [
+    {
+      "key": "localeUi.zh-CN.label",
+      "source": "Simplified Chinese",
+      "translation": "简体中文"
+    },
+    {
+      "key": "localeUi.zh-CN.lang",
+      "source": "zh-CN",
+      "translation": "zh-CN"
+    },
+    {
+      "key": "localeUi.zh-CN.guide",
+      "source": "Guide",
+      "translation": "指南"
+    },
+    {
+      "key": "localeUi.zh-CN.english",
+      "source": "English documentation",
+      "translation": "英文文档"
+    },
+    {
+      "key": "localeUi.zh-CN.fallback",
+      "source": "This page is not yet available in Simplified Chinese.",
+      "translation": "此页面尚未提供简体中文版。"
+    },
+    {
+      "key": "localeUi.zh-CN.open",
+      "source": "Open the English page",
+      "translation": "打开英文页面"
+    },
+    {
+      "key": "localeUi.zh-CN.review",
+      "source": "This translation is pending Codex editorial review.",
+      "translation": "此译文尚待 Codex 编辑审阅。"
+    },
+    {
+      "key": "localeUi.zh-CN.source",
+      "source": "English version",
+      "translation": "英文版"
+    },
+    {
+      "key": "localeUi.zh-CN.outline",
+      "source": "On this page",
+      "translation": "本页内容"
+    },
+    {
+      "key": "localeUi.zh-CN.next",
+      "source": "Next page",
+      "translation": "下一页"
+    },
+    {
+      "key": "localeUi.zh-CN.prev",
+      "source": "Previous page",
+      "translation": "上一页"
+    },
+    {
+      "key": "localeUi.zh-CN.description",
+      "source": "Laravel SEO package for layered metadata, canonical URLs, Open Graph, linked JSON-LD, XML sitemaps and crawler controls.",
+      "translation": "Laravel SEO 包，提供分层元数据、规范网址、Open Graph、相互关联的 JSON-LD、XML 网站地图和爬虫控制。"
+    },
+    {
+      "key": "localeUi.zh-CN.reference",
+      "source": "Reference (EN)",
+      "translation": "参考文档（英文）"
+    },
+    {
+      "key": "localeUi.zh-CN.table",
+      "source": "Data table",
+      "translation": "数据表"
+    },
+    {
+      "key": "localeUi.zh-CN.titles.guide/installation",
+      "source": "Installation",
+      "translation": "安装"
+    },
+    {
+      "key": "localeUi.zh-CN.titles.guide/quickstart",
+      "source": "Quickstart",
+      "translation": "快速入门"
+    },
+    {
+      "key": "localeUi.zh-CN.titles.concepts/resolver-precedence",
+      "source": "Resolver precedence",
+      "translation": "解析器优先级"
+    },
+    {
+      "key": "localeUi.zh-CN.titles.guide/sitemaps",
+      "source": "Sitemap registry",
+      "translation": "网站地图注册表"
+    },
+    {
+      "key": "localeUi.zh-CN.titles.guide/filament",
+      "source": "Filament SEO fields",
+      "translation": "Filament SEO 字段"
+    },
+    {
+      "key": "localeUi.zh-CN.titles.guide/audit",
+      "source": "Free SEO audit",
+      "translation": "免费 SEO 审计"
+    },
+    {
+      "key": "localeUi.zh-CN.titles.guide/ai-crawlers",
+      "source": "AI crawler controls",
+      "translation": "AI 爬虫控制"
+    },
+    {
+      "key": "localeUi.zh-CN.titles.guide/multilingual",
+      "source": "Multilingual content and hreflang",
+      "translation": "多语言内容与 hreflang"
+    },
+    {
+      "key": "localeUi.zh-CN.titles.guide/og-image",
+      "source": "Generated OG images",
+      "translation": "生成 OG 图片"
+    },
+    {
+      "key": "localeUi.zh-CN.titles.guide/migrate-from-other-packages",
+      "source": "Migrating from other packages",
+      "translation": "从其他软件包迁移"
+    },
+    {
+      "key": "localeUi.zh-CN.theme.returnToTopLabel",
+      "source": "Return to top",
+      "translation": "返回顶部"
+    },
+    {
+      "key": "localeUi.zh-CN.theme.sidebarMenuLabel",
+      "source": "Menu",
+      "translation": "菜单"
+    },
+    {
+      "key": "localeUi.zh-CN.theme.darkModeSwitchLabel",
+      "source": "Dark mode",
+      "translation": "深色模式"
+    },
+    {
+      "key": "localeUi.zh-CN.theme.lightModeSwitchTitle",
+      "source": "Switch to light theme",
+      "translation": "切换到浅色主题"
+    },
+    {
+      "key": "localeUi.zh-CN.theme.darkModeSwitchTitle",
+      "source": "Switch to dark theme",
+      "translation": "切换到深色主题"
+    },
+    {
+      "key": "localeUi.zh-CN.theme.langMenuLabel",
+      "source": "Change language",
+      "translation": "切换语言"
+    },
+    {
+      "key": "localeUi.zh-CN.theme.skipToContentLabel",
+      "source": "Skip to content",
+      "translation": "跳转到正文"
+    },
+    {
+      "key": "localeUi.zh-CN.theme.lastUpdated.text",
+      "source": "Last updated",
+      "translation": "最后更新"
+    },
+    {
+      "key": "localeUi.zh-CN.edit",
+      "source": "Edit this page on GitHub",
+      "translation": "在 GitHub 编辑此页面"
+    },
+    {
+      "key": "localeUi.zh-CN.license",
+      "source": "rankbeam/laravel-seo is released under the MIT License.",
+      "translation": "rankbeam/laravel-seo 采用 MIT 许可证发布。"
+    },
+    {
+      "key": "localeUi.zh-CN.search.button.buttonText",
+      "source": "Search",
+      "translation": "搜索"
+    },
+    {
+      "key": "localeUi.zh-CN.search.button.buttonAriaLabel",
+      "source": "Search docs",
+      "translation": "搜索文档"
+    },
+    {
+      "key": "localeUi.zh-CN.search.modal.displayDetails",
+      "source": "Display detailed list",
+      "translation": "显示详细列表"
+    },
+    {
+      "key": "localeUi.zh-CN.search.modal.resetButtonTitle",
+      "source": "Reset search",
+      "translation": "清空搜索"
+    },
+    {
+      "key": "localeUi.zh-CN.search.modal.backButtonTitle",
+      "source": "Close search",
+      "translation": "关闭搜索"
+    },
+    {
+      "key": "localeUi.zh-CN.search.modal.noResultsText",
+      "source": "No results for",
+      "translation": "未找到结果："
+    },
+    {
+      "key": "localeUi.zh-CN.search.modal.footer.selectText",
+      "source": "to select",
+      "translation": "选择"
+    },
+    {
+      "key": "localeUi.zh-CN.search.modal.footer.navigateText",
+      "source": "to navigate",
+      "translation": "导航"
+    },
+    {
+      "key": "localeUi.zh-CN.search.modal.footer.closeText",
+      "source": "to close",
+      "translation": "关闭"
+    },
+    {
+      "key": "localeUi.zh-CN.search.modal.footer.selectKeyAriaLabel",
+      "source": "Enter",
+      "translation": "Enter 键"
+    },
+    {
+      "key": "localeUi.zh-CN.search.modal.footer.navigateUpKeyAriaLabel",
+      "source": "Arrow up",
+      "translation": "向上箭头键"
+    },
+    {
+      "key": "localeUi.zh-CN.search.modal.footer.navigateDownKeyAriaLabel",
+      "source": "Arrow down",
+      "translation": "向下箭头键"
+    },
+    {
+      "key": "localeUi.zh-CN.search.modal.footer.closeKeyAriaLabel",
+      "source": "Escape",
+      "translation": "Escape 键"
+    },
+    {
+      "key": "manualMessages.zh-CN.imageAlt",
+      "source": "Rankbeam — open-core SEO infrastructure for Laravel",
+      "translation": "Rankbeam — 面向 Laravel 的开放核心 SEO 基础设施"
+    },
+    {
+      "key": "manualMessages.zh-CN.copyTitle",
+      "source": "Copy Code",
+      "translation": "复制代码"
+    },
+    {
+      "key": "manualMessages.zh-CN.copied",
+      "source": "Copied",
+      "translation": "已复制"
+    },
+    {
+      "key": "manualMessages.zh-CN.copyFailed",
+      "source": "Copy failed. Select the code and copy it manually.",
+      "translation": "复制失败。请选中代码并手动复制。"
+    },
+    {
+      "key": "manualMessages.zh-CN.noScript",
+      "source": "Without JavaScript, select the code and copy it manually.",
+      "translation": "未启用 JavaScript 时，请选中代码并手动复制。"
+    },
+    {
+      "key": "manualMessages.zh-CN.noScriptMenu",
+      "source": "Menu",
+      "translation": "菜单"
+    },
+    {
+      "key": "manualMessages.zh-CN.noScriptHelp",
+      "source": "JavaScript is disabled. Use these links to navigate; select code to copy it manually.",
+      "translation": "JavaScript 已禁用。请使用这些链接导航；如需手动复制代码，请先选中代码。"
+    },
+    {
+      "key": "manualMessages.zh-CN.language",
+      "source": "Language",
+      "translation": "语言"
+    },
+    {
+      "key": "manualMessages.zh-CN.mobileNavigation",
+      "source": "mobile navigation",
+      "translation": "移动端导航"
+    },
+    {
+      "key": "manualMessages.zh-CN.extraNavigation",
+      "source": "extra navigation",
+      "translation": "更多导航"
+    },
+    {
+      "key": "manualMessages.zh-CN.mainNavigation",
+      "source": "Main Navigation",
+      "translation": "主导航"
+    },
+    {
+      "key": "manualMessages.zh-CN.sidebarNavigation",
+      "source": "Sidebar Navigation",
+      "translation": "侧栏导航"
+    },
+    {
+      "key": "manualMessages.zh-CN.pager",
+      "source": "Pager",
+      "translation": "分页导航"
+    },
+    {
+      "key": "manualMessages.zh-CN.permalink",
+      "source": "Permalink to",
+      "translation": "永久链接："
+    },
+    {
+      "key": "manualMessages.zh-CN.notFound.title",
+      "source": "PAGE NOT FOUND",
+      "translation": "页面未找到"
+    },
+    {
+      "key": "manualMessages.zh-CN.notFound.quote",
+      "source": "But if you don't change your direction, and if you keep looking, you may end up where you are heading.",
+      "translation": "但如果你不改变方向，并继续寻找，最终也许会抵达你所朝向的地方。"
+    },
+    {
+      "key": "manualMessages.zh-CN.notFound.linkLabel",
+      "source": "go to home",
+      "translation": "前往首页"
+    },
+    {
+      "key": "manualMessages.zh-CN.notFound.linkText",
+      "source": "Take me home",
+      "translation": "返回首页"
+    },
+    {
+      "key": "zh-CN/404.md:title",
+      "source": "Page not found",
+      "translation": "页面未找到"
+    },
+    {
+      "key": "zh-CN/404.md:description",
+      "source": "The requested documentation page could not be found.",
+      "translation": "找不到请求的文档页面。"
+    }
+  ],
+  "reviewer": "Codex",
+  "at": "2026-09-12T13:37:01.771Z",
+  "source": "work/zh-cn-docs-adapter-manual-draft.json",
+  "sourceSha256": "f62ec7f33702aa4da563b8c465a5379222d0349f80da85eac014a98e33d60749",
+  "notes": "Parent read all67English and Chinese values: navigation, fallback and honest pending Codex review notices, search dialog/no results/keyboard instructions, themes, no-JS/copy errors, MIT license,404andmetadata. Quickstart aligned to approved page heading;404source aphorism retained in more natural Chinese. Structural BCP47 zh-CN unchanged. Codex editorial review, not independent native/human certification. Exact integration and rendered functionality remain separate gates."
+}

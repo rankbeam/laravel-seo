@@ -8884,6 +8884,952 @@
         },
         "handoff": "ja-docs-tools-stage/handoff.json"
       }
+    },
+    "zh-CN/guide/installation.md": {
+      "source": "guide/installation.md",
+      "sha256": "b6e9dbf70cf7585113bfc4cb6947f2c8c700179843a6bc0c7bb9a6d5c5d3676e",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "bc43c9a1da5afc4f04185d8ad80c1c134c07d431516db7852045fffed715b0d7",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed full installation,quickstart,demo guides: PHP/Laravel/optional dependencies,2tables,existing app prerequisites,all5steps,WithoutModelEvents trap,7directives,no-account MIT core,private Composer build secret and Docker-versus-hosted-demo distinctions retained. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:25:07.795Z",
+          "independentNative": false,
+          "digest": "dc3d601431f3d86ef8d383d6993ca2d7893125abc933e32d0b9da25bae3e14ee"
+        },
+        "handoff": "zh-cn-docs-batch01-stage/handoff.json"
+      }
+    },
+    "zh-CN/guide/quickstart.md": {
+      "source": "guide/quickstart.md",
+      "sha256": "62172e26a1b071e110a365c15ab81d23c415ff95ac160575142ad10bc507260d",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "93efd9be8c524cab3cd5448bcd93405249357ca0db439b037415e84666d5c3e0",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed full installation,quickstart,demo guides: PHP/Laravel/optional dependencies,2tables,existing app prerequisites,all5steps,WithoutModelEvents trap,7directives,no-account MIT core,private Composer build secret and Docker-versus-hosted-demo distinctions retained. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:25:07.795Z",
+          "independentNative": false,
+          "digest": "28efd3e901bc1e5f7bca79418ff809fae5f790979c169ce50ddf808af24a03ba"
+        },
+        "handoff": "zh-cn-docs-batch01-stage/handoff.json"
+      }
+    },
+    "zh-CN/guide/demo.md": {
+      "source": "guide/demo.md",
+      "sha256": "a83060a0a93389f35bbfa86ed8f0ca25fa0558c7852ec930d29394e59802c8d7",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "df1d425c6806a5e29dc5490c844954a2fabe9ea73815433171e8a80729488346",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed full installation,quickstart,demo guides: PHP/Laravel/optional dependencies,2tables,existing app prerequisites,all5steps,WithoutModelEvents trap,7directives,no-account MIT core,private Composer build secret and Docker-versus-hosted-demo distinctions retained. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:25:07.796Z",
+          "independentNative": false,
+          "digest": "8937b69440364f91655f6bfce7a20ad07e6c4022cc4b7fe06a6a39a5764c1af9"
+        },
+        "handoff": "zh-cn-docs-batch01-stage/handoff.json"
+      }
+    },
+    "zh-CN/concepts/resolver-precedence.md": {
+      "source": "concepts/resolver-precedence.md",
+      "sha256": "4391a29a1d25253802f2ad598b3eea68908906df8816260ae8dc912944417512",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "720f12eabc9470a551dc86e62df727f58f2cc02e465f1c8b271f218474300efb",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed full resolver,explain,schema guides: all6layers,null nonoverwrite,3robots priorities and emit_default,canonical whitelist versus explicit preservation,title suffix,postprocessing attribution,inLanguage sources,7builders and JSON_HEX protections retained. Corrected exact Filament zh_CN quoted labels. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:25:09.989Z",
+          "independentNative": false,
+          "digest": "25fcfc7a89010fa22e27dfbdb17fc2b120d71a9f0b719895d93d62d80cd09be2"
+        },
+        "handoff": "zh-cn-docs-batch02-stage/handoff.json"
+      }
+    },
+    "zh-CN/guide/explain.md": {
+      "source": "guide/explain.md",
+      "sha256": "8dff916dca42b6a22870ce1ea6b7786e5a48790bffb503065bb33ee01139e9d8",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "60d4f75c53595ed19c469beef67c7b1f58debdd2d34a1ccc15c5d91e9d89a564",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed full resolver,explain,schema guides: all6layers,null nonoverwrite,3robots priorities and emit_default,canonical whitelist versus explicit preservation,title suffix,postprocessing attribution,inLanguage sources,7builders and JSON_HEX protections retained. Corrected exact Filament zh_CN quoted labels. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:25:09.989Z",
+          "independentNative": false,
+          "digest": "5a41cce5022d36d21fef4e22185708b4ffbfed2b7ced36407902cf5dfac560a8"
+        },
+        "handoff": "zh-cn-docs-batch02-stage/handoff.json"
+      }
+    },
+    "zh-CN/guide/schema.md": {
+      "source": "guide/schema.md",
+      "sha256": "f5896694ebd6fa3df9dc7d393ec392882f431242468a1aababc257bc70c3b02a",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "cff6396ebd82c9dddc1f4091d76b8f91d4b6d50ebf0e356e1fc7b7407b42091f",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed full resolver,explain,schema guides: all6layers,null nonoverwrite,3robots priorities and emit_default,canonical whitelist versus explicit preservation,title suffix,postprocessing attribution,inLanguage sources,7builders and JSON_HEX protections retained. Corrected exact Filament zh_CN quoted labels. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:25:09.989Z",
+          "independentNative": false,
+          "digest": "a6f43612be81788baf6889ea13d417a3795eca325b420482723b7056cbf6d926"
+        },
+        "handoff": "zh-cn-docs-batch02-stage/handoff.json"
+      }
+    },
+    "zh-CN/guide/blade.md": {
+      "source": "guide/blade.md",
+      "sha256": "1545bf859fd72abe90b4e0038527fe901459e1c11c8472a5363aad2ea15cfcb4",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "720f8d49e854dcfe614f8f8b699717ebd652f4695c65a6792a4dbf7422a4f197",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed complete Blade,Inertia/JSON,Livewire guides: all7directives and handbuilt SEOData behavior,SSR requirement,head-key versus Vue key,Svelte limitation,separate JSON-LD root view and client navigation lifecycle,stale/sameURL cleanup and initial response boundaries retained. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:25:32.238Z",
+          "independentNative": false,
+          "digest": "a6ee68b30b8e91aaa0525b1ad61a1005e124b3a09119b672f4020be1dfca0652"
+        },
+        "handoff": "zh-cn-docs-batch03-stage/handoff.json"
+      }
+    },
+    "zh-CN/guide/inertia-json.md": {
+      "source": "guide/inertia-json.md",
+      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "2e19663bae2ff113fa2e9b914b1d43d75e36e6035e41a6b1bf3e1d9ce3a0c3bc",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed complete Blade,Inertia/JSON,Livewire guides: all7directives and handbuilt SEOData behavior,SSR requirement,head-key versus Vue key,Svelte limitation,separate JSON-LD root view and client navigation lifecycle,stale/sameURL cleanup and initial response boundaries retained. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:25:32.239Z",
+          "independentNative": false,
+          "digest": "b4b3ff5af9de2291739827f95c401f4af45d9868cb298b78057b370e81020133"
+        },
+        "handoff": "zh-cn-docs-batch03-stage/handoff.json"
+      }
+    },
+    "zh-CN/guide/livewire.md": {
+      "source": "guide/livewire.md",
+      "sha256": "fc9b76e838862d3f562ea7bb08061b95ce4775bb96e7bebf9d00aefeda8d2e4c",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "1398a3ce58c3e0d115c4d8fcb918c1de4da9a7b2fb23e7aef35ed6ed6dcc88fa",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed complete Blade,Inertia/JSON,Livewire guides: all7directives and handbuilt SEOData behavior,SSR requirement,head-key versus Vue key,Svelte limitation,separate JSON-LD root view and client navigation lifecycle,stale/sameURL cleanup and initial response boundaries retained. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:25:32.239Z",
+          "independentNative": false,
+          "digest": "ea6d8665527294072c067bd4e068a9c317172b53667bf199b8f57914f701796a"
+        },
+        "handoff": "zh-cn-docs-batch03-stage/handoff.json"
+      }
+    },
+    "zh-CN/guide/audit.md": {
+      "source": "guide/audit.md",
+      "sha256": "fdd1f134b1988c0ae6aeb529b233ed16750ef42a091c970b807406f05a2e939a",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "0a1e2b31684ae82994b775bddf084acc5d22dad096b1817353fa706fcaa598c8",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed full audit,indexing guard,Markdown-for-bots guides: distinct core/Pro registries,AEO advisory exclusions,grapheme60/160vs30/80,opt-in keyword flag,4guard effects/static-file caveat/empty env fallback,2negotiation conditions,route-first precedence and null method disabling fallback retained. Refined AEO terminology and Accept request-header wording. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:26:01.632Z",
+          "independentNative": false,
+          "digest": "a79749e4e1f58ebea3d3fd4240d03a521d78c847614ed913c95e8a606adb440d"
+        },
+        "handoff": "zh-cn-docs-batch04-stage/handoff.json"
+      }
+    },
+    "zh-CN/guide/indexing-guard.md": {
+      "source": "guide/indexing-guard.md",
+      "sha256": "de3dc22aad4814ef932b11ffa2be244f6c4d764cf98ff3a9f5eb4f5d601c407c",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "c7e211a5a367bc1d7244296b0c0294b337e0e1d58d1d548a5d70a69a6bfdd546",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed full audit,indexing guard,Markdown-for-bots guides: distinct core/Pro registries,AEO advisory exclusions,grapheme60/160vs30/80,opt-in keyword flag,4guard effects/static-file caveat/empty env fallback,2negotiation conditions,route-first precedence and null method disabling fallback retained. Refined AEO terminology and Accept request-header wording. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:26:01.632Z",
+          "independentNative": false,
+          "digest": "bb487df453d76b78e5ae07de5b0de04476d26312446b16795058320796525e45"
+        },
+        "handoff": "zh-cn-docs-batch04-stage/handoff.json"
+      }
+    },
+    "zh-CN/guide/markdown-for-bots.md": {
+      "source": "guide/markdown-for-bots.md",
+      "sha256": "0d3375f75e8a303c5c7b12d704482d71633948a685adde037bfdfa5d7d3fbac6",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "16ec72a044ed302a2fc2e0a29df9e48356e7f3b5572e4936e5eed4456f9d0d48",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed full audit,indexing guard,Markdown-for-bots guides: distinct core/Pro registries,AEO advisory exclusions,grapheme60/160vs30/80,opt-in keyword flag,4guard effects/static-file caveat/empty env fallback,2negotiation conditions,route-first precedence and null method disabling fallback retained. Refined AEO terminology and Accept request-header wording. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:26:01.632Z",
+          "independentNative": false,
+          "digest": "3d8a43df5eed24123f236fb87389ad2f525b96563548a0a90d885aecda0df415"
+        },
+        "handoff": "zh-cn-docs-batch04-stage/handoff.json"
+      }
+    },
+    "zh-CN/guide/ai-crawlers.md": {
+      "source": "guide/ai-crawlers.md",
+      "sha256": "30895f227130c9e06315b53c7c7cac342dc9755f7ed1813c3d560633dfff8c4b",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "2ecfb4a8fdea6db33d5279812eaebf35d218e69d1a46087dd229b21d81e62f72",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed complete AI-crawler and sitemap references: advisory documentation uncertainty corrected rather than claim known noncompliance;3policy categories and content-signals omission,opt-in controls,8regional engines excluded from AIcounts,static-file priority,XSL8.1fallback,sameorigin escaping,3.20.1perURLreuse and shallowconfig merge retained. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:26:59.520Z",
+          "independentNative": false,
+          "digest": "ba5ee4f779c70634a78bf4910c81a19716fd80e6b0003670502073e1f0400776"
+        },
+        "handoff": "zh-cn-docs-batch05-stage/handoff.json"
+      }
+    },
+    "zh-CN/guide/sitemaps.md": {
+      "source": "guide/sitemaps.md",
+      "sha256": "16bbe750af66c65ce687536f4b92bfe27c6c11b05f59c2030a6c9ea17d080a0e",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "39e0682ad1531f7a814455b61a34fb3bb120136f200d31b30fa16c4c4ced166a",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed complete AI-crawler and sitemap references: advisory documentation uncertainty corrected rather than claim known noncompliance;3policy categories and content-signals omission,opt-in controls,8regional engines excluded from AIcounts,static-file priority,XSL8.1fallback,sameorigin escaping,3.20.1perURLreuse and shallowconfig merge retained. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:26:59.520Z",
+          "independentNative": false,
+          "digest": "7af4a1be4eba542cb8f2fd339b55ee7ac20be903aa0ea85c494ce079cc8d2c25"
+        },
+        "handoff": "zh-cn-docs-batch05-stage/handoff.json"
+      }
+    },
+    "zh-CN/guide/translations.md": {
+      "source": "guide/translations.md",
+      "sha256": "bedcee93831af91605dca0f7ad536e57da078984464c60fd68b4ca52e62662bc",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "fe6e1864dda7708363b1f8ef24172c1cf61f4923ac2db850061459989c0e978c",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed full translation policy,v1upgrade and homefrontmatter:17package UI codes/tiers remain separate from public-edition Codex review; CLI display/content locales and stable identifiers retained. All6upgrade steps preserve backup/restore prerequisite and explicit exclusion of v1operations history migration. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:27:19.378Z",
+          "independentNative": false,
+          "digest": "b68064bc52147fc4329719427bc8c94d23dd94a693fff9483881c28eb1b46971"
+        },
+        "handoff": "zh-cn-docs-batch06-stage/handoff.json"
+      }
+    },
+    "zh-CN/guide/upgrade-from-v1.md": {
+      "source": "guide/upgrade-from-v1.md",
+      "sha256": "58fcb833a7313e9a91e41c7fea664a0db5b1a603d8b8bfda75db95f3a59bba15",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "4f25f45c6e3bf36ed30c57000490d81607c4a00a86c820105111c65d8602f349",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed full translation policy,v1upgrade and homefrontmatter:17package UI codes/tiers remain separate from public-edition Codex review; CLI display/content locales and stable identifiers retained. All6upgrade steps preserve backup/restore prerequisite and explicit exclusion of v1operations history migration. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:27:19.378Z",
+          "independentNative": false,
+          "digest": "8b6ad86e7c83d68eac5c7936f3298469325a8cbb1f4c21f3f6413dd20afc65b7"
+        },
+        "handoff": "zh-cn-docs-batch06-stage/handoff.json"
+      }
+    },
+    "zh-CN/index.md": {
+      "source": "index.md",
+      "sha256": "1fe0fb5e64039c222519c36e499eb8dcbf9b775cf38241862971bb607089c522",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "2cf6b00950148b0303009c4c28713e31cc58ebb23c77f9df59907654cc72c7f1",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed full translation policy,v1upgrade and homefrontmatter:17package UI codes/tiers remain separate from public-edition Codex review; CLI display/content locales and stable identifiers retained. All6upgrade steps preserve backup/restore prerequisite and explicit exclusion of v1operations history migration. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:27:19.378Z",
+          "independentNative": false,
+          "digest": "b38449f6b8a2ba9661a5b3b6abd476bfca919c22e3a51ce98b27749b0e84f329"
+        },
+        "handoff": "zh-cn-docs-batch06-stage/handoff.json"
+      }
+    },
+    "zh-CN/guide/filament.md": {
+      "source": "guide/filament.md",
+      "sha256": "7c7d8a78510a50a0f0c11f8a4952f6fcc40e2063ce8d457ffc1d3dfadb534aa4",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "f218c37d675cff7f9d9e779bf2a85a19579eeaff5f150e3c55f9e8c878795af1",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed full Filament and rendering-contract pages: all saved/unsaved states,locale tab/plugin precedence,DB versus filesystem transaction limits,custom hooks,upstream reset behavior and schema preservation retained. Translated2image alts truthfully describing existing EN/IT/JA screenshots and prose date. Full7section contract including planned gaps retained; historical independent design review describes source spec, not translation certification. Inherited canonical/og:url absolute-equality simplification recorded for source follow-up. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:28:52.840Z",
+          "independentNative": false,
+          "digest": "d3d75d0eaaa6d8eedf235fb602e3877ac735de5ee2cacf5553763f12842362e3"
+        },
+        "handoff": "zh-cn-docs-batch07-stage/handoff.json"
+      }
+    },
+    "zh-CN/contributing/rendering-contract.md": {
+      "source": "contributing/rendering-contract.md",
+      "sha256": "b4b18340855cfc8bcc45c3c33f9523942927105af01c9c11ac36f01afc5fd520",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "6aef589a5134f5bd5e3848984495019c865670626e9a89e0952bfe750dcecf91",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed full Filament and rendering-contract pages: all saved/unsaved states,locale tab/plugin precedence,DB versus filesystem transaction limits,custom hooks,upstream reset behavior and schema preservation retained. Translated2image alts truthfully describing existing EN/IT/JA screenshots and prose date. Full7section contract including planned gaps retained; historical independent design review describes source spec, not translation certification. Inherited canonical/og:url absolute-equality simplification recorded for source follow-up. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:28:52.840Z",
+          "independentNative": false,
+          "digest": "ed352c8c53608d1f0fada8c11a27ebebeb359096e32d358fa0a232e88aa21bb8"
+        },
+        "handoff": "zh-cn-docs-batch07-stage/handoff.json"
+      }
+    },
+    "zh-CN/guide/migrate-from-other-packages.md": {
+      "source": "guide/migrate-from-other-packages.md",
+      "sha256": "8ac395702e898881af586ec86627c866f34955a76ca079880ce03dd7bc87eb1f",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "8dd7b73866cecd6dcc3639ae801d7c99ae692d99fbb6f5f9f2335e36c4230bda",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed full other-package and WordPress migration references: coexistence/configcollision backup,all fieldmapping/70-160-50 storagebounds,morphmap re-resolution,author reporting,noimport forstatelessfacades,default-only versus overwrite,URL-only matchscope,posttypes,prefixes,canonicalhost preserved,template token removal,advisory redirect CSV and no coreProtablewrites retained. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:29:45.732Z",
+          "independentNative": false,
+          "digest": "0d28453b18aff41c6d6a14f1adef6fb12b23d397293e1bb33758dddd730d7293"
+        },
+        "handoff": "zh-cn-docs-batch08-stage/handoff.json"
+      }
+    },
+    "zh-CN/guide/migrate-from-wordpress.md": {
+      "source": "guide/migrate-from-wordpress.md",
+      "sha256": "7da4845d115d9fcc481bad48262275938286c8558579f6e375d964593b9c5668",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "b6ab2d956508bcaf8afcfb88dd4c0ab0b535d38613716c52306bdad770944684",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed full other-package and WordPress migration references: coexistence/configcollision backup,all fieldmapping/70-160-50 storagebounds,morphmap re-resolution,author reporting,noimport forstatelessfacades,default-only versus overwrite,URL-only matchscope,posttypes,prefixes,canonicalhost preserved,template token removal,advisory redirect CSV and no coreProtablewrites retained. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:29:45.732Z",
+          "independentNative": false,
+          "digest": "b3b72a493b7b9fb64f3215aae18acd9b8635aeed6b3f7839aa851227a8c99558"
+        },
+        "handoff": "zh-cn-docs-batch08-stage/handoff.json"
+      }
+    },
+    "zh-CN/guide/wordpress-migration-runbook.md": {
+      "source": "guide/wordpress-migration-runbook.md",
+      "sha256": "f2daaf7eac2bd7a8e180d401e8c8c71bec38a306b6bbe5b2751202947cd82ff8",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "5d55131f011738942359f09b744f0911d309e34da9e719ef95aa42b9f8d2d136",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed complete WordPress runbook and configuration: all7ordered steps/checklists,source and destination backups,explicit overwrite boundary,redirect validation and rollback retained. Clarified later fill-only/rollback wording is default-mode context consistent with introduction, not overwrite guarantee. All settings/code unchanged; cachelocal/sharedscope,3invalidationtriggers,touchTTLlag,canonical whitelist and localimage selection constraints retained. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:30:46.029Z",
+          "independentNative": false,
+          "digest": "94e85a4e97f55c5236f53cabf2ef0a3b10cb3ab9260208752be4ae38af5cc8d1"
+        },
+        "handoff": "zh-cn-docs-batch09-stage/handoff.json"
+      }
+    },
+    "zh-CN/reference/configuration.md": {
+      "source": "reference/configuration.md",
+      "sha256": "6885c0770b86f6a3615d301a326f1b77d894a09f708cbb93cbe81b183fce6590",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "73bc587abb2b53a252a61bbc3607a81a2d5af0be3d7d5f30506a272fd54c58a4",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed complete WordPress runbook and configuration: all7ordered steps/checklists,source and destination backups,explicit overwrite boundary,redirect validation and rollback retained. Clarified later fill-only/rollback wording is default-mode context consistent with introduction, not overwrite guarantee. All settings/code unchanged; cachelocal/sharedscope,3invalidationtriggers,touchTTLlag,canonical whitelist and localimage selection constraints retained. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:30:46.029Z",
+          "independentNative": false,
+          "digest": "fa43484c0e2ada13c4d88336dd8e33a909692ce5cea32bfb76938cde234ea867"
+        },
+        "handoff": "zh-cn-docs-batch09-stage/handoff.json"
+      }
+    },
+    "zh-CN/guide/why-rankbeam.md": {
+      "source": "guide/why-rankbeam.md",
+      "sha256": "d9ef64d4a335daa263460c434bc684876ec75c06a221abffe2ce994651deccf2",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "26cf0fc2ad183da6476d16b37b0cf029905e2058739482e53e8459e255e488aa",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed complete product comparison and multilingual contracts: full license boundaries, measured 12 versus retained 22 classes, 25 resolves and bounded 900-page benchmark, default-only safe imports, precise metering billing wording, all 17 package locales distinguished from editorial/public coverage, ICU-dependent skips, unscored CJK versus LIX, three served language-code contracts, strict reciprocity and source native-review policy attribution preserved. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:36:04.419Z",
+          "independentNative": false,
+          "digest": "0400c6ce9b6c8b37c21752cdb4dc1cc38e4a9f7d06a6dec72f4c313378753605"
+        },
+        "handoff": "zh-cn-docs-batch10-stage/handoff.json"
+      }
+    },
+    "zh-CN/guide/multilingual.md": {
+      "source": "guide/multilingual.md",
+      "sha256": "3ae9687568846476d3c5f972f34b14124409eb67e401569e1eec5a11305945af",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "d4c5d88ffdf333416a424e885ddc66f8c3d64a9eb7487c4bb67761ea66366970",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed complete product comparison and multilingual contracts: full license boundaries, measured 12 versus retained 22 classes, 25 resolves and bounded 900-page benchmark, default-only safe imports, precise metering billing wording, all 17 package locales distinguished from editorial/public coverage, ICU-dependent skips, unscored CJK versus LIX, three served language-code contracts, strict reciprocity and source native-review policy attribution preserved. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:36:04.419Z",
+          "independentNative": false,
+          "digest": "633f7e019ab75c1e48f49e5f5f4cc542d9c6f6049bfec0d96075e89e6d413e24"
+        },
+        "handoff": "zh-cn-docs-batch10-stage/handoff.json"
+      }
+    },
+    "zh-CN/pro/installation.md": {
+      "source": "pro/installation.md",
+      "sha256": "a092e59eff8699016b9d17b63c117afbbdcb64ecac27e38954e73972db8366cd",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "0e42832736fcec1c17c96628831bcd0793173c07a0009e7cfcc69cb613417c30",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed all three complete English and Chinese Pro pages: installer flags and published migrations, private Composer credentials and full license/refund/service scope, headless command flags and model-only ignore/reopen, distinction between scope option and seed option, actual seeded English UI walkthrough labels retained with Chinese prose, five screenshot accessibility descriptions localized, 21 targets20to19issues92to93score and two-report baseline/no-store qualifications preserved. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:37:51.498Z",
+          "independentNative": false,
+          "digest": "16b5f9391cc666e8eaec764da5c16b1c0ca8cd974f1a0e836067fe983d9c1585"
+        },
+        "handoff": "zh-cn-docs-batch11-stage/handoff.json"
+      }
+    },
+    "zh-CN/pro/headless.md": {
+      "source": "pro/headless.md",
+      "sha256": "6a392b623c3d912ae7db09674646e1bb9dd1fa5677adb3d0de228b3eaabcb5d9",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "b1850866bded9016030dc0ab87bf7ea9a9f24efba74a72d44647705ebeab95ae",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed all three complete English and Chinese Pro pages: installer flags and published migrations, private Composer credentials and full license/refund/service scope, headless command flags and model-only ignore/reopen, distinction between scope option and seed option, actual seeded English UI walkthrough labels retained with Chinese prose, five screenshot accessibility descriptions localized, 21 targets20to19issues92to93score and two-report baseline/no-store qualifications preserved. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:37:51.498Z",
+          "independentNative": false,
+          "digest": "55385ae00e5db64fd39a42f523094e0f268398496a3f8f6a4bbadb0059b1bd62"
+        },
+        "handoff": "zh-cn-docs-batch11-stage/handoff.json"
+      }
+    },
+    "zh-CN/pro/walkthrough.md": {
+      "source": "pro/walkthrough.md",
+      "sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "b5e78e35505dd1212d47c78a60154967c770e5e6885607b14bec6ea3e898fd21",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed all three complete English and Chinese Pro pages: installer flags and published migrations, private Composer credentials and full license/refund/service scope, headless command flags and model-only ignore/reopen, distinction between scope option and seed option, actual seeded English UI walkthrough labels retained with Chinese prose, five screenshot accessibility descriptions localized, 21 targets20to19issues92to93score and two-report baseline/no-store qualifications preserved. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:37:51.498Z",
+          "independentNative": false,
+          "digest": "978095f026a36388e8d526a9c30776a57d41524f6ada114b26838ecd47232536"
+        },
+        "handoff": "zh-cn-docs-batch11-stage/handoff.json"
+      }
+    },
+    "zh-CN/pro/ai-bot-monitor.md": {
+      "source": "pro/ai-bot-monitor.md",
+      "sha256": "45c33da9dbadd4d323f11be2260db72f21b32c0f47f95ceed60dd2d0927f08ab",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "d38ef809b18b0adcb0f5ec45d904d5c41aa91db1eeabca14bd6e0f26f929ba09",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed all three complete English and Chinese pages: spoofable user-agent attribution and post-response middleware, keyed IP hash opt-in, per-day caps with exact total hits and N+distinct paths, whole-day boundaries, IndexNow public key versus secret credentials and config-cache fallback, same-host bounded queued submission, five GSC surfaces with three offline snapshots and one shared live query/page request plus possible authrefresh, overlap not necessarily harmful and heuristicCTR candidate caveats. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:42:56.325Z",
+          "independentNative": false,
+          "digest": "27d039e8590afaed417237cca5e24947ae60cbef79fac8b7b59d39fbec24e118"
+        },
+        "handoff": "zh-cn-docs-batch12-stage/handoff.json"
+      }
+    },
+    "zh-CN/pro/indexnow.md": {
+      "source": "pro/indexnow.md",
+      "sha256": "6358680ec026bd8281c17272ffbebb43a126ffa84a8b87564cbafc52338163eb",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "fac710b300edb7fdc2ef32503c34abcb865cd99a106503c8437894251a37b3e0",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed all three complete English and Chinese pages: spoofable user-agent attribution and post-response middleware, keyed IP hash opt-in, per-day caps with exact total hits and N+distinct paths, whole-day boundaries, IndexNow public key versus secret credentials and config-cache fallback, same-host bounded queued submission, five GSC surfaces with three offline snapshots and one shared live query/page request plus possible authrefresh, overlap not necessarily harmful and heuristicCTR candidate caveats. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:42:56.325Z",
+          "independentNative": false,
+          "digest": "45981d3ce632f649d125649265d985dfda0d6eb7e032772f904cb4a0534a3812"
+        },
+        "handoff": "zh-cn-docs-batch12-stage/handoff.json"
+      }
+    },
+    "zh-CN/pro/search-console-insights.md": {
+      "source": "pro/search-console-insights.md",
+      "sha256": "eb89ebecfbe846bc07f534918d5f19569911e8762d1e7441b4743181ec5ceec6",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "784f1ef847ffe577307d91469e468ef439a738f1cc81f64b83dbb41ae6f141eb",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed all three complete English and Chinese pages: spoofable user-agent attribution and post-response middleware, keyed IP hash opt-in, per-day caps with exact total hits and N+distinct paths, whole-day boundaries, IndexNow public key versus secret credentials and config-cache fallback, same-host bounded queued submission, five GSC surfaces with three offline snapshots and one shared live query/page request plus possible authrefresh, overlap not necessarily harmful and heuristicCTR candidate caveats. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:42:56.326Z",
+          "independentNative": false,
+          "digest": "7cdbfee53a1d7185ddeb4bf0251c07aa43e8fd4af5e1365b599839d5560a016c"
+        },
+        "handoff": "zh-cn-docs-batch12-stage/handoff.json"
+      }
+    },
+    "zh-CN/pro/scoring.md": {
+      "source": "pro/scoring.md",
+      "sha256": "8c4fd3f83632f472dd3ebb75fe7b1fa6d87d6bda125bb51d94ae733a2e0e5032",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "3869f1405efb12d066fc1d1cba7600283c5c58eb0aa26c430c2b7aae35eb1186",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed complete SEO and AIreadiness rubric pages: all26scoredcodes, explicit exclusions,40/15/5penalties and gradebands preserved; model metadata score not rendered-page guarantee; noindex selfcanonical heuristic not intentproof. Separate AI axis all10checks/fourcategories weights30+20+22+28, zeroAIcalls, optional llms, skippedzero distinguished from absence, allowtrainerpolicy, perpath robots directives not accessblock, currentcatalog input outsideversionpin, and inprocess staticfilevisibility limitation retained. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:48:52.328Z",
+          "independentNative": false,
+          "digest": "f1619c42f86db3fceff509f8aeafdbf3b64f32e70ff94ba201c887546b7dcdc5"
+        },
+        "handoff": "zh-cn-docs-batch13-stage/handoff.json"
+      }
+    },
+    "zh-CN/pro/ai-readiness-score.md": {
+      "source": "pro/ai-readiness-score.md",
+      "sha256": "4a5d3936be605aa199975d2b4a4e15297627395c71394fd8dd2e2d666fba00a1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "336650867bdae89fda9141ebd348a4d74357cf275c55b72e779cc0836a7ce23c",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed complete SEO and AIreadiness rubric pages: all26scoredcodes, explicit exclusions,40/15/5penalties and gradebands preserved; model metadata score not rendered-page guarantee; noindex selfcanonical heuristic not intentproof. Separate AI axis all10checks/fourcategories weights30+20+22+28, zeroAIcalls, optional llms, skippedzero distinguished from absence, allowtrainerpolicy, perpath robots directives not accessblock, currentcatalog input outsideversionpin, and inprocess staticfilevisibility limitation retained. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:48:52.328Z",
+          "independentNative": false,
+          "digest": "4b065b2f50f507b0deee35faf83df370108cced9547d1c113c339495b4657cb3"
+        },
+        "handoff": "zh-cn-docs-batch13-stage/handoff.json"
+      }
+    },
+    "zh-CN/pro/broken-links.md": {
+      "source": "pro/broken-links.md",
+      "sha256": "536f024b3551aca7810605ddb6cb37ad77bce9dfaa64f697f1dd4f5d9b73a4f1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "84fd9e9da52022c6d843d047545f0b478ed330497f08ee4420e33d5c62c47701",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed both complete English/Chinese guides: bounded2000pages/nulloptin plus50/1500/180batchcaps, exact authoredURL versus findingalias identity, all14inspection classes, immediateinspection versus3consecutivefailures and2to3weekconfirmation, CIcritical/warning flags and actualsource Scan now translation, scope versus seeds corrected. Fullproduction rollout/2.41targetreceipts/queues/Supervisor/Horizon/timeoutheadroom/retention/telemetry preserved; recovery hours clarified and finiteoverallcaps distinguished from optionalnullglobalcap. Embedded shell/CIexamples are documentation only, not executed. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:54:21.340Z",
+          "independentNative": false,
+          "digest": "0c6f245f6e9e5638101b63e646f38e7af62662d47055ca51d47171d3f7022057"
+        },
+        "handoff": "zh-cn-docs-batch17-stage/handoff.json"
+      }
+    },
+    "zh-CN/pro/production.md": {
+      "source": "pro/production.md",
+      "sha256": "7a5bc5882b7d9bcddfa1028e52e73fb1c18f460cde9cf13ef3c1322f95db04a2",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "a2ad244dc3d74d94940abc154e03b107b5ea15a3b351e3d7abc6cb5a07f56b7c",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed both complete English/Chinese guides: bounded2000pages/nulloptin plus50/1500/180batchcaps, exact authoredURL versus findingalias identity, all14inspection classes, immediateinspection versus3consecutivefailures and2to3weekconfirmation, CIcritical/warning flags and actualsource Scan now translation, scope versus seeds corrected. Fullproduction rollout/2.41targetreceipts/queues/Supervisor/Horizon/timeoutheadroom/retention/telemetry preserved; recovery hours clarified and finiteoverallcaps distinguished from optionalnullglobalcap. Embedded shell/CIexamples are documentation only, not executed. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:54:21.340Z",
+          "independentNative": false,
+          "digest": "92a16347e6af1a6d18bd83e93808f8edd706aba9cb16752574f5fd77df446373"
+        },
+        "handoff": "zh-cn-docs-batch17-stage/handoff.json"
+      }
+    },
+    "zh-CN/pro/scan-issues.md": {
+      "source": "pro/scan-issues.md",
+      "sha256": "ddfb77bc5ce73aca006c7713aa819db26254e7c68bb1a9fd556a7d2580b6e2d1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "6997c8a765a39500c3483f99b5c091c8578ce6f85de4464553d3a9855232c89b",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed complete issue registry tables, fixed per-code severities, optional network checks, reciprocal-link uncertainty and persistent lifecycle semantics. MCP read-only gates, model allowlist, stdio versus provider egress, exact supported runtime ranges, literal client commands and historical draft Server Card qualification all preserve source scope. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:59:49.428Z",
+          "independentNative": false,
+          "digest": "c8ca11ff194eac38aa016c74c05e9776577e10b135aadba675873030423f0b2c"
+        },
+        "handoff": "zh-cn-docs-batch14-stage/handoff.json"
+      }
+    },
+    "zh-CN/pro/mcp.md": {
+      "source": "pro/mcp.md",
+      "sha256": "5e38f0d65552be2664a98e0ce87614d7e14987ad4da3936b8938d8274a6cd874",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "14c26350b640f9283aafb33c1d9e3c2a07ab8adde950a4550825ee14296ee09a",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed complete issue registry tables, fixed per-code severities, optional network checks, reciprocal-link uncertainty and persistent lifecycle semantics. MCP read-only gates, model allowlist, stdio versus provider egress, exact supported runtime ranges, literal client commands and historical draft Server Card qualification all preserve source scope. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T13:59:49.428Z",
+          "independentNative": false,
+          "digest": "75745a76ca5f38b350168eec32ec9b12a0234660952c6383502f57e58dd381c6"
+        },
+        "handoff": "zh-cn-docs-batch14-stage/handoff.json"
+      }
+    },
+    "zh-CN/guide/og-image.md": {
+      "source": "guide/og-image.md",
+      "sha256": "dc7c00ce446dc5e1fd02f05130387e1bdbcf1443f6a00419e2a34934247b693d",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "9c6bd165bc133311fc8c7671ab8ad714760ae0eb9b1adf7e9abcc93de74af6fd",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Full OG and checklist review preserves off-by-default static generation, explicit image precedence, cache/prune bounds, host sandbox tradeoffs, CJK actual-font verification limits, Snowball subset and 600395 algorithm fixtures without native certification. ICU unavailable skips, stale-score retention, CJK unscored heuristics and advisory-only density remain explicit; localized exact installed checklist action label. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T14:00:51.928Z",
+          "independentNative": false,
+          "digest": "bc98b2a22d57f9461bff5c6858c688c0d005a5e82f5b2a41540b9a12a0959367"
+        },
+        "handoff": "zh-cn-docs-batch15-stage/handoff.json"
+      }
+    },
+    "zh-CN/pro/on-page-checklist.md": {
+      "source": "pro/on-page-checklist.md",
+      "sha256": "cb94ef8f19db646db0e214abb379d0abf490218a2d265efebcdfd986c34ea8c1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "b6211595ddb8adbba15e2c0f360f1cd7817a15add4917658ad0107b8809f6cc7",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Full OG and checklist review preserves off-by-default static generation, explicit image precedence, cache/prune bounds, host sandbox tradeoffs, CJK actual-font verification limits, Snowball subset and 600395 algorithm fixtures without native certification. ICU unavailable skips, stale-score retention, CJK unscored heuristics and advisory-only density remain explicit; localized exact installed checklist action label. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T14:00:51.928Z",
+          "independentNative": false,
+          "digest": "8766d6ebddc9bf0b7ca8dc505d1821d05c9aedf5c27c621c117fc73237b94179"
+        },
+        "handoff": "zh-cn-docs-batch15-stage/handoff.json"
+      }
+    },
+    "zh-CN/pro/reports.md": {
+      "source": "pro/reports.md",
+      "sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "40c4eb9e6d4db1eae10d1da57f7da98200327c6125ef25888a70c05815f9ea37",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Full reports and scheduling review preserves baseline-versus-real-history distinctions, no-store, 404 recovery versus redirect, spoofable user-agent attribution, one-site scope, PDF font/ICU/language capture, CLI separation and literal email commands as documentation only. Snapshot edge cases, disabled-check fixed caveat, command-lock lifetime, notify opt-in and retention unchanged; exact installed Chinese delta widget label. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T14:00:54.277Z",
+          "independentNative": false,
+          "digest": "190936192c31eb63259ee4f25ea6e8b2094a25c5d687a17f0802edd0629e32a8"
+        },
+        "handoff": "zh-cn-docs-batch18-stage/handoff.json"
+      }
+    },
+    "zh-CN/pro/scan-scheduling.md": {
+      "source": "pro/scan-scheduling.md",
+      "sha256": "0c96d2a7db7d8717fab21a5c0bff169a6641751d4871673606c17b3d5550b1b3",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "24079c619f76054cb2a061e57c37b7e4a03d8c4bf66c9f1016aa3d42a901e758",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Full reports and scheduling review preserves baseline-versus-real-history distinctions, no-store, 404 recovery versus redirect, spoofable user-agent attribution, one-site scope, PDF font/ICU/language capture, CLI separation and literal email commands as documentation only. Snapshot edge cases, disabled-check fixed caveat, command-lock lifetime, notify opt-in and retention unchanged; exact installed Chinese delta widget label. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T14:00:54.277Z",
+          "independentNative": false,
+          "digest": "f9979ba9d43dfecf1b9a6085dbaaf341283fa92ae73fc7a5f6a10110fc39085d"
+        },
+        "handoff": "zh-cn-docs-batch18-stage/handoff.json"
+      }
+    },
+    "zh-CN/pro/search-console.md": {
+      "source": "pro/search-console.md",
+      "sha256": "0fe33f55e9dc24a0f78a5bf34d00c93892fb04667fbd10c16ef214961f84d6da",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "7df85d70bda54509827d962915b91cce25058ecd95cf41d481881bf251512aad",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete Search Console source and Chinese page. Preserves hard-coded read-only OAuth scope and rejecting missing/broader token scope, direct own-server credentials, no telemetry or metering, encrypted access tokens versus environment long-lived secrets, guarded requests, three-day lag, 90-day backfill, overlap, partial-day failure recovery and aggregate-only data. Exact config/defaults, examples and localized routes retained. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T14:00:56.604Z",
+          "independentNative": false,
+          "digest": "989a4872baa514c08a33bd7e17f5f40e4a7387ad16c251a20f5ea880944ebef2"
+        },
+        "handoff": "zh-cn-docs-batch19-stage/handoff.json"
+      }
+    },
+    "zh-CN/pro/ai-assist.md": {
+      "source": "pro/ai-assist.md",
+      "sha256": "49729166bb1045e61b7b1d43d824ae7031212ac0e4cd858b332f23c53c707108",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "97432f9343e952886ba124a89a2cc6256fc683bba1c047f73c93dfae5c1863b4",
+        "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete AI assist English and Chinese guide, including all provider tables and literal configuration examples. Preserved shipped versus current pricing/availability, no spending-cap guarantee, local network boundary, interactive acceptance, CLI private drafts versus compatible PHP immediate writes, force versus review, provider-calling dry run, stale-source and batch-mode guards, encrypted provenance and retention, no-human-proof labels, limited prompt filtering, exact egress and non-certification. Matched action names to installed zh_CN package labels. Parent Codex read complete English and Chinese pages; not independent native/human certification.",
+          "warningsDisposition": "Preserved actual command/API identifiers, code, numeric bounds and English anchors; localized own-property destinations resolve to planned zh-CN routes, complete build/link acceptance still pending. Translated prose labels keep code examples literal.",
+          "at": "2026-09-12T14:05:14.739Z",
+          "independentNative": false,
+          "digest": "4aba450c01db09c438c6e3560df1698a3dcbd45892d30a154207f4fa74b0c0bf"
+        },
+        "handoff": "zh-cn-docs-batch16-stage/handoff.json"
+      }
     }
   }
 }

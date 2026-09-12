@@ -1,5 +1,69 @@
 // Shared documentation UI vocabulary. A locale is published only when activated in localization.ts.
 export const localeUi = {
+  // Simplified Chinese copy: exact parent Codex attestation in simplified-chinese-manual-review.json; no native certification.
+  "zh-CN": {
+  "label": "简体中文",
+  "lang": "zh-CN",
+  "guide": "指南",
+  "english": "英文文档",
+  "fallback": "此页面尚未提供简体中文版。",
+  "open": "打开英文页面",
+  "review": "此译文尚待 Codex 编辑审阅。",
+  "source": "英文版",
+  "outline": "本页内容",
+  "next": "下一页",
+  "prev": "上一页",
+  "description": "Laravel SEO 包，提供分层元数据、规范网址、Open Graph、相互关联的 JSON-LD、XML 网站地图和爬虫控制。",
+  "reference": "参考文档（英文）",
+  "table": "数据表",
+  "titles": {
+    "guide/installation": "安装",
+    "guide/quickstart": "快速入门",
+    "concepts/resolver-precedence": "解析器优先级",
+    "guide/sitemaps": "网站地图注册表",
+    "guide/filament": "Filament SEO 字段",
+    "guide/audit": "免费 SEO 审计",
+    "guide/ai-crawlers": "AI 爬虫控制",
+    "guide/multilingual": "多语言内容与 hreflang",
+    "guide/og-image": "生成 OG 图片",
+    "guide/migrate-from-other-packages": "从其他软件包迁移"
+  },
+  "theme": {
+    "returnToTopLabel": "返回顶部",
+    "sidebarMenuLabel": "菜单",
+    "darkModeSwitchLabel": "深色模式",
+    "lightModeSwitchTitle": "切换到浅色主题",
+    "darkModeSwitchTitle": "切换到深色主题",
+    "langMenuLabel": "切换语言",
+    "skipToContentLabel": "跳转到正文",
+    "lastUpdated": {
+      "text": "最后更新"
+    }
+  },
+  "edit": "在 GitHub 编辑此页面",
+  "license": "rankbeam/laravel-seo 采用 MIT 许可证发布。",
+  "search": {
+    "button": {
+      "buttonText": "搜索",
+      "buttonAriaLabel": "搜索文档"
+    },
+    "modal": {
+      "displayDetails": "显示详细列表",
+      "resetButtonTitle": "清空搜索",
+      "backButtonTitle": "关闭搜索",
+      "noResultsText": "未找到结果：",
+      "footer": {
+        "selectText": "选择",
+        "navigateText": "导航",
+        "closeText": "关闭",
+        "selectKeyAriaLabel": "Enter 键",
+        "navigateUpKeyAriaLabel": "向上箭头键",
+        "navigateDownKeyAriaLabel": "向下箭头键",
+        "closeKeyAriaLabel": "Escape 键"
+      }
+    }
+  }
+},
   // Japanese adapter copy: exact parent Codex review in japanese-manual-review.json; no native certification.
   ja: {
   "label": "日本語",

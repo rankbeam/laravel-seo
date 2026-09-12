@@ -202,5 +202,22 @@
       "canonical-urls-in-laravel": "canonical-urls-in-laravel",
       "json-ld-schema-graphs-in-laravel": "json-ld-schema-graphs-in-laravel"
     }
+  },
+  "zh-CN": {
+    "segment": "wenzhang",
+    "articles": {
+      "laravel-seo-guide": "laravel-seo-guide",
+      "laravel-seo-audit": "laravel-seo-audit",
+      "laravel-filament-seo": "laravel-filament-seo",
+      "laravel-meta-tags": "laravel-meta-tags",
+      "laravel-sitemaps": "laravel-sitemaps",
+      "laravel-seo-packages-compared": "laravel-seo-packages-compared",
+      "what-is-rankbeam": "what-is-rankbeam",
+      "answer-engine-optimization-for-laravel": "answer-engine-optimization-for-laravel",
+      "hreflang-done-right-in-laravel": "hreflang-done-right-in-laravel",
+      "replaced-rank-math-with-a-laravel-package": "replaced-rank-math-with-a-laravel-package",
+      "canonical-urls-in-laravel": "canonical-urls-in-laravel",
+      "json-ld-schema-graphs-in-laravel": "json-ld-schema-graphs-in-laravel"
+    }
   }
 }
