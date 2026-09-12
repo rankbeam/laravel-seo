@@ -4,7 +4,7 @@ import { localizeNavigation, sidebarFor } from './layout-localization'
 import { manualFor } from './manual-messages'
 import { localizedThemeAccessibility } from './theme-a11y'
 import { verifyLayoutSources } from './layout-validation'
-import { localSearchMiniSearch, turkishSearchMiniSearch, greekSearchMiniSearch, japaneseSearchMiniSearch, simplifiedChineseSearchMiniSearch } from './local-search'
+import { localSearchMiniSearch, turkishSearchMiniSearch, greekSearchMiniSearch, japaneseSearchMiniSearch, simplifiedChineseSearchMiniSearch, koreanSearchMiniSearch } from './local-search'
 verifyLayoutSources()
 import { generateLlmsArtifacts, SITE_ORIGIN } from './llms'
 import { alternatePaths, editoriallyReviewed, localeInfo, translatedPaths, translationFiles, verifyTranslationSources } from './localization'
@@ -63,6 +63,10 @@ export default defineConfig({
           search: { provider: 'local' as const, options: { ...localSearchOptions, miniSearch: simplifiedChineseSearchMiniSearch } },
           lastUpdated: { ...info.theme.lastUpdated, formatOptions: { forceLocale: true, dateStyle: 'short' as const, timeStyle: 'short' as const } },
         } : {}),
+        ...(locale === 'ko' ? {
+          search: { provider: 'local' as const, options: { ...localSearchOptions, miniSearch: koreanSearchMiniSearch } },
+          lastUpdated: { ...info.theme.lastUpdated, formatOptions: { forceLocale: true, dateStyle: 'short' as const, timeStyle: 'short' as const } },
+        } : {}),
         ...(manualFor(locale) ? { notFound: manualFor(locale).notFound } : {}),
         editLink: { pattern: 'https://github.com/rankbeam/laravel-seo/edit/master/docs/:path', text: info.edit },
         footer: { message: info.license, copyright: 'Copyright © 2026 Valentin Goxhaj — P.IVA 04936270612' },
@@ -100,7 +104,7 @@ export default defineConfig({
   // page's own head. VitePress already emits <meta name="description"> from the
   // resolved page description (frontmatter first), so we don't repeat it here.
   transformPageData(pageData, { siteConfig }) {
-    if (pageData.relativePath === 'nl/404.md' || pageData.relativePath === 'tr/404.md' || pageData.relativePath === 'pl/404.md' || pageData.relativePath === 'ru/404.md' || pageData.relativePath === 'cs/404.md' || pageData.relativePath === 'el/404.md' || pageData.relativePath === 'ja/404.md' || pageData.relativePath === 'zh-CN/404.md') {
+    if (pageData.relativePath === 'nl/404.md' || pageData.relativePath === 'tr/404.md' || pageData.relativePath === 'pl/404.md' || pageData.relativePath === 'ru/404.md' || pageData.relativePath === 'cs/404.md' || pageData.relativePath === 'el/404.md' || pageData.relativePath === 'ja/404.md' || pageData.relativePath === 'zh-CN/404.md' || pageData.relativePath === 'ko/404.md') {
       pageData.isNotFound = true
       ;(pageData.frontmatter.head ??= []).push(['meta', { name: 'robots', content: 'noindex,follow' }])
       return

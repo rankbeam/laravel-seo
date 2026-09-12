@@ -1,0 +1,346 @@
+{
+  "status": "copy_reviewed",
+  "independentNative": false,
+  "entries": [
+    {
+      "key": "localeUi.ko.label",
+      "source": "Korean",
+      "translation": "한국어"
+    },
+    {
+      "key": "localeUi.ko.lang",
+      "source": "ko",
+      "translation": "ko"
+    },
+    {
+      "key": "localeUi.ko.guide",
+      "source": "Guide",
+      "translation": "가이드"
+    },
+    {
+      "key": "localeUi.ko.english",
+      "source": "English documentation",
+      "translation": "영어 문서"
+    },
+    {
+      "key": "localeUi.ko.fallback",
+      "source": "This page is not yet available in Korean.",
+      "translation": "이 페이지는 아직 한국어로 제공되지 않습니다."
+    },
+    {
+      "key": "localeUi.ko.open",
+      "source": "Open the English page",
+      "translation": "영어 페이지 열기"
+    },
+    {
+      "key": "localeUi.ko.review",
+      "source": "This translation is pending Codex editorial review.",
+      "translation": "이 번역은 Codex의 편집 검토를 기다리고 있습니다."
+    },
+    {
+      "key": "localeUi.ko.source",
+      "source": "English version",
+      "translation": "영어 버전"
+    },
+    {
+      "key": "localeUi.ko.outline",
+      "source": "On this page",
+      "translation": "이 페이지의 내용"
+    },
+    {
+      "key": "localeUi.ko.next",
+      "source": "Next page",
+      "translation": "다음 페이지"
+    },
+    {
+      "key": "localeUi.ko.prev",
+      "source": "Previous page",
+      "translation": "이전 페이지"
+    },
+    {
+      "key": "localeUi.ko.description",
+      "source": "Laravel SEO package for layered metadata, canonical URLs, Open Graph, linked JSON-LD, XML sitemaps and crawler controls.",
+      "translation": "계층별 메타데이터, 표준 URL, Open Graph, 연결된 JSON-LD, XML 사이트맵, 크롤러 제어를 위한 Laravel SEO 패키지입니다."
+    },
+    {
+      "key": "localeUi.ko.reference",
+      "source": "Reference (EN)",
+      "translation": "참고 문서(영어)"
+    },
+    {
+      "key": "localeUi.ko.table",
+      "source": "Data table",
+      "translation": "데이터 표"
+    },
+    {
+      "key": "localeUi.ko.titles.guide/installation",
+      "source": "Installation",
+      "translation": "설치"
+    },
+    {
+      "key": "localeUi.ko.titles.guide/quickstart",
+      "source": "Quickstart",
+      "translation": "빠른 시작"
+    },
+    {
+      "key": "localeUi.ko.titles.concepts/resolver-precedence",
+      "source": "Resolver precedence",
+      "translation": "리졸버 우선순위"
+    },
+    {
+      "key": "localeUi.ko.titles.guide/sitemaps",
+      "source": "Sitemap registry",
+      "translation": "사이트맵 레지스트리"
+    },
+    {
+      "key": "localeUi.ko.titles.guide/filament",
+      "source": "Filament SEO fields",
+      "translation": "Filament SEO 필드"
+    },
+    {
+      "key": "localeUi.ko.titles.guide/audit",
+      "source": "Free SEO audit",
+      "translation": "무료 SEO 감사"
+    },
+    {
+      "key": "localeUi.ko.titles.guide/ai-crawlers",
+      "source": "AI crawler controls",
+      "translation": "AI 크롤러 제어"
+    },
+    {
+      "key": "localeUi.ko.titles.guide/multilingual",
+      "source": "Multilingual content and hreflang",
+      "translation": "다국어 콘텐츠와 hreflang"
+    },
+    {
+      "key": "localeUi.ko.titles.guide/og-image",
+      "source": "Generated OG images",
+      "translation": "OG 이미지 생성"
+    },
+    {
+      "key": "localeUi.ko.titles.guide/migrate-from-other-packages",
+      "source": "Migrating from other packages",
+      "translation": "다른 패키지에서 이전"
+    },
+    {
+      "key": "localeUi.ko.theme.returnToTopLabel",
+      "source": "Return to top",
+      "translation": "맨 위로"
+    },
+    {
+      "key": "localeUi.ko.theme.sidebarMenuLabel",
+      "source": "Menu",
+      "translation": "메뉴"
+    },
+    {
+      "key": "localeUi.ko.theme.darkModeSwitchLabel",
+      "source": "Dark mode",
+      "translation": "다크 모드"
+    },
+    {
+      "key": "localeUi.ko.theme.lightModeSwitchTitle",
+      "source": "Switch to light theme",
+      "translation": "밝은 테마로 전환"
+    },
+    {
+      "key": "localeUi.ko.theme.darkModeSwitchTitle",
+      "source": "Switch to dark theme",
+      "translation": "어두운 테마로 전환"
+    },
+    {
+      "key": "localeUi.ko.theme.langMenuLabel",
+      "source": "Change language",
+      "translation": "언어 변경"
+    },
+    {
+      "key": "localeUi.ko.theme.skipToContentLabel",
+      "source": "Skip to content",
+      "translation": "본문으로 바로가기"
+    },
+    {
+      "key": "localeUi.ko.theme.lastUpdated.text",
+      "source": "Last updated",
+      "translation": "마지막 업데이트"
+    },
+    {
+      "key": "localeUi.ko.edit",
+      "source": "Edit this page on GitHub",
+      "translation": "GitHub에서 이 페이지 편집"
+    },
+    {
+      "key": "localeUi.ko.license",
+      "source": "rankbeam/laravel-seo is released under the MIT License.",
+      "translation": "rankbeam/laravel-seo는 MIT 라이선스로 배포됩니다."
+    },
+    {
+      "key": "localeUi.ko.search.button.buttonText",
+      "source": "Search",
+      "translation": "검색"
+    },
+    {
+      "key": "localeUi.ko.search.button.buttonAriaLabel",
+      "source": "Search docs",
+      "translation": "문서 검색"
+    },
+    {
+      "key": "localeUi.ko.search.modal.displayDetails",
+      "source": "Display detailed list",
+      "translation": "상세 목록 표시"
+    },
+    {
+      "key": "localeUi.ko.search.modal.resetButtonTitle",
+      "source": "Reset search",
+      "translation": "검색 초기화"
+    },
+    {
+      "key": "localeUi.ko.search.modal.backButtonTitle",
+      "source": "Close search",
+      "translation": "검색 닫기"
+    },
+    {
+      "key": "localeUi.ko.search.modal.noResultsText",
+      "source": "No results for",
+      "translation": "검색 결과 없음:"
+    },
+    {
+      "key": "localeUi.ko.search.modal.footer.selectText",
+      "source": "to select",
+      "translation": "선택"
+    },
+    {
+      "key": "localeUi.ko.search.modal.footer.navigateText",
+      "source": "to navigate",
+      "translation": "이동"
+    },
+    {
+      "key": "localeUi.ko.search.modal.footer.closeText",
+      "source": "to close",
+      "translation": "닫기"
+    },
+    {
+      "key": "localeUi.ko.search.modal.footer.selectKeyAriaLabel",
+      "source": "Enter",
+      "translation": "Enter"
+    },
+    {
+      "key": "localeUi.ko.search.modal.footer.navigateUpKeyAriaLabel",
+      "source": "Arrow up",
+      "translation": "위쪽 화살표"
+    },
+    {
+      "key": "localeUi.ko.search.modal.footer.navigateDownKeyAriaLabel",
+      "source": "Arrow down",
+      "translation": "아래쪽 화살표"
+    },
+    {
+      "key": "localeUi.ko.search.modal.footer.closeKeyAriaLabel",
+      "source": "Escape",
+      "translation": "Escape"
+    },
+    {
+      "key": "manualMessages.ko.imageAlt",
+      "source": "Rankbeam — open-core SEO infrastructure for Laravel",
+      "translation": "Rankbeam — Laravel용 오픈 코어 SEO 인프라"
+    },
+    {
+      "key": "manualMessages.ko.copyTitle",
+      "source": "Copy Code",
+      "translation": "코드 복사"
+    },
+    {
+      "key": "manualMessages.ko.copied",
+      "source": "Copied",
+      "translation": "복사됨"
+    },
+    {
+      "key": "manualMessages.ko.copyFailed",
+      "source": "Copy failed. Select the code and copy it manually.",
+      "translation": "복사하지 못했습니다. 코드를 선택해 직접 복사하세요."
+    },
+    {
+      "key": "manualMessages.ko.noScript",
+      "source": "Without JavaScript, select the code and copy it manually.",
+      "translation": "JavaScript를 사용할 수 없으면 코드를 선택해 직접 복사하세요."
+    },
+    {
+      "key": "manualMessages.ko.noScriptMenu",
+      "source": "Menu",
+      "translation": "메뉴"
+    },
+    {
+      "key": "manualMessages.ko.noScriptHelp",
+      "source": "JavaScript is disabled. Use these links to navigate; select code to copy it manually.",
+      "translation": "JavaScript가 비활성화되어 있습니다. 이 링크로 이동하고, 코드를 선택해 직접 복사하세요."
+    },
+    {
+      "key": "manualMessages.ko.language",
+      "source": "Language",
+      "translation": "언어"
+    },
+    {
+      "key": "manualMessages.ko.mobileNavigation",
+      "source": "mobile navigation",
+      "translation": "모바일 탐색 메뉴"
+    },
+    {
+      "key": "manualMessages.ko.extraNavigation",
+      "source": "extra navigation",
+      "translation": "추가 탐색 메뉴"
+    },
+    {
+      "key": "manualMessages.ko.mainNavigation",
+      "source": "Main Navigation",
+      "translation": "주 탐색 메뉴"
+    },
+    {
+      "key": "manualMessages.ko.sidebarNavigation",
+      "source": "Sidebar Navigation",
+      "translation": "사이드바 탐색 메뉴"
+    },
+    {
+      "key": "manualMessages.ko.pager",
+      "source": "Pager",
+      "translation": "페이지 탐색"
+    },
+    {
+      "key": "manualMessages.ko.permalink",
+      "source": "Permalink to",
+      "translation": "고유 링크:"
+    },
+    {
+      "key": "manualMessages.ko.notFound.title",
+      "source": "PAGE NOT FOUND",
+      "translation": "페이지를 찾을 수 없습니다"
+    },
+    {
+      "key": "manualMessages.ko.notFound.quote",
+      "source": "But if you don't change your direction, and if you keep looking, you may end up where you are heading.",
+      "translation": "방향을 바꾸지 않고 계속 찾다 보면, 지금 향하고 있는 곳에 도착할 수도 있습니다."
+    },
+    {
+      "key": "manualMessages.ko.notFound.linkLabel",
+      "source": "go to home",
+      "translation": "홈으로 이동"
+    },
+    {
+      "key": "manualMessages.ko.notFound.linkText",
+      "source": "Take me home",
+      "translation": "홈으로 돌아가기"
+    },
+    {
+      "key": "ko/404.md:title",
+      "source": "Page not found",
+      "translation": "페이지를 찾을 수 없습니다"
+    },
+    {
+      "key": "ko/404.md:description",
+      "source": "The requested documentation page could not be found.",
+      "translation": "요청한 문서 페이지를 찾을 수 없습니다."
+    }
+  ],
+  "reviewer": "Codex",
+  "at": "2026-09-12T15:14:02.719Z",
+  "source": "work/ko-docs-adapter-manual-draft.json",
+  "sourceSha256": "19c55d849deb45867f856cdd388514f46a2893ac6e4ed6cb737f4abb1e8b7b6c",
+  "notes": "Parent drafted and read all67 English/Korean values in order: search buttons/no-results/keyboardinstructions, accessibility navigation, 404/title/metadata/aphorism, pendingreviewandfallbacknotices, copyfail/noJS/manualselection, MIT license. Fullsemantic counterparts preserved; ko BCP47 andEnter/Escape keynames intentionally unchanged. Codex self editorial review, not independent native/human certification. Renderedbehavior and sourceintegration remain separate gates."
+}

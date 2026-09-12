@@ -9,8 +9,14 @@ export const localSearchMiniSearch = {
       const source = ({ searchTitle: 'title', searchTitles: 'titles', searchText: 'text' } as Record<string, string>)[field]
       const value = document[source ?? field]
       if (!source) return value
-      const locale = String(document.id).match(/^\/(tr|el|ja|zh-CN)(?:\/|#|$)/)?.[1]
+      const locale = String(document.id).match(/^\/(tr|el|ja|zh-CN|ko)(?:\/|#|$)/)?.[1]
       if (!locale) return value
+      if (locale === 'ko') {
+        // Korean uses spaces. Normalize search-only fields for composed Hangul
+        // and fullwidth identifiers; preserve original stored display values.
+        if (Array.isArray(value)) return value.map(part => String(part).normalize('NFKC'))
+        return typeof value === 'string' ? value.normalize('NFKC') : value
+      }
       if (locale === 'ja' || locale === 'zh-CN') {
         // The global builder still uses MiniSearch's punctuation tokenizer.
         // Insert word boundaries only in search fields, leaving display intact.
@@ -74,5 +80,16 @@ export const simplifiedChineseSearchMiniSearch = {
     tokenize: (text: string) => [...new Intl.Segmenter('zh-CN', { granularity: 'word' }).segment(text.normalize('NFKC'))]
       .filter(segment => segment.isWordLike)
       .flatMap(segment => segment.segment.split(/[\n\r\p{Z}\p{P}]+/u)).filter(Boolean),
+  },
+}
+
+
+export const koreanSearchMiniSearch = {
+  ...localSearchMiniSearch,
+  options: {
+    ...localSearchMiniSearch.options,
+    // Self-contained for VitePress serialization. Match normalized extraction
+    // and the global builder's punctuation tokenizer without guessing stems.
+    tokenize: (text: string) => text.normalize('NFKC').split(/[\n\r\p{Z}\p{P}]+/u).filter(Boolean),
   },
 }
