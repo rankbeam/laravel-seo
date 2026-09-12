@@ -1,5 +1,68 @@
 // Shared documentation UI vocabulary. A locale is published only when activated in localization.ts.
 export const localeUi = {
+  ko: {
+  "label": "한국어",
+  "lang": "ko",
+  "guide": "가이드",
+  "english": "영어 문서",
+  "fallback": "이 페이지는 아직 한국어로 제공되지 않습니다.",
+  "open": "영어 페이지 열기",
+  "review": "이 번역은 Codex의 편집 검토를 기다리고 있습니다.",
+  "source": "영어 버전",
+  "outline": "이 페이지의 내용",
+  "next": "다음 페이지",
+  "prev": "이전 페이지",
+  "description": "계층별 메타데이터, 표준 URL, Open Graph, 연결된 JSON-LD, XML 사이트맵, 크롤러 제어를 위한 Laravel SEO 패키지입니다.",
+  "reference": "참고 문서(영어)",
+  "table": "데이터 표",
+  "titles": {
+    "guide/installation": "설치",
+    "guide/quickstart": "빠른 시작",
+    "concepts/resolver-precedence": "리졸버 우선순위",
+    "guide/sitemaps": "사이트맵 레지스트리",
+    "guide/filament": "Filament SEO 필드",
+    "guide/audit": "무료 SEO 감사",
+    "guide/ai-crawlers": "AI 크롤러 제어",
+    "guide/multilingual": "다국어 콘텐츠와 hreflang",
+    "guide/og-image": "OG 이미지 생성",
+    "guide/migrate-from-other-packages": "다른 패키지에서 이전"
+  },
+  "theme": {
+    "returnToTopLabel": "맨 위로",
+    "sidebarMenuLabel": "메뉴",
+    "darkModeSwitchLabel": "다크 모드",
+    "lightModeSwitchTitle": "밝은 테마로 전환",
+    "darkModeSwitchTitle": "어두운 테마로 전환",
+    "langMenuLabel": "언어 변경",
+    "skipToContentLabel": "본문으로 바로가기",
+    "lastUpdated": {
+      "text": "마지막 업데이트"
+    }
+  },
+  "edit": "GitHub에서 이 페이지 편집",
+  "license": "rankbeam/laravel-seo는 MIT 라이선스로 배포됩니다.",
+  "search": {
+    "button": {
+      "buttonText": "검색",
+      "buttonAriaLabel": "문서 검색"
+    },
+    "modal": {
+      "displayDetails": "상세 목록 표시",
+      "resetButtonTitle": "검색 초기화",
+      "backButtonTitle": "검색 닫기",
+      "noResultsText": "검색 결과 없음:",
+      "footer": {
+        "selectText": "선택",
+        "navigateText": "이동",
+        "closeText": "닫기",
+        "selectKeyAriaLabel": "Enter",
+        "navigateUpKeyAriaLabel": "위쪽 화살표",
+        "navigateDownKeyAriaLabel": "아래쪽 화살표",
+        "closeKeyAriaLabel": "Escape"
+      }
+    }
+  }
+},
   // Simplified Chinese copy: exact parent Codex attestation in simplified-chinese-manual-review.json; no native certification.
   "zh-CN": {
   "label": "简体中文",

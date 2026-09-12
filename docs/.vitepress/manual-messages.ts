@@ -1,6 +1,28 @@
 // Additional theme surfaces absent from the page/layout catalogs.
 // Codex copy review 2026-09-11; no independent native/human certification.
 export const manualMessages = {
+  ko: {
+  "imageAlt": "Rankbeam — Laravel용 오픈 코어 SEO 인프라",
+  "copyTitle": "코드 복사",
+  "copied": "복사됨",
+  "copyFailed": "복사하지 못했습니다. 코드를 선택해 직접 복사하세요.",
+  "noScript": "JavaScript를 사용할 수 없으면 코드를 선택해 직접 복사하세요.",
+  "noScriptMenu": "메뉴",
+  "noScriptHelp": "JavaScript가 비활성화되어 있습니다. 이 링크로 이동하고, 코드를 선택해 직접 복사하세요.",
+  "language": "언어",
+  "mobileNavigation": "모바일 탐색 메뉴",
+  "extraNavigation": "추가 탐색 메뉴",
+  "mainNavigation": "주 탐색 메뉴",
+  "sidebarNavigation": "사이드바 탐색 메뉴",
+  "pager": "페이지 탐색",
+  "permalink": "고유 링크:",
+  "notFound": {
+    "title": "페이지를 찾을 수 없습니다",
+    "quote": "방향을 바꾸지 않고 계속 찾다 보면, 지금 향하고 있는 곳에 도착할 수도 있습니다.",
+    "linkLabel": "홈으로 이동",
+    "linkText": "홈으로 돌아가기"
+  }
+},
   // Simplified Chinese copy: exact parent Codex attestation in simplified-chinese-manual-review.json.
   "zh-CN": {
   "imageAlt": "Rankbeam — 面向 Laravel 的开放核心 SEO 基础设施",

@@ -5347,5 +5347,887 @@
         "digest": "5f8acb2ad1bf821d0d49c99f9023ebfab269d90108ded46aaa6a95016a757915"
       }
     }
+  },
+  "ko": {
+    "source_sha256": "5bc248b9e0247c2d01a66dd7424523fa9e1644180a264253d357f0861391333d",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-09-12",
+    "status": "approved",
+    "independent_native": false,
+    "scope": "109 exact parent-reviewed navigation/layout units.67additional manual values bound in korean-manual-review.json. No independent native or human certification.",
+    "workflow_reviews": {
+      "Getting started": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "5d437969990a7496ac45678d6176cfc2d81bda9fbff29a6900956cf347df631b"
+      },
+      "What is Rankbeam?": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "ef2d6503a905ee265b627bf5c3ffb483d3337eb7fac74f3bc9a54266e608c181"
+      },
+      "Installation": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "9c4f23b2584b9547f9da1d0540ee20b73358e5274833d8abf50d90f45923a720"
+      },
+      "Quickstart": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "71656acb4e4bd2d04090bbacf7d7d442287a74e964ff1567c971042b49783c9a"
+      },
+      "Run the demo": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "15e58c5bdb164977454987ba7aed738d149c3cff52dbe49bcf64816f378762ce"
+      },
+      "Core concepts": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "2d83270ccd718191bdbe3d4bbcd6ac93c38b5ec227d69f63c1e607fe29678d2d"
+      },
+      "Resolver precedence": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "fb87858770e14aa7c21d45a17c47b2184c98a6430dd1454086e3e98c91bda2cc"
+      },
+      "Explain resolution": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "1e5c35daf9940cc614fea227a35afdbee15760896d83aa5b6570579c2d6c0a35"
+      },
+      "Rendering": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "bfb46889761953003c18584a8c55af6699683941db951059aa42ee87844d8a85"
+      },
+      "Blade": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "644d4090bd0f4f5f0be40199fa971c729fa105b47c6d12626c131c72e16e5df7"
+      },
+      "Inertia & JSON APIs": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "8fdb8aa5969b3f13693781ef4193ab93effe56a883938a98ebe7e1cc48f01715"
+      },
+      "Livewire": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "af73b9bb1aed1c03fcfd7034ceb97677cbd2386cdfa3653a364cf74941e7aac1"
+      },
+      "Filament admin fields": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "5181cc56be80129b41388bbd3d6124bcaacfdda0ac61f159b42dfa2f98803f16"
+      },
+      "Metadata & schema": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "89f75472d9cdfbe9519349d6d5bf10bbd7a8348d517efa11b07c6a73c2b0fa1f"
+      },
+      "Schema graph (JSON-LD)": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "725a779dc0846152f089a023aa8a6c10e6ef10c8052804066a2685c923e19aed"
+      },
+      "Generated OG images": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "7c822538b9ec181b36bdc892f41ddee2b147dc98f34ce72fb8da7583d148c0cb"
+      },
+      "Sitemap registry": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "de619b0cdc9688fdf00811001d7701a362d3b8fc40c97a404392052bb0379ce8"
+      },
+      "Crawlers & indexing": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "2931c700495cc28ce2878ff5a3edf71a56cd24569c913b3bc2ca669c3f425d8a"
+      },
+      "AI crawler control": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "7210212674a4199f2662729e30b0c6b29f84aa0ae0e6726704feebef32a151a8"
+      },
+      "Indexing guard": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "317e2705f7aa0403269fac2130b417b9bea29fa1b1c0b1979f7db97789500e70"
+      },
+      "Markdown for bots": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "5c3d7d78ab5bf80adb15156d3ef686b1aee927ddf3267548435b924ef8290086"
+      },
+      "Free SEO audit": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "28ee72e8f4c8a50f254fd1410aec83b34d9a860c4b6813edec6b0271586d4278"
+      },
+      "Translations": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "edc57c46cf4d91b85313ad565d9fd8a1f0ff7fe971b0a712d56c123a41bd2574"
+      },
+      "Multilingual content": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "387047c1dfff6c37846f7ffd7907424a03502b86feabc49e55399eaa0d72f51a"
+      },
+      "Migrating": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "04c155dc7a079f09e2e9416df0e54e63d23ba0179c1b7cb3d186ceef0e98c8eb"
+      },
+      "From WordPress": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "b902a886324c3c202ee00be2dd933101d95621414900679ed59c1c1d653d76a1"
+      },
+      "WordPress runbook": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "4a85cb86c66d77d5ea8f9f98460ca33fe6fc307153b7ec6c275cce8987923a1b"
+      },
+      "From other packages": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "17269cd0545c56dedc797e296ee5155abf941973d744adda47a0ea58396dcf02"
+      },
+      "Upgrading from v1": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "420e29c2ca22c8f382eb95164968962c2fcfa878a05da8f30e063d06fc1ddf75"
+      },
+      "Guides": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "00055bcb322f23ffbf9add4685454899af9186ee995d6c49e15b431896345d38"
+      },
+      "Laravel SEO: the complete guide ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "051a31e923c7acff707bd866d74f87213f890c6ce521bdfb2b1bfa663bc56e8f"
+      },
+      "Best Laravel SEO packages compared ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "755298a1545c7dea17dae4453cfe280f69b7f123fc7ea83472b395afad5dcfdf"
+      },
+      "Laravel meta tags ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "0bf9673c6aef38edf488f660e87122f1dec52de0561a73bef8690397189bfc79"
+      },
+      "Canonical URLs in Laravel ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "324f1c3f6f9d0e5e7e81e2d9437f4fc565a5ac4da7177bf17af13942d35b7aef"
+      },
+      "JSON-LD schema graphs ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "ce51ffadc34a4f67002cb18bf6cdc36419a46c571a8e7067f379d673f0114d09"
+      },
+      "Laravel sitemaps ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "2101235682ac8611035253a3f2f1dc358c48c62d61064bdfdfc97a41d6ebdaba"
+      },
+      "Laravel SEO audit in CI ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "1a880500890e904f77192d3b938715c44ee4fb2d98eed6a3e30481aded87cf82"
+      },
+      "hreflang done right ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "4b9fcc350ef0b7184e6413cd9d525baecee80019013d8d908e48cc65bc7206ff"
+      },
+      "Answer engine optimization ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "a3f02783e419c180a215e7e46d609a561b68f0f235ffd30dfa23df4224f5c2a3"
+      },
+      "Filament SEO fields ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "78c77e9111c98282507df8de72be4d4e20cf2db11671e935cca376ce59d6c868"
+      },
+      "Pro setup": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "0dcb3756d8546d8ad5bc087c774c7c3aacb22ee3b66c6607e78df26d1848c986"
+      },
+      "Installing Pro": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "075cdf0c9620e88dfc1df06927718e92a76be7071391525634e92820f13b13fa"
+      },
+      "Scan → fix → report": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "0c6fab0c82941bf330e3abff10ba7f62674f1207763acb04a98e154494be1d19"
+      },
+      "Production setup": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "585d1128b91c1a07b56d0c164e7ff15e785e96f144ae2f1d22d1b5cad0ab1823"
+      },
+      "Headless usage": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "62c2f52ab6a9bceee6b43d5bcff40ad228997d6ae919fe773b3b089f7d879eb6"
+      },
+      "Scanning & scoring": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "74d4e3726879816888a028048cb7aff1c748fcea48cfd651be628ceb9674ccdd"
+      },
+      "Scan issues": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "80a92b116b3b388e732a44ec2c1600e1329beb5d96713a2745a521db953660c1"
+      },
+      "Scan scheduling & delta": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "cbd16ba1ce2e979d6583898d709b5e037fedee8706d0d2b6f9e534ed1284fa26"
+      },
+      "SEO score": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "bdcac40946a84586946a929d49bafd6da2ec291cd63aa37034b993165b711f54"
+      },
+      "AI-readiness score": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "a0b5612a1a5bb9b72f06c7e86347a801365d36c7909aa1ffefc26fb19adafb55"
+      },
+      "On-page checklist": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "50eb374ababb18b18087112c30eb724c8427caaac29c58221e070ff60800f67a"
+      },
+      "Broken-link crawler": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "e5a0b6e9bc8eda28c81c723a39e3b163718ffc84ff7a7e5033f0a3fd7b27b4d9"
+      },
+      "Search Console": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "fc36cf86dd29e2aa75f82e28eb45c43ba00c52bb513202f63bd785c9d3920c15"
+      },
+      "Connecting Search Console": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "c78787c968ae6768a53d0a444659f832bef2fd39e908f41cb1580fb08e476b26"
+      },
+      "Search Console insights": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "35aba368cae335001642c54583ead16ded2fc96a63a27acbd3aa9c5def5072c8"
+      },
+      "Reporting & automation": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "aab96d84f9a0e16c6d4c5430577ac656519270ce77a0eeede6e6ce3798af9306"
+      },
+      "White-label reports": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "0d993e6305e605a6af642babcff828e4b14db7063c2846fd9c0e41168b980342"
+      },
+      "IndexNow": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "93b936da00331a43ece0c1bd5fb76d3a7066cd1999c4e40d88f6a5e937a87fff"
+      },
+      "AI-bot monitor": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "dc09540318a51d361b41e16e7fb24257f84c156bc1f46a32f604e1cfd3dca41f"
+      },
+      "MCP server": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "afd6c38006bc7732fa29ac92109b73d69791df4a8ea8dafa99810668b21a98b2"
+      },
+      "AI assist": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "70df03ef33cfbb13415c0e00e92169b43bf223acd2dd90b2017f54442820d258"
+      },
+      "Reference": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "5630daf148fd7b2dc3d625a232a8f95ad2debdc36ade044a40bd9602c883ec00"
+      },
+      "Configuration": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "d4ecc1509964e385e0639616d2669c1696d241c4ab919180a5fcddaad3598f70"
+      },
+      "Contributing": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "5447e03d8a986ef47996b391dff62bbe9b3ccd740f4954b24d44ade9f8ed3008"
+      },
+      "Rendering contract": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "752c72760792aa929122f079a5fe80fb78c91346afccfa941a1b42003133a466"
+      },
+      "Guide": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "ddab5073197d9387bc07f6f23fe66ae81682f787047bc59dafd58063b5e3757e"
+      },
+      "Pro": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "bf0e3dbc66297878b26556e22f25e1219d5818a65ba053cf3da05d7b16898d28"
+      },
+      "Releases": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "4cb3c91f6f56f88759aadd7e90461af911ae40d4f9b9388c7af3fcff5e419a3d"
+      },
+      "Changelog": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "d430d35a33aed84c679c2a88e6e6961698c57a47aa9ef24ccf22c8222a37f73e"
+      },
+      "Product": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "295a453bd0feee552cae602a01e993bbbb0e1e47ece334ed8e5ca9236cd38a52"
+      },
+      "Free core ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "53876d51854ae8fd101407f34583202b468c04cf78cc017c14c05edbd435b1d9"
+      },
+      "Free Filament editor ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "cb01b29be9f79667bda6f668cd5ba6e71c33be4228b3b326986986d6b6acaefe"
+      },
+      "Pro and pricing ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "29774e0ba2bb3b71d377ffad05a4b77f67f42606437711f860a5730f190fb588"
+      },
+      "AI access checker ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "867f61c1242d207f5d6cfd6afd4465256c4a2a47814cf1d935953f3adfe91c21"
+      },
+      "Blog ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "ea91572a92ee8c5b6498ce9bf3c304f0be1ae36880d20604a3c5a377e2b29581"
+      },
+      "Render your pages": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "abcfc8e9da710db83320fdb9c4118672ba8aed5715ceb6a117020972f233c8a2"
+      },
+      "Configure the output": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "a70cac66ed4f37a7d54cd7d44cde4b51f2c64beaa7ec461dfa79d5bea3c7bc2c"
+      },
+      "Check and maintain": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "7d3e70e2cd4bae91a709fdded5553065092c5e2af1623f7271f44aa01b2e6327"
+      },
+      "Blade templates": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "684e4c0a017733ad1aea6fded272223fef1f0f66aacb11cb86e3d59ab8aafe82"
+      },
+      "Render the head from a model.": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "bcbdd1a0e86a4762c0d4c95c47a391ae3d733044b1ec726e448aec44b81ae0c9"
+      },
+      "Pass resolved metadata to your frontend.": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "f7f6764c3341a32138e92c80af9be1188d9e8e8ca9dce38679dcf5afd07d34cf"
+      },
+      "Keep metadata in sync with navigation.": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "fab8264826230942bd8cb4932d9bc50e749e1db479ab54d21a791d85f1bcff54"
+      },
+      "Filament fields": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "bcd5a55dc5ea9bfabd6074f8cea986ae96e2b9fdd8ebd4f8ae3cb02195fb616e"
+      },
+      "Give editors SEO fields and previews.": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "2bb956e3218c2d31de47b172024d647f09b01237e4a9e5ec89c70f6dfb74a6aa"
+      },
+      "Understand which value wins.": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "e0c282de4cab2d933c3b6766ba01cb14c663c63322d2ae5dfffb9326120cf61f"
+      },
+      "JSON-LD schema": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "67fc0b4dd53a4767f3ad333c4500be6148472dc3ab4e7a2e158da725bdaa9acd"
+      },
+      "Build a linked schema graph.": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "f508775676554f8b80951176e156b86e045db2c8973396beb47acdfcde608509"
+      },
+      "Sitemaps": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "0f37edeafc5bbb0800bacf468bc393277c6664675e7328b8b2799aaae40e6b3c"
+      },
+      "Register models and generate XML.": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "b8075aaf85f9af502e4f45ce9d8fb0a4d4d65a4f0288ea8196f142404f779be5"
+      },
+      "Resolve metadata for each language.": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "4686e54962b98bb743e77c48efcc3be83d4ad5ce272f55bc20f302d52cffa949"
+      },
+      "Check your rendered pages from Artisan.": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "8a7f66b1eb124bd8f0b6411fbec9add0c18db3c36934b891441344eb38ef2334"
+      },
+      "AI crawler controls": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "cd69ab81b70a0881075e354295a99bf18680244854ef492471b72a508ae4b4af"
+      },
+      "Choose and publish a robots policy.": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "780d210c408e0a3224a95c3272525918297c30b79886f6dac0d165fe77743371"
+      },
+      "Install Pro": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "f22ea4b37883c1703898414849cc3eee831dafab513c2054897781eb4f3ea191"
+      },
+      "Add scans, redirects and 404 monitoring.": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "c0fc8ea45ea53941cd026f0b207bab44b8ccc59bd193577641b254a13d2c6096"
+      },
+      "Configure queues, scheduling and retention.": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "32def509eaea4036c0188e1acfa3c627335ca4a6233abc1dd9dc22a286e61416"
+      },
+      "Rankbeam documentation": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "0b2a357805277137239be16f277830f71cc1ae0c63b06ff40a950dd332bc7deb"
+      },
+      "Add SEO to your Laravel app.": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "3a2d427c0c09fda17b6555b16fa25f8f364d4e93ffe5c8fc551a6f0303eefd68"
+      },
+      "Start with the free MIT core for metadata, canonical URLs, JSON-LD and sitemaps. Pro adds monitoring and operations when you need them.": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "365b29bf2bf1d065f386daa4684f063d3cfc1c70cd23c4307d1717cee8546e96"
+      },
+      "Install and render your first tags →": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "bb29e96394d953b88a52414bc18203ff71e22ccefa741ba6e76522c3453bc935"
+      },
+      "Laravel 11–13 · PHP 8.2+ (8.3+ on Laravel 13)": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "457b83690bb169bca36f3e6aa34ce71ea6f7fe55b292638030c8f6af2751244d"
+      },
+      "Moving an existing site?": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "c66789c27ab2f65c5124b59a62cad0de9c4fc623a44974c94babe2528f497792"
+      },
+      "Keep your metadata when moving from": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "906c016d076fc93898f7fc6147972fecffc7b981ad49793553fd6e538d3945c9"
+      },
+      "WordPress": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "b6da12cbe611ebcd92b533eead66faff32d37c2621bc2d2167bb29ac206e402f"
+      },
+      "or": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "d7597bfe7850dcd2aa39e632bd4b6f3e3c9738eab2479617b2614d33853de158"
+      },
+      "another Laravel SEO package": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "8e929e63b5ea22f9e605d99390154dec5308106788a58fe8d2a3804c5644e592"
+      },
+      ". Start with a dry run.": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "b213127d5930def686008e324819bf3ec0ae7f30e9b5cc120c1adcfbc60d2641"
+      },
+      "English": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "eb029bccbf9305d57aadf5f8c24e53311f32f26e2fb2d7e4ffab3bf5721b32af"
+      },
+      "Laravel SEO package": {
+        "reviewer": "Codex",
+        "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+        "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+        "at": "2026-09-12T15:04:52.125Z",
+        "independentNative": false,
+        "digest": "463b75b10141eef3a6fc72992a5cbb0c6c60eaa4897f2cf86fef0246b2d0e247"
+      }
+    }
   }
 }

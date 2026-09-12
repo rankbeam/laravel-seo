@@ -606,3 +606,13 @@ html[lang="zh-CN"] {
   word-break: normal;
 }
 html[lang="zh-CN"] :is(h1,h2,h3,h4,.VPNavBarTitle) { letter-spacing: normal; }
+
+/* Korean prose preserves words; long mixed identifiers may wrap safely. */
+html[lang="ko"] {
+  --vp-code-copy-copied-text-content: "복사됨";
+  --vp-font-family-base: Inter, "Noto Sans CJK KR", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+html[lang="ko"] :is(h1,h2,h3,h4,.VPNavBarTitle) { letter-spacing: normal; }
+html[lang="ko"] :is(pre,pre code) { word-break: normal; overflow-wrap: normal; }

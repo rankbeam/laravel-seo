@@ -9830,6 +9830,952 @@
         },
         "handoff": "zh-cn-docs-batch16-stage/handoff.json"
       }
+    },
+    "ko/index.md": {
+      "source": "index.md",
+      "sha256": "1fe0fb5e64039c222519c36e499eb8dcbf9b775cf38241862971bb607089c522",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "3e6c596eb60ceb34294516b0b075b8e2860edfac5ba6d494aa8d8df5b1068b95",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read completeindex/installation/quickstart against stableEN sections. Checked PHP/Laravel matrix, optionalSpatie, SEOtables, prerequisites, suffix, saveSEO andWithoutModelEvents warning. Refined prose trait terminology andcodeparticles. Initial parentattempt changedthe anchor with broadreplace; checkerrejected before approval. This r1uses proseonlymatches, preserving original stableanchor _1-add-the-trait-to-a-model andallcode; originalfailedpacket retained. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:05:50.946Z",
+          "independentNative": false,
+          "digest": "bbbcf8bcc68ba79d35bdcd77c96e3d67164f12a0e31274c7ae8f04d1d5efc506"
+        },
+        "handoff": "ko-docs-batch01-r1-stage/handoff.json"
+      }
+    },
+    "ko/guide/installation.md": {
+      "source": "guide/installation.md",
+      "sha256": "b6e9dbf70cf7585113bfc4cb6947f2c8c700179843a6bc0c7bb9a6d5c5d3676e",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "bd72e81787f7014e2583a8994465d0a87742785917e42faec816276124dc2ecf",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read completeindex/installation/quickstart against stableEN sections. Checked PHP/Laravel matrix, optionalSpatie, SEOtables, prerequisites, suffix, saveSEO andWithoutModelEvents warning. Refined prose trait terminology andcodeparticles. Initial parentattempt changedthe anchor with broadreplace; checkerrejected before approval. This r1uses proseonlymatches, preserving original stableanchor _1-add-the-trait-to-a-model andallcode; originalfailedpacket retained. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:05:50.946Z",
+          "independentNative": false,
+          "digest": "43a5f2749f1f5fd8af196484fc4b4e602e0f8fef81585cadf27b626cc8d61342"
+        },
+        "handoff": "ko-docs-batch01-r1-stage/handoff.json"
+      }
+    },
+    "ko/guide/quickstart.md": {
+      "source": "guide/quickstart.md",
+      "sha256": "62172e26a1b071e110a365c15ab81d23c415ff95ac160575142ad10bc507260d",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "dde2ab380ddb6dc70d86d960d63bb9a486ae71a50a5c018d16205f459edbe224",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read completeindex/installation/quickstart against stableEN sections. Checked PHP/Laravel matrix, optionalSpatie, SEOtables, prerequisites, suffix, saveSEO andWithoutModelEvents warning. Refined prose trait terminology andcodeparticles. Initial parentattempt changedthe anchor with broadreplace; checkerrejected before approval. This r1uses proseonlymatches, preserving original stableanchor _1-add-the-trait-to-a-model andallcode; originalfailedpacket retained. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:05:50.946Z",
+          "independentNative": false,
+          "digest": "169230354d28116d0711b3ac6e18dc909c57c3ab00bfc6d2eacc6701f2ca295e"
+        },
+        "handoff": "ko-docs-batch01-r1-stage/handoff.json"
+      }
+    },
+    "ko/guide/demo.md": {
+      "source": "guide/demo.md",
+      "sha256": "a83060a0a93389f35bbfa86ed8f0ca25fa0558c7852ec930d29394e59802c8d7",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "706c02b35a8dcda7d6d145451a458a3f7a6120fa0afc81111098b79de638bcbc",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Fullparentread demo/Blade/schema pages. Verified Dockerreleasedpackages/authbuildsecret/nohosteddemo, noexecution; allsevenBlade directives and handcraftedSEOData missingonlyfill/noDBmerge, HTTPSnotforced, defaultrobotsomissionvsgranularalways, BCP47/hreflang/selfreference, typedbuilders/inLanguage andhexescaping. Matched schemaeditorlabels 구조화 데이터 and자동breadcrumb to actualKO packagecatalog; refined Koreanparticles anddirectiveprose only. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:07:04.242Z",
+          "independentNative": false,
+          "digest": "b25ac8510fd081975f07d24919fd296db94a7bf0ba6ffaf763bf246c4130b730"
+        },
+        "handoff": "ko-docs-batch02-stage/handoff.json"
+      }
+    },
+    "ko/guide/blade.md": {
+      "source": "guide/blade.md",
+      "sha256": "1545bf859fd72abe90b4e0038527fe901459e1c11c8472a5363aad2ea15cfcb4",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "8a6dbcfdb3580d878b699d4d2d332ca0f16e8411f0e160bde399710c80a06435",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Fullparentread demo/Blade/schema pages. Verified Dockerreleasedpackages/authbuildsecret/nohosteddemo, noexecution; allsevenBlade directives and handcraftedSEOData missingonlyfill/noDBmerge, HTTPSnotforced, defaultrobotsomissionvsgranularalways, BCP47/hreflang/selfreference, typedbuilders/inLanguage andhexescaping. Matched schemaeditorlabels 구조화 데이터 and자동breadcrumb to actualKO packagecatalog; refined Koreanparticles anddirectiveprose only. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:07:04.242Z",
+          "independentNative": false,
+          "digest": "b5bd4ffa3a95f87f4e7f4644f6e2604dbc0dafbaffd1f4f488506af7200058c3"
+        },
+        "handoff": "ko-docs-batch02-stage/handoff.json"
+      }
+    },
+    "ko/guide/schema.md": {
+      "source": "guide/schema.md",
+      "sha256": "f5896694ebd6fa3df9dc7d393ec392882f431242468a1aababc257bc70c3b02a",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "64b30ca55292a80050d5ea0ee582cb797644e0b72abce7f4f2f131dcd4d655e4",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Fullparentread demo/Blade/schema pages. Verified Dockerreleasedpackages/authbuildsecret/nohosteddemo, noexecution; allsevenBlade directives and handcraftedSEOData missingonlyfill/noDBmerge, HTTPSnotforced, defaultrobotsomissionvsgranularalways, BCP47/hreflang/selfreference, typedbuilders/inLanguage andhexescaping. Matched schemaeditorlabels 구조화 데이터 and자동breadcrumb to actualKO packagecatalog; refined Koreanparticles anddirectiveprose only. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:07:04.242Z",
+          "independentNative": false,
+          "digest": "ea95dc4c9bf43c22ae43a9d7a2c467489cb7bd7a2c4e1e3216342bcbe80875a1"
+        },
+        "handoff": "ko-docs-batch02-stage/handoff.json"
+      }
+    },
+    "ko/concepts/resolver-precedence.md": {
+      "source": "concepts/resolver-precedence.md",
+      "sha256": "4391a29a1d25253802f2ad598b3eea68908906df8816260ae8dc912944417512",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "6fd14f38b0da25db14222736b81c4d0299243e4b6cfff1405c5fe20149d40bf6",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Fullparentread resolver/explain/translations. Checked sixorderedlayers andpostprocessing, nullnotoverwrite,160excerptnoellipsis, robots3priorities/emissionpolicy, readonlyexplain andstableEnglishCLIexamples, frameworkdefaultogtype subtleties,17packageUIlanguages tiersversuspubliceditioncertification anddisplaylocaleversuscontentlocale. Allsourcecode retained; refined selectedcodeparticles andtraitprose. Existing package native-review language is sourcepackagepolicy, not claimed publiccopycertification. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:07:07.762Z",
+          "independentNative": false,
+          "digest": "4ebabf57b86c79278fa2064b7e54f682f95f8c3a64af31a73e9dcf6350cd86d0"
+        },
+        "handoff": "ko-docs-batch03-stage/handoff.json"
+      }
+    },
+    "ko/guide/explain.md": {
+      "source": "guide/explain.md",
+      "sha256": "8dff916dca42b6a22870ce1ea6b7786e5a48790bffb503065bb33ee01139e9d8",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "164caefff7c23d03f108052f491d66e14328137cacc465d7ef2382a6aa63af0c",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Fullparentread resolver/explain/translations. Checked sixorderedlayers andpostprocessing, nullnotoverwrite,160excerptnoellipsis, robots3priorities/emissionpolicy, readonlyexplain andstableEnglishCLIexamples, frameworkdefaultogtype subtleties,17packageUIlanguages tiersversuspubliceditioncertification anddisplaylocaleversuscontentlocale. Allsourcecode retained; refined selectedcodeparticles andtraitprose. Existing package native-review language is sourcepackagepolicy, not claimed publiccopycertification. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:07:07.762Z",
+          "independentNative": false,
+          "digest": "fda771cbb284123364b2ad5df8ede4c32920b144c41d658a0e0408355de3c81f"
+        },
+        "handoff": "ko-docs-batch03-stage/handoff.json"
+      }
+    },
+    "ko/guide/translations.md": {
+      "source": "guide/translations.md",
+      "sha256": "bedcee93831af91605dca0f7ad536e57da078984464c60fd68b4ca52e62662bc",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "1f9e0bb36e870021b93225c002057c79f2ee7d70ce3c689e4ddada43b76e9903",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Fullparentread resolver/explain/translations. Checked sixorderedlayers andpostprocessing, nullnotoverwrite,160excerptnoellipsis, robots3priorities/emissionpolicy, readonlyexplain andstableEnglishCLIexamples, frameworkdefaultogtype subtleties,17packageUIlanguages tiersversuspubliceditioncertification anddisplaylocaleversuscontentlocale. Allsourcecode retained; refined selectedcodeparticles andtraitprose. Existing package native-review language is sourcepackagepolicy, not claimed publiccopycertification. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:07:07.762Z",
+          "independentNative": false,
+          "digest": "26939a22844428f4658de0bd6a6b540acb140380075827d1fb26be0a054ee47e"
+        },
+        "handoff": "ko-docs-batch03-stage/handoff.json"
+      }
+    },
+    "ko/guide/livewire.md": {
+      "source": "guide/livewire.md",
+      "sha256": "fc9b76e838862d3f562ea7bb08061b95ce4775bb96e7bebf9d00aefeda8d2e4c",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "bda054ab107e03eb2719559ea811d15092e28c3dfa8476cb8567063e1ff3e601",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Fullparentread Livewire/Markdown/indexingguard. Verified initialHTMLvswireNavigate scripts/stale-single/no-schema/revisit cleanup; markdownregisteredroutefirst then explicitmodelmethod, nullorblank suppressesfallback, successfulHTMLonly anddefaultoff; guarddefaultoff andallowlist wildcard/emptyconfigvsblankenvfallback, middlewarestaticfileboundary. Corrected generatedOG from생성형 to생성된 (notgenerativeAI) and selectedcodeparticles/directiveprose. Literal scripts preserved; no sample executed. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:07:11.554Z",
+          "independentNative": false,
+          "digest": "4adc10e8af67443e1782cec4c9f10d9506ca1ddaf010bfb4b3bb3696f0c5ae9c"
+        },
+        "handoff": "ko-docs-batch04-stage/handoff.json"
+      }
+    },
+    "ko/guide/markdown-for-bots.md": {
+      "source": "guide/markdown-for-bots.md",
+      "sha256": "0d3375f75e8a303c5c7b12d704482d71633948a685adde037bfdfa5d7d3fbac6",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "0c6e15085dbd521ff2f3e10ccab0f63fa5f59ae38431bf5862aac315d28af531",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Fullparentread Livewire/Markdown/indexingguard. Verified initialHTMLvswireNavigate scripts/stale-single/no-schema/revisit cleanup; markdownregisteredroutefirst then explicitmodelmethod, nullorblank suppressesfallback, successfulHTMLonly anddefaultoff; guarddefaultoff andallowlist wildcard/emptyconfigvsblankenvfallback, middlewarestaticfileboundary. Corrected generatedOG from생성형 to생성된 (notgenerativeAI) and selectedcodeparticles/directiveprose. Literal scripts preserved; no sample executed. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:07:11.554Z",
+          "independentNative": false,
+          "digest": "0dc156cca4c9cc191d40fed9ac1a31262ebfd2f789e657d2710a0152e0ff74f0"
+        },
+        "handoff": "ko-docs-batch04-stage/handoff.json"
+      }
+    },
+    "ko/guide/indexing-guard.md": {
+      "source": "guide/indexing-guard.md",
+      "sha256": "de3dc22aad4814ef932b11ffa2be244f6c4d764cf98ff3a9f5eb4f5d601c407c",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "5d728c0bdf91b4c20686ce882c89f30027bb4b69ef4021d05566ef30863aadb7",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Fullparentread Livewire/Markdown/indexingguard. Verified initialHTMLvswireNavigate scripts/stale-single/no-schema/revisit cleanup; markdownregisteredroutefirst then explicitmodelmethod, nullorblank suppressesfallback, successfulHTMLonly anddefaultoff; guarddefaultoff andallowlist wildcard/emptyconfigvsblankenvfallback, middlewarestaticfileboundary. Corrected generatedOG from생성형 to생성된 (notgenerativeAI) and selectedcodeparticles/directiveprose. Literal scripts preserved; no sample executed. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:07:11.554Z",
+          "independentNative": false,
+          "digest": "8ff3bdaddab9a2a4cd42cce7982f1e7b4aa6c87329dd5757f873b6cc0a73a720"
+        },
+        "handoff": "ko-docs-batch04-stage/handoff.json"
+      }
+    },
+    "ko/guide/ai-crawlers.md": {
+      "source": "guide/ai-crawlers.md",
+      "sha256": "30895f227130c9e06315b53c7c7cac342dc9755f7ed1813c3d560633dfff8c4b",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "3ea6120d397d048acb810dd342cf7af4e5449126b118a3390458325b4a73a5ac",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Fullparentread AIcrawlercontrol andaudit. Verified defaultsearch/assistantallowtrainingdeny, enforcementadvisorylimitations, contentsignalsdefaultoff/purposeomission, individualoverrideIDs,8regionalsearchenginesexcludedfromdefaultAIcounts andNaverYeti. AuditcorevsPro distincthreflangcodes/severity, scriptgraphemebudgets/suffix, AEOarticleonlynoticeand0to100exclusion, exactstrict1warnings, sourceconfigfallback andreadonlycoverage. No new indexing/ranking guarantees introduced. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:07:41.122Z",
+          "independentNative": false,
+          "digest": "c7fbf3f4c8209513324bc406057bcd574ce64efeff3bbd13d75233e0da3bc37a"
+        },
+        "handoff": "ko-docs-batch05-stage/handoff.json"
+      }
+    },
+    "ko/guide/audit.md": {
+      "source": "guide/audit.md",
+      "sha256": "fdd1f134b1988c0ae6aeb529b233ed16750ef42a091c970b807406f05a2e939a",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "968f7f5225d966461137ee1e0cda070cffb987f1f5c493468c985dda9645c69e",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Fullparentread AIcrawlercontrol andaudit. Verified defaultsearch/assistantallowtrainingdeny, enforcementadvisorylimitations, contentsignalsdefaultoff/purposeomission, individualoverrideIDs,8regionalsearchenginesexcludedfromdefaultAIcounts andNaverYeti. AuditcorevsPro distincthreflangcodes/severity, scriptgraphemebudgets/suffix, AEOarticleonlynoticeand0to100exclusion, exactstrict1warnings, sourceconfigfallback andreadonlycoverage. No new indexing/ranking guarantees introduced. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:07:41.122Z",
+          "independentNative": false,
+          "digest": "ee65075b9d65c0434ff93ebde679a3cfa1789550cb2662ff950e96238c62391c"
+        },
+        "handoff": "ko-docs-batch05-stage/handoff.json"
+      }
+    },
+    "ko/guide/inertia-json.md": {
+      "source": "guide/inertia-json.md",
+      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "4371226e70df266ff36af086afe4d796f6cbcd0185deee08709af7819d67e46d",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Fullparentread Inertia/upgrade/headless. Verified SSR/headkey versusVuekey, SveltenoHead andsingleowner, separateJSONLD/rootview/navigationcleanup/security, plainAPIwithoutheadkey; complete historicaldestructivemigration withoriginalbackup/restore/nohistorymigration caveat retained notexecuted. Headlessallcommands/defaultsoff/syncCI requirement/readonlydoctor notproofworkers/ignoremodelAPI. Matched actualKO 리디렉션 만들기 and corrected from404asoption; telemetry translated측정데이터 toavoidimplying externaltransmission. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:08:23.251Z",
+          "independentNative": false,
+          "digest": "bbdc6d13b644c9fb6fbebc11bba66aee8e94798b83bcb982daa878a16efee624"
+        },
+        "handoff": "ko-docs-batch06-stage/handoff.json"
+      }
+    },
+    "ko/guide/upgrade-from-v1.md": {
+      "source": "guide/upgrade-from-v1.md",
+      "sha256": "58fcb833a7313e9a91e41c7fea664a0db5b1a603d8b8bfda75db95f3a59bba15",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "c637657a57dab20f1f4356bd91a502bea949c0657bfb57a4eae97ce9060574de",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Fullparentread Inertia/upgrade/headless. Verified SSR/headkey versusVuekey, SveltenoHead andsingleowner, separateJSONLD/rootview/navigationcleanup/security, plainAPIwithoutheadkey; complete historicaldestructivemigration withoriginalbackup/restore/nohistorymigration caveat retained notexecuted. Headlessallcommands/defaultsoff/syncCI requirement/readonlydoctor notproofworkers/ignoremodelAPI. Matched actualKO 리디렉션 만들기 and corrected from404asoption; telemetry translated측정데이터 toavoidimplying externaltransmission. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:08:23.252Z",
+          "independentNative": false,
+          "digest": "1edebd07bdad032cfa36a9c334a51115221bc6e0f24d5fcf414daeb65e065ca8"
+        },
+        "handoff": "ko-docs-batch06-stage/handoff.json"
+      }
+    },
+    "ko/pro/headless.md": {
+      "source": "pro/headless.md",
+      "sha256": "6a392b623c3d912ae7db09674646e1bb9dd1fa5677adb3d0de228b3eaabcb5d9",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "8c23773b7b07cf2dfa45ff1216ff4b43e731cbd1a7e8d510f79392c615ae5dcd",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Fullparentread Inertia/upgrade/headless. Verified SSR/headkey versusVuekey, SveltenoHead andsingleowner, separateJSONLD/rootview/navigationcleanup/security, plainAPIwithoutheadkey; complete historicaldestructivemigration withoriginalbackup/restore/nohistorymigration caveat retained notexecuted. Headlessallcommands/defaultsoff/syncCI requirement/readonlydoctor notproofworkers/ignoremodelAPI. Matched actualKO 리디렉션 만들기 and corrected from404asoption; telemetry translated측정데이터 toavoidimplying externaltransmission. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:08:23.252Z",
+          "independentNative": false,
+          "digest": "a04ce51ddfd22efa1fccf020ac6ee9920f52862f6c22cd583e65e6ffd0d8ef64"
+        },
+        "handoff": "ko-docs-batch06-stage/handoff.json"
+      }
+    },
+    "ko/pro/ai-bot-monitor.md": {
+      "source": "pro/ai-bot-monitor.md",
+      "sha256": "45c33da9dbadd4d323f11be2260db72f21b32c0f47f95ceed60dd2d0927f08ab",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "fcecbc3c286a4530e0cc85dd3ac98ed488689798825b03e463629e0edeb44ae3",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read allAIbotmonitor, AIreadiness andIndexNow pages fully. Verified UAspoofability/nonidentity, defaultnoIP/keyedhashonly, dailycapoverflowexacthits lowerbounduniqueNplus andwholedayprecision; rubric30/20/22/28 sums100 with10checks, skipped0notabsent, currentcatalognotversionpinned, inprocessstaticfileblindspot, noLLMcall/nocitationpromise; IndexNowpublickey8to128/samehost10000/queue/retryclasses/cacheOSenv nuance. Matched AI봇 actualnavkey inResource andKOcatalog. No commands or submission executed. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:08:53.556Z",
+          "independentNative": false,
+          "digest": "1f342a0ac92ac586bebecb8b112d97e09a28923e91f74f358ad75f185d5767b5"
+        },
+        "handoff": "ko-docs-batch07-stage/handoff.json"
+      }
+    },
+    "ko/pro/ai-readiness-score.md": {
+      "source": "pro/ai-readiness-score.md",
+      "sha256": "4a5d3936be605aa199975d2b4a4e15297627395c71394fd8dd2e2d666fba00a1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "385d5d885583d1c482fffc547953670011adbf62ab9f99b56c35334f03f72cde",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read allAIbotmonitor, AIreadiness andIndexNow pages fully. Verified UAspoofability/nonidentity, defaultnoIP/keyedhashonly, dailycapoverflowexacthits lowerbounduniqueNplus andwholedayprecision; rubric30/20/22/28 sums100 with10checks, skipped0notabsent, currentcatalognotversionpinned, inprocessstaticfileblindspot, noLLMcall/nocitationpromise; IndexNowpublickey8to128/samehost10000/queue/retryclasses/cacheOSenv nuance. Matched AI봇 actualnavkey inResource andKOcatalog. No commands or submission executed. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:08:53.556Z",
+          "independentNative": false,
+          "digest": "ef1e5522c4d5e63bea90469cc9f0b8f91598dc4568121b26d91a574270bcc0e9"
+        },
+        "handoff": "ko-docs-batch07-stage/handoff.json"
+      }
+    },
+    "ko/pro/indexnow.md": {
+      "source": "pro/indexnow.md",
+      "sha256": "6358680ec026bd8281c17272ffbebb43a126ffa84a8b87564cbafc52338163eb",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "733ab91af105dfc8167e18bfc714b58340e5fef51f3b96160371d5d0c1000395",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read allAIbotmonitor, AIreadiness andIndexNow pages fully. Verified UAspoofability/nonidentity, defaultnoIP/keyedhashonly, dailycapoverflowexacthits lowerbounduniqueNplus andwholedayprecision; rubric30/20/22/28 sums100 with10checks, skipped0notabsent, currentcatalognotversionpinned, inprocessstaticfileblindspot, noLLMcall/nocitationpromise; IndexNowpublickey8to128/samehost10000/queue/retryclasses/cacheOSenv nuance. Matched AI봇 actualnavkey inResource andKOcatalog. No commands or submission executed. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:08:53.556Z",
+          "independentNative": false,
+          "digest": "bfa23b1c5d7c2ebb4ba280403018d5fecf338c36aa386f4e6fb226a1f986b584"
+        },
+        "handoff": "ko-docs-batch07-stage/handoff.json"
+      }
+    },
+    "ko/pro/search-console-insights.md": {
+      "source": "pro/search-console-insights.md",
+      "sha256": "eb89ebecfbe846bc07f534918d5f19569911e8762d1e7441b4743181ec5ceec6",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "e8233002996d36b3f40cd8461f1e6be3ea264b6478bac52ce181a4920d2ccd5d",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete insights/walkthrough/scoring. Insights5reports3snapshot2sharedlive/extraauth/quota/cache/window limits, CTRheuristicnotdefect, cannibalizationnotinherentharm. WalkthroughactualEnglishscreenshotlabels intentionallyretained, allKoreanHTMLalts read, seeddate/21targets20to19issues/92to93/142charEnglishdescription/PDF98KB/baseline semantics exact. Scoring26allowlistedcodes andall exclusions/40-15-5/0floor/modelvsURLscope/versionedstorednotrecomputed/noindexintentreview. ActualKOinsights andaveragescoreUIlabels matchedcatalog. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:09:52.605Z",
+          "independentNative": false,
+          "digest": "1f5d9502352107b90b40efe8e9b5a4404d8a5f5cd04a0c4db87266d72e139fd1"
+        },
+        "handoff": "ko-docs-batch08-stage/handoff.json"
+      }
+    },
+    "ko/pro/walkthrough.md": {
+      "source": "pro/walkthrough.md",
+      "sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "65f5f43e6bbab35f9f1e1b3f4404206541da725d1e720a2246520e722e94df03",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete insights/walkthrough/scoring. Insights5reports3snapshot2sharedlive/extraauth/quota/cache/window limits, CTRheuristicnotdefect, cannibalizationnotinherentharm. WalkthroughactualEnglishscreenshotlabels intentionallyretained, allKoreanHTMLalts read, seeddate/21targets20to19issues/92to93/142charEnglishdescription/PDF98KB/baseline semantics exact. Scoring26allowlistedcodes andall exclusions/40-15-5/0floor/modelvsURLscope/versionedstorednotrecomputed/noindexintentreview. ActualKOinsights andaveragescoreUIlabels matchedcatalog. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:09:52.605Z",
+          "independentNative": false,
+          "digest": "e784be2f24d17308e3ff511801d139bdc2fecfb06b85dce955c168fb00623268"
+        },
+        "handoff": "ko-docs-batch08-stage/handoff.json"
+      }
+    },
+    "ko/pro/scoring.md": {
+      "source": "pro/scoring.md",
+      "sha256": "8c4fd3f83632f472dd3ebb75fe7b1fa6d87d6bda125bb51d94ae733a2e0e5032",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "83ed46a5d939a5bad9315d846fe00c770b2206e75f40b17f6a0a296115b70d1a",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete insights/walkthrough/scoring. Insights5reports3snapshot2sharedlive/extraauth/quota/cache/window limits, CTRheuristicnotdefect, cannibalizationnotinherentharm. WalkthroughactualEnglishscreenshotlabels intentionallyretained, allKoreanHTMLalts read, seeddate/21targets20to19issues/92to93/142charEnglishdescription/PDF98KB/baseline semantics exact. Scoring26allowlistedcodes andall exclusions/40-15-5/0floor/modelvsURLscope/versionedstorednotrecomputed/noindexintentreview. ActualKOinsights andaveragescoreUIlabels matchedcatalog. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:09:52.605Z",
+          "independentNative": false,
+          "digest": "994d94662a1d33327153b150f96bbf6b385e878b6cd8d6509b8ae84f277045c7"
+        },
+        "handoff": "ko-docs-batch08-stage/handoff.json"
+      }
+    },
+    "ko/guide/sitemaps.md": {
+      "source": "guide/sitemaps.md",
+      "sha256": "16bbe750af66c65ce687536f4b92bfe27c6c11b05f59c2030a6c9ea17d080a0e",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "92f7d2df0800636ff29b7334941cd7425832936d4398da91deef6e4a3cb45daa",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read fullsitemap andProinstallation. Verified50k split/XSL8.1required/sameorigin/security/defaultoffextensions/shallowconfigmerge/3.20.1perURLreuse/handbuiltSpatiepass-through, preserved snippets/anchors. Procompatibility/privateComposercheckoutcontinuity/refundfutureaccessvsinstalledruntime/installerpublishnotautoload/forcewarning/offlineDoctorvsworkerproof/5projectlicensevsoneproject60minsupport/30dayrefund andpurchase-timeoffer. Standardized foundingbuyer andactualredirectactionKO; no checkout/provider/samplecommands executed. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:10:27.028Z",
+          "independentNative": false,
+          "digest": "b1e0e813f69cfbc50253e23586d03c290d9441d6689db4d594b604712fa969ea"
+        },
+        "handoff": "ko-docs-batch09-stage/handoff.json"
+      }
+    },
+    "ko/pro/installation.md": {
+      "source": "pro/installation.md",
+      "sha256": "a092e59eff8699016b9d17b63c117afbbdcb64ecac27e38954e73972db8366cd",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "cb381e313371862c802ccc467f98972684fcf670c465faa39d23bfc4e055cd2b",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read fullsitemap andProinstallation. Verified50k split/XSL8.1required/sameorigin/security/defaultoffextensions/shallowconfigmerge/3.20.1perURLreuse/handbuiltSpatiepass-through, preserved snippets/anchors. Procompatibility/privateComposercheckoutcontinuity/refundfutureaccessvsinstalledruntime/installerpublishnotautoload/forcewarning/offlineDoctorvsworkerproof/5projectlicensevsoneproject60minsupport/30dayrefund andpurchase-timeoffer. Standardized foundingbuyer andactualredirectactionKO; no checkout/provider/samplecommands executed. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:10:27.028Z",
+          "independentNative": false,
+          "digest": "310f2b0397c1b389645cdc1f4dc709c428304ae9eed6f7ae07c547e8d0d2183a"
+        },
+        "handoff": "ko-docs-batch09-stage/handoff.json"
+      }
+    },
+    "ko/guide/filament.md": {
+      "source": "guide/filament.md",
+      "sha256": "7c7d8a78510a50a0f0c11f8a4952f6fcc40e2063ce8d457ffc1d3dfadb534aa4",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "eed76649e84de4c2dd782d6137c88f10e904bd434d340332349d15f5af9efe29",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read fullFilament andrenderingcontract. Verified allUI fields andactualKOsourcebadges, grammarclaritygraphemebudgets/multilanguagetabsnottranslation/scorelastrecordscan, translatableplugin1xF4/2xF5/adaptersdraftpreservation/transactionnotfilesystemrollback/debounce/hooklimits, customschemapreservationandvalidatorrequirementsnotGoogleguarantee. Matched3actualKOschemaUIlabels. Read entire7sectioncontract/table plannedvsimplemented clauses andSSR/CSR/ownership; historicalindependentdesignreview quote preservedonlyasEnglishsourceclaim, not translationcertification. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:10:47.901Z",
+          "independentNative": false,
+          "digest": "ee5e9e98c288869920f5195b3335fbda4c69d6998fc8eec01bdd4ae678e6a3de"
+        },
+        "handoff": "ko-docs-batch10-stage/handoff.json"
+      }
+    },
+    "ko/contributing/rendering-contract.md": {
+      "source": "contributing/rendering-contract.md",
+      "sha256": "b4b18340855cfc8bcc45c3c33f9523942927105af01c9c11ac36f01afc5fd520",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "38ce416a7d2d785ea4eb1b867c48263a6e36eba29092ecdc13a9e9d42096b2b1",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read fullFilament andrenderingcontract. Verified allUI fields andactualKOsourcebadges, grammarclaritygraphemebudgets/multilanguagetabsnottranslation/scorelastrecordscan, translatableplugin1xF4/2xF5/adaptersdraftpreservation/transactionnotfilesystemrollback/debounce/hooklimits, customschemapreservationandvalidatorrequirementsnotGoogleguarantee. Matched3actualKOschemaUIlabels. Read entire7sectioncontract/table plannedvsimplemented clauses andSSR/CSR/ownership; historicalindependentdesignreview quote preservedonlyasEnglishsourceclaim, not translationcertification. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:10:47.901Z",
+          "independentNative": false,
+          "digest": "7d14c5f4dc9d1d7b5e19b7d4a1b7a566b5768b154fc5411b0b1c50070a7d1ff3"
+        },
+        "handoff": "ko-docs-batch10-stage/handoff.json"
+      }
+    },
+    "ko/guide/migrate-from-other-packages.md": {
+      "source": "guide/migrate-from-other-packages.md",
+      "sha256": "8ac395702e898881af586ec86627c866f34955a76ca079880ce03dd7bc87eb1f",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "7e00342fa8fc32389e25c4954f3d092c463234f2576b8abf4b82d16b8859568c",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read full otherpackagesmigration andWordPressrunbook; everymapping/table andsteps0to6 retained. Checked configcollisionbackup, exact70/160/50DBlimits, authorunmapped/report/morphresolution, statelessartesaosnotDBimport, existingcomplementarySpatie. WordPresssourceuntouched/backups/cutovergates/matched-urlonly-unmapped, one modelperrun, ProonlyredirectCSVv1/dryrunfullvalidation/looprules, strict0 andbrowserverification beforedecommission. Preserved rollbackconditions andunsafeexamples as documentation only; no commandexecuted. Refined optionparticles. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:15:40.351Z",
+          "independentNative": false,
+          "digest": "9f2d897911777e9f439fb4ed0153558175bdef3c12d02b7066306319f2ed2cce"
+        },
+        "handoff": "ko-docs-batch11-stage/handoff.json"
+      }
+    },
+    "ko/guide/wordpress-migration-runbook.md": {
+      "source": "guide/wordpress-migration-runbook.md",
+      "sha256": "f2daaf7eac2bd7a8e180d401e8c8c71bec38a306b6bbe5b2751202947cd82ff8",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "304d7e05e5982c49df10bd24af7edeaedca5f4b9f15bd1e929dcb41f63f64f2f",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read full otherpackagesmigration andWordPressrunbook; everymapping/table andsteps0to6 retained. Checked configcollisionbackup, exact70/160/50DBlimits, authorunmapped/report/morphresolution, statelessartesaosnotDBimport, existingcomplementarySpatie. WordPresssourceuntouched/backups/cutovergates/matched-urlonly-unmapped, one modelperrun, ProonlyredirectCSVv1/dryrunfullvalidation/looprules, strict0 andbrowserverification beforedecommission. Preserved rollbackconditions andunsafeexamples as documentation only; no commandexecuted. Refined optionparticles. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:15:40.351Z",
+          "independentNative": false,
+          "digest": "dc6def7f437df6f1797553193f5419802aa427497e2e41310dfae555886f9d11"
+        },
+        "handoff": "ko-docs-batch11-stage/handoff.json"
+      }
+    },
+    "ko/guide/migrate-from-wordpress.md": {
+      "source": "guide/migrate-from-wordpress.md",
+      "sha256": "7da4845d115d9fcc481bad48262275938286c8558579f6e375d964593b9c5668",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "a074f562fdfb344c93f288092d5cadc42bcc20f5b3c2c2c141d2ca48bd97c3b3",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed both full importer reference and configuration against English: idempotence and overwrite defaults, exact canonical import, model versus URL-only mapping, complete token and social tables, CSV redirects validation boundary, SQL example unchanged; all configuration defaults, six-layer precedence, query whitelist, guarded responses, local image strategy, shared cache invalidation and TTL limitations preserved. Refined code-adjacent Korean particles without modifying identifiers or anchors. Stable Chinese source checkout avoids partial private integration registry mismatch; original failed check retained. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:25:47.715Z",
+          "independentNative": false,
+          "digest": "af856630883b5cd88ad93772b5c25f3df0326b58df05ab6ada6985c5146a9521"
+        },
+        "handoff": "ko-docs-batch12-r1-stage/handoff.json"
+      }
+    },
+    "ko/reference/configuration.md": {
+      "source": "reference/configuration.md",
+      "sha256": "6885c0770b86f6a3615d301a326f1b77d894a09f708cbb93cbe81b183fce6590",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "37fae3a2895ba475ffd17fc2cef27c8dc15958f8f0ef41602b1e444b632567eb",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Reviewed both full importer reference and configuration against English: idempotence and overwrite defaults, exact canonical import, model versus URL-only mapping, complete token and social tables, CSV redirects validation boundary, SQL example unchanged; all configuration defaults, six-layer precedence, query whitelist, guarded responses, local image strategy, shared cache invalidation and TTL limitations preserved. Refined code-adjacent Korean particles without modifying identifiers or anchors. Stable Chinese source checkout avoids partial private integration registry mismatch; original failed check retained. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:25:47.715Z",
+          "independentNative": false,
+          "digest": "c55724a1cb32a1479fd8dfa51fd140caa61f65d190e733b055ea3cac9a4d8d6a"
+        },
+        "handoff": "ko-docs-batch12-r1-stage/handoff.json"
+      }
+    },
+    "ko/pro/scan-scheduling.md": {
+      "source": "pro/scan-scheduling.md",
+      "sha256": "0c96d2a7db7d8717fab21a5c0bff169a6641751d4871673606c17b3d5550b1b3",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "50994335cbc50e1e46dd2bd92e6bec6fcc2d2ce0d432cfd9f3c6ce9caccb32e2",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read full scan scheduling and Search Console sources and Korean candidates: snapshot fingerprints versus live rows, new versus reopened versus fixed semantics, dropped targets and disabled checks, exact impact formula and fallback, scheduler lock does not cover queued lifetime, opt-in notify and retention preserved. GSC strict scope, direct credentials, no telemetry, OAuth narrower grant rejection, runtime env and encrypted cache, SSRF/redirect protection, 90day backfill and3day lag, aggregate-only history fully retained. Updated actual Korean package widget/status labels and code-adjacent particles. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:27:07.357Z",
+          "independentNative": false,
+          "digest": "3e5e0580cf92eb0f20e8b07b3e164508e3e12718e798d238987e0da6f83788cb"
+        },
+        "handoff": "ko-docs-batch13-stage/handoff.json"
+      }
+    },
+    "ko/pro/search-console.md": {
+      "source": "pro/search-console.md",
+      "sha256": "0fe33f55e9dc24a0f78a5bf34d00c93892fb04667fbd10c16ef214961f84d6da",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "40fa4cd8c79b0af12c03d454fc473136e1cf7143a463b935b08b2743d2b6bb2e",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read full scan scheduling and Search Console sources and Korean candidates: snapshot fingerprints versus live rows, new versus reopened versus fixed semantics, dropped targets and disabled checks, exact impact formula and fallback, scheduler lock does not cover queued lifetime, opt-in notify and retention preserved. GSC strict scope, direct credentials, no telemetry, OAuth narrower grant rejection, runtime env and encrypted cache, SSRF/redirect protection, 90day backfill and3day lag, aggregate-only history fully retained. Updated actual Korean package widget/status labels and code-adjacent particles. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:27:07.357Z",
+          "independentNative": false,
+          "digest": "0033df4fcff36f37771cda7e771f7e7ee57bf4a9d43732a920ae8e71e8da7464"
+        },
+        "handoff": "ko-docs-batch13-stage/handoff.json"
+      }
+    },
+    "ko/pro/reports.md": {
+      "source": "pro/reports.md",
+      "sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "59b8a5a909672f696aeeaf29c5aac21a061b329273db31e1635c49578890a686",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete reports and production guides against English including all tables and literal snippets. Verified PDF branding and one-install scope, score/history/snapshot fallbacks, source recovery versus redirect, UA attribution, CLI display versus captured report/queued email locales, distinct Chinese variants, ICU fallback, static no-network Chrome assets and missing-font warning limitations. Production queue/timeout/retry and scheduler cadence,2.41 receipts and migration rollback,2to3week confirmation, finite caps and decompression guards, recovery evidence versus cron proof, retention and count-only telemetry fully retained. Refined Korean code-adjacent particles; no commands executed. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:28:16.445Z",
+          "independentNative": false,
+          "digest": "6d92f79b97270a12bbbdc7d4c125b916be8348a26300382dd3153dc10e48a6ed"
+        },
+        "handoff": "ko-docs-batch14-stage/handoff.json"
+      }
+    },
+    "ko/pro/production.md": {
+      "source": "pro/production.md",
+      "sha256": "7a5bc5882b7d9bcddfa1028e52e73fb1c18f460cde9cf13ef3c1322f95db04a2",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "40b1f164ab34e206a3be3e4594b30bfd56cbb04f4e00eb055f8c8d6209a3922f",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete reports and production guides against English including all tables and literal snippets. Verified PDF branding and one-install scope, score/history/snapshot fallbacks, source recovery versus redirect, UA attribution, CLI display versus captured report/queued email locales, distinct Chinese variants, ICU fallback, static no-network Chrome assets and missing-font warning limitations. Production queue/timeout/retry and scheduler cadence,2.41 receipts and migration rollback,2to3week confirmation, finite caps and decompression guards, recovery evidence versus cron proof, retention and count-only telemetry fully retained. Refined Korean code-adjacent particles; no commands executed. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:28:16.445Z",
+          "independentNative": false,
+          "digest": "52741948c9bc2a9859bb846fe4b2b4b23045aef84ccb04e9ac4edd218c32c94d"
+        },
+        "handoff": "ko-docs-batch14-stage/handoff.json"
+      }
+    },
+    "ko/pro/broken-links.md": {
+      "source": "pro/broken-links.md",
+      "sha256": "536f024b3551aca7810605ddb6cb37ad77bce9dfaa64f697f1dd4f5d9b73a4f1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "3c3e4ca9f10197cebc093689f588cd76d377b5bd08fbe44262acd7f7b4ab478b",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read full broken-link and scan issue-code guides against English. Complete14inspection and42metadata/rendered/network code rows retained with exact severity,field,evidence and example identifiers. Differentiated repeated3-crawl findings from first-run inspections; authored URL aliases versus finding identities, optionalSSRF guarded network, same-host inprocess uncapped scan, critical/warning CI flags, stablecodes versus message parsing preserved. Grapheme and CJK budgets, article-onlyAEO, noindexheuristic, unverified-not-defect, score exclusions, ignored/fixed/reopened lifecycle and first-seen semantics fullychecked. Kept actual English generic-anchor examples with Korean glosses; refined formula prose and code-adjacent particles. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:32:51.772Z",
+          "independentNative": false,
+          "digest": "bf44a5ff14e30dd16d603327b54fd39df5bc9f27b522dcfd7f0e67bb0745558a"
+        },
+        "handoff": "ko-docs-batch15-stage/handoff.json"
+      }
+    },
+    "ko/pro/scan-issues.md": {
+      "source": "pro/scan-issues.md",
+      "sha256": "ddfb77bc5ce73aca006c7713aa819db26254e7c68bb1a9fd556a7d2580b6e2d1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "55236154d227ded8fe9d97346ec176a39203e7def01f01863a653b4de282a211",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read full broken-link and scan issue-code guides against English. Complete14inspection and42metadata/rendered/network code rows retained with exact severity,field,evidence and example identifiers. Differentiated repeated3-crawl findings from first-run inspections; authored URL aliases versus finding identities, optionalSSRF guarded network, same-host inprocess uncapped scan, critical/warning CI flags, stablecodes versus message parsing preserved. Grapheme and CJK budgets, article-onlyAEO, noindexheuristic, unverified-not-defect, score exclusions, ignored/fixed/reopened lifecycle and first-seen semantics fullychecked. Kept actual English generic-anchor examples with Korean glosses; refined formula prose and code-adjacent particles. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:32:51.772Z",
+          "independentNative": false,
+          "digest": "a062314c0aa69238b41eee2731e243f7e718b22db2a9a3e42098539e90e24934"
+        },
+        "handoff": "ko-docs-batch15-stage/handoff.json"
+      }
+    },
+    "ko/guide/why-rankbeam.md": {
+      "source": "guide/why-rankbeam.md",
+      "sha256": "d9ef64d4a335daa263460c434bc684876ec75c06a221abffe2ce994651deccf2",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "454c3da17a3a1bd33e328eb8586e68d0e3480043ece81180311eef8a21fdd498",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read full package-rationale and MCP guides against English. Preserved supportmatrix, freeMIT versus commercial operations, no runtime license check versus local telemetry, all12 removed and22 retained classes with approximate36 total, real25resolve/zeroquery and900page18job/1800link benchmarks, exact migration sequence and no guaranteed rankings. MCP all14tools and allowlist/read-only/ops restrictions, stdio versus optional discovery card, client provider privacy caveat, original Italian demo records and code, re-audit versus editorial quality, draftSEP2127 dated2026-09-10, protocolversions/errorcodes retained. Refined audit verbs and code particles; no MCP configuration or commands executed. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:40:12.066Z",
+          "independentNative": false,
+          "digest": "33be494209d16c2bdf7b50ae99b2cb38751ea53e662bc44682204d60031c5f5d"
+        },
+        "handoff": "ko-docs-batch16-stage/handoff.json"
+      }
+    },
+    "ko/pro/mcp.md": {
+      "source": "pro/mcp.md",
+      "sha256": "5e38f0d65552be2664a98e0ce87614d7e14987ad4da3936b8938d8274a6cd874",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "ccfc39a09097cc9b6c2436d325538dd6988bc098845ef774e09c9ac9f4f526f5",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read full package-rationale and MCP guides against English. Preserved supportmatrix, freeMIT versus commercial operations, no runtime license check versus local telemetry, all12 removed and22 retained classes with approximate36 total, real25resolve/zeroquery and900page18job/1800link benchmarks, exact migration sequence and no guaranteed rankings. MCP all14tools and allowlist/read-only/ops restrictions, stdio versus optional discovery card, client provider privacy caveat, original Italian demo records and code, re-audit versus editorial quality, draftSEP2127 dated2026-09-10, protocolversions/errorcodes retained. Refined audit verbs and code particles; no MCP configuration or commands executed. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:40:12.066Z",
+          "independentNative": false,
+          "digest": "11bbb7aee42a3b492ba6caf3b9b875bb48d90b1af6632b7c4cee760527f8f684"
+        },
+        "handoff": "ko-docs-batch16-stage/handoff.json"
+      }
+    },
+    "ko/pro/on-page-checklist.md": {
+      "source": "pro/on-page-checklist.md",
+      "sha256": "cb94ef8f19db646db0e214abb379d0abf490218a2d265efebcdfd986c34ea8c1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "b64db56725debefaa785abe7dc0efc255edec7e0727e330f604859712169bf1c",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent compared full on-page checklist and OG image guides with English: all 11 checks, 10 formula caveats, advisory Korean 12/18/25 heuristic, ICU unavailable state and retained score, identity stemming, fixed benchmark attribution and operator/content locale separation. Reviewed complete card resolution, cache/pruning rules, Windows dependencies, Linux sandbox alternatives, mixed-script font and glyph-test limitations; refined code-adjacent Korean particles without changing identifiers or anchors. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:58:05.352Z",
+          "independentNative": false,
+          "digest": "38bf0b58520089041e4333c87cb90cb8287d33ec626c59b2102b3c84a90870c9"
+        },
+        "handoff": "ko-docs-batch17-stage/handoff.json"
+      }
+    },
+    "ko/guide/og-image.md": {
+      "source": "guide/og-image.md",
+      "sha256": "dc7c00ce446dc5e1fd02f05130387e1bdbcf1443f6a00419e2a34934247b693d",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "62e21ccec224f7547002c19c5a2c0484284088ab3bfe093d32bb69aa4f83e536",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent compared full on-page checklist and OG image guides with English: all 11 checks, 10 formula caveats, advisory Korean 12/18/25 heuristic, ICU unavailable state and retained score, identity stemming, fixed benchmark attribution and operator/content locale separation. Reviewed complete card resolution, cache/pruning rules, Windows dependencies, Linux sandbox alternatives, mixed-script font and glyph-test limitations; refined code-adjacent Korean particles without changing identifiers or anchors. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:58:05.352Z",
+          "independentNative": false,
+          "digest": "dfc2f3c619210207368cd050937bbcf0c66ec168305ee1d7a05dd3bbecaa8956"
+        },
+        "handoff": "ko-docs-batch17-stage/handoff.json"
+      }
+    },
+    "ko/guide/multilingual.md": {
+      "source": "guide/multilingual.md",
+      "sha256": "3ae9687568846476d3c5f972f34b14124409eb67e401569e1eec5a11305945af",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "b517471445b85d084112060173f76a4951d77efc50ac2ae3bef128fc55f6eab7",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent compared full multilingual and AI assist guides to English: 17 package UI locales versus validated engines, 60/160 and CJK30/80 grapheme budgets, weighted script detection, strict BCP47 versus Google hreflang, source-language reciprocity, Unicode URL representation, font and package-native-review caveats retained. AI guide reviewed in full including all assumption-based price tables, optional provider costs, local gateway distinction, explicit locale and legacy checkpoint risks, private draft CLI versus immediate PHP API defaults, encrypted provenance, filtering limits, typed errors and exact data export list. Matched Korean AI action labels to actual package catalog and refined class/method terminology. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:59:19.564Z",
+          "independentNative": false,
+          "digest": "ceec8bd18165d0aa1c278d26d165c48522716dfa3edbb16b0f2a2b79bc2d3e2a"
+        },
+        "handoff": "ko-docs-batch18-stage/handoff.json"
+      }
+    },
+    "ko/pro/ai-assist.md": {
+      "source": "pro/ai-assist.md",
+      "sha256": "49729166bb1045e61b7b1d43d824ae7031212ac0e4cd858b332f23c53c707108",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "cfff9cb5d43fc4524d2883f21774ff6ffc61ab038a20d9d604342f586c4bc109",
+        "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent compared full multilingual and AI assist guides to English: 17 package UI locales versus validated engines, 60/160 and CJK30/80 grapheme budgets, weighted script detection, strict BCP47 versus Google hreflang, source-language reciprocity, Unicode URL representation, font and package-native-review caveats retained. AI guide reviewed in full including all assumption-based price tables, optional provider costs, local gateway distinction, explicit locale and legacy checkpoint risks, private draft CLI versus immediate PHP API defaults, encrypted provenance, filtering limits, typed errors and exact data export list. Matched Korean AI action labels to actual package catalog and refined class/method terminology. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
+          "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
+          "at": "2026-09-12T15:59:19.564Z",
+          "independentNative": false,
+          "digest": "1a941dba40c2358d1918e060bba3e407975933f09ea2f4e979bd21d9a15e380d"
+        },
+        "handoff": "ko-docs-batch18-stage/handoff.json"
+      }
     }
   }
 }
