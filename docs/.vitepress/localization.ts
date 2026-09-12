@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url'
 export const docsRoot = fileURLToPath(new URL('..', import.meta.url))
 import { localeUi } from './locale-ui.ts'
 
-export const localeInfo = { it: localeUi.it, de: localeUi.de, fr: localeUi.fr, es: localeUi.es, 'pt-BR': localeUi['pt-BR'], nl: localeUi.nl, tr: localeUi.tr, pl: localeUi.pl } as const
+export const localeInfo = { it: localeUi.it, de: localeUi.de, fr: localeUi.fr, es: localeUi.es, 'pt-BR': localeUi['pt-BR'], nl: localeUi.nl, tr: localeUi.tr, pl: localeUi.pl, ru: localeUi.ru } as const
 
 export function translatedPaths(locale: string): string[] {
   return englishPages().filter(p => p !== 'index.md' && fs.existsSync(path.join(docsRoot, locale, p))).map(p => p.replace(/\.md$/, ''))

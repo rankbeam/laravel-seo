@@ -530,13 +530,13 @@ html {
   html:not([lang="en-US"]) .VPNavScreen { display: block; }
 }
 
-/* Polish labels need more room beside the sidebar. Keep every item in the
+/* Polish and Russian labels need more room beside the sidebar. Keep every item in the
    existing compact menu; em follows the reader's default font size. The
    separate language/appearance menu remains available at tablet widths. */
 @media (max-width: 79.999em) {
-  html[lang="pl"] .VPNavBarMenu { display: none; }
-  html[lang="pl"] .VPNavBarHamburger { display: flex; }
-  html[lang="pl"] .VPNavScreen { display: block; }
+  html:is([lang="pl"], [lang="ru"]) .VPNavBarMenu { display: none; }
+  html:is([lang="pl"], [lang="ru"]) .VPNavBarHamburger { display: flex; }
+  html:is([lang="pl"], [lang="ru"]) .VPNavScreen { display: block; }
 }
 
 @media (max-width: 959px) {

@@ -4928,6 +4928,1038 @@
         "packet": "pl-docs-pro-final-parent-reviewed.json",
         "packet_sha256": "995004f6caab89cb9535b76651751d1e41d2e25fb409d17e127ae8e476821297"
       }
+    },
+    "ru/concepts/resolver-precedence.md": {
+      "source": "concepts/resolver-precedence.md",
+      "sha256": "4391a29a1d25253802f2ad598b3eea68908906df8816260ae8dc912944417512",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "4b8bafeeaca9f44b4e821fe47f78a714ae832f79697797427506da103fc1b9a7",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read all ten complete EN/RU pages: resolver, Blade, explain, Inertia/JSON, installation, Livewire, quickstart, schema, why and home adapter. Retained full code, tables, warning/tip/info sections and examples. Corrected non-null versus non-zero ambiguity in explain, falsy/truthy wording, bare website default wording and Russian resolve terminology; standardized ИИ prose. Verified six layers and postprocessing, explicit/model-less SEOData boundaries, robots emitter exception, hreflang/BCP47, seven directives, SSR and separate JSON-LD navigation lifecycle, Livewire current-URL/same-URL cleanup and version caveats, optional sitemap dependency, full support matrix and metadata migration. Why retains original measured reference-app claims and qualifications (12 immediately deleted,22 retained for later,roughly three dozen;25resolves,zero warmqueries;900pages,18boundedjobs,50cap,1800links), not fresh benchmarks. Home retains full adapter and relies on separately reviewed109layout values. No native/human certification. Inherited source qualifications listed separately; not new guarantees.",
+          "warningsDisposition": "Nine warning-bearing pages: localized own-property /ru/links require later built-route verification; all original section IDs retained for switching, including numbered IDs that repeat numeric tokens. Why20,000 and1,800 use Russian20 000 and1 800 separators; counts and inequalities unchanged. Source CLI labels/examples remain literal; actual Russian Filament badges/Structured data labels checked against package source. Homepage full<Home/> preserved. English resolver always sensible claim and explain amendment link are inherited source wording, not newly verified unconditional guarantees.",
+          "at": "2026-09-12T00:01:43.216Z",
+          "independentNative": false,
+          "digest": "6abea8d6a2821e27a2dc5e575f8825f9f346f64d844e3f2384fdfe31c57867f9"
+        },
+        "packet": "ru-docs-core-reviewed.json",
+        "packet_sha256": "54472a8a58910c69c733b6c50428c8a2b92141cdced8d73dcf582069798b5a6b",
+        "packet_raw_sha256": "54472a8a58910c69c733b6c50428c8a2b92141cdced8d73dcf582069798b5a6b"
+      }
+    },
+    "ru/contributing/rendering-contract.md": {
+      "source": "contributing/rendering-contract.md",
+      "sha256": "b4b18340855cfc8bcc45c3c33f9523942927105af01c9c11ac36f01afc5fd520",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "669e1b94d764f0ebc157a00b424cdd30a89d1ae8b4ebfdbcedd687d92896aa2f",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read every English/Russian section, table, example, metadata, image description and warning in rendering-contract, AI crawlers, Filament, both migration references and multilingual content. Full source order preserved. Verified distinction between rendering contract targets and implemented support, advisory crawler rules versus enforcement, actual Filament labels versus English screenshots, locale-scoped drafts/transactions, empty-only imports and explicit overwrite, canonical preservation, tokens/truncation/redirect candidates, BCP47/Google/application distinctions, complete17locale engineering table and analysis limitations. Historical source design/native-review statements refer to package/spec evidence, not this translation. Codex review is not native/human certification.",
+          "warningsDisposition": "All Russian routes and English stable fragments inspected; build and browser destination checks remain open. Numeric deltas come from numbered explicit source anchors and layer6 expressed as sixth. All counts, table mappings, thresholds, dates, versions and complete literal examples remain.",
+          "at": "2026-09-12T00:34:16.892Z",
+          "independentNative": false,
+          "digest": "e35953196355ba692e488a8b91e406b55564f907cedaa81f44508e446b733ddf"
+        },
+        "packet": "ru-docs-next-six-reviewed.json",
+        "packet_sha256": "28a7f22b5967a4cdd4a9db065faabc86abc4b9bfac0288ab8852771386f6e533",
+        "packet_raw_sha256": "28a7f22b5967a4cdd4a9db065faabc86abc4b9bfac0288ab8852771386f6e533"
+      }
+    },
+    "ru/guide/ai-crawlers.md": {
+      "source": "guide/ai-crawlers.md",
+      "sha256": "30895f227130c9e06315b53c7c7cac342dc9755f7ed1813c3d560633dfff8c4b",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "75f3bb2d62757eeb34bc50821db31e623950f17b9391b22bcbb71ecedd6e7cbe",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read every English/Russian section, table, example, metadata, image description and warning in rendering-contract, AI crawlers, Filament, both migration references and multilingual content. Full source order preserved. Verified distinction between rendering contract targets and implemented support, advisory crawler rules versus enforcement, actual Filament labels versus English screenshots, locale-scoped drafts/transactions, empty-only imports and explicit overwrite, canonical preservation, tokens/truncation/redirect candidates, BCP47/Google/application distinctions, complete17locale engineering table and analysis limitations. Historical source design/native-review statements refer to package/spec evidence, not this translation. Codex review is not native/human certification.",
+          "warningsDisposition": "All Russian routes and English stable fragments inspected; build and browser destination checks remain open. Numeric deltas come from numbered explicit source anchors and layer6 expressed as sixth. All counts, table mappings, thresholds, dates, versions and complete literal examples remain.",
+          "at": "2026-09-12T00:34:16.893Z",
+          "independentNative": false,
+          "digest": "561cad0ff64ae9236b67daa562866c46ab0e075c62ef33405ab07ee729b68fc7"
+        },
+        "packet": "ru-docs-next-six-reviewed.json",
+        "packet_sha256": "28a7f22b5967a4cdd4a9db065faabc86abc4b9bfac0288ab8852771386f6e533",
+        "packet_raw_sha256": "28a7f22b5967a4cdd4a9db065faabc86abc4b9bfac0288ab8852771386f6e533"
+      }
+    },
+    "ru/guide/audit.md": {
+      "source": "guide/audit.md",
+      "sha256": "fdd1f134b1988c0ae6aeb529b233ed16750ef42a091c970b807406f05a2e939a",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "a9e95b78eb6132c94742e93fc8620c87e22f9c608aece583f4a071544c67dd30",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read all English and full assembled Russian audit, demo, indexing guard and Markdown-for-bots pages including complete examples and metadata. Preserved free/Core versus Pro coverage, report registry differences, actual demo evidence, opt-in indexing rules and static-file limits, guard precedence and empty configuration behavior, explicit Markdown negotiation/source order/null suppression/raw fallback. Refined AI-robot prose to Russian ИИ. Literal audit source example has3visiblefindings but4summarycount; preserved and recorded as inherited source issue rather than silently changing code output. Codex editorial review, not native/human certification.",
+          "warningsDisposition": "Russian routes and source-stable IDs read; rendered destination verification remains open. Markdown-for-bots numeric deltas only repeat1/2/3in required English IDs; other counts and all literal examples unchanged.",
+          "at": "2026-09-12T00:37:40.935Z",
+          "independentNative": false,
+          "digest": "0c0c9adb9822731e38dc7af054483b7dcf67edf2e2e4fb4df76762a1225dade9"
+        },
+        "packet": "ru-docs-last-four-core-reviewed.json",
+        "packet_sha256": "e247e35c9d3324c80481c9fbd0e0fa472ed9d062b869adf652e237e161c3a2e6",
+        "packet_raw_sha256": "e247e35c9d3324c80481c9fbd0e0fa472ed9d062b869adf652e237e161c3a2e6"
+      }
+    },
+    "ru/guide/blade.md": {
+      "source": "guide/blade.md",
+      "sha256": "1545bf859fd72abe90b4e0038527fe901459e1c11c8472a5363aad2ea15cfcb4",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "9a915726ed0e1c15b2bd055d5c8e5f2dffd746aa8a95435752eaf4a2ba634969",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read all ten complete EN/RU pages: resolver, Blade, explain, Inertia/JSON, installation, Livewire, quickstart, schema, why and home adapter. Retained full code, tables, warning/tip/info sections and examples. Corrected non-null versus non-zero ambiguity in explain, falsy/truthy wording, bare website default wording and Russian resolve terminology; standardized ИИ prose. Verified six layers and postprocessing, explicit/model-less SEOData boundaries, robots emitter exception, hreflang/BCP47, seven directives, SSR and separate JSON-LD navigation lifecycle, Livewire current-URL/same-URL cleanup and version caveats, optional sitemap dependency, full support matrix and metadata migration. Why retains original measured reference-app claims and qualifications (12 immediately deleted,22 retained for later,roughly three dozen;25resolves,zero warmqueries;900pages,18boundedjobs,50cap,1800links), not fresh benchmarks. Home retains full adapter and relies on separately reviewed109layout values. No native/human certification. Inherited source qualifications listed separately; not new guarantees.",
+          "warningsDisposition": "Nine warning-bearing pages: localized own-property /ru/links require later built-route verification; all original section IDs retained for switching, including numbered IDs that repeat numeric tokens. Why20,000 and1,800 use Russian20 000 and1 800 separators; counts and inequalities unchanged. Source CLI labels/examples remain literal; actual Russian Filament badges/Structured data labels checked against package source. Homepage full<Home/> preserved. English resolver always sensible claim and explain amendment link are inherited source wording, not newly verified unconditional guarantees.",
+          "at": "2026-09-12T00:01:43.216Z",
+          "independentNative": false,
+          "digest": "278494d04c278b8390e461c8a489744b88c3c1c82f05b1d776b2799487f913b3"
+        },
+        "packet": "ru-docs-core-reviewed.json",
+        "packet_sha256": "54472a8a58910c69c733b6c50428c8a2b92141cdced8d73dcf582069798b5a6b",
+        "packet_raw_sha256": "54472a8a58910c69c733b6c50428c8a2b92141cdced8d73dcf582069798b5a6b"
+      }
+    },
+    "ru/guide/demo.md": {
+      "source": "guide/demo.md",
+      "sha256": "a83060a0a93389f35bbfa86ed8f0ca25fa0558c7852ec930d29394e59802c8d7",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "3bdf3deb9b14b3492f56115fae8f7b1e0a6152cf4e89aee92b1e5bc24a14d369",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read all English and full assembled Russian audit, demo, indexing guard and Markdown-for-bots pages including complete examples and metadata. Preserved free/Core versus Pro coverage, report registry differences, actual demo evidence, opt-in indexing rules and static-file limits, guard precedence and empty configuration behavior, explicit Markdown negotiation/source order/null suppression/raw fallback. Refined AI-robot prose to Russian ИИ. Literal audit source example has3visiblefindings but4summarycount; preserved and recorded as inherited source issue rather than silently changing code output. Codex editorial review, not native/human certification.",
+          "warningsDisposition": "Russian routes and source-stable IDs read; rendered destination verification remains open. Markdown-for-bots numeric deltas only repeat1/2/3in required English IDs; other counts and all literal examples unchanged.",
+          "at": "2026-09-12T00:37:40.935Z",
+          "independentNative": false,
+          "digest": "268ec2bfc50cbc72d58a20e8891a66308bf1fbd77f998900f237d7714e2a3cf1"
+        },
+        "packet": "ru-docs-last-four-core-reviewed.json",
+        "packet_sha256": "e247e35c9d3324c80481c9fbd0e0fa472ed9d062b869adf652e237e161c3a2e6",
+        "packet_raw_sha256": "e247e35c9d3324c80481c9fbd0e0fa472ed9d062b869adf652e237e161c3a2e6"
+      }
+    },
+    "ru/guide/explain.md": {
+      "source": "guide/explain.md",
+      "sha256": "8dff916dca42b6a22870ce1ea6b7786e5a48790bffb503065bb33ee01139e9d8",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "be8caf0ac47bc0336591b6c62944ccfdfda79f00995a45fae8865a6995faf88a",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read all ten complete EN/RU pages: resolver, Blade, explain, Inertia/JSON, installation, Livewire, quickstart, schema, why and home adapter. Retained full code, tables, warning/tip/info sections and examples. Corrected non-null versus non-zero ambiguity in explain, falsy/truthy wording, bare website default wording and Russian resolve terminology; standardized ИИ prose. Verified six layers and postprocessing, explicit/model-less SEOData boundaries, robots emitter exception, hreflang/BCP47, seven directives, SSR and separate JSON-LD navigation lifecycle, Livewire current-URL/same-URL cleanup and version caveats, optional sitemap dependency, full support matrix and metadata migration. Why retains original measured reference-app claims and qualifications (12 immediately deleted,22 retained for later,roughly three dozen;25resolves,zero warmqueries;900pages,18boundedjobs,50cap,1800links), not fresh benchmarks. Home retains full adapter and relies on separately reviewed109layout values. No native/human certification. Inherited source qualifications listed separately; not new guarantees.",
+          "warningsDisposition": "Nine warning-bearing pages: localized own-property /ru/links require later built-route verification; all original section IDs retained for switching, including numbered IDs that repeat numeric tokens. Why20,000 and1,800 use Russian20 000 and1 800 separators; counts and inequalities unchanged. Source CLI labels/examples remain literal; actual Russian Filament badges/Structured data labels checked against package source. Homepage full<Home/> preserved. English resolver always sensible claim and explain amendment link are inherited source wording, not newly verified unconditional guarantees.",
+          "at": "2026-09-12T00:01:43.216Z",
+          "independentNative": false,
+          "digest": "fa44cf3addfea2fcbea755b5502a3bfaec974dd3740abdc965bb6e7643239de7"
+        },
+        "packet": "ru-docs-core-reviewed.json",
+        "packet_sha256": "54472a8a58910c69c733b6c50428c8a2b92141cdced8d73dcf582069798b5a6b",
+        "packet_raw_sha256": "54472a8a58910c69c733b6c50428c8a2b92141cdced8d73dcf582069798b5a6b"
+      }
+    },
+    "ru/guide/filament.md": {
+      "source": "guide/filament.md",
+      "sha256": "7c7d8a78510a50a0f0c11f8a4952f6fcc40e2063ce8d457ffc1d3dfadb534aa4",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "664bac65d0e3417e5641c5a84a795a33f1b847a14945799485aa53a601354ef3",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read every English/Russian section, table, example, metadata, image description and warning in rendering-contract, AI crawlers, Filament, both migration references and multilingual content. Full source order preserved. Verified distinction between rendering contract targets and implemented support, advisory crawler rules versus enforcement, actual Filament labels versus English screenshots, locale-scoped drafts/transactions, empty-only imports and explicit overwrite, canonical preservation, tokens/truncation/redirect candidates, BCP47/Google/application distinctions, complete17locale engineering table and analysis limitations. Historical source design/native-review statements refer to package/spec evidence, not this translation. Codex review is not native/human certification.",
+          "warningsDisposition": "All Russian routes and English stable fragments inspected; build and browser destination checks remain open. Numeric deltas come from numbered explicit source anchors and layer6 expressed as sixth. All counts, table mappings, thresholds, dates, versions and complete literal examples remain.",
+          "at": "2026-09-12T00:34:16.893Z",
+          "independentNative": false,
+          "digest": "09e528ca1143be375ee2f793f24700dc77f3e6fc48924c3f6177a7120813951b"
+        },
+        "packet": "ru-docs-next-six-reviewed.json",
+        "packet_sha256": "28a7f22b5967a4cdd4a9db065faabc86abc4b9bfac0288ab8852771386f6e533",
+        "packet_raw_sha256": "28a7f22b5967a4cdd4a9db065faabc86abc4b9bfac0288ab8852771386f6e533"
+      }
+    },
+    "ru/guide/indexing-guard.md": {
+      "source": "guide/indexing-guard.md",
+      "sha256": "de3dc22aad4814ef932b11ffa2be244f6c4d764cf98ff3a9f5eb4f5d601c407c",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "58fc7d1ddcbab357fd9e9e2583e1f10232e7ac01575d3c62c6a12c8f75d5d578",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read all English and full assembled Russian audit, demo, indexing guard and Markdown-for-bots pages including complete examples and metadata. Preserved free/Core versus Pro coverage, report registry differences, actual demo evidence, opt-in indexing rules and static-file limits, guard precedence and empty configuration behavior, explicit Markdown negotiation/source order/null suppression/raw fallback. Refined AI-robot prose to Russian ИИ. Literal audit source example has3visiblefindings but4summarycount; preserved and recorded as inherited source issue rather than silently changing code output. Codex editorial review, not native/human certification.",
+          "warningsDisposition": "Russian routes and source-stable IDs read; rendered destination verification remains open. Markdown-for-bots numeric deltas only repeat1/2/3in required English IDs; other counts and all literal examples unchanged.",
+          "at": "2026-09-12T00:37:40.935Z",
+          "independentNative": false,
+          "digest": "41a6538cf5582c29a5011d832116c564c0b88c53fef467177dbd7f339827ccc8"
+        },
+        "packet": "ru-docs-last-four-core-reviewed.json",
+        "packet_sha256": "e247e35c9d3324c80481c9fbd0e0fa472ed9d062b869adf652e237e161c3a2e6",
+        "packet_raw_sha256": "e247e35c9d3324c80481c9fbd0e0fa472ed9d062b869adf652e237e161c3a2e6"
+      }
+    },
+    "ru/guide/inertia-json.md": {
+      "source": "guide/inertia-json.md",
+      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "afe61be3c256b3de312025af8873cf2f91a1d2ac79a62c517b6e18114633c5fa",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read all ten complete EN/RU pages: resolver, Blade, explain, Inertia/JSON, installation, Livewire, quickstart, schema, why and home adapter. Retained full code, tables, warning/tip/info sections and examples. Corrected non-null versus non-zero ambiguity in explain, falsy/truthy wording, bare website default wording and Russian resolve terminology; standardized ИИ prose. Verified six layers and postprocessing, explicit/model-less SEOData boundaries, robots emitter exception, hreflang/BCP47, seven directives, SSR and separate JSON-LD navigation lifecycle, Livewire current-URL/same-URL cleanup and version caveats, optional sitemap dependency, full support matrix and metadata migration. Why retains original measured reference-app claims and qualifications (12 immediately deleted,22 retained for later,roughly three dozen;25resolves,zero warmqueries;900pages,18boundedjobs,50cap,1800links), not fresh benchmarks. Home retains full adapter and relies on separately reviewed109layout values. No native/human certification. Inherited source qualifications listed separately; not new guarantees.",
+          "warningsDisposition": "Nine warning-bearing pages: localized own-property /ru/links require later built-route verification; all original section IDs retained for switching, including numbered IDs that repeat numeric tokens. Why20,000 and1,800 use Russian20 000 and1 800 separators; counts and inequalities unchanged. Source CLI labels/examples remain literal; actual Russian Filament badges/Structured data labels checked against package source. Homepage full<Home/> preserved. English resolver always sensible claim and explain amendment link are inherited source wording, not newly verified unconditional guarantees.",
+          "at": "2026-09-12T00:01:43.216Z",
+          "independentNative": false,
+          "digest": "c723ec489a19a9c6fc7107f30cd8e71d05addec81b502d4845ae495ecdbeb287"
+        },
+        "packet": "ru-docs-core-reviewed.json",
+        "packet_sha256": "54472a8a58910c69c733b6c50428c8a2b92141cdced8d73dcf582069798b5a6b",
+        "packet_raw_sha256": "54472a8a58910c69c733b6c50428c8a2b92141cdced8d73dcf582069798b5a6b"
+      }
+    },
+    "ru/guide/installation.md": {
+      "source": "guide/installation.md",
+      "sha256": "b6e9dbf70cf7585113bfc4cb6947f2c8c700179843a6bc0c7bb9a6d5c5d3676e",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "e1fbe0335ca3c8e0811d5b024729a9b98c2c2eb73ffb0a3fee7e699e052a6152",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read all ten complete EN/RU pages: resolver, Blade, explain, Inertia/JSON, installation, Livewire, quickstart, schema, why and home adapter. Retained full code, tables, warning/tip/info sections and examples. Corrected non-null versus non-zero ambiguity in explain, falsy/truthy wording, bare website default wording and Russian resolve terminology; standardized ИИ prose. Verified six layers and postprocessing, explicit/model-less SEOData boundaries, robots emitter exception, hreflang/BCP47, seven directives, SSR and separate JSON-LD navigation lifecycle, Livewire current-URL/same-URL cleanup and version caveats, optional sitemap dependency, full support matrix and metadata migration. Why retains original measured reference-app claims and qualifications (12 immediately deleted,22 retained for later,roughly three dozen;25resolves,zero warmqueries;900pages,18boundedjobs,50cap,1800links), not fresh benchmarks. Home retains full adapter and relies on separately reviewed109layout values. No native/human certification. Inherited source qualifications listed separately; not new guarantees.",
+          "warningsDisposition": "Nine warning-bearing pages: localized own-property /ru/links require later built-route verification; all original section IDs retained for switching, including numbered IDs that repeat numeric tokens. Why20,000 and1,800 use Russian20 000 and1 800 separators; counts and inequalities unchanged. Source CLI labels/examples remain literal; actual Russian Filament badges/Structured data labels checked against package source. Homepage full<Home/> preserved. English resolver always sensible claim and explain amendment link are inherited source wording, not newly verified unconditional guarantees.",
+          "at": "2026-09-12T00:01:43.216Z",
+          "independentNative": false,
+          "digest": "d45b3c95b65307c9664c483d49aa2b02f79b9a7edebce6743232d65129e51a0f"
+        },
+        "packet": "ru-docs-core-reviewed.json",
+        "packet_sha256": "54472a8a58910c69c733b6c50428c8a2b92141cdced8d73dcf582069798b5a6b",
+        "packet_raw_sha256": "54472a8a58910c69c733b6c50428c8a2b92141cdced8d73dcf582069798b5a6b"
+      }
+    },
+    "ru/guide/livewire.md": {
+      "source": "guide/livewire.md",
+      "sha256": "fc9b76e838862d3f562ea7bb08061b95ce4775bb96e7bebf9d00aefeda8d2e4c",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "c7cbc9a0a7f52a0c581fa56beb86561dc439ddc6aaa22a86ef72960d531cd06e",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read all ten complete EN/RU pages: resolver, Blade, explain, Inertia/JSON, installation, Livewire, quickstart, schema, why and home adapter. Retained full code, tables, warning/tip/info sections and examples. Corrected non-null versus non-zero ambiguity in explain, falsy/truthy wording, bare website default wording and Russian resolve terminology; standardized ИИ prose. Verified six layers and postprocessing, explicit/model-less SEOData boundaries, robots emitter exception, hreflang/BCP47, seven directives, SSR and separate JSON-LD navigation lifecycle, Livewire current-URL/same-URL cleanup and version caveats, optional sitemap dependency, full support matrix and metadata migration. Why retains original measured reference-app claims and qualifications (12 immediately deleted,22 retained for later,roughly three dozen;25resolves,zero warmqueries;900pages,18boundedjobs,50cap,1800links), not fresh benchmarks. Home retains full adapter and relies on separately reviewed109layout values. No native/human certification. Inherited source qualifications listed separately; not new guarantees.",
+          "warningsDisposition": "Nine warning-bearing pages: localized own-property /ru/links require later built-route verification; all original section IDs retained for switching, including numbered IDs that repeat numeric tokens. Why20,000 and1,800 use Russian20 000 and1 800 separators; counts and inequalities unchanged. Source CLI labels/examples remain literal; actual Russian Filament badges/Structured data labels checked against package source. Homepage full<Home/> preserved. English resolver always sensible claim and explain amendment link are inherited source wording, not newly verified unconditional guarantees.",
+          "at": "2026-09-12T00:01:43.216Z",
+          "independentNative": false,
+          "digest": "5da1a6e11ae2ae8c8de548c76e29b0b176335c2df3365dfb0307ee639fd656ad"
+        },
+        "packet": "ru-docs-core-reviewed.json",
+        "packet_sha256": "54472a8a58910c69c733b6c50428c8a2b92141cdced8d73dcf582069798b5a6b",
+        "packet_raw_sha256": "54472a8a58910c69c733b6c50428c8a2b92141cdced8d73dcf582069798b5a6b"
+      }
+    },
+    "ru/guide/markdown-for-bots.md": {
+      "source": "guide/markdown-for-bots.md",
+      "sha256": "0d3375f75e8a303c5c7b12d704482d71633948a685adde037bfdfa5d7d3fbac6",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "59f48a287ec31790b31ce9131e53f5903e0ecd9e1c2daca4dc5fc19c51cf29c5",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read all English and full assembled Russian audit, demo, indexing guard and Markdown-for-bots pages including complete examples and metadata. Preserved free/Core versus Pro coverage, report registry differences, actual demo evidence, opt-in indexing rules and static-file limits, guard precedence and empty configuration behavior, explicit Markdown negotiation/source order/null suppression/raw fallback. Refined AI-robot prose to Russian ИИ. Literal audit source example has3visiblefindings but4summarycount; preserved and recorded as inherited source issue rather than silently changing code output. Codex editorial review, not native/human certification.",
+          "warningsDisposition": "Russian routes and source-stable IDs read; rendered destination verification remains open. Markdown-for-bots numeric deltas only repeat1/2/3in required English IDs; other counts and all literal examples unchanged.",
+          "at": "2026-09-12T00:37:40.935Z",
+          "independentNative": false,
+          "digest": "89f0d801e8adb9a98f2b9e992843b1af036c8ad8c2e040aa9282ab1e67f3ada7"
+        },
+        "packet": "ru-docs-last-four-core-reviewed.json",
+        "packet_sha256": "e247e35c9d3324c80481c9fbd0e0fa472ed9d062b869adf652e237e161c3a2e6",
+        "packet_raw_sha256": "e247e35c9d3324c80481c9fbd0e0fa472ed9d062b869adf652e237e161c3a2e6"
+      }
+    },
+    "ru/guide/migrate-from-other-packages.md": {
+      "source": "guide/migrate-from-other-packages.md",
+      "sha256": "8ac395702e898881af586ec86627c866f34955a76ca079880ce03dd7bc87eb1f",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "f67484433839290a6869a9e8031f3abb3166cb7240b76217a660bb2b0509197f",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read every English/Russian section, table, example, metadata, image description and warning in rendering-contract, AI crawlers, Filament, both migration references and multilingual content. Full source order preserved. Verified distinction between rendering contract targets and implemented support, advisory crawler rules versus enforcement, actual Filament labels versus English screenshots, locale-scoped drafts/transactions, empty-only imports and explicit overwrite, canonical preservation, tokens/truncation/redirect candidates, BCP47/Google/application distinctions, complete17locale engineering table and analysis limitations. Historical source design/native-review statements refer to package/spec evidence, not this translation. Codex review is not native/human certification.",
+          "warningsDisposition": "All Russian routes and English stable fragments inspected; build and browser destination checks remain open. Numeric deltas come from numbered explicit source anchors and layer6 expressed as sixth. All counts, table mappings, thresholds, dates, versions and complete literal examples remain.",
+          "at": "2026-09-12T00:34:16.893Z",
+          "independentNative": false,
+          "digest": "26a6a55d52da666300edab36e7cc4d302e1e04f6a1c8526b52a8d943fce21f11"
+        },
+        "packet": "ru-docs-next-six-reviewed.json",
+        "packet_sha256": "28a7f22b5967a4cdd4a9db065faabc86abc4b9bfac0288ab8852771386f6e533",
+        "packet_raw_sha256": "28a7f22b5967a4cdd4a9db065faabc86abc4b9bfac0288ab8852771386f6e533"
+      }
+    },
+    "ru/guide/migrate-from-wordpress.md": {
+      "source": "guide/migrate-from-wordpress.md",
+      "sha256": "7da4845d115d9fcc481bad48262275938286c8558579f6e375d964593b9c5668",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "a4eb2bfc2493b01e149beab5cd76f70a7220b904727d70b96415cb662fdd4374",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read every English/Russian section, table, example, metadata, image description and warning in rendering-contract, AI crawlers, Filament, both migration references and multilingual content. Full source order preserved. Verified distinction between rendering contract targets and implemented support, advisory crawler rules versus enforcement, actual Filament labels versus English screenshots, locale-scoped drafts/transactions, empty-only imports and explicit overwrite, canonical preservation, tokens/truncation/redirect candidates, BCP47/Google/application distinctions, complete17locale engineering table and analysis limitations. Historical source design/native-review statements refer to package/spec evidence, not this translation. Codex review is not native/human certification.",
+          "warningsDisposition": "All Russian routes and English stable fragments inspected; build and browser destination checks remain open. Numeric deltas come from numbered explicit source anchors and layer6 expressed as sixth. All counts, table mappings, thresholds, dates, versions and complete literal examples remain.",
+          "at": "2026-09-12T00:34:16.893Z",
+          "independentNative": false,
+          "digest": "b7cea34dd2283d34ec2b32b27ae50b1cd660883c935503e476554d687d271298"
+        },
+        "packet": "ru-docs-next-six-reviewed.json",
+        "packet_sha256": "28a7f22b5967a4cdd4a9db065faabc86abc4b9bfac0288ab8852771386f6e533",
+        "packet_raw_sha256": "28a7f22b5967a4cdd4a9db065faabc86abc4b9bfac0288ab8852771386f6e533"
+      }
+    },
+    "ru/guide/multilingual.md": {
+      "source": "guide/multilingual.md",
+      "sha256": "3ae9687568846476d3c5f972f34b14124409eb67e401569e1eec5a11305945af",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "4149ca7d4e3e1bf68163cf6f9c3efa9d2d20b11e07db64d317558750df0fa941",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read every English/Russian section, table, example, metadata, image description and warning in rendering-contract, AI crawlers, Filament, both migration references and multilingual content. Full source order preserved. Verified distinction between rendering contract targets and implemented support, advisory crawler rules versus enforcement, actual Filament labels versus English screenshots, locale-scoped drafts/transactions, empty-only imports and explicit overwrite, canonical preservation, tokens/truncation/redirect candidates, BCP47/Google/application distinctions, complete17locale engineering table and analysis limitations. Historical source design/native-review statements refer to package/spec evidence, not this translation. Codex review is not native/human certification.",
+          "warningsDisposition": "All Russian routes and English stable fragments inspected; build and browser destination checks remain open. Numeric deltas come from numbered explicit source anchors and layer6 expressed as sixth. All counts, table mappings, thresholds, dates, versions and complete literal examples remain.",
+          "at": "2026-09-12T00:34:16.893Z",
+          "independentNative": false,
+          "digest": "7f11718bddf867ccd5869628d7a0293f463d7809d6c043f022e03cb61d92cccd"
+        },
+        "packet": "ru-docs-next-six-reviewed.json",
+        "packet_sha256": "28a7f22b5967a4cdd4a9db065faabc86abc4b9bfac0288ab8852771386f6e533",
+        "packet_raw_sha256": "28a7f22b5967a4cdd4a9db065faabc86abc4b9bfac0288ab8852771386f6e533"
+      }
+    },
+    "ru/guide/og-image.md": {
+      "source": "guide/og-image.md",
+      "sha256": "dc7c00ce446dc5e1fd02f05130387e1bdbcf1443f6a00419e2a34934247b693d",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "b3ec521141b4fdeef6ce7aece37bc43c0f323fae2a1bfc7821ca554f01b39f79",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read complete English and assembled Russian OG-image and sitemap guides: all sections,25 headings, full configuration/code, metadata, image alt, tables and qualifications. Preserved pre-generation and existence gating, explicit-image priority, scoped prune safety, hash/cache invalidation, sandbox and runtime limitations, actual font fallback versus incomplete smoke proof, ICU/Carbon dates, registry precedence, Spatie styled-view version fallback, XSL escaping, full alternate sets, per-URL resolution reuse and opt-in extension costs. No runtime examples executed. Codex editorial review, not native/human certification.",
+          "warningsDisposition": "Inspected planned Russian destinations and source-stable IDs; rendered link validation is still required. Numeric differences are two50,000counts formatted50 000; every threshold, version, size, formula and literal code remains.",
+          "at": "2026-09-12T00:38:40.816Z",
+          "independentNative": false,
+          "digest": "1442d0f0a8d61c4e1c064aa622411660fa016503afafbfadb37765d2f04be076"
+        },
+        "packet": "ru-docs-media-reviewed.json",
+        "packet_sha256": "5b48361efd71d107d36a2bd8fd800b73e9860dc99cc71c50a24d4f51407c6b60",
+        "packet_raw_sha256": "5b48361efd71d107d36a2bd8fd800b73e9860dc99cc71c50a24d4f51407c6b60"
+      }
+    },
+    "ru/guide/quickstart.md": {
+      "source": "guide/quickstart.md",
+      "sha256": "62172e26a1b071e110a365c15ab81d23c415ff95ac160575142ad10bc507260d",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "6f195011fb9f31e7858c5ac004f36f3973ae2a01d8c3ebe47419401674c0bf2d",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read all ten complete EN/RU pages: resolver, Blade, explain, Inertia/JSON, installation, Livewire, quickstart, schema, why and home adapter. Retained full code, tables, warning/tip/info sections and examples. Corrected non-null versus non-zero ambiguity in explain, falsy/truthy wording, bare website default wording and Russian resolve terminology; standardized ИИ prose. Verified six layers and postprocessing, explicit/model-less SEOData boundaries, robots emitter exception, hreflang/BCP47, seven directives, SSR and separate JSON-LD navigation lifecycle, Livewire current-URL/same-URL cleanup and version caveats, optional sitemap dependency, full support matrix and metadata migration. Why retains original measured reference-app claims and qualifications (12 immediately deleted,22 retained for later,roughly three dozen;25resolves,zero warmqueries;900pages,18boundedjobs,50cap,1800links), not fresh benchmarks. Home retains full adapter and relies on separately reviewed109layout values. No native/human certification. Inherited source qualifications listed separately; not new guarantees.",
+          "warningsDisposition": "Nine warning-bearing pages: localized own-property /ru/links require later built-route verification; all original section IDs retained for switching, including numbered IDs that repeat numeric tokens. Why20,000 and1,800 use Russian20 000 and1 800 separators; counts and inequalities unchanged. Source CLI labels/examples remain literal; actual Russian Filament badges/Structured data labels checked against package source. Homepage full<Home/> preserved. English resolver always sensible claim and explain amendment link are inherited source wording, not newly verified unconditional guarantees.",
+          "at": "2026-09-12T00:01:43.216Z",
+          "independentNative": false,
+          "digest": "caa8b0eedc7bfdb958a73d843e00437bbb7cd30069f256c0d9902ff3d9c92d7a"
+        },
+        "packet": "ru-docs-core-reviewed.json",
+        "packet_sha256": "54472a8a58910c69c733b6c50428c8a2b92141cdced8d73dcf582069798b5a6b",
+        "packet_raw_sha256": "54472a8a58910c69c733b6c50428c8a2b92141cdced8d73dcf582069798b5a6b"
+      }
+    },
+    "ru/guide/schema.md": {
+      "source": "guide/schema.md",
+      "sha256": "f5896694ebd6fa3df9dc7d393ec392882f431242468a1aababc257bc70c3b02a",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "de1c3ab11d17650498418d00de4f08e0d65228805db733b3b8c65b7f6833733e",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read all ten complete EN/RU pages: resolver, Blade, explain, Inertia/JSON, installation, Livewire, quickstart, schema, why and home adapter. Retained full code, tables, warning/tip/info sections and examples. Corrected non-null versus non-zero ambiguity in explain, falsy/truthy wording, bare website default wording and Russian resolve terminology; standardized ИИ prose. Verified six layers and postprocessing, explicit/model-less SEOData boundaries, robots emitter exception, hreflang/BCP47, seven directives, SSR and separate JSON-LD navigation lifecycle, Livewire current-URL/same-URL cleanup and version caveats, optional sitemap dependency, full support matrix and metadata migration. Why retains original measured reference-app claims and qualifications (12 immediately deleted,22 retained for later,roughly three dozen;25resolves,zero warmqueries;900pages,18boundedjobs,50cap,1800links), not fresh benchmarks. Home retains full adapter and relies on separately reviewed109layout values. No native/human certification. Inherited source qualifications listed separately; not new guarantees.",
+          "warningsDisposition": "Nine warning-bearing pages: localized own-property /ru/links require later built-route verification; all original section IDs retained for switching, including numbered IDs that repeat numeric tokens. Why20,000 and1,800 use Russian20 000 and1 800 separators; counts and inequalities unchanged. Source CLI labels/examples remain literal; actual Russian Filament badges/Structured data labels checked against package source. Homepage full<Home/> preserved. English resolver always sensible claim and explain amendment link are inherited source wording, not newly verified unconditional guarantees.",
+          "at": "2026-09-12T00:01:43.216Z",
+          "independentNative": false,
+          "digest": "f915497a20c8a792421859ee806fa38ea8bab856b4cbf2160948fba5b6942937"
+        },
+        "packet": "ru-docs-core-reviewed.json",
+        "packet_sha256": "54472a8a58910c69c733b6c50428c8a2b92141cdced8d73dcf582069798b5a6b",
+        "packet_raw_sha256": "54472a8a58910c69c733b6c50428c8a2b92141cdced8d73dcf582069798b5a6b"
+      }
+    },
+    "ru/guide/sitemaps.md": {
+      "source": "guide/sitemaps.md",
+      "sha256": "16bbe750af66c65ce687536f4b92bfe27c6c11b05f59c2030a6c9ea17d080a0e",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "37569ac44a9bba6db86a57fbb13bf8eac04c1fc4a0e5ab99b35fb411824f778b",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read complete English and assembled Russian OG-image and sitemap guides: all sections,25 headings, full configuration/code, metadata, image alt, tables and qualifications. Preserved pre-generation and existence gating, explicit-image priority, scoped prune safety, hash/cache invalidation, sandbox and runtime limitations, actual font fallback versus incomplete smoke proof, ICU/Carbon dates, registry precedence, Spatie styled-view version fallback, XSL escaping, full alternate sets, per-URL resolution reuse and opt-in extension costs. No runtime examples executed. Codex editorial review, not native/human certification.",
+          "warningsDisposition": "Inspected planned Russian destinations and source-stable IDs; rendered link validation is still required. Numeric differences are two50,000counts formatted50 000; every threshold, version, size, formula and literal code remains.",
+          "at": "2026-09-12T00:38:40.817Z",
+          "independentNative": false,
+          "digest": "ede36265e72eec4721459a113af74c85daec15cbb031debec2bb269fe7165748"
+        },
+        "packet": "ru-docs-media-reviewed.json",
+        "packet_sha256": "5b48361efd71d107d36a2bd8fd800b73e9860dc99cc71c50a24d4f51407c6b60",
+        "packet_raw_sha256": "5b48361efd71d107d36a2bd8fd800b73e9860dc99cc71c50a24d4f51407c6b60"
+      }
+    },
+    "ru/guide/translations.md": {
+      "source": "guide/translations.md",
+      "sha256": "bedcee93831af91605dca0f7ad536e57da078984464c60fd68b4ca52e62662bc",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "e69cd0bee30a1014e43b0b20517ab0c3db12deb9431a40789b2a81582b2888ac",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read full English sources and both assembled Russian pages after protected-token restore. Translation guide preserves17packageUI locales/tier history, earlier-versus-changed Italian review qualification, native review as a separate package-status gate, code/placeholder stability, display locale versus content locale and untranslated CLI help/explain boundaries. This publicCodex review does not satisfy package native-review status. Upgrade guide preserves backup/export/restore verification before deletion, no automatic v1 redirect/404/scan migration, only two schema-compatible coretables, separatePro schema, removed legacy analyzer, backlog status, guards and literal commands. Complete metadata/headings/tables/lists/code preserved; no actual install/delete command executed.",
+          "warningsDisposition": "Both warnings are intentional localized docs destinations and English stable heading IDs (v1/numbered IDs repeat numbers); all literal code/version ranges/table names and external references retained. Actual links and surrounding rendered navigation still need integration QA.",
+          "at": "2026-09-12T00:04:03.304Z",
+          "independentNative": false,
+          "digest": "d304d283fdaf5c2fa37f76d49e384673717992d4e2e7ab50f4724da7fd2ee0dc"
+        },
+        "packet": "ru-docs-small-reviewed.json",
+        "packet_sha256": "86cbe0c38e6ad63f80263afcbfc3e6641c576a9d67fac73e0dfa8d8b09b5d317",
+        "packet_raw_sha256": "86cbe0c38e6ad63f80263afcbfc3e6641c576a9d67fac73e0dfa8d8b09b5d317"
+      }
+    },
+    "ru/guide/upgrade-from-v1.md": {
+      "source": "guide/upgrade-from-v1.md",
+      "sha256": "58fcb833a7313e9a91e41c7fea664a0db5b1a603d8b8bfda75db95f3a59bba15",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "c8e5af8ee6f549a732604ddff06fca9fe45fd91570591e9f92aac367e723073c",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read full English sources and both assembled Russian pages after protected-token restore. Translation guide preserves17packageUI locales/tier history, earlier-versus-changed Italian review qualification, native review as a separate package-status gate, code/placeholder stability, display locale versus content locale and untranslated CLI help/explain boundaries. This publicCodex review does not satisfy package native-review status. Upgrade guide preserves backup/export/restore verification before deletion, no automatic v1 redirect/404/scan migration, only two schema-compatible coretables, separatePro schema, removed legacy analyzer, backlog status, guards and literal commands. Complete metadata/headings/tables/lists/code preserved; no actual install/delete command executed.",
+          "warningsDisposition": "Both warnings are intentional localized docs destinations and English stable heading IDs (v1/numbered IDs repeat numbers); all literal code/version ranges/table names and external references retained. Actual links and surrounding rendered navigation still need integration QA.",
+          "at": "2026-09-12T00:04:03.304Z",
+          "independentNative": false,
+          "digest": "12f44c765c75c26b2179e18da02a54aa825e69340bb7dd94ab9b8406fec07002"
+        },
+        "packet": "ru-docs-small-reviewed.json",
+        "packet_sha256": "86cbe0c38e6ad63f80263afcbfc3e6641c576a9d67fac73e0dfa8d8b09b5d317",
+        "packet_raw_sha256": "86cbe0c38e6ad63f80263afcbfc3e6641c576a9d67fac73e0dfa8d8b09b5d317"
+      }
+    },
+    "ru/guide/why-rankbeam.md": {
+      "source": "guide/why-rankbeam.md",
+      "sha256": "d9ef64d4a335daa263460c434bc684876ec75c06a221abffe2ce994651deccf2",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "79ad409cb3300a543fff99bd088771c883f2622a110c71ec570c281df762e3b8",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read all ten complete EN/RU pages: resolver, Blade, explain, Inertia/JSON, installation, Livewire, quickstart, schema, why and home adapter. Retained full code, tables, warning/tip/info sections and examples. Corrected non-null versus non-zero ambiguity in explain, falsy/truthy wording, bare website default wording and Russian resolve terminology; standardized ИИ prose. Verified six layers and postprocessing, explicit/model-less SEOData boundaries, robots emitter exception, hreflang/BCP47, seven directives, SSR and separate JSON-LD navigation lifecycle, Livewire current-URL/same-URL cleanup and version caveats, optional sitemap dependency, full support matrix and metadata migration. Why retains original measured reference-app claims and qualifications (12 immediately deleted,22 retained for later,roughly three dozen;25resolves,zero warmqueries;900pages,18boundedjobs,50cap,1800links), not fresh benchmarks. Home retains full adapter and relies on separately reviewed109layout values. No native/human certification. Inherited source qualifications listed separately; not new guarantees.",
+          "warningsDisposition": "Nine warning-bearing pages: localized own-property /ru/links require later built-route verification; all original section IDs retained for switching, including numbered IDs that repeat numeric tokens. Why20,000 and1,800 use Russian20 000 and1 800 separators; counts and inequalities unchanged. Source CLI labels/examples remain literal; actual Russian Filament badges/Structured data labels checked against package source. Homepage full<Home/> preserved. English resolver always sensible claim and explain amendment link are inherited source wording, not newly verified unconditional guarantees.",
+          "at": "2026-09-12T00:01:43.216Z",
+          "independentNative": false,
+          "digest": "d22d43fa0e2d9bc7e415ca65d171d17968c2a51c2c8ced47a2e5ab97ea64468d"
+        },
+        "packet": "ru-docs-core-reviewed.json",
+        "packet_sha256": "54472a8a58910c69c733b6c50428c8a2b92141cdced8d73dcf582069798b5a6b",
+        "packet_raw_sha256": "54472a8a58910c69c733b6c50428c8a2b92141cdced8d73dcf582069798b5a6b"
+      }
+    },
+    "ru/guide/wordpress-migration-runbook.md": {
+      "source": "guide/wordpress-migration-runbook.md",
+      "sha256": "f2daaf7eac2bd7a8e180d401e8c8c71bec38a306b6bbe5b2751202947cd82ff8",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "af50ccd07bffced8eb732ceef0096389bdfa51c83d1293e482a13b5e428e6db7",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read full English/protected source including section diffs and all literal commands, authored complete Russian runbook, then read assembled final page. Preserves all9 headings, both tables,7 cutover checklist items, all examples, one-model-per-WordPress-run, source/destination backups, source untouched, redirects CSV/protection and in-process vs network audits. Explicitly repeats default-only/no-overwrite qualification in repeat-run and rollback paragraphs; overwrite recovery requires pre-import destination backup. This clarifies existing introduction/option contract, matching earlier recorded English follow-up; no destructive command executed. CLI report/outcome names stay literal. Codex editorial review, not native/human certification.",
+          "warningsDisposition": "Localized own-property docs paths retain exact page names and stable source heading IDs; actual build/fragment checks remain pending. Code flags,technical values and numeric criteria unchanged.",
+          "at": "2026-09-12T00:21:30.968Z",
+          "independentNative": false,
+          "digest": "806d212237056dbe60ed7fcef7724e673966754c67906047d2b042293243a41c"
+        },
+        "packet": "ru-docs-runbook-reviewed.json",
+        "packet_sha256": "692d947cb1e2ecdaf745a8f326bd86d0a763391c1bc9bd0869b7bdebd1e5cf20",
+        "packet_raw_sha256": "692d947cb1e2ecdaf745a8f326bd86d0a763391c1bc9bd0869b7bdebd1e5cf20"
+      }
+    },
+    "ru/index.md": {
+      "source": "index.md",
+      "sha256": "1fe0fb5e64039c222519c36e499eb8dcbf9b775cf38241862971bb607089c522",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "adbc1b2d73946f7aa9cfae07cd92afae79f8cf27eec35904cc0e3239921d8f6d",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read all ten complete EN/RU pages: resolver, Blade, explain, Inertia/JSON, installation, Livewire, quickstart, schema, why and home adapter. Retained full code, tables, warning/tip/info sections and examples. Corrected non-null versus non-zero ambiguity in explain, falsy/truthy wording, bare website default wording and Russian resolve terminology; standardized ИИ prose. Verified six layers and postprocessing, explicit/model-less SEOData boundaries, robots emitter exception, hreflang/BCP47, seven directives, SSR and separate JSON-LD navigation lifecycle, Livewire current-URL/same-URL cleanup and version caveats, optional sitemap dependency, full support matrix and metadata migration. Why retains original measured reference-app claims and qualifications (12 immediately deleted,22 retained for later,roughly three dozen;25resolves,zero warmqueries;900pages,18boundedjobs,50cap,1800links), not fresh benchmarks. Home retains full adapter and relies on separately reviewed109layout values. No native/human certification. Inherited source qualifications listed separately; not new guarantees.",
+          "warningsDisposition": "Nine warning-bearing pages: localized own-property /ru/links require later built-route verification; all original section IDs retained for switching, including numbered IDs that repeat numeric tokens. Why20,000 and1,800 use Russian20 000 and1 800 separators; counts and inequalities unchanged. Source CLI labels/examples remain literal; actual Russian Filament badges/Structured data labels checked against package source. Homepage full<Home/> preserved. English resolver always sensible claim and explain amendment link are inherited source wording, not newly verified unconditional guarantees.",
+          "at": "2026-09-12T00:01:43.216Z",
+          "independentNative": false,
+          "digest": "56bfa5e4d59a00612f04bc40f64a504cff128d0f1370f39d6adbae3bd9f63e47"
+        },
+        "packet": "ru-docs-core-reviewed.json",
+        "packet_sha256": "54472a8a58910c69c733b6c50428c8a2b92141cdced8d73dcf582069798b5a6b",
+        "packet_raw_sha256": "54472a8a58910c69c733b6c50428c8a2b92141cdced8d73dcf582069798b5a6b"
+      }
+    },
+    "ru/pro/ai-assist.md": {
+      "source": "pro/ai-assist.md",
+      "sha256": "49729166bb1045e61b7b1d43d824ae7031212ac0e4cd858b332f23c53c707108",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "757c5336b0f7c4121bf3d84d545592d3b7ffdccefab194db2867e4e8a8906f4c",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read full English and Russian AI-assist guide in four contiguous ranges, including every table, code group, metadata and troubleshooting row. Preserved shipped model/example-price qualifications, hidden reasoning and non-guaranteed estimates, remote local-adapter egress, exact locale and legacy checkpoint behavior, 170/17 evaluation limits, explicit interactive acceptance, Pro2.42 private CLI drafts versus lower-level PHP default writes, billable dry run, approval stale-source protection, encrypted proposal migration and retention, field provenance limitations, null prompt filter and complete data egress. Clarified English Apply label without changing meaning. Codex editorial review, not independent native or human certification.",
+          "warningsDisposition": "Compared every number and monetary example, Russian decimal/group separators retain values. Explicit English source anchors and local route destinations inspected; final actual build links and code-group interaction remain integration acceptance gates. Code and historical sample diagnostics kept literal. No price refresh, model evaluation, provider call, migration, payment or example command executed.",
+          "at": "2026-09-12T01:39:38.031Z",
+          "independentNative": false,
+          "digest": "de64df11dc6fa4aac4214f0198a2ee1b4f0fb91c12a7e4a60af78189ad43b752"
+        },
+        "packet": "ru-docs-ai-assist-reviewed.json",
+        "packet_sha256": "9719ab0689d9677e9123ca6acb7842b3f6cc1d9b93cd075cdffa94ca226cebe2",
+        "packet_raw_sha256": "9719ab0689d9677e9123ca6acb7842b3f6cc1d9b93cd075cdffa94ca226cebe2"
+      }
+    },
+    "ru/pro/ai-bot-monitor.md": {
+      "source": "pro/ai-bot-monitor.md",
+      "sha256": "45c33da9dbadd4d323f11be2260db72f21b32c0f47f95ceed60dd2d0927f08ab",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "f3242886442d869a83d5ed5060e77987ceb17bcd2a909459648a6181c0fe5a16",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read complete English and Russian bot-monitor, readiness and IndexNow pages, all metadata, sections, tables and literal examples. Preserved spoofable UA attribution, privacy and bounded daily counters, separate deterministic scoring, optional llms.txt, skipped signals, catalogue version limitation, in-process static-file limitation, default-off submissions, nonsecret key, publish gate, queue and retry semantics. Clarified training-data crawler and notification heading; notification does not guarantee indexing. Codex editorial review, not native or human certification.",
+          "warningsDisposition": "Read numeric ranges, weights and examples in full; all values retained. Localized internal paths and preserved explicit source anchors inspected against source inventory; actual rendered links remain a later build gate. No commands from examples or provider requests executed.",
+          "at": "2026-09-12T01:38:01.951Z",
+          "independentNative": false,
+          "digest": "f1872ac8e1b95bc6556c4850105c442ec76b51bf9d8bb7fd4a4591e751d73c0b"
+        },
+        "packet": "ru-docs-pro-three-reviewed.json",
+        "packet_sha256": "e62a0e05019cd86a0969cae0d2735c1636363904d70285401620f09383ea412b",
+        "packet_raw_sha256": "e62a0e05019cd86a0969cae0d2735c1636363904d70285401620f09383ea412b"
+      }
+    },
+    "ru/pro/ai-readiness-score.md": {
+      "source": "pro/ai-readiness-score.md",
+      "sha256": "4a5d3936be605aa199975d2b4a4e15297627395c71394fd8dd2e2d666fba00a1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "e0338b7d5cef31f5e7e330843d69da6e2f2e58c905ca686ecec1e6a0724744f1",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read complete English and Russian bot-monitor, readiness and IndexNow pages, all metadata, sections, tables and literal examples. Preserved spoofable UA attribution, privacy and bounded daily counters, separate deterministic scoring, optional llms.txt, skipped signals, catalogue version limitation, in-process static-file limitation, default-off submissions, nonsecret key, publish gate, queue and retry semantics. Clarified training-data crawler and notification heading; notification does not guarantee indexing. Codex editorial review, not native or human certification.",
+          "warningsDisposition": "Read numeric ranges, weights and examples in full; all values retained. Localized internal paths and preserved explicit source anchors inspected against source inventory; actual rendered links remain a later build gate. No commands from examples or provider requests executed.",
+          "at": "2026-09-12T01:38:01.951Z",
+          "independentNative": false,
+          "digest": "157c504f1dfe92fda2872a61a5f5aa091c3ae60ab2fbf2a9034131464b3e04ed"
+        },
+        "packet": "ru-docs-pro-three-reviewed.json",
+        "packet_sha256": "e62a0e05019cd86a0969cae0d2735c1636363904d70285401620f09383ea412b",
+        "packet_raw_sha256": "e62a0e05019cd86a0969cae0d2735c1636363904d70285401620f09383ea412b"
+      }
+    },
+    "ru/pro/broken-links.md": {
+      "source": "pro/broken-links.md",
+      "sha256": "536f024b3551aca7810605ddb6cb37ad77bce9dfaa64f697f1dd4f5d9b73a4f1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "5fcef78364301cf0e1b241dbe09d05a3dea09a0661b9bdbd6685158ad1c57390",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read complete English and assembled Russian broken-links, on-page checklist, reports and scan-issues: every section, table, code example, metadata and callout. Preserved cross-scan versus immediate inspections, guarded network opt-ins, keyword and ICU limits, score/segmentation timestamps, all formula caveats, separate operator/content/report locales and queued mail settings. Clarified typed-inspection exclusion scope against source example and installed LinkInspectionRunner; no claim static assets are never fetched. Refined prose AI terminology and formula-test qualification. Recorded inherited custom H2 sample limitation and missing newer segmentation registry row for separate English-source follow-up. This is Codex editorial review, not native/human certification.",
+          "warningsDisposition": "Read Russian destinations and stable source IDs; actual rendered route/fragment validation remains a publication gate. Checklist adds stable upgrade anchor digits and formats600,395 as600 395; all arithmetic, versions, thresholds, bands, table rows and literal code preserved.",
+          "at": "2026-09-12T00:32:33.084Z",
+          "independentNative": false,
+          "digest": "951946585ad183f66d66f96fe6ae995bc32a6f5c0b79dee258ead638675aa741"
+        },
+        "packet": "ru-docs-pro-four-reviewed.json",
+        "packet_sha256": "0836a4689f18e0798ed8614e45bb13e114fddf631e65be05af202435edda5481",
+        "packet_raw_sha256": "0836a4689f18e0798ed8614e45bb13e114fddf631e65be05af202435edda5481"
+      }
+    },
+    "ru/pro/headless.md": {
+      "source": "pro/headless.md",
+      "sha256": "6a392b623c3d912ae7db09674646e1bb9dd1fa5677adb3d0de228b3eaabcb5d9",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "63a591b8173fc5a7c619d56f4b2ad737d669d4256001149c3e3508a33dccd698",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read full EN/RU headless guide, every command table and literal example/schedule. Preserves publish-only Pro migrations, no-network/no-secret doctor vs external worker uncertainty, sync-only CI gates, bounded dedicated crawler worker, readonly Search Console, redirects validation and from404 atomic action, retention/recovery and API-only issue ignore/reopen. Refined three prose AI occurrences toИИ, clarified CLI counterpart of monitor action and complete functionality without Filament. Runtime installed controls/commands remain literal. Codex review only, not independent native/human certification.",
+          "warningsDisposition": "Localized page and typed-link-inspections fragment destinations retain actual planned RU route names; rendered checks pending. All command identifiers/options,default limits and code unchanged.",
+          "at": "2026-09-12T00:24:45.371Z",
+          "independentNative": false,
+          "digest": "153c5f925b7aaaa1723f628ce4674baa059d1333f5e65c4ae03fb7333b3059a1"
+        },
+        "packet": "ru-docs-headless-reviewed.json",
+        "packet_sha256": "9f4d666c3b949cba8853be9516fbf144fd738cb2a68db757d824aaa71c3d0f3b",
+        "packet_raw_sha256": "9f4d666c3b949cba8853be9516fbf144fd738cb2a68db757d824aaa71c3d0f3b"
+      }
+    },
+    "ru/pro/indexnow.md": {
+      "source": "pro/indexnow.md",
+      "sha256": "6358680ec026bd8281c17272ffbebb43a126ffa84a8b87564cbafc52338163eb",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "d24b7a9fd8f5d8bf0d58dff2a3de42ba2f345d53b0f421610dfefda27aa377be",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read complete English and Russian bot-monitor, readiness and IndexNow pages, all metadata, sections, tables and literal examples. Preserved spoofable UA attribution, privacy and bounded daily counters, separate deterministic scoring, optional llms.txt, skipped signals, catalogue version limitation, in-process static-file limitation, default-off submissions, nonsecret key, publish gate, queue and retry semantics. Clarified training-data crawler and notification heading; notification does not guarantee indexing. Codex editorial review, not native or human certification.",
+          "warningsDisposition": "Read numeric ranges, weights and examples in full; all values retained. Localized internal paths and preserved explicit source anchors inspected against source inventory; actual rendered links remain a later build gate. No commands from examples or provider requests executed.",
+          "at": "2026-09-12T01:38:01.951Z",
+          "independentNative": false,
+          "digest": "a792c4c54ae40d4cb423251d6759d077ef54c6ace847952c9e74a19977ec8d93"
+        },
+        "packet": "ru-docs-pro-three-reviewed.json",
+        "packet_sha256": "e62a0e05019cd86a0969cae0d2735c1636363904d70285401620f09383ea412b",
+        "packet_raw_sha256": "e62a0e05019cd86a0969cae0d2735c1636363904d70285401620f09383ea412b"
+      }
+    },
+    "ru/pro/installation.md": {
+      "source": "pro/installation.md",
+      "sha256": "a092e59eff8699016b9d17b63c117afbbdcb64ecac27e38954e73972db8366cd",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "1400c17ee083e1beb751a213077ca056665f84ae37c4d2134a9a292e8c35cf69",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read full English and assembled Russian installation, production, scheduling, scoring and walkthrough, including all examples, tables, figures and metadata. Preserved license scope/refunds, publish-only migrations, queue/recovery limitations, no-network doctor, snapshot deltas, score allowlist/versioning and recorded demo evidence. Corrected four duplicated explicit IDs, prose AI terminology and target-count grammar. English screenshot controls and literal CLI output remain accurate. Codex editorial review, not native or human certification.",
+          "warningsDisposition": "Source-stable English IDs and Russian destinations inspected in full; actual rendered links remain a publication gate. Scoring numeric differences are one-to-one expressed in words, floor zero spelled out, and non-repeated H1 prose; all penalties, thresholds, bands, tables and code unchanged.",
+          "at": "2026-09-12T00:30:03.128Z",
+          "independentNative": false,
+          "digest": "247ef1e17fd4a36406ef8a2c5bdedbfb158cde97259f36e931b031aed43aad58"
+        },
+        "packet": "ru-docs-pro-five-reviewed.json",
+        "packet_sha256": "bdb639a18d612ba649eaa923ad381e47d04c6b10fd5f2b24dc43a963879bc45a",
+        "packet_raw_sha256": "bdb639a18d612ba649eaa923ad381e47d04c6b10fd5f2b24dc43a963879bc45a"
+      }
+    },
+    "ru/pro/mcp.md": {
+      "source": "pro/mcp.md",
+      "sha256": "5e38f0d65552be2664a98e0ce87614d7e14987ad4da3936b8938d8274a6cd874",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "ae1cb5184aa9252ab66937ddbb4cb6c7b472fece4c80b5993e9574b53079d319",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent compared the complete English and Russian MCP, Search Console and insights guides, including all dialogue, tables, metadata, code and security caveats. Fourteen tools retain ten read and four gated operations; stdio does not prevent client provider egress, saveSEO bypasses form validators, Server Card remains dated draft discovery only. GSC exact readonly scope, encrypted access tokens, call-time environment, SSRF controls, aggregate history and resume semantics retained. Five insights preserve three offline surfaces, one shared live call plus possible token refresh, heuristic CTR and non-guaranteed ranking. No prose changes required. Codex review is not native or human certification.",
+          "warningsDisposition": "All numbers, PHP/Laravel ranges, protocol IDs and literal command/dialogue examples compared. Actual English UI labels explicitly identified, Italian sample data preserved. Internal links translated to inventoried Russian routes with source anchors; final rendered destinations remain pending integration/build. No MCP client, credential, Google or model-provider setup/call executed.",
+          "at": "2026-09-12T01:38:47.658Z",
+          "independentNative": false,
+          "digest": "462e655414efe48a1db9feb335af26394073a851fca0353851446b920a765d86"
+        },
+        "packet": "ru-docs-pro-mcp-gsc-reviewed.json",
+        "packet_sha256": "b17c31e5fd1a6bdc1d101b09604d9326a8d0fa43d123050f4209bee48de1c98c",
+        "packet_raw_sha256": "b17c31e5fd1a6bdc1d101b09604d9326a8d0fa43d123050f4209bee48de1c98c"
+      }
+    },
+    "ru/pro/on-page-checklist.md": {
+      "source": "pro/on-page-checklist.md",
+      "sha256": "cb94ef8f19db646db0e214abb379d0abf490218a2d265efebcdfd986c34ea8c1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "a763bdb1d3df5224085dd7dc6c44203db434b56be83b1928d0b1f61551c92c8d",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read complete English and assembled Russian broken-links, on-page checklist, reports and scan-issues: every section, table, code example, metadata and callout. Preserved cross-scan versus immediate inspections, guarded network opt-ins, keyword and ICU limits, score/segmentation timestamps, all formula caveats, separate operator/content/report locales and queued mail settings. Clarified typed-inspection exclusion scope against source example and installed LinkInspectionRunner; no claim static assets are never fetched. Refined prose AI terminology and formula-test qualification. Recorded inherited custom H2 sample limitation and missing newer segmentation registry row for separate English-source follow-up. This is Codex editorial review, not native/human certification.",
+          "warningsDisposition": "Read Russian destinations and stable source IDs; actual rendered route/fragment validation remains a publication gate. Checklist adds stable upgrade anchor digits and formats600,395 as600 395; all arithmetic, versions, thresholds, bands, table rows and literal code preserved.",
+          "at": "2026-09-12T00:32:33.084Z",
+          "independentNative": false,
+          "digest": "a752cc6f812b7a80a8b6919ff278f0c765fdc923be55ad257f6b961498ef3252"
+        },
+        "packet": "ru-docs-pro-four-reviewed.json",
+        "packet_sha256": "0836a4689f18e0798ed8614e45bb13e114fddf631e65be05af202435edda5481",
+        "packet_raw_sha256": "0836a4689f18e0798ed8614e45bb13e114fddf631e65be05af202435edda5481"
+      }
+    },
+    "ru/pro/production.md": {
+      "source": "pro/production.md",
+      "sha256": "7a5bc5882b7d9bcddfa1028e52e73fb1c18f460cde9cf13ef3c1322f95db04a2",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "b819e97b4afec6c31db24f63a53d8317db50cddc84338670aff7a2442c79e0cf",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read full English and assembled Russian installation, production, scheduling, scoring and walkthrough, including all examples, tables, figures and metadata. Preserved license scope/refunds, publish-only migrations, queue/recovery limitations, no-network doctor, snapshot deltas, score allowlist/versioning and recorded demo evidence. Corrected four duplicated explicit IDs, prose AI terminology and target-count grammar. English screenshot controls and literal CLI output remain accurate. Codex editorial review, not native or human certification.",
+          "warningsDisposition": "Source-stable English IDs and Russian destinations inspected in full; actual rendered links remain a publication gate. Scoring numeric differences are one-to-one expressed in words, floor zero spelled out, and non-repeated H1 prose; all penalties, thresholds, bands, tables and code unchanged.",
+          "at": "2026-09-12T00:30:03.128Z",
+          "independentNative": false,
+          "digest": "0a72c77b74c18e83dc146e5e5410ed854cf63e1abc14933babd2ea3c322ada05"
+        },
+        "packet": "ru-docs-pro-five-reviewed.json",
+        "packet_sha256": "bdb639a18d612ba649eaa923ad381e47d04c6b10fd5f2b24dc43a963879bc45a",
+        "packet_raw_sha256": "bdb639a18d612ba649eaa923ad381e47d04c6b10fd5f2b24dc43a963879bc45a"
+      }
+    },
+    "ru/pro/reports.md": {
+      "source": "pro/reports.md",
+      "sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "c1705668bf2ea4536e3ecdc715e168043d69600f19ef70966571fa1d1674798a",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read complete English and assembled Russian broken-links, on-page checklist, reports and scan-issues: every section, table, code example, metadata and callout. Preserved cross-scan versus immediate inspections, guarded network opt-ins, keyword and ICU limits, score/segmentation timestamps, all formula caveats, separate operator/content/report locales and queued mail settings. Clarified typed-inspection exclusion scope against source example and installed LinkInspectionRunner; no claim static assets are never fetched. Refined prose AI terminology and formula-test qualification. Recorded inherited custom H2 sample limitation and missing newer segmentation registry row for separate English-source follow-up. This is Codex editorial review, not native/human certification.",
+          "warningsDisposition": "Read Russian destinations and stable source IDs; actual rendered route/fragment validation remains a publication gate. Checklist adds stable upgrade anchor digits and formats600,395 as600 395; all arithmetic, versions, thresholds, bands, table rows and literal code preserved.",
+          "at": "2026-09-12T00:32:33.084Z",
+          "independentNative": false,
+          "digest": "516582d2c08d960e3c62d840b4e89a963e6f2c05888ec9a54d17309b9a5ca2a4"
+        },
+        "packet": "ru-docs-pro-four-reviewed.json",
+        "packet_sha256": "0836a4689f18e0798ed8614e45bb13e114fddf631e65be05af202435edda5481",
+        "packet_raw_sha256": "0836a4689f18e0798ed8614e45bb13e114fddf631e65be05af202435edda5481"
+      }
+    },
+    "ru/pro/scan-issues.md": {
+      "source": "pro/scan-issues.md",
+      "sha256": "ddfb77bc5ce73aca006c7713aa819db26254e7c68bb1a9fd556a7d2580b6e2d1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "0c64890a3b277ddeece2ec757000829629de33685212fe927c901df601a3abce",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read complete English and assembled Russian broken-links, on-page checklist, reports and scan-issues: every section, table, code example, metadata and callout. Preserved cross-scan versus immediate inspections, guarded network opt-ins, keyword and ICU limits, score/segmentation timestamps, all formula caveats, separate operator/content/report locales and queued mail settings. Clarified typed-inspection exclusion scope against source example and installed LinkInspectionRunner; no claim static assets are never fetched. Refined prose AI terminology and formula-test qualification. Recorded inherited custom H2 sample limitation and missing newer segmentation registry row for separate English-source follow-up. This is Codex editorial review, not native/human certification.",
+          "warningsDisposition": "Read Russian destinations and stable source IDs; actual rendered route/fragment validation remains a publication gate. Checklist adds stable upgrade anchor digits and formats600,395 as600 395; all arithmetic, versions, thresholds, bands, table rows and literal code preserved.",
+          "at": "2026-09-12T00:32:33.084Z",
+          "independentNative": false,
+          "digest": "6f8a2a8325ba0f606ffcdc0af3baeeb541509e8ffcfb712a0f205b9946a175dc"
+        },
+        "packet": "ru-docs-pro-four-reviewed.json",
+        "packet_sha256": "0836a4689f18e0798ed8614e45bb13e114fddf631e65be05af202435edda5481",
+        "packet_raw_sha256": "0836a4689f18e0798ed8614e45bb13e114fddf631e65be05af202435edda5481"
+      }
+    },
+    "ru/pro/scan-scheduling.md": {
+      "source": "pro/scan-scheduling.md",
+      "sha256": "0c96d2a7db7d8717fab21a5c0bff169a6641751d4871673606c17b3d5550b1b3",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "afa04e791785ee99e56fd9c2c920addc214cd58937a5592fb1aa21d24b78646e",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read full English and assembled Russian installation, production, scheduling, scoring and walkthrough, including all examples, tables, figures and metadata. Preserved license scope/refunds, publish-only migrations, queue/recovery limitations, no-network doctor, snapshot deltas, score allowlist/versioning and recorded demo evidence. Corrected four duplicated explicit IDs, prose AI terminology and target-count grammar. English screenshot controls and literal CLI output remain accurate. Codex editorial review, not native or human certification.",
+          "warningsDisposition": "Source-stable English IDs and Russian destinations inspected in full; actual rendered links remain a publication gate. Scoring numeric differences are one-to-one expressed in words, floor zero spelled out, and non-repeated H1 prose; all penalties, thresholds, bands, tables and code unchanged.",
+          "at": "2026-09-12T00:30:03.128Z",
+          "independentNative": false,
+          "digest": "e6b0e22bb96c36624d49d1888634def92c875bce4a33e15e3e543a59d93d85c6"
+        },
+        "packet": "ru-docs-pro-five-reviewed.json",
+        "packet_sha256": "bdb639a18d612ba649eaa923ad381e47d04c6b10fd5f2b24dc43a963879bc45a",
+        "packet_raw_sha256": "bdb639a18d612ba649eaa923ad381e47d04c6b10fd5f2b24dc43a963879bc45a"
+      }
+    },
+    "ru/pro/scoring.md": {
+      "source": "pro/scoring.md",
+      "sha256": "8c4fd3f83632f472dd3ebb75fe7b1fa6d87d6bda125bb51d94ae733a2e0e5032",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "9d0e4e8fe169f6c9f02185229aaea6fe7741b3602fc81a07fff25ff301b2d657",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read full English and assembled Russian installation, production, scheduling, scoring and walkthrough, including all examples, tables, figures and metadata. Preserved license scope/refunds, publish-only migrations, queue/recovery limitations, no-network doctor, snapshot deltas, score allowlist/versioning and recorded demo evidence. Corrected four duplicated explicit IDs, prose AI terminology and target-count grammar. English screenshot controls and literal CLI output remain accurate. Codex editorial review, not native or human certification.",
+          "warningsDisposition": "Source-stable English IDs and Russian destinations inspected in full; actual rendered links remain a publication gate. Scoring numeric differences are one-to-one expressed in words, floor zero spelled out, and non-repeated H1 prose; all penalties, thresholds, bands, tables and code unchanged.",
+          "at": "2026-09-12T00:30:03.128Z",
+          "independentNative": false,
+          "digest": "33eefb55848a608d111f272a0fa0c72ff772ea09d3ac369803342792709ff73f"
+        },
+        "packet": "ru-docs-pro-five-reviewed.json",
+        "packet_sha256": "bdb639a18d612ba649eaa923ad381e47d04c6b10fd5f2b24dc43a963879bc45a",
+        "packet_raw_sha256": "bdb639a18d612ba649eaa923ad381e47d04c6b10fd5f2b24dc43a963879bc45a"
+      }
+    },
+    "ru/pro/search-console-insights.md": {
+      "source": "pro/search-console-insights.md",
+      "sha256": "eb89ebecfbe846bc07f534918d5f19569911e8762d1e7441b4743181ec5ceec6",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "5f38d12386d5802399dd32ebc9f33ca74933cc7817ae28f7ec3d7f57d6397257",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent compared the complete English and Russian MCP, Search Console and insights guides, including all dialogue, tables, metadata, code and security caveats. Fourteen tools retain ten read and four gated operations; stdio does not prevent client provider egress, saveSEO bypasses form validators, Server Card remains dated draft discovery only. GSC exact readonly scope, encrypted access tokens, call-time environment, SSRF controls, aggregate history and resume semantics retained. Five insights preserve three offline surfaces, one shared live call plus possible token refresh, heuristic CTR and non-guaranteed ranking. No prose changes required. Codex review is not native or human certification.",
+          "warningsDisposition": "All numbers, PHP/Laravel ranges, protocol IDs and literal command/dialogue examples compared. Actual English UI labels explicitly identified, Italian sample data preserved. Internal links translated to inventoried Russian routes with source anchors; final rendered destinations remain pending integration/build. No MCP client, credential, Google or model-provider setup/call executed.",
+          "at": "2026-09-12T01:38:47.658Z",
+          "independentNative": false,
+          "digest": "23cb44fdf82311ba82c7f2af9b72e70833a7063fc9ae3da30872815e9ff2be86"
+        },
+        "packet": "ru-docs-pro-mcp-gsc-reviewed.json",
+        "packet_sha256": "b17c31e5fd1a6bdc1d101b09604d9326a8d0fa43d123050f4209bee48de1c98c",
+        "packet_raw_sha256": "b17c31e5fd1a6bdc1d101b09604d9326a8d0fa43d123050f4209bee48de1c98c"
+      }
+    },
+    "ru/pro/search-console.md": {
+      "source": "pro/search-console.md",
+      "sha256": "0fe33f55e9dc24a0f78a5bf34d00c93892fb04667fbd10c16ef214961f84d6da",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "8d1dbca617853f5a2f184644682e7672d3800fa383f7098fa7d30cd201fa9152",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent compared the complete English and Russian MCP, Search Console and insights guides, including all dialogue, tables, metadata, code and security caveats. Fourteen tools retain ten read and four gated operations; stdio does not prevent client provider egress, saveSEO bypasses form validators, Server Card remains dated draft discovery only. GSC exact readonly scope, encrypted access tokens, call-time environment, SSRF controls, aggregate history and resume semantics retained. Five insights preserve three offline surfaces, one shared live call plus possible token refresh, heuristic CTR and non-guaranteed ranking. No prose changes required. Codex review is not native or human certification.",
+          "warningsDisposition": "All numbers, PHP/Laravel ranges, protocol IDs and literal command/dialogue examples compared. Actual English UI labels explicitly identified, Italian sample data preserved. Internal links translated to inventoried Russian routes with source anchors; final rendered destinations remain pending integration/build. No MCP client, credential, Google or model-provider setup/call executed.",
+          "at": "2026-09-12T01:38:47.658Z",
+          "independentNative": false,
+          "digest": "7f3654d3fa6b78843445f2214029b8b4cbf726ded5ee1b107463fa6242f26604"
+        },
+        "packet": "ru-docs-pro-mcp-gsc-reviewed.json",
+        "packet_sha256": "b17c31e5fd1a6bdc1d101b09604d9326a8d0fa43d123050f4209bee48de1c98c",
+        "packet_raw_sha256": "b17c31e5fd1a6bdc1d101b09604d9326a8d0fa43d123050f4209bee48de1c98c"
+      }
+    },
+    "ru/pro/walkthrough.md": {
+      "source": "pro/walkthrough.md",
+      "sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "9d951ff9aba6f7578c93cd73a1a03dd527cea323551ea310dd7aeff2e32545e6",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent Codex read full English and assembled Russian installation, production, scheduling, scoring and walkthrough, including all examples, tables, figures and metadata. Preserved license scope/refunds, publish-only migrations, queue/recovery limitations, no-network doctor, snapshot deltas, score allowlist/versioning and recorded demo evidence. Corrected four duplicated explicit IDs, prose AI terminology and target-count grammar. English screenshot controls and literal CLI output remain accurate. Codex editorial review, not native or human certification.",
+          "warningsDisposition": "Source-stable English IDs and Russian destinations inspected in full; actual rendered links remain a publication gate. Scoring numeric differences are one-to-one expressed in words, floor zero spelled out, and non-repeated H1 prose; all penalties, thresholds, bands, tables and code unchanged.",
+          "at": "2026-09-12T00:30:03.128Z",
+          "independentNative": false,
+          "digest": "d4b9227f3c6422551b3db7cfa0d5a854f7990bec5ace92d919c0ed7f7f7dd42c"
+        },
+        "packet": "ru-docs-pro-five-reviewed.json",
+        "packet_sha256": "bdb639a18d612ba649eaa923ad381e47d04c6b10fd5f2b24dc43a963879bc45a",
+        "packet_raw_sha256": "bdb639a18d612ba649eaa923ad381e47d04c6b10fd5f2b24dc43a963879bc45a"
+      }
+    },
+    "ru/reference/configuration.md": {
+      "source": "reference/configuration.md",
+      "sha256": "6885c0770b86f6a3615d301a326f1b77d894a09f708cbb93cbe81b183fce6590",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "8b1eecfc8b507405095e515086b72762895443ad54512c05764e3b349bd9d15f",
+        "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Parent read complete English configuration page and protected source, authored full Russian translation and read assembled final page with all configuration arrays and code. Preserved all14 heading IDs,13 literal fenced examples, defaults, brand whole-word suffix suppression, robots omission and granular directive, opt-in environment guard and header scope, canonical whitelist order vs explicit verbatim value, keyword workflow gate, audit fallback models, local-only best-image sizing/fallback, optional feature toggles and every cache invalidation/TTL/touch qualification. Approx20k/day remains an inherited reference-app claim; no new performance benchmark asserted. Codex editorial review only, not independent native/human certification.",
+          "warningsDisposition": "Localized own-property links preserve exact docs page paths; built routes/anchors remain pending. Numeric defaults and complete literal code unchanged;20k prose rendered as20 thousand and zero asноль, same values.",
+          "at": "2026-09-12T00:24:01.881Z",
+          "independentNative": false,
+          "digest": "1e7b0c04ea61868c27e0c6b03dc42e6c0806901c9f92778307bba4f6a188b2c6"
+        },
+        "packet": "ru-docs-configuration-reviewed.json",
+        "packet_sha256": "3530ecef1c8e11b7765996838c7bb9d3dbc1f741a8b00859c09a28cbcb0d8c5c",
+        "packet_raw_sha256": "3530ecef1c8e11b7765996838c7bb9d3dbc1f741a8b00859c09a28cbcb0d8c5c"
+      }
     }
   }
 }

@@ -503,6 +503,69 @@ export const localeUi = {
         }
       }
     }
+  } ,
+  "ru": {
+    "label": "Русский",
+    "lang": "ru",
+    "guide": "Руководство",
+    "english": "Документация на английском",
+    "fallback": "Эта страница пока недоступна на русском языке.",
+    "open": "Открыть страницу на английском",
+    "review": "Этот перевод ожидает редакторской проверки Codex.",
+    "source": "Английская версия",
+    "outline": "На этой странице",
+    "next": "Следующая страница",
+    "prev": "Предыдущая страница",
+    "description": "SEO-пакет Laravel: многоуровневые метаданные, канонические URL, Open Graph, связанный JSON-LD, XML-карты сайта и управление роботами.",
+    "reference": "Справочник (EN)",
+    "table": "Таблица данных",
+    "titles": {
+      "guide/installation": "Установка",
+      "guide/quickstart": "Быстрый старт",
+      "concepts/resolver-precedence": "Приоритеты резолвера",
+      "guide/sitemaps": "Реестр карт сайта",
+      "guide/filament": "Поля SEO в Filament",
+      "guide/audit": "Бесплатный SEO-аудит",
+      "guide/ai-crawlers": "Управление роботами ИИ",
+      "guide/multilingual": "Многоязычный контент и hreflang",
+      "guide/og-image": "Генерация изображений OG",
+      "guide/migrate-from-other-packages": "Миграция из других пакетов"
+    },
+    "theme": {
+      "returnToTopLabel": "Наверх",
+      "sidebarMenuLabel": "Меню",
+      "darkModeSwitchLabel": "Тёмная тема",
+      "lightModeSwitchTitle": "Включить светлую тему",
+      "darkModeSwitchTitle": "Включить тёмную тему",
+      "langMenuLabel": "Сменить язык",
+      "skipToContentLabel": "Перейти к содержимому",
+      "lastUpdated": {
+        "text": "Обновлено"
+      }
+    },
+    "edit": "Изменить эту страницу на GitHub",
+    "license": "rankbeam/laravel-seo распространяется под лицензией MIT.",
+    "search": {
+      "button": {
+        "buttonText": "Поиск",
+        "buttonAriaLabel": "Поиск в документации"
+      },
+      "modal": {
+        "displayDetails": "Показать подробный список",
+        "resetButtonTitle": "Очистить поиск",
+        "backButtonTitle": "Закрыть поиск",
+        "noResultsText": "Нет результатов по запросу",
+        "footer": {
+          "selectText": "выбрать",
+          "navigateText": "перейти",
+          "closeText": "закрыть",
+          "selectKeyAriaLabel": "Enter",
+          "navigateUpKeyAriaLabel": "Стрелка вверх",
+          "navigateDownKeyAriaLabel": "Стрелка вниз",
+          "closeKeyAriaLabel": "Escape"
+        }
+      }
+    }
   }
 } as const
 

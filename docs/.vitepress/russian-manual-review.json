@@ -1,0 +1,131 @@
+{
+  "locale": "ru",
+  "reviewer": "Codex",
+  "independent_native": false,
+  "native_review": null,
+  "published": false,
+  "scope": "Only 47 locale UI and 18 manual message leaves from original parent review. No approval of other locale values or runtime behavior.",
+  "original_review": {
+    "reviewer": "Codex",
+    "reviewedAt": "2026-09-12T00:16:56.281860+00:00",
+    "candidateSha256": "a41c7302124f57d0613b56b1e472ba83c5a44fdf58a00f34743dbd3e45535eca",
+    "sourceContext": {
+      "docs/.vitepress/locale-ui.ts": "fb85843de2c7fa8454ddf511a56983b83701c6d84836926806eb355f5a9a81fc",
+      "docs/.vitepress/manual-messages.ts": "b606c9630f473470698b8fabb4565dace8bd6185e6da1d172ac5863db39dd122",
+      "docs/.vitepress/config.mts": "201db0a52c077b16f6dafd6ee03617dc93e46a4e288579b0cc1e8e5078bd5540",
+      "docs/.vitepress/theme-a11y.ts": "587ae681e7efec3b16e36cb51b51a6250bc660de5ae59d017cd8b9aa7bb2ac4e",
+      "docs/.vitepress/no-script-navigation.ts": "422c2eea44f97b3fc81a5d6fae026344405e2989361f79ce03cce23efdbd9660",
+      "docs/.vitepress/theme/components/LocalizedCopy.vue": "bf8842fe6ab414001eeb101d07beff58b9eaf893eaba7587dbf38604af1bc777",
+      "node_modules/vitepress/dist/client/theme-default/NotFound.vue": "8cf049995aee8882d705293b4964771cf161567251181acc049e11b3a5b27ffb",
+      "node_modules/vitepress/dist/client/theme-default/components/VPLocalSearchBox.vue": "c283e098ce625c7e3543cabad9ea97c5f1659b2817f07d90ad87940dddbbf522"
+    },
+    "scope": "Parent authored then read every Russian manual UI value against named UI roles, existing locale contract, English root description, actual installed VitePress NotFound and search defaults, and copy/navigation behavior. Includes complete search/modal/key names, navigation/headings/date label, fallback/Codex review wording, copy failure/no-JS guidance, permalink, brand alt and404. Refined quote for consistent second-person grammar, preserving source meaning. Enter/Escape are deliberate key labels. This is separate from workflow units; no native/human certification. Actual rendered UI and no-fallback journey remain required.",
+    "independentNative": false,
+    "humanCertification": false,
+    "published": false
+  },
+  "candidate": {
+    "localeUi": {
+      "label": "Русский",
+      "lang": "ru",
+      "guide": "Руководство",
+      "english": "Документация на английском",
+      "fallback": "Эта страница пока недоступна на русском языке.",
+      "open": "Открыть страницу на английском",
+      "review": "Этот перевод ожидает редакторской проверки Codex.",
+      "source": "Английская версия",
+      "outline": "На этой странице",
+      "next": "Следующая страница",
+      "prev": "Предыдущая страница",
+      "description": "SEO-пакет Laravel: многоуровневые метаданные, канонические URL, Open Graph, связанный JSON-LD, XML-карты сайта и управление роботами.",
+      "reference": "Справочник (EN)",
+      "table": "Таблица данных",
+      "titles": {
+        "guide/installation": "Установка",
+        "guide/quickstart": "Быстрый старт",
+        "concepts/resolver-precedence": "Приоритеты резолвера",
+        "guide/sitemaps": "Реестр карт сайта",
+        "guide/filament": "Поля SEO в Filament",
+        "guide/audit": "Бесплатный SEO-аудит",
+        "guide/ai-crawlers": "Управление роботами ИИ",
+        "guide/multilingual": "Многоязычный контент и hreflang",
+        "guide/og-image": "Генерация изображений OG",
+        "guide/migrate-from-other-packages": "Миграция из других пакетов"
+      },
+      "theme": {
+        "returnToTopLabel": "Наверх",
+        "sidebarMenuLabel": "Меню",
+        "darkModeSwitchLabel": "Тёмная тема",
+        "lightModeSwitchTitle": "Включить светлую тему",
+        "darkModeSwitchTitle": "Включить тёмную тему",
+        "langMenuLabel": "Сменить язык",
+        "skipToContentLabel": "Перейти к содержимому",
+        "lastUpdated": {
+          "text": "Обновлено"
+        }
+      },
+      "edit": "Изменить эту страницу на GitHub",
+      "license": "rankbeam/laravel-seo распространяется под лицензией MIT.",
+      "search": {
+        "button": {
+          "buttonText": "Поиск",
+          "buttonAriaLabel": "Поиск в документации"
+        },
+        "modal": {
+          "displayDetails": "Показать подробный список",
+          "resetButtonTitle": "Очистить поиск",
+          "backButtonTitle": "Закрыть поиск",
+          "noResultsText": "Нет результатов по запросу",
+          "footer": {
+            "selectText": "выбрать",
+            "navigateText": "перейти",
+            "closeText": "закрыть",
+            "selectKeyAriaLabel": "Enter",
+            "navigateUpKeyAriaLabel": "Стрелка вверх",
+            "navigateDownKeyAriaLabel": "Стрелка вниз",
+            "closeKeyAriaLabel": "Escape"
+          }
+        }
+      }
+    },
+    "manualMessages": {
+      "imageAlt": "Rankbeam — SEO-инфраструктура для Laravel с открытым ядром",
+      "copyTitle": "Копировать код",
+      "copied": "Скопировано",
+      "copyFailed": "Не удалось скопировать. Выделите код и скопируйте его вручную.",
+      "noScript": "Без JavaScript можно выделить код и скопировать его вручную.",
+      "noScriptMenu": "Меню",
+      "noScriptHelp": "JavaScript отключён. Используйте эти ссылки для навигации; выделите код, чтобы скопировать его вручную.",
+      "language": "Язык",
+      "mobileNavigation": "Мобильная навигация",
+      "extraNavigation": "Дополнительная навигация",
+      "mainNavigation": "Основная навигация",
+      "sidebarNavigation": "Навигация в боковой панели",
+      "pager": "Переход между страницами",
+      "permalink": "Постоянная ссылка на",
+      "notFound": {
+        "title": "СТРАНИЦА НЕ НАЙДЕНА",
+        "quote": "Но если вы не измените направление и продолжите искать, то можете оказаться там, куда направляетесь.",
+        "linkLabel": "перейти на главную страницу",
+        "linkText": "На главную страницу"
+      }
+    }
+  },
+  "target_scope_sha256": {
+    "localeUi": "e6bd16d739653e182e7b7e6681d43d2c6fb9f31e3e8a707a6fceaa1b41972aad",
+    "manualMessages": "07b6244775af2f00347c87800afd1d73eb7d3670c630144bf904d4043defea91"
+  },
+  "not_found_metadata": {
+    "locale": "ru",
+    "candidate": "ru-docs-404-candidate.md",
+    "sha256": "cfb5851159705dd7e79138ee51a1ecc785eaf7f1eea99f0b31b0ff572676ef25",
+    "reviewer": "Codex",
+    "reviewedAt": "2026-09-12T00:36:44.485688+00:00",
+    "reviewedValues": 2,
+    "source": {
+      "title": "VitePress NotFound.vue default PAGE NOT FOUND",
+      "description": "Parent-authored equivalent of existing localized documentation-not-found metadata; no standalone English docs/404.md exists."
+    },
+    "notes": "Parent read and approved both complete Russian metadata values and search:false for the localized 404. Metadata matches the requested documentation-not-found state, separately from visible notFound UI. Codex editorial review, not native/human certification."
+  }
+}
