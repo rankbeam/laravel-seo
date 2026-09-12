@@ -591,8 +591,18 @@ html {
 
 /* Japanese-only system fallbacks preserve the existing theme and code fonts. */
 html[lang="ja"] {
+  --vp-code-copy-copied-text-content: 'コピーしました';
   --vp-font-family-base: Inter, "Noto Sans CJK JP", "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
   line-break: strict;
   word-break: normal;
 }
 html[lang="ja"] :is(h1,h2,h3,h4,.VPNavBarTitle) { letter-spacing: normal; }
+
+/* Simplified Chinese fallbacks preserve the existing theme and code fonts. */
+html[lang="zh-CN"] {
+  --vp-code-copy-copied-text-content: '已复制';
+  --vp-font-family-base: Inter, "Noto Sans CJK SC", "Noto Sans SC", "Microsoft YaHei", "PingFang SC", sans-serif;
+  line-break: strict;
+  word-break: normal;
+}
+html[lang="zh-CN"] :is(h1,h2,h3,h4,.VPNavBarTitle) { letter-spacing: normal; }

@@ -1,6 +1,29 @@
 // Additional theme surfaces absent from the page/layout catalogs.
 // Codex copy review 2026-09-11; no independent native/human certification.
 export const manualMessages = {
+  // Simplified Chinese copy: exact parent Codex attestation in simplified-chinese-manual-review.json.
+  "zh-CN": {
+  "imageAlt": "Rankbeam — 面向 Laravel 的开放核心 SEO 基础设施",
+  "copyTitle": "复制代码",
+  "copied": "已复制",
+  "copyFailed": "复制失败。请选中代码并手动复制。",
+  "noScript": "未启用 JavaScript 时，请选中代码并手动复制。",
+  "noScriptMenu": "菜单",
+  "noScriptHelp": "JavaScript 已禁用。请使用这些链接导航；如需手动复制代码，请先选中代码。",
+  "language": "语言",
+  "mobileNavigation": "移动端导航",
+  "extraNavigation": "更多导航",
+  "mainNavigation": "主导航",
+  "sidebarNavigation": "侧栏导航",
+  "pager": "分页导航",
+  "permalink": "永久链接：",
+  "notFound": {
+    "title": "页面未找到",
+    "quote": "但如果你不改变方向，并继续寻找，最终也许会抵达你所朝向的地方。",
+    "linkLabel": "前往首页",
+    "linkText": "返回首页"
+  }
+},
   // Japanese additions: exact parent Codex review in japanese-manual-review.json, separate from prior reviews.
   ja: {
   "imageAlt": "Rankbeam — Laravel向けのオープンコアSEO基盤",

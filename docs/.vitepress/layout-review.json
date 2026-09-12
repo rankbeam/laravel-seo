@@ -4465,5 +4465,887 @@
         "digest": "73cfe0317cadd6cdd37d9da2a49af1c46f663a202c909f014e5580805aec2d84"
       }
     }
+  },
+  "zh-CN": {
+    "source_sha256": "5bc248b9e0247c2d01a66dd7424523fa9e1644180a264253d357f0861391333d",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-09-12",
+    "status": "approved",
+    "independent_native": false,
+    "scope": "Transferred all109 exact parent-reviewed workflow values;67manual UI values have separate exact parent attestation in simplified-chinese-manual-review.json.",
+    "workflow_reviews": {
+      "Getting started": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "7f958902057d7469073d175c3aa5d396e796d8c6f5409ed379c6605f4e5b1541"
+      },
+      "What is Rankbeam?": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "c7766007dbe544a20a888022bf2994c34842069d8b6608bf5e29f77ce02e4d72"
+      },
+      "Installation": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "5709331a65b85ef9ecd5c1e4b11ee39d27cf21edc52ef5dc9d066c72ff6a79e8"
+      },
+      "Quickstart": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "6aed9dc8ac7957f8117c519edb2ea62c020b137a014959eb99b00713ca512c95"
+      },
+      "Run the demo": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "d981c882eebcd0f090f470d9385f16975ffe22c0d7eca586441352901086f7e5"
+      },
+      "Core concepts": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "59a0f0b96cb321aa93fdd7eb7c93be91dba5a534aa542ef595482a56fc1b2153"
+      },
+      "Resolver precedence": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "1bd16f02374f726c34cf6b41b2d3abf5f8a1bb3bc9de5a8068e9a829613e85da"
+      },
+      "Explain resolution": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "334babb11274a992e05e0ca60b3fbfb5b0dbdc265c9e48b797eb3e26d1df21f8"
+      },
+      "Rendering": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "24b0593f2fe024eb9fec85aeb1b9fedbcbac588a44242618fb49b683e528c654"
+      },
+      "Blade": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "0590a7ddeff535248ec6c244319891dad3966b60ff38877fadf54b2c339c4bdb"
+      },
+      "Inertia & JSON APIs": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "d0c585f7f02f51fdbe9196d9bfa241cddbfa66f440c79c21ab6793546004a88e"
+      },
+      "Livewire": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "41669b512d113a225bcd3ed4ab5ff142a9e17e0493021148b272294c8626baa4"
+      },
+      "Filament admin fields": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "abe3d5e4f30ae1185aa7e1760dc74da01a87cce0af1b606e543d610588cc5b1a"
+      },
+      "Metadata & schema": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "f2e432086e98c52c6d236a554ed8155974782622b4990d50dc0d27bce7ae365b"
+      },
+      "Schema graph (JSON-LD)": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "e9a9b99b71b8f8deb9ec2d8ee2e91774b99267dbe09c75520acbebb1a89b569b"
+      },
+      "Generated OG images": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "4f250b3cc5966f6ea1297ac1fd75ace165a64dece253cbdb5a12a9c1466b6d07"
+      },
+      "Sitemap registry": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "d9d5280e12df6030ceab6333903a8419aae30741df899d45ed6bb012a09a7dc7"
+      },
+      "Crawlers & indexing": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "ceef329bb1ad5149df0a755b6acd0a44bfc7b0c5acd35e1c7f462a86d4c131f8"
+      },
+      "AI crawler control": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "4504c287e9afb75c96d715c0ad2dd0f9037f35474b847686eb0f726778dd6544"
+      },
+      "Indexing guard": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "e218641ce307ca5ad8a0ed57b4f17fc3e6690462fcd640a34783171b5ab56e42"
+      },
+      "Markdown for bots": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "cfe6dd67f40663ad105c5fd156760b0d7e1fc6ce3f45658bf49da2a5b55c6c5b"
+      },
+      "Free SEO audit": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "f8e4b7a2c7f7893c644dd1ac3f6233c501cdb8973a7a3c96ef1418bc6356f2f4"
+      },
+      "Translations": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "0fe190199eb53720d4b431e1ca9fb5f490ca8d037f80927f8c6e39f3760c745b"
+      },
+      "Multilingual content": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "ac2af62f738f732ba9423f30169323ef99d0ae9a276b14c44536d7186fd6c2d9"
+      },
+      "Migrating": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "1c5a75c550964057e298e3a857887501f0ba6776292ef5adb88221be485e163d"
+      },
+      "From WordPress": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "36b04ad8c0fcea433bbcdd345b7308b170f366491bda76524041ecb33d9da984"
+      },
+      "WordPress runbook": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "766715d113e10617f0972f2c015a41f3f8c671fe8a26a2c13882e6a3d618fd04"
+      },
+      "From other packages": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "5f5356d1134618adc0cdc28fec6311362fa168cda2a60dff50fbc85f1ec11db2"
+      },
+      "Upgrading from v1": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "4432edad5b145f0527b91349094af8e11b0a86338d5fa0fa4840f2557ab2ae11"
+      },
+      "Guides": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "3f788bc5a8037a20e9c6675916248a453b75efdda31c2bdea8dddf2b7b5cab71"
+      },
+      "Laravel SEO: the complete guide ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "ae9fb4c1f3fe8b637b933cdeeb6794e06186174f4b532566c4bc82e276fb1149"
+      },
+      "Best Laravel SEO packages compared ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "c9553688ab95ba10687c7a880f83b3a7942c57c8f9155165ff5747458cadc71c"
+      },
+      "Laravel meta tags ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "0e6f07976363a3f55b73a62fac902a04a7bec9b1406f88966cc3248910895786"
+      },
+      "Canonical URLs in Laravel ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "60d259201ceb737fdbd97a4ec379d9256a17e6a1c1b59fb76d80a7a2d5f12e77"
+      },
+      "JSON-LD schema graphs ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "2ab89aa3a94a503fb355cadeae8cf44f795b3486bb9a53c7feea36badf2a4e67"
+      },
+      "Laravel sitemaps ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "e2fb48ffcd7367e80582d2d503287c64fbc9370c99b9736e7e226ee62dc902dd"
+      },
+      "Laravel SEO audit in CI ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "9c757a9611eda5c47b7476783458bd771be240a53878e8550626fcc5b167d122"
+      },
+      "hreflang done right ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "839d7ca4a457acb8a5d9510d2eb13afeba4a7dd79aa2b730b1cc0e5a76dec997"
+      },
+      "Answer engine optimization ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "7937d3b8cd6deb9cac7390b95071e0a666d654230a6f5c9888cd7c85d1415b57"
+      },
+      "Filament SEO fields ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "c2d5e9cdef992597b1dde58fb34b7fface2e5c84430c87574f95f285b3f87551"
+      },
+      "Pro setup": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "5293254a3cd9421e9bf934471e0b119f50179db152b68ec906c445009fa4dcee"
+      },
+      "Installing Pro": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "5a8d32a65efe4f4c00c31721c4197c719d9a3af199ad66374c34ce21c0c38174"
+      },
+      "Scan → fix → report": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "55db9804c7561637696de9949c64aa0c0027d84035f4333863b304b0038bd13a"
+      },
+      "Production setup": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "25dc12da9ee070416cb659971301c7b8d5b002e025d9c3e8b1374a9561e318bf"
+      },
+      "Headless usage": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.980Z",
+        "independentNative": false,
+        "digest": "6fc40690ad3519744110c603a678807963e88e8aae0399e7aa5c819dd94e683d"
+      },
+      "Scanning & scoring": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "5e146c29d0441c169613037c24fc37dfefe2fb2de0f114707480c13ee831a891"
+      },
+      "Scan issues": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "32b4ce4b179f1fdc167a85e0db0e55aaff838894f39afb9d1ca04c7763de994e"
+      },
+      "Scan scheduling & delta": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "5bc3371d8beb3798ac6aaa688493117030d4665bd3f12956ff36d319368ad7e3"
+      },
+      "SEO score": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "f0358feb465d6fb14d51290fd268ec10a716cee873670d1cb167e1de40f186c4"
+      },
+      "AI-readiness score": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "7082a9ad6bb366f2e4381205f191b5bd2feb2dae2d3cbf66dc8494931d892b6c"
+      },
+      "On-page checklist": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "143078dd20d8170b5ebf29986f68b72d4d1dee66a3bb43cb0a2e7fbc812e15cc"
+      },
+      "Broken-link crawler": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "0b986b507cfb1bac1fee0b8adf72bc96578663ebe8fd508046ab06d963df2de0"
+      },
+      "Search Console": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "de5570a1f68c6c19d5d6c16f0a34722a24b5570e08b1683c62f886be8d78d80f"
+      },
+      "Connecting Search Console": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "6a1467eaad6865885f64e1c89acf5d58731fa1adb900d121ba50e0201539baca"
+      },
+      "Search Console insights": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "df49db447bd3fef00d52cfb89a449616545dea50bfdd3050d578a5afb5b0c895"
+      },
+      "Reporting & automation": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "9b58fd91a9a17dd97f658d09d17b20656c47c21ebb3ca61312c95cdee3e2761c"
+      },
+      "White-label reports": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "c0b5db88b7e965f1e86b6bb45ee4ee12692f6d0a2eb45e85ae1f5f2848acd5f3"
+      },
+      "IndexNow": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "ea9a0d8a4f01228aeeb49d05de216f53f81b387acb93d03ed412670bb186c88f"
+      },
+      "AI-bot monitor": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "15ab59f514a767b63b1ee679d06c5dbe8774c2035d39255a57579664877cb0ba"
+      },
+      "MCP server": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "f3a3964e2d2f8fd0320bb78caa2caddccb757894afe1857c265c462305413245"
+      },
+      "AI assist": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "ff247101a38515205ae118cc8d01fc5c76110e4f8deab5274e33565956c0d594"
+      },
+      "Reference": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "90d52031a8bfa208e37a269e72f7fe3fa061a8bd571c788fbf87d87099be8a95"
+      },
+      "Configuration": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "b604634906e2a43201f7313644a382a6cca5b302efd1b2cf53e1790985874810"
+      },
+      "Contributing": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "8018b563d84a4da20b552279dbc762ef81c31a0abe9eff2ea7387469f4364c2c"
+      },
+      "Rendering contract": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "24521b2a76fa6313f1b062e4a3fe71456bf74e7ad3fc5bac3d228c5955a3743b"
+      },
+      "Guide": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "625edc94aeca9b230af71d0b8f30fc76964a7f3ec15478f3ec285f657a04a483"
+      },
+      "Pro": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "3a6760b36383d39082a43cd4eaac1441ed0da41037ff8f1a466cc784924d640f"
+      },
+      "Releases": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "7a914e313385bf71fd1f6a37308f5a9210963d02dfe31337a51ba29e77e96b2d"
+      },
+      "Changelog": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "59458caa15576d7a16853d299c3762a45f985fff455b6acc087b52451fd47f9f"
+      },
+      "Product": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "f7e8046a4e872e2ef477215d560548550969260b7a5401106c4f8fc9eba80735"
+      },
+      "Free core ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "4170fff79ec9355647ce10ab63b3e27d8668fd496158e25ba01030eff50113b3"
+      },
+      "Free Filament editor ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "c46076b227b3c394ba18d819bb752b3bd9deaf10dbb4f6bc0e068ab5443327f2"
+      },
+      "Pro and pricing ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "cbabef392d26f4bc8499d5f8d3757f1d37a3b01663c390d685f20112ea1a14ef"
+      },
+      "AI access checker ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "c075456931fa60e027a1e62b2f9cdb4f49f4b970ed8d4b5aaf28a48f62e2e6bd"
+      },
+      "Blog ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "71d9d0bb15d6f9d39b7bd0cc2dc3d41b985d39322fbd594d99fa70a8873cb380"
+      },
+      "Render your pages": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "a5d6affc694b45503e12e3afdab548a925c40f5fb39f341135342a1ab6d2426e"
+      },
+      "Configure the output": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "06088dad66d649e6b2c7f53b3d6cbd5ce7be4cd0e316a8b199bc7d7f6e4d7fb3"
+      },
+      "Check and maintain": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "5078a5bf7c204f9168f3fc4659cfca33935a4755707eadbb4f829b2ea7cbce63"
+      },
+      "Blade templates": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "b6f6ff098e068390085be580131c19399ba18965742421727290f80fb726f238"
+      },
+      "Render the head from a model.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "ccb4f87da55867f3b1234af055d9928c1220265575c11ce9569ed41a95bfc591"
+      },
+      "Pass resolved metadata to your frontend.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "73b38367f8c399439d39e928493eee2c498f2e8cc903df8035ef1d26da5ae016"
+      },
+      "Keep metadata in sync with navigation.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "47458aaf299e333660ce92c287e304c8ce0b3ed6f3b2532d09bc8a604d5e489b"
+      },
+      "Filament fields": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "721864a65845da1415c398a6991f18d56e2e564fe67b2437bb74f352e3f2e740"
+      },
+      "Give editors SEO fields and previews.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "34af4180227268225250e368800bb8deb84799ad2e939cb694fb130e0ddf8dc7"
+      },
+      "Understand which value wins.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "1040dc96152739f6365558fa18217d28258a71bca29407a112be002c4c133ef8"
+      },
+      "JSON-LD schema": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "b12dcb53a505141827729133baeb07954e1df519bd20af8e5c7552c5a45a6430"
+      },
+      "Build a linked schema graph.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "4773642a198f183207b9e754c691765014502c30dd397878fd5088156624915b"
+      },
+      "Sitemaps": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "f9aab02e11b976bae85e11e375f0b16074c6702ceb18cf133f144eb82aa6aba0"
+      },
+      "Register models and generate XML.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "b8dcc2a220737b5f8aaf5bb7f1bc4da324b2b669ad34cef290dc408f01be7738"
+      },
+      "Resolve metadata for each language.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "c95adee58e684319415ee150d2e32ba4c1174090b8addd08277f3162dbeb16c0"
+      },
+      "Check your rendered pages from Artisan.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "3c8dc1e47b9241c01cef3193dbb00e1be610452c9de5b736b892b98faa539fc0"
+      },
+      "AI crawler controls": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "b6ada3028b532da9b1e907c8b705d31a2ac656e5b21ffa5f8ef14a6da7a6185f"
+      },
+      "Choose and publish a robots policy.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "3a2046597bc320373b627e8425f4b367746a9432606c15887baafb7c1a7a51cf"
+      },
+      "Install Pro": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "354491fff92f65d7bb941951c367d6c9f88b4bf2b398c90aefb14b9e2684d858"
+      },
+      "Add scans, redirects and 404 monitoring.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "91d1d25db72b839424a1535999db8ac1835e33b6fb7f406b5e59c8ac88000757"
+      },
+      "Configure queues, scheduling and retention.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "4d4ec984b05e0ecc0294dd312816bb6e3d92c40e6e7d7dca1eac647ae8996213"
+      },
+      "Rankbeam documentation": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "2046652a922970aaf83bc896c7e2c5df2d817739842ded4e22110ec3f6dd15be"
+      },
+      "Add SEO to your Laravel app.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "06d469a102ff5bca7cb2f98a52fc0a0f7311f95db04fb626546cd0dddb3da50e"
+      },
+      "Start with the free MIT core for metadata, canonical URLs, JSON-LD and sitemaps. Pro adds monitoring and operations when you need them.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "867cd945218beab443a2a05d04ac85c14c46cac171b13ef695414359a6778450"
+      },
+      "Install and render your first tags →": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "3894cc2a594807ab142b1e7b601c4f5d1db7c0ac3aa58cbc3c6c99851fd80b72"
+      },
+      "Laravel 11–13 · PHP 8.2+ (8.3+ on Laravel 13)": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "9f5eaaa46e86b5b8ddd65b358bd85fece728ec6ec3c42b8c475ae7c2e4de5b36"
+      },
+      "Moving an existing site?": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "08da3532870483fab75787b4c336dac007d6dc56d9d77fea55544da0fc3095de"
+      },
+      "Keep your metadata when moving from": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "c95f85bbfb79f570e5e7baa1e14da25ebfe04f8b721e779ba2237ea178934410"
+      },
+      "WordPress": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "cad8bef7a33e2be4874701a509a243a403e74ef81b7ca4f82b211945b8068396"
+      },
+      "or": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "232ce399d2b9a9cad3d801e7647a95d54c6b5f8ab9e551330421304ef1174df7"
+      },
+      "another Laravel SEO package": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "6c537dee416fb6803a8bc8fd49318b89e0b9611314ebfcab2f63d137948d3b8c"
+      },
+      ". Start with a dry run.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "65d57597963b4cce4ce5e49d83b80df286ccc7030c88ba0c043c2ea68574e4e7"
+      },
+      "English": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "29f3b8582d4d188d3aac199d80d1fdaa5a9da2525e330a838d46accc75ae34a9"
+      },
+      "Laravel SEO package": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
+        "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
+        "at": "2026-09-12T13:23:17.981Z",
+        "independentNative": false,
+        "digest": "5f8acb2ad1bf821d0d49c99f9023ebfab269d90108ded46aaa6a95016a757915"
+      }
+    }
   }
 }
