@@ -86,6 +86,9 @@ html[lang='ru'] {
 html[lang='cs'] {
   --vp-code-copy-copied-text-content: 'Zkopírováno';
 }
+html[lang='el'] {
+  --vp-code-copy-copied-text-content: 'Αντιγράφηκε';
+}
 .rb-copy-status {
   position: absolute;
   width: 1px;

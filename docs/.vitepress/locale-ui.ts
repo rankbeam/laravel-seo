@@ -629,6 +629,69 @@ export const localeUi = {
         }
       }
     }
+  } ,
+  "el": {
+    "label": "Ελληνικά",
+    "lang": "el",
+    "guide": "Οδηγός",
+    "english": "Τεκμηρίωση στα αγγλικά",
+    "fallback": "Αυτή η σελίδα δεν είναι ακόμη διαθέσιμη στα ελληνικά.",
+    "open": "Ανοίξτε την αγγλική σελίδα",
+    "review": "Αυτή η μετάφραση αναμένει συντακτικό έλεγχο από το Codex.",
+    "source": "Αγγλική έκδοση",
+    "outline": "Σε αυτή τη σελίδα",
+    "next": "Επόμενη σελίδα",
+    "prev": "Προηγούμενη σελίδα",
+    "description": "Πακέτο SEO για Laravel: μεταδεδομένα σε επίπεδα, κανονικές URL, Open Graph, συνδεδεμένο JSON-LD, χάρτες XML και κανόνες ανιχνευτών.",
+    "reference": "Τεκμηρίωση αναφοράς (EN)",
+    "table": "Πίνακας δεδομένων",
+    "titles": {
+      "guide/installation": "Εγκατάσταση",
+      "guide/quickstart": "Γρήγορη εκκίνηση",
+      "concepts/resolver-precedence": "Σειρά προτεραιότητας του επιλυτή",
+      "guide/sitemaps": "Μητρώο χαρτών ιστοτόπου",
+      "guide/filament": "Πεδία SEO για Filament",
+      "guide/audit": "Δωρεάν έλεγχος SEO",
+      "guide/ai-crawlers": "Έλεγχος πρόσβασης ανιχνευτών AI",
+      "guide/multilingual": "Πολύγλωσσο περιεχόμενο και hreflang",
+      "guide/og-image": "Παραγόμενες εικόνες OG",
+      "guide/migrate-from-other-packages": "Μεταφορά από άλλα πακέτα"
+    },
+    "theme": {
+      "returnToTopLabel": "Επιστροφή στην κορυφή",
+      "sidebarMenuLabel": "Μενού",
+      "darkModeSwitchLabel": "Σκούρο θέμα",
+      "lightModeSwitchTitle": "Εναλλαγή σε φωτεινό θέμα",
+      "darkModeSwitchTitle": "Εναλλαγή σε σκούρο θέμα",
+      "langMenuLabel": "Αλλαγή γλώσσας",
+      "skipToContentLabel": "Μετάβαση στο περιεχόμενο",
+      "lastUpdated": {
+        "text": "Τελευταία ενημέρωση"
+      }
+    },
+    "edit": "Επεξεργασία αυτής της σελίδας στο GitHub",
+    "license": "Το rankbeam/laravel-seo διανέμεται με άδεια MIT.",
+    "search": {
+      "button": {
+        "buttonText": "Αναζήτηση",
+        "buttonAriaLabel": "Αναζήτηση στην τεκμηρίωση"
+      },
+      "modal": {
+        "displayDetails": "Εμφάνιση αναλυτικής λίστας",
+        "resetButtonTitle": "Εκκαθάριση αναζήτησης",
+        "backButtonTitle": "Κλείσιμο αναζήτησης",
+        "noResultsText": "Δεν υπάρχουν αποτελέσματα για",
+        "footer": {
+          "selectText": "επιλογή",
+          "navigateText": "πλοήγηση",
+          "closeText": "κλείσιμο",
+          "selectKeyAriaLabel": "Enter",
+          "navigateUpKeyAriaLabel": "Βέλος πάνω",
+          "navigateDownKeyAriaLabel": "Βέλος κάτω",
+          "closeKeyAriaLabel": "Escape"
+        }
+      }
+    }
   }
 } as const
 

@@ -8,7 +8,29 @@ import { verifyLayoutSources } from './layout-validation.ts'
 import { localizeNavigation, destination, sidebarFor } from './layout-localization.ts'
 import { core, pro, reference, nav } from './navigation.ts'
 import { translatedPaths, englishPages, localeInfo } from './localization.ts'
+import MiniSearch from 'minisearch'
+import { localSearchMiniSearch, turkishSearchMiniSearch, greekSearchMiniSearch } from './local-search.ts'
 const locales = Object.keys(localeInfo)
+
+test('serialized Greek search keeps tonos and sigma variants equal without changing display or other editions', () => {
+  const options = { fields: ['title','titles','text'], storeFields: ['title','titles'], ...localSearchMiniSearch.options }
+  const index = new MiniSearch(options)
+  index.addAll([
+    { id: '/el/guide/a', title: 'Τίτλος', titles: ['Περιγραφή'], text: 'τίτλος περιγραφή' },
+    { id: '/el/guide/b', title: 'Κανονική URL', titles: [], text: 'άλλος τίτλος' },
+  ])
+  const client = MiniSearch.loadJSON(JSON.stringify(index), { ...options, ...greekSearchMiniSearch.options })
+  const expected = client.search('τίτλος')
+  assert.equal(expected[0].title, 'Τίτλος')
+  assert.deepEqual(expected[0].titles, ['Περιγραφή'])
+  for (const query of ['ΤΊΤΛΟΣ', 'ΤΙΤΛΟΣ', 'τιτλος', 'τίτλοσ', 'τίτλος']) assert.deepEqual(client.search(query), expected)
+  for (const [id, title] of [['/guide/a','café I İ'], ['/cs/guide/a','příliš'], ['/tr/guide/a','I İ']]) {
+    const actual = options.extractField({id,title}, 'searchTitle')
+    assert.equal(actual, id.startsWith('/tr/') ? 'ı i' : title)
+  }
+  assert.equal(turkishSearchMiniSearch.options.processTerm('I'), 'ı')
+  assert.equal(turkishSearchMiniSearch.options.processTerm('İ'), 'i')
+})
 
 test('all locales retain the English navigation groups, destinations and order', () => {
   function compare(source, result, locale) {
