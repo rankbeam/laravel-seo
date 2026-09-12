@@ -89,6 +89,28 @@ export const manualMessages = {
       "linkText": "На главную страницу"
     }
   },
+  "cs": {
+    "imageAlt": "Rankbeam — SEO infrastruktura pro Laravel s otevřeným jádrem",
+    "copyTitle": "Kopírovat kód",
+    "copied": "Zkopírováno",
+    "copyFailed": "Kopírování se nezdařilo. Označte kód a zkopírujte ho ručně.",
+    "noScript": "Bez JavaScriptu můžete kód označit a zkopírovat ručně.",
+    "noScriptMenu": "Menu",
+    "noScriptHelp": "JavaScript je vypnutý. K navigaci použijte tyto odkazy; kód označte a zkopírujte ručně.",
+    "language": "Jazyk",
+    "mobileNavigation": "Mobilní navigace",
+    "extraNavigation": "Další navigace",
+    "mainNavigation": "Hlavní navigace",
+    "sidebarNavigation": "Navigace v postranním panelu",
+    "pager": "Navigace mezi stránkami",
+    "permalink": "Trvalý odkaz na",
+    "notFound": {
+      "title": "STRÁNKA NENALEZENA",
+      "quote": "Pokud ale nezměníte směr a budete dál hledat, můžete dojít tam, kam směřujete.",
+      "linkLabel": "přejít na úvodní stránku",
+      "linkText": "Zpět na úvodní stránku"
+    }
+  },
 } as const
 
 export function manualFor(locale: string) {

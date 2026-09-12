@@ -566,6 +566,69 @@ export const localeUi = {
         }
       }
     }
+  } ,
+  "cs": {
+    "label": "Čeština",
+    "lang": "cs",
+    "guide": "Průvodce",
+    "english": "Dokumentace v angličtině",
+    "fallback": "Tato stránka zatím není dostupná v češtině.",
+    "open": "Otevřít stránku v angličtině",
+    "review": "Tento překlad čeká na redakční kontrolu Codexem.",
+    "source": "Anglická verze",
+    "outline": "Na této stránce",
+    "next": "Další stránka",
+    "prev": "Předchozí stránka",
+    "description": "SEO balíček pro Laravel: metadata z více vrstev, kanonické URL, Open Graph, propojené JSON-LD, mapy webu XML a pravidla pro roboty.",
+    "reference": "Referenční dokumentace (EN)",
+    "table": "Datová tabulka",
+    "titles": {
+      "guide/installation": "Instalace",
+      "guide/quickstart": "Rychlý start",
+      "concepts/resolver-precedence": "Priority resolveru",
+      "guide/sitemaps": "Registr map webu",
+      "guide/filament": "SEO pole ve Filamentu",
+      "guide/audit": "Bezplatný SEO audit",
+      "guide/ai-crawlers": "Řízení přístupu robotů AI",
+      "guide/multilingual": "Vícejazyčný obsah a hreflang",
+      "guide/og-image": "Generované obrázky OG",
+      "guide/migrate-from-other-packages": "Migrace z jiných balíčků"
+    },
+    "theme": {
+      "returnToTopLabel": "Zpět nahoru",
+      "sidebarMenuLabel": "Menu",
+      "darkModeSwitchLabel": "Tmavý režim",
+      "lightModeSwitchTitle": "Přepnout na světlý režim",
+      "darkModeSwitchTitle": "Přepnout na tmavý režim",
+      "langMenuLabel": "Změnit jazyk",
+      "skipToContentLabel": "Přejít na obsah",
+      "lastUpdated": {
+        "text": "Poslední aktualizace"
+      }
+    },
+    "edit": "Upravit tuto stránku na GitHubu",
+    "license": "rankbeam/laravel-seo je distribuován pod licencí MIT.",
+    "search": {
+      "button": {
+        "buttonText": "Hledat",
+        "buttonAriaLabel": "Hledat v dokumentaci"
+      },
+      "modal": {
+        "displayDetails": "Zobrazit podrobný seznam",
+        "resetButtonTitle": "Vymazat hledání",
+        "backButtonTitle": "Zavřít vyhledávání",
+        "noResultsText": "Žádné výsledky pro",
+        "footer": {
+          "selectText": "vybrat",
+          "navigateText": "procházet",
+          "closeText": "zavřít",
+          "selectKeyAriaLabel": "Enter",
+          "navigateUpKeyAriaLabel": "Šipka nahoru",
+          "navigateDownKeyAriaLabel": "Šipka dolů",
+          "closeKeyAriaLabel": "Escape"
+        }
+      }
+    }
   }
 } as const
 

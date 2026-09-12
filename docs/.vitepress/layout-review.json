@@ -1819,5 +1819,887 @@
         "digest": "53f6944cfb9ecd8dd25a24790772c47b266334dd88a08ddcff50a0961bf3fd8e"
       }
     }
+  },
+  "cs": {
+    "source_sha256": "5bc248b9e0247c2d01a66dd7424523fa9e1644180a264253d357f0861391333d",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-09-12",
+    "status": "approved",
+    "independent_native": false,
+    "scope": "All109 exact original parent-reviewed Czech values. Previous locale records unchanged; integrated rendering remains pending.",
+    "workflow_reviews": {
+      "Getting started": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "9f9f235efa59f3ced8c05904c5718574262a5c396031f86a75247b543e08d6db"
+      },
+      "What is Rankbeam?": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "c2ce880469b1e6181c5e5053ad345c0698dd0ddf456d0f51ce0a142f45fedae6"
+      },
+      "Installation": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "9308780bb25b8135d18ca2daae671d1409529026d1a06cd38673ddc6a81f4cbc"
+      },
+      "Quickstart": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "495ebb5e1481754d0482646ac6800465477af5a7a6039a67e69771c32fd81c18"
+      },
+      "Run the demo": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "35d944be308d628283e2b901c129908fdb26cbc5a1f54a3306ffbd6d3e60b5b9"
+      },
+      "Core concepts": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "aa2ad2c6bda21c2df4898767d604e7ec39ec24dced331eab14b7cf53ee2bd2e3"
+      },
+      "Resolver precedence": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "a8d7026b09b259ffbbe50c87bed9e75726e81971113623d6c860672ce0e4e835"
+      },
+      "Explain resolution": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "8fa91713612f5b4cf21738bf125c62a2550be74a69de2b7c8b49337dea0cf1f3"
+      },
+      "Rendering": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "1b70b73d3c91ad943dd8e345c21d5f80411d88e5c21b15abc84057bb61734160"
+      },
+      "Blade": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "440384d15c527567811a3ece7950d26c8714d17b151309339ef8d04cfecfced7"
+      },
+      "Inertia & JSON APIs": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "3edadd266deff1204673cb240bfb33bbb0956400ec50757e9c10d0d7ca8bafc9"
+      },
+      "Livewire": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "4e8f38bddea4d5d3660eba6462ce9ae6b76edc88fa579961e98ca4f53bf87e5b"
+      },
+      "Filament admin fields": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "6bfaeb89fd8f0d7e78de65a7d8110592760f518c7052ff274cfc670d0e2969ae"
+      },
+      "Metadata & schema": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "cf774852436f5ee4177912826beef936a47f6ba5c309b7f0ed32862d88581aef"
+      },
+      "Schema graph (JSON-LD)": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "7b84edd083499148e71f8356c2c758fb8b7219d3860144f31096c396b7b6f470"
+      },
+      "Generated OG images": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "dd6701ab17065d8be022a9609a2752a34cb9ecf457c27efbdfdf92b0fc2fd957"
+      },
+      "Sitemap registry": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "c2250b7ca1941b724d5f6b2bd32ef2f006bfabfe00432a003b10b44734d21e82"
+      },
+      "Crawlers & indexing": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "4fb638245024627c13dc6af0577dcd9b1894b8c0a2f9a6e6725cffa2969e9ae6"
+      },
+      "AI crawler control": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "3fbbd3bdbab5e212e6a67362660195f048be2d41d8ac9b9ef6638309b9eca5f9"
+      },
+      "Indexing guard": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "f3dc02a3641635ffb28aec1c69ff54e210ad4f9728b2a23d8b4df299be64c942"
+      },
+      "Markdown for bots": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "db7428bca3168922fc23bb8c3af3c8d22de0f85790e3e92294b6dc75c088a767"
+      },
+      "Free SEO audit": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "44acbce9ca0d19bcd56904ab3f2b7eeffacaece9dfdd1be3dd672c637b051222"
+      },
+      "Translations": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "e3aeabd94d125680ff0ae05cb60cd55d969f9181a820178ad3eeb4aa3e134f87"
+      },
+      "Multilingual content": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "469b285d3473d6212840539a04881f4c80be31e7b75069116f9aa7fde1563962"
+      },
+      "Migrating": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "86c926af22274b14470f7a379080732f3877aa21fd854c974c643ec99231e4e3"
+      },
+      "From WordPress": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "7d9d11af5f3e59d4958a45609bbe75af456c63acc32663f4feaf0465421d859b"
+      },
+      "WordPress runbook": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "337f59a174e585e9eac878bc87c483b98f8bf0989dc3771d1027f9552a94ad64"
+      },
+      "From other packages": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "4660bed12ed8caa43c1a026b04a39b9186a894ed4ecd276148580ffd22e42560"
+      },
+      "Upgrading from v1": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "811f56afa5d42a676c4b85c046375b2c1074797aadccb3120dbefd6c1e106874"
+      },
+      "Guides": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "2ea777bb4c60007b19eab1e7095773477a3d40d2b9e9c2443f1e666c7978071a"
+      },
+      "Laravel SEO: the complete guide ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "41b6ab423ff8caad32af0d1092da20ac14f415c6edf03303e90345e74d095496"
+      },
+      "Best Laravel SEO packages compared ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "fa1889dba2bfad70297ac65c689a39059e3187a1f9438a6fe13fc898f5a62d43"
+      },
+      "Laravel meta tags ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "a2b15311032dc497ff61be602fe09337ada6aa6a5de8793bf692a281a6a4ded2"
+      },
+      "Canonical URLs in Laravel ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "092ccb579860fc2188fbd19be768d267a947877f7d77f957577d52d32399e3e3"
+      },
+      "JSON-LD schema graphs ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "f06c0a791b5a5c441eb8f9e78c571ed52f2940b185008bfcf23d5172c4b1a05f"
+      },
+      "Laravel sitemaps ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "e9bd91f6e5b89612aa05b31c336dd902ec80462c4fdb8b79d7f9ff5fffe744a4"
+      },
+      "Laravel SEO audit in CI ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "e32d08eecdaa89f170b642503f8f8e99f91391fd27ad04e9954f80a5422a98c0"
+      },
+      "hreflang done right ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "d62dc62c0512879ff439ddea1af666abf3ecc2dcb4739373026559ed9aea166d"
+      },
+      "Answer engine optimization ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "d3529bef12c294f0b46c79d079773c7a22c66e4e947a1811b653639b790e0dac"
+      },
+      "Filament SEO fields ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "2ef09ddbc204825cf4957e420115664d70635eee68dce4827adb4b63c4825a4e"
+      },
+      "Pro setup": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "b36b4895439bb01cb77a37de01e82b2b3a73b14541ee18ba8f4c3e2b61d798ec"
+      },
+      "Installing Pro": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "98dfcb0c6382ef0fb653f623dadac0b88404b14e67db8b7b1e16935945620cbb"
+      },
+      "Scan → fix → report": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "9539a0daf15ca62212b5013b15341fafae8e15569b8ac7a7c0481ceb161951ad"
+      },
+      "Production setup": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "91e1b6e08573360e3b2aa418c9a0dac820356886a51f0d5de253a934a1dec07c"
+      },
+      "Headless usage": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "b10f04d354f9e973407a081b9e6bc25c469b2fad91bf92ea430950e89e762439"
+      },
+      "Scanning & scoring": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "90652f3380a36b379dfc0763033550236071f64096cce77e8ecf678c30bd5c1e"
+      },
+      "Scan issues": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "ca649f8a4344c2f208f8d188ccc83c56f5ec84d0ecdcc20c74f0509cc162f8e6"
+      },
+      "Scan scheduling & delta": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "7313f4fb9c4aaebed28231bb4030fccfb9cc8b6958a8e9e6d7399777bf9f36ec"
+      },
+      "SEO score": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "b646c57578a4e6f65b916e38462e00c18af1ecbad70b8e96860a386f5b5116cc"
+      },
+      "AI-readiness score": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "5c373466faeaf2c06c9277222b11dde8b56fb7a1f98da843a0879dc63c46574b"
+      },
+      "On-page checklist": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "1cec6bd9ed2392cf2af990fe0a4dc0cfe195d802bc30c4571849b5f4b72b56ce"
+      },
+      "Broken-link crawler": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "69b5b0a6b6132b6ea15666ad714696f8db7f02b938b4e7c1dbc7e8faef0e3065"
+      },
+      "Search Console": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "de972480c2c3421274980686026498bedd9a5ca27b267eee45d902e3d97aa4e0"
+      },
+      "Connecting Search Console": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "1e8a6e9d24cc04fc2c3bfc0c2cf9dffb1fa7bcfc5e8785a4f58015ba587913ec"
+      },
+      "Search Console insights": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "ecaefab7348234f3c2b981d14fc6bb39cb6cce2ab7b18f1052b63788cea31fc5"
+      },
+      "Reporting & automation": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "6149b75fd16a56495f51a4cff9d66d689dcd624f42c97e71aed9144118a71934"
+      },
+      "White-label reports": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "fe0481a8712bd23f6497ab9c4480f2d010baa3e9bc033f48828cd7420cb92f0d"
+      },
+      "IndexNow": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "ee6d24baebcd3311e233579cc6d9af94bb96f1ce8e26bf349e9f06435c395d5c"
+      },
+      "AI-bot monitor": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "c9950eb60b2d6800c92a01048151bfc8994cf3d3decfd9723603ed4b95b99eba"
+      },
+      "MCP server": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "068d5d5f5179712ad6c33c5931634a970c6d7ded627e58868abc720573dafed8"
+      },
+      "AI assist": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "78fa4956febd8ed03e30ce6f29de1cb296aa548148426b50260be0545c8bebed"
+      },
+      "Reference": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "a649dbbbb477519132f9fb45aa3886a75efa40343b41abc4407de5a4649de31c"
+      },
+      "Configuration": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "336d37a418079c6016b8d86604da617d109c6c1f6748f58254a99ab44e1c0176"
+      },
+      "Contributing": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "b2b8d286b88656f8a670fefa26b4c7544866b82222cdd7eeed6f67d7e254092d"
+      },
+      "Rendering contract": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "e5bfc4caadc5fdc4ac1e2969f476b65c182313139efd3904213f1ee8ae0a9e4c"
+      },
+      "Guide": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "a573dfede2a846f20950f070dcb90ae5e249706ad61ba5e4bc48ddb37541b9d5"
+      },
+      "Pro": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "36ee9c26eec1129f9a558bcf4f0ccca6072578344665285952bc58399a1006ff"
+      },
+      "Releases": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "d3fb5c253a16374275a094925fd8bc0e6ef5e49e1b48860aa3a8c4fc7cd8b669"
+      },
+      "Changelog": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "8662811fd297eac2b057e965a5add5da2bfbe9e8923c32360b2d641908caa964"
+      },
+      "Product": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "987ceb2a3f4c623653c31968d809bb6cc3caf1a3f5f6aefcc2e532f6e22e17ad"
+      },
+      "Free core ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "75f317c99af106c58e494d0c9d028bd0d85d1f6accdf74df28c15a9cc723e435"
+      },
+      "Free Filament editor ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "1093e8aa09f92fec02559eefa510514c6ca102e05062b3474374d8d996683810"
+      },
+      "Pro and pricing ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "85b4105094989b6219c101df7f86112af2a4054f938b32ae5f295e3e831c77e8"
+      },
+      "AI access checker ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "fec4603d6008e5291f406e63c8e5a10982ff0bd32e6f1c2f0644d561d5489c46"
+      },
+      "Blog ↗": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "d62c94f45319011baf678d22d9fd50fce808d88a0c5e0218f3e93b2d1d1d2bff"
+      },
+      "Render your pages": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "9502f1395b2619536fde17442c94a852ae7e3dbbd003c012dc4a4d17a2aaceeb"
+      },
+      "Configure the output": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "b66249b574ee1bd55edfe22ff9ba933c2511166927506db20d1e5a34a77990d7"
+      },
+      "Check and maintain": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "2d61947a031eb67803bdf387a026bcd03e3a75dcd4b2d8ceb7beaf3a817dff4f"
+      },
+      "Blade templates": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "68cb6f758046b75af2912602787de5530314c48708f7b76c289b3d8d25dd5275"
+      },
+      "Render the head from a model.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "425f6079e0085faf5e3b380e9c518862d230065d80b4b1b7a75589ff9f731ab5"
+      },
+      "Pass resolved metadata to your frontend.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "f67d06544828c4a2fa78c3b71b4d97a922e645e562d04de78e14e3bf92e34716"
+      },
+      "Keep metadata in sync with navigation.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "8ecc9fb4b0064c153f4cfe45f1cb895a2c0c1d13db7eeb7250e81e2678d61d91"
+      },
+      "Filament fields": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "dbc8ce981f3e1207fdb47012422899c74004444b87a77741dd7f224fb11bd7dd"
+      },
+      "Give editors SEO fields and previews.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "1356c3cb9decbc326dad5f4767ff5947fa8e9dec830c0f276d304b1ab781b141"
+      },
+      "Understand which value wins.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "0954f5f64fd2a5508622bfd2beba007008cd290cdb5f2971bd0f7e8093535cb9"
+      },
+      "JSON-LD schema": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "d69fd00558502c28876959b09cd154f2443e7f1189882e12461f42897a94974a"
+      },
+      "Build a linked schema graph.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "f810681b070b90822215841860a95c0337cf0bdc4499ee2d0e4927d17b171566"
+      },
+      "Sitemaps": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "8ec14fe90e4e021b81b6e1b50cc2d26975d83d7453342131011107e0be60fbd3"
+      },
+      "Register models and generate XML.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "b115ee341ab3a6e7f639f25b7d8d6f9305af792a2b7c6e69be57d52fd27e9c00"
+      },
+      "Resolve metadata for each language.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "f5232fff24a7186272369f9fb0dae205d805e2e5ddfa21703b62fef427f03fc9"
+      },
+      "Check your rendered pages from Artisan.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "a9bc74e1820ffd043299c968dfa2ef91d0a59dd4c86979fb1bd2ba8d2efbb294"
+      },
+      "AI crawler controls": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "42d157b23cc6282eaf659ed8a1dfd7ba08b8e3a66955d7549d2c31fed30c7571"
+      },
+      "Choose and publish a robots policy.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "6141e4b014b0c1db5e00c8a3990470b3efed8b0ff9882c3e917ef4fe9b97bf9c"
+      },
+      "Install Pro": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "18503d71f28c7c8fdb6d1156ce275ff952236e04ac264bf1b93db33238f71a7c"
+      },
+      "Add scans, redirects and 404 monitoring.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "93dc9e588f5f08323524e372e12faa7d7c215fafd3465ff8aa076820f3768edd"
+      },
+      "Configure queues, scheduling and retention.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "1a83dbb33857b1d366d8a220df3ca7f88e7836f57169938a05e4da346bc8522f"
+      },
+      "Rankbeam documentation": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "2427f417b0ffab8d9e5dd8fc472bd25df34aa010dc8a2b67e0144b5228156fe1"
+      },
+      "Add SEO to your Laravel app.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "e6f15aecdba3c2c871970df7107ed12ec145eeb479ac5c6e9ca37db309d9c1bf"
+      },
+      "Start with the free MIT core for metadata, canonical URLs, JSON-LD and sitemaps. Pro adds monitoring and operations when you need them.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "a46a2d2881d87aa30b924161c8d03334aa8b3d30f9df668cf6f2cb2829bb3b40"
+      },
+      "Install and render your first tags →": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "4bb1edf4e357ac30a5a73174a9b5cf280d7ee6b91f801d2c7a48191843709f28"
+      },
+      "Laravel 11–13 · PHP 8.2+ (8.3+ on Laravel 13)": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "240235f133d0a54665c98292856266b03aa07bd69f38b9705d4b80be17a9e816"
+      },
+      "Moving an existing site?": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "4f6ada6d7f70dc61df7790e43798c1c1ca618155339aa495145c51c8ef4adeb6"
+      },
+      "Keep your metadata when moving from": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "dee92324352575971075130f781c17da525927cdccc96dd535be30bb73c860bf"
+      },
+      "WordPress": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "c2e4ff3b95728188508414bea8763a7b7cb72eaf4a2f80e26bc4e479078774b0"
+      },
+      "or": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "ddbb71410474a3454812d4dfc77d589b1faa1f4eec41e34613fb44ec601f9917"
+      },
+      "another Laravel SEO package": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "f0768fe823adc34daefbd0133427eb2b2cbb966e55a083f1c35daf3d46c74bf0"
+      },
+      ". Start with a dry run.": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "f69ac9fa05a50f537017e3c52db771db14cd661389d413c25601c08be234b65a"
+      },
+      "English": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "1df936855f76f3f024acb5d2f71f5641e5dedbc37d96ce39ea22bcc983d7136a"
+      },
+      "Laravel SEO package": {
+        "reviewer": "Codex",
+        "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
+        "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
+        "at": "2026-09-12T02:22:58.068Z",
+        "independentNative": false,
+        "digest": "2d2e38ac1d5f45e7889b155980bf3f8b7a9b14878d94ee1fd6da4eb089154008"
+      }
+    }
   }
 }
