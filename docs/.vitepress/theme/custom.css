@@ -588,3 +588,11 @@ html {
     max-width: 100%;
   }
 }
+
+/* Japanese-only system fallbacks preserve the existing theme and code fonts. */
+html[lang="ja"] {
+  --vp-font-family-base: Inter, "Noto Sans CJK JP", "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  line-break: strict;
+  word-break: normal;
+}
+html[lang="ja"] :is(h1,h2,h3,h4,.VPNavBarTitle) { letter-spacing: normal; }

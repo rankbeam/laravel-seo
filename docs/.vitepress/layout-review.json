@@ -3583,5 +3583,887 @@
         "digest": "802733d8b0642cfd7821b1f172ce04fd41bf545122ec7ec00e4c307453982826"
       }
     }
+  },
+  "ja": {
+    "source_sha256": "5bc248b9e0247c2d01a66dd7424523fa9e1644180a264253d357f0861391333d",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-09-12",
+    "status": "approved",
+    "independent_native": false,
+    "scope": "Transferred all109 exact parent-reviewed workflow values; new manual theme UI remains pending parent review.",
+    "workflow_reviews": {
+      "Getting started": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "90726bf8cc87f075d5a1efb2ca434058a90b0b1e23db6c89668322225ef7ce55"
+      },
+      "What is Rankbeam?": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "ec83af7bd3056e81faa28943fb9f952ccbe99d30b4e8b3bc500019e9b2e44483"
+      },
+      "Installation": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "bb9c6ffd2ffb8bd148f25fa0166f6922033b8f97e059fc25fa75f4def45765da"
+      },
+      "Quickstart": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "3f27c1881ef0f3d89ecf3d87997a25623898cfc43594214ad86a421ff15fbb85"
+      },
+      "Run the demo": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "e942e88e836f810d91bb732be79505ea6af14948fc5b95293820562ffb84771f"
+      },
+      "Core concepts": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "6616c87d380257b81dc81a590b17ffcdd619202f142ed84bc23b1bdb1183675f"
+      },
+      "Resolver precedence": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "f9a8d3c8d7d8aa4d798f161619cb7391ea03e480c40c847f17fc5db649cb46aa"
+      },
+      "Explain resolution": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "932da58f34361e40bbe34e071bfbf46abc162b760b0eef45290d082a258aa890"
+      },
+      "Rendering": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "5b4769a13f16ed7be54c39856c14837d3758bd244ea00ab0d952101da512d35f"
+      },
+      "Blade": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "e837e7dcdf8bf6a461e605d1f470333205f7a2cf2d3f14b2a864251ecb82a36b"
+      },
+      "Inertia & JSON APIs": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "cbf82aa88e4e0984ac0db2025cde4cd26720e5d14d5e79baad9f199d28c25d27"
+      },
+      "Livewire": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "e8282e651ce26b55b368230ee6f0a19efec05b892acd7e47be02b33dcadf1cf5"
+      },
+      "Filament admin fields": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "f21e5efc25c50244a13292e7421d229153a5c44734ccf4fc0015ef14ec24965b"
+      },
+      "Metadata & schema": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "f418928aa25ec4caac5b955e79971efe58796b2246703b8442250adc2315b756"
+      },
+      "Schema graph (JSON-LD)": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "9ee4184474f67f58e2c8329c8f6b3e1249154c7ea6fcb24588af3cddb8ce9620"
+      },
+      "Generated OG images": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "2299612ca7b121aebd34e115b64222e43cadd223162b568e3f96a6a5d1928185"
+      },
+      "Sitemap registry": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "25540dd46db83ae9b7e956d5a590c53e2f158e94d68c79f2c75a1ee60d7fe508"
+      },
+      "Crawlers & indexing": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "df44af21dd8c4a847b47c5ed8729afd9f38700776d314c34a3bfc6acfff8a973"
+      },
+      "AI crawler control": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "1f2c5add3b0f44efc3cbd40c2bbaebd44cf72aebe894edfb643f3c41acb15f9b"
+      },
+      "Indexing guard": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "e51a0e5e73ebc0680c23c2c7646b318c6eacc1575c9bcdd220c6b795cd91f9d0"
+      },
+      "Markdown for bots": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "dccd9d8c2c693431ef0de5507820f1bbbd8c8792150ff608cc1995e26c9f14e6"
+      },
+      "Free SEO audit": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "ae31bc3160032ceb23ebf32b4135c303edb72272956a0702c97090c756f22dcd"
+      },
+      "Translations": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "737ac72fca2c44d0ddaa289a140c08a4f08862ba12eef38ae5696f7c6d43797b"
+      },
+      "Multilingual content": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "603a6442ddb9bfc7740cf259a6a05ae2ea93d00caef5f991bfcddadfe9ed0ebf"
+      },
+      "Migrating": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "e31943d5ed307b15d755be82926cec969e5ab2be82aa69b429484758401c4898"
+      },
+      "From WordPress": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "873fe8653b958280343cfce1c6bb5b60284dfea126be7f0f0eb05e8c63536553"
+      },
+      "WordPress runbook": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "320719c599636185d17dc7a083d4fd96be42d0a0ed65c29db7e16397dbf99442"
+      },
+      "From other packages": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "14729167cd8f2bd0199c754430f96b7bb06bb031511e33129835d7add5390a4d"
+      },
+      "Upgrading from v1": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "175acb653b217c83c324f644989987709aa5834db2c18d0211aed94e002067d7"
+      },
+      "Guides": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "f10fc368dc8f63738d9a828101a6057c9c0755788dee55bc21f81c7fc21390b2"
+      },
+      "Laravel SEO: the complete guide ↗": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "08a26aa5bba6a2733de17578176b60ac726b199e66f5b76e05695697f203ee57"
+      },
+      "Best Laravel SEO packages compared ↗": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "0b870e72fa030c390c5eae7db0b56a60476a7016733b3eb9d74e7701ee265db8"
+      },
+      "Laravel meta tags ↗": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "d296ffb9ec9ce184f5151acb7108b52fa57ff9dea3418fdc87961c9744f21604"
+      },
+      "Canonical URLs in Laravel ↗": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "b5f8a793d5314cdccece9fb29120272cc0ffe6eb65bd54e0b42352c62c562658"
+      },
+      "JSON-LD schema graphs ↗": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "b83ba7720b740f224a2a0a7825bf40f99d3699a1e45923b83026a3bdfbf61e94"
+      },
+      "Laravel sitemaps ↗": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "5239a760ca9dadbe6ecdc02101dc134d3e7d16a726bcb3ac7b41b8413b120a9c"
+      },
+      "Laravel SEO audit in CI ↗": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "ff94fc1fcdcbf5d2d3110e14675807f213090b285e90259c267800665ffeb267"
+      },
+      "hreflang done right ↗": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "8721835d573e1fad16c41c8082e22a798e22b3551396ca8f06683058c680940e"
+      },
+      "Answer engine optimization ↗": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "600d431f6d4b7ab7891774e15e40788c0eca779ccef1803c6345205d761caf28"
+      },
+      "Filament SEO fields ↗": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "641e05d303f408dce835854b0749fcec25f609227a957ed85cdc5f2fb01723a5"
+      },
+      "Pro setup": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "2718d357e71ade327640b8c0689db96212f1758c99f260b6ca1bba5fb2ff201d"
+      },
+      "Installing Pro": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "42eefebfe9acdb5aced57bfe4d125df072e5a6cbd2dfa53a1d33b1cf101b6c39"
+      },
+      "Scan → fix → report": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "f719437c4326738c3666775eac3b7ff2834415ed55756cc5a3801c13592ac3dd"
+      },
+      "Production setup": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "f745bc9d1048a66f02a44f0c7ff54b890d11dea4b811e1ad4114070982353aca"
+      },
+      "Headless usage": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "b84f4f2363d7a88227f45fdbbb5b255dd8fe8b97645d2e1ae559ee856cba529c"
+      },
+      "Scanning & scoring": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "3a46056440fb80876494587fc7ebd53c7f52a651131e6bf2095d3a0f9cb6655b"
+      },
+      "Scan issues": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "540f361db46449b4d8e12866bf21b96e846098f3b81bd514b6907d8655744b94"
+      },
+      "Scan scheduling & delta": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "a5919afbe2deb78035fb850d6d5e2613cd3d3f17465ed55f5da9e9778c439aa3"
+      },
+      "SEO score": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "a2cd440b935da2a59886fb650ff56b32bb6318eed522344592a628e13c9f9aec"
+      },
+      "AI-readiness score": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "ac57a75f972b81b8620c8173f73d5765ac24c53b523e624b2f3bcf04aee62ade"
+      },
+      "On-page checklist": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "fbc4373f5b97d421589c9d983c3f6ee92e65e56c3ec02a68611a73e084dc7939"
+      },
+      "Broken-link crawler": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "c406c8bbc8a764703a303043e3fa0541658089c249b5c6fa49b9abd8a495f287"
+      },
+      "Search Console": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "87cbf13502ae2407e57834e15933aab913a4ae1095a190c802c3cb36ac9ad392"
+      },
+      "Connecting Search Console": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "0da9cf23f7d8b42eecfbc12b778305b139b2dabccad75bb5846a65b8074fab08"
+      },
+      "Search Console insights": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "f4d96261e320a0c100c446f29e77b363e9ff92371d7e350cd2df66cd303515e7"
+      },
+      "Reporting & automation": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "bdcd7d2d4b6000d2d6e29e650eb3db85afa00a1aef7247fa1765fb1892413d27"
+      },
+      "White-label reports": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "9c57f4c954d06a84d97062146704188fb5e33c9c7cf22b2d22a947d1d665487a"
+      },
+      "IndexNow": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "394276e5f1f4aa828c7d3b6fbff3a5320f3597646de89752457d5612b3f2a92c"
+      },
+      "AI-bot monitor": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "6b97b2d3969fa6bae4bfb51eb9d834edcfe4e80774638add51fdf5b388191920"
+      },
+      "MCP server": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "6135452d137d1411668d8e6a169f5b6e814d9b24629916e733a1115710b71ad0"
+      },
+      "AI assist": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "f3f346a80cde12ce113bfe95bc0f21358f334e00d48aed332d9d325458aa2015"
+      },
+      "Reference": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "60446ed8dd2f9b925cca9696d86188ecaafaf67cbc79d06b09e7b1e1d15e72c8"
+      },
+      "Configuration": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "dc24a331db9ede68e2bf2f2b1715a4131681066de5747671ba13979ad4673df9"
+      },
+      "Contributing": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "7ce39a0223d80a7549b6d6e9fa6c6eda268fa615552440181819949116e0f19e"
+      },
+      "Rendering contract": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "ab2af81831c7955f9dd24d0cace59aeac510a195cedca829c9aa83f3a88c237d"
+      },
+      "Guide": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "0820c40ee280e6e7159b1c6299cf753b6491b9d68235aa9915760880805a52e7"
+      },
+      "Pro": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "37732c0f8a0799afc37c48e099ab4c7e6b588c04286d1a7727814d857caec050"
+      },
+      "Releases": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "8e4c82c22daae98e48f55a033853291635946de9507c2d41b167d84c3814038a"
+      },
+      "Changelog": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "19394940722cf1f1e92545d3c4a654712b9428dd4db651f78d97cd0b26d8dda6"
+      },
+      "Product": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "e35b6a95d3585d7a67931a9fcd8056edac9381b24fff435ea24356f9d0f6af6f"
+      },
+      "Free core ↗": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "081276bef7c25c7cc2fc043248cfbdcf85e48408a87a95079f2e2712cb7546a2"
+      },
+      "Free Filament editor ↗": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "a9d70433e804fdac51106bedb0e60c6ddc8831764f253849a33b03b4a97b0de8"
+      },
+      "Pro and pricing ↗": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "bf312a8c1a61beb927e9d81508f97195d141ec88319c1094bf08e03fcd3260e3"
+      },
+      "AI access checker ↗": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "5bdbd4b5e4d282e2a649e8caaa1249ed7b352c9b1994c3c3dd9e852fb8eeee96"
+      },
+      "Blog ↗": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "d5bde5af5b7464f2467a00c897d0948c6d5c8e14bfa4a9571fc331acc6ba3a9b"
+      },
+      "Render your pages": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "061b8cc67bcfcad13926b19ba9dd4419895c87f886c506f7ba64001f9e03e18f"
+      },
+      "Configure the output": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "9532cc24e458c82aff9c526682884fb47c3b4afdff5909e5520a249c156cbf7f"
+      },
+      "Check and maintain": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "24210b899dd3c6fb2e1fb93e95c55d8423565c886f636d81681f0d9f906b810d"
+      },
+      "Blade templates": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "15dc2f82683ae3150083e2291b869361ea93bac7d65acb1d78a3aa99a06ddba7"
+      },
+      "Render the head from a model.": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "9281c04efda699dccbf575fe66edb97fef3155f232bf82f5d4036695c1297519"
+      },
+      "Pass resolved metadata to your frontend.": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "55ed5bd90ab17ffc9d0bfdb4cb675c4a18be5e4f56d3c37f384843542ee9ec20"
+      },
+      "Keep metadata in sync with navigation.": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "3f1fa26ad2041e4eba2fafa75736cf781096b41256a03aaec725cad910cc86bb"
+      },
+      "Filament fields": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "b36fd66dc309afeb030ddcfad57ed1e0e2d285b3570a7d0d885726d27fb18f55"
+      },
+      "Give editors SEO fields and previews.": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "488af379cb6dcdfc292e67ae20ddcb4522bfc6254018a33f67e25028afe7c414"
+      },
+      "Understand which value wins.": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "d6dd7f11c3fb1319c534e92c934b81f8d4970a9b991fddde7f5b70f2996554ae"
+      },
+      "JSON-LD schema": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "174b535c809d2e2b0cc21ebc67ff5bb9c0aed45f609343755c923741a677141f"
+      },
+      "Build a linked schema graph.": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "6c625192c158e5ade51ed80f5d8e508bff4f6bfb715859750899ce5fda0edf5e"
+      },
+      "Sitemaps": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "a4589f67894d0d51e84b4f7e397bbf7a302775bbfb2dffc82718d84bba7fe458"
+      },
+      "Register models and generate XML.": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "3c1e42cacad80c26e80fc4c47559af11f02f4491bd8a934d007d5de7bfdf1b3c"
+      },
+      "Resolve metadata for each language.": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "aca1c2823b29f004285813a07dd48c294e516ff60c717952ac6bbfc39497c5ef"
+      },
+      "Check your rendered pages from Artisan.": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "09c993d83e322dd9693ae522c08d49ea338b089d246cf21c2cda72c3de05d704"
+      },
+      "AI crawler controls": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "98698405d66b05a882283589177920311887a12f8bca13991d36bc17678d3ab8"
+      },
+      "Choose and publish a robots policy.": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "f31618c252d7993418bbac37d23943a4aa7ee45975c0b669043f045f209507a9"
+      },
+      "Install Pro": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "ff7b3c7d2e9ecb588979e16ef83d00fbd2d52e69a6eb102b721f8f5ff3060c33"
+      },
+      "Add scans, redirects and 404 monitoring.": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "6197dc3af34d99bc4f40a93fda0ce96894dc733617bdec76c8bd499c4394b016"
+      },
+      "Configure queues, scheduling and retention.": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "04eaacfe09d328ae6c9a313bc5119c26d167497595278214645da3f812f14ab0"
+      },
+      "Rankbeam documentation": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "38b21989e5de16091118cc244a95d857230892b0e16fe737e4bf7f81a62162a5"
+      },
+      "Add SEO to your Laravel app.": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "e7d967fde11e000479308e64e54b4898b81c006d9fab4f16a5ddcf4f820a39df"
+      },
+      "Start with the free MIT core for metadata, canonical URLs, JSON-LD and sitemaps. Pro adds monitoring and operations when you need them.": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "80659003597627e5d635b2148241b6d1cb882dfbc45df12e44128775bb22fe78"
+      },
+      "Install and render your first tags →": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "9988b3564acbd0a09d9673a50df2e134feda4720b62d45d3e722dcc7182c2db1"
+      },
+      "Laravel 11–13 · PHP 8.2+ (8.3+ on Laravel 13)": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "f4503df276342bca355ac97b496ce50b8a38c367f6157dbb064812a6d3ad74a9"
+      },
+      "Moving an existing site?": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "fe14a2c0d397d64b04734439b2d307831dc0e4c447302fee861fc3c31760b612"
+      },
+      "Keep your metadata when moving from": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "52df86b57e737dc5fcd7766f49f8526d252405c0ec3601603e9611e5b2b34f2f"
+      },
+      "WordPress": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "72f4d007d46d352ca25b07ca58eb9566f7b8d0be9af48eb06159b1b3f9f0a2da"
+      },
+      "or": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "760785b5c00fff8e90b5736e4f698da009ad9dcf3c5504033bcffe84a326b723"
+      },
+      "another Laravel SEO package": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "b25c927923695a966beffc757e746162076f64ae8a40b4b4b810a8a928528b15"
+      },
+      ". Start with a dry run.": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "81d1344dcf21dea733352c707862a62ea8a5b75b052f430011573934e6814e11"
+      },
+      "English": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "4b0e4a1094456e371a522070ddd6a2d37a4e2e87c5ce08a07899dd3d33b80630"
+      },
+      "Laravel SEO package": {
+        "reviewer": "Codex",
+        "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
+        "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
+        "at": "2026-09-12T11:36:31.358Z",
+        "independentNative": false,
+        "digest": "73cfe0317cadd6cdd37d9da2a49af1c46f663a202c909f014e5580805aec2d84"
+      }
+    }
   }
 }

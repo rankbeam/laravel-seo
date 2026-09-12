@@ -1,6 +1,29 @@
 // Additional theme surfaces absent from the page/layout catalogs.
 // Codex copy review 2026-09-11; no independent native/human certification.
 export const manualMessages = {
+  // Japanese additions: exact parent Codex review in japanese-manual-review.json, separate from prior reviews.
+  ja: {
+  "imageAlt": "Rankbeam — Laravel向けのオープンコアSEO基盤",
+  "copyTitle": "コードをコピー",
+  "copied": "コピーしました",
+  "copyFailed": "コピーできませんでした。コードを選択して手動でコピーしてください。",
+  "noScript": "JavaScriptが無効でも、コードを選択して手動でコピーできます。",
+  "noScriptMenu": "メニュー",
+  "noScriptHelp": "JavaScriptが無効です。これらのリンクから移動できます。コードを手動でコピーするには、コードを選択してください。",
+  "language": "言語",
+  "mobileNavigation": "モバイルナビゲーション",
+  "extraNavigation": "その他のナビゲーション",
+  "mainNavigation": "メインナビゲーション",
+  "sidebarNavigation": "サイドバーナビゲーション",
+  "pager": "ページ間の移動",
+  "permalink": "固定リンク：",
+  "notFound": {
+    "title": "ページが見つかりません",
+    "quote": "それでも、向きを変えずに探し続ければ、目指している場所にたどり着くかもしれません。",
+    "linkLabel": "ホームページへ移動",
+    "linkText": "ホームページに戻る"
+  }
+},
   nl: {
     imageAlt: 'Rankbeam — open-core SEO-infrastructuur voor Laravel',
     copyTitle: 'Code kopiëren',
