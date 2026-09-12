@@ -937,5 +937,887 @@
         "digest": "f73bbe828d6a13abdce7b938f022cc52df55e24d164754a6b310666a49969e00"
       }
     }
+  },
+  "ru": {
+    "source_sha256": "5bc248b9e0247c2d01a66dd7424523fa9e1644180a264253d357f0861391333d",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-09-11",
+    "status": "approved",
+    "independent_native": false,
+    "scope": "Exactly 109 original parent-reviewed Russian values. Prior locale records unchanged; rendered integration pending.",
+    "workflow_reviews": {
+      "Getting started": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "61046a1952f7fbf11c2eb9b8126141c6ab8e0737aaf068b9a32de24cd390ebd0"
+      },
+      "What is Rankbeam?": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "eb00e7eca89d920ecbf9030ca41da07bac215ab5c987b5bfdcd2d0632baed6a5"
+      },
+      "Installation": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "dad932dcaf8332ef306727d2996ed2aacf890a2e0d3971e3cc588952ed3c5b9f"
+      },
+      "Quickstart": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "b17aa19775409bea7bc2d7fcbbbd5170f5a7d13fc6277ed969aa6befc66360b2"
+      },
+      "Run the demo": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "87dff73b91755e9e16efd10a3aed7781bd44b0d05d0cc9ca520055e5332ba74f"
+      },
+      "Core concepts": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "62f1185854d24178fdf38b89bdba48e3eb56e402133894b07f79df981019f334"
+      },
+      "Resolver precedence": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "5de94e68e40e5235bc536a02b41d14a65f7de0ccce261d63e1ae6441dacfb197"
+      },
+      "Explain resolution": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "29c9c12bad678201cc851a6cce1583948bfdc26139bbfb4a2156b34cda2c9e4a"
+      },
+      "Rendering": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "40f00e4c72f63575fb601cdfd3b7054568360e2366ce562f74f43cbf8863dc66"
+      },
+      "Blade": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "8e55882feb21fbded2515204d450ab6921601b914070b37a6f58842e4d995e82"
+      },
+      "Inertia & JSON APIs": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "ccf8f5088ec665bf86c86b1eabb1c5803793df5b15022d67255a8c09044b3755"
+      },
+      "Livewire": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "05071e8db144742dafa70cff2845d06a98ea139df231a1f1ae1bdf9467e08ada"
+      },
+      "Filament admin fields": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "9fad20b2d3fff7505bbbecb363cae6eb249d6c7bd1f58bd1d7b216ab8a81ce6b"
+      },
+      "Metadata & schema": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "f02ccdc4d0c6356fdd6122ca3259da74e6850e2ff2e441636c7439f31459d3f4"
+      },
+      "Schema graph (JSON-LD)": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "03ff85c2afba5907250e55988af1a57667713732d2ba40e9839d553b51496dba"
+      },
+      "Generated OG images": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "0db42c0164d4870b4a19e2cdd3316076182af1adfaf9bbe354f584e1efc3713e"
+      },
+      "Sitemap registry": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "b192f7985db37a4be1864c1d1c93b14f6cd24bde98dc66196618d167788cc19d"
+      },
+      "Crawlers & indexing": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "f46d1d81d0a1b7e82def7e89470fc7d43f499e1f1086edb06a788f5b6fcc5247"
+      },
+      "AI crawler control": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "508183dcf95e8a4a6026f42e6cf0888281b202df0e9ac57338a29b0650836aac"
+      },
+      "Indexing guard": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "0373c1b9d3234bb2ba6816900d93dc201d6653b955c6b16fdfc37a28a7a39fd3"
+      },
+      "Markdown for bots": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "8acef1d54bd410250008193e48b86d8057c0d6c919ad873adf6186a5026c0f20"
+      },
+      "Free SEO audit": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "1f7be14b177421ef6708eca72ffb400da45748e80b523fea853682879e8a46af"
+      },
+      "Translations": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "371f62045c6dc23dfcd8e912fa01820bc149b52a2720021cc46cf301c18f7092"
+      },
+      "Multilingual content": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "319627863826dce26d6993e247aa0ad5d8e8f0b3ed9b0b178374ac7f69f9b8e2"
+      },
+      "Migrating": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "0e5a92268679addda7fdba16703d002b91a3c713e12484724417104e16ce3f3b"
+      },
+      "From WordPress": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "9dc75eec2a32e0434897e064f0f8b461186cce6ee86a54d677f2c4e3e73343a4"
+      },
+      "WordPress runbook": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "523a1ef63eb5f98c886f748fa7c88a2909ef4a73c9257299af2accda63c03e92"
+      },
+      "From other packages": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "5dbea57d49df91265f22243fda1986a98170ce2679511fc23a07aaea9bd0b590"
+      },
+      "Upgrading from v1": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "e72dc791bea0014667c03edc04ecae4b30ed53d09b18470a1cbd45ef9177b9fc"
+      },
+      "Guides": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "a8873d1be80d63f8e248b86544a7b6436c9fbc9f509a3b60b8bfe06dbf552fff"
+      },
+      "Laravel SEO: the complete guide ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "65bcf5e368c743b6e35ac68d73fdb30e2dac46ed4d7c02183820a7565af7b89b"
+      },
+      "Best Laravel SEO packages compared ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "5cd4eb57f50942f8a822ae201b1da109cc907a171b64ddd97759e58151ac96af"
+      },
+      "Laravel meta tags ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "fbdd1888e77c548c0519fc44377cfc5e8f101fa0133a99954e0d9d460d7b35bc"
+      },
+      "Canonical URLs in Laravel ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "f3a01f78e4cc7bb4865072b3131262d4858363c8e3f7318eb19183bf7431a530"
+      },
+      "JSON-LD schema graphs ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "3ae284d8d989517f9c21edbb541f0e5d9fdeddb4510945a4bae05a23b3f3f447"
+      },
+      "Laravel sitemaps ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "32250a69daa7fcf6450b51847df516a340cce72e00d224f0d6658cf8555befc4"
+      },
+      "Laravel SEO audit in CI ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "5f5322f7cba9d0c7b72eb6623b0a12323d0649d4256917b64c23ed20747d8fc4"
+      },
+      "hreflang done right ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "bce90a3e9f949c3342313f148a03b7e1e735d2a79fc6747f786ae4e43fcd85a1"
+      },
+      "Answer engine optimization ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "2aa64cce35de84a5624dcc58e2b7a6e03ac7aeac89f8f172c6b1826af255d698"
+      },
+      "Filament SEO fields ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "1aa96272239bac0e7be6c81bb67c0ed942327f8ddfa957c80707cd8b7731d838"
+      },
+      "Pro setup": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "0016c2965776be726853f99d09e61c6789d3ce269c390aee89d10d2af5e8d717"
+      },
+      "Installing Pro": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "2e718f240fcd427fda4da2c80111102897de8f0d4b6da6c31561bebb6193a43c"
+      },
+      "Scan → fix → report": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "dcae4e7d7e82e055334b3dd0ee769fc5b1971b03eeca0c42d96063f928707440"
+      },
+      "Production setup": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "abd980109234536e9ef4777fd56ff5c2a474d914550c114fc6f72f00cc4ecb44"
+      },
+      "Headless usage": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "f3d96919d81a622d057db79e43eab7e6898750dec31f3cfc00dd7aa8bf3b4efc"
+      },
+      "Scanning & scoring": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "a8282d14ca4cbd12a4b616414a01f4c42ba8c127a6c0100571b2a38a1db07cd8"
+      },
+      "Scan issues": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "65b2f9f2d9bb534f1cbe0f0128d1e1a278db6931bf8abde8c9f27253edc918c5"
+      },
+      "Scan scheduling & delta": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "fa01ceaa8bb2a166f909128fc22e55c79a253497bd357c24083bd450c6349a3f"
+      },
+      "SEO score": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "4fd02044afc68a5745d404c472e04170b1abda316eeb2c5b7a95b2c989d95d16"
+      },
+      "AI-readiness score": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "23aa5b5029165ce93daf2a680a4541945dbfbf0d217c591483d14a0479833147"
+      },
+      "On-page checklist": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "d6fa4a57e6a43c88c1fb7dd8bba0878a13bf6e86f35a2abb04857d48de795780"
+      },
+      "Broken-link crawler": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "f53358d1eed6327fec4f06235aa5f99016a8d22e46e5af22d16af8471356421e"
+      },
+      "Search Console": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "46c8f71cc314df11593941b3dea7746d55428e540608bd7a4d648b8bb3ae8461"
+      },
+      "Connecting Search Console": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "ca57afa8aee79aea933812e843abe28eb706e8554cd616d141a58e5890e01368"
+      },
+      "Search Console insights": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "57dbf95cc20c3ca1475a15256aa110baad78c0ec3ac09279b660948c5c637016"
+      },
+      "Reporting & automation": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "ed1eceaa24396e913e3fe1182cfadfa1f7fae929a9971bed52c0ea06dee75e94"
+      },
+      "White-label reports": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "f8c19189d07f1b311e74039856e7291b0427fcf0c056aefb35ef8b5db94c6689"
+      },
+      "IndexNow": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "92846ae2be21c40eb8aecbbbd05041ec0d9a110e6901cd04211ecff59ab8e6ee"
+      },
+      "AI-bot monitor": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "9f244617789ec2c5bfd23544acc6547d87c048c3e061676e57f1283a0253040f"
+      },
+      "MCP server": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "67f57db4ae7b09018006e24eafe50ae3a555610bcb3039244d8619198972ef81"
+      },
+      "AI assist": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "630f867437aed6fee21444c3ea094b5f8e65cc954b606e497c7add804462eff8"
+      },
+      "Reference": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "18fd432bbd32b9d1874100fa78fbcd95c8f3d95a2cc78018ecae5b970edfe42b"
+      },
+      "Configuration": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "463d8f2aa3db9b2de3964da3ce5d4c37334c17639745d5a1acad11b028dfbf00"
+      },
+      "Contributing": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "5a34d161e7417bf1e2b20d2abee19db6a73e4b9ffd70d48bd35385e291035f3e"
+      },
+      "Rendering contract": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "6f34193b86ac158f03e84d3b41e96edbcbb937b0dbd7dbc1efc6d917cc6acbf3"
+      },
+      "Guide": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "ef02e7b166f91bf90a16c6835715826f4de4ccead0e64350fcaff9afcdb53aaf"
+      },
+      "Pro": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "a653cfd67c439cb8826ca8e8135cb1069aa53ca98ae1ac5282b43c16cc70672f"
+      },
+      "Releases": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "8c9b5a83fc6b215ae12cc6af0202c3b5f01b23f09cc7db9c19fc0eb848d1667d"
+      },
+      "Changelog": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "2670fc54dc96400fb142c3addcbffb44e9395f71c5351641bb87e7b8a7c41a0d"
+      },
+      "Product": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "92ef86f2d6f9b5163f9740f0ab4a45289ad5e7e2178b7d5457f03cf9e7407f53"
+      },
+      "Free core ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "3bc0329dafaa36011bf186918e81f9a4135d2004b44ddc7d0738687c4b3c9fb4"
+      },
+      "Free Filament editor ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "4a4b60b6dcbc7d84761584352a711b8dea1535a7402216cbdc4577229501d4ea"
+      },
+      "Pro and pricing ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "afebb9614091e00cf6264fe6d1e51451f3337185202cce52851c30c4fd253340"
+      },
+      "AI access checker ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "ef975550bcdda8af2c664361176e4c0f85acc1a87d5851db029abe8db582f5b5"
+      },
+      "Blog ↗": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "da14599444d9c9966839876c311be43f3afdfed2188d53c3a0dd874621a22e0b"
+      },
+      "Render your pages": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "dca447e4194130fff7ef8ea22ff2a9dc20d714b9bc78471ff8d5fa6217992ca4"
+      },
+      "Configure the output": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "6a1f05bd6ddbaa8103a3c0f1b6839650bd94428bef7b0df1d576a962c821ef78"
+      },
+      "Check and maintain": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "f1a1454ccb97704ec63fd8547aee5946e21b6623c5e02d373c16978d792442ef"
+      },
+      "Blade templates": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "26e3157daf7e684d6460b42ab50cc67d74950a97ded7debbd45dd86c6000df01"
+      },
+      "Render the head from a model.": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "f02c972f1dca7dbef972f646a563acd4c948e28b4b3cdc002710cf0a976ee181"
+      },
+      "Pass resolved metadata to your frontend.": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "05219e2039bead84efa5f32bbdc902121f1b7fe4ec9b514302d851d88b0005e4"
+      },
+      "Keep metadata in sync with navigation.": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "c2864f1aa4d84669fc016309819081354328a96ef2d1205955e707a6a547ca3f"
+      },
+      "Filament fields": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "c6a7f0c6a99eec9348ba10c96882147727fbae1e1ab03b659bc7a77c54049bf6"
+      },
+      "Give editors SEO fields and previews.": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "c4060111dded9570256f62dba5f93947f00e23efc5e3b473f8f85ae217dbf8d4"
+      },
+      "Understand which value wins.": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "41ee1330cc351d976e1e97281f3110ca390d3fbf66de5dca56be6184403dc987"
+      },
+      "JSON-LD schema": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "9300d13a73e0d21fa5ef18369a89138842a6141fb32a1da9d8bcd57f98623aea"
+      },
+      "Build a linked schema graph.": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "e03ff770a705ab9daf3bcb1a5328bfaaf8699e40c17cc4f1963adf60c8ff84e7"
+      },
+      "Sitemaps": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "f1a79656fee10c26d8b31e50147356da6c1807cd408e6ff2647db925e160b908"
+      },
+      "Register models and generate XML.": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "ee61ed65272ec33f7a0f5d21844b453a2014102dcbb9efb522708233d10e3939"
+      },
+      "Resolve metadata for each language.": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "33506b009a79534894089b75b79a300480f9c932f347bdb50fbe7a1ee00ef62d"
+      },
+      "Check your rendered pages from Artisan.": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "92f4fb3ca05d029eac43a2af69bb0cb695d15d4ba67870ed3670476330f21bc6"
+      },
+      "AI crawler controls": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "08fa3a56eca6141230573920439c58dd008820faa93e880393cb42919d4b1d7c"
+      },
+      "Choose and publish a robots policy.": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "1fc6ba9c111de2c90da70407a81aef9fcf4e9b65ac2fd8aa60e056151eb92f78"
+      },
+      "Install Pro": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "8449a5de941e10d0f379172b5a71efaf18a4fc66d4fa015833dcbf869b12973a"
+      },
+      "Add scans, redirects and 404 monitoring.": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "4479ff68277da0dfe9444d1ae8a05c3e77de9426ac7bd65ed3c27c3d278d1154"
+      },
+      "Configure queues, scheduling and retention.": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "da64e88b24c61247b85e98937be2c9fa2d2dd8f582d6ecf06c129a9fc07af816"
+      },
+      "Rankbeam documentation": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "f754983d8b2b8cc3797d67919bc63a90450d3150b660f1521df38d2a10785240"
+      },
+      "Add SEO to your Laravel app.": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "d165340ad06c593a6aaf331bb1af12d748f706b83c3107d87173a33a000a8684"
+      },
+      "Start with the free MIT core for metadata, canonical URLs, JSON-LD and sitemaps. Pro adds monitoring and operations when you need them.": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "6b187f7df14c6b121499e13ad0bdc93bf1bbdfd7fd456b966e4a7cac6926c28a"
+      },
+      "Install and render your first tags →": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "5e5f8ecc1b64243e4cef149032acfa6eb2bd9c8509fd99b43d51bc4f42457782"
+      },
+      "Laravel 11–13 · PHP 8.2+ (8.3+ on Laravel 13)": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "e26e983e14f37f90cb97517ace291ca180d3b44f9caace1e30a033c29a18585d"
+      },
+      "Moving an existing site?": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "957d126e0e9b8691cf3b583cfd14242abcdd15a8c9e9c3de959098e8b231122d"
+      },
+      "Keep your metadata when moving from": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "7de2600e6e9256a18744cd0e3c366f6174c4b143b05f35471be4d3d8fec977ed"
+      },
+      "WordPress": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "d58f997f6ecaf5cb29bda008c0e1719288a64c83f0be908861b3c46b0c73fa10"
+      },
+      "or": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "a882a6ec3bb36da74a9b6e27df54aed9beaa83312c5f701eb2b48bbc94ebdc47"
+      },
+      "another Laravel SEO package": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "6b9e24851f59a9d208ca90d7abcf14448d26b880e50683accbcebc235d66dcbc"
+      },
+      ". Start with a dry run.": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "0f7f06913dbfdab4adcc63090ae3f59841f5ae9f9bce75bb994213ae4f534954"
+      },
+      "English": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "664efefbc4d19e5ae440276c17b49fb3c87ae6c37150df8a92261885456c3944"
+      },
+      "Laravel SEO package": {
+        "reviewer": "Codex",
+        "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
+        "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
+        "at": "2026-09-11T23:58:14.011Z",
+        "independentNative": false,
+        "digest": "53f6944cfb9ecd8dd25a24790772c47b266334dd88a08ddcff50a0961bf3fd8e"
+      }
+    }
   }
 }

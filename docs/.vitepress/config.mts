@@ -90,7 +90,7 @@ export default defineConfig({
   // page's own head. VitePress already emits <meta name="description"> from the
   // resolved page description (frontmatter first), so we don't repeat it here.
   transformPageData(pageData, { siteConfig }) {
-    if (pageData.relativePath === 'nl/404.md' || pageData.relativePath === 'tr/404.md' || pageData.relativePath === 'pl/404.md') {
+    if (pageData.relativePath === 'nl/404.md' || pageData.relativePath === 'tr/404.md' || pageData.relativePath === 'pl/404.md' || pageData.relativePath === 'ru/404.md') {
       pageData.isNotFound = true
       ;(pageData.frontmatter.head ??= []).push(['meta', { name: 'robots', content: 'noindex,follow' }])
       return

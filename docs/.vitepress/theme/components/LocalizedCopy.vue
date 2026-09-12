@@ -80,6 +80,9 @@ html[lang='tr'] {
 html[lang='pl'] {
   --vp-code-copy-copied-text-content: 'Skopiowano';
 }
+html[lang='ru'] {
+  --vp-code-copy-copied-text-content: 'Скопировано';
+}
 .rb-copy-status {
   position: absolute;
   width: 1px;
