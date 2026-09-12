@@ -1,0 +1,346 @@
+{
+  "status": "copy_reviewed",
+  "independentNative": false,
+  "notes": "Parent read all67English and Japanese values: navigation, fallback/review notices, search dialog and keyboard instructions, modes, no-JS/copy errors, licenses,404andmetadata. Matched linked-graph terminology after one requested edit. Structural locale code ja unchanged. This is Codex editorial review, not independent native/human certification. Exact integrated value matching and rendered functionality remain gates.",
+  "entries": [
+    {
+      "key": "localeUi.ja.label",
+      "source": "Japanese",
+      "translation": "日本語"
+    },
+    {
+      "key": "localeUi.ja.lang",
+      "source": "ja",
+      "translation": "ja"
+    },
+    {
+      "key": "localeUi.ja.guide",
+      "source": "Guide",
+      "translation": "ガイド"
+    },
+    {
+      "key": "localeUi.ja.english",
+      "source": "English documentation",
+      "translation": "英語のドキュメント"
+    },
+    {
+      "key": "localeUi.ja.fallback",
+      "source": "This page is not yet available in Japanese.",
+      "translation": "このページはまだ日本語で提供されていません。"
+    },
+    {
+      "key": "localeUi.ja.open",
+      "source": "Open the English page",
+      "translation": "英語のページを開く"
+    },
+    {
+      "key": "localeUi.ja.review",
+      "source": "This translation is pending Codex editorial review.",
+      "translation": "この翻訳はCodexによる編集レビュー待ちです。"
+    },
+    {
+      "key": "localeUi.ja.source",
+      "source": "English version",
+      "translation": "英語版"
+    },
+    {
+      "key": "localeUi.ja.outline",
+      "source": "On this page",
+      "translation": "このページの内容"
+    },
+    {
+      "key": "localeUi.ja.next",
+      "source": "Next page",
+      "translation": "次のページ"
+    },
+    {
+      "key": "localeUi.ja.prev",
+      "source": "Previous page",
+      "translation": "前のページ"
+    },
+    {
+      "key": "localeUi.ja.description",
+      "source": "Laravel SEO package for layered metadata, canonical URLs, Open Graph, linked JSON-LD, XML sitemaps and crawler controls.",
+      "translation": "Laravel向けSEOパッケージ。階層化されたメタデータ、正規URL、Open Graph、相互に結び付いたJSON-LD、XMLサイトマップ、クローラー制御に対応します。"
+    },
+    {
+      "key": "localeUi.ja.reference",
+      "source": "Reference (EN)",
+      "translation": "リファレンス（英語）"
+    },
+    {
+      "key": "localeUi.ja.table",
+      "source": "Data table",
+      "translation": "データ表"
+    },
+    {
+      "key": "localeUi.ja.titles.guide/installation",
+      "source": "Installation",
+      "translation": "インストール"
+    },
+    {
+      "key": "localeUi.ja.titles.guide/quickstart",
+      "source": "Quickstart",
+      "translation": "クイックスタート"
+    },
+    {
+      "key": "localeUi.ja.titles.concepts/resolver-precedence",
+      "source": "Resolver precedence",
+      "translation": "リゾルバーの優先順位"
+    },
+    {
+      "key": "localeUi.ja.titles.guide/sitemaps",
+      "source": "Sitemap registry",
+      "translation": "サイトマップレジストリ"
+    },
+    {
+      "key": "localeUi.ja.titles.guide/filament",
+      "source": "Filament SEO fields",
+      "translation": "FilamentのSEOフィールド"
+    },
+    {
+      "key": "localeUi.ja.titles.guide/audit",
+      "source": "Free SEO audit",
+      "translation": "無料のSEO監査"
+    },
+    {
+      "key": "localeUi.ja.titles.guide/ai-crawlers",
+      "source": "AI crawler controls",
+      "translation": "AIクローラーの制御"
+    },
+    {
+      "key": "localeUi.ja.titles.guide/multilingual",
+      "source": "Multilingual content and hreflang",
+      "translation": "多言語コンテンツとhreflang"
+    },
+    {
+      "key": "localeUi.ja.titles.guide/og-image",
+      "source": "Generated OG images",
+      "translation": "OG画像の生成"
+    },
+    {
+      "key": "localeUi.ja.titles.guide/migrate-from-other-packages",
+      "source": "Migrating from other packages",
+      "translation": "他のパッケージからの移行"
+    },
+    {
+      "key": "localeUi.ja.theme.returnToTopLabel",
+      "source": "Return to top",
+      "translation": "ページの先頭に戻る"
+    },
+    {
+      "key": "localeUi.ja.theme.sidebarMenuLabel",
+      "source": "Menu",
+      "translation": "メニュー"
+    },
+    {
+      "key": "localeUi.ja.theme.darkModeSwitchLabel",
+      "source": "Dark mode",
+      "translation": "ダークモード"
+    },
+    {
+      "key": "localeUi.ja.theme.lightModeSwitchTitle",
+      "source": "Switch to light theme",
+      "translation": "ライトモードに切り替える"
+    },
+    {
+      "key": "localeUi.ja.theme.darkModeSwitchTitle",
+      "source": "Switch to dark theme",
+      "translation": "ダークモードに切り替える"
+    },
+    {
+      "key": "localeUi.ja.theme.langMenuLabel",
+      "source": "Change language",
+      "translation": "言語を切り替える"
+    },
+    {
+      "key": "localeUi.ja.theme.skipToContentLabel",
+      "source": "Skip to content",
+      "translation": "コンテンツへ移動"
+    },
+    {
+      "key": "localeUi.ja.theme.lastUpdated.text",
+      "source": "Last updated",
+      "translation": "最終更新"
+    },
+    {
+      "key": "localeUi.ja.edit",
+      "source": "Edit this page on GitHub",
+      "translation": "GitHubでこのページを編集"
+    },
+    {
+      "key": "localeUi.ja.license",
+      "source": "rankbeam/laravel-seo is released under the MIT License.",
+      "translation": "rankbeam/laravel-seoはMITライセンスで公開されています。"
+    },
+    {
+      "key": "localeUi.ja.search.button.buttonText",
+      "source": "Search",
+      "translation": "検索"
+    },
+    {
+      "key": "localeUi.ja.search.button.buttonAriaLabel",
+      "source": "Search docs",
+      "translation": "ドキュメントを検索"
+    },
+    {
+      "key": "localeUi.ja.search.modal.displayDetails",
+      "source": "Display detailed list",
+      "translation": "詳細を表示"
+    },
+    {
+      "key": "localeUi.ja.search.modal.resetButtonTitle",
+      "source": "Reset search",
+      "translation": "検索をクリア"
+    },
+    {
+      "key": "localeUi.ja.search.modal.backButtonTitle",
+      "source": "Close search",
+      "translation": "検索を閉じる"
+    },
+    {
+      "key": "localeUi.ja.search.modal.noResultsText",
+      "source": "No results for",
+      "translation": "検索結果がありません："
+    },
+    {
+      "key": "localeUi.ja.search.modal.footer.selectText",
+      "source": "to select",
+      "translation": "選択"
+    },
+    {
+      "key": "localeUi.ja.search.modal.footer.navigateText",
+      "source": "to navigate",
+      "translation": "移動"
+    },
+    {
+      "key": "localeUi.ja.search.modal.footer.closeText",
+      "source": "to close",
+      "translation": "閉じる"
+    },
+    {
+      "key": "localeUi.ja.search.modal.footer.selectKeyAriaLabel",
+      "source": "Enter",
+      "translation": "Enterキー"
+    },
+    {
+      "key": "localeUi.ja.search.modal.footer.navigateUpKeyAriaLabel",
+      "source": "Arrow up",
+      "translation": "上矢印キー"
+    },
+    {
+      "key": "localeUi.ja.search.modal.footer.navigateDownKeyAriaLabel",
+      "source": "Arrow down",
+      "translation": "下矢印キー"
+    },
+    {
+      "key": "localeUi.ja.search.modal.footer.closeKeyAriaLabel",
+      "source": "Escape",
+      "translation": "Escapeキー"
+    },
+    {
+      "key": "manualMessages.ja.imageAlt",
+      "source": "Rankbeam — open-core SEO infrastructure for Laravel",
+      "translation": "Rankbeam — Laravel向けのオープンコアSEO基盤"
+    },
+    {
+      "key": "manualMessages.ja.copyTitle",
+      "source": "Copy Code",
+      "translation": "コードをコピー"
+    },
+    {
+      "key": "manualMessages.ja.copied",
+      "source": "Copied",
+      "translation": "コピーしました"
+    },
+    {
+      "key": "manualMessages.ja.copyFailed",
+      "source": "Copy failed. Select the code and copy it manually.",
+      "translation": "コピーできませんでした。コードを選択して手動でコピーしてください。"
+    },
+    {
+      "key": "manualMessages.ja.noScript",
+      "source": "Without JavaScript, select the code and copy it manually.",
+      "translation": "JavaScriptが無効でも、コードを選択して手動でコピーできます。"
+    },
+    {
+      "key": "manualMessages.ja.noScriptMenu",
+      "source": "Menu",
+      "translation": "メニュー"
+    },
+    {
+      "key": "manualMessages.ja.noScriptHelp",
+      "source": "JavaScript is disabled. Use these links to navigate; select code to copy it manually.",
+      "translation": "JavaScriptが無効です。これらのリンクから移動できます。コードを手動でコピーするには、コードを選択してください。"
+    },
+    {
+      "key": "manualMessages.ja.language",
+      "source": "Language",
+      "translation": "言語"
+    },
+    {
+      "key": "manualMessages.ja.mobileNavigation",
+      "source": "mobile navigation",
+      "translation": "モバイルナビゲーション"
+    },
+    {
+      "key": "manualMessages.ja.extraNavigation",
+      "source": "extra navigation",
+      "translation": "その他のナビゲーション"
+    },
+    {
+      "key": "manualMessages.ja.mainNavigation",
+      "source": "Main Navigation",
+      "translation": "メインナビゲーション"
+    },
+    {
+      "key": "manualMessages.ja.sidebarNavigation",
+      "source": "Sidebar Navigation",
+      "translation": "サイドバーナビゲーション"
+    },
+    {
+      "key": "manualMessages.ja.pager",
+      "source": "Pager",
+      "translation": "ページ間の移動"
+    },
+    {
+      "key": "manualMessages.ja.permalink",
+      "source": "Permalink to",
+      "translation": "固定リンク："
+    },
+    {
+      "key": "manualMessages.ja.notFound.title",
+      "source": "PAGE NOT FOUND",
+      "translation": "ページが見つかりません"
+    },
+    {
+      "key": "manualMessages.ja.notFound.quote",
+      "source": "But if you don't change your direction, and if you keep looking, you may end up where you are heading.",
+      "translation": "それでも、向きを変えずに探し続ければ、目指している場所にたどり着くかもしれません。"
+    },
+    {
+      "key": "manualMessages.ja.notFound.linkLabel",
+      "source": "go to home",
+      "translation": "ホームページへ移動"
+    },
+    {
+      "key": "manualMessages.ja.notFound.linkText",
+      "source": "Take me home",
+      "translation": "ホームページに戻る"
+    },
+    {
+      "key": "ja/404.md:title",
+      "source": "Page not found",
+      "translation": "ページが見つかりません"
+    },
+    {
+      "key": "ja/404.md:description",
+      "source": "The requested documentation page could not be found.",
+      "translation": "指定されたドキュメントのページが見つかりません。"
+    }
+  ],
+  "reviewer": "Codex",
+  "at": "2026-09-12T11:44:21.557Z",
+  "source": "work/ja-docs-adapter-manual-candidate-v2.json",
+  "sourceSha256": "bbfd2cc1f2830fcf431e1803b7b8e1f89ece8ce9d29a6a3e67753cbd133236b2"
+}

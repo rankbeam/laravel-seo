@@ -7938,6 +7938,952 @@
         "packet": "el-docs-last-guides-final-reviewed.json",
         "packet_sha256": "c49d172a832cd36ce7a55c57b290807dc9e79d1cbb66f4ad1fea2f38ee9489b1"
       }
+    },
+    "ja/guide/filament.md": {
+      "source": "guide/filament.md",
+      "sha256": "7c7d8a78510a50a0f0c11f8a4952f6fcc40e2063ce8d457ffc1d3dfadb534aa4",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "11e5ea6bcad09241159563bb1f5403b2f4673fd53152b02afb1a0c9608e2f330",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read both complete English sources and restored Japanese candidates, then reviewed translated screenshot alt text, clarified doctor exit-code language, and preserved the source refund mailto explicitly after detecting Japanese adjacency suppressed autolinking. Retained full sections, code, schema limitations, unsaved multilingual drafts, transaction and filesystem caveats, version matrices, license and service scope. Codex editorial review only, no independent native or human certification.",
+          "warningsDisposition": "All original destinations and stable heading IDs preserved with planned /ja routes; actual rendered route acceptance deferred to complete integration. Checked 60/160 and 30/80 grapheme budgets, screenshot date, layer 6, plugin versions, PHP/Laravel requirements, EUR179, five projects, 60 minutes and 30-day refund. Numeric differences are Japanese counters, punctuation and equivalent version ranges.",
+          "at": "2026-09-12T10:42:47.091Z",
+          "independentNative": false,
+          "digest": "bd666c49e9e9e17e2e37acd8375a36084e337c66eb4dc849f395805c9e22fcc5"
+        },
+        "handoff": "ja-docs-admin-stage/handoff.json"
+      }
+    },
+    "ja/pro/installation.md": {
+      "source": "pro/installation.md",
+      "sha256": "a092e59eff8699016b9d17b63c117afbbdcb64ecac27e38954e73972db8366cd",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "50d9b5a0fa0bbc84a911f7436dd22f857a6acff568034d1fd3ac78d6c7290234",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read both complete English sources and restored Japanese candidates, then reviewed translated screenshot alt text, clarified doctor exit-code language, and preserved the source refund mailto explicitly after detecting Japanese adjacency suppressed autolinking. Retained full sections, code, schema limitations, unsaved multilingual drafts, transaction and filesystem caveats, version matrices, license and service scope. Codex editorial review only, no independent native or human certification.",
+          "warningsDisposition": "All original destinations and stable heading IDs preserved with planned /ja routes; actual rendered route acceptance deferred to complete integration. Checked 60/160 and 30/80 grapheme budgets, screenshot date, layer 6, plugin versions, PHP/Laravel requirements, EUR179, five projects, 60 minutes and 30-day refund. Numeric differences are Japanese counters, punctuation and equivalent version ranges.",
+          "at": "2026-09-12T10:42:47.091Z",
+          "independentNative": false,
+          "digest": "609ee1a4a9aaaf2094ab2fb75f2d38f3d710b14d63a51b903349211d6617d303"
+        },
+        "handoff": "ja-docs-admin-stage/handoff.json"
+      }
+    },
+    "ja/pro/ai-assist.md": {
+      "source": "pro/ai-assist.md",
+      "sha256": "49729166bb1045e61b7b1d43d824ae7031212ac0e4cd858b332f23c53c707108",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "927d095e955d14ed72082a48369c2f1ff9f7521a8b71e2e7df2a3cdafcec4b34",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Compared the full English and Japanese AI-assist guide, including all pricing assumptions, model availability qualifications, locale/checkpoint reconciliation, runtime limits, private CLI drafts versus PHP immediate-write default, stale approval, provenance/encryption/filtering and disclosure limitations. Matched named UI actions to shipped Japanese Pro catalog. Codex full editorial review, not independent native/human certification.",
+          "warningsDisposition": "Localized documentation links and preserved source IDs, all numeric models/pricing tables and protected examples. Costs remain illustrative rather than current quotes, hidden reasoning and duplicate-billing risks explicit. No example commands executed or provider calls; render/anchor and full journey gates pending.",
+          "at": "2026-09-12T11:36:29.193Z",
+          "independentNative": false,
+          "digest": "cb4d2546a550d7ee677626f5fa10c6c17ae17b08f6c982b3d3f9f1a7c2a629bf"
+        },
+        "handoff": "ja-docs-ai-stage/handoff.json"
+      }
+    },
+    "ja/reference/configuration.md": {
+      "source": "reference/configuration.md",
+      "sha256": "6885c0770b86f6a3615d301a326f1b77d894a09f708cbb93cbe81b183fce6590",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "9bc84ee2d41eec2896f7636e8e50310b27ab4375e5d44d22b8e4395ec176ab74",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete English/restored Japanese configuration and on-page-checklist. Preserved every config example and all formula/engine rows, ICU unavailable skips and stale-score behavior, CJK unscored always-advisory heuristics, language-specific stemming limitations and algorithm-not-editorial evidence. Reviewed cache keys/invalidation/touch caveat, canonical whitelist scope, focus-keyword gate, local-only image inspection; clarified best-strategy fallback sentence. Codex editorial review, not native/human certification.",
+          "warningsDisposition": "Checked600395 algorithm pairs,10formula vs12stemming languages,30/60/70/160 andCJK15/30/35/80 limits,45percentkanji and all sentence bands. Technical identifiers, examples, external citations retained; own links localized and English IDs fixed for rendered validation later. No install, package/provider execution or source example command performed.",
+          "at": "2026-09-12T11:23:01.209Z",
+          "independentNative": false,
+          "digest": "ed79a6ce22ab0dbe06d347bd7d795d302fc1957f8d1df964d6d7c640ac9e5776"
+        },
+        "handoff": "ja-docs-analysis-stage/handoff.json"
+      }
+    },
+    "ja/pro/on-page-checklist.md": {
+      "source": "pro/on-page-checklist.md",
+      "sha256": "cb94ef8f19db646db0e214abb379d0abf490218a2d265efebcdfd986c34ea8c1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "1faae7542ac3a15e504779c91b1697fe9a0df957454b88664eaff3bf7bf2f373",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete English/restored Japanese configuration and on-page-checklist. Preserved every config example and all formula/engine rows, ICU unavailable skips and stale-score behavior, CJK unscored always-advisory heuristics, language-specific stemming limitations and algorithm-not-editorial evidence. Reviewed cache keys/invalidation/touch caveat, canonical whitelist scope, focus-keyword gate, local-only image inspection; clarified best-strategy fallback sentence. Codex editorial review, not native/human certification.",
+          "warningsDisposition": "Checked600395 algorithm pairs,10formula vs12stemming languages,30/60/70/160 andCJK15/30/35/80 limits,45percentkanji and all sentence bands. Technical identifiers, examples, external citations retained; own links localized and English IDs fixed for rendered validation later. No install, package/provider execution or source example command performed.",
+          "at": "2026-09-12T11:23:01.209Z",
+          "independentNative": false,
+          "digest": "2734dec4efa63148ab3031340a6e6fae934b50f3dfe3fffcf0b35e778c82fcc7"
+        },
+        "handoff": "ja-docs-analysis-stage/handoff.json"
+      }
+    },
+    "ja/guide/markdown-for-bots.md": {
+      "source": "guide/markdown-for-bots.md",
+      "sha256": "0d3375f75e8a303c5c7b12d704482d71633948a685adde037bfdfa5d7d3fbac6",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "cf21acc483f4538067857b77efb92651911a87e3377d2eb2a3840d00caca3bb0",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read full English sources and all five restored Japanese candidates. Preserved source priority and null fallback semantics, JSON-LD escaping and schema locale switches, demo license/build-secret instructions, package UI/native review distinctions, backup/restore prerequisites and limited v1 core-table compatibility. Literal code and historical source claims retained. Codex review is not independent native or human certification; integration acceptance pending.",
+          "warningsDisposition": "All heading IDs retained and Japanese route destinations mapped to planned full corpus; rendered links remain an integration gate. Numbers, versions, 0-100 score, five-minute source claim, two core tables, 32 rules and ordered steps checked in context; Japanese counters and range punctuation account for numeric warnings.",
+          "at": "2026-09-12T10:03:57.624Z",
+          "independentNative": false,
+          "digest": "f24c67624a9987e721ae4beacb8e3eb7d471f27bc9333bff809e60ddd2051ad3"
+        },
+        "handoff": "ja-docs-basics-stage/handoff.json"
+      }
+    },
+    "ja/guide/schema.md": {
+      "source": "guide/schema.md",
+      "sha256": "f5896694ebd6fa3df9dc7d393ec392882f431242468a1aababc257bc70c3b02a",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "33f9888c0a8c5e45c4dc9ff6709d4dc4ecbf0862f08731575b88bfbc5ed30835",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read full English sources and all five restored Japanese candidates. Preserved source priority and null fallback semantics, JSON-LD escaping and schema locale switches, demo license/build-secret instructions, package UI/native review distinctions, backup/restore prerequisites and limited v1 core-table compatibility. Literal code and historical source claims retained. Codex review is not independent native or human certification; integration acceptance pending.",
+          "warningsDisposition": "All heading IDs retained and Japanese route destinations mapped to planned full corpus; rendered links remain an integration gate. Numbers, versions, 0-100 score, five-minute source claim, two core tables, 32 rules and ordered steps checked in context; Japanese counters and range punctuation account for numeric warnings.",
+          "at": "2026-09-12T10:03:57.624Z",
+          "independentNative": false,
+          "digest": "1a69eba7a593f0fdfbe754e6f321d0118c15a24e4db1c1b6c71191a555912685"
+        },
+        "handoff": "ja-docs-basics-stage/handoff.json"
+      }
+    },
+    "ja/guide/demo.md": {
+      "source": "guide/demo.md",
+      "sha256": "a83060a0a93389f35bbfa86ed8f0ca25fa0558c7852ec930d29394e59802c8d7",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "6dfdf9202c7347eb81a0121d198ad2f2a55757855bc8b7f5e4c0085694740575",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read full English sources and all five restored Japanese candidates. Preserved source priority and null fallback semantics, JSON-LD escaping and schema locale switches, demo license/build-secret instructions, package UI/native review distinctions, backup/restore prerequisites and limited v1 core-table compatibility. Literal code and historical source claims retained. Codex review is not independent native or human certification; integration acceptance pending.",
+          "warningsDisposition": "All heading IDs retained and Japanese route destinations mapped to planned full corpus; rendered links remain an integration gate. Numbers, versions, 0-100 score, five-minute source claim, two core tables, 32 rules and ordered steps checked in context; Japanese counters and range punctuation account for numeric warnings.",
+          "at": "2026-09-12T10:03:57.624Z",
+          "independentNative": false,
+          "digest": "1c66737a3425914f27d22c6f77581b348171d555a5fb3f02aa730d4e09c6c475"
+        },
+        "handoff": "ja-docs-basics-stage/handoff.json"
+      }
+    },
+    "ja/guide/translations.md": {
+      "source": "guide/translations.md",
+      "sha256": "bedcee93831af91605dca0f7ad536e57da078984464c60fd68b4ca52e62662bc",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "0b3c2bc99a620ce2bb24808e82953bfa668e45be77fca55ab7068b7c5ba0826f",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read full English sources and all five restored Japanese candidates. Preserved source priority and null fallback semantics, JSON-LD escaping and schema locale switches, demo license/build-secret instructions, package UI/native review distinctions, backup/restore prerequisites and limited v1 core-table compatibility. Literal code and historical source claims retained. Codex review is not independent native or human certification; integration acceptance pending.",
+          "warningsDisposition": "All heading IDs retained and Japanese route destinations mapped to planned full corpus; rendered links remain an integration gate. Numbers, versions, 0-100 score, five-minute source claim, two core tables, 32 rules and ordered steps checked in context; Japanese counters and range punctuation account for numeric warnings.",
+          "at": "2026-09-12T10:03:57.625Z",
+          "independentNative": false,
+          "digest": "70e28c7ff5b960c9b20849b28f1065414c06436d1790112758ccfe1810c13895"
+        },
+        "handoff": "ja-docs-basics-stage/handoff.json"
+      }
+    },
+    "ja/guide/upgrade-from-v1.md": {
+      "source": "guide/upgrade-from-v1.md",
+      "sha256": "58fcb833a7313e9a91e41c7fea664a0db5b1a603d8b8bfda75db95f3a59bba15",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "85db8df9558e8bee7d6fe9e058d74b182db1f2957799f580ac2b00b2de890772",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read full English sources and all five restored Japanese candidates. Preserved source priority and null fallback semantics, JSON-LD escaping and schema locale switches, demo license/build-secret instructions, package UI/native review distinctions, backup/restore prerequisites and limited v1 core-table compatibility. Literal code and historical source claims retained. Codex review is not independent native or human certification; integration acceptance pending.",
+          "warningsDisposition": "All heading IDs retained and Japanese route destinations mapped to planned full corpus; rendered links remain an integration gate. Numbers, versions, 0-100 score, five-minute source claim, two core tables, 32 rules and ordered steps checked in context; Japanese counters and range punctuation account for numeric warnings.",
+          "at": "2026-09-12T10:03:57.625Z",
+          "independentNative": false,
+          "digest": "f35fc5ef4a88f38df604fe80f9731459ae4d3a62256086e54929a5482bbf5304"
+        },
+        "handoff": "ja-docs-basics-stage/handoff.json"
+      }
+    },
+    "ja/contributing/rendering-contract.md": {
+      "source": "contributing/rendering-contract.md",
+      "sha256": "b4b18340855cfc8bcc45c3c33f9523942927105af01c9c11ac36f01afc5fd520",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "1722cce8c9863183cb7b4b7b515e630b68ea9ed98da03da205401584eb86668d",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete English and restored Japanese contract and home metadata. Preserved seven sections, all 26 conformance rows, planned limitations, SSR versus CSR conditions, semantic parity and tag ownership. Historical independent design review describes the source specification, not this Japanese translation. Home container and metadata review does not approve pending Home.vue UI. Codex review is not independent native or human certification.",
+          "warningsDisposition": "Verified numeric quantities, section references, singleton tags, zero hydration warnings and planned subset statements in context. Numeric token warning arises from Japanese counters and punctuation, with values unchanged.",
+          "at": "2026-09-12T10:36:07.895Z",
+          "independentNative": false,
+          "digest": "b7db7bfc9e9db5467aa8083ea7813b9b895de19039db0c7855e196d74a29c2ce"
+        },
+        "handoff": "ja-docs-contract-stage/handoff.json"
+      }
+    },
+    "ja/index.md": {
+      "source": "index.md",
+      "sha256": "1fe0fb5e64039c222519c36e499eb8dcbf9b775cf38241862971bb607089c522",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "bd54e45b0167f3d155716aad8024e27b96e51c27f77d13c4f0a5dd5eb380c499",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete English and restored Japanese contract and home metadata. Preserved seven sections, all 26 conformance rows, planned limitations, SSR versus CSR conditions, semantic parity and tag ownership. Historical independent design review describes the source specification, not this Japanese translation. Home container and metadata review does not approve pending Home.vue UI. Codex review is not independent native or human certification.",
+          "warningsDisposition": "Verified numeric quantities, section references, singleton tags, zero hydration warnings and planned subset statements in context. Numeric token warning arises from Japanese counters and punctuation, with values unchanged.",
+          "at": "2026-09-12T10:36:07.895Z",
+          "independentNative": false,
+          "digest": "fe6984a64be10361f5ea3c127e304a55f8490595062012900d1a48d1d9804a78"
+        },
+        "handoff": "ja-docs-contract-stage/handoff.json"
+      }
+    },
+    "ja/guide/quickstart.md": {
+      "source": "guide/quickstart.md",
+      "sha256": "62172e26a1b071e110a365c15ab81d23c415ff95ac160575142ad10bc507260d",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "83d78c7e98c6a2d52e797dc152d7e10a0fade834e189b429ca61858dda80babf",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read both complete Japanese guides against English after protected-token assembly. Preserved installation prerequisites, Laravel/PHP ranges, existing Post/route/view assumptions, auto-discovery and table ownership, resolver precedence, seeder-event warning, canonical verification, one-render rule, sitemap setup, all seven directives and two-line Filament claim. Natural Japanese developer terminology; general accuracy/clarity review only, not native/human certification. Full integration/search/glyph/publication acceptance remains open.",
+          "warningsDisposition": "Verified numeric values in context: Laravel11/12/13, PHP8.2-8.4/8.2-8.5/8.3-8.5, sitemap^7.0/^8.0, two migrations, one output per page, seven directives and two-line Filament example. Japanese punctuation/adjacency explains token warnings. All English section IDs and literal code unchanged; links map to planned full Japanese routes, whose rendered availability remains a later gate.",
+          "at": "2026-09-12T09:38:16.082Z",
+          "independentNative": false,
+          "digest": "b4fb52a5f6bb2705b7fe50dc2c2510d03e1dcdea4547954c99417ddda4bcbf5d"
+        },
+        "handoff": "ja-docs-core-stage/handoff.json"
+      }
+    },
+    "ja/guide/installation.md": {
+      "source": "guide/installation.md",
+      "sha256": "b6e9dbf70cf7585113bfc4cb6947f2c8c700179843a6bc0c7bb9a6d5c5d3676e",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "49f461c64d56e5b8239a55a39dcae6662c2a987ed0fa676b716cdb3a9d281408",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read both complete Japanese guides against English after protected-token assembly. Preserved installation prerequisites, Laravel/PHP ranges, existing Post/route/view assumptions, auto-discovery and table ownership, resolver precedence, seeder-event warning, canonical verification, one-render rule, sitemap setup, all seven directives and two-line Filament claim. Natural Japanese developer terminology; general accuracy/clarity review only, not native/human certification. Full integration/search/glyph/publication acceptance remains open.",
+          "warningsDisposition": "Verified numeric values in context: Laravel11/12/13, PHP8.2-8.4/8.2-8.5/8.3-8.5, sitemap^7.0/^8.0, two migrations, one output per page, seven directives and two-line Filament example. Japanese punctuation/adjacency explains token warnings. All English section IDs and literal code unchanged; links map to planned full Japanese routes, whose rendered availability remains a later gate.",
+          "at": "2026-09-12T09:38:16.082Z",
+          "independentNative": false,
+          "digest": "9b0e4bb28ad97389c968ee86602f930ec274fd42d15a4d98f398781367500c57"
+        },
+        "handoff": "ja-docs-core-stage/handoff.json"
+      }
+    },
+    "ja/guide/indexing-guard.md": {
+      "source": "guide/indexing-guard.md",
+      "sha256": "de3dc22aad4814ef932b11ffa2be244f6c4d764cf98ff3a9f5eb4f5d601c407c",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "bac3480ada357ed2ed1c7d60599b1864d7e97b66768adf7b048dc50f75132f18",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read both complete English and restored Japanese guides. Preserved opt-in guard, explicit-value precedence exception, allowed-environment fallback, header/static-file scope, all policy purposes, advisory enforcement and citation limitations, all eight regional bots and literal examples. This is Codex editorial review, not independent native or human certification; full integration review remains pending.",
+          "warningsDisposition": "Confirmed every numeric value in context including four effects, Core 4, version 3.15, three signals and eight engines. Japanese counters change token boundaries only. Own docs paths target the planned Japanese corpus and English anchor IDs are explicit; rendered destination acceptance remains a separate integration gate.",
+          "at": "2026-09-12T09:59:30.548Z",
+          "independentNative": false,
+          "digest": "a37c8a6772bcbd1b19ad96ac322630a3a870074409395d11bf266f1da6a28141"
+        },
+        "handoff": "ja-docs-crawlers-stage/handoff.json"
+      }
+    },
+    "ja/guide/ai-crawlers.md": {
+      "source": "guide/ai-crawlers.md",
+      "sha256": "30895f227130c9e06315b53c7c7cac342dc9755f7ed1813c3d560633dfff8c4b",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "b9a3f7cbe22ce87b7dac04e72dd819d3978c0900ef358d3621e1e6cad7ed8b61",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read both complete English and restored Japanese guides. Preserved opt-in guard, explicit-value precedence exception, allowed-environment fallback, header/static-file scope, all policy purposes, advisory enforcement and citation limitations, all eight regional bots and literal examples. This is Codex editorial review, not independent native or human certification; full integration review remains pending.",
+          "warningsDisposition": "Confirmed every numeric value in context including four effects, Core 4, version 3.15, three signals and eight engines. Japanese counters change token boundaries only. Own docs paths target the planned Japanese corpus and English anchor IDs are explicit; rendered destination acceptance remains a separate integration gate.",
+          "at": "2026-09-12T09:59:30.548Z",
+          "independentNative": false,
+          "digest": "6e4f16ddcde730074b4325fcc1eb5957be2c6125adf2dd078021c0995ee31fdc"
+        },
+        "handoff": "ja-docs-crawlers-stage/handoff.json"
+      }
+    },
+    "ja/guide/audit.md": {
+      "source": "guide/audit.md",
+      "sha256": "fdd1f134b1988c0ae6aeb529b233ed16750ef42a091c970b807406f05a2e939a",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "b396e2e3512431a27fb96d748fec4ac4cfbc2ae4ee909596c6485aece4b039a0",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete English and restored Japanese audit/sitemap pages. Confirmed metadata-only free coverage, differing Core/Pro codes and severities, AEO score exclusion, opt-in keywords, strict exits, grapheme budgets, sitemap inclusion and passthrough, reciprocal alternates, XSL safety and resolver reuse scope. All examples and sections retained. Codex editorial review, not native/human certification; rendered integration pending.",
+          "warningsDisposition": "Verified 60/160 and approximately 30/80 grapheme budgets, 0-100 score, exit 1/0, 50000 URL limit, 8.1 and 3.20.1/3.20.0 versions, two extensions and all example values. Own links use planned Japanese paths with source anchors; shared screenshot path deliberately unchanged and alt text translated. Rendered link acceptance remains pending.",
+          "at": "2026-09-12T10:07:53.252Z",
+          "independentNative": false,
+          "digest": "59671880632c970a92bdaaf3e8b5875f9876efcacac3b18bb896671793e3be49"
+        },
+        "handoff": "ja-docs-discovery-stage/handoff.json"
+      }
+    },
+    "ja/guide/sitemaps.md": {
+      "source": "guide/sitemaps.md",
+      "sha256": "16bbe750af66c65ce687536f4b92bfe27c6c11b05f59c2030a6c9ea17d080a0e",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "004871d4b07089d920b3cd9784d68204e8bc5e5fcd1f7ac0f343409781f68892",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete English and restored Japanese audit/sitemap pages. Confirmed metadata-only free coverage, differing Core/Pro codes and severities, AEO score exclusion, opt-in keywords, strict exits, grapheme budgets, sitemap inclusion and passthrough, reciprocal alternates, XSL safety and resolver reuse scope. All examples and sections retained. Codex editorial review, not native/human certification; rendered integration pending.",
+          "warningsDisposition": "Verified 60/160 and approximately 30/80 grapheme budgets, 0-100 score, exit 1/0, 50000 URL limit, 8.1 and 3.20.1/3.20.0 versions, two extensions and all example values. Own links use planned Japanese paths with source anchors; shared screenshot path deliberately unchanged and alt text translated. Rendered link acceptance remains pending.",
+          "at": "2026-09-12T10:07:53.252Z",
+          "independentNative": false,
+          "digest": "92490b616f591bd16a756ee746ff1861b96c2fc15fe8d7f67e84ac39d5729866"
+        },
+        "handoff": "ja-docs-discovery-stage/handoff.json"
+      }
+    },
+    "ja/guide/migrate-from-other-packages.md": {
+      "source": "guide/migrate-from-other-packages.md",
+      "sha256": "8ac395702e898881af586ec86627c866f34955a76ca079880ce03dd7bc87eb1f",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "1046b6ee127f2c8b5b46c549e2913bea53f7be090adbfdedc7d51843a25f537c",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read all three complete English migration sources and restored Japanese candidates, including database configuration and field tables. Retained every section, code sample, report category and cutover checkbox. Verified model matching, unmapped author handling, exact-only redirect rules, canonical host preservation, token stripping and default fill-empty versus explicit overwrite. Runbook later rerun and rollback prose explicitly carries forward the default-only qualification already stated in its source introduction; destination backup required for overwritten values. This addresses the previously recorded source ambiguity without changing English code or content. Codex editorial review only, not independent native or human certification.",
+          "warningsDisposition": "Checked planned localized docs routes and source heading anchors; rendered destinations remain an integration gate. Verified 70/160/50 storage limits, Core 3, MySQL8, format v1, step0-6, 301, score0-100 and command values. Numeric differences are Japanese counters or formatting. No migration command, database write or external provider call performed.",
+          "at": "2026-09-12T10:50:32.632Z",
+          "independentNative": false,
+          "digest": "56d8f7dcc28bb60f78c2638a7a36d573a5568050f807b9a53b5eb5dd26e300aa"
+        },
+        "handoff": "ja-docs-migrations-stage/handoff.json"
+      }
+    },
+    "ja/guide/migrate-from-wordpress.md": {
+      "source": "guide/migrate-from-wordpress.md",
+      "sha256": "7da4845d115d9fcc481bad48262275938286c8558579f6e375d964593b9c5668",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "70d7b331aa49f18a57717fd768ae60a31d8d7316a8768a37f7628cbf7dd4019d",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read all three complete English migration sources and restored Japanese candidates, including database configuration and field tables. Retained every section, code sample, report category and cutover checkbox. Verified model matching, unmapped author handling, exact-only redirect rules, canonical host preservation, token stripping and default fill-empty versus explicit overwrite. Runbook later rerun and rollback prose explicitly carries forward the default-only qualification already stated in its source introduction; destination backup required for overwritten values. This addresses the previously recorded source ambiguity without changing English code or content. Codex editorial review only, not independent native or human certification.",
+          "warningsDisposition": "Checked planned localized docs routes and source heading anchors; rendered destinations remain an integration gate. Verified 70/160/50 storage limits, Core 3, MySQL8, format v1, step0-6, 301, score0-100 and command values. Numeric differences are Japanese counters or formatting. No migration command, database write or external provider call performed.",
+          "at": "2026-09-12T10:50:32.632Z",
+          "independentNative": false,
+          "digest": "0c0c64c9583ee434266319308aa8d5c3853fada51f4464ea3e5bf947cef44be2"
+        },
+        "handoff": "ja-docs-migrations-stage/handoff.json"
+      }
+    },
+    "ja/guide/wordpress-migration-runbook.md": {
+      "source": "guide/wordpress-migration-runbook.md",
+      "sha256": "f2daaf7eac2bd7a8e180d401e8c8c71bec38a306b6bbe5b2751202947cd82ff8",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "b2f7f0920be0604ab68b93b11ae8205f3f70bb1ef6e180872c1e2d3b4b3b43e8",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read all three complete English migration sources and restored Japanese candidates, including database configuration and field tables. Retained every section, code sample, report category and cutover checkbox. Verified model matching, unmapped author handling, exact-only redirect rules, canonical host preservation, token stripping and default fill-empty versus explicit overwrite. Runbook later rerun and rollback prose explicitly carries forward the default-only qualification already stated in its source introduction; destination backup required for overwritten values. This addresses the previously recorded source ambiguity without changing English code or content. Codex editorial review only, not independent native or human certification.",
+          "warningsDisposition": "Checked planned localized docs routes and source heading anchors; rendered destinations remain an integration gate. Verified 70/160/50 storage limits, Core 3, MySQL8, format v1, step0-6, 301, score0-100 and command values. Numeric differences are Japanese counters or formatting. No migration command, database write or external provider call performed.",
+          "at": "2026-09-12T10:50:32.633Z",
+          "independentNative": false,
+          "digest": "2e4841cb59c3c70578d32ce2f6b465efc64562a1fc32078334cd5d4e26308618"
+        },
+        "handoff": "ja-docs-migrations-stage/handoff.json"
+      }
+    },
+    "ja/guide/multilingual.md": {
+      "source": "guide/multilingual.md",
+      "sha256": "3ae9687568846476d3c5f972f34b14124409eb67e401569e1eec5a11305945af",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "e0b332fb0121b9da4e8f2f91e334f2a665d0c542571b9d844693f7a13665301c",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read full English and restored Japanese guide including all code and 17-locale table. Preserved separate application/HTML/Google language contracts, strict served-byte validation, unknown results, ICU/font dependencies, heuristic no-score versus LIX, package UI review status and content-locale isolation. Clarified that numbers-only examples lack script-detection letters, not all characters. Package UI first-pass review status is distinct from this public-doc Codex review. No independent native or human certification.",
+          "warningsDisposition": "Verified 60/160 versus30/80 budgets, 60 percent boundary, weighted CJK example,16MB,17locales,12Snowball languages/version3.1.1,10formula languages,16stopword languages,version milestones and2026-08-08 registry date. Localized routes and stable anchors preserved; rendered routes and actual glyph/search/IME acceptance remain integration gates.",
+          "at": "2026-09-12T10:56:24.501Z",
+          "independentNative": false,
+          "digest": "100111ecb0afbfd975826d4bd45ed50f9b37c2022e0b0a9597dea8613878c3d7"
+        },
+        "handoff": "ja-docs-multilingual-stage/handoff.json"
+      }
+    },
+    "ja/pro/reports.md": {
+      "source": "pro/reports.md",
+      "sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "5c7ec9de80a6e9b44a40828f8952212429c8f424f1c7b6af5302d65c47711cbd",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete English and restored Japanese reports, production and scan-issues guides. Reviewed all registry rows, severities/evidence, optional guarded fetch limits, partial-run2.41 migration/rollback, bounded queues/timeouts/retention, report history versus snapshot fallback, captured mail locale and CJK renderer caveats. Refined Japanese job-delivery wording, eligible-letter minimum, ignored-state wording and Markdown emphasis boundary. Full source examples and shared English report sample retained. Codex editorial review, not independent native or human certification.",
+          "warningsDisposition": "Verified numeric limits/cadences, dates/versions, grapheme thresholds and registry exclusions row by row. All code/config examples and external links are literal; own docs paths are localized and English heading IDs preserved. PDF/sample assets remain shared and explicitly English. Actual route/anchor and rendering acceptance is pending integration; no sample mail or provider command executed.",
+          "at": "2026-09-12T11:22:16.113Z",
+          "independentNative": false,
+          "digest": "ffcf729034ab5e8719a7be0569e83dac3f29edbd0ccc696184228e1ee0b424ae"
+        },
+        "handoff": "ja-docs-operations-stage/handoff.json"
+      }
+    },
+    "ja/pro/production.md": {
+      "source": "pro/production.md",
+      "sha256": "7a5bc5882b7d9bcddfa1028e52e73fb1c18f460cde9cf13ef3c1322f95db04a2",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "d7cbf07e93cc784ee01ec89f3f31226be99bfc1466d5080c9ca5f71989cb9ce5",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete English and restored Japanese reports, production and scan-issues guides. Reviewed all registry rows, severities/evidence, optional guarded fetch limits, partial-run2.41 migration/rollback, bounded queues/timeouts/retention, report history versus snapshot fallback, captured mail locale and CJK renderer caveats. Refined Japanese job-delivery wording, eligible-letter minimum, ignored-state wording and Markdown emphasis boundary. Full source examples and shared English report sample retained. Codex editorial review, not independent native or human certification.",
+          "warningsDisposition": "Verified numeric limits/cadences, dates/versions, grapheme thresholds and registry exclusions row by row. All code/config examples and external links are literal; own docs paths are localized and English heading IDs preserved. PDF/sample assets remain shared and explicitly English. Actual route/anchor and rendering acceptance is pending integration; no sample mail or provider command executed.",
+          "at": "2026-09-12T11:22:16.113Z",
+          "independentNative": false,
+          "digest": "2b4490637d6acfe936fb6d26f61423f7fd93617e8de84401a4f0230701e7a7f6"
+        },
+        "handoff": "ja-docs-operations-stage/handoff.json"
+      }
+    },
+    "ja/pro/scan-issues.md": {
+      "source": "pro/scan-issues.md",
+      "sha256": "ddfb77bc5ce73aca006c7713aa819db26254e7c68bb1a9fd556a7d2580b6e2d1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "1132e8337918be1683031aaf3c1815907375039c10321f561c6736bb011c9358",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete English and restored Japanese reports, production and scan-issues guides. Reviewed all registry rows, severities/evidence, optional guarded fetch limits, partial-run2.41 migration/rollback, bounded queues/timeouts/retention, report history versus snapshot fallback, captured mail locale and CJK renderer caveats. Refined Japanese job-delivery wording, eligible-letter minimum, ignored-state wording and Markdown emphasis boundary. Full source examples and shared English report sample retained. Codex editorial review, not independent native or human certification.",
+          "warningsDisposition": "Verified numeric limits/cadences, dates/versions, grapheme thresholds and registry exclusions row by row. All code/config examples and external links are literal; own docs paths are localized and English heading IDs preserved. PDF/sample assets remain shared and explicitly English. Actual route/anchor and rendering acceptance is pending integration; no sample mail or provider command executed.",
+          "at": "2026-09-12T11:22:16.113Z",
+          "independentNative": false,
+          "digest": "b86930aa18be89c287494a872cb4c3fc2a578982cd13d51ec1babd8c67798d4f"
+        },
+        "handoff": "ja-docs-operations-stage/handoff.json"
+      }
+    },
+    "ja/guide/og-image.md": {
+      "source": "guide/og-image.md",
+      "sha256": "dc7c00ce446dc5e1fd02f05130387e1bdbcf1443f6a00419e2a34934247b693d",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "a8fecf1eadb80e4984d0d3cca2cc6beb18fdfe7cbb26a7ea17d09daf04a191d9",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete EN and restored Japanese OG image and Why Rankbeam guides. Preserved all configuration, code, font families, language mappings, no-live-render limits, sandbox isolation tradeoff and glyph smoke-test limits. Historical reference-app and benchmark claims remain scoped to the source example, including retained22classes,12removed,900pages and bounded18jobs. Clarified own-key and founding-offer terminology. Codex final editorial review, not independent native or human certification.",
+          "warningsDisposition": "Checked all numeric policies/dimensions/versions and approximate three-dozen rendering; preserved immutable code and external references. Japanese own-property paths and stable English heading IDs are intentional; actual rendered routes are pending full integration. Source examples are documentation data, not executed commands.",
+          "at": "2026-09-12T11:21:05.212Z",
+          "independentNative": false,
+          "digest": "8140f0398a4bf95869ff40d8883407a04b1870e4c0f6fffa94c1605f62ab80c5"
+        },
+        "handoff": "ja-docs-positioning-stage/handoff.json"
+      }
+    },
+    "ja/guide/why-rankbeam.md": {
+      "source": "guide/why-rankbeam.md",
+      "sha256": "d9ef64d4a335daa263460c434bc684876ec75c06a221abffe2ce994651deccf2",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "6339a2d5ef3401c7bcb03deab9e3015c83f3c3c0768d9faf84bfc09f0d515825",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete EN and restored Japanese OG image and Why Rankbeam guides. Preserved all configuration, code, font families, language mappings, no-live-render limits, sandbox isolation tradeoff and glyph smoke-test limits. Historical reference-app and benchmark claims remain scoped to the source example, including retained22classes,12removed,900pages and bounded18jobs. Clarified own-key and founding-offer terminology. Codex final editorial review, not independent native or human certification.",
+          "warningsDisposition": "Checked all numeric policies/dimensions/versions and approximate three-dozen rendering; preserved immutable code and external references. Japanese own-property paths and stable English heading IDs are intentional; actual rendered routes are pending full integration. Source examples are documentation data, not executed commands.",
+          "at": "2026-09-12T11:21:05.212Z",
+          "independentNative": false,
+          "digest": "5042290714fd6f0e0edb753d566947edd32dfe094287beba450688ed05f835a7"
+        },
+        "handoff": "ja-docs-positioning-stage/handoff.json"
+      }
+    },
+    "ja/pro/ai-bot-monitor.md": {
+      "source": "pro/ai-bot-monitor.md",
+      "sha256": "45c33da9dbadd4d323f11be2260db72f21b32c0f47f95ceed60dd2d0927f08ab",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "fcf83e06fac1f01b424b60e0d1bd6ca2cd6ad747b573e2c081e6efbab8a0ee22",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read three full English pages and restored Japanese candidates including screenshot alt text. Preserved User-Agent spoofing caveat, IP hashing opt-in, day-granularity and capped-count semantics, headless command coverage/limits, health-check limitations, actual English screenshot labels and dated sample-data evidence. Verified installed Japanese AI Bots navigation label. Codex review only, not native/human certification; complete integration remains pending.",
+          "warningsDisposition": "Numeric/date values checked: Core 3.3, SHA-256, 500/90 defaults, two crawler tables, 2026-09-09 sample, 18+3=21 targets, 20 to 19 issues, 6 to 5 warnings, 14 notices, 92 to 93 score, 142 characters, 98 KB and 2x screenshots. Technical options/code and asset paths remain literal. Japanese links and stable anchors require later rendered validation; sample labels intentionally match screenshots.",
+          "at": "2026-09-12T10:13:50.975Z",
+          "independentNative": false,
+          "digest": "585e84310db6e4d6ec9ce4e31ac465a9690b4a81ef241feb7e3675de47f0a23b"
+        },
+        "handoff": "ja-docs-pro-operations-stage/handoff.json"
+      }
+    },
+    "ja/pro/headless.md": {
+      "source": "pro/headless.md",
+      "sha256": "6a392b623c3d912ae7db09674646e1bb9dd1fa5677adb3d0de228b3eaabcb5d9",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "7c5707c2a68a7e09abfc3d0c368e13b51a0576a35980718e089cc9c415c60a1a",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read three full English pages and restored Japanese candidates including screenshot alt text. Preserved User-Agent spoofing caveat, IP hashing opt-in, day-granularity and capped-count semantics, headless command coverage/limits, health-check limitations, actual English screenshot labels and dated sample-data evidence. Verified installed Japanese AI Bots navigation label. Codex review only, not native/human certification; complete integration remains pending.",
+          "warningsDisposition": "Numeric/date values checked: Core 3.3, SHA-256, 500/90 defaults, two crawler tables, 2026-09-09 sample, 18+3=21 targets, 20 to 19 issues, 6 to 5 warnings, 14 notices, 92 to 93 score, 142 characters, 98 KB and 2x screenshots. Technical options/code and asset paths remain literal. Japanese links and stable anchors require later rendered validation; sample labels intentionally match screenshots.",
+          "at": "2026-09-12T10:13:50.975Z",
+          "independentNative": false,
+          "digest": "abcb0f10b955d41848671fd757b08fbd2c92f94942469d53a1e0d5bcd40be52c"
+        },
+        "handoff": "ja-docs-pro-operations-stage/handoff.json"
+      }
+    },
+    "ja/pro/walkthrough.md": {
+      "source": "pro/walkthrough.md",
+      "sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "3864c1586f7167efabe93441717bc5d5b9a6dd5fbd92bfe14286e7db1fc69e7e",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read three full English pages and restored Japanese candidates including screenshot alt text. Preserved User-Agent spoofing caveat, IP hashing opt-in, day-granularity and capped-count semantics, headless command coverage/limits, health-check limitations, actual English screenshot labels and dated sample-data evidence. Verified installed Japanese AI Bots navigation label. Codex review only, not native/human certification; complete integration remains pending.",
+          "warningsDisposition": "Numeric/date values checked: Core 3.3, SHA-256, 500/90 defaults, two crawler tables, 2026-09-09 sample, 18+3=21 targets, 20 to 19 issues, 6 to 5 warnings, 14 notices, 92 to 93 score, 142 characters, 98 KB and 2x screenshots. Technical options/code and asset paths remain literal. Japanese links and stable anchors require later rendered validation; sample labels intentionally match screenshots.",
+          "at": "2026-09-12T10:13:50.975Z",
+          "independentNative": false,
+          "digest": "f11ebc4f8da80311669e3f2532a2959e6c4170605f359f13ae26b4351946cea3"
+        },
+        "handoff": "ja-docs-pro-operations-stage/handoff.json"
+      }
+    },
+    "ja/guide/blade.md": {
+      "source": "guide/blade.md",
+      "sha256": "1545bf859fd72abe90b4e0038527fe901459e1c11c8472a5363aad2ea15cfcb4",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "1be92b16d2596fa49be07cfcd1e0ae1f0f05763aad5d359617e2791a7ff5056f",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read all three assembled Japanese pages in full against English, including unchanged complete code examples. Checked seven directives, model/null versus explicit SEOData semantics, database-default exclusion, canonical query preservation, title-suffix/brand suppression, scheme behavior, explicit robots opt-in, hreflang normalization and escaping. Inertia keeps SSR/prerender warning, head-key versus key, Svelte distinction, safe root-view JSON-LD and client-navigation replacement. Livewire preserves accumulation, same-URL duplicates, no-schema cleanup, full-load fallback and admin-only Filament scope. Japanese general accuracy/clarity review, not native/human certification; full integration/publication still pending.",
+          "warningsDisposition": "All source numeric values and qualifiers retained: seven directives, BCP47, the three-post accumulation example, one layout/script installation and fewer-than-two early-return warning. Japanese adjacency/punctuation explains numeric-token differences. English IDs and literal blocks remain exact; localized own-property destinations retain source paths under ja and await complete rendered link verification.",
+          "at": "2026-09-12T09:47:15.828Z",
+          "independentNative": false,
+          "digest": "b796221426e8a873e406790830580fc5daee8226139d0fc24682e0270040886a"
+        },
+        "handoff": "ja-docs-rendering-stage/handoff.json"
+      }
+    },
+    "ja/guide/inertia-json.md": {
+      "source": "guide/inertia-json.md",
+      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "e1baf215691d9d043c9e3e0ec3e5c0d11f77d70d657b5eb64bf0693b3bdae663",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read all three assembled Japanese pages in full against English, including unchanged complete code examples. Checked seven directives, model/null versus explicit SEOData semantics, database-default exclusion, canonical query preservation, title-suffix/brand suppression, scheme behavior, explicit robots opt-in, hreflang normalization and escaping. Inertia keeps SSR/prerender warning, head-key versus key, Svelte distinction, safe root-view JSON-LD and client-navigation replacement. Livewire preserves accumulation, same-URL duplicates, no-schema cleanup, full-load fallback and admin-only Filament scope. Japanese general accuracy/clarity review, not native/human certification; full integration/publication still pending.",
+          "warningsDisposition": "All source numeric values and qualifiers retained: seven directives, BCP47, the three-post accumulation example, one layout/script installation and fewer-than-two early-return warning. Japanese adjacency/punctuation explains numeric-token differences. English IDs and literal blocks remain exact; localized own-property destinations retain source paths under ja and await complete rendered link verification.",
+          "at": "2026-09-12T09:47:15.828Z",
+          "independentNative": false,
+          "digest": "06789c575fa5b75437ca500525c187eb8bacef9cea6bb7b78dbd414bfb0d0c66"
+        },
+        "handoff": "ja-docs-rendering-stage/handoff.json"
+      }
+    },
+    "ja/guide/livewire.md": {
+      "source": "guide/livewire.md",
+      "sha256": "fc9b76e838862d3f562ea7bb08061b95ce4775bb96e7bebf9d00aefeda8d2e4c",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "7dd31522a0f17df134f8e19c7f80201dac62433708a6589bca673015d569fac9",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read all three assembled Japanese pages in full against English, including unchanged complete code examples. Checked seven directives, model/null versus explicit SEOData semantics, database-default exclusion, canonical query preservation, title-suffix/brand suppression, scheme behavior, explicit robots opt-in, hreflang normalization and escaping. Inertia keeps SSR/prerender warning, head-key versus key, Svelte distinction, safe root-view JSON-LD and client-navigation replacement. Livewire preserves accumulation, same-URL duplicates, no-schema cleanup, full-load fallback and admin-only Filament scope. Japanese general accuracy/clarity review, not native/human certification; full integration/publication still pending.",
+          "warningsDisposition": "All source numeric values and qualifiers retained: seven directives, BCP47, the three-post accumulation example, one layout/script installation and fewer-than-two early-return warning. Japanese adjacency/punctuation explains numeric-token differences. English IDs and literal blocks remain exact; localized own-property destinations retain source paths under ja and await complete rendered link verification.",
+          "at": "2026-09-12T09:47:15.828Z",
+          "independentNative": false,
+          "digest": "492c55dc63bed5668b08356eba29ff392b8f6d33621ca3c6f4be9a6d63d21af4"
+        },
+        "handoff": "ja-docs-rendering-stage/handoff.json"
+      }
+    },
+    "ja/concepts/resolver-precedence.md": {
+      "source": "concepts/resolver-precedence.md",
+      "sha256": "4391a29a1d25253802f2ad598b3eea68908906df8816260ae8dc912944417512",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "94503694ddecfe9cde5df17c3cf2bbae2add6bd75e375b7d3fb6de12b52d1d7c",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read both complete assembled Japanese resolution guides against English. Checked six-layer order and null precedence, computed description chain/default160/no ellipsis, explicit robots-hook-attribute priority, default suppression and literal directives, title/canonical/query/image policies, trace winner/losers/notes/site-level semantics, framework defaults and read-only/no-network/no-license scope. Filament source labels were verified against installed Japanese seo-filament.php and copied exactly as labels. No independent native/human certification; full rendered journey still pending.",
+          "warningsDisposition": "Verified six layers and their indices, three robots priorities, layer5 description fallback and default160. Preserved all literal code and numeric example values, including42 in unchanged output fixtures. Japanese formatting/word adjacency accounts for numeric warnings. All English heading IDs and fragment targets retained; own-property links use planned full ja paths, with rendered target checks deferred to complete integration.",
+          "at": "2026-09-12T09:50:52.908Z",
+          "independentNative": false,
+          "digest": "8ead4aefa7b185bc2730bea9b47ec35dbf67b1b6ed9680495046320df0b510d4"
+        },
+        "handoff": "ja-docs-resolution-stage/handoff.json"
+      }
+    },
+    "ja/guide/explain.md": {
+      "source": "guide/explain.md",
+      "sha256": "8dff916dca42b6a22870ce1ea6b7786e5a48790bffb503065bb33ee01139e9d8",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "ccef27c93c23b6fb6e62af32d8a34b7322fbf2e11a8ffb18801cb702cc904b88",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read both complete assembled Japanese resolution guides against English. Checked six-layer order and null precedence, computed description chain/default160/no ellipsis, explicit robots-hook-attribute priority, default suppression and literal directives, title/canonical/query/image policies, trace winner/losers/notes/site-level semantics, framework defaults and read-only/no-network/no-license scope. Filament source labels were verified against installed Japanese seo-filament.php and copied exactly as labels. No independent native/human certification; full rendered journey still pending.",
+          "warningsDisposition": "Verified six layers and their indices, three robots priorities, layer5 description fallback and default160. Preserved all literal code and numeric example values, including42 in unchanged output fixtures. Japanese formatting/word adjacency accounts for numeric warnings. All English heading IDs and fragment targets retained; own-property links use planned full ja paths, with rendered target checks deferred to complete integration.",
+          "at": "2026-09-12T09:50:52.908Z",
+          "independentNative": false,
+          "digest": "920a4d360fdecbdda7975189985fd417bdbd4f59f344e185179a0e7a451870a2"
+        },
+        "handoff": "ja-docs-resolution-stage/handoff.json"
+      }
+    },
+    "ja/pro/indexnow.md": {
+      "source": "pro/indexnow.md",
+      "sha256": "6358680ec026bd8281c17272ffbebb43a126ffa84a8b87564cbafc52338163eb",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "413091777155ff87edfcdf45d0181f5418446d9b1c23b7feab56599dc87a8e09",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read both full English and assembled Japanese pages. Preserved IndexNow public key/cache semantics, publication gates, same-host validation, retry classes and no indexing guarantee; preserved new/regressed/fixed lifecycle, snapshot limits, disabled-check caveat, command-only overlap lock, notification opt-in and retention. No sample command executed and no notification/provider call performed. Codex review, not independent native/human certification.",
+          "warningsDisposition": "Verified 8-128 key length, 32 hex characters, 10000 URL cap, HTTP retry/success codes and every literal setting/formula. Preserved 40/15/5 weights, 10x log-scaling caveat, 1 fallback importance, two-snapshot baseline, schedules and notification defaults. Japanese counters change numeric boundaries; linked Japanese anchors await rendered acceptance.",
+          "at": "2026-09-12T10:26:15.061Z",
+          "independentNative": false,
+          "digest": "cade1b7cdeb997fe5e93a30ee3548215be6e176a06865988cf5a7448d13f5c10"
+        },
+        "handoff": "ja-docs-scheduling-stage/handoff.json"
+      }
+    },
+    "ja/pro/scan-scheduling.md": {
+      "source": "pro/scan-scheduling.md",
+      "sha256": "0c96d2a7db7d8717fab21a5c0bff169a6641751d4871673606c17b3d5550b1b3",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "8c0999fc2943798ddaf393f2b6c34b4260279a5ca8ff5e6f8984d9b460ebfdd8",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read both full English and assembled Japanese pages. Preserved IndexNow public key/cache semantics, publication gates, same-host validation, retry classes and no indexing guarantee; preserved new/regressed/fixed lifecycle, snapshot limits, disabled-check caveat, command-only overlap lock, notification opt-in and retention. No sample command executed and no notification/provider call performed. Codex review, not independent native/human certification.",
+          "warningsDisposition": "Verified 8-128 key length, 32 hex characters, 10000 URL cap, HTTP retry/success codes and every literal setting/formula. Preserved 40/15/5 weights, 10x log-scaling caveat, 1 fallback importance, two-snapshot baseline, schedules and notification defaults. Japanese counters change numeric boundaries; linked Japanese anchors await rendered acceptance.",
+          "at": "2026-09-12T10:26:15.061Z",
+          "independentNative": false,
+          "digest": "de4175adb5470d93744c7e08586739478f22bccc3e7419e7b641efb4cc647adf"
+        },
+        "handoff": "ja-docs-scheduling-stage/handoff.json"
+      }
+    },
+    "ja/pro/scoring.md": {
+      "source": "pro/scoring.md",
+      "sha256": "8c4fd3f83632f472dd3ebb75fe7b1fa6d87d6bda125bb51d94ae733a2e0e5032",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "c6525599f16601092348653ca8e63bd5e8d84b10de99faf78e7beaa89c3ad397",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete English scoring pages and restored Japanese candidates, including every scored/excluded code and all tables. Preserved separate axes, exact penalty and additive models, skipped-versus-absent distinction, model/URL coverage, rubric/catalog version caveat, storage lifecycle, deliberate noindex intent and static-file detection limitation. No score is described as proof of rankings or citations. Codex review only, not native/human certification.",
+          "warningsDisposition": "Checked all 26 scored-code rows and penalties, 40/15/5 severities, 0-100 bounds, grade ranges, Core 3 and two-axis examples. AI category weights 30+20+22+28=100, ten checks and nine requiring crawl, every per-check weight unchanged. Japanese counters/ranges account for numeric warnings; stable anchors and planned Japanese links await full rendered validation.",
+          "at": "2026-09-12T10:22:33.889Z",
+          "independentNative": false,
+          "digest": "c49c12ada72d1991c046aa9396e15d888b294cb21181b0fe72798a01fa036301"
+        },
+        "handoff": "ja-docs-scoring-stage/handoff.json"
+      }
+    },
+    "ja/pro/ai-readiness-score.md": {
+      "source": "pro/ai-readiness-score.md",
+      "sha256": "4a5d3936be605aa199975d2b4a4e15297627395c71394fd8dd2e2d666fba00a1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "2dffc9eae93a08cb1c23cdace61fd74b17b3e4959f1f4a3f751060105b6b93f5",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete English scoring pages and restored Japanese candidates, including every scored/excluded code and all tables. Preserved separate axes, exact penalty and additive models, skipped-versus-absent distinction, model/URL coverage, rubric/catalog version caveat, storage lifecycle, deliberate noindex intent and static-file detection limitation. No score is described as proof of rankings or citations. Codex review only, not native/human certification.",
+          "warningsDisposition": "Checked all 26 scored-code rows and penalties, 40/15/5 severities, 0-100 bounds, grade ranges, Core 3 and two-axis examples. AI category weights 30+20+22+28=100, ten checks and nine requiring crawl, every per-check weight unchanged. Japanese counters/ranges account for numeric warnings; stable anchors and planned Japanese links await full rendered validation.",
+          "at": "2026-09-12T10:22:33.889Z",
+          "independentNative": false,
+          "digest": "d14f4915c8eb7dd50bed6d93aa2ac3fbcb26b64c23abf977b61e43f30ba54976"
+        },
+        "handoff": "ja-docs-scoring-stage/handoff.json"
+      }
+    },
+    "ja/pro/search-console.md": {
+      "source": "pro/search-console.md",
+      "sha256": "0fe33f55e9dc24a0f78a5bf34d00c93892fb04667fbd10c16ef214961f84d6da",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "61b0f1df7d56c164a627b022a0710784a2505b5fb18c74754c79940aff2a35c2",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read both complete English and restored Japanese guides, then reviewed two final wording corrections for rolling-window clarity and exact installed Japanese navigation/title labels. Preserved scope validation, secrets/cache separation, sync recovery and coverage, live versus snapshot metrics, quota/authentication caveats, CTR heuristic and non-guarantees. Codex editorial review, not native/human certification. No Google/provider requests performed.",
+          "warningsDisposition": "Checked 3 design principles, 2 auth modes, 90-day/16-month history, 3-day lag, 30-minute/1800-second cache and all configuration numbers. Five analyses retain 3 local/2 shared-live split, positions 5-20, one Search Analytics request plus possible authentication and unchanged code thresholds. Japanese route/anchor validation awaits complete build; own links prefixed and external links retained.",
+          "at": "2026-09-12T10:17:36.476Z",
+          "independentNative": false,
+          "digest": "6a0226b2bac321fe87a242dfbd29db5a107b3c9b2ae20e86c698557fae77720b"
+        },
+        "handoff": "ja-docs-search-console-stage/handoff.json"
+      }
+    },
+    "ja/pro/search-console-insights.md": {
+      "source": "pro/search-console-insights.md",
+      "sha256": "eb89ebecfbe846bc07f534918d5f19569911e8762d1e7441b4743181ec5ceec6",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "7ba677277d28cc57f46e5e8f9e94955bed885d80e3cb531bd40f8cd3c51a52b6",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read both complete English and restored Japanese guides, then reviewed two final wording corrections for rolling-window clarity and exact installed Japanese navigation/title labels. Preserved scope validation, secrets/cache separation, sync recovery and coverage, live versus snapshot metrics, quota/authentication caveats, CTR heuristic and non-guarantees. Codex editorial review, not native/human certification. No Google/provider requests performed.",
+          "warningsDisposition": "Checked 3 design principles, 2 auth modes, 90-day/16-month history, 3-day lag, 30-minute/1800-second cache and all configuration numbers. Five analyses retain 3 local/2 shared-live split, positions 5-20, one Search Analytics request plus possible authentication and unchanged code thresholds. Japanese route/anchor validation awaits complete build; own links prefixed and external links retained.",
+          "at": "2026-09-12T10:17:36.477Z",
+          "independentNative": false,
+          "digest": "49181eddc990c1d3ef784d848fae712cbf9bfc8a4c14ad4ff6d0213051fa709f"
+        },
+        "handoff": "ja-docs-search-console-stage/handoff.json"
+      }
+    },
+    "ja/pro/broken-links.md": {
+      "source": "pro/broken-links.md",
+      "sha256": "536f024b3551aca7810605ddb6cb37ad77bce9dfaa64f697f1dd4f5d9b73a4f1",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "d040ec3a466634e0bda134c48ca737c2a7e7ad640e2dd093a9cceb0cdf301ef4",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete English/restored Japanese broken-links and MCP guides including every inspection/tool row and full literal examples. Corrected batch caps versus number-of-batches meaning and natural broken-link wording. Verified Japanese Scan now label in package UI. Preserved cross-scan confirmation versus immediate inspections, authored-URL behavior, default stdio/read-only plus allowlist/edits gates, client-provider boundary, source dated draft Server Card qualification. No actual example executed. Codex editorial review, not native or human certification.",
+          "warningsDisposition": "Checked default2000/3crawls/two-to-threeweeks, perjob/time limits,10read+4optin tools, protocol versions/errors, sample17/11/30/70counts and900page historical example. Code/paths/clientEnglishmenus/externalreferences literal; planned Japanese links/English IDs await rendered verification. No MCP configuration, crawl, provider request, or production write performed.",
+          "at": "2026-09-12T11:23:55.878Z",
+          "independentNative": false,
+          "digest": "923d5d1bbb4b785f8678849507ceb73407eac9aaa845d1d28eba998a63070d2b"
+        },
+        "handoff": "ja-docs-tools-stage/handoff.json"
+      }
+    },
+    "ja/pro/mcp.md": {
+      "source": "pro/mcp.md",
+      "sha256": "5e38f0d65552be2664a98e0ce87614d7e14987ad4da3936b8938d8274a6cd874",
+      "native_review": null,
+      "editorial_review": {
+        "reviewer": "Codex",
+        "date": "2026-09-12",
+        "status": "approved",
+        "independent_native": false,
+        "translation_sha256": "2839bb083cd34f1f502f9105473d99e926342a7fd149a7d34a6636256a006cd7",
+        "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
+        "workflow_review": {
+          "reviewer": "Codex",
+          "notes": "Read complete English/restored Japanese broken-links and MCP guides including every inspection/tool row and full literal examples. Corrected batch caps versus number-of-batches meaning and natural broken-link wording. Verified Japanese Scan now label in package UI. Preserved cross-scan confirmation versus immediate inspections, authored-URL behavior, default stdio/read-only plus allowlist/edits gates, client-provider boundary, source dated draft Server Card qualification. No actual example executed. Codex editorial review, not native or human certification.",
+          "warningsDisposition": "Checked default2000/3crawls/two-to-threeweeks, perjob/time limits,10read+4optin tools, protocol versions/errors, sample17/11/30/70counts and900page historical example. Code/paths/clientEnglishmenus/externalreferences literal; planned Japanese links/English IDs await rendered verification. No MCP configuration, crawl, provider request, or production write performed.",
+          "at": "2026-09-12T11:23:55.878Z",
+          "independentNative": false,
+          "digest": "618945ccaa6a0a2e41e0f80bb66fa27e6315db720ed8d3bb2728384d0e61dab9"
+        },
+        "handoff": "ja-docs-tools-stage/handoff.json"
+      }
     }
   }
 }

@@ -1,5 +1,69 @@
 // Shared documentation UI vocabulary. A locale is published only when activated in localization.ts.
 export const localeUi = {
+  // Japanese adapter copy: exact parent Codex review in japanese-manual-review.json; no native certification.
+  ja: {
+  "label": "日本語",
+  "lang": "ja",
+  "guide": "ガイド",
+  "english": "英語のドキュメント",
+  "fallback": "このページはまだ日本語で提供されていません。",
+  "open": "英語のページを開く",
+  "review": "この翻訳はCodexによる編集レビュー待ちです。",
+  "source": "英語版",
+  "outline": "このページの内容",
+  "next": "次のページ",
+  "prev": "前のページ",
+  "description": "Laravel向けSEOパッケージ。階層化されたメタデータ、正規URL、Open Graph、相互に結び付いたJSON-LD、XMLサイトマップ、クローラー制御に対応します。",
+  "reference": "リファレンス（英語）",
+  "table": "データ表",
+  "titles": {
+    "guide/installation": "インストール",
+    "guide/quickstart": "クイックスタート",
+    "concepts/resolver-precedence": "リゾルバーの優先順位",
+    "guide/sitemaps": "サイトマップレジストリ",
+    "guide/filament": "FilamentのSEOフィールド",
+    "guide/audit": "無料のSEO監査",
+    "guide/ai-crawlers": "AIクローラーの制御",
+    "guide/multilingual": "多言語コンテンツとhreflang",
+    "guide/og-image": "OG画像の生成",
+    "guide/migrate-from-other-packages": "他のパッケージからの移行"
+  },
+  "theme": {
+    "returnToTopLabel": "ページの先頭に戻る",
+    "sidebarMenuLabel": "メニュー",
+    "darkModeSwitchLabel": "ダークモード",
+    "lightModeSwitchTitle": "ライトモードに切り替える",
+    "darkModeSwitchTitle": "ダークモードに切り替える",
+    "langMenuLabel": "言語を切り替える",
+    "skipToContentLabel": "コンテンツへ移動",
+    "lastUpdated": {
+      "text": "最終更新"
+    }
+  },
+  "edit": "GitHubでこのページを編集",
+  "license": "rankbeam/laravel-seoはMITライセンスで公開されています。",
+  "search": {
+    "button": {
+      "buttonText": "検索",
+      "buttonAriaLabel": "ドキュメントを検索"
+    },
+    "modal": {
+      "displayDetails": "詳細を表示",
+      "resetButtonTitle": "検索をクリア",
+      "backButtonTitle": "検索を閉じる",
+      "noResultsText": "検索結果がありません：",
+      "footer": {
+        "selectText": "選択",
+        "navigateText": "移動",
+        "closeText": "閉じる",
+        "selectKeyAriaLabel": "Enterキー",
+        "navigateUpKeyAriaLabel": "上矢印キー",
+        "navigateDownKeyAriaLabel": "下矢印キー",
+        "closeKeyAriaLabel": "Escapeキー"
+      }
+    }
+  }
+},
   "it": {
     "label": "Italiano",
     "lang": "it",
