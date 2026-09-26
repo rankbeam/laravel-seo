@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Sitemap generation keeps the same model shard boundaries for the index and every written part. Deleting rows between files no longer shifts surviving URLs out of the export or leaves the index pointing at filenames that were never written. Boundaries are released after each generation, including failures, and standalone previews do not pin a later export's plan. This preserves shard ranges rather than providing a point-in-time database snapshot.
+
 ## [3.21.0] - 2026-09-11
 
 ### Added

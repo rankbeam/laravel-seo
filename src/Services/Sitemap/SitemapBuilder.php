@@ -64,6 +64,9 @@ class SitemapBuilder
     /** Metadata reuse is scoped to one URL build, never to a later generation. */
     private ?object $modelSeoContext = null;
 
+    /** Captured shard ranges live only for the current build/generation. */
+    private ?object $sitemapBuildContext = null;
+
     /**
      * Maximum URLs per sitemap file (Google limit is 50,000).
      */
@@ -99,12 +102,19 @@ class SitemapBuilder
      */
     public function generate(): void
     {
-        $sitemap = $this->build();
+        $previous = $this->sitemapBuildContext;
+        $this->sitemapBuildContext = (object) ['boundaries' => []];
 
-        if ($sitemap instanceof SitemapIndex) {
-            $this->writeSitemapIndex($sitemap);
-        } else {
-            $this->writeSitemap($sitemap);
+        try {
+            $sitemap = $this->build();
+
+            if ($sitemap instanceof SitemapIndex) {
+                $this->writeSitemapIndex($sitemap);
+            } else {
+                $this->writeSitemap($sitemap);
+            }
+        } finally {
+            $this->sitemapBuildContext = $previous;
         }
     }
 
@@ -127,6 +137,18 @@ class SitemapBuilder
      * otherwise returns a single Sitemap.
      */
     public function build(): SitemapIndex|Sitemap
+    {
+        $previous = $this->sitemapBuildContext;
+        $this->sitemapBuildContext ??= (object) ['boundaries' => []];
+
+        try {
+            return $this->buildCurrentSitemap();
+        } finally {
+            $this->sitemapBuildContext = $previous;
+        }
+    }
+
+    protected function buildCurrentSitemap(): SitemapIndex|Sitemap
     {
         $modelsConfig = $this->getModelsConfig();
         $registered = $this->registry->sources();
@@ -417,9 +439,9 @@ class SitemapBuilder
      *
      * Derived from the same keyset boundary walk the shards are built from
      * (sitemapPartBoundaries()), so the part count, the index entries, and the
-     * written files can never disagree — even if rows are inserted/deleted
-     * concurrently — because every one of them reads the snapshot of primary
-     * keys captured by that single ordered walk.
+     * written filenames share the ranges captured by one ordered walk during
+     * generation. These are shard boundaries, not a database snapshot: model
+     * values and inclusion checks are still read when each part is built.
      *
      * @param  class-string  $modelClass
      */
@@ -442,12 +464,11 @@ class SitemapBuilder
      * concurrent insert/delete/updated_at change between them could shift rows
      * across page boundaries → a row in two parts, in none, or an
      * index/file-count mismatch. Pinning each shard to an immutable
-     * primary-key range removes that race: a row's key never changes, so it
-     * always falls in exactly the one window that contains it. Rows inserted
-     * after the walk simply fall outside the last captured boundary (excluded
-     * from this run, never duplicated); rows deleted within a window just make
-     * that part emit fewer URLs (never a gap that drops another row). Keyset
-     * is also far cheaper than large OFFSETs.
+     * primary-key range for the duration of generate() removes boundary shifts:
+     * deleting a row cannot move a surviving key to an already-written part.
+     * New keys beyond the last captured boundary are excluded; inserted keys
+     * inside a captured range may still appear. This is not a point-in-time
+     * database snapshot, and primary keys are assumed to remain unchanged.
      *
      * Boundaries count keys, not post-shouldInclude() URLs (an exact
      * post-filter count would require materialising every model), so a window
@@ -461,6 +482,10 @@ class SitemapBuilder
      */
     protected function sitemapPartBoundaries(string $modelClass): array
     {
+        if (isset($this->sitemapBuildContext->boundaries[$modelClass])) {
+            return $this->sitemapBuildContext->boundaries[$modelClass];
+        }
+
         $maxUrls = $this->maxUrlsPerSitemap();
 
         $instance = new $modelClass;
@@ -507,6 +532,10 @@ class SitemapBuilder
         // index entry stay the historical single, un-numbered file.
         if ($boundaries === []) {
             $boundaries[] = ['first' => null, 'last' => null];
+        }
+
+        if ($this->sitemapBuildContext !== null) {
+            $this->sitemapBuildContext->boundaries[$modelClass] = $boundaries;
         }
 
         return $boundaries;
@@ -705,9 +734,9 @@ class SitemapBuilder
      * sitemapPartBoundaries() — [first, last] inclusive — rather than an
      * OFFSET/LIMIT slice of a mutable ordering (finding F6). Because the
      * boundary is a key range and keys never change, a row always belongs to
-     * exactly the one part that contains its key: concurrent inserts/deletes
-     * between the boundary walk and this query can neither duplicate nor drop
-     * a URL across shards. shouldInclude() still filters within the window, so
+     * exactly the one captured part that contains its key during generation.
+     * Concurrent deletions do not shift the remaining keys between parts.
+     * shouldInclude() still filters within the window, so
      * a part may emit fewer URLs than the window width (or, for an empty model
      * or a fully-deleted window, be empty); that is valid and never drops a
      * URL.

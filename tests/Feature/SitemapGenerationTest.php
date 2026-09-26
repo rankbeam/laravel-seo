@@ -543,6 +543,112 @@ describe('SitemapGeneration', function () {
             ->and(array_unique($allUrls))->toHaveCount(count($expected));
     });
 
+    it('keeps shard boundaries when rows are deleted between files and refreshes the next generation', function (bool $registered) {
+        config(['seo.sitemap.max_urls_per_sitemap' => 2]);
+        $registry = app(SitemapRegistry::class);
+        $slug = 'sitemap-test-post';
+        if ($registered) {
+            config(['seo.sitemap.models' => []]);
+            $registry->register('posts', SitemapTestPost::class);
+            $slug = 'posts';
+        }
+        foreach (range(1, 5) as $i) {
+            SitemapTestPost::create(['title' => "Post {$i}", 'slug' => "interleaved-{$i}"]);
+        }
+
+        $builder = new class($registry) extends SitemapBuilder
+        {
+            protected function buildModelSitemapPart(string $modelClass, array $config, int $part): Sitemap
+            {
+                $sitemap = parent::buildModelSitemapPart($modelClass, $config, $part);
+                if ($part === 1) {
+                    SitemapTestPost::where('slug', 'interleaved-1')->delete();
+                }
+
+                return $sitemap;
+            }
+        };
+
+        $builder->generate();
+        $allUrls = [];
+        foreach (range(1, 3) as $part) {
+            $xml = loadSitemapXml(Storage::disk('public')->get("sitemap-{$slug}-{$part}.xml"));
+            $locs = array_map(fn ($loc) => (string) $loc, $xml->xpath('//s:url/s:loc'));
+            expect(count($locs))->toBeLessThanOrEqual(2);
+            $allUrls = array_merge($allUrls, $locs);
+        }
+        expect($allUrls)->toEqual(array_map(fn ($i) => url("/posts/interleaved-{$i}"), range(1, 5)));
+
+        // The same builder must not keep the previous run's three-file plan.
+        $builder->generate();
+        $index = loadSitemapXml(Storage::disk('public')->get('sitemap.xml'));
+        expect($index->xpath('//s:sitemap/s:loc'))->toHaveCount(2);
+        $first = loadSitemapXml(Storage::disk('public')->get("sitemap-{$slug}-1.xml"));
+        expect(array_map(fn ($loc) => (string) $loc, $first->xpath('//s:url/s:loc')))
+            ->toEqual([url('/posts/interleaved-2'), url('/posts/interleaved-3')]);
+    })->with([false, true]);
+
+    it('writes the filenames captured by the index when rows disappear before writing', function () {
+        config(['seo.sitemap.max_urls_per_sitemap' => 2]);
+        foreach (range(1, 5) as $i) {
+            SitemapTestPost::create(['title' => "Post {$i}", 'slug' => "index-{$i}"]);
+        }
+        $builder = new class extends SitemapBuilder
+        {
+            protected function buildSitemapIndex(array $modelsConfig): SitemapIndex
+            {
+                $index = parent::buildSitemapIndex($modelsConfig);
+                SitemapTestPost::where('id', '<', 5)->delete();
+
+                return $index;
+            }
+        };
+        $builder->generate();
+
+        $index = loadSitemapXml(Storage::disk('public')->get('sitemap.xml'));
+        $files = array_map(fn ($loc) => basename((string) $loc), $index->xpath('//s:sitemap/s:loc'));
+        expect($files)->toHaveCount(3);
+        foreach ($files as $file) {
+            Storage::disk('public')->assertExists($file);
+        }
+        expect(Storage::disk('public')->get($files[2]))->toContain('/posts/index-5');
+    });
+
+    it('releases the shard plan after a failed generation and a standalone preview', function () {
+        config(['seo.sitemap.models' => [], 'seo.sitemap.max_urls_per_sitemap' => 2]);
+        $registry = app(SitemapRegistry::class)->register('posts', SitemapTestPost::class);
+        foreach (range(1, 5) as $i) {
+            SitemapTestPost::create(['title' => "Post {$i}", 'slug' => "retry-{$i}"]);
+        }
+        $builder = new class($registry) extends SitemapBuilder
+        {
+            public bool $fail = true;
+
+            protected function writeSitemapIndex(SitemapIndex $index): void
+            {
+                if ($this->fail) {
+                    $this->fail = false;
+                    throw new RuntimeException('injected write failure');
+                }
+                parent::writeSitemapIndex($index);
+            }
+        };
+        expect(fn () => $builder->generate())->toThrow(RuntimeException::class, 'injected write failure');
+        SitemapTestPost::where('id', '>', 2)->delete();
+
+        // A preview after failure must get a fresh, one-file plan.
+        $preview = loadSitemapXml($builder->build()->render());
+        expect(array_map(fn ($loc) => (string) $loc, $preview->xpath('//s:sitemap/s:loc')))
+            ->toEqual([url('sitemap-posts.xml')]);
+
+        // And the preview must not pin that plan for the next generation.
+        SitemapTestPost::create(['title' => 'New', 'slug' => 'retry-new']);
+        $builder->generate();
+        $index = loadSitemapXml(Storage::disk('public')->get('sitemap.xml'));
+        expect($index->xpath('//s:sitemap/s:loc'))->toHaveCount(2);
+        expect(Storage::disk('public')->get('sitemap-posts-2.xml'))->toContain('/posts/retry-new');
+    });
+
     it('does not number the file for a model that fits in one sitemap', function () {
         // A single model under the cap keeps the historical un-numbered name.
         config(['seo.sitemap.max_urls_per_sitemap' => 50000]);
