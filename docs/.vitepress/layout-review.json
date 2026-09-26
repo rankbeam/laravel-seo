@@ -1,63 +1,98 @@
 {
   "it": {
-    "source_sha256": "5bc248b9e0247c2d01a66dd7424523fa9e1644180a264253d357f0861391333d",
+    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-10",
     "status": "approved",
     "independent_native": false,
-    "scoped_correction": "layout-review-supplements.json#audit-description-2026-09-11"
+    "scoped_correction": "layout-review-supplements.json#audit-description-2026-09-11",
+    "canonical_blog_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-26",
+      "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
+    }
   },
   "de": {
-    "source_sha256": "5bc248b9e0247c2d01a66dd7424523fa9e1644180a264253d357f0861391333d",
+    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-10",
     "status": "approved",
     "independent_native": false,
-    "scoped_correction": "layout-review-supplements.json#audit-description-2026-09-11"
+    "scoped_correction": "layout-review-supplements.json#audit-description-2026-09-11",
+    "canonical_blog_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-26",
+      "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
+    }
   },
   "fr": {
-    "source_sha256": "5bc248b9e0247c2d01a66dd7424523fa9e1644180a264253d357f0861391333d",
+    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-10",
     "status": "approved",
     "independent_native": false,
-    "scoped_correction": "layout-review-supplements.json#audit-description-2026-09-11"
+    "scoped_correction": "layout-review-supplements.json#audit-description-2026-09-11",
+    "canonical_blog_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-26",
+      "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
+    }
   },
   "es": {
-    "source_sha256": "5bc248b9e0247c2d01a66dd7424523fa9e1644180a264253d357f0861391333d",
+    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-10",
     "status": "approved",
     "independent_native": false,
-    "scoped_correction": "layout-review-supplements.json#audit-description-2026-09-11"
+    "scoped_correction": "layout-review-supplements.json#audit-description-2026-09-11",
+    "canonical_blog_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-26",
+      "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
+    }
   },
   "pt-BR": {
-    "source_sha256": "5bc248b9e0247c2d01a66dd7424523fa9e1644180a264253d357f0861391333d",
+    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-10",
     "status": "approved",
     "independent_native": false,
-    "scoped_correction": "layout-review-supplements.json#audit-description-2026-09-11"
+    "scoped_correction": "layout-review-supplements.json#audit-description-2026-09-11",
+    "canonical_blog_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-26",
+      "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
+    }
   },
   "nl": {
-    "source_sha256": "5bc248b9e0247c2d01a66dd7424523fa9e1644180a264253d357f0861391333d",
+    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-11",
     "status": "approved",
     "independent_native": false,
     "scope": "109 complete copy-reviewed workflow messages. Rendered/journey QA pending.",
-    "scoped_correction": "layout-review-supplements.json#audit-description-2026-09-11"
+    "scoped_correction": "layout-review-supplements.json#audit-description-2026-09-11",
+    "canonical_blog_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-26",
+      "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
+    }
   },
   "tr": {
-    "source_sha256": "5bc248b9e0247c2d01a66dd7424523fa9e1644180a264253d357f0861391333d",
+    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-11",
     "status": "approved",
     "independent_native": false,
-    "scope": "109 exact complete copy-reviewed messages; final rendered/journey acceptance pending."
+    "scope": "109 exact complete copy-reviewed messages; final rendered/journey acceptance pending.",
+    "canonical_blog_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-26",
+      "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
+    }
   },
   "pl": {
-    "source_sha256": "5bc248b9e0247c2d01a66dd7424523fa9e1644180a264253d357f0861391333d",
+    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-12",
     "status": "approved",
@@ -936,10 +971,15 @@
         "independentNative": false,
         "digest": "f73bbe828d6a13abdce7b938f022cc52df55e24d164754a6b310666a49969e00"
       }
+    },
+    "canonical_blog_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-26",
+      "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
     }
   },
   "ru": {
-    "source_sha256": "5bc248b9e0247c2d01a66dd7424523fa9e1644180a264253d357f0861391333d",
+    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-11",
     "status": "approved",
@@ -1818,10 +1858,15 @@
         "independentNative": false,
         "digest": "53f6944cfb9ecd8dd25a24790772c47b266334dd88a08ddcff50a0961bf3fd8e"
       }
+    },
+    "canonical_blog_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-26",
+      "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
     }
   },
   "cs": {
-    "source_sha256": "5bc248b9e0247c2d01a66dd7424523fa9e1644180a264253d357f0861391333d",
+    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-12",
     "status": "approved",
@@ -2700,10 +2745,15 @@
         "independentNative": false,
         "digest": "2d2e38ac1d5f45e7889b155980bf3f8b7a9b14878d94ee1fd6da4eb089154008"
       }
+    },
+    "canonical_blog_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-26",
+      "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
     }
   },
   "el": {
-    "source_sha256": "5bc248b9e0247c2d01a66dd7424523fa9e1644180a264253d357f0861391333d",
+    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-12",
     "status": "approved",
@@ -3582,10 +3632,15 @@
         "independentNative": false,
         "digest": "802733d8b0642cfd7821b1f172ce04fd41bf545122ec7ec00e4c307453982826"
       }
+    },
+    "canonical_blog_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-26",
+      "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
     }
   },
   "ja": {
-    "source_sha256": "5bc248b9e0247c2d01a66dd7424523fa9e1644180a264253d357f0861391333d",
+    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-12",
     "status": "approved",
@@ -4464,10 +4519,15 @@
         "independentNative": false,
         "digest": "73cfe0317cadd6cdd37d9da2a49af1c46f663a202c909f014e5580805aec2d84"
       }
+    },
+    "canonical_blog_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-26",
+      "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
     }
   },
   "zh-CN": {
-    "source_sha256": "5bc248b9e0247c2d01a66dd7424523fa9e1644180a264253d357f0861391333d",
+    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-12",
     "status": "approved",
@@ -5346,10 +5406,15 @@
         "independentNative": false,
         "digest": "5f8acb2ad1bf821d0d49c99f9023ebfab269d90108ded46aaa6a95016a757915"
       }
+    },
+    "canonical_blog_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-26",
+      "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
     }
   },
   "ko": {
-    "source_sha256": "5bc248b9e0247c2d01a66dd7424523fa9e1644180a264253d357f0861391333d",
+    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-12",
     "status": "approved",
@@ -6228,6 +6293,11 @@
         "independentNative": false,
         "digest": "463b75b10141eef3a6fc72992a5cbb0c6c60eaa4897f2cf86fef0246b2d0e247"
       }
+    },
+    "canonical_blog_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-26",
+      "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
     }
   }
 }
