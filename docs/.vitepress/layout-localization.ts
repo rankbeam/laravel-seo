@@ -13,16 +13,18 @@ export function destination(link: string, locale: string, translated: string[]) 
   if (locale === 'en') return { link, english: false }
   if (link.startsWith('/')) return { link: `/${locale}${link}`, english: !translated.includes(link.slice(1)) }
   const url = new URL(link)
+  if (url.hostname === 'rankbeam.dev' && (url.pathname === '/blog' || url.pathname.startsWith('/blog/'))) {
+    if (!(locale in blogArticles)) return { link, english: true }
+    const edition = blogArticles[locale as keyof typeof blogArticles]
+    const articles: Record<string, string> = edition.articles
+    if (url.pathname === '/blog' || url.pathname === '/blog/') return { link: `https://rankbeam.dev/blog/${locale}${url.search}${url.hash}`, english: false }
+    const slug = url.pathname.startsWith('/blog/posts/') ? url.pathname.slice('/blog/posts/'.length) : ''
+    if (articles[slug]) return { link: `https://rankbeam.dev/blog/${locale}/${edition.segment}/${articles[slug]}${url.search}${url.hash}`, english: false }
+    return { link, english: true }
+  }
   if (url.hostname === 'rankbeam.dev') {
     url.pathname = `/${locale}${url.pathname}`
     return { link: url.href, english: false }
-  }
-  if (locale in blogArticles && url.hostname === 'blog.rankbeam.dev') {
-    const edition = blogArticles[locale as keyof typeof blogArticles]
-    const articles: Record<string, string> = edition.articles
-    if (url.pathname === '/') return { link: `https://blog.rankbeam.dev/${locale}`, english: false }
-    const slug = url.pathname.replace('/posts/', '')
-    if (articles[slug]) return { link: `https://blog.rankbeam.dev/${locale}/${edition.segment}/${articles[slug]}${url.search}${url.hash}`, english: false }
   }
   return { link, english: true }
 }

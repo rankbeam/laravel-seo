@@ -54,8 +54,8 @@ test('English cues disappear when a guide gains a translation; published site/bl
     assert.equal(destination('/pro/installation',locale,['pro/installation']).english,false)
     assert.equal(destination('https://rankbeam.dev/#founding',locale,[]).link,`https://rankbeam.dev/${locale}/#founding`)
   }
-  assert.equal(destination('https://blog.rankbeam.dev/posts/laravel-meta-tags','it',[]).link,'https://blog.rankbeam.dev/it/articoli/meta-tag-laravel')
-  assert.equal(destination('https://blog.rankbeam.dev/posts/laravel-meta-tags','de',[]).english,false)
+  assert.equal(destination('https://rankbeam.dev/blog/posts/laravel-meta-tags','it',[]).link,'https://rankbeam.dev/blog/it/articoli/meta-tag-laravel')
+  assert.equal(destination('https://rankbeam.dev/blog/posts/laravel-meta-tags','de',[]).english,false)
   assert.equal(englishPages().length,43)
   for (const locale of locales) assert(translatedPaths(locale).length >= 10)
 })
@@ -81,8 +81,15 @@ test('all published blog routes stay in the selected edition, preserving query a
  const map=JSON.parse(fs.readFileSync(new URL('./blog-articles.json',import.meta.url)));
  for(const locale of locales){
   assert.equal(Object.keys(map[locale].articles).length,12);
-  assert.deepEqual(destination('https://blog.rankbeam.dev/',locale,[]),{link:`https://blog.rankbeam.dev/${locale}`,english:false});
-  for(const [slug,translation] of Object.entries(map[locale].articles))assert.deepEqual(destination(`https://blog.rankbeam.dev/posts/${slug}?ref=docs#example`,locale,[]),{link:`https://blog.rankbeam.dev/${locale}/${map[locale].segment}/${translation}?ref=docs#example`,english:false});
-  assert.equal(destination('https://blog.rankbeam.dev/posts/not-yet-translated',locale,[]).english,true);
+  assert.deepEqual(destination('https://rankbeam.dev/blog/',locale,[]),{link:`https://rankbeam.dev/blog/${locale}`,english:false});
+  for(const [slug,translation] of Object.entries(map[locale].articles))assert.deepEqual(destination(`https://rankbeam.dev/blog/posts/${slug}?ref=docs#example`,locale,[]),{link:`https://rankbeam.dev/blog/${locale}/${map[locale].segment}/${translation}?ref=docs#example`,english:false});
+  assert.equal(destination('https://rankbeam.dev/blog/posts/not-yet-translated',locale,[]).english,true);
+  assert.equal(destination('https://rankbeam.dev/blog/posts/not-yet-translated',locale,[]).link,'https://rankbeam.dev/blog/posts/not-yet-translated');
+  assert.deepEqual(destination('https://rankbeam.dev/blog?ref=docs#latest',locale,[]),{link:`https://rankbeam.dev/blog/${locale}?ref=docs#latest`,english:false});
  }
+});
+
+test('English blog destinations and operational service URLs remain exact',()=>{
+ for(const link of ['https://rankbeam.dev/blog','https://rankbeam.dev/blog/posts/laravel-meta-tags?ref=docs#example']) assert.deepEqual(destination(link,'en',[]),{link,english:false});
+ for(const locale of locales)for(const link of ['https://blog.rankbeam.dev/checkout/live/en','https://blog.rankbeam.dev/composer'])assert.equal(destination(link,locale,[]).link,link);
 });
