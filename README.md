@@ -12,6 +12,14 @@ composer require rankbeam/laravel-seo
 
 Production auditing and monitoring (Pro) and the Filament admin UI ship as separate packages. This package never pulls them in.
 
+**Built for multilingual sites.** Store SEO metadata per content locale, render
+hreflang and `inLanguage`, and use title and description budgets suited to the
+content's script. Package messages ship in **17 languages**. Your application
+supplies the translated content; Core does not translate ordinary model attributes
+automatically. See [multilingual content](docs/guide/multilingual.md),
+[interface translations](docs/guide/translations.md), or the free
+[Filament editor's language tabs](https://github.com/rankbeam/laravel-seo-filament#several-languages).
+
 > **Upgrading from `fibonoir/laravel-seo` v1?** See [UPGRADING.md](UPGRADING.md) — v2 renames the vendor and carves the old "full suite" down to this core; the analyzer, scanner, redirect manager, 404 monitor, and admin UI live on as separate packages ([`laravel-seo-filament`](https://github.com/rankbeam/laravel-seo-filament), free; `laravel-seo-pro`, commercial).
 
 ## What this package does
