@@ -6,9 +6,11 @@ description: "Tek komutla markanıza özel PDF raporu: puan, sorun eğilimi, dü
 
 Tek bir site için markanıza özel **PDF raporu**: genel puan, bulunan sorunların eğilimi, **son rapordan bu yana düzeltilen ve yeni sorunlar**, düzelen 404'ler ve bozuk bağlantılar, Search Console değişimleri ve yapay zekâ botu etkinliği. Tek komutla üretilir ve istenirse **zamanlanmış e-postayla gönderilir**. Ajanslar için hazırlanmıştır: logonuzu, renginizi ve “{client} için hazırlandı” bilgisini ekleyip müşteriye iletin.
 
-[Oluşturulmuş İngilizce örnek raporu indirin (PDF, 98 KB)](/pro-walkthrough/merchant-demo-report.pdf) veya [tarama → düzeltme → rapor akışını](/tr/pro/walkthrough) izleyin. Örnekte başlangıçta eklenen Merchant içeriği ve iki yeni tarama kullanılır; bir düzeltilen ve 19 hâlâ açık sorun gösterir, Search Console verisi içermez.
+[Örnek raporu indirin (PDF)](/pro-walkthrough/tr/merchant-demo-report.pdf) veya [tarama → düzeltme → rapor akışını](/tr/pro/walkthrough) izleyin. Örnekte başlangıçta eklenen Merchant içeriği ve iki yeni tarama kullanılır; bir düzeltilen ve 19 hâlâ açık sorun gösterir, Search Console verisi içermez.
 
-[![Oluşturulan Merchant demo raporunun ilk sayfası.](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+Yeniden tasarlanan bu belge, kaydedilmiş tarama ve rapor sonuçlarını özetler. Pro PDF’lerinin varsayılan düzenini kullanmaz.
+
+[![Yeniden tasarlanan Merchant demo raporunun ilk sayfası.](/pro-walkthrough/tr/report-preview.png)](/pro-walkthrough/tr/merchant-demo-report.pdf)
 
 ## Neler içerir {#what-s-in-it}
 

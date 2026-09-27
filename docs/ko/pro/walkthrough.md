@@ -1,5 +1,5 @@
 ---
-description: "실제 Rankbeam Pro 스캔에서 누락된 설명을 확인하고, Filament에서 수정한 뒤 재스캔하는 과정을 따라가세요. 생성된 예시 PDF 보고서도 내려받을 수 있습니다."
+description: "실제 Rankbeam Pro 스캔에서 누락된 설명을 확인하고, Filament에서 수정한 뒤 재스캔하는 과정을 따라가세요. 예시 PDF 보고서도 내려받을 수 있습니다."
 ---
 
 # 스캔에서 수정 검증까지 {#from-a-scan-to-a-verified-fix}
@@ -8,7 +8,9 @@ description: "실제 Rankbeam Pro 스캔에서 누락된 설명을 확인하고,
 
 이 화면은 2026년 9월 9일 로컬에서 실행한 Merchant 데모를 캡처한 것입니다. 콘텐츠는 시드로 넣은 예시 데이터이며, 두 스캔과 보고서는 이 안내를 위해 생성했습니다. 과거 추세를 미리 채워 넣지 않았습니다. 앱은 Laravel 12와 Filament 4를 사용하며 Rankbeam 코어, 무료 편집기, Pro 엔진을 설치했습니다.
 
-**[생성된 보고서 내려받기 (PDF, 98 KB)](/pro-walkthrough/merchant-demo-report.pdf)**
+**[예시 보고서 내려받기 (PDF)](/pro-walkthrough/ko/merchant-demo-report.pdf)**
+
+새롭게 디자인한 이 문서는 기록된 스캔 및 보고서 결과를 요약합니다. Pro PDF의 기본 레이아웃과는 다릅니다.
 
 ## 등록된 페이지 스캔 {#scan-the-registered-pages}
 
@@ -77,11 +79,11 @@ php artisan seo-pro:report --output=storage/app/seo-reports/after-fix.pdf
 
 두 번째 PDF에는 **해결 1개**, **신규 0개**, **미해결 19개**가 표시됩니다. 추세에는 위의 두 스캔만 포함됩니다. Search Console과 AI 봇 로깅은 꺼져 있었으므로 해당 섹션에는 데이터를 사용할 수 없다고 표시됩니다.
 
-[![생성된 예시 보고서 첫 페이지: 점수 93, 해결한 문제 1개, 미해결 문제 19개.](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+[![새롭게 디자인한 Merchant 데모 보고서의 첫 페이지.](/pro-walkthrough/ko/report-preview.png)](/pro-walkthrough/ko/merchant-demo-report.pdf)
 
 첫 보고서가 비교 기준을 설정합니다. 페이지를 수정한 뒤 보고서를 한 번만 생성하면 이전 보고서 대비 변화를 보여 줄 수 없습니다. 비교 기준을 갱신하지 않는 미리보기에는 `--no-store`를 사용하세요.
 
-예시는 Browsershot 렌더러를 사용합니다. 렌더러 요구 사항, 브랜드 설정, 예약 전달은 [화이트라벨 보고서](/ko/pro/reports)를 참고하세요.
+원본 보고서는 Browsershot 렌더러로 내보냈습니다. 렌더러 요구 사항, 브랜드 설정, 예약 전달은 [화이트라벨 보고서](/ko/pro/reports)를 참고하세요.
 
 ## 자신의 앱에서 실행 {#run-it-on-your-own-app}
 

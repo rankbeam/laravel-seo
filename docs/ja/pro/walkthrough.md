@@ -1,5 +1,5 @@
 ---
-description: "実際のRankbeam Proスキャンから、ディスクリプションの欠落を確認し、Filamentで修正を保存して再スキャンするまでをたどります。生成したサンプルPDFレポートもダウンロードできます。"
+description: "実際のRankbeam Proスキャンから、ディスクリプションの欠落を確認し、Filamentで修正を保存して再スキャンするまでをたどります。サンプルPDFレポートもダウンロードできます。"
 ---
 
 # スキャンから修正の検証まで {#from-a-scan-to-a-verified-fix}
@@ -8,7 +8,9 @@ description: "実際のRankbeam Proスキャンから、ディスクリプショ
 
 ここに掲載するのは、2026年9月9日にローカルで動かしたMerchantデモの画面です。コンテンツは初期投入したサンプルデータで、2回のスキャンとレポートはこの手順紹介のために生成しました。過去の推移を事前に作り込んではいません。アプリはLaravel 12とFilament 4を使い、RankbeamのCore、無料エディター、Proエンジンを組み込んでいます。
 
-**[生成したレポートをダウンロード（PDF、98 KB）](/pro-walkthrough/merchant-demo-report.pdf)**
+**[サンプルレポートをダウンロード（PDF）](/pro-walkthrough/ja/merchant-demo-report.pdf)**
+
+この資料は、記録済みのスキャンとレポートの結果を、新しいデザインでまとめたものです。ProのPDFの標準レイアウトとは異なります。
 
 ## 登録済みのページをスキャンする {#scan-the-registered-pages}
 
@@ -77,11 +79,11 @@ php artisan seo-pro:report --output=storage/app/seo-reports/after-fix.pdf
 
 2つ目のPDFは、**修正済み1件**、**新規0件**、**未解決19件**を示しています。推移に含まれるのは、上記2回のスキャンだけです。Search ConsoleとAIボットログは無効にしていたため、それらのセクションにはデータが利用できないと表示されます。
 
-[![生成したサンプルレポートの1ページ目。スコア93、修正済み1件、未解決19件を表示。](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+[![デザインを刷新したMerchantデモレポートの1ページ目。](/pro-walkthrough/ja/report-preview.png)](/pro-walkthrough/ja/merchant-demo-report.pdf)
 
 最初のレポートが比較基準を設定します。ページを修正した後に1つだけレポートを生成しても、以前のレポートとの差分は表示できません。比較基準を更新せずにプレビューしたい場合は、`--no-store`を使ってください。
 
-このサンプルはBrowsershotレンダラーを使っています。レンダラーの要件、ブランド設定、定期配信については、[ホワイトラベルレポート](/ja/pro/reports)を参照してください。
+元のレポートはBrowsershotレンダラーで出力しました。レンダラーの要件、ブランド設定、定期配信については、[ホワイトラベルレポート](/ja/pro/reports)を参照してください。
 
 ## 自分のアプリで試す {#run-it-on-your-own-app}
 

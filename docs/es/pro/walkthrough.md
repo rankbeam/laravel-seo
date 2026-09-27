@@ -1,14 +1,16 @@
 ---
-description: "Sigue un scan real de Rankbeam Pro: revisa una descripción ausente, guárdala en Filament, repite el scan y descarga el PDF de ejemplo generado."
+description: "Sigue un scan real de Rankbeam Pro: revisa una descripción ausente, guárdala en Filament, repite el scan y descarga el PDF de ejemplo."
 ---
 
 # De un scan a una corrección verificada {#from-a-scan-to-a-verified-fix}
 
 Un scan encontró una descripción ausente en un artículo de demostración. Añadimos la descripción en Filament, repetimos el scan y generamos un informe que muestra la corrección.
 
-Las capturas proceden de una demo Merchant local en funcionamiento el 9 de septiembre de 2026. El contenido son datos de ejemplo cargados mediante seeders; ambos scans y el informe se generaron para este recorrido, sin tendencias históricas prellenadas. La aplicación usa Laravel 12 y Filament 4 con el núcleo, editor gratuito y motor Pro de Rankbeam. Las capturas y el PDF conservan su contenido original en inglés.
+Las capturas proceden de una demo Merchant local en funcionamiento el 9 de septiembre de 2026. El contenido son datos de ejemplo cargados mediante seeders; ambos scans y el informe se generaron para este recorrido, sin tendencias históricas prellenadas. La aplicación usa Laravel 12 y Filament 4 con el núcleo, editor gratuito y motor Pro de Rankbeam. Las capturas conservan su contenido original en inglés.
 
-**[Descargar el informe generado: PDF en inglés, 98 KB](/pro-walkthrough/merchant-demo-report.pdf)**
+**[Descargar el informe de ejemplo (PDF)](/pro-walkthrough/es/merchant-demo-report.pdf)**
+
+Este documento rediseñado resume los resultados registrados de los scans y del informe. Su diseño no es el predeterminado de los PDF de Pro.
 
 ## Analizar las páginas registradas {#scan-the-registered-pages}
 
@@ -77,11 +79,11 @@ php artisan seo-pro:report --output=storage/app/seo-reports/after-fix.pdf
 
 El segundo PDF muestra **un problema resuelto**, **cero nuevos** y **19 abiertos**. La tendencia solo contiene los dos scans anteriores. Search Console y el registro de bots de IA estaban desactivados, así que sus secciones indican que no hay datos disponibles.
 
-[![Primera página del PDF original en inglés: puntuación 93, un problema resuelto y 19 abiertos.](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+[![Primera página del informe de demostración Merchant rediseñado.](/pro-walkthrough/es/report-preview.png)](/pro-walkthrough/es/merchant-demo-report.pdf)
 
 El primer informe establece la referencia de comparación. Si solo generas uno después de corregir una página, no puede mostrar el cambio respecto a un informe anterior. Usa `--no-store` para una vista previa que no deba avanzar esa referencia.
 
-El ejemplo utiliza el renderizador Browsershot. Consulta los requisitos de renderizado, marca y envío programado en [Informes con marca propia](/es/pro/reports).
+El informe original se exportó con el renderizador Browsershot. Consulta los requisitos de renderizado, marca y envío programado en [Informes con marca propia](/es/pro/reports).
 
 ## Probarlo en tu aplicación {#run-it-on-your-own-app}
 

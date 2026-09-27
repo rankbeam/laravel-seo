@@ -1,5 +1,5 @@
 ---
-description: "Gerçek bir Rankbeam Pro taramasını izleyin, eksik açıklamayı inceleyin, Filament'te düzeltip yeniden tarayın ve oluşturulan örnek PDF raporunu indirin."
+description: "Gerçek bir Rankbeam Pro taramasını izleyin, eksik açıklamayı inceleyin, Filament'te düzeltip yeniden tarayın ve örnek PDF raporunu indirin."
 ---
 
 # Taramadan doğrulanmış düzeltmeye {#from-a-scan-to-a-verified-fix}
@@ -8,7 +8,9 @@ Bir tarama, demo yazısında eksik açıklama buldu. Açıklamayı Filament'te e
 
 Bu görüntüler 9 Eylül 2026'da çalışan yerel Merchant demosundan alınmıştır. İçerik, başlangıçta eklenen örnek verilerden oluşur; iki tarama ve rapor da bu anlatım için oluşturulmuştur. Önceden doldurulmuş bir geçmiş eğilimi yoktur. Uygulama Laravel 12 ve Filament 4 ile Rankbeam'in core paketini, ücretsiz düzenleyicisini ve Pro motorunu kullanır.
 
-**[Oluşturulan raporu indirin (PDF, 98 KB)](/pro-walkthrough/merchant-demo-report.pdf)**
+**[Örnek raporu indirin (PDF)](/pro-walkthrough/tr/merchant-demo-report.pdf)**
+
+Yeniden tasarlanan bu belge, kaydedilmiş tarama ve rapor sonuçlarını özetler. Pro PDF’lerinin varsayılan düzenini kullanmaz.
 
 ## Kayıtlı sayfaları tarayın {#scan-the-registered-pages}
 
@@ -77,11 +79,11 @@ php artisan seo-pro:report --output=storage/app/seo-reports/after-fix.pdf
 
 İkinci PDF **bir düzeltilen**, **sıfır yeni** ve **19 açık** sorun gösterir. Eğilim yalnızca yukarıdaki iki taramayı içerir. Search Console ve yapay zekâ botu günlüklemesi kapalı olduğundan bu bölümler verinin bulunmadığını belirtir.
 
-[![Oluşturulan örnek raporun ilk sayfası: puan 93, düzeltilen bir sorun ve 19 açık sorun.](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+[![Yeniden tasarlanan Merchant demo raporunun ilk sayfası.](/pro-walkthrough/tr/report-preview.png)](/pro-walkthrough/tr/merchant-demo-report.pdf)
 
 İlk rapor karşılaştırma temelini oluşturur. Sayfayı düzelttikten sonra yalnızca bir rapor üretirseniz önceki rapora göre değişiklik gösteremez. Bu karşılaştırma temelini ilerletmemesi gereken önizlemeler için `--no-store` kullanın.
 
-Örnek, Browsershot oluşturucusunu kullanır. Oluşturucu gereksinimleri, markalama ve zamanlanmış gönderim için [kendi markanızla raporlar](/tr/pro/reports) sayfasına bakın.
+İlk rapor, Browsershot oluşturucusuyla dışa aktarıldı. Oluşturucu gereksinimleri, markalama ve zamanlanmış gönderim için [kendi markanızla raporlar](/tr/pro/reports) sayfasına bakın.
 
 ## Kendi uygulamanızda çalıştırın {#run-it-on-your-own-app}
 

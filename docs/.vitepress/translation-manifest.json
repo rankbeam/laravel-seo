@@ -1049,7 +1049,7 @@
     },
     "it/pro/reports.md": {
       "source": "pro/reports.md",
-      "sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+      "sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -1057,7 +1057,19 @@
         "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "7fd8f62f34581265ad6f494d23a908e5abfd69d06beb03e87cfc913dab74a2fa"
+        "translation_sha256": "078db9ce61a503eeb012d64adbb52e0a28a4c80e2333eec8e8fb5532436811d0",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+            "translation_before_sha256": "7fd8f62f34581265ad6f494d23a908e5abfd69d06beb03e87cfc913dab74a2fa",
+            "source_after_sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
+            "translation_after_sha256": "078db9ce61a503eeb012d64adbb52e0a28a4c80e2333eec8e8fb5532436811d0",
+            "independent_native": false
+          }
+        ]
       }
     },
     "it/pro/scan-issues.md": {
@@ -1127,7 +1139,7 @@
     },
     "it/pro/walkthrough.md": {
       "source": "pro/walkthrough.md",
-      "sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+      "sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -1135,7 +1147,19 @@
         "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "73882620c40565e7fb6059631638e52b4192c2f28991cfb1d3538bcef1e69015"
+        "translation_sha256": "c267ec9fc3dbb8a254eed07556c8af87ed1b47a40e141023d034644845b563f4",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label and matching metadata description, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+            "translation_before_sha256": "73882620c40565e7fb6059631638e52b4192c2f28991cfb1d3538bcef1e69015",
+            "source_after_sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
+            "translation_after_sha256": "c267ec9fc3dbb8a254eed07556c8af87ed1b47a40e141023d034644845b563f4",
+            "independent_native": false
+          }
+        ]
       }
     },
     "de/guide/blade.md": {
@@ -1457,7 +1481,7 @@
     },
     "de/pro/reports.md": {
       "source": "pro/reports.md",
-      "sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+      "sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -1465,7 +1489,19 @@
         "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "7418f823ebbb47ca1564047ebf4463f15783b458d0ad6f5b08a3a2e6d52dd9e4"
+        "translation_sha256": "9ddd0d8a1c515b90aa63f6e79ceda11109aefc695439d3bf5fb0ba1f57fa421b",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+            "translation_before_sha256": "7418f823ebbb47ca1564047ebf4463f15783b458d0ad6f5b08a3a2e6d52dd9e4",
+            "source_after_sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
+            "translation_after_sha256": "9ddd0d8a1c515b90aa63f6e79ceda11109aefc695439d3bf5fb0ba1f57fa421b",
+            "independent_native": false
+          }
+        ]
       }
     },
     "de/pro/scan-issues.md": {
@@ -1535,7 +1571,7 @@
     },
     "de/pro/walkthrough.md": {
       "source": "pro/walkthrough.md",
-      "sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+      "sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -1543,7 +1579,19 @@
         "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "1c73280417dbbae13b5f22c5e0292386a530ac21a345928ff6de59b12857919b"
+        "translation_sha256": "73437d86c3ea78396ae2a68d33bb5f513cd5923c6eb2e609c6d046a8187dfb19",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label and matching metadata description, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+            "translation_before_sha256": "1c73280417dbbae13b5f22c5e0292386a530ac21a345928ff6de59b12857919b",
+            "source_after_sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
+            "translation_after_sha256": "73437d86c3ea78396ae2a68d33bb5f513cd5923c6eb2e609c6d046a8187dfb19",
+            "independent_native": false
+          }
+        ]
       }
     },
     "de/reference/configuration.md": {
@@ -1878,7 +1926,7 @@
     },
     "fr/pro/reports.md": {
       "source": "pro/reports.md",
-      "sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+      "sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -1886,7 +1934,19 @@
         "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "7ec824834ec474f285fac0bc581ce56c310e14310317647f13bc56804dba4e20"
+        "translation_sha256": "74f509858cf845858897a9a59dfa8c16c9b50284cdbc16114249a7a054383372",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+            "translation_before_sha256": "7ec824834ec474f285fac0bc581ce56c310e14310317647f13bc56804dba4e20",
+            "source_after_sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
+            "translation_after_sha256": "74f509858cf845858897a9a59dfa8c16c9b50284cdbc16114249a7a054383372",
+            "independent_native": false
+          }
+        ]
       }
     },
     "fr/pro/scan-issues.md": {
@@ -1956,7 +2016,7 @@
     },
     "fr/pro/walkthrough.md": {
       "source": "pro/walkthrough.md",
-      "sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+      "sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -1964,7 +2024,19 @@
         "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "509a94dadb2525e9bb2b8578c9d97a1ad788125f27be8380922af72ee2e05450"
+        "translation_sha256": "949052a1e07fcc1200b716ac53a1b36fb36c842944b92897475be4d92d5da6a2",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label and matching metadata description, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+            "translation_before_sha256": "509a94dadb2525e9bb2b8578c9d97a1ad788125f27be8380922af72ee2e05450",
+            "source_after_sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
+            "translation_after_sha256": "949052a1e07fcc1200b716ac53a1b36fb36c842944b92897475be4d92d5da6a2",
+            "independent_native": false
+          }
+        ]
       }
     },
     "fr/reference/configuration.md": {
@@ -2299,7 +2371,7 @@
     },
     "es/pro/reports.md": {
       "source": "pro/reports.md",
-      "sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+      "sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -2307,7 +2379,19 @@
         "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "e28a7c62d60298b21e2e150aecfb6ee770e5742633aa996eec439160d228de84"
+        "translation_sha256": "443768c8f1008a227bcaab6753627121a57a55e5d18cb2df1cd793fa76c29656",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+            "translation_before_sha256": "e28a7c62d60298b21e2e150aecfb6ee770e5742633aa996eec439160d228de84",
+            "source_after_sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
+            "translation_after_sha256": "443768c8f1008a227bcaab6753627121a57a55e5d18cb2df1cd793fa76c29656",
+            "independent_native": false
+          }
+        ]
       }
     },
     "es/pro/scan-issues.md": {
@@ -2377,7 +2461,7 @@
     },
     "es/pro/walkthrough.md": {
       "source": "pro/walkthrough.md",
-      "sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+      "sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -2385,7 +2469,19 @@
         "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "4aadedecf1acc5df662084ecd7cc3904bbafb5f13ab2fd1c80917226408165c5"
+        "translation_sha256": "6117cc29a283cdd05e279793f301454cb0c9a41c63af50c02b6d10517c6006a6",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label and matching metadata description, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+            "translation_before_sha256": "4aadedecf1acc5df662084ecd7cc3904bbafb5f13ab2fd1c80917226408165c5",
+            "source_after_sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
+            "translation_after_sha256": "6117cc29a283cdd05e279793f301454cb0c9a41c63af50c02b6d10517c6006a6",
+            "independent_native": false
+          }
+        ]
       }
     },
     "es/reference/configuration.md": {
@@ -2720,7 +2816,7 @@
     },
     "pt-BR/pro/reports.md": {
       "source": "pro/reports.md",
-      "sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+      "sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -2728,7 +2824,19 @@
         "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "eaf756eaf104364beb7d4e1938e023b241839dde6c6e0a88e0107d479e50bfe1"
+        "translation_sha256": "aa134beb82c5bd81439acb982ce971c3faf837444ee5526db14ba0c27bafffaf",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+            "translation_before_sha256": "eaf756eaf104364beb7d4e1938e023b241839dde6c6e0a88e0107d479e50bfe1",
+            "source_after_sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
+            "translation_after_sha256": "aa134beb82c5bd81439acb982ce971c3faf837444ee5526db14ba0c27bafffaf",
+            "independent_native": false
+          }
+        ]
       }
     },
     "pt-BR/pro/scan-issues.md": {
@@ -2798,7 +2906,7 @@
     },
     "pt-BR/pro/walkthrough.md": {
       "source": "pro/walkthrough.md",
-      "sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+      "sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -2806,7 +2914,19 @@
         "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "d6008036a6dd2d89e0510ef4936c3f6971ebfdd576ae179c25e4affa898fa3cb"
+        "translation_sha256": "5677ef70627a9a859ae04c80550ce663a201de8a0a9b1eba164ab031e948e4fe",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label and matching metadata description, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+            "translation_before_sha256": "d6008036a6dd2d89e0510ef4936c3f6971ebfdd576ae179c25e4affa898fa3cb",
+            "source_after_sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
+            "translation_after_sha256": "5677ef70627a9a859ae04c80550ce663a201de8a0a9b1eba164ab031e948e4fe",
+            "independent_native": false
+          }
+        ]
       }
     },
     "pt-BR/reference/configuration.md": {
@@ -3279,7 +3399,7 @@
     },
     "nl/pro/reports.md": {
       "source": "pro/reports.md",
-      "sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+      "sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -3287,7 +3407,19 @@
         "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "76241a4c9e9375b0c840c573d1b13211881df9c29f5a90f5b1b81d268a40f431"
+        "translation_sha256": "26bf2d2e7ea3cee9cdd36d01d2f3d035e19fa2d2444bc9434f2a7cdc4d179463",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+            "translation_before_sha256": "76241a4c9e9375b0c840c573d1b13211881df9c29f5a90f5b1b81d268a40f431",
+            "source_after_sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
+            "translation_after_sha256": "26bf2d2e7ea3cee9cdd36d01d2f3d035e19fa2d2444bc9434f2a7cdc4d179463",
+            "independent_native": false
+          }
+        ]
       }
     },
     "nl/pro/scan-issues.md": {
@@ -3357,7 +3489,7 @@
     },
     "nl/pro/walkthrough.md": {
       "source": "pro/walkthrough.md",
-      "sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+      "sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -3365,7 +3497,19 @@
         "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "cd218ad7891bfeab7a5fcaf94f0ab158a30e2bc1a220e6dccaf70c1b3f2ee44a"
+        "translation_sha256": "66ef32632866ea36afd34bba956b77e1a1772c04f4e4ce7c53748f31de0da4a7",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label and matching metadata description, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+            "translation_before_sha256": "cd218ad7891bfeab7a5fcaf94f0ab158a30e2bc1a220e6dccaf70c1b3f2ee44a",
+            "source_after_sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
+            "translation_after_sha256": "66ef32632866ea36afd34bba956b77e1a1772c04f4e4ce7c53748f31de0da4a7",
+            "independent_native": false
+          }
+        ]
       }
     },
     "nl/reference/configuration.md": {
@@ -3773,7 +3917,7 @@
     },
     "tr/pro/walkthrough.md": {
       "source": "pro/walkthrough.md",
-      "sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+      "sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -3781,7 +3925,19 @@
         "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "dbc708c082179f0109790f34bc2b5ff4c3fffd58b589c9695d1b6c2e7d893628"
+        "translation_sha256": "950a4cf46423d59f84f7ea1aa71468dacf613075299bb7cab15cf74360483587",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label and matching metadata description, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+            "translation_before_sha256": "dbc708c082179f0109790f34bc2b5ff4c3fffd58b589c9695d1b6c2e7d893628",
+            "source_after_sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
+            "translation_after_sha256": "950a4cf46423d59f84f7ea1aa71468dacf613075299bb7cab15cf74360483587",
+            "independent_native": false
+          }
+        ]
       }
     },
     "tr/pro/scan-issues.md": {
@@ -3838,7 +3994,7 @@
     },
     "tr/pro/reports.md": {
       "source": "pro/reports.md",
-      "sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+      "sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -3846,7 +4002,19 @@
         "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "83dbf5a873d0e4b809b12dcecd4a2c16675f699dd4aec1c7133a594d7f0d3c0e"
+        "translation_sha256": "d5ba2ce60b0e2529875f47883c5f33464b9e75088b747d962c64de414e68d390",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+            "translation_before_sha256": "83dbf5a873d0e4b809b12dcecd4a2c16675f699dd4aec1c7133a594d7f0d3c0e",
+            "source_after_sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
+            "translation_after_sha256": "d5ba2ce60b0e2529875f47883c5f33464b9e75088b747d962c64de414e68d390",
+            "independent_native": false
+          }
+        ]
       }
     },
     "tr/pro/headless.md": {
@@ -4632,14 +4800,14 @@
     },
     "pl/pro/reports.md": {
       "source": "pro/reports.md",
-      "sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+      "sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "09b938e8e34c764da2e24ada6fc403b9a30f47fb600d0477bb5751e516d7994d",
+        "translation_sha256": "a862fa46f7bdd7c8bafdd52474a3c02ccebb92d3e1f24f0b54953fb8a5a32f46",
         "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
         "workflow_review": {
           "reviewer": "Codex",
@@ -4650,7 +4818,19 @@
           "digest": "cb1594f0d3fd166c88a0b411bbbabee12eaed090deb1c01387952c830863a538"
         },
         "packet": "pl-docs-pro-reviewed.json",
-        "packet_sha256": "a9397eb51e91c6b69b77a4cdee7722b9ec6dca101415e6b2505f008514238714"
+        "packet_sha256": "a9397eb51e91c6b69b77a4cdee7722b9ec6dca101415e6b2505f008514238714",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+            "translation_before_sha256": "09b938e8e34c764da2e24ada6fc403b9a30f47fb600d0477bb5751e516d7994d",
+            "source_after_sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
+            "translation_after_sha256": "a862fa46f7bdd7c8bafdd52474a3c02ccebb92d3e1f24f0b54953fb8a5a32f46",
+            "independent_native": false
+          }
+        ]
       }
     },
     "pl/pro/scan-issues.md": {
@@ -4724,14 +4904,14 @@
     },
     "pl/pro/walkthrough.md": {
       "source": "pro/walkthrough.md",
-      "sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+      "sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "dd720748e222c4595e93d366b1434f4637c782e4919b837c02292dc5319d5659",
+        "translation_sha256": "9b78e27730272a59700ba9bab331cc3aab70f3d7842f9cf11d0983e5a39c613a",
         "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
         "workflow_review": {
           "reviewer": "Codex",
@@ -4742,7 +4922,19 @@
           "digest": "745333e10332049050e4f7ad68145f31914f4e807b5101864d73edec0a9dee9e"
         },
         "packet": "pl-docs-pro-reviewed.json",
-        "packet_sha256": "a9397eb51e91c6b69b77a4cdee7722b9ec6dca101415e6b2505f008514238714"
+        "packet_sha256": "a9397eb51e91c6b69b77a4cdee7722b9ec6dca101415e6b2505f008514238714",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label and matching metadata description, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+            "translation_before_sha256": "dd720748e222c4595e93d366b1434f4637c782e4919b837c02292dc5319d5659",
+            "source_after_sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
+            "translation_after_sha256": "9b78e27730272a59700ba9bab331cc3aab70f3d7842f9cf11d0983e5a39c613a",
+            "independent_native": false
+          }
+        ]
       }
     },
     "pl/reference/configuration.md": {
@@ -5771,14 +5963,14 @@
     },
     "ru/pro/reports.md": {
       "source": "pro/reports.md",
-      "sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+      "sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-12",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "c1705668bf2ea4536e3ecdc715e168043d69600f19ef70966571fa1d1674798a",
+        "translation_sha256": "b49665ae032cb077ff25719a3ff64c5e0175c28c3521daf81084d8123a3cc145",
         "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
         "workflow_review": {
           "reviewer": "Codex",
@@ -5790,7 +5982,19 @@
         },
         "packet": "ru-docs-pro-four-reviewed.json",
         "packet_sha256": "0836a4689f18e0798ed8614e45bb13e114fddf631e65be05af202435edda5481",
-        "packet_raw_sha256": "0836a4689f18e0798ed8614e45bb13e114fddf631e65be05af202435edda5481"
+        "packet_raw_sha256": "0836a4689f18e0798ed8614e45bb13e114fddf631e65be05af202435edda5481",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+            "translation_before_sha256": "c1705668bf2ea4536e3ecdc715e168043d69600f19ef70966571fa1d1674798a",
+            "source_after_sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
+            "translation_after_sha256": "b49665ae032cb077ff25719a3ff64c5e0175c28c3521daf81084d8123a3cc145",
+            "independent_native": false
+          }
+        ]
       }
     },
     "ru/pro/scan-issues.md": {
@@ -5915,14 +6119,14 @@
     },
     "ru/pro/walkthrough.md": {
       "source": "pro/walkthrough.md",
-      "sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+      "sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-12",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "9d951ff9aba6f7578c93cd73a1a03dd527cea323551ea310dd7aeff2e32545e6",
+        "translation_sha256": "144b1d524cf2fc499d06b9b81fa2e9395a8f65e1b1a1f7246e01b8a5f07dd4e5",
         "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
         "workflow_review": {
           "reviewer": "Codex",
@@ -5934,7 +6138,19 @@
         },
         "packet": "ru-docs-pro-five-reviewed.json",
         "packet_sha256": "bdb639a18d612ba649eaa923ad381e47d04c6b10fd5f2b24dc43a963879bc45a",
-        "packet_raw_sha256": "bdb639a18d612ba649eaa923ad381e47d04c6b10fd5f2b24dc43a963879bc45a"
+        "packet_raw_sha256": "bdb639a18d612ba649eaa923ad381e47d04c6b10fd5f2b24dc43a963879bc45a",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label and matching metadata description, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+            "translation_before_sha256": "9d951ff9aba6f7578c93cd73a1a03dd527cea323551ea310dd7aeff2e32545e6",
+            "source_after_sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
+            "translation_after_sha256": "144b1d524cf2fc499d06b9b81fa2e9395a8f65e1b1a1f7246e01b8a5f07dd4e5",
+            "independent_native": false
+          }
+        ]
       }
     },
     "ru/reference/configuration.md": {
@@ -6768,14 +6984,14 @@
     },
     "cs/pro/reports.md": {
       "source": "pro/reports.md",
-      "sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+      "sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-12",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "4ebc24f670990ddb877c7b2afd5ff691d91763a50a9640522c4521b2dda1d28d",
+        "translation_sha256": "84b04f1a31440dd13f16e0249330074c34e11f83c2083675aa38003b24bf4c60",
         "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
         "workflow_review": {
           "reviewer": "Codex",
@@ -6786,7 +7002,19 @@
           "digest": "732c3f059caae949e7fde71535ef89e41591d83c82a5906f40e33ec18e279a8e"
         },
         "packet": "cs-docs-config-reports-reviewed.json",
-        "packet_sha256": "f74ea1592410a153409c24235d43f64304816dd74f87708df0ad475083d13f84"
+        "packet_sha256": "f74ea1592410a153409c24235d43f64304816dd74f87708df0ad475083d13f84",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+            "translation_before_sha256": "4ebc24f670990ddb877c7b2afd5ff691d91763a50a9640522c4521b2dda1d28d",
+            "source_after_sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
+            "translation_after_sha256": "84b04f1a31440dd13f16e0249330074c34e11f83c2083675aa38003b24bf4c60",
+            "independent_native": false
+          }
+        ]
       }
     },
     "cs/pro/scan-issues.md": {
@@ -6906,14 +7134,14 @@
     },
     "cs/pro/walkthrough.md": {
       "source": "pro/walkthrough.md",
-      "sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+      "sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-12",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "79284ef5769005647d61b0f520a81992ecf3bb04e4efb7c523deff24c9ad2138",
+        "translation_sha256": "0a42a34b860d11cfea4addb1b6808634ec959cec6e1a8c8367d5979cd78236fa",
         "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
         "workflow_review": {
           "reviewer": "Codex",
@@ -6924,7 +7152,19 @@
           "digest": "6fe60a613a2494fc5fcab4b8bd57b6f0ee30f51af678964292f401f6f4eae1de"
         },
         "packet": "cs-docs-production-start-reviewed.json",
-        "packet_sha256": "35943a9ded4b1f70b02c022af65456d4976c93964f3d53b22592d18ddfdb3ad1"
+        "packet_sha256": "35943a9ded4b1f70b02c022af65456d4976c93964f3d53b22592d18ddfdb3ad1",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label and matching metadata description, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+            "translation_before_sha256": "79284ef5769005647d61b0f520a81992ecf3bb04e4efb7c523deff24c9ad2138",
+            "source_after_sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
+            "translation_after_sha256": "0a42a34b860d11cfea4addb1b6808634ec959cec6e1a8c8367d5979cd78236fa",
+            "independent_native": false
+          }
+        ]
       }
     },
     "cs/reference/configuration.md": {
@@ -7757,14 +7997,14 @@
     },
     "el/pro/reports.md": {
       "source": "pro/reports.md",
-      "sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+      "sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-12",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "f7c39f1a8fcadf558064a919282151bfb4d324a3206475184e5d86d00cb8fd78",
+        "translation_sha256": "6a12b29f92e7a3b13db25a9bfa7cb4c0c24411f637cdf1326e9d2e96fefd12b0",
         "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
         "workflow_review": {
           "reviewer": "Codex",
@@ -7775,7 +8015,19 @@
           "digest": "4574065cbc5ae180250418b449d1f824c081b747972bb1131833ee65033b77da"
         },
         "packet": "el-docs-last-guides-final-reviewed.json",
-        "packet_sha256": "c49d172a832cd36ce7a55c57b290807dc9e79d1cbb66f4ad1fea2f38ee9489b1"
+        "packet_sha256": "c49d172a832cd36ce7a55c57b290807dc9e79d1cbb66f4ad1fea2f38ee9489b1",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+            "translation_before_sha256": "f7c39f1a8fcadf558064a919282151bfb4d324a3206475184e5d86d00cb8fd78",
+            "source_after_sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
+            "translation_after_sha256": "6a12b29f92e7a3b13db25a9bfa7cb4c0c24411f637cdf1326e9d2e96fefd12b0",
+            "independent_native": false
+          }
+        ]
       }
     },
     "el/pro/scan-issues.md": {
@@ -7895,14 +8147,14 @@
     },
     "el/pro/walkthrough.md": {
       "source": "pro/walkthrough.md",
-      "sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+      "sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-12",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "c9858ab7f3bd5794d72048ff013bf2fea87b98468feaa36af7aa83feb48a7107",
+        "translation_sha256": "fb33bf20432b3e47ebbe9754a0185c38f67a180935e52c4bafd292750cb72c7d",
         "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
         "workflow_review": {
           "reviewer": "Codex",
@@ -7913,7 +8165,19 @@
           "digest": "0f6ca10e73b48485f031ae4fdf2d4fb6775ab0652c22cc76ed77eeafca2bf04b"
         },
         "packet": "el-docs-last-guides-final-reviewed.json",
-        "packet_sha256": "c49d172a832cd36ce7a55c57b290807dc9e79d1cbb66f4ad1fea2f38ee9489b1"
+        "packet_sha256": "c49d172a832cd36ce7a55c57b290807dc9e79d1cbb66f4ad1fea2f38ee9489b1",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label and matching metadata description, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+            "translation_before_sha256": "c9858ab7f3bd5794d72048ff013bf2fea87b98468feaa36af7aa83feb48a7107",
+            "source_after_sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
+            "translation_after_sha256": "fb33bf20432b3e47ebbe9754a0185c38f67a180935e52c4bafd292750cb72c7d",
+            "independent_native": false
+          }
+        ]
       }
     },
     "el/reference/configuration.md": {
@@ -8425,14 +8689,14 @@
     },
     "ja/pro/reports.md": {
       "source": "pro/reports.md",
-      "sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+      "sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-12",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "5c7ec9de80a6e9b44a40828f8952212429c8f424f1c7b6af5302d65c47711cbd",
+        "translation_sha256": "0640add5ba65a24198c6245cb6d9576fc1720905844e68b2bdb87ece18b7c371",
         "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
         "workflow_review": {
           "reviewer": "Codex",
@@ -8442,7 +8706,19 @@
           "independentNative": false,
           "digest": "ffcf729034ab5e8719a7be0569e83dac3f29edbd0ccc696184228e1ee0b424ae"
         },
-        "handoff": "ja-docs-operations-stage/handoff.json"
+        "handoff": "ja-docs-operations-stage/handoff.json",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+            "translation_before_sha256": "5c7ec9de80a6e9b44a40828f8952212429c8f424f1c7b6af5302d65c47711cbd",
+            "source_after_sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
+            "translation_after_sha256": "0640add5ba65a24198c6245cb6d9576fc1720905844e68b2bdb87ece18b7c371",
+            "independent_native": false
+          }
+        ]
       }
     },
     "ja/pro/production.md": {
@@ -8579,14 +8855,14 @@
     },
     "ja/pro/walkthrough.md": {
       "source": "pro/walkthrough.md",
-      "sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+      "sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-12",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "3864c1586f7167efabe93441717bc5d5b9a6dd5fbd92bfe14286e7db1fc69e7e",
+        "translation_sha256": "ea4680b1764aeb2ed81d4c9808ae72e8ccd82126d2987c77b87e11b987855422",
         "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
         "workflow_review": {
           "reviewer": "Codex",
@@ -8596,7 +8872,19 @@
           "independentNative": false,
           "digest": "f11ebc4f8da80311669e3f2532a2959e6c4170605f359f13ae26b4351946cea3"
         },
-        "handoff": "ja-docs-pro-operations-stage/handoff.json"
+        "handoff": "ja-docs-pro-operations-stage/handoff.json",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label and matching metadata description, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+            "translation_before_sha256": "3864c1586f7167efabe93441717bc5d5b9a6dd5fbd92bfe14286e7db1fc69e7e",
+            "source_after_sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
+            "translation_after_sha256": "ea4680b1764aeb2ed81d4c9808ae72e8ccd82126d2987c77b87e11b987855422",
+            "independent_native": false
+          }
+        ]
       }
     },
     "ja/guide/blade.md": {
@@ -9481,14 +9769,14 @@
     },
     "zh-CN/pro/walkthrough.md": {
       "source": "pro/walkthrough.md",
-      "sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+      "sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-12",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "b5e78e35505dd1212d47c78a60154967c770e5e6885607b14bec6ea3e898fd21",
+        "translation_sha256": "8d2e4c3057ae173fb851f22762da0356eb7fb6739f5b0baf7936e12d8fbc646c",
         "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
         "workflow_review": {
           "reviewer": "Codex",
@@ -9498,7 +9786,19 @@
           "independentNative": false,
           "digest": "978095f026a36388e8d526a9c30776a57d41524f6ada114b26838ecd47232536"
         },
-        "handoff": "zh-cn-docs-batch11-stage/handoff.json"
+        "handoff": "zh-cn-docs-batch11-stage/handoff.json",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label and matching metadata description, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+            "translation_before_sha256": "b5e78e35505dd1212d47c78a60154967c770e5e6885607b14bec6ea3e898fd21",
+            "source_after_sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
+            "translation_after_sha256": "8d2e4c3057ae173fb851f22762da0356eb7fb6739f5b0baf7936e12d8fbc646c",
+            "independent_native": false
+          }
+        ]
       }
     },
     "zh-CN/pro/ai-bot-monitor.md": {
@@ -9745,14 +10045,14 @@
     },
     "zh-CN/pro/reports.md": {
       "source": "pro/reports.md",
-      "sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+      "sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-12",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "40c4eb9e6d4db1eae10d1da57f7da98200327c6125ef25888a70c05815f9ea37",
+        "translation_sha256": "441742cae42331fdbdd521680525d1c2581bfc06f563b4bedfd8ab8d70ff36bc",
         "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
         "workflow_review": {
           "reviewer": "Codex",
@@ -9762,7 +10062,19 @@
           "independentNative": false,
           "digest": "190936192c31eb63259ee4f25ea6e8b2094a25c5d687a17f0802edd0629e32a8"
         },
-        "handoff": "zh-cn-docs-batch18-stage/handoff.json"
+        "handoff": "zh-cn-docs-batch18-stage/handoff.json",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+            "translation_before_sha256": "40c4eb9e6d4db1eae10d1da57f7da98200327c6125ef25888a70c05815f9ea37",
+            "source_after_sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
+            "translation_after_sha256": "441742cae42331fdbdd521680525d1c2581bfc06f563b4bedfd8ab8d70ff36bc",
+            "independent_native": false
+          }
+        ]
       }
     },
     "zh-CN/pro/scan-scheduling.md": {
@@ -10295,14 +10607,14 @@
     },
     "ko/pro/walkthrough.md": {
       "source": "pro/walkthrough.md",
-      "sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+      "sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-12",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "65f5f43e6bbab35f9f1e1b3f4404206541da725d1e720a2246520e722e94df03",
+        "translation_sha256": "5dab8a160319c5a1cbde3d125a676d06f393d2370e67c8102878fbe39c3fbb71",
         "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
         "workflow_review": {
           "reviewer": "Codex",
@@ -10312,7 +10624,19 @@
           "independentNative": false,
           "digest": "e784be2f24d17308e3ff511801d139bdc2fecfb06b85dce955c168fb00623268"
         },
-        "handoff": "ko-docs-batch08-stage/handoff.json"
+        "handoff": "ko-docs-batch08-stage/handoff.json",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label and matching metadata description, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "c49aa50a2cf2171cc714a2be00d64d980b9012718e06270225fbee06839ba4bb",
+            "translation_before_sha256": "65f5f43e6bbab35f9f1e1b3f4404206541da725d1e720a2246520e722e94df03",
+            "source_after_sha256": "06bc517ce5218520bd2b6fbcfeaa48a7dfd47323a867d3f7dceacfb9060d01f9",
+            "translation_after_sha256": "5dab8a160319c5a1cbde3d125a676d06f393d2370e67c8102878fbe39c3fbb71",
+            "independent_native": false
+          }
+        ]
       }
     },
     "ko/pro/scoring.md": {
@@ -10559,14 +10883,14 @@
     },
     "ko/pro/reports.md": {
       "source": "pro/reports.md",
-      "sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+      "sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-12",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "59b8a5a909672f696aeeaf29c5aac21a061b329273db31e1635c49578890a686",
+        "translation_sha256": "c3ce4d30637f7c2d9287e26ec9c4f6bc557deef7e7071f8ba484f321c809c7c0",
         "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
         "workflow_review": {
           "reviewer": "Codex",
@@ -10576,7 +10900,19 @@
           "independentNative": false,
           "digest": "6d92f79b97270a12bbbdc7d4c125b916be8348a26300382dd3153dc10e48a6ed"
         },
-        "handoff": "ko-docs-batch14-stage/handoff.json"
+        "handoff": "ko-docs-batch14-stage/handoff.json",
+        "supplements": [
+          {
+            "date": "2026-09-27",
+            "reviewer": "Codex",
+            "scope": "Scoped source/translation review of sample download label, localized PDF/preview paths, neutral preview alt, explicit redesigned-companion versus default Pro export disclosure, and historical Browsershot wording. English UI capture qualifiers retained. Existing historical scan evidence, configuration, code examples and remaining editorial approval preserved. No independent native or human certification.",
+            "source_before_sha256": "1f11276bd8bb214a75a5a44d39f08e13617fe58aa66cde957963ee1f3b6a0603",
+            "translation_before_sha256": "59b8a5a909672f696aeeaf29c5aac21a061b329273db31e1635c49578890a686",
+            "source_after_sha256": "7f582ff38da767de7a7fc3f4a6ed0878f33b0947b1e67f5b2c88fe3ccc06a28d",
+            "translation_after_sha256": "c3ce4d30637f7c2d9287e26ec9c4f6bc557deef7e7071f8ba484f321c809c7c0",
+            "independent_native": false
+          }
+        ]
       }
     },
     "ko/pro/production.md": {

@@ -6,9 +6,11 @@ description: "一条命令生成带有自有品牌的白标 PDF 报告，包含�
 
 为单个网站生成带有自有品牌的 **PDF 报告**，涵盖整体评分、发现问题的趋势、**相较上次报告已修复与新增的问题**、已恢复的 404 和失效链接、Search Console 变化以及 AI 爬虫活动。一条命令即可生成，也可选择**定期通过邮件发送**。专为代理机构设计：添加你的标志、品牌色和“为 {client} 编制”标签，即可交付客户。
 
-[下载已生成的英文示例报告（PDF，98 KB）](/pro-walkthrough/merchant-demo-report.pdf)，或跟随[扫描 → 修复 → 报告演练](/zh-CN/pro/walkthrough)。示例使用预置的 Merchant 内容和两次新扫描，显示一个已修复问题、19 个尚未解决的问题，且不包含 Search Console 数据。
+[下载示例报告（PDF）](/pro-walkthrough/zh-CN/merchant-demo-report.pdf)，或跟随[扫描 → 修复 → 报告演练](/zh-CN/pro/walkthrough)。示例使用预置的 Merchant 内容和两次新扫描，显示一个已修复问题、19 个尚未解决的问题，且不包含 Search Console 数据。
 
-[![已生成的 Merchant 演示报告第一页。](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+这份重新设计的说明文档汇总了已记录的扫描和报告结果，并非 Pro PDF 的默认布局。
+
+[![重新设计的 Merchant 演示报告首页。](/pro-walkthrough/zh-CN/report-preview.png)](/pro-walkthrough/zh-CN/merchant-demo-report.pdf)
 
 ## 报告包含什么 {#what-s-in-it}
 

@@ -1,5 +1,5 @@
 ---
-description: "Prześledź rzeczywiste skanowanie Rankbeam Pro: sprawdź brakujący opis, zapisz poprawkę w Filament, przeskanuj ponownie i pobierz wygenerowany przykładowy raport PDF."
+description: "Prześledź rzeczywiste skanowanie Rankbeam Pro: sprawdź brakujący opis, zapisz poprawkę w Filament, przeskanuj ponownie i pobierz przykładowy raport PDF."
 ---
 
 # Od skanowania do zweryfikowanej poprawki {#from-a-scan-to-a-verified-fix}
@@ -8,7 +8,9 @@ Skanowanie wykryło brak opisu w przykładowym artykule. Dodaliśmy opis w Filam
 
 To zrzuty z działającego lokalnie dema Merchant z 9 września 2026 r. Treść pochodzi z przykładowych danych seedera. Oba skanowania i raport wygenerowano na potrzeby tego przewodnika. Nie wypełniono wcześniej żadnego historycznego trendu. Aplikacja korzysta z Laravel 12 i Filament 4 oraz rdzenia Rankbeam, bezpłatnego edytora i silnika Pro.
 
-**[Pobierz wygenerowany raport (PDF, 98 KB)](/pro-walkthrough/merchant-demo-report.pdf)**
+**[Pobierz przykładowy raport (PDF)](/pro-walkthrough/pl/merchant-demo-report.pdf)**
+
+Ten dokument w nowej szacie graficznej podsumowuje zapisane wyniki skanów i raportu. Jego układ różni się od domyślnego układu plików PDF Pro.
 
 ## Przeskanuj zarejestrowane strony {#scan-the-registered-pages}
 
@@ -77,11 +79,11 @@ php artisan seo-pro:report --output=storage/app/seo-reports/after-fix.pdf
 
 Drugi PDF pokazuje **jeden naprawiony**, **zero nowych** i **19 otwartych** problemów. Trend obejmuje tylko dwa powyższe skanowania. Search Console i rejestrowanie botów AI były wyłączone, więc te sekcje informują o niedostępności danych.
 
-[![Pierwsza strona wygenerowanego raportu przykładowego: ocena 93, jeden naprawiony problem i 19 otwartych problemów.](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+[![Pierwsza strona raportu demonstracyjnego Merchant w nowej szacie graficznej.](/pro-walkthrough/pl/report-preview.png)](/pro-walkthrough/pl/merchant-demo-report.pdf)
 
 Pierwszy raport ustanawia punkt odniesienia do porównań. Jeśli wygenerujesz tylko jeden raport po naprawieniu strony, nie pokaże on zmiany względem wcześniejszego raportu. Użyj `--no-store` do podglądu, który nie powinien aktualizować punktu odniesienia.
 
-Przykład korzysta z renderera Browsershot. Wymagania rendererów, oznaczenie marką i dostarczanie według harmonogramu opisują [raporty pod własną marką](/pl/pro/reports).
+Pierwotny raport wyeksportowano za pomocą renderera Browsershot. Wymagania rendererów, oznaczenie marką i dostarczanie według harmonogramu opisują [raporty pod własną marką](/pl/pro/reports).
 
 ## Uruchom we własnej aplikacji {#run-it-on-your-own-app}
 

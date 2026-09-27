@@ -1,5 +1,5 @@
 ---
-description: "跟随真实的 Rankbeam Pro 扫描，检查缺失描述，在 Filament 中保存修复，重新扫描，并下载生成的示例 PDF 报告。"
+description: "跟随真实的 Rankbeam Pro 扫描，检查缺失描述，在 Filament 中保存修复，重新扫描，并下载示例 PDF 报告。"
 ---
 
 # 从扫描到验证修复 {#from-a-scan-to-a-verified-fix}
@@ -8,7 +8,9 @@ description: "跟随真实的 Rankbeam Pro 扫描，检查缺失描述，在 Fil
 
 这些画面来自 2026 年 9 月 9 日运行中的本地 Merchant 演示。内容是预置示例数据，两次扫描和报告都专门为本演练生成，没有预填历史趋势。应用使用 Laravel 12、Filament 4，以及 Rankbeam 核心、免费编辑器和 Pro 引擎。
 
-**[下载生成的报告，PDF，98 KB](/pro-walkthrough/merchant-demo-report.pdf)**
+**[下载示例报告（PDF）](/pro-walkthrough/zh-CN/merchant-demo-report.pdf)**
+
+这份重新设计的说明文档汇总了已记录的扫描和报告结果，并非 Pro PDF 的默认布局。
 
 ## 扫描已注册页面 {#scan-the-registered-pages}
 
@@ -76,11 +78,11 @@ php artisan seo-pro:report --output=storage/app/seo-reports/after-fix.pdf
 
 第二份 PDF 显示**一个已修复**、**零个新增**和 **19 个未解决**问题。趋势只包含上面两次扫描。Search Console 和 AI 机器人日志均已关闭，因此对应部分说明数据不可用。
 
-[![生成的示例报告首页：评分 93，一个已修复问题，19 个未解决问题。](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+[![重新设计的 Merchant 演示报告首页。](/pro-walkthrough/zh-CN/report-preview.png)](/pro-walkthrough/zh-CN/merchant-demo-report.pdf)
 
 第一份报告建立比较基线。如果只在修复页面后生成一份报告，就无法展示相对于更早报告的变化。需要不推进基线的预览时，使用 `--no-store`。
 
-示例使用 Browsershot 渲染器。渲染器要求、品牌设置和定时发送见[白标报告](/zh-CN/pro/reports)。
+原始报告使用 Browsershot 渲染器导出。渲染器要求、品牌设置和定时发送见[白标报告](/zh-CN/pro/reports)。
 
 ## 在自己的应用中运行 {#run-it-on-your-own-app}
 

@@ -6,9 +6,11 @@ description: "スコア、問題の推移、修正済みと新規の比較、復
 
 1サイト分の総合スコア、検出した問題数の推移、**前回レポート以降の修正済みと新規の問題**、復旧した404とリンク切れ、Search Consoleの変動、AIボットの活動を、自社ブランドの**PDFレポート**にまとめます。1つのコマンドで生成でき、任意で**定期メール送信**も設定できます。代理店向けに、ロゴ、色、「{client}向けに作成」の表記を入れて顧客に渡せます。
 
-[英語の生成済みサンプルレポートをダウンロード（PDF、98 KB）](/pro-walkthrough/merchant-demo-report.pdf)するか、[スキャン → 修正 → レポートの実例](/ja/pro/walkthrough)をご覧ください。サンプルはMerchantのシードコンテンツと新たな2回のスキャンを使い、修正済み1件、未解決19件、Search Consoleデータなしの状態を示しています。
+[サンプルレポートをダウンロード（PDF）](/pro-walkthrough/ja/merchant-demo-report.pdf)するか、[スキャン → 修正 → レポートの実例](/ja/pro/walkthrough)をご覧ください。サンプルはMerchantのシードコンテンツと新たな2回のスキャンを使い、修正済み1件、未解決19件、Search Consoleデータなしの状態を示しています。
 
-[![生成したMerchantデモレポートの1ページ目。](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+この資料は、記録済みのスキャンとレポートの結果を、新しいデザインでまとめたものです。ProのPDFの標準レイアウトとは異なります。
+
+[![デザインを刷新したMerchantデモレポートの1ページ目。](/pro-walkthrough/ja/report-preview.png)](/pro-walkthrough/ja/merchant-demo-report.pdf)
 
 ## 含まれる内容 {#what-s-in-it}
 

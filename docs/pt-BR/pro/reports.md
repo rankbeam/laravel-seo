@@ -6,9 +6,11 @@ description: "Relatório PDF com sua marca: pontuação, tendências, ocorrênci
 
 Um **relatório PDF** de um site com pontuação geral, tendência de ocorrências, problemas **resolvidos e novos desde o relatório anterior**, 404 e links quebrados recuperados, mudanças em Search Console e atividade de bots de IA. Gere por comando e, opcionalmente, **envie por e-mail em um horário programado**. Agências podem usar logo, cor e identificação do cliente.
 
-[Baixe um relatório de exemplo gerado em inglês (PDF, 98 KB)](/pro-walkthrough/merchant-demo-report.pdf) ou siga o [passo a passo de varredura, correção e relatório](/pt-BR/pro/walkthrough). O exemplo usa conteúdo de demonstração Merchant e duas varreduras recentes: uma ocorrência resolvida, 19 abertas e nenhum dado de Search Console.
+[Baixar o relatório de exemplo (PDF)](/pro-walkthrough/pt-BR/merchant-demo-report.pdf) ou siga o [passo a passo de varredura, correção e relatório](/pt-BR/pro/walkthrough). O exemplo usa conteúdo de demonstração Merchant e duas varreduras recentes: uma ocorrência resolvida, 19 abertas e nenhum dado de Search Console.
 
-[![Primeira página do relatório original em inglês da demonstração Merchant.](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+Este documento com novo design resume os resultados registrados das varreduras e do relatório. Seu layout não é o padrão dos PDFs do Pro.
+
+[![Primeira página do relatório de demonstração Merchant com novo design.](/pro-walkthrough/pt-BR/report-preview.png)](/pro-walkthrough/pt-BR/merchant-demo-report.pdf)
 
 ## Conteúdo do relatório {#what-s-in-it}
 

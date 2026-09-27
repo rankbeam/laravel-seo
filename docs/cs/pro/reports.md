@@ -6,9 +6,11 @@ description: "PDF report s vaší značkou: skóre, vývoj problémů, opravené
 
 **PDF report** s vaší značkou pro jeden web: celkové skóre, vývoj nalezených problémů, co bylo **opraveno a co přibylo od posledního reportu**, opravené nefunkční odkazy a obnovené URL po chybách 404, změny v Search Console a aktivita AI botů. Vygenerujete jej jediným příkazem a volitelně **odešlete e-mailem podle plánu**. Je určen agenturám: přidejte své logo, barvu a údaj „připraveno pro {client}“ a předejte jej klientovi.
 
-[Stáhněte si vygenerovaný ukázkový report v angličtině (PDF, 98 KB)](/pro-walkthrough/merchant-demo-report.pdf) nebo projděte [postup sken → oprava → report](/cs/pro/walkthrough). Ukázka používá předem připravený obsah dema Merchant a dva nové skeny. Obsahuje jeden opravený problém, 19 stále otevřených a žádná data Search Console.
+[Stáhnout ukázkový report (PDF)](/pro-walkthrough/cs/merchant-demo-report.pdf) nebo projděte [postup sken → oprava → report](/cs/pro/walkthrough). Ukázka používá předem připravený obsah dema Merchant a dva nové skeny. Obsahuje jeden opravený problém, 19 stále otevřených a žádná data Search Console.
 
-[![První stránka vygenerovaného reportu dema Merchant.](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+Tento nově navržený dokument shrnuje zaznamenané výsledky skenů a reportu. Jeho rozvržení se liší od výchozího rozvržení PDF v Pro.
+
+[![První stránka nově navrženého reportu dema Merchant.](/pro-walkthrough/cs/report-preview.png)](/pro-walkthrough/cs/merchant-demo-report.pdf)
 
 ## Co obsahuje {#what-s-in-it}
 

@@ -8,7 +8,9 @@ Uma varredura encontrou uma descrição ausente em um artigo de demonstração. 
 
 As capturas originais, em inglês, são de uma demonstração Merchant local executada em 9 de setembro de 2026. O conteúdo é composto por dados de exemplo; as duas varreduras e o relatório foram gerados para este guia. Nenhuma tendência histórica foi preenchida antecipadamente. A aplicação usa Laravel 12 e Filament 4, com o núcleo Rankbeam, o editor gratuito e Pro.
 
-**[Baixar o relatório gerado, original em inglês (PDF, 98 KB)](/pro-walkthrough/merchant-demo-report.pdf)**
+**[Baixar o relatório de exemplo (PDF)](/pro-walkthrough/pt-BR/merchant-demo-report.pdf)**
+
+Este documento com novo design resume os resultados registrados das varreduras e do relatório. Seu layout não é o padrão dos PDFs do Pro.
 
 ## Verificar as páginas registradas {#scan-the-registered-pages}
 
@@ -77,11 +79,11 @@ php artisan seo-pro:report --output=storage/app/seo-reports/after-fix.pdf
 
 O segundo PDF mostra **uma ocorrência resolvida**, **zero novas** e **19 abertas**. Sua tendência contém apenas as duas varreduras acima. Search Console e o registro de bots estavam desativados, então essas seções informam que os dados não estão disponíveis.
 
-[![Primeira página do relatório original em inglês: pontuação 93, uma ocorrência resolvida e 19 abertas.](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+[![Primeira página do relatório de demonstração Merchant com novo design.](/pro-walkthrough/pt-BR/report-preview.png)](/pro-walkthrough/pt-BR/merchant-demo-report.pdf)
 
 O primeiro relatório estabelece a referência da comparação. Gerar apenas um relatório depois de corrigir a página não permite mostrar uma mudança em relação a um relatório anterior. Use `--no-store` para uma prévia que não deve avançar essa referência.
 
-O exemplo usa o renderizador Browsershot. Consulte [relatórios com sua marca](/pt-BR/pro/reports) para requisitos, personalização e envio agendado.
+O relatório original foi exportado com o renderizador Browsershot. Consulte [relatórios com sua marca](/pt-BR/pro/reports) para requisitos, personalização e envio agendado.
 
 ## Executar na sua aplicação {#run-it-on-your-own-app}
 
