@@ -6,9 +6,11 @@ description: "Un rapport PDF en marque blanche : score, tendances, problèmes co
 
 Un **rapport PDF** personnalisé pour un site : score global, tendance des problèmes détectés, problèmes **corrigés et nouveaux depuis le dernier rapport**, 404 et liens cassés récupérés, variations Search Console et activité des robots IA. Il se génère avec une commande et peut être **envoyé par e-mail à intervalles planifiés**. Les agences peuvent y ajouter leur logo, leur couleur et la mention « préparé pour {client} » avant de le transmettre au client.
 
-[Téléchargez un rapport d’exemple généré en anglais (PDF, 98 Ko)](/pro-walkthrough/merchant-demo-report.pdf) ou suivez le [parcours scanner → corriger → générer un rapport](/fr/pro/walkthrough). L’exemple utilise le contenu de démonstration Merchant et deux scans réels : un problème corrigé, 19 encore ouverts et aucune donnée Search Console.
+[Télécharger le rapport d’exemple (PDF)](/pro-walkthrough/fr/merchant-demo-report.pdf) ou suivez le [parcours scanner → corriger → générer un rapport](/fr/pro/walkthrough). L’exemple utilise le contenu de démonstration Merchant et deux scans réels : un problème corrigé, 19 encore ouverts et aucune donnée Search Console.
 
-[![Première page du rapport généré pour la démonstration Merchant, en anglais.](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+Ce document remanié résume les résultats enregistrés des scans et du rapport. Sa mise en page diffère de celle des PDF Pro par défaut.
+
+[![Première page du rapport de démonstration Merchant remanié.](/pro-walkthrough/fr/report-preview.png)](/pro-walkthrough/fr/merchant-demo-report.pdf)
 
 ## Contenu du rapport {#what-s-in-it}
 

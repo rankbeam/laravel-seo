@@ -6,9 +6,11 @@ description: "PDF-Bericht mit deinem Branding: Bewertung, Befundtrend, behobene 
 
 Ein **PDF-Bericht mit eigenem Branding** für eine Website: Gesamtbewertung, Befundtrend, **behobene und neue Probleme seit dem letzten Bericht**, reparierte 404-Pfade und Links, Search-Console-Veränderungen sowie KI-Bot-Aktivität. Ein Befehl erzeugt ihn; optional lässt er sich **nach Zeitplan per E-Mail versenden**. Für Agenturen stehen Logo, Farbe und eine Kundenbeschriftung „erstellt für {Kunde}“ bereit.
 
-[Erzeugten englischen Beispielbericht herunterladen, PDF, 98 KB](/pro-walkthrough/merchant-demo-report.pdf) oder die [Anleitung Scan → Korrektur → Bericht](/de/pro/walkthrough) nachvollziehen. Das Beispiel verwendet vorbereitete Merchant-Inhalte und zwei neue Scans. Es zeigt einen behobenen Befund, 19 offene und keine Search-Console-Daten.
+[Beispielbericht herunterladen (PDF)](/pro-walkthrough/de/merchant-demo-report.pdf) oder die [Anleitung Scan → Korrektur → Bericht](/de/pro/walkthrough) nachvollziehen. Das Beispiel verwendet vorbereitete Merchant-Inhalte und zwei neue Scans. Es zeigt einen behobenen Befund, 19 offene und keine Search-Console-Daten.
 
-[![Erste Seite des erzeugten englischen Merchant-Demoberichts.](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+Dieses neu gestaltete Begleitdokument fasst die aufgezeichneten Scan- und Berichtsergebnisse zusammen. Es entspricht nicht dem Standardlayout der Pro-PDFs.
+
+[![Erste Seite des neu gestalteten Merchant-Demoberichts.](/pro-walkthrough/de/report-preview.png)](/pro-walkthrough/de/merchant-demo-report.pdf)
 
 ## Inhalt {#what-s-in-it}
 

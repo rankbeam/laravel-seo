@@ -1,5 +1,5 @@
 ---
-description: "Volg een echte Rankbeam Pro-scan: bekijk een ontbrekende beschrijving, sla de correctie op in Filament, scan opnieuw en download het gegenereerde PDF-voorbeeldrapport."
+description: "Volg een echte Rankbeam Pro-scan: bekijk een ontbrekende beschrijving, sla de correctie op in Filament, scan opnieuw en download het PDF-voorbeeldrapport."
 ---
 
 # Van scan naar gecontroleerde correctie {#from-a-scan-to-a-verified-fix}
@@ -12,10 +12,12 @@ Dit zijn beelden van een draaiende lokale Merchant-demo op 9 september 2026.
 De content bestaat uit vooraf ingevulde voorbeeldgegevens. Beide scans en het
 rapport zijn voor deze rondleiding gegenereerd; er is geen historische trend
 vooraf ingevuld. De app gebruikt Laravel 12 en Filament 4, met Core, de gratis
-editor en de Pro-engine van Rankbeam. De screenshots en het voorbeeldrapport
+editor en de Pro-engine van Rankbeam. De screenshots
 tonen de Engelstalige demo; interfacelabels hieronder verwijzen naar die beelden.
 
-**[Download het gegenereerde rapport (PDF, 98 KB, Engels)](/pro-walkthrough/merchant-demo-report.pdf)**
+**[Download het voorbeeldrapport (PDF)](/pro-walkthrough/nl/merchant-demo-report.pdf)**
+
+Dit opnieuw vormgegeven document vat de vastgelegde scan- en rapportresultaten samen. De opmaak wijkt af van de standaardopmaak van Pro-PDF’s.
 
 ## De geregistreerde pagina's scannen {#scan-the-registered-pages}
 
@@ -102,14 +104,14 @@ De trend bevat alleen de twee scans hierboven. Search Console en
 AI-botregistratie stonden uit. Die onderdelen vermelden daarom dat er geen
 gegevens beschikbaar zijn.
 
-[![De eerste pagina van het gegenereerde voorbeeldrapport: score 93, één opgeloste en 19 open bevindingen.](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+[![Eerste pagina van het opnieuw vormgegeven Merchant-demorapport.](/pro-walkthrough/nl/report-preview.png)](/pro-walkthrough/nl/merchant-demo-report.pdf)
 
 Het eerste rapport legt de uitgangssituatie voor de vergelijking vast.
 Genereer je alleen één rapport nadat je een pagina hebt gecorrigeerd, dan kan
 het geen verschil met een eerder rapport tonen. Gebruik `--no-store` voor
 een voorbeeld dat die vergelijkingsbasis niet moet bijwerken.
 
-Het voorbeeld gebruikt de Browsershot-renderer. Zie [rapporten in eigen huisstijl](/nl/pro/reports)
+Het oorspronkelijke rapport is geëxporteerd met de Browsershot-renderer. Zie [rapporten in eigen huisstijl](/nl/pro/reports)
 voor renderervereisten, huisstijl en ingeplande bezorging.
 
 ## Uitvoeren in je eigen app {#run-it-on-your-own-app}

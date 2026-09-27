@@ -6,9 +6,11 @@ description: "Informe PDF con tu marca: puntuación, tendencias, problemas nuevo
 
 Un **informe PDF de un sitio** con puntuación global, tendencia de problemas, cambios desde el informe anterior, 404 y enlaces recuperados, Search Console y actividad de bots. Se genera con un comando y puede enviarse por correo según una programación. Añade logo, color y la etiqueta «preparado para» del cliente.
 
-[Descarga un informe generado en inglés: PDF, 98 KB](/pro-walkthrough/merchant-demo-report.pdf) o sigue el [recorrido scan → corrección → informe](/es/pro/walkthrough). El ejemplo usa contenido Merchant de demostración y dos scans nuevos: un problema resuelto, 19 abiertos y sin datos Search Console.
+[Descargar el informe de ejemplo (PDF)](/pro-walkthrough/es/merchant-demo-report.pdf) o sigue el [recorrido scan → corrección → informe](/es/pro/walkthrough). El ejemplo usa contenido Merchant de demostración y dos scans nuevos: un problema resuelto, 19 abiertos y sin datos Search Console.
 
-[![Primera página del informe Merchant original en inglés.](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+Este documento rediseñado resume los resultados registrados de los scans y del informe. Su diseño no es el predeterminado de los PDF de Pro.
+
+[![Primera página del informe de demostración Merchant rediseñado.](/pro-walkthrough/es/report-preview.png)](/pro-walkthrough/es/merchant-demo-report.pdf)
 
 ## Contenido {#what-s-in-it}
 

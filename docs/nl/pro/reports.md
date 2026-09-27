@@ -11,12 +11,14 @@ Je genereert het met één commando en kunt het **periodiek per e-mail versturen
 Gemaakt voor bureaus: voeg je logo, kleur en 'opgesteld voor {client}' toe
 en stuur het naar de klant.
 
-[Download een gegenereerd voorbeeldrapport in het Engels (PDF, 98 KB)](/pro-walkthrough/merchant-demo-report.pdf)
+[Download het voorbeeldrapport (PDF)](/pro-walkthrough/nl/merchant-demo-report.pdf)
 of volg het [praktijkvoorbeeld: scannen → oplossen → rapporteren](/nl/pro/walkthrough).
 Het voorbeeld gebruikt vooraf ingevulde Merchant-inhoud en twee nieuwe scans;
 het toont één opgelost probleem, 19 openstaande problemen en geen Search Console-gegevens.
 
-[![Eerste pagina van het gegenereerde Merchant-demorapport in het Engels.](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+Dit opnieuw vormgegeven document vat de vastgelegde scan- en rapportresultaten samen. De opmaak wijkt af van de standaardopmaak van Pro-PDF’s.
+
+[![Eerste pagina van het opnieuw vormgegeven Merchant-demorapport.](/pro-walkthrough/nl/report-preview.png)](/pro-walkthrough/nl/merchant-demo-report.pdf)
 
 ## Wat het rapport bevat {#what-s-in-it}
 

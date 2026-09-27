@@ -1,5 +1,5 @@
 ---
-description: "Projděte skutečný sken Rankbeamu Pro, zkontrolujte chybějící popis, uložte opravu ve Filamentu, zopakujte sken a stáhněte vygenerovaný ukázkový report PDF."
+description: "Projděte skutečný sken Rankbeamu Pro, zkontrolujte chybějící popis, uložte opravu ve Filamentu, zopakujte sken a stáhněte ukázkový report PDF."
 ---
 
 # Od skenu k ověřené opravě {#from-a-scan-to-a-verified-fix}
@@ -8,7 +8,9 @@ Sken našel u ukázkového článku chybějící popis. Doplnili jsme jej ve Fil
 
 Snímky pocházejí z běžícího místního dema Merchant z 9. září 2026. Obsah tvoří ukázková data vložená seederem; oba skeny i report vznikly pro tohoto průvodce. Žádný historický trend nebyl předvyplněn. Aplikace používá Laravel 12 a Filament 4 spolu s Core Rankbeamu, bezplatným editorem a jádrem Pro.
 
-**[Stáhnout vygenerovaný report (PDF, 98 KB)](/pro-walkthrough/merchant-demo-report.pdf)**
+**[Stáhnout ukázkový report (PDF)](/pro-walkthrough/cs/merchant-demo-report.pdf)**
+
+Tento nově navržený dokument shrnuje zaznamenané výsledky skenů a reportu. Jeho rozvržení se liší od výchozího rozvržení PDF v Pro.
 
 ## Skenování registrovaných stránek {#scan-the-registered-pages}
 
@@ -77,11 +79,11 @@ php artisan seo-pro:report --output=storage/app/seo-reports/after-fix.pdf
 
 Druhý PDF report ukazuje **jeden opravený**, **žádný nový** a **19 otevřených** problémů. Trend obsahuje pouze dva výše uvedené skeny. Search Console i záznam návštěv AI robotů byly vypnuté, proto příslušné části uvádějí, že data nejsou dostupná.
 
-[![První stránka vygenerovaného ukázkového reportu: skóre 93, jeden opravený problém a 19 otevřených.](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+[![První stránka nově navrženého reportu dema Merchant.](/pro-walkthrough/cs/report-preview.png)](/pro-walkthrough/cs/merchant-demo-report.pdf)
 
 První report stanoví výchozí stav pro porovnání. Pokud vygenerujete jediný report až po opravě stránky, nemůže ukázat změnu vůči dřívějšímu reportu. Pro náhled, který nemá tento výchozí stav posunout, použijte `--no-store`.
 
-Ukázka používá renderer Browsershot. Požadavky rendererů, vizuální identitu a plánované doručování popisují [reporty s vlastní značkou](/cs/pro/reports).
+Původní report byl exportován pomocí rendereru Browsershot. Požadavky rendererů, vizuální identitu a plánované doručování popisují [reporty s vlastní značkou](/cs/pro/reports).
 
 ## Vyzkoušejte to ve vlastní aplikaci {#run-it-on-your-own-app}
 

@@ -6,9 +6,11 @@ description: "Report PDF personalizzabili con punteggio, andamento dei problemi,
 
 Un **report PDF con il tuo marchio** per un sito: punteggio complessivo, andamento dei problemi, elementi **risolti e nuovi rispetto al report precedente**, 404 e link recuperati, variazioni Search Console e attività dei bot AI. Lo generi con un comando e puoi **inviarlo per email con una cadenza programmata**. Per consegnarlo a un cliente, imposta logo, colore e dicitura “preparato per {cliente}”.
 
-[Scarica un report di esempio in inglese (PDF, 98 KB)](/pro-walkthrough/merchant-demo-report.pdf) oppure segui il [percorso scansione → correzione → report](/it/pro/walkthrough). L'esempio usa i contenuti dimostrativi di Merchant e due nuove scansioni: mostra un problema risolto, 19 ancora aperti e nessun dato Search Console.
+[Scarica il report di esempio (PDF)](/pro-walkthrough/it/merchant-demo-report.pdf) oppure segui il [percorso scansione → correzione → report](/it/pro/walkthrough). L'esempio usa i contenuti dimostrativi di Merchant e due nuove scansioni: mostra un problema risolto, 19 ancora aperti e nessun dato Search Console.
 
-[![Prima pagina del report dimostrativo Merchant, in inglese.](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+Questo documento ridisegnato riassume i risultati registrati delle scansioni e del report. Il suo layout non è quello predefinito dei PDF di Pro.
+
+[![Prima pagina del report dimostrativo Merchant ridisegnato.](/pro-walkthrough/it/report-preview.png)](/pro-walkthrough/it/merchant-demo-report.pdf)
 
 ## Contenuto del report {#what-s-in-it}
 

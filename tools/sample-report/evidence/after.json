@@ -1,0 +1,136 @@
+{
+    "title": "SEO audit report",
+    "subtitle": "Run #2 · completed",
+    "generated_at": "2026-09-09T09:54:27+00:00",
+    "summary": {
+        "score": 93,
+        "grade": "A",
+        "issues": 19,
+        "critical": 0,
+        "warning": 5,
+        "notice": 14
+    },
+    "sections": [
+        {
+            "title": "Warning issues",
+            "severity": "warning",
+            "total": 5,
+            "shown": 5,
+            "columns": [
+                "Type",
+                "Target",
+                "Message"
+            ],
+            "rows": [
+                {
+                    "Type": "title_too_long",
+                    "Target": "Post #4",
+                    "Message": "Title is 63 characters (recommended max 60); it may be truncated in search results."
+                },
+                {
+                    "Type": "description_too_long",
+                    "Target": "Post #4",
+                    "Message": "Description is 194 characters (recommended max 160); it may be truncated."
+                },
+                {
+                    "Type": "title_too_long",
+                    "Target": "Product #1",
+                    "Message": "Title is 67 characters (recommended max 60); it may be truncated in search results."
+                },
+                {
+                    "Type": "missing_description",
+                    "Target": "Product #5",
+                    "Message": "Page is missing a meta description."
+                },
+                {
+                    "Type": "title_too_long",
+                    "Target": "Page #4",
+                    "Message": "Title is 89 characters (recommended max 60); it may be truncated in search results."
+                }
+            ]
+        },
+        {
+            "title": "Notice issues",
+            "severity": "notice",
+            "total": 14,
+            "shown": 14,
+            "columns": [
+                "Type",
+                "Target",
+                "Message"
+            ],
+            "rows": [
+                {
+                    "Type": "description_too_short",
+                    "Target": "Post #6",
+                    "Message": "Description is only 68 characters (recommended min 70)."
+                },
+                {
+                    "Type": "description_too_short",
+                    "Target": "Product #2",
+                    "Message": "Description is only 69 characters (recommended min 70)."
+                },
+                {
+                    "Type": "description_too_short",
+                    "Target": "Product #3",
+                    "Message": "Description is only 58 characters (recommended min 70)."
+                },
+                {
+                    "Type": "description_too_short",
+                    "Target": "Product #4",
+                    "Message": "Description is only 52 characters (recommended min 70)."
+                },
+                {
+                    "Type": "description_too_short",
+                    "Target": "Product #6",
+                    "Message": "Description is only 57 characters (recommended min 70)."
+                },
+                {
+                    "Type": "description_too_short",
+                    "Target": "Product #7",
+                    "Message": "Description is only 35 characters (recommended min 70)."
+                },
+                {
+                    "Type": "title_too_short",
+                    "Target": "Page #2",
+                    "Message": "Title is only 26 characters (recommended min 30)."
+                },
+                {
+                    "Type": "description_too_short",
+                    "Target": "Page #5",
+                    "Message": "Description is only 52 characters (recommended min 70)."
+                },
+                {
+                    "Type": "thin_content",
+                    "Target": "http://127.0.0.1:8015",
+                    "Message": "Page body has only 158 words (recommended at least 200)."
+                },
+                {
+                    "Type": "title_too_short",
+                    "Target": "http://127.0.0.1:8015/blog",
+                    "Message": "Title is only 20 characters (recommended min 30)."
+                },
+                {
+                    "Type": "thin_content",
+                    "Target": "http://127.0.0.1:8015/blog",
+                    "Message": "Page body has only 133 words (recommended at least 200)."
+                },
+                {
+                    "Type": "title_too_short",
+                    "Target": "http://127.0.0.1:8015/products",
+                    "Message": "Title is only 24 characters (recommended min 30)."
+                },
+                {
+                    "Type": "description_too_short",
+                    "Target": "http://127.0.0.1:8015/products",
+                    "Message": "Description is only 67 characters (recommended min 70)."
+                },
+                {
+                    "Type": "thin_content",
+                    "Target": "http://127.0.0.1:8015/products",
+                    "Message": "Page body has only 100 words (recommended at least 200)."
+                }
+            ]
+        }
+    ]
+}

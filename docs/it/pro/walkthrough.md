@@ -1,5 +1,5 @@
 ---
-description: "Segui una scansione reale di Rankbeam Pro: esamina una descrizione mancante, salvala in Filament, ripeti la scansione e scarica il PDF di esempio generato."
+description: "Segui una scansione reale di Rankbeam Pro: esamina una descrizione mancante, salvala in Filament, ripeti la scansione e scarica il PDF di esempio."
 ---
 
 # Dalla scansione a una correzione verificata {#from-a-scan-to-a-verified-fix}
@@ -8,7 +8,9 @@ Una scansione ha rilevato una descrizione mancante in un articolo della demo. L�
 
 Le catture originali, con interfaccia in inglese, provengono da una demo Merchant locale eseguita il 9 settembre 2026. I contenuti sono dati di esempio inseriti con un seeder; entrambe le scansioni e il report sono stati generati per questa dimostrazione, senza precompilare andamenti storici. L’app usa Laravel 12 e Filament 4, con core, editor gratuito e motore Pro di Rankbeam.
 
-**[Scarica il report generato, in inglese: PDF, 98 KB](/pro-walkthrough/merchant-demo-report.pdf)**
+**[Scarica il report di esempio (PDF)](/pro-walkthrough/it/merchant-demo-report.pdf)**
+
+Questo documento ridisegnato riassume i risultati registrati delle scansioni e del report. Il suo layout non è quello predefinito dei PDF di Pro.
 
 ## Analizzare le pagine registrate {#scan-the-registered-pages}
 
@@ -77,11 +79,11 @@ php artisan seo-pro:report --output=storage/app/seo-reports/after-fix.pdf
 
 Il secondo PDF mostra **un problema risolto**, **zero nuovi** e **19 aperti**. L’andamento contiene soltanto le due scansioni descritte sopra. Search Console e registrazione dei bot AI erano disattivati, quindi le relative sezioni indicano che i dati non sono disponibili.
 
-[![Prima pagina del report di esempio: punteggio 93, un problema risolto e 19 aperti.](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+[![Prima pagina del report dimostrativo Merchant ridisegnato.](/pro-walkthrough/it/report-preview.png)](/pro-walkthrough/it/merchant-demo-report.pdf)
 
 Il primo report stabilisce il riferimento per il confronto. Se generi un solo report dopo aver corretto una pagina, non può mostrare differenze rispetto a un report precedente. Usa `--no-store` per un’anteprima che non deve aggiornare quel riferimento.
 
-L’esempio usa il renderer Browsershot. La guida ai [report personalizzabili](/it/pro/reports) descrive requisiti dei renderer, marchio e invio pianificato.
+Il report originale è stato esportato con il renderer Browsershot. La guida ai [report personalizzabili](/it/pro/reports) descrive requisiti dei renderer, marchio e invio pianificato.
 
 ## Provarlo nella tua applicazione {#run-it-on-your-own-app}
 

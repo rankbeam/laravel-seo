@@ -6,9 +6,11 @@ description: "Raport PDF pod własną marką: ocena, trend problemów, naprawion
 
 **Raport PDF** z Twoją marką dla jednej witryny: ogólna ocena, trend wykrytych problemów, **problemy naprawione i nowe od ostatniego raportu**, odzyskane ścieżki 404 i naprawione linki, zmiany w Search Console oraz aktywność botów AI. Generujesz go jednym poleceniem i opcjonalnie **wysyłasz e-mailem według harmonogramu**. Powstał z myślą o agencjach: dodaj logo, kolor i oznaczenie „przygotowano dla {client}”, a następnie przekaż go klientowi.
 
-[Pobierz wygenerowany przykładowy raport po angielsku (PDF, 98 KB)](/pro-walkthrough/merchant-demo-report.pdf) lub przejdź przez [skanowanie → poprawkę → raport](/pl/pro/walkthrough). Przykład korzysta z treści demonstracyjnych Merchant z seedera i dwóch nowych skanowań. Pokazuje jeden naprawiony problem, 19 nadal otwartych i brak danych Search Console.
+[Pobierz przykładowy raport (PDF)](/pro-walkthrough/pl/merchant-demo-report.pdf) lub przejdź przez [skanowanie → poprawkę → raport](/pl/pro/walkthrough). Przykład korzysta z treści demonstracyjnych Merchant z seedera i dwóch nowych skanowań. Pokazuje jeden naprawiony problem, 19 nadal otwartych i brak danych Search Console.
 
-[![Pierwsza strona wygenerowanego raportu demonstracyjnego Merchant.](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+Ten dokument w nowej szacie graficznej podsumowuje zapisane wyniki skanów i raportu. Jego układ różni się od domyślnego układu plików PDF Pro.
+
+[![Pierwsza strona raportu demonstracyjnego Merchant w nowej szacie graficznej.](/pro-walkthrough/pl/report-preview.png)](/pro-walkthrough/pl/merchant-demo-report.pdf)
 
 ## Co zawiera {#what-s-in-it}
 

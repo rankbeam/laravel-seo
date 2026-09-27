@@ -1,14 +1,16 @@
 ---
-description: "Suivez un vrai scan Rankbeam Pro : repérez une description manquante, enregistrez la correction dans Filament, relancez le scan et téléchargez le rapport PDF généré pour la démonstration."
+description: "Suivez un vrai scan Rankbeam Pro : repérez une description manquante, enregistrez la correction dans Filament, relancez le scan et téléchargez le rapport PDF de démonstration."
 ---
 
 # Du scan à une correction vérifiée {#from-a-scan-to-a-verified-fix}
 
 Un scan a détecté une description manquante sur un article de démonstration. Nous avons ajouté la description dans Filament, relancé le scan et généré un rapport montrant la correction.
 
-Ces captures proviennent d’une démonstration Merchant locale exécutée le 9 septembre 2026. Le contenu est constitué de données d’exemple ; les deux scans et le rapport ont été générés pour ce parcours. Aucun historique de tendance n’a été prérempli. L’application utilise Laravel 12 et Filament 4, avec le cœur Rankbeam, l’éditeur gratuit et le moteur Pro. Les captures et le PDF d’origine sont en anglais.
+Ces captures proviennent d’une démonstration Merchant locale exécutée le 9 septembre 2026. Le contenu est constitué de données d’exemple ; les deux scans et le rapport ont été générés pour ce parcours. Aucun historique de tendance n’a été prérempli. L’application utilise Laravel 12 et Filament 4, avec le cœur Rankbeam, l’éditeur gratuit et le moteur Pro. Les captures sont en anglais.
 
-**[Télécharger le rapport généré, en anglais (PDF, 98 Ko)](/pro-walkthrough/merchant-demo-report.pdf)**
+**[Télécharger le rapport d’exemple (PDF)](/pro-walkthrough/fr/merchant-demo-report.pdf)**
+
+Ce document remanié résume les résultats enregistrés des scans et du rapport. Sa mise en page diffère de celle des PDF Pro par défaut.
 
 ## Scanner les pages enregistrées {#scan-the-registered-pages}
 
@@ -77,11 +79,11 @@ php artisan seo-pro:report --output=storage/app/seo-reports/after-fix.pdf
 
 Le second PDF indique **un problème corrigé**, **aucun nouveau** et **19 ouverts**. Sa tendance contient uniquement les deux scans ci-dessus. Search Console et la journalisation des robots IA étaient désactivés ; ces sections indiquent donc que les données ne sont pas disponibles.
 
-[![Première page du rapport d’exemple généré en anglais : score de 93, un problème corrigé et 19 ouverts.](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+[![Première page du rapport de démonstration Merchant remanié.](/pro-walkthrough/fr/report-preview.png)](/pro-walkthrough/fr/merchant-demo-report.pdf)
 
 Le premier rapport établit la référence de comparaison. Si vous générez un seul rapport après avoir corrigé une page, il ne peut pas montrer de changement par rapport à un rapport antérieur. Utilisez `--no-store` pour un aperçu qui ne doit pas modifier cette référence.
 
-L’exemple utilise le moteur Browsershot. Consultez les [rapports en marque blanche](/fr/pro/reports) pour les prérequis des moteurs, la personnalisation et les envois planifiés.
+Le rapport d’origine a été exporté avec le moteur Browsershot. Consultez les [rapports en marque blanche](/fr/pro/reports) pour les prérequis des moteurs, la personnalisation et les envois planifiés.
 
 ## Essayer sur votre application {#run-it-on-your-own-app}
 

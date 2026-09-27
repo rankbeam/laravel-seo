@@ -1,5 +1,5 @@
 ---
-description: "Follow a real Rankbeam Pro scan, inspect a missing description, save the fix in Filament, rescan and download the generated sample PDF report."
+description: "Follow a real Rankbeam Pro scan, inspect a missing description, save the fix in Filament, rescan and download the sample PDF report."
 ---
 
 # From a scan to a verified fix
@@ -12,7 +12,9 @@ The content is seeded sample data; both scans and the report were generated
 for this walkthrough. No historical trend was prefilled. The app uses Laravel
 12 and Filament 4, with Rankbeam's core, free editor and Pro engine.
 
-**[Download the generated report (PDF, 98 KB)](/pro-walkthrough/merchant-demo-report.pdf)**
+**[Download the sample report (PDF)](/pro-walkthrough/merchant-demo-report.pdf)**
+
+This redesigned companion summarizes the recorded scan and report evidence. It is not the default Pro PDF layout.
 
 ## Scan the registered pages
 
@@ -97,13 +99,13 @@ The second PDF shows **one fixed**, **zero new**, and **19 open** issues.
 Its trend contains only the two scans above. Search Console and AI-bot
 logging were disabled, so those sections say that data is unavailable.
 
-[![The first page of the generated sample report: score 93, one fixed issue and 19 open issues.](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+[![First page of the redesigned Merchant demo report.](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
 
 The first report establishes the comparison baseline. If you generate only
 one report after fixing a page, it cannot show a change against an earlier
 report. Use `--no-store` for a preview that should not advance that baseline.
 
-The sample uses the Browsershot renderer. See [white-label reports](/pro/reports)
+The original export used the Browsershot renderer. See [white-label reports](/pro/reports)
 for renderer requirements, branding and scheduled delivery.
 
 ## Run it on your own app

@@ -6,9 +6,11 @@ description: "명령 하나로 점수, 문제 추세, 해결·신규 문제, 복
 
 사이트 하나의 전체 점수, 발견 문제 추세, **지난 보고서 이후 해결된 문제와 신규 문제**, 복구된 404와 깨진 링크, Search Console의 주요 변화, AI 봇 활동을 담은 브랜드 **PDF 보고서**입니다. 명령 하나로 생성하고 선택적으로 **예약 이메일로 보낼 수 있습니다**. 에이전시용으로 설계되어 로고, 색상, “{client}용 보고서” 표시를 넣어 클라이언트에게 전달할 수 있습니다.
 
-[생성된 영어 예시 보고서 내려받기 (PDF, 98 KB)](/pro-walkthrough/merchant-demo-report.pdf) 또는 [스캔 → 수정 → 보고서 안내](/ko/pro/walkthrough)를 참고하세요. 예시는 시드로 넣은 Merchant 콘텐츠와 새로 실행한 두 스캔을 사용합니다. 해결된 문제 1개, 미해결 19개가 표시되며 Search Console 데이터는 없습니다.
+[예시 보고서 내려받기 (PDF)](/pro-walkthrough/ko/merchant-demo-report.pdf) 또는 [스캔 → 수정 → 보고서 안내](/ko/pro/walkthrough)를 참고하세요. 예시는 시드로 넣은 Merchant 콘텐츠와 새로 실행한 두 스캔을 사용합니다. 해결된 문제 1개, 미해결 19개가 표시되며 Search Console 데이터는 없습니다.
 
-[![생성된 Merchant 데모 보고서의 첫 페이지.](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+새롭게 디자인한 이 문서는 기록된 스캔 및 보고서 결과를 요약합니다. Pro PDF의 기본 레이아웃과는 다릅니다.
+
+[![새롭게 디자인한 Merchant 데모 보고서의 첫 페이지.](/pro-walkthrough/ko/report-preview.png)](/pro-walkthrough/ko/merchant-demo-report.pdf)
 
 ## 포함 내용 {#what-s-in-it}
 

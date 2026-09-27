@@ -1,0 +1,126 @@
+{
+  "evidence_date": "2026-09-09",
+  "design_date": "2026-09-27",
+  "reports": [
+    {
+      "locale": "en",
+      "pdf": "merchant-demo-report.pdf",
+      "pages": 2,
+      "bytes": 47872,
+      "sha256": "cc7025ba0708f91233ad65d64c760b931b896361e0f9dd0d26e865f2e4cee25b",
+      "catalog_sha256": "4f357f595b657f78eab19ffe97abe1f05f25b56231fca989c09a189a0c852e93"
+    },
+    {
+      "locale": "it",
+      "pdf": "it/merchant-demo-report.pdf",
+      "pages": 2,
+      "bytes": 48179,
+      "sha256": "4db643d0281df79f294855a4b85f00d7737e1bba8d999421d883de27673ba68a",
+      "catalog_sha256": "3815b29a9b9ebf5afa9b4f82cfb5b01d1a0c2bae7553b931f6c500549e9861df"
+    },
+    {
+      "locale": "de",
+      "pdf": "de/merchant-demo-report.pdf",
+      "pages": 2,
+      "bytes": 48939,
+      "sha256": "7f9f848a27304efb3f78ec195e9206fddb76645d73872eddbec3033f331f3a2b",
+      "catalog_sha256": "eb1c39290d258ee7ef2cd3d4c6d161eb7edeadc8423a36a60eef91e702003609"
+    },
+    {
+      "locale": "fr",
+      "pdf": "fr/merchant-demo-report.pdf",
+      "pages": 2,
+      "bytes": 49013,
+      "sha256": "bca480cbd280bd462e7cc101b6729c07947748d2264514980e774b1623b0a61c",
+      "catalog_sha256": "02a8ec41503fd090521804cd968e78543471984ef6b7870fe7f30862ba39ab9a"
+    },
+    {
+      "locale": "es",
+      "pdf": "es/merchant-demo-report.pdf",
+      "pages": 2,
+      "bytes": 48883,
+      "sha256": "bba66a2b4608c88dcad6b3622908d7fb57a8843c52a9ad4b5288a39a87d7fa64",
+      "catalog_sha256": "673436bb30dc13b2fd41f1697d69d8d6793446526726eaf100f45e9fa8ab90d6"
+    },
+    {
+      "locale": "pt-BR",
+      "pdf": "pt-BR/merchant-demo-report.pdf",
+      "pages": 2,
+      "bytes": 49404,
+      "sha256": "7c4287e4c8a546da3d1a34876e2cc41450b960a68d28e1251f854b50a007d583",
+      "catalog_sha256": "8357b8d4cde66a125f362eb03b5d756d04fdeddb1bc952651430667f0ad80ec1"
+    },
+    {
+      "locale": "nl",
+      "pdf": "nl/merchant-demo-report.pdf",
+      "pages": 2,
+      "bytes": 48371,
+      "sha256": "463a4761dc22edf4a8691a9ba255d1aa8c4644ac142dd951ddf06b230107449b",
+      "catalog_sha256": "3ed25881fae5e4575cb82efc1c3a7b16edd825b27e49da3ae813e3fb30241055"
+    },
+    {
+      "locale": "tr",
+      "pdf": "tr/merchant-demo-report.pdf",
+      "pages": 2,
+      "bytes": 50515,
+      "sha256": "f4b8dfa9c6f3774f2216ec4bc83f63a3515f3cd9c7c57cffd6540994c86f0531",
+      "catalog_sha256": "4272d2df7cd142ccf40ac70e955bf1128634862a4cee95c47b46c7650ddfd215"
+    },
+    {
+      "locale": "pl",
+      "pdf": "pl/merchant-demo-report.pdf",
+      "pages": 2,
+      "bytes": 50339,
+      "sha256": "b8bb550eed2b767e38a031d5421d7f2b23a62a4ee86a0a31f538753d11a17852",
+      "catalog_sha256": "749189304abe3b8e0eddd5820bc1e2bc38c7edc22830ff1af6ac5e2ba7c0401e"
+    },
+    {
+      "locale": "ru",
+      "pdf": "ru/merchant-demo-report.pdf",
+      "pages": 2,
+      "bytes": 59208,
+      "sha256": "fff00bdcbfb52f2d78501b269e2f0cdd85b7f510d1db6bdde35547ec81ed82df",
+      "catalog_sha256": "33f7d77686cf8d0e5539a9c7b6a999a864139305ccbc49b37ce52ae2dfc64182"
+    },
+    {
+      "locale": "cs",
+      "pdf": "cs/merchant-demo-report.pdf",
+      "pages": 2,
+      "bytes": 50556,
+      "sha256": "f57523d42d7094d679505c62d1b7a268423edb4a4e7447f560a84a2270374a9e",
+      "catalog_sha256": "51bc9dfbecfbc93ffd18adde506940bdda1443df0a6f92ed363813ec52f97c7d"
+    },
+    {
+      "locale": "el",
+      "pdf": "el/merchant-demo-report.pdf",
+      "pages": 2,
+      "bytes": 59193,
+      "sha256": "9b9563a7d4fd2ea39188bf25143a61bd402d6ae8377a513433a36745b433f5d2",
+      "catalog_sha256": "7c406db8ebc2bbbe55ebfe65c834705a208bba02e3a825ac9a842c4406c8095d"
+    },
+    {
+      "locale": "ja",
+      "pdf": "ja/merchant-demo-report.pdf",
+      "pages": 2,
+      "bytes": 97139,
+      "sha256": "b477955f60a7192ec8ddc6a042420c7e26ae5b323db917c66051fea8d0eade72",
+      "catalog_sha256": "3f258a81d482feb837a0f04e732e03bee37cacd64dd3747ab8b5228fab148e55"
+    },
+    {
+      "locale": "zh-CN",
+      "pdf": "zh-CN/merchant-demo-report.pdf",
+      "pages": 2,
+      "bytes": 93133,
+      "sha256": "cb9cf733c4d23d84d1c4bd398b1590456dd3defd5dc6feae426a40f2450a2e47",
+      "catalog_sha256": "55f90a9ef84f24d95847604682566fd0dbaf1a81d94d8855ef9142a6f29c0f7c"
+    },
+    {
+      "locale": "ko",
+      "pdf": "ko/merchant-demo-report.pdf",
+      "pages": 2,
+      "bytes": 67755,
+      "sha256": "564d852f2f6f638f2558087c1b931b3aa143c8f3558528e2eb54e04ce83735d4",
+      "catalog_sha256": "561a4e781a1a61180e3d22e654dcfe765e7f8733832866b283b850c807989cca"
+    }
+  ]
+}

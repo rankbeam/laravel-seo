@@ -1,14 +1,16 @@
 ---
-description: "Einen echten Rankbeam-Pro-Scan nachvollziehen, eine fehlende Beschreibung in Filament speichern, erneut scannen und den erzeugten Beispielbericht als PDF herunterladen."
+description: "Einen echten Rankbeam-Pro-Scan nachvollziehen, eine fehlende Beschreibung in Filament speichern, erneut scannen und den Beispielbericht als PDF herunterladen."
 ---
 
 # Vom Scan zur geprüften Korrektur {#from-a-scan-to-a-verified-fix}
 
 Ein Scan fand eine fehlende Beschreibung in einem Demoartikel. Wir ergänzten sie in Filament, scannten erneut und erzeugten einen Bericht mit der Korrektur.
 
-Die Aufnahmen stammen aus einer lokal laufenden Merchant-Demo vom 9. September 2026. Inhalte sind vorbereitete Beispieldaten; beide Scans und der Bericht wurden für diese Anleitung neu erzeugt. Es wurde kein historischer Trend vorgegeben. Die App verwendet Laravel 12 und Filament 4 mit Rankbeam-Core, kostenlosem Editor und Pro-Engine. Screenshots und Beispiel-PDF zeigen die englische Oberfläche.
+Die Aufnahmen stammen aus einer lokal laufenden Merchant-Demo vom 9. September 2026. Inhalte sind vorbereitete Beispieldaten; beide Scans und der Bericht wurden für diese Anleitung neu erzeugt. Es wurde kein historischer Trend vorgegeben. Die App verwendet Laravel 12 und Filament 4 mit Rankbeam-Core, kostenlosem Editor und Pro-Engine. Die Screenshots zeigen die englische Oberfläche.
 
-**[Erzeugten englischen Bericht herunterladen, PDF, 98 KB](/pro-walkthrough/merchant-demo-report.pdf)**
+**[Beispielbericht herunterladen (PDF)](/pro-walkthrough/de/merchant-demo-report.pdf)**
+
+Dieses neu gestaltete Begleitdokument fasst die aufgezeichneten Scan- und Berichtsergebnisse zusammen. Es entspricht nicht dem Standardlayout der Pro-PDFs.
 
 ## Registrierte Seiten scannen {#scan-the-registered-pages}
 
@@ -77,11 +79,11 @@ php artisan seo-pro:report --output=storage/app/seo-reports/after-fix.pdf
 
 Die zweite PDF zeigt **einen behobenen**, **keinen neuen** und **19 offene** Befunde. Ihr Trend enthält ausschließlich diese beiden Scans. Search Console und KI-Bot-Protokollierung waren deaktiviert; die entsprechenden Abschnitte melden deshalb nicht verfügbare Daten.
 
-[![Erste Seite des englischen Beispielberichts: Bewertung 93, ein behobener und 19 offene Befunde.](/pro-walkthrough/report-preview.png)](/pro-walkthrough/merchant-demo-report.pdf)
+[![Erste Seite des neu gestalteten Merchant-Demoberichts.](/pro-walkthrough/de/report-preview.png)](/pro-walkthrough/de/merchant-demo-report.pdf)
 
 Der erste Bericht bildet den Ausgangsstand. Erzeugst du erst nach einer Korrektur einen einzigen Bericht, kann dieser keine Änderung gegenüber einem früheren Bericht zeigen. Verwende `--no-store` für eine Vorschau, die den Ausgangsstand nicht fortschreiben soll.
 
-Das Beispiel verwendet den Browsershot-Renderer. Anforderungen, Branding und geplanten Versand beschreibt [White-Label-Berichte](/de/pro/reports).
+Der ursprüngliche Export wurde mit dem Browsershot-Renderer erstellt. Anforderungen, Branding und geplanten Versand beschreibt [White-Label-Berichte](/de/pro/reports).
 
 ## In deiner eigenen App ausführen {#run-it-on-your-own-app}
 

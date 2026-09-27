@@ -1,0 +1,35 @@
+[
+  {
+    "family": "NotoSansJP",
+    "url": "https://github.com/google/fonts/blob/main/ofl/notosansjp/NotoSansJP%5Bwght%5D.ttf",
+    "source_sha256": "c2f3b4d463500a2ddcd3849cded1fceeb9fd6d1c32e6cbecd568453ba50fc68f",
+    "weights": [
+      400,
+      700
+    ],
+    "subset": "catalog characters plus printable ASCII",
+    "catalog_sha256": "3f258a81d482feb837a0f04e732e03bee37cacd64dd3747ab8b5228fab148e55"
+  },
+  {
+    "family": "NotoSansSC",
+    "url": "https://github.com/google/fonts/blob/main/ofl/notosanssc/NotoSansSC%5Bwght%5D.ttf",
+    "source_sha256": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
+    "weights": [
+      400,
+      700
+    ],
+    "subset": "catalog characters plus printable ASCII",
+    "catalog_sha256": "55f90a9ef84f24d95847604682566fd0dbaf1a81d94d8855ef9142a6f29c0f7c"
+  },
+  {
+    "family": "NotoSansKR",
+    "url": "https://github.com/google/fonts/blob/main/ofl/notosanskr/NotoSansKR%5Bwght%5D.ttf",
+    "source_sha256": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252",
+    "weights": [
+      400,
+      700
+    ],
+    "subset": "catalog characters plus printable ASCII",
+    "catalog_sha256": "561a4e781a1a61180e3d22e654dcfe765e7f8733832866b283b850c807989cca"
+  }
+]
