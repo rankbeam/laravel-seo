@@ -1,6 +1,6 @@
 {
   "it": {
-    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
+    "source_sha256": "809cf5a4bada3f818564c073dcfd83cfc4f4ecc267c206ee7f44bd6765a474be",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-10",
     "status": "approved",
@@ -10,10 +10,15 @@
       "reviewer": "Codex",
       "reviewed_at": "2026-09-26",
       "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
+    },
+    "link_indicator_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-27",
+      "scope": "Remove only the decorative trailing arrow from 15 navigation labels and their translated keys/values. VitePress owns the external-link icon. Translated words, URLs and previous editorial review metadata preserved; no new native-language certification."
     }
   },
   "de": {
-    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
+    "source_sha256": "809cf5a4bada3f818564c073dcfd83cfc4f4ecc267c206ee7f44bd6765a474be",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-10",
     "status": "approved",
@@ -23,10 +28,15 @@
       "reviewer": "Codex",
       "reviewed_at": "2026-09-26",
       "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
+    },
+    "link_indicator_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-27",
+      "scope": "Remove only the decorative trailing arrow from 15 navigation labels and their translated keys/values. VitePress owns the external-link icon. Translated words, URLs and previous editorial review metadata preserved; no new native-language certification."
     }
   },
   "fr": {
-    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
+    "source_sha256": "809cf5a4bada3f818564c073dcfd83cfc4f4ecc267c206ee7f44bd6765a474be",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-10",
     "status": "approved",
@@ -36,10 +46,15 @@
       "reviewer": "Codex",
       "reviewed_at": "2026-09-26",
       "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
+    },
+    "link_indicator_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-27",
+      "scope": "Remove only the decorative trailing arrow from 15 navigation labels and their translated keys/values. VitePress owns the external-link icon. Translated words, URLs and previous editorial review metadata preserved; no new native-language certification."
     }
   },
   "es": {
-    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
+    "source_sha256": "809cf5a4bada3f818564c073dcfd83cfc4f4ecc267c206ee7f44bd6765a474be",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-10",
     "status": "approved",
@@ -49,10 +64,15 @@
       "reviewer": "Codex",
       "reviewed_at": "2026-09-26",
       "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
+    },
+    "link_indicator_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-27",
+      "scope": "Remove only the decorative trailing arrow from 15 navigation labels and their translated keys/values. VitePress owns the external-link icon. Translated words, URLs and previous editorial review metadata preserved; no new native-language certification."
     }
   },
   "pt-BR": {
-    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
+    "source_sha256": "809cf5a4bada3f818564c073dcfd83cfc4f4ecc267c206ee7f44bd6765a474be",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-10",
     "status": "approved",
@@ -62,10 +82,15 @@
       "reviewer": "Codex",
       "reviewed_at": "2026-09-26",
       "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
+    },
+    "link_indicator_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-27",
+      "scope": "Remove only the decorative trailing arrow from 15 navigation labels and their translated keys/values. VitePress owns the external-link icon. Translated words, URLs and previous editorial review metadata preserved; no new native-language certification."
     }
   },
   "nl": {
-    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
+    "source_sha256": "809cf5a4bada3f818564c073dcfd83cfc4f4ecc267c206ee7f44bd6765a474be",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-11",
     "status": "approved",
@@ -76,10 +101,15 @@
       "reviewer": "Codex",
       "reviewed_at": "2026-09-26",
       "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
+    },
+    "link_indicator_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-27",
+      "scope": "Remove only the decorative trailing arrow from 15 navigation labels and their translated keys/values. VitePress owns the external-link icon. Translated words, URLs and previous editorial review metadata preserved; no new native-language certification."
     }
   },
   "tr": {
-    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
+    "source_sha256": "809cf5a4bada3f818564c073dcfd83cfc4f4ecc267c206ee7f44bd6765a474be",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-11",
     "status": "approved",
@@ -89,10 +119,15 @@
       "reviewer": "Codex",
       "reviewed_at": "2026-09-26",
       "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
+    },
+    "link_indicator_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-27",
+      "scope": "Remove only the decorative trailing arrow from 15 navigation labels and their translated keys/values. VitePress owns the external-link icon. Translated words, URLs and previous editorial review metadata preserved; no new native-language certification."
     }
   },
   "pl": {
-    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
+    "source_sha256": "809cf5a4bada3f818564c073dcfd83cfc4f4ecc267c206ee7f44bd6765a474be",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-12",
     "status": "approved",
@@ -339,7 +374,7 @@
         "independentNative": false,
         "digest": "53c7b62fece56eb7df1fcc6e200f43a6a4cee428ee280796f1e1a1f4a5e33ae0"
       },
-      "Laravel SEO: the complete guide ↗": {
+      "Laravel SEO: the complete guide": {
         "reviewer": "Codex",
         "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
@@ -347,7 +382,7 @@
         "independentNative": false,
         "digest": "cab6e8a5e1ee59d1fb8b6a3f2ab0da552d5561c4559cf938101a58af685e1d64"
       },
-      "Best Laravel SEO packages compared ↗": {
+      "Best Laravel SEO packages compared": {
         "reviewer": "Codex",
         "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
@@ -355,7 +390,7 @@
         "independentNative": false,
         "digest": "d9a6ba25687f3bb673a11ca8650bedf18fd2f17aafe150a05e68053f20fb8f4c"
       },
-      "Laravel meta tags ↗": {
+      "Laravel meta tags": {
         "reviewer": "Codex",
         "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
@@ -363,7 +398,7 @@
         "independentNative": false,
         "digest": "2d7cc861e288bfd4f49b9f58803059595c3b57ebb6c3f3cbcaf1cf0397ad06de"
       },
-      "Canonical URLs in Laravel ↗": {
+      "Canonical URLs in Laravel": {
         "reviewer": "Codex",
         "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
@@ -371,7 +406,7 @@
         "independentNative": false,
         "digest": "341275522a82ccaf3a2e92271912c2af821b59a86e5c0df37743e70a7fadafa7"
       },
-      "JSON-LD schema graphs ↗": {
+      "JSON-LD schema graphs": {
         "reviewer": "Codex",
         "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
@@ -379,7 +414,7 @@
         "independentNative": false,
         "digest": "022b6f918efd7181baf3975925ebe034d6498be741a9f257571fcf0058d09465"
       },
-      "Laravel sitemaps ↗": {
+      "Laravel sitemaps": {
         "reviewer": "Codex",
         "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
@@ -387,7 +422,7 @@
         "independentNative": false,
         "digest": "3742426962c97c1ccd1188256a7f46100743a7c86d23f613253480f06bda7b70"
       },
-      "Laravel SEO audit in CI ↗": {
+      "Laravel SEO audit in CI": {
         "reviewer": "Codex",
         "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
@@ -395,7 +430,7 @@
         "independentNative": false,
         "digest": "a5bc11c01693dae786e06c9672c0271b06a0c7d01f2a226f67cfa5f8dfbb6e65"
       },
-      "hreflang done right ↗": {
+      "hreflang done right": {
         "reviewer": "Codex",
         "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
@@ -403,7 +438,7 @@
         "independentNative": false,
         "digest": "c0786904a4ce88ded8009e62491637018fe9cd292c026643d71f864e7df799a8"
       },
-      "Answer engine optimization ↗": {
+      "Answer engine optimization": {
         "reviewer": "Codex",
         "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
@@ -411,7 +446,7 @@
         "independentNative": false,
         "digest": "b81408b148cd95aab92a00fab9311c742dc5d218fc069032756bc79d1414bb2c"
       },
-      "Filament SEO fields ↗": {
+      "Filament SEO fields": {
         "reviewer": "Codex",
         "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
@@ -659,7 +694,7 @@
         "independentNative": false,
         "digest": "c8c8b1178298081aba6daade738ec694fd4e4fa0fe03eb532052c40d38733945"
       },
-      "Free core ↗": {
+      "Free core": {
         "reviewer": "Codex",
         "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
@@ -667,7 +702,7 @@
         "independentNative": false,
         "digest": "902960ecebcbc53716f011db91339b44e4fb7591147bc68de140a7dd8348ab49"
       },
-      "Free Filament editor ↗": {
+      "Free Filament editor": {
         "reviewer": "Codex",
         "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
@@ -675,7 +710,7 @@
         "independentNative": false,
         "digest": "932cabfba4f6a88572c7e747b95a4525d27aae70405de271f101ae6bb3a96463"
       },
-      "Pro and pricing ↗": {
+      "Pro and pricing": {
         "reviewer": "Codex",
         "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
@@ -683,7 +718,7 @@
         "independentNative": false,
         "digest": "1ebf78eaa0170856dbebdcb1f4fda1c9997ebf23a9298a46aae61b6d3e80918f"
       },
-      "AI access checker ↗": {
+      "AI access checker": {
         "reviewer": "Codex",
         "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
@@ -691,7 +726,7 @@
         "independentNative": false,
         "digest": "eaca90941c3b437237e3acd0d07029bbd4bf796f8a4f869005240385d83e6597"
       },
-      "Blog ↗": {
+      "Blog": {
         "reviewer": "Codex",
         "notes": "Parent drafted and read all109 full English/Polish layout pairs: complete ordered core/Pro/reference navigation, article labels, home cards/metadata, migration sentence fragments and labels. Correct resolved-metadata source preserved despite legacy source key. Home.vue confirms English means fallback-language marker (Angielski), and WordPressa is correctly inflected in complete migration sentence. Refined retention to storage periods. Codex review not native/human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,Blog invariants deliberate. Version and arrow values preserved. All109 values reviewed; actual menu/search/locale adapters and browser rendering remain integration gate.",
@@ -976,10 +1011,15 @@
       "reviewer": "Codex",
       "reviewed_at": "2026-09-26",
       "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
+    },
+    "link_indicator_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-27",
+      "scope": "Remove only the decorative trailing arrow from 15 navigation labels and their translated keys/values. VitePress owns the external-link icon. Translated words, URLs and previous editorial review metadata preserved; no new native-language certification."
     }
   },
   "ru": {
-    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
+    "source_sha256": "809cf5a4bada3f818564c073dcfd83cfc4f4ecc267c206ee7f44bd6765a474be",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-11",
     "status": "approved",
@@ -1226,7 +1266,7 @@
         "independentNative": false,
         "digest": "a8873d1be80d63f8e248b86544a7b6436c9fbc9f509a3b60b8bfe06dbf552fff"
       },
-      "Laravel SEO: the complete guide ↗": {
+      "Laravel SEO: the complete guide": {
         "reviewer": "Codex",
         "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
         "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
@@ -1234,7 +1274,7 @@
         "independentNative": false,
         "digest": "65bcf5e368c743b6e35ac68d73fdb30e2dac46ed4d7c02183820a7565af7b89b"
       },
-      "Best Laravel SEO packages compared ↗": {
+      "Best Laravel SEO packages compared": {
         "reviewer": "Codex",
         "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
         "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
@@ -1242,7 +1282,7 @@
         "independentNative": false,
         "digest": "5cd4eb57f50942f8a822ae201b1da109cc907a171b64ddd97759e58151ac96af"
       },
-      "Laravel meta tags ↗": {
+      "Laravel meta tags": {
         "reviewer": "Codex",
         "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
         "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
@@ -1250,7 +1290,7 @@
         "independentNative": false,
         "digest": "fbdd1888e77c548c0519fc44377cfc5e8f101fa0133a99954e0d9d460d7b35bc"
       },
-      "Canonical URLs in Laravel ↗": {
+      "Canonical URLs in Laravel": {
         "reviewer": "Codex",
         "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
         "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
@@ -1258,7 +1298,7 @@
         "independentNative": false,
         "digest": "f3a01f78e4cc7bb4865072b3131262d4858363c8e3f7318eb19183bf7431a530"
       },
-      "JSON-LD schema graphs ↗": {
+      "JSON-LD schema graphs": {
         "reviewer": "Codex",
         "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
         "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
@@ -1266,7 +1306,7 @@
         "independentNative": false,
         "digest": "3ae284d8d989517f9c21edbb541f0e5d9fdeddb4510945a4bae05a23b3f3f447"
       },
-      "Laravel sitemaps ↗": {
+      "Laravel sitemaps": {
         "reviewer": "Codex",
         "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
         "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
@@ -1274,7 +1314,7 @@
         "independentNative": false,
         "digest": "32250a69daa7fcf6450b51847df516a340cce72e00d224f0d6658cf8555befc4"
       },
-      "Laravel SEO audit in CI ↗": {
+      "Laravel SEO audit in CI": {
         "reviewer": "Codex",
         "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
         "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
@@ -1282,7 +1322,7 @@
         "independentNative": false,
         "digest": "5f5322f7cba9d0c7b72eb6623b0a12323d0649d4256917b64c23ed20747d8fc4"
       },
-      "hreflang done right ↗": {
+      "hreflang done right": {
         "reviewer": "Codex",
         "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
         "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
@@ -1290,7 +1330,7 @@
         "independentNative": false,
         "digest": "bce90a3e9f949c3342313f148a03b7e1e735d2a79fc6747f786ae4e43fcd85a1"
       },
-      "Answer engine optimization ↗": {
+      "Answer engine optimization": {
         "reviewer": "Codex",
         "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
         "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
@@ -1298,7 +1338,7 @@
         "independentNative": false,
         "digest": "2aa64cce35de84a5624dcc58e2b7a6e03ac7aeac89f8f172c6b1826af255d698"
       },
-      "Filament SEO fields ↗": {
+      "Filament SEO fields": {
         "reviewer": "Codex",
         "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
         "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
@@ -1546,7 +1586,7 @@
         "independentNative": false,
         "digest": "92ef86f2d6f9b5163f9740f0ab4a45289ad5e7e2178b7d5457f03cf9e7407f53"
       },
-      "Free core ↗": {
+      "Free core": {
         "reviewer": "Codex",
         "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
         "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
@@ -1554,7 +1594,7 @@
         "independentNative": false,
         "digest": "3bc0329dafaa36011bf186918e81f9a4135d2004b44ddc7d0738687c4b3c9fb4"
       },
-      "Free Filament editor ↗": {
+      "Free Filament editor": {
         "reviewer": "Codex",
         "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
         "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
@@ -1562,7 +1602,7 @@
         "independentNative": false,
         "digest": "4a4b60b6dcbc7d84761584352a711b8dea1535a7402216cbdc4577229501d4ea"
       },
-      "Pro and pricing ↗": {
+      "Pro and pricing": {
         "reviewer": "Codex",
         "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
         "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
@@ -1570,7 +1610,7 @@
         "independentNative": false,
         "digest": "afebb9614091e00cf6264fe6d1e51451f3337185202cce52851c30c4fd253340"
       },
-      "AI access checker ↗": {
+      "AI access checker": {
         "reviewer": "Codex",
         "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
         "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
@@ -1578,7 +1618,7 @@
         "independentNative": false,
         "digest": "ef975550bcdda8af2c664361176e4c0f85acc1a87d5851db029abe8db582f5b5"
       },
-      "Blog ↗": {
+      "Blog": {
         "reviewer": "Codex",
         "notes": "Parent read every complete English/Russian pair for all109 navigation/home/layout values and inspected Home.vue composition. Retained all core/Pro/reference links and home cards, six-layer resolver language, linked graph, headless without panel, scan scheduling/delta meaning, current resolved-metadata audit source (not stale rendered-page key), migration/runbook and exact PHP/Laravel bounds. Migration fragments compose correctly: из WordPress или другого SEO-пакета Laravel; dry run explicitly writes no data. Free MIT versus optional commercial operations and CTA semantics retained. Long Cyrillic nav requires actual responsive/type tests later. Context/page linkage and manual accessibility/search/404 labels remain separately reviewable. Codex editorial review, not independent native/human certification.",
         "warningsDisposition": "Seven English-identical names deliberately retained: Blade, Livewire, Search Console, IndexNow, Pro, WordPress, English. English is the language endonym in fallback suffix; no English fallback page is permitted in a completed edition.",
@@ -1863,10 +1903,15 @@
       "reviewer": "Codex",
       "reviewed_at": "2026-09-26",
       "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
+    },
+    "link_indicator_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-27",
+      "scope": "Remove only the decorative trailing arrow from 15 navigation labels and their translated keys/values. VitePress owns the external-link icon. Translated words, URLs and previous editorial review metadata preserved; no new native-language certification."
     }
   },
   "cs": {
-    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
+    "source_sha256": "809cf5a4bada3f818564c073dcfd83cfc4f4ecc267c206ee7f44bd6765a474be",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-12",
     "status": "approved",
@@ -2113,7 +2158,7 @@
         "independentNative": false,
         "digest": "2ea777bb4c60007b19eab1e7095773477a3d40d2b9e9c2443f1e666c7978071a"
       },
-      "Laravel SEO: the complete guide ↗": {
+      "Laravel SEO: the complete guide": {
         "reviewer": "Codex",
         "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
         "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
@@ -2121,7 +2166,7 @@
         "independentNative": false,
         "digest": "41b6ab423ff8caad32af0d1092da20ac14f415c6edf03303e90345e74d095496"
       },
-      "Best Laravel SEO packages compared ↗": {
+      "Best Laravel SEO packages compared": {
         "reviewer": "Codex",
         "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
         "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
@@ -2129,7 +2174,7 @@
         "independentNative": false,
         "digest": "fa1889dba2bfad70297ac65c689a39059e3187a1f9438a6fe13fc898f5a62d43"
       },
-      "Laravel meta tags ↗": {
+      "Laravel meta tags": {
         "reviewer": "Codex",
         "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
         "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
@@ -2137,7 +2182,7 @@
         "independentNative": false,
         "digest": "a2b15311032dc497ff61be602fe09337ada6aa6a5de8793bf692a281a6a4ded2"
       },
-      "Canonical URLs in Laravel ↗": {
+      "Canonical URLs in Laravel": {
         "reviewer": "Codex",
         "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
         "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
@@ -2145,7 +2190,7 @@
         "independentNative": false,
         "digest": "092ccb579860fc2188fbd19be768d267a947877f7d77f957577d52d32399e3e3"
       },
-      "JSON-LD schema graphs ↗": {
+      "JSON-LD schema graphs": {
         "reviewer": "Codex",
         "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
         "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
@@ -2153,7 +2198,7 @@
         "independentNative": false,
         "digest": "f06c0a791b5a5c441eb8f9e78c571ed52f2940b185008bfcf23d5172c4b1a05f"
       },
-      "Laravel sitemaps ↗": {
+      "Laravel sitemaps": {
         "reviewer": "Codex",
         "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
         "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
@@ -2161,7 +2206,7 @@
         "independentNative": false,
         "digest": "e9bd91f6e5b89612aa05b31c336dd902ec80462c4fdb8b79d7f9ff5fffe744a4"
       },
-      "Laravel SEO audit in CI ↗": {
+      "Laravel SEO audit in CI": {
         "reviewer": "Codex",
         "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
         "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
@@ -2169,7 +2214,7 @@
         "independentNative": false,
         "digest": "e32d08eecdaa89f170b642503f8f8e99f91391fd27ad04e9954f80a5422a98c0"
       },
-      "hreflang done right ↗": {
+      "hreflang done right": {
         "reviewer": "Codex",
         "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
         "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
@@ -2177,7 +2222,7 @@
         "independentNative": false,
         "digest": "d62dc62c0512879ff439ddea1af666abf3ecc2dcb4739373026559ed9aea166d"
       },
-      "Answer engine optimization ↗": {
+      "Answer engine optimization": {
         "reviewer": "Codex",
         "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
         "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
@@ -2185,7 +2230,7 @@
         "independentNative": false,
         "digest": "d3529bef12c294f0b46c79d079773c7a22c66e4e947a1811b653639b790e0dac"
       },
-      "Filament SEO fields ↗": {
+      "Filament SEO fields": {
         "reviewer": "Codex",
         "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
         "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
@@ -2433,7 +2478,7 @@
         "independentNative": false,
         "digest": "987ceb2a3f4c623653c31968d809bb6cc3caf1a3f5f6aefcc2e532f6e22e17ad"
       },
-      "Free core ↗": {
+      "Free core": {
         "reviewer": "Codex",
         "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
         "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
@@ -2441,7 +2486,7 @@
         "independentNative": false,
         "digest": "75f317c99af106c58e494d0c9d028bd0d85d1f6accdf74df28c15a9cc723e435"
       },
-      "Free Filament editor ↗": {
+      "Free Filament editor": {
         "reviewer": "Codex",
         "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
         "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
@@ -2449,7 +2494,7 @@
         "independentNative": false,
         "digest": "1093e8aa09f92fec02559eefa510514c6ca102e05062b3474374d8d996683810"
       },
-      "Pro and pricing ↗": {
+      "Pro and pricing": {
         "reviewer": "Codex",
         "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
         "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
@@ -2457,7 +2502,7 @@
         "independentNative": false,
         "digest": "85b4105094989b6219c101df7f86112af2a4054f938b32ae5f295e3e831c77e8"
       },
-      "AI access checker ↗": {
+      "AI access checker": {
         "reviewer": "Codex",
         "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
         "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
@@ -2465,7 +2510,7 @@
         "independentNative": false,
         "digest": "fec4603d6008e5291f406e63c8e5a10982ff0bd32e6f1c2f0644d561d5489c46"
       },
-      "Blog ↗": {
+      "Blog": {
         "reviewer": "Codex",
         "notes": "Read all109 English/Czech docs layout pairs: grouped navigation, guide and product links, core/pro cards, home hero and migration sentence. Preserved actual source value resolved metadata despite the historical English key naming rendered pages. Compound migration sentence reads naturally with ze systému WordPress nebo z jiného SEO balíčku pro Laravel. Version bounds, MIT, optional Pro and source distinctions retained. Czech resolver, robot and linked-graph terminology is consistent. Final page-context and responsive navigation checks remain required. Codex judgment, not independent native/human certification.",
         "warningsDisposition": "Checked eight unchanged technical-name warnings and all directional arrows/versions in context. Blade, Livewire, Search Console, IndexNow, Pro and WordPress are intentional preserved names; no fallback substitute. Article destinations will use the final reviewed Czech route map.",
@@ -2750,10 +2795,15 @@
       "reviewer": "Codex",
       "reviewed_at": "2026-09-26",
       "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
+    },
+    "link_indicator_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-27",
+      "scope": "Remove only the decorative trailing arrow from 15 navigation labels and their translated keys/values. VitePress owns the external-link icon. Translated words, URLs and previous editorial review metadata preserved; no new native-language certification."
     }
   },
   "el": {
-    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
+    "source_sha256": "809cf5a4bada3f818564c073dcfd83cfc4f4ecc267c206ee7f44bd6765a474be",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-12",
     "status": "approved",
@@ -3000,7 +3050,7 @@
         "independentNative": false,
         "digest": "7bdb248b609da127ec47ec37310d66fcb914168e5eeaf6a5a98ea03b74d89c68"
       },
-      "Laravel SEO: the complete guide ↗": {
+      "Laravel SEO: the complete guide": {
         "reviewer": "Codex",
         "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
         "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
@@ -3008,7 +3058,7 @@
         "independentNative": false,
         "digest": "9f25d5092d2fa28f3ee6b5c4cb6c343b8e1554d09146ccd889e4135a64880edd"
       },
-      "Best Laravel SEO packages compared ↗": {
+      "Best Laravel SEO packages compared": {
         "reviewer": "Codex",
         "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
         "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
@@ -3016,7 +3066,7 @@
         "independentNative": false,
         "digest": "e3282ba31c0ed82e18aadd49b1a004635390a16cc54da7ccc7cf29e1c96b4dde"
       },
-      "Laravel meta tags ↗": {
+      "Laravel meta tags": {
         "reviewer": "Codex",
         "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
         "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
@@ -3024,7 +3074,7 @@
         "independentNative": false,
         "digest": "3dd8a889a7267bd02b08c09ef8eeed68687eb131ee2b9f0d6ce8adb69ff9b342"
       },
-      "Canonical URLs in Laravel ↗": {
+      "Canonical URLs in Laravel": {
         "reviewer": "Codex",
         "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
         "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
@@ -3032,7 +3082,7 @@
         "independentNative": false,
         "digest": "11536399ea7bd6386812faddb6d3d74cea0a9134513a7e52bd56d93dc5feb6ec"
       },
-      "JSON-LD schema graphs ↗": {
+      "JSON-LD schema graphs": {
         "reviewer": "Codex",
         "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
         "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
@@ -3040,7 +3090,7 @@
         "independentNative": false,
         "digest": "1244bce02fdf7255d762d96bf99b9cf084bd2faccff47ac054dcdb14b0334b54"
       },
-      "Laravel sitemaps ↗": {
+      "Laravel sitemaps": {
         "reviewer": "Codex",
         "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
         "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
@@ -3048,7 +3098,7 @@
         "independentNative": false,
         "digest": "7bcd9010245de8e9ab6f99bf1912d915944e75285747520e80b6fe6989bf55fc"
       },
-      "Laravel SEO audit in CI ↗": {
+      "Laravel SEO audit in CI": {
         "reviewer": "Codex",
         "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
         "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
@@ -3056,7 +3106,7 @@
         "independentNative": false,
         "digest": "153b8d39db2c2ce46618ac75cab69bc7fe5556c36f49c8dae1294e9d5d213172"
       },
-      "hreflang done right ↗": {
+      "hreflang done right": {
         "reviewer": "Codex",
         "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
         "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
@@ -3064,7 +3114,7 @@
         "independentNative": false,
         "digest": "e770c7f961c062fb1b803349bf79f4010f5b1544ce9de42cd2bbe3ea1d723b86"
       },
-      "Answer engine optimization ↗": {
+      "Answer engine optimization": {
         "reviewer": "Codex",
         "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
         "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
@@ -3072,7 +3122,7 @@
         "independentNative": false,
         "digest": "263e7832b7dddc120752c2fe4ffc1676221c51b753c4c9125191d820faf52fee"
       },
-      "Filament SEO fields ↗": {
+      "Filament SEO fields": {
         "reviewer": "Codex",
         "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
         "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
@@ -3320,7 +3370,7 @@
         "independentNative": false,
         "digest": "30c965c41069327b56e792c637402fa00e91522ba68e7b62a3c14bb023e63d9d"
       },
-      "Free core ↗": {
+      "Free core": {
         "reviewer": "Codex",
         "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
         "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
@@ -3328,7 +3378,7 @@
         "independentNative": false,
         "digest": "da5c0005de34a7da841ab6eed77be5ce7c3e47fe9ee75509b3674768a7dc11c2"
       },
-      "Free Filament editor ↗": {
+      "Free Filament editor": {
         "reviewer": "Codex",
         "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
         "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
@@ -3336,7 +3386,7 @@
         "independentNative": false,
         "digest": "639273310fbc8b127238dce4cf724424d1e670a8023c8da9e9353d87d71c4edc"
       },
-      "Pro and pricing ↗": {
+      "Pro and pricing": {
         "reviewer": "Codex",
         "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
         "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
@@ -3344,7 +3394,7 @@
         "independentNative": false,
         "digest": "9650ec196a9f6f25c4fece5367e13b9572fc55fc756747927d93cbd72216b40b"
       },
-      "AI access checker ↗": {
+      "AI access checker": {
         "reviewer": "Codex",
         "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
         "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
@@ -3352,7 +3402,7 @@
         "independentNative": false,
         "digest": "4a4dd44e7e0365af97f371eacf76f7f49b6b011840bc3fb5bea0ca8382bb97a6"
       },
-      "Blog ↗": {
+      "Blog": {
         "reviewer": "Codex",
         "notes": "Parent Codex compared all 109 Greek docs layout/navigation/home values with their current English source. Checked complete nav hierarchy vocabulary and linked-article names, core versus optional Pro scope, complete home copy, assembled migration sentence, literal arrow markers, and actual source value for audit metadata (not its stale key). Terms align with the eight reviewed Greek guides. Rendered layout/search and remaining manual UI checks still precede activation. Greek editorial judgment, not human/native certification.",
         "warningsDisposition": "Blade, Livewire, Search Console, IndexNow, Pro and WordPress deliberately remain product names. Locale fallback label is Greek for English, matching its use as explanatory link suffix, not a native language selector label.",
@@ -3637,10 +3687,15 @@
       "reviewer": "Codex",
       "reviewed_at": "2026-09-26",
       "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
+    },
+    "link_indicator_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-27",
+      "scope": "Remove only the decorative trailing arrow from 15 navigation labels and their translated keys/values. VitePress owns the external-link icon. Translated words, URLs and previous editorial review metadata preserved; no new native-language certification."
     }
   },
   "ja": {
-    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
+    "source_sha256": "809cf5a4bada3f818564c073dcfd83cfc4f4ecc267c206ee7f44bd6765a474be",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-12",
     "status": "approved",
@@ -3887,7 +3942,7 @@
         "independentNative": false,
         "digest": "f10fc368dc8f63738d9a828101a6057c9c0755788dee55bc21f81c7fc21390b2"
       },
-      "Laravel SEO: the complete guide ↗": {
+      "Laravel SEO: the complete guide": {
         "reviewer": "Codex",
         "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
         "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
@@ -3895,7 +3950,7 @@
         "independentNative": false,
         "digest": "08a26aa5bba6a2733de17578176b60ac726b199e66f5b76e05695697f203ee57"
       },
-      "Best Laravel SEO packages compared ↗": {
+      "Best Laravel SEO packages compared": {
         "reviewer": "Codex",
         "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
         "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
@@ -3903,7 +3958,7 @@
         "independentNative": false,
         "digest": "0b870e72fa030c390c5eae7db0b56a60476a7016733b3eb9d74e7701ee265db8"
       },
-      "Laravel meta tags ↗": {
+      "Laravel meta tags": {
         "reviewer": "Codex",
         "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
         "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
@@ -3911,7 +3966,7 @@
         "independentNative": false,
         "digest": "d296ffb9ec9ce184f5151acb7108b52fa57ff9dea3418fdc87961c9744f21604"
       },
-      "Canonical URLs in Laravel ↗": {
+      "Canonical URLs in Laravel": {
         "reviewer": "Codex",
         "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
         "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
@@ -3919,7 +3974,7 @@
         "independentNative": false,
         "digest": "b5f8a793d5314cdccece9fb29120272cc0ffe6eb65bd54e0b42352c62c562658"
       },
-      "JSON-LD schema graphs ↗": {
+      "JSON-LD schema graphs": {
         "reviewer": "Codex",
         "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
         "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
@@ -3927,7 +3982,7 @@
         "independentNative": false,
         "digest": "b83ba7720b740f224a2a0a7825bf40f99d3699a1e45923b83026a3bdfbf61e94"
       },
-      "Laravel sitemaps ↗": {
+      "Laravel sitemaps": {
         "reviewer": "Codex",
         "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
         "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
@@ -3935,7 +3990,7 @@
         "independentNative": false,
         "digest": "5239a760ca9dadbe6ecdc02101dc134d3e7d16a726bcb3ac7b41b8413b120a9c"
       },
-      "Laravel SEO audit in CI ↗": {
+      "Laravel SEO audit in CI": {
         "reviewer": "Codex",
         "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
         "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
@@ -3943,7 +3998,7 @@
         "independentNative": false,
         "digest": "ff94fc1fcdcbf5d2d3110e14675807f213090b285e90259c267800665ffeb267"
       },
-      "hreflang done right ↗": {
+      "hreflang done right": {
         "reviewer": "Codex",
         "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
         "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
@@ -3951,7 +4006,7 @@
         "independentNative": false,
         "digest": "8721835d573e1fad16c41c8082e22a798e22b3551396ca8f06683058c680940e"
       },
-      "Answer engine optimization ↗": {
+      "Answer engine optimization": {
         "reviewer": "Codex",
         "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
         "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
@@ -3959,7 +4014,7 @@
         "independentNative": false,
         "digest": "600d431f6d4b7ab7891774e15e40788c0eca779ccef1803c6345205d761caf28"
       },
-      "Filament SEO fields ↗": {
+      "Filament SEO fields": {
         "reviewer": "Codex",
         "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
         "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
@@ -4207,7 +4262,7 @@
         "independentNative": false,
         "digest": "e35b6a95d3585d7a67931a9fcd8056edac9381b24fff435ea24356f9d0f6af6f"
       },
-      "Free core ↗": {
+      "Free core": {
         "reviewer": "Codex",
         "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
         "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
@@ -4215,7 +4270,7 @@
         "independentNative": false,
         "digest": "081276bef7c25c7cc2fc043248cfbdcf85e48408a87a95079f2e2712cb7546a2"
       },
-      "Free Filament editor ↗": {
+      "Free Filament editor": {
         "reviewer": "Codex",
         "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
         "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
@@ -4223,7 +4278,7 @@
         "independentNative": false,
         "digest": "a9d70433e804fdac51106bedb0e60c6ddc8831764f253849a33b03b4a97b0de8"
       },
-      "Pro and pricing ↗": {
+      "Pro and pricing": {
         "reviewer": "Codex",
         "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
         "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
@@ -4231,7 +4286,7 @@
         "independentNative": false,
         "digest": "bf312a8c1a61beb927e9d81508f97195d141ec88319c1094bf08e03fcd3260e3"
       },
-      "AI access checker ↗": {
+      "AI access checker": {
         "reviewer": "Codex",
         "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
         "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
@@ -4239,7 +4294,7 @@
         "independentNative": false,
         "digest": "5bdbd4b5e4d282e2a649e8caaa1249ed7b352c9b1994c3c3dd9e852fb8eeee96"
       },
-      "Blog ↗": {
+      "Blog": {
         "reviewer": "Codex",
         "notes": "Read every109English source and Japanese layout/home/navigation value and actual Home.vue fragment composition. Full home content and linked migration sentence preserve English structure/link order. Verified audit description describes resolved metadata despite legacy key, all product links/labels and requirements. Codex editorial review not native/human certification; integrated layout and manual search UI remain pending.",
         "warningsDisposition": "Six unchanged values are intentional product names Blade, Livewire, Search Console, IndexNow, Pro and WordPress. All other values are complete Japanese; visible English label is translated to identify fallback pages. Actual route destinations and CJK rendering still require integration tests.",
@@ -4524,10 +4579,15 @@
       "reviewer": "Codex",
       "reviewed_at": "2026-09-26",
       "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
+    },
+    "link_indicator_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-27",
+      "scope": "Remove only the decorative trailing arrow from 15 navigation labels and their translated keys/values. VitePress owns the external-link icon. Translated words, URLs and previous editorial review metadata preserved; no new native-language certification."
     }
   },
   "zh-CN": {
-    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
+    "source_sha256": "809cf5a4bada3f818564c073dcfd83cfc4f4ecc267c206ee7f44bd6765a474be",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-12",
     "status": "approved",
@@ -4774,7 +4834,7 @@
         "independentNative": false,
         "digest": "3f788bc5a8037a20e9c6675916248a453b75efdda31c2bdea8dddf2b7b5cab71"
       },
-      "Laravel SEO: the complete guide ↗": {
+      "Laravel SEO: the complete guide": {
         "reviewer": "Codex",
         "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
@@ -4782,7 +4842,7 @@
         "independentNative": false,
         "digest": "ae9fb4c1f3fe8b637b933cdeeb6794e06186174f4b532566c4bc82e276fb1149"
       },
-      "Best Laravel SEO packages compared ↗": {
+      "Best Laravel SEO packages compared": {
         "reviewer": "Codex",
         "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
@@ -4790,7 +4850,7 @@
         "independentNative": false,
         "digest": "c9553688ab95ba10687c7a880f83b3a7942c57c8f9155165ff5747458cadc71c"
       },
-      "Laravel meta tags ↗": {
+      "Laravel meta tags": {
         "reviewer": "Codex",
         "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
@@ -4798,7 +4858,7 @@
         "independentNative": false,
         "digest": "0e6f07976363a3f55b73a62fac902a04a7bec9b1406f88966cc3248910895786"
       },
-      "Canonical URLs in Laravel ↗": {
+      "Canonical URLs in Laravel": {
         "reviewer": "Codex",
         "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
@@ -4806,7 +4866,7 @@
         "independentNative": false,
         "digest": "60d259201ceb737fdbd97a4ec379d9256a17e6a1c1b59fb76d80a7a2d5f12e77"
       },
-      "JSON-LD schema graphs ↗": {
+      "JSON-LD schema graphs": {
         "reviewer": "Codex",
         "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
@@ -4814,7 +4874,7 @@
         "independentNative": false,
         "digest": "2ab89aa3a94a503fb355cadeae8cf44f795b3486bb9a53c7feea36badf2a4e67"
       },
-      "Laravel sitemaps ↗": {
+      "Laravel sitemaps": {
         "reviewer": "Codex",
         "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
@@ -4822,7 +4882,7 @@
         "independentNative": false,
         "digest": "e2fb48ffcd7367e80582d2d503287c64fbc9370c99b9736e7e226ee62dc902dd"
       },
-      "Laravel SEO audit in CI ↗": {
+      "Laravel SEO audit in CI": {
         "reviewer": "Codex",
         "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
@@ -4830,7 +4890,7 @@
         "independentNative": false,
         "digest": "9c757a9611eda5c47b7476783458bd771be240a53878e8550626fcc5b167d122"
       },
-      "hreflang done right ↗": {
+      "hreflang done right": {
         "reviewer": "Codex",
         "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
@@ -4838,7 +4898,7 @@
         "independentNative": false,
         "digest": "839d7ca4a457acb8a5d9510d2eb13afeba4a7dd79aa2b730b1cc0e5a76dec997"
       },
-      "Answer engine optimization ↗": {
+      "Answer engine optimization": {
         "reviewer": "Codex",
         "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
@@ -4846,7 +4906,7 @@
         "independentNative": false,
         "digest": "7937d3b8cd6deb9cac7390b95071e0a666d654230a6f5c9888cd7c85d1415b57"
       },
-      "Filament SEO fields ↗": {
+      "Filament SEO fields": {
         "reviewer": "Codex",
         "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
@@ -5094,7 +5154,7 @@
         "independentNative": false,
         "digest": "f7e8046a4e872e2ef477215d560548550969260b7a5401106c4f8fc9eba80735"
       },
-      "Free core ↗": {
+      "Free core": {
         "reviewer": "Codex",
         "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
@@ -5102,7 +5162,7 @@
         "independentNative": false,
         "digest": "4170fff79ec9355647ce10ab63b3e27d8668fd496158e25ba01030eff50113b3"
       },
-      "Free Filament editor ↗": {
+      "Free Filament editor": {
         "reviewer": "Codex",
         "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
@@ -5110,7 +5170,7 @@
         "independentNative": false,
         "digest": "c46076b227b3c394ba18d819bb752b3bd9deaf10dbb4f6bc0e068ab5443327f2"
       },
-      "Pro and pricing ↗": {
+      "Pro and pricing": {
         "reviewer": "Codex",
         "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
@@ -5118,7 +5178,7 @@
         "independentNative": false,
         "digest": "cbabef392d26f4bc8499d5f8d3757f1d37a3b01663c390d685f20112ea1a14ef"
       },
-      "AI access checker ↗": {
+      "AI access checker": {
         "reviewer": "Codex",
         "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
@@ -5126,7 +5186,7 @@
         "independentNative": false,
         "digest": "c075456931fa60e027a1e62b2f9cdb4f49f4b970ed8d4b5aaf28a48f62e2e6bd"
       },
-      "Blog ↗": {
+      "Blog": {
         "reviewer": "Codex",
         "notes": "Read all109 English and Chinese documentation navigation/home/footer units; complete taxonomy and free-core versus Pro boundaries retained, including actual Artisan metadata audit label. Split WordPress migration sentence is complete in source DOM order; rendered context still pending. Codex review, no independent native or human certification.",
         "warningsDisposition": "Blade,Livewire,Search Console,IndexNow,Pro,WordPress are intentional unchanged names; English language-name label correctly identifies English destination.",
@@ -5411,10 +5471,15 @@
       "reviewer": "Codex",
       "reviewed_at": "2026-09-26",
       "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
+    },
+    "link_indicator_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-27",
+      "scope": "Remove only the decorative trailing arrow from 15 navigation labels and their translated keys/values. VitePress owns the external-link icon. Translated words, URLs and previous editorial review metadata preserved; no new native-language certification."
     }
   },
   "ko": {
-    "source_sha256": "ceb8f60a2cd3781f40e167a08d84fec1339fdbd71c29f55c96c0e91b494f49f3",
+    "source_sha256": "809cf5a4bada3f818564c073dcfd83cfc4f4ecc267c206ee7f44bd6765a474be",
     "reviewer": "Codex",
     "reviewed_at": "2026-09-12",
     "status": "approved",
@@ -5661,7 +5726,7 @@
         "independentNative": false,
         "digest": "00055bcb322f23ffbf9add4685454899af9186ee995d6c49e15b431896345d38"
       },
-      "Laravel SEO: the complete guide ↗": {
+      "Laravel SEO: the complete guide": {
         "reviewer": "Codex",
         "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
         "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
@@ -5669,7 +5734,7 @@
         "independentNative": false,
         "digest": "051a31e923c7acff707bd866d74f87213f890c6ce521bdfb2b1bfa663bc56e8f"
       },
-      "Best Laravel SEO packages compared ↗": {
+      "Best Laravel SEO packages compared": {
         "reviewer": "Codex",
         "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
         "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
@@ -5677,7 +5742,7 @@
         "independentNative": false,
         "digest": "755298a1545c7dea17dae4453cfe280f69b7f123fc7ea83472b395afad5dcfdf"
       },
-      "Laravel meta tags ↗": {
+      "Laravel meta tags": {
         "reviewer": "Codex",
         "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
         "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
@@ -5685,7 +5750,7 @@
         "independentNative": false,
         "digest": "0bf9673c6aef38edf488f660e87122f1dec52de0561a73bef8690397189bfc79"
       },
-      "Canonical URLs in Laravel ↗": {
+      "Canonical URLs in Laravel": {
         "reviewer": "Codex",
         "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
         "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
@@ -5693,7 +5758,7 @@
         "independentNative": false,
         "digest": "324f1c3f6f9d0e5e7e81e2d9437f4fc565a5ac4da7177bf17af13942d35b7aef"
       },
-      "JSON-LD schema graphs ↗": {
+      "JSON-LD schema graphs": {
         "reviewer": "Codex",
         "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
         "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
@@ -5701,7 +5766,7 @@
         "independentNative": false,
         "digest": "ce51ffadc34a4f67002cb18bf6cdc36419a46c571a8e7067f379d673f0114d09"
       },
-      "Laravel sitemaps ↗": {
+      "Laravel sitemaps": {
         "reviewer": "Codex",
         "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
         "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
@@ -5709,7 +5774,7 @@
         "independentNative": false,
         "digest": "2101235682ac8611035253a3f2f1dc358c48c62d61064bdfdfc97a41d6ebdaba"
       },
-      "Laravel SEO audit in CI ↗": {
+      "Laravel SEO audit in CI": {
         "reviewer": "Codex",
         "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
         "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
@@ -5717,7 +5782,7 @@
         "independentNative": false,
         "digest": "1a880500890e904f77192d3b938715c44ee4fb2d98eed6a3e30481aded87cf82"
       },
-      "hreflang done right ↗": {
+      "hreflang done right": {
         "reviewer": "Codex",
         "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
         "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
@@ -5725,7 +5790,7 @@
         "independentNative": false,
         "digest": "4b9fcc350ef0b7184e6413cd9d525baecee80019013d8d908e48cc65bc7206ff"
       },
-      "Answer engine optimization ↗": {
+      "Answer engine optimization": {
         "reviewer": "Codex",
         "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
         "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
@@ -5733,7 +5798,7 @@
         "independentNative": false,
         "digest": "a3f02783e419c180a215e7e46d609a561b68f0f235ffd30dfa23df4224f5c2a3"
       },
-      "Filament SEO fields ↗": {
+      "Filament SEO fields": {
         "reviewer": "Codex",
         "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
         "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
@@ -5981,7 +6046,7 @@
         "independentNative": false,
         "digest": "295a453bd0feee552cae602a01e993bbbb0e1e47ece334ed8e5ca9236cd38a52"
       },
-      "Free core ↗": {
+      "Free core": {
         "reviewer": "Codex",
         "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
         "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
@@ -5989,7 +6054,7 @@
         "independentNative": false,
         "digest": "53876d51854ae8fd101407f34583202b468c04cf78cc017c14c05edbd435b1d9"
       },
-      "Free Filament editor ↗": {
+      "Free Filament editor": {
         "reviewer": "Codex",
         "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
         "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
@@ -5997,7 +6062,7 @@
         "independentNative": false,
         "digest": "cb01b29be9f79667bda6f668cd5ba6e71c33be4228b3b326986986d6b6acaefe"
       },
-      "Pro and pricing ↗": {
+      "Pro and pricing": {
         "reviewer": "Codex",
         "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
         "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
@@ -6005,7 +6070,7 @@
         "independentNative": false,
         "digest": "29774e0ba2bb3b71d377ffad05a4b77f67f42606437711f860a5730f190fb588"
       },
-      "AI access checker ↗": {
+      "AI access checker": {
         "reviewer": "Codex",
         "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
         "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
@@ -6013,7 +6078,7 @@
         "independentNative": false,
         "digest": "867f61c1242d207f5d6cfd6afd4465256c4a2a47814cf1d935953f3adfe91c21"
       },
-      "Blog ↗": {
+      "Blog": {
         "reviewer": "Codex",
         "notes": "Read all109EN/Korean navigation andlayoutmessages including allsidebarorder, entrycards, properfreeauditresolvedmetadataboundary, compatibilityPHP8.3Laravel13 andjoinedmigrationfragments102to106. Corrected onpagechecklist toactualKOpackageUI term 온페이지 체크리스트. English label 영어 is language contentreference, not the editionidentity field. Finalrender mustverify joinedfragments in originalnavigationdesign. Full selected Korean candidate read by parent against stable English source and protected examples. Fresh sourcebinding to merged Chinese baseline. Codex editorial review, no independent native or human certification.",
         "warningsDisposition": "Technicalidentifiers, literalcode and API/config examples intentionally unchanged. Complete sections and stable anchors retained. Ownproperty /ko links require final rendered journey verification; global endpoints remain global. Numeric limits reviewed in context.",
@@ -6298,6 +6363,11 @@
       "reviewer": "Codex",
       "reviewed_at": "2026-09-26",
       "scope": "Navigation URL-only migration to rankbeam.dev/blog. All labels and translated copy unchanged; all 14 translated article mappings retain their exact existing translated slugs. Previous editorial reviews preserved."
+    },
+    "link_indicator_review": {
+      "reviewer": "Codex",
+      "reviewed_at": "2026-09-27",
+      "scope": "Remove only the decorative trailing arrow from 15 navigation labels and their translated keys/values. VitePress owns the external-link icon. Translated words, URLs and previous editorial review metadata preserved; no new native-language certification."
     }
   }
 }
