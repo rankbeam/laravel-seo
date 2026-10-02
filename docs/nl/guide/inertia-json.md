@@ -85,10 +85,8 @@ defineProps({ seo: Object })
 
 <template>
     <Head :title="seo.title">
-        <meta v-for="m in seo.meta" :key="m['head-key']" :head-key="m['head-key']"
-              :name="m.name" :property="m.property" :content="m.content" />
-        <link v-for="l in seo.link" :key="l['head-key']" :head-key="l['head-key']"
-              :rel="l.rel" :hreflang="l.hreflang" :href="l.href" />
+        <meta v-for="m in seo.meta" :key="m['head-key']" v-bind="m" />
+        <link v-for="l in seo.link" :key="l['head-key']" v-bind="l" />
     </Head>
 </template>
 ```
@@ -102,12 +100,12 @@ export default function Post({ seo }) {
     return (
         <Head title={seo.title}>
             {seo.meta.map((m) => (
-                <meta key={m['head-key']} head-key={m['head-key']}
-                      name={m.name} property={m.property} content={m.content} />
+                <meta key={m['head-key']} {...m} />
             ))}
             {seo.link.map((l) => (
                 <link key={l['head-key']} head-key={l['head-key']}
-                      rel={l.rel} hrefLang={l.hreflang} href={l.href} />
+                      rel={l.rel} href={l.href}
+                      {...(l.hreflang ? { hrefLang: l.hreflang } : {})} />
             ))}
         </Head>
     )
