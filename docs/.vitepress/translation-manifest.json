@@ -732,7 +732,7 @@
     },
     "it/guide/inertia-json.md": {
       "source": "guide/inertia-json.md",
-      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "sha256": "53fd90f0bcff7643c40d2c74af0a3c202085c6752d2dc5238b77232bdd99bffa",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -740,7 +740,12 @@
         "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "8c08ccf03c8c5cbe2f9cddd81f8033a0831ed32858cede205cbefc4ede7e49a5"
+        "translation_sha256": "5dfc0f4563c9b00040e008fa9cdc32bf48b2e16acdbace1d4b88178941ff0ba3",
+        "code_review": {
+          "date": "2026-10-02",
+          "reviewer": "Codex",
+          "scope": "Vue/React optional head attributes only; unchanged prose verified against previous commit; code blocks identical across editions and tested in disposable apps."
+        }
       }
     },
     "it/guide/livewire.md": {
@@ -1177,7 +1182,7 @@
     },
     "de/guide/inertia-json.md": {
       "source": "guide/inertia-json.md",
-      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "sha256": "53fd90f0bcff7643c40d2c74af0a3c202085c6752d2dc5238b77232bdd99bffa",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -1185,7 +1190,12 @@
         "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "3f452e77f1c26e6d862e9acd0b91424bb9e364c9d381cf2c37a719c699316cf1"
+        "translation_sha256": "05f6b813363c586b3062900c32bd135b5aa5cf9ce370ad687c20bf3a0cf846ae",
+        "code_review": {
+          "date": "2026-10-02",
+          "reviewer": "Codex",
+          "scope": "Vue/React optional head attributes only; unchanged prose verified against previous commit; code blocks identical across editions and tested in disposable apps."
+        }
       }
     },
     "de/guide/livewire.md": {
@@ -1622,7 +1632,7 @@
     },
     "fr/guide/inertia-json.md": {
       "source": "guide/inertia-json.md",
-      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "sha256": "53fd90f0bcff7643c40d2c74af0a3c202085c6752d2dc5238b77232bdd99bffa",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -1630,7 +1640,12 @@
         "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "c5e43033a298c462ce7c9a2a03bd0b5e8460d25f835f18c5d1a4806cf133da4f"
+        "translation_sha256": "7dd5881ece9defa4fbb74a2a4e82cddff4bc62c5ded2330dd72610068eb922b0",
+        "code_review": {
+          "date": "2026-10-02",
+          "reviewer": "Codex",
+          "scope": "Vue/React optional head attributes only; unchanged prose verified against previous commit; code blocks identical across editions and tested in disposable apps."
+        }
       }
     },
     "fr/guide/livewire.md": {
@@ -2067,7 +2082,7 @@
     },
     "es/guide/inertia-json.md": {
       "source": "guide/inertia-json.md",
-      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "sha256": "53fd90f0bcff7643c40d2c74af0a3c202085c6752d2dc5238b77232bdd99bffa",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -2075,7 +2090,12 @@
         "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "193aa9641c2ed56093b0f3c2f5c112f5bf4f5edcbf2d7ec5e51d350cf9d2d5a0"
+        "translation_sha256": "0dbf13fb4d9fc64a94629ab1ff1697026dc23c2f2cea30307321a5b32fda7495",
+        "code_review": {
+          "date": "2026-10-02",
+          "reviewer": "Codex",
+          "scope": "Vue/React optional head attributes only; unchanged prose verified against previous commit; code blocks identical across editions and tested in disposable apps."
+        }
       }
     },
     "es/guide/livewire.md": {
@@ -2512,7 +2532,7 @@
     },
     "pt-BR/guide/inertia-json.md": {
       "source": "guide/inertia-json.md",
-      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "sha256": "53fd90f0bcff7643c40d2c74af0a3c202085c6752d2dc5238b77232bdd99bffa",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -2520,7 +2540,12 @@
         "scope": "Complete guide: prose, section parity, examples, technical caveats and links",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "3e97d0ad22a1897f368730d781034a99d8e5496af6425994b8d8c52fdc2db236"
+        "translation_sha256": "cfec160e254a4c405f5c55f5907d982fd040c6b877526a710b6bc0db9dcc92a9",
+        "code_review": {
+          "date": "2026-10-02",
+          "reviewer": "Codex",
+          "scope": "Vue/React optional head attributes only; unchanged prose verified against previous commit; code blocks identical across editions and tested in disposable apps."
+        }
       }
     },
     "pt-BR/guide/livewire.md": {
@@ -3061,7 +3086,7 @@
     },
     "nl/guide/inertia-json.md": {
       "source": "guide/inertia-json.md",
-      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "sha256": "53fd90f0bcff7643c40d2c74af0a3c202085c6752d2dc5238b77232bdd99bffa",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -3069,7 +3094,12 @@
         "scope": "Complete bilingual copy review in maintained workflow; rendered and journey QA pending. No independent native/human certification.",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "8663edd8b5ae1dd1495c11f590c898c0bb0b9b0ee25055604b6a406b0b6be869"
+        "translation_sha256": "04065370a4cc5b2ca994ae94399ab8f7cbc47601929712f955677c177c109266",
+        "code_review": {
+          "date": "2026-10-02",
+          "reviewer": "Codex",
+          "scope": "Vue/React optional head attributes only; unchanged prose verified against previous commit; code blocks identical across editions and tested in disposable apps."
+        }
       }
     },
     "nl/guide/installation.md": {
@@ -3579,7 +3609,7 @@
     },
     "tr/guide/inertia-json.md": {
       "source": "guide/inertia-json.md",
-      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "sha256": "53fd90f0bcff7643c40d2c74af0a3c202085c6752d2dc5238b77232bdd99bffa",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
@@ -3587,7 +3617,12 @@
         "scope": "Full parent English/Turkish copy review with exact maintained workflow attestation. Private integration; rendered/journey/publication acceptance pending. No human/native certification.",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "0cea6c96931427557d8b6e0bf955330660f30fa04dde41a0679b4817ebbb5bc2"
+        "translation_sha256": "e3748b0476845b33cc4d7bb181778c7d909fd9474aa135fa8afb53cea53f325f",
+        "code_review": {
+          "date": "2026-10-02",
+          "reviewer": "Codex",
+          "scope": "Vue/React optional head attributes only; unchanged prose verified against previous commit; code blocks identical across editions and tested in disposable apps."
+        }
       }
     },
     "tr/guide/installation.md": {
@@ -4317,14 +4352,14 @@
     },
     "pl/guide/inertia-json.md": {
       "source": "guide/inertia-json.md",
-      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "sha256": "53fd90f0bcff7643c40d2c74af0a3c202085c6752d2dc5238b77232bdd99bffa",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-11",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "cc79fecf5ce661096cc25a2ffc9f13137706458e2d2014d355ef0fa85197103b",
+        "translation_sha256": "9d6df25f0fcfe4334db0dae47c986fa97c3ba6755b05c924ec49c2e853574f6b",
         "scope": "Existing parent full English/Polish copy review, preserved exact attestation. Integration and rendered journey review remain separate; no native/human certification.",
         "workflow_review": {
           "reviewer": "Codex",
@@ -4335,7 +4370,12 @@
           "digest": "3efe75f2be699d366cde05dd3660a0e3878dd55339d2688daf96e615b21b4fdc"
         },
         "packet": "pl-docs-core-reviewed.json",
-        "packet_sha256": "fc283b6c6637bd5a21ae4a6b4cf96516e6b9d5540fafdbfd31c90593b51de1d9"
+        "packet_sha256": "fc283b6c6637bd5a21ae4a6b4cf96516e6b9d5540fafdbfd31c90593b51de1d9",
+        "code_review": {
+          "date": "2026-10-02",
+          "reviewer": "Codex",
+          "scope": "Vue/React optional head attributes only; unchanged prose verified against previous commit; code blocks identical across editions and tested in disposable apps."
+        }
       }
     },
     "pl/guide/installation.md": {
@@ -5339,14 +5379,14 @@
     },
     "ru/guide/inertia-json.md": {
       "source": "guide/inertia-json.md",
-      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "sha256": "53fd90f0bcff7643c40d2c74af0a3c202085c6752d2dc5238b77232bdd99bffa",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-12",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "afe61be3c256b3de312025af8873cf2f91a1d2ac79a62c517b6e18114633c5fa",
+        "translation_sha256": "fbce12202496cf8a0066479b559c203d25bc3fd76e29583e54952bfe3e69c0e6",
         "scope": "Exact parent full English/Russian copy review; rendered integration and publication remain pending. No independent native/human certification.",
         "workflow_review": {
           "reviewer": "Codex",
@@ -5358,7 +5398,12 @@
         },
         "packet": "ru-docs-core-reviewed.json",
         "packet_sha256": "54472a8a58910c69c733b6c50428c8a2b92141cdced8d73dcf582069798b5a6b",
-        "packet_raw_sha256": "54472a8a58910c69c733b6c50428c8a2b92141cdced8d73dcf582069798b5a6b"
+        "packet_raw_sha256": "54472a8a58910c69c733b6c50428c8a2b92141cdced8d73dcf582069798b5a6b",
+        "code_review": {
+          "date": "2026-10-02",
+          "reviewer": "Codex",
+          "scope": "Vue/React optional head attributes only; unchanged prose verified against previous commit; code blocks identical across editions and tested in disposable apps."
+        }
       }
     },
     "ru/guide/installation.md": {
@@ -6386,14 +6431,14 @@
     },
     "cs/guide/inertia-json.md": {
       "source": "guide/inertia-json.md",
-      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "sha256": "53fd90f0bcff7643c40d2c74af0a3c202085c6752d2dc5238b77232bdd99bffa",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-12",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "10e8fe6b0064f77ec7d8473637e7ad6b07709905c47a9c3fbbc37c7ef49419d9",
+        "translation_sha256": "95865d80504122a5e85576963f5ecd7944d08463c7ec3f8b885b6390f14b1a50",
         "scope": "Exact complete parent English/Czech copy review; integrated render and publication remain separate. No independent native/human certification.",
         "workflow_review": {
           "reviewer": "Codex",
@@ -6404,7 +6449,12 @@
           "digest": "79a1ebb9dae30ff7a0027a8f58b690cc8e26f41624fe9f243eb0de159d4a6624"
         },
         "packet": "cs-docs-audit-platform-reviewed.json",
-        "packet_sha256": "af0bb5d9db2551fe9330723bf88be7246e1f78088571fcc4463259c112f07207"
+        "packet_sha256": "af0bb5d9db2551fe9330723bf88be7246e1f78088571fcc4463259c112f07207",
+        "code_review": {
+          "date": "2026-10-02",
+          "reviewer": "Codex",
+          "scope": "Vue/React optional head attributes only; unchanged prose verified against previous commit; code blocks identical across editions and tested in disposable apps."
+        }
       }
     },
     "cs/guide/installation.md": {
@@ -7399,14 +7449,14 @@
     },
     "el/guide/inertia-json.md": {
       "source": "guide/inertia-json.md",
-      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "sha256": "53fd90f0bcff7643c40d2c74af0a3c202085c6752d2dc5238b77232bdd99bffa",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-12",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "18c731c54cd43e9939919d442440a7d2b0ac63f28e9267a1adb27aac001cdf17",
+        "translation_sha256": "b0869cedb55c5e0a84b6fae36f5105748552dcf3c8670f51a156b9ec8d792a42",
         "scope": "Exact complete parent English/Greek copy review; integrated render and publication remain separate. No independent native/human certification.",
         "workflow_review": {
           "reviewer": "Codex",
@@ -7417,7 +7467,12 @@
           "digest": "96a535c62534b4fe00ff985b2b0aa100bbacfaa5cd2adb06ea11e6577e78ac5e"
         },
         "packet": "el-docs-rendering-reviewed.json",
-        "packet_sha256": "15b99b48b7360d75b872c94a65fcd7a9fb755d657303e610089e75d43dc467fe"
+        "packet_sha256": "15b99b48b7360d75b872c94a65fcd7a9fb755d657303e610089e75d43dc467fe",
+        "code_review": {
+          "date": "2026-10-02",
+          "reviewer": "Codex",
+          "scope": "Vue/React optional head attributes only; unchanged prose verified against previous commit; code blocks identical across editions and tested in disposable apps."
+        }
       }
     },
     "el/guide/installation.md": {
@@ -8911,14 +8966,14 @@
     },
     "ja/guide/inertia-json.md": {
       "source": "guide/inertia-json.md",
-      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "sha256": "53fd90f0bcff7643c40d2c74af0a3c202085c6752d2dc5238b77232bdd99bffa",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-12",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "e1baf215691d9d043c9e3e0ec3e5c0d11f77d70d657b5eb64bf0693b3bdae663",
+        "translation_sha256": "8cac6a1d83ee5577895f169fb9972701aca42b4c6b38b3927b5e4ef72f62b7ed",
         "scope": "Transferred exact parent-reviewed full Japanese workflow content; integration and publication remain separate.",
         "workflow_review": {
           "reviewer": "Codex",
@@ -8928,7 +8983,12 @@
           "independentNative": false,
           "digest": "06789c575fa5b75437ca500525c187eb8bacef9cea6bb7b78dbd414bfb0d0c66"
         },
-        "handoff": "ja-docs-rendering-stage/handoff.json"
+        "handoff": "ja-docs-rendering-stage/handoff.json",
+        "code_review": {
+          "date": "2026-10-02",
+          "reviewer": "Codex",
+          "scope": "Vue/React optional head attributes only; unchanged prose verified against previous commit; code blocks identical across editions and tested in disposable apps."
+        }
       }
     },
     "ja/guide/livewire.md": {
@@ -9329,14 +9389,14 @@
     },
     "zh-CN/guide/inertia-json.md": {
       "source": "guide/inertia-json.md",
-      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "sha256": "53fd90f0bcff7643c40d2c74af0a3c202085c6752d2dc5238b77232bdd99bffa",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-12",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "2e19663bae2ff113fa2e9b914b1d43d75e36e6035e41a6b1bf3e1d9ce3a0c3bc",
+        "translation_sha256": "e502068eb7f4e0f4dfdb43ae0130de185ccea4da8cebae303307dcee615dad13",
         "scope": "Transferred exact parent-reviewed Simplified Chinese full-page workflow content; integration and publication remain separate.",
         "workflow_review": {
           "reviewer": "Codex",
@@ -9346,7 +9406,12 @@
           "independentNative": false,
           "digest": "b4b3ff5af9de2291739827f95c401f4af45d9868cb298b78057b370e81020133"
         },
-        "handoff": "zh-cn-docs-batch03-stage/handoff.json"
+        "handoff": "zh-cn-docs-batch03-stage/handoff.json",
+        "code_review": {
+          "date": "2026-10-02",
+          "reviewer": "Codex",
+          "scope": "Vue/React optional head attributes only; unchanged prose verified against previous commit; code blocks identical across editions and tested in disposable apps."
+        }
       }
     },
     "zh-CN/guide/livewire.md": {
@@ -10453,14 +10518,14 @@
     },
     "ko/guide/inertia-json.md": {
       "source": "guide/inertia-json.md",
-      "sha256": "272598594c3192a3fa33a9d0971e61d8df4c24c92518033627a5378597554206",
+      "sha256": "53fd90f0bcff7643c40d2c74af0a3c202085c6752d2dc5238b77232bdd99bffa",
       "native_review": null,
       "editorial_review": {
         "reviewer": "Codex",
         "date": "2026-09-12",
         "status": "approved",
         "independent_native": false,
-        "translation_sha256": "4371226e70df266ff36af086afe4d796f6cbcd0185deee08709af7819d67e46d",
+        "translation_sha256": "abf0b811fc2df867a0602f4595fcb93be363ee8821ae7766c2d76bcaaf4525f8",
         "scope": "Exact parent Codex full-page editorial review transferred; not independent native or human certification. Final integrated journey and publication remain separate.",
         "workflow_review": {
           "reviewer": "Codex",
@@ -10470,7 +10535,12 @@
           "independentNative": false,
           "digest": "bbdc6d13b644c9fb6fbebc11bba66aee8e94798b83bcb982daa878a16efee624"
         },
-        "handoff": "ko-docs-batch06-stage/handoff.json"
+        "handoff": "ko-docs-batch06-stage/handoff.json",
+        "code_review": {
+          "date": "2026-10-02",
+          "reviewer": "Codex",
+          "scope": "Vue/React optional head attributes only; unchanged prose verified against previous commit; code blocks identical across editions and tested in disposable apps."
+        }
       }
     },
     "ko/guide/upgrade-from-v1.md": {
